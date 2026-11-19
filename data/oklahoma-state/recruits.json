@@ -160,7 +160,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 178,
    "stateRank": 163,
    "status": "Verbal"
   },
@@ -191,6 +191,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274832",
+   "name": "Bryson Spencer",
+   "position": "OT",
+   "highSchool": "Huntington High School",
+   "city": "Shreveport",
+   "state": "LA",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 130,
+   "stateRank": 47,
+   "status": "Verbal"
+  },
+  {
    "id": "272995",
    "name": "Jake Baker",
    "position": "OT",
@@ -199,7 +212,7 @@
    "state": "TN",
    "grade": 74,
    "rank": null,
-   "positionRank": 141,
+   "positionRank": 143,
    "stateRank": 61,
    "status": "Verbal"
   },
@@ -212,7 +225,7 @@
    "state": "TX",
    "grade": 74,
    "rank": null,
-   "positionRank": 136,
+   "positionRank": 138,
    "stateRank": 205,
    "status": "Verbal"
   },
@@ -226,7 +239,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 67,
-   "stateRank": 153,
+   "stateRank": 155,
    "status": "Verbal"
   },
   {
@@ -238,21 +251,8 @@
    "state": "TX",
    "grade": 71,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 179,
    "stateRank": 267,
-   "status": "Verbal"
-  },
-  {
-   "id": "274832",
-   "name": "Bryson Spencer",
-   "position": "OT",
-   "highSchool": "Huntington High School",
-   "city": "Shreveport",
-   "state": "LA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T14:30Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

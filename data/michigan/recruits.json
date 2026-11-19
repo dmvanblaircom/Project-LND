@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "130",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -252,7 +252,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 106,
-   "stateRank": 103,
+   "stateRank": 104,
    "status": "Verbal"
   },
   {
@@ -264,8 +264,8 @@
    "state": "OH",
    "grade": 75,
    "rank": null,
-   "positionRank": 112,
-   "stateRank": 49,
+   "positionRank": 113,
+   "stateRank": 50,
    "status": "Verbal"
   },
   {
@@ -277,7 +277,7 @@
    "state": "MI",
    "grade": 74,
    "rank": null,
-   "positionRank": 100,
+   "positionRank": 101,
    "stateRank": 21,
    "status": "Verbal"
   },
@@ -290,10 +290,23 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 234,
-   "stateRank": 199,
+   "positionRank": 235,
+   "stateRank": 200,
+   "status": "Verbal"
+  },
+  {
+   "id": "274834",
+   "name": "Ryan Jung",
+   "position": "K",
+   "highSchool": "Milton High School",
+   "city": "Milton",
+   "state": "GA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

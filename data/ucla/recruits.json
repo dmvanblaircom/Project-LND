@@ -161,7 +161,7 @@
    "grade": 78,
    "rank": null,
    "positionRank": 84,
-   "stateRank": 56,
+   "stateRank": 57,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 64,
-   "stateRank": 74,
+   "stateRank": 75,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 121,
-   "stateRank": 77,
+   "stateRank": 78,
    "status": "Verbal"
   },
   {
@@ -252,7 +252,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 106,
-   "stateRank": 62,
+   "stateRank": 63,
    "status": "Verbal"
   },
   {
@@ -277,7 +277,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 117,
    "stateRank": 170,
    "status": "Verbal"
   },
@@ -290,8 +290,8 @@
    "state": "CA",
    "grade": 75,
    "rank": null,
-   "positionRank": 71,
-   "stateRank": 104,
+   "positionRank": 72,
+   "stateRank": 106,
    "status": "Verbal"
   },
   {
@@ -304,9 +304,9 @@
    "grade": 74,
    "rank": null,
    "positionRank": 54,
-   "stateRank": 115,
+   "stateRank": 117,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-19T15:27Z"
 }

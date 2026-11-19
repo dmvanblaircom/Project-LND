@@ -121,8 +121,8 @@
    "state": "OH",
    "grade": 75,
    "rank": null,
-   "positionRank": 73,
-   "stateRank": 45,
+   "positionRank": 74,
+   "stateRank": 46,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 122,
+   "positionRank": 123,
    "stateRank": 54,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "CAN",
    "grade": 75,
    "rank": null,
-   "positionRank": 133,
+   "positionRank": 134,
    "stateRank": 1,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 99,
-   "stateRank": 50,
+   "stateRank": 51,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 104,
-   "stateRank": 152,
+   "stateRank": 153,
    "status": "Verbal"
   },
   {
@@ -212,8 +212,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 210,
-   "stateRank": 162,
+   "positionRank": 211,
+   "stateRank": 163,
    "status": "Verbal"
   },
   {
@@ -225,8 +225,8 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 140,
-   "stateRank": 63,
+   "positionRank": 142,
+   "stateRank": 64,
    "status": "Verbal"
   },
   {
@@ -251,8 +251,8 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 132,
-   "stateRank": 56,
+   "positionRank": 134,
+   "stateRank": 57,
    "status": "Verbal"
   },
   {
@@ -264,8 +264,8 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 159,
-   "stateRank": 75,
+   "positionRank": 161,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -277,7 +277,7 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 106,
+   "positionRank": 107,
    "stateRank": 178,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 72,
+   "stateRank": 73,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

@@ -17,7 +17,7 @@
    "state": "KY",
    "grade": 75,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -30,7 +30,7 @@
    "state": "TN",
    "grade": 74,
    "rank": null,
-   "positionRank": 208,
+   "positionRank": 209,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -43,8 +43,8 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 120,
-   "stateRank": 73,
+   "positionRank": 121,
+   "stateRank": 74,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 141,
-   "stateRank": 223,
+   "stateRank": 224,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 231,
+   "stateRank": 232,
    "status": "Verbal"
   },
   {
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

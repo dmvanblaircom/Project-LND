@@ -113,6 +113,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271768",
+   "name": "Jack Schein",
+   "position": "OT",
+   "highSchool": "JSerra Catholic High School",
+   "city": "San Juan Capistrano",
+   "state": "CA",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 69,
+   "stateRank": 56,
+   "status": "Verbal"
+  },
+  {
    "id": "264831",
    "name": "Isaiah Udom",
    "position": "S",
@@ -137,20 +150,7 @@
    "positionRank": 62,
    "stateRank": 191,
    "status": "Verbal"
-  },
-  {
-   "id": "271768",
-   "name": "Jack Schein",
-   "position": "OT",
-   "highSchool": "JSerra Catholic High School",
-   "city": "San Juan Capistrano",
-   "state": "CA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T14:30Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

@@ -56,7 +56,7 @@
    "state": "AL",
    "grade": 77,
    "rank": null,
-   "positionRank": 52,
+   "positionRank": 53,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 175,
+   "positionRank": 176,
    "stateRank": 160,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 136,
+   "positionRank": 137,
    "stateRank": 58,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 77,
    "stateRank": 55,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "TN",
    "grade": 74,
    "rank": null,
-   "positionRank": 147,
+   "positionRank": 148,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "LA",
    "grade": 74,
    "rank": null,
-   "positionRank": 123,
+   "positionRank": 124,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 113,
-   "stateRank": 48,
+   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -239,7 +239,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 149,
-   "stateRank": 148,
+   "stateRank": 149,
    "status": "Verbal"
   },
   {
@@ -264,7 +264,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 119,
    "stateRank": 235,
    "status": "Verbal"
   },
@@ -277,8 +277,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 229,
-   "stateRank": 190,
+   "positionRank": 230,
+   "stateRank": 191,
    "status": "Verbal"
   },
   {
@@ -290,8 +290,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 232,
-   "stateRank": 194,
+   "positionRank": 233,
+   "stateRank": 195,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-19T15:27Z"
 }

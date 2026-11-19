@@ -290,8 +290,8 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 211,
-   "stateRank": 58,
+   "positionRank": 212,
+   "stateRank": 59,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-08T20:15Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

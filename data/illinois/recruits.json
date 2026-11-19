@@ -70,7 +70,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 55,
-   "stateRank": 69,
+   "stateRank": 70,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 71,
-   "stateRank": 80,
+   "stateRank": 81,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 95,
+   "positionRank": 96,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "IA",
    "grade": 75,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 132,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 154,
-   "stateRank": 153,
+   "stateRank": 154,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:40Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

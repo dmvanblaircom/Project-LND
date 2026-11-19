@@ -56,7 +56,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 130,
+   "positionRank": 131,
    "stateRank": 171,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 125,
+   "positionRank": 126,
    "stateRank": 244,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 160,
+   "positionRank": 161,
    "stateRank": 220,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "TX",
    "grade": 72,
    "rank": null,
-   "positionRank": 166,
+   "positionRank": 168,
    "stateRank": 257,
    "status": "Verbal"
   },
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-19T15:27Z"
 }

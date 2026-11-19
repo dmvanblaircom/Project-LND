@@ -109,7 +109,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 127,
-   "stateRank": 40,
+   "stateRank": 41,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 107,
-   "stateRank": 113,
+   "stateRank": 114,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "MI",
    "grade": 76,
    "rank": null,
-   "positionRank": 97,
+   "positionRank": 98,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

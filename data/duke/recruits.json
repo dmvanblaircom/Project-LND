@@ -187,7 +187,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 30,
-   "stateRank": 65,
+   "stateRank": 66,
    "status": "Verbal"
   },
   {
@@ -200,7 +200,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 58,
-   "stateRank": 85,
+   "stateRank": 86,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "NC",
    "grade": 76,
    "rank": null,
-   "positionRank": 96,
+   "positionRank": 97,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 82,
+   "positionRank": 83,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -251,10 +251,10 @@
    "state": "PA",
    "grade": 75,
    "rank": null,
-   "positionRank": 104,
+   "positionRank": 105,
    "stateRank": 34,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

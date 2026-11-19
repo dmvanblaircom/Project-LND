@@ -199,8 +199,8 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 100,
-   "stateRank": 41,
+   "positionRank": 101,
+   "stateRank": 42,
    "status": "Verbal"
   },
   {
@@ -212,7 +212,7 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 93,
+   "positionRank": 94,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 53,
+   "positionRank": 54,
    "stateRank": 121,
    "status": "Verbal"
   },
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

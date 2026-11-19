@@ -30,7 +30,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 148,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 180,
+   "positionRank": 181,
    "stateRank": 167,
    "status": "Verbal"
   },
@@ -83,7 +83,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 87,
-   "stateRank": 140,
+   "stateRank": 142,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 132,
    "stateRank": 256,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 161,
+   "positionRank": 163,
    "stateRank": 251,
    "status": "Verbal"
   },
@@ -173,7 +173,7 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 166,
+   "positionRank": 167,
    "stateRank": 243,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

@@ -43,7 +43,7 @@
    "state": "SC",
    "grade": 75,
    "rank": null,
-   "positionRank": 181,
+   "positionRank": 182,
    "stateRank": 31,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "MA",
    "grade": 73,
    "rank": null,
-   "positionRank": 235,
+   "positionRank": 236,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -95,8 +95,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 117,
-   "stateRank": 193,
+   "positionRank": 118,
+   "stateRank": 194,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

@@ -17,7 +17,7 @@
    "state": "IL",
    "grade": 76,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 119,
    "stateRank": 36,
    "status": "Verbal"
   },
@@ -30,7 +30,7 @@
    "state": "KY",
    "grade": 73,
    "rank": null,
-   "positionRank": 169,
+   "positionRank": 170,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 157,
-   "stateRank": 67,
+   "stateRank": 68,
    "status": "Verbal"
   },
   {
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-12T21:14Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

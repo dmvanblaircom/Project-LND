@@ -186,7 +186,7 @@
    "state": "IN",
    "grade": 77,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 77,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -225,10 +225,10 @@
    "state": "MI",
    "grade": 74,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 91,
    "stateRank": 19,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

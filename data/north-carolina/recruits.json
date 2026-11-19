@@ -95,7 +95,7 @@
    "state": "AL",
    "grade": 78,
    "rank": null,
-   "positionRank": 69,
+   "positionRank": 70,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 104,
+   "stateRank": 105,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "MS",
    "grade": 75,
    "rank": null,
-   "positionRank": 83,
+   "positionRank": 84,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

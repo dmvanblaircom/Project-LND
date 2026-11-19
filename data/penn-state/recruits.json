@@ -264,7 +264,7 @@
    "state": "CT",
    "grade": 76,
    "rank": null,
-   "positionRank": 94,
+   "positionRank": 95,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -278,9 +278,9 @@
    "grade": 68,
    "rank": null,
    "positionRank": 7,
-   "stateRank": 61,
+   "stateRank": 62,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

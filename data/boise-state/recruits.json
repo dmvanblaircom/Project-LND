@@ -30,7 +30,7 @@
    "state": "WA",
    "grade": 77,
    "rank": null,
-   "positionRank": 86,
+   "positionRank": 87,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 66,
-   "stateRank": 71,
+   "stateRank": 72,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 111,
-   "stateRank": 88,
+   "stateRank": 89,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 85,
-   "stateRank": 88,
+   "stateRank": 89,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "ID",
    "grade": 75,
    "rank": null,
-   "positionRank": 124,
+   "positionRank": 125,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "ID",
    "grade": 72,
    "rank": null,
-   "positionRank": 165,
+   "positionRank": 167,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T20:39Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

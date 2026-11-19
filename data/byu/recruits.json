@@ -57,7 +57,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 50,
-   "stateRank": 81,
+   "stateRank": 82,
    "status": "Verbal"
   },
   {
@@ -134,7 +134,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 226,
+   "positionRank": 227,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:39Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

@@ -316,7 +316,7 @@
    "state": "TX",
    "grade": 77,
    "rank": null,
-   "positionRank": 50,
+   "positionRank": 51,
    "stateRank": 112,
    "status": "Verbal"
   },
@@ -360,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:43Z"
+ "fetchedAt": "2026-11-19T15:26Z"
 }

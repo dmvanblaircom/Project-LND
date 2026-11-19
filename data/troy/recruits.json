@@ -30,7 +30,7 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 68,
    "status": "Verbal"
   },
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-19T15:27Z"
 }

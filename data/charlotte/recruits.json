@@ -30,7 +30,7 @@
    "state": "TN",
    "grade": 73,
    "rank": null,
-   "positionRank": 128,
+   "positionRank": 129,
    "stateRank": 69,
    "status": "Verbal"
   },
@@ -57,7 +57,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 139,
-   "stateRank": 228,
+   "stateRank": 229,
    "status": "Verbal"
   },
   {
@@ -82,8 +82,8 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 246,
-   "stateRank": 226,
+   "positionRank": 247,
+   "stateRank": 227,
    "status": "Verbal"
   },
   {
@@ -165,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-19T15:24Z"
 }

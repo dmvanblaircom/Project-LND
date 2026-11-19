@@ -225,7 +225,7 @@
    "state": "NE",
    "grade": 76,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -277,10 +277,10 @@
    "state": "MO",
    "grade": 74,
    "rank": null,
-   "positionRank": 196,
+   "positionRank": 197,
    "stateRank": 14,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:42Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

@@ -30,8 +30,8 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 99,
-   "stateRank": 59,
+   "positionRank": 100,
+   "stateRank": 60,
    "status": "Verbal"
   },
   {
@@ -43,8 +43,8 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 161,
-   "stateRank": 68,
+   "positionRank": 162,
+   "stateRank": 69,
    "status": "Verbal"
   },
   {
@@ -57,7 +57,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 191,
-   "stateRank": 78,
+   "stateRank": 79,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "IL",
    "grade": 72,
    "rank": null,
-   "positionRank": 145,
+   "positionRank": 146,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }

@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274831",
+   "name": "Armani Eusebio",
+   "position": "OG",
+   "highSchool": "American Heritage High School",
+   "city": "Plantation",
+   "state": "FL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 48,
+   "stateRank": 69,
+   "status": "Verbal"
+  },
+  {
    "id": "262468",
    "name": "Sherrod Gourdine",
    "position": "CB",
@@ -265,7 +278,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 70,
-   "stateRank": 79,
+   "stateRank": 80,
    "status": "Verbal"
   },
   {
@@ -277,7 +290,7 @@
    "state": "GA",
    "grade": 77,
    "rank": null,
-   "positionRank": 74,
+   "positionRank": 75,
    "stateRank": 104,
    "status": "Verbal"
   },
@@ -291,20 +304,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 106,
-   "stateRank": 98,
-   "status": "Verbal"
-  },
-  {
-   "id": "274831",
-   "name": "Armani Eusebio",
-   "position": "OG",
-   "highSchool": "American Heritage High School",
-   "city": "Plantation",
-   "state": "FL",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "stateRank": 99,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T14:29Z"
+ "fetchedAt": "2026-11-19T15:25Z"
 }
