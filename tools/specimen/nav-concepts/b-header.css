@@ -1,0 +1,31 @@
+/* Concept B: the five destinations move into the branded SUITE header -
+   wordmark and team on the left, the destinations on the right beside
+   settings - laid out on the wide desktop grid. The bottom bar is gone.
+   Below 80rem the destinations drop their icons, so the header holds every
+   team's name at 1024 px (measured: tools/specimen/nav-concepts/fit.js). */
+@media (min-width:64rem){
+  :root{--nv-side:max(var(--gutter),calc((100% - var(--s-content-wide)) / 2))}
+  .app-bar{padding-left:var(--nv-side) !important;padding-right:var(--nv-side) !important}
+  .bar-context:not([hidden]){flex:0 1 auto}
+  .bar-gear{margin-left:auto !important}
+  .navbar{position:fixed;top:0;bottom:auto;left:auto;right:calc(var(--nv-side) + 3.5rem);width:auto;height:var(--s-bar-h);transform:none;z-index:61;
+    display:flex;align-items:stretch;gap:.15rem;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
+  .navbar::after{display:none}
+  .nav-item{flex-direction:row;gap:.5rem;min-height:var(--s-bar-h);padding:0 1rem;border-radius:0;color:var(--s-on-dark-2);font-size:.95rem;font-weight:600}
+  .nav-item svg{width:20px;height:20px}
+  .nav-item:hover{color:var(--s-on-dark)}
+  .nav-item[aria-current="page"]{color:var(--s-on-dark)}
+  .nav-item[aria-current="page"]::after{left:1rem;right:1rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--t-accent)}
+  .nav-item:focus-visible{outline-color:var(--t-accent-text)}
+  .navbar.game-raised .nav-game{align-self:stretch;justify-self:auto;width:auto;height:auto;min-height:var(--s-bar-h);margin:0;padding:0 1rem;border-radius:0;
+    background:none;box-shadow:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-size:.95rem;letter-spacing:0;text-transform:none}
+  .navbar.game-raised .nav-game svg{width:20px;height:20px}
+  .navbar.game-raised .nav-game .nav-live{position:static;margin:0;top:auto;left:auto}
+  .navbar.game-raised .nav-game[aria-current="page"]::after{left:1rem;right:1rem;bottom:0;height:3px}
+  .page-main{padding-bottom:3rem}
+}
+@media (min-width:64rem) and (max-width:79.99rem){
+  .nav-item svg,.navbar.game-raised .nav-game svg{display:none}
+  .nav-item,.navbar.game-raised .nav-game{padding:0 .8rem}
+  .nav-item[aria-current="page"]::after,.navbar.game-raised .nav-game[aria-current="page"]::after{left:.8rem;right:.8rem}
+}
