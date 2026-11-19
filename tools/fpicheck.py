@@ -81,6 +81,12 @@ ok("columns" in (refused(ren) or ""), "a column ESPN renamed: fails visibly, not
 bad = copy.deepcopy(REAL); bad["teams"][3]["categories"][0]["values"][names.index("fpirank")] = None
 ok("rank" in (refused(bad) or ""), "a row without a rank")
 ok(refused({"error": "x"}) == "no teams list", "an error page instead of a table")
+gone = copy.deepcopy(REAL)
+for c in gone["categories"]:
+    if c["name"] == "fpi":
+        c["names"] = [n if n != "probwintitle" else "probtitle" for n in c["names"]]
+ok(refused(gone) == "projection columns not found: probwintitle (ESPN changed the table?)",
+   "a table whose title odds column is renamed: refused, so the last good projections stay (Codex, #263)")
 
 print("written only when ESPN publishes a new edition")
 with tempfile.TemporaryDirectory() as d:

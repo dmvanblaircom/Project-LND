@@ -67,6 +67,11 @@ def normalize(payload, season=None):
     col = {n: i for i, n in enumerate(names)}
     if "fpi" not in col or "fpirank" not in col:
         raise Refused("FPI columns not found (ESPN changed the table?)")
+    # Season Outlook reads the playoff and title odds: a table without them
+    # would replace good projections with none (Codex, #263).
+    lost = [name for key, name in ODDS if key in CARRIED and name not in col]
+    if lost:
+        raise Refused("projection columns not found: %s (ESPN changed the table?)" % ", ".join(lost))
 
     rows, seen = [], set()
     for t in payload["teams"]:
