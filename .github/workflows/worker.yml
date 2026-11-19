@@ -44,9 +44,9 @@ jobs:
           # Worker secrets to set: the clock's only once it exists, so a
           # missing token never fails the deploy.
           { echo "secrets<<EOF"; echo "CFBD_API_KEY"; [ -n "$CLOCK" ] && echo "REFRESH_CLOCK_TOKEN"; echo "EOF"; } >> "$GITHUB_OUTPUT"
-      # The schools the CFBD route answers for, from the registry as it is
-      # now: a deploy is never older than the registry it came from.
-      - name: The school list follows the registry
+      # Each program's Suite id, for an alert's link, from the registry as it
+      # is now: a deploy is never older than the registry it came from.
+      - name: The team ids follow the registry
         if: steps.ready.outputs.ok == 'true'
         run: node tools/build-worker-schools.js
       # The CFP rankings shows, from the league's calendar as it is now.
