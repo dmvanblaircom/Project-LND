@@ -76,6 +76,9 @@ ok(lab("ucla") === "Playoff Impact" && /A UCLA loss could open a first-round bye
 ok(lab("uga") === "Playoff Impact", "No. 1 Georgia counts: the whole band above the bye line (Codex, #262)");
 ok(lab("utah") === "Playoff Impact" && lab("tex") === "Playoff Impact", "so do No. 2 Utah and No. 5 Texas (a 14-point line is still a game)");
 ok(!by.bama, "No. 3 Alabama against an FCS team is not a game that matters");
+var liveWeek = week.map(function (g) { return g.id === "bama" ? Object.assign({}, g, { state: "in" }) : g; });
+var ND2 = A.layers({ games: liveWeek, teamId: "87", teamName: "Notre Dame", conferences: FBS, polls: [cfp], schedule: ndSched, cutlines: cuts2026, now: new Date("2026-11-19T12:00:00Z") });
+ok(!ND2.matter.some(function (r) { return r.game.id === "bama"; }), "nor once it is under way: an FCS game never passes, live or final (Codex, #264)");
 ok(lab("mia") === "Playoff Impact" && /one place behind No\. 6 Notre Dame/.test(by.mia.why[0]), "No. 7 Miami, one place behind: " + (by.mia || {}).why);
 ok(lab("ind") === "Playoff Impact" && lab("tenn") === "Playoff Impact", "No. 8 Indiana and No. 9 Tennessee, between us and the field's line");
 ok(lab("byu") === "Playoff Impact" && by.byu.also.length === 1 && by.byu.also[0].label === "Résumé Impact" &&

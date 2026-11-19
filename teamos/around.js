@@ -104,9 +104,10 @@ TeamOS.around = (function () {
   // longer applies. Before it, the line says; without one, the two ratings.
   // A side that is not an FBS program fails.
   function competitive(g, o) {
-    if (g.state === "in" || g.state === "post") return true;
+    // Not an FBS game: never, live or final included (Codex, #264).
     var fbs = o.conferences || {};
     if (Object.keys(fbs).length && ids(g).some(function (id) { return !id || !fbs[id]; })) return false;
+    if (g.state === "in" || g.state === "post") return true;
     var pts = linePoints(g.odds);
     if (pts != null) return pts <= CLOSE_LINE;
     var r = o.ratings || {}, a = r[ids(g)[0]], b = r[ids(g)[1]];
