@@ -7,13 +7,20 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:09:02.381541+00:00",
+ "fetchedAt": "2026-11-19T22:38:51.570619+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-19",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Tulane",
+ "kickoffDate": "2026-11-19",
+ "game": "Temple",
  "players": [
+  {
+   "pos": "QB",
+   "no": "2",
+   "name": "Lucas Scheerhorn",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "CB",
    "no": "4",
@@ -36,16 +43,16 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "16",
-   "name": "Chibby Nwajuaku",
+   "pos": "CB",
+   "no": "12",
+   "name": "Jamir Benjamin",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "19",
-   "name": "Jordan Clark",
+   "pos": "DL",
+   "no": "16",
+   "name": "Chibby Nwajuaku",
    "status": "out-game",
    "detail": ""
   },
@@ -57,24 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "27",
-   "name": "Dionne Sims",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "SL",
    "no": "29",
    "name": "Jai Jacobs-Ford",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "30",
-   "name": "Carson Morgan",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -89,13 +82,6 @@
    "no": "82",
    "name": "Colten Cole",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "88",
-   "name": "Keenan Arcega-Whiteside",
-   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rice",
- "updated": "2026-11-15T11:09:02.381541+00:00",
+ "updated": "2026-11-19T22:38:51.570619+00:00",
  "reports": [
   {
    "schema": 1,
@@ -560,6 +560,95 @@
      "no": "88",
      "name": "Keenan Arcega-Whiteside",
      "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "rice",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T22:38:51.570619+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-19",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-19",
+   "game": "Temple",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "Lucas Scheerhorn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "4",
+     "name": "Tariq Watson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SL",
+     "no": "6",
+     "name": "Ben Grice",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "10",
+     "name": "Quinton Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "12",
+     "name": "Jamir Benjamin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "16",
+     "name": "Chibby Nwajuaku",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "27",
+     "name": "Michael Amey III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SL",
+     "no": "29",
+     "name": "Jai Jacobs-Ford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Ian Bothwell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "82",
+     "name": "Colten Cole",
+     "status": "out-game",
      "detail": ""
     }
    ],
