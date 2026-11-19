@@ -1,7 +1,16 @@
 {
  "team": "uab",
- "updated": "2026-11-17T17:38:15.657361+00:00",
+ "updated": "2026-11-19T15:08:10.385396+00:00",
  "items": [
+  {
+   "title": "GameDay Guide: UTSA, November 21",
+   "link": "https://uabsports.com/news/2026/11/19/football-gameday-guide-utsa-november-21",
+   "source": "UAB Athletics",
+   "summary": "<img alt=\"Game Day Guide UTSA\" src=\"https://uabsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/6_GDG_UTSA.jpg\" /><br /><br />The UAB football team returns to Protective Stadium for its regular-season home finale Saturday, Nov. 21, hosting UTSA in a pivotal American Conference matchup presented by Publix. Kickoff is scheduled for 7 p.m. CT on ESPNU.",
+   "image": "https://uabsports.com/images/2026/11/16/6_GDG_UTSA.jpg?width=800",
+   "sourceLogo": "https://uabsports.com/favicon.ico",
+   "published": "2026-11-19T14:56:00+00:00"
+  },
   {
    "title": "Jonah Delange Named Lou Groza Award Semifinalist",
    "link": "https://uabsports.com/news/2026/11/17/football-jonah-delange-named-lou-groza-award-semifinalist",
@@ -82,15 +91,6 @@
    "image": "https://uabsports.com/images/2026/11/8/060A8320.jpg?width=800",
    "sourceLogo": "https://uabsports.com/favicon.ico",
    "published": "2026-11-09T16:00:00+00:00"
-  },
-  {
-   "title": "UAB Pulls Away From Charlotte in Fourth Quarter for 23-12 Victory",
-   "link": "https://uabsports.com/news/2026/11/7/football-uab-pulls-away-from-charlotte-in-fourth-quarter-for-23-12-victory",
-   "source": "UAB Athletics",
-   "summary": "<img alt=\"Ja'Vin Simpkins vs. Charlotte\" src=\"https://uabsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/67-1O2A9720.jpg\" /><br /><br />BIRMINGHAM, Ala. \u2013 UAB scored 17 unanswered points in the fourth quarter and used another dominant defensive performance to defeat Charlotte, 23-12, Saturday afternoon at Protective Stadium in the 10th annual Children's Harbor Game.",
-   "image": "https://uabsports.com/images/2026/11/7/67-1O2A9720.jpg?width=800",
-   "sourceLogo": "https://uabsports.com/favicon.ico",
-   "published": "2026-11-08T00:36:00+00:00"
   }
  ]
 }
