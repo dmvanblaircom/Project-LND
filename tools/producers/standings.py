@@ -18,8 +18,9 @@ snapshot keeps only what the race needs, per conference:
 The independents are left out: they have no race. Nothing here claims a
 clinch, an elimination or a tiebreak; the page reads only the records.
 Once a day (it moves when teams play). A table that fails validation -
-another season, too few conferences or teams, a record that does not read -
-is refused and the last good snapshot stays.
+another season, too few conferences or teams, a record that does not read,
+or a conference the last snapshot of the same season had and this one lacks
+(Codex, #266) - is refused and the last good snapshot stays.
 """
 import argparse
 import json
@@ -33,7 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUT = os.path.join(ROOT, "data", "league", "standings.json")
 URL = "https://site.api.espn.com/apis/v2/sports/football/college-football/standings?season=%d"
-MIN_CONFERENCES = 9
+MIN_CONFERENCES = 10     # every FBS conference in 2026 (ESPN's 11 groups less the independents)
 MIN_TEAMS = 110          # FBS less the independents is about 135
 EVERY_HOURS = 20         # once a day: these move only when teams play
 RECORD = re.compile(r"^(\d+)-(\d+)(?:-(\d+))?$")
@@ -93,6 +94,17 @@ def normalize(payload, season=None):
     return {"schema": 1, "source": "standings", "label": "ESPN", "season": year, "conferences": out}
 
 
+def missing(previous, snap):
+    """Conferences the last snapshot of the same season had and this one
+    lacks. A partial read that still clears the minimums would otherwise
+    drop a conference's teams from the race. A new season starts fresh, so
+    realignment between seasons is not refused."""
+    if not isinstance(previous, dict) or previous.get("season") != snap.get("season"):
+        return []
+    now = {c.get("name") for c in snap.get("conferences") or []}
+    return sorted(c.get("name") for c in previous.get("conferences") or [] if c.get("name") not in now)
+
+
 def due(last, now):
     """Whether a refresh is due: no record of the last one, an unreadable
     one, or one at least EVERY_HOURS old. When in doubt, refresh."""
@@ -136,6 +148,10 @@ def main():
             previous = json.load(open(args.out, encoding="utf-8"))
         except ValueError:
             previous = None
+    gone = missing(previous, snap)
+    if gone:
+        print("::error::standings refused, previous snapshot kept: missing %s" % ", ".join(gone))
+        sys.exit(1)
     if previous and {k: v for k, v in previous.items() if k != "fetchedAt"} == snap:
         print("  standings unchanged; snapshot not touched")
         return

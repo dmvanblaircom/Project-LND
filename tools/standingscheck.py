@@ -55,6 +55,16 @@ few = copy.deepcopy(REAL)
 few["children"] = few["children"][:4]
 ok("only" in (refused(few) or ""), "a partial table")
 ok(refused({"error": "x"}) == "no conference list", "an error page")
+one = copy.deepcopy(REAL)
+one["children"] = [g for g in one["children"] if "Independent" in g["name"]] + \
+    [g for g in one["children"] if "Independent" not in g["name"]][1:]
+ok("only 9 conferences" in (refused(one) or ""), "one conference missing from a table otherwise whole")
+prev = standings.normalize(REAL, 2026)
+less = copy.deepcopy(prev)
+less["conferences"] = less["conferences"][1:]
+ok(standings.missing(prev, less) == [prev["conferences"][0]["name"]], "a conference the last snapshot had: named")
+ok(standings.missing(dict(prev, season=2025), less) == [], "but a new season starts fresh")
+ok(standings.missing(None, less) == [], "and so does the first snapshot")
 
 print("written only when it moved, and once a day")
 with tempfile.TemporaryDirectory() as d:
