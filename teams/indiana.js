@@ -4,8 +4,7 @@
    Values verified on 2026-10-27 from GitHub's network (probe-sources.yml):
    ESPN team 84 spells the home field "Memorial Stadium (Bloomington, IN)" -
    Nebraska's is "Memorial Stadium (Lincoln, NE)", on this season's schedule,
-   so the name keeps its city. Kalshi's championship and playoff markets are
-   KXNCAAF-27-IND and KXNCAAFPLAYOFF-26-IND, named "Indiana". */
+   so the name keeps its city. */
 
 var TEAM_CONFIG = {
 
@@ -29,11 +28,6 @@ var TEAM_CONFIG = {
       teamId: "84",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-IND",
-      namePattern:  /\bindiana\b(?! st)|hoosiers/i
-    },
-
     // The Big Ten's availability reports, as for Ohio State
     // (tools/producers/conference_availability.py).
     official: {
@@ -106,7 +100,6 @@ var TEAM_CONFIG = {
   // source exists for it. No official depth chart is published.
   snapshots: {
     availability: { file: "data/indiana/availability.json", history: "data/indiana/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/indiana/odds-history.json" },
     beatNews:     { file: "data/indiana/news.json" },
     recruits:     { file: "data/indiana/recruits.json", label: "ESPN recruiting" }
   }

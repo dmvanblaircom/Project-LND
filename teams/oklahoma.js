@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "201",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-OKLA",
-      namePattern:  /\boklahoma\b(?! st)|sooners/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/oklahoma/availability.json", history: "data/oklahoma/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/oklahoma/odds-history.json" },
     beatNews:     { file: "data/oklahoma/news.json" },
     recruits:     { file: "data/oklahoma/recruits.json", label: "ESPN recruiting" }
   }

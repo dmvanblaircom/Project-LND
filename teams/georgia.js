@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "61",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UGA",
-      namePattern:  /\bgeorgia\b(?! tech| st| southern)/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -97,7 +92,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/georgia/availability.json", history: "data/georgia/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/georgia/odds-history.json" },
     beatNews:     { file: "data/georgia/news.json" },
     recruits:     { file: "data/georgia/recruits.json", label: "ESPN recruiting" }
   }

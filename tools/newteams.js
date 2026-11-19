@@ -7,9 +7,7 @@
      node tools/newteams.js captures "Big Ten Conference"     lines for tools/fixtures/capture-requests.txt
 
    For each program in the conference that has no config yet (the registry,
-   teams/index.js): its ESPN id, its Kalshi market if the league's markets
-   price it (data/league/odds-*.json, by name - Kalshi writes "Ohio St."),
-   and the beat-feed addresses worth probing first (On3 and On SI follow a
+   teams/index.js): its ESPN id and the beat-feed addresses worth probing first (On3 and On SI follow a
    pattern; the athletics site, SB Nation and the student paper do not, and
    are found by hand). The probes ask ESPN, from GitHub's network, for each
    team's names, colours and the venue its schedule names - spelled as ESPN
@@ -30,32 +28,12 @@ function registry() {
   return c.TEAM_REGISTRY;
 }
 
-// Kalshi's way of writing a program's name, for matching: "Mississippi St.",
-// "Miami (FL)". Compared folded, with State as St.
-function fold(s) {
-  return String(s || "").toLowerCase().replace(/\bstate\b/g, "st").replace(/[^a-z0-9]+/g, "");
-}
-function markets() {
-  var out = {};
-  ["odds-title", "odds-playoff"].forEach(function (k) {
-    var f = path.join(root, "data", "league", k + ".json");
-    if (!fs.existsSync(f)) return;
-    (JSON.parse(fs.readFileSync(f, "utf8")).markets || []).forEach(function (m) {
-      var name = m.yes_sub_title || "", suffix = (/-([A-Z0-9]+)$/.exec(m.ticker || "") || [])[1];
-      if (name && suffix) out[fold(name)] = { suffix: "-" + suffix, name: name };
-    });
-  });
-  return out;
-}
-
 function slug(s) { return String(s || "").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 
 // One program's plan.
-function planFor(t, kalshi) {
-  var k = kalshi[fold(t.name)] || null;
+function planFor(t) {
   return {
     id: t.id, name: t.name, abbr: t.abbr, nick: t.nick, conference: t.conference, espnId: t.providerId,
-    kalshi: k ? { tickerSuffix: k.suffix, name: k.name } : null,
     feeds: [
       "https://www.on3.com/teams/" + slug(t.name + " " + t.nick) + "/feed/",
       "https://www.si.com/college/" + slug(t.name).replace(/-/g, "") + "/feed"
@@ -65,10 +43,9 @@ function planFor(t, kalshi) {
 
 function plan(conference, reg) {
   reg = reg || registry();
-  var kalshi = markets();
   return reg.filter(function (t) { return t.conference === conference && !t.config; })
     .sort(function (a, b) { return a.name < b.name ? -1 : 1; })
-    .map(function (t) { return planFor(t, kalshi); });
+    .map(function (t) { return planFor(t); });
 }
 
 var ESPN = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/";
@@ -83,7 +60,7 @@ function captures(p) {
   return p.map(function (t) { return "schedule-" + t.espnId + " " + t.id + "-review\nnews-" + t.espnId + " " + t.id + "-review"; }).join("\n");
 }
 
-module.exports = { plan: plan, planFor: planFor, probes: probes, captures: captures, fold: fold, slug: slug };
+module.exports = { plan: plan, planFor: planFor, probes: probes, captures: captures, slug: slug };
 
 if (require.main === module) {
   var cmd = process.argv[2], conf = process.argv[3];

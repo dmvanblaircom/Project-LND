@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "96",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UK",
-      namePattern:  /(?<!western )(?<!eastern )\bkentucky\b/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/kentucky/availability.json", history: "data/kentucky/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/kentucky/odds-history.json" },
     beatNews:     { file: "data/kentucky/news.json" },
     recruits:     { file: "data/kentucky/recruits.json", label: "ESPN recruiting" }
   }

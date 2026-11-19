@@ -546,7 +546,7 @@ Suite.top25 = (function () {
   // (W18). Around's, since 2026-11-05 (David: Season Outlook answers "where
   // do we stand", Around's question); before, Home's.
   function outlookCard(metrics) {
-    if (!metrics || !metrics.length) return "";                   // no supported market: no section
+    if (!metrics || !metrics.length) return "";                   // no projection: no section
     return '<div class="sec-head"><h2 class="sec-title" id="outHead">Season Outlook</h2>' +
              '<a class="sec-link" href="#outlook">View Full Field' + CHEVRON + "</a></div>" +
       '<div class="card outlook" role="group" aria-labelledby="outHead"><div class="out-metrics">' +
@@ -563,7 +563,7 @@ Suite.top25 = (function () {
                (x.stale && x.asOf ? '<span class="out-asof">As of ' + esc(new Date(x.asOf).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })) + "</span>" : "") +
                "</div>";
       }).join("") + "</div>" +
-      '<p class="out-credit">Market-implied odds. Powered by Kalshi</p></div>';
+      '<p class="out-credit">Projected odds · ESPN FPI</p></div>';
   }
 
 

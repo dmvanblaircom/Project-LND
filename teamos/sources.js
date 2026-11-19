@@ -26,7 +26,7 @@ TeamOS.sources = (function () {
 
     if (src.espn) {
       out.push({ id: "espn", name: "ESPN", url: "https://www.espn.com/college-football/",
-                 supplies: ["scores", "schedule", "rankings", "rosters", "news", "matchup", "turnovers"] });
+                 supplies: ["scores", "schedule", "rankings", "rosters", "news", "matchup", "turnovers", "outlook"] });
     }
 
     // The official documents (decision 0019), under the label the team's
@@ -47,10 +47,6 @@ TeamOS.sources = (function () {
       (src.beatFeeds || []).forEach(function (f) {
         if (f && f.name) out.push({ id: "beat", name: f.name, url: https(f.site), supplies: ["news"] });
       });
-    }
-
-    if (src.kalshi) {
-      out.push({ id: "kalshi", name: "Kalshi", url: "https://kalshi.com/", supplies: ["outlook"] });
     }
 
     // SP+ in Rankings, for any team: CollegeFootballData, through Suite's edge

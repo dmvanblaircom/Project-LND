@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2641",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TTU",
-      namePattern:  /texas tech/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/texas-tech/availability.json", history: "data/texas-tech/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/texas-tech/odds-history.json" },
     beatNews:     { file: "data/texas-tech/news.json" },
     recruits:     { file: "data/texas-tech/recruits.json", label: "ESPN recruiting" }
   }

@@ -3,9 +3,7 @@
    teams/ohio-state.js; nothing else changed.
 
    Values verified on 2026-10-27 from GitHub's network (probe-sources.yml):
-   ESPN team 2449 spells the home field "Fargodome". Kalshi lists no North
-   Dakota State market today; the declaration below picks one up the day it
-   is listed. */
+   ESPN team 2449 spells the home field "Fargodome". */
 
 var TEAM_CONFIG = {
 
@@ -29,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2449",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-NDSU",
-      namePattern:  /north dakota st|\bndsu\b/i
-    },
-
     // Beat writers, read by the Action server-side. Each was confirmed from
     // GitHub's network on 2026-10-27 (probe-feeds.yml) and approved by David
     // (2026-10-27). Coverage is thin: The Forum, the student paper and the
@@ -96,7 +89,6 @@ var TEAM_CONFIG = {
   },
 
   snapshots: {
-    oddsHistory: { file: "data/north-dakota-state/odds-history.json" },
     beatNews:    { file: "data/north-dakota-state/news.json" },
     recruits:    { file: "data/north-dakota-state/recruits.json", label: "ESPN recruiting" }
   }

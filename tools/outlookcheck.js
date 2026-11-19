@@ -1,21 +1,22 @@
 #!/usr/bin/env node
-/* Season Outlook's full field (W18), in a real browser.
+/* Season Outlook's full field (W18), in a real browser. Since 2026-11-19
+   the odds are ESPN's FPI projections (David), not Kalshi's markets.
 
      1. Home's one Season Outlook line opens Around (David, 2026-11-05),
         whose Season Outlook card links to the full field; the link opens
         #outlook with Around still selected, and Back returns to Around.
-     2. Each view - Playoff, National Title - lists every team its market
-        prices, most likely first, the same field TeamOS.markets.field()
-        builds from the committed snapshot, with the team's own row marked
-        and repeated above the list; a price under 1% reads "<1", never 0.
+     2. Each view - Playoff, National Title - lists every team ESPN gives a
+        chance, most likely first, the same field TeamOS.ratings.projectionField()
+        builds from the FPI snapshot, with the team's own row marked and
+        repeated above the list; a chance under 1% reads "<1", never 0.
      3. The team's own number on the board is Around's number, and Home's.
-     4. Saved prices say so; a market that never loaded says it failed, or
+     4. A saved projection says so; one that never loaded says it failed, or
         that the fan is offline; a refresh that fails keeps the board.
      5. Ohio State: the same board, its own row marked (no team named here).
 
-   Kalshi's live routes are refused, so the app falls back to the committed
-   league snapshots (data/league/odds-*.json), which the comparison reads
-   too. No network is used.
+   The FPI snapshot is served from a fixture made by the producer from a real
+   ESPN table (tools/fixtures/fpi-2026-odds-sample.json), which the
+   comparison reads too. No network is used.
 
    Usage:  node tools/outlookcheck.js
    Locally: NODE_PATH=$(npm root -g) PW_CHROMIUM=/path/to/chromium node tools/outlookcheck.js
@@ -47,10 +48,11 @@ function load(files) {
   });
   return sb;
 }
-function snapshot(key) { return JSON.parse(fs.readFileSync(path.join(root, "data", "league", "odds-" + key + ".json"))); }
+var FPI = path.join(root, "tools", "fixtures", "fpi-2026-odds-sample.json");
+function snapshot() { return JSON.parse(fs.readFileSync(FPI)); }
 function expected(slug, key) {
-  var sb = load(["teamos/outlook.js", "teamos/markets.js", "teams/" + slug + ".js"]);
-  return sb.TeamOS.markets.field(snapshot(key), sb.TEAM_CONFIG, key);
+  var sb = load(["teamos/ratings.js", "teamos/outlook.js", "teams/" + slug + ".js"]);
+  return sb.TeamOS.ratings.projectionField(snapshot(), sb.TEAM_CONFIG, key);
 }
 
 (async function () {
@@ -66,12 +68,10 @@ function expected(slug, key) {
     var id = slug === "ohio-state" ? "194" : "87";
     await page.route("**/*", function (route) {
       var u = route.request().url();
-      var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);
-      if (odds) {
+      if (/\/data\/league\/fpi\.json(\?|$)/.test(u)) {
         st.n++;
         if (st.odds === "fail") return route.fulfill({ status: 503, headers: H, body: "" });
-        return route.fulfill({ status: 200, contentType: "application/json", headers: H,
-                               body: fs.readFileSync(path.join(root, "data", "league", odds[1])) });
+        return route.fulfill({ status: 200, contentType: "application/json", headers: H, body: fs.readFileSync(FPI) });
       }
       if (/kalshi|corsproxy|allorigins|codetabs/.test(u)) return route.abort();
       if (u.startsWith(base)) return route.continue();
@@ -172,11 +172,11 @@ function expected(slug, key) {
   await shot(a.page, "outlook-playoff-nd");
 
   // ---- 2. the field ----------------------------------------------------------
-  console.log("2. every team the market prices, most likely first");
+  console.log("2. every team ESPN gives a chance, most likely first");
   var want = expected("notre-dame", "playoff");
   ok(p.rows.length === want.rows.length && p.rows.length > 20, "Playoff lists all " + want.rows.length + " teams (" + p.rows.length + ")");
   ok(p.rows.every(function (r, i) { return r.team === want.rows[i].team && r.val === pct(want.rows[i].value); }),
-     "in TeamOS's order, each at its price");
+     "in TeamOS's order, each at its chance");
   var mine = p.rows.filter(function (r) { return r.mine; });
   var wantMine = want.rows.filter(function (r) { return r.mine; })[0];
   ok(mine.length === 1 && mine[0].team === wantMine.team, "the team's own row, and only it, is marked (" + (mine[0] || {}).team + ")");
@@ -185,10 +185,10 @@ function expected(slug, key) {
      "and repeated above the list with its place (" + p.you + ")");
   var small = want.rows.filter(function (r) { return r.value < 1; });
   ok(!small.length || p.rows.filter(function (r) { return r.val === "<1%"; }).length === small.length,
-     "a price under 1% reads <1%, never 0% (" + small.length + " such)");
+     "a chance under 1% reads <1%, never 0% (" + small.length + " such)");
   ok(!p.rows.some(function (r) { return r.val === "0%"; }), "no team reads 0%");
-  ok(/Kalshi/.test(p.note) && /Information only/.test(p.note), "attributed to Kalshi, information only");
-  ok(/Saved prices, as of/.test(p.note) || /As of/.test(p.note) || !snapshot("playoff").fetchedAt, "says when the prices are from, when the snapshot does");
+  ok(/ESPN FPI/.test(p.note) && /Information only/.test(p.note) && !/Kalshi|market/i.test(p.note), "attributed to ESPN's FPI, information only, no market named");
+  ok(/As of/.test(p.note), "says when the projection is from");
 
   console.log("3. the team's number is Around's number");
   var hp = homeMetric.filter(function (m) { return /Playoff/.test(m.label); })[0];
@@ -200,7 +200,7 @@ function expected(slug, key) {
   var wantT = expected("notre-dame", "title");
   ok(t.hash === "#outlook/title" && t.tab === "National Title", "National Title is the second view");
   ok(t.rows.length === wantT.rows.length && t.rows.every(function (r, i) { return r.team === wantT.rows[i].team && r.val === pct(wantT.rows[i].value); }),
-     "it lists the title market's " + wantT.rows.length + " teams, in order");
+     "it lists the " + wantT.rows.length + " teams with a title chance, in order");
   ok(t.rows.filter(function (r) { return r.mine; }).length === 1, "the team's own row marked");
   await shot(a.page, "outlook-title-nd");
   await layout(a.page, "Notre Dame");
@@ -223,16 +223,16 @@ function expected(slug, key) {
   var gp = await g.newPage(), down = true;
   await gp.route("**/*", function (route) {
     var u = route.request().url();
-    var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);
+    var odds = /\/data\/league\/fpi\.json(\?|$)/.test(u);
     if (odds && !down) return route.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },
-                                              body: fs.readFileSync(path.join(root, "data", "league", odds[1])) });
+                                              body: fs.readFileSync(FPI) });
     if (odds || /kalshi|corsproxy|allorigins|codetabs/.test(u)) return route.abort();
     if (u.startsWith(base)) return route.continue();
     return route.abort();
   });
   await gp.goto(base + "/?team=notre-dame#outlook"); await gp.waitForTimeout(2500);
   var failed = await board(gp);
-  ok(/didn't load/.test(failed.quiet) && !failed.rows.length, "a market that never loaded says so (" + failed.quiet + ")");
+  ok(/didn't load/.test(failed.quiet) && !failed.rows.length, "a projection that never loaded says so (" + failed.quiet + ")");
   await gp.context().setOffline(true);
   await gp.evaluate(function () { window.dispatchEvent(new Event("offline")); location.hash = "#outlook/title"; });
   await gp.waitForTimeout(800);
@@ -262,6 +262,6 @@ function expected(slug, key) {
 
   await browser.close();
   server.close();
-  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the full field is the market, whole, and Home's number is on it"));
+  console.log("\n" + (failures ? failures + " check(s) FAILED" : "the full field is ESPN's projection, whole, and Home's number is on it"));
   process.exit(failures ? 1 : 0);
 })().catch(function (e) { console.error(e); process.exit(1); });

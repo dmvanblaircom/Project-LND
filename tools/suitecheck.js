@@ -164,12 +164,12 @@ var fbh = mhost(); MS.more.feedback(fbh, { href: "mailto:suiteappfeedback@gmail.
 ok(!/(thank|sent|submitted)/i.test(fbh.innerHTML), "Feedback shows no sent state: the mail app sends (0022 #12)");
 
 eq(MT.sources.list(ND).map(function (x) { return x.name; }),
-   ["ESPN", "FightingIrish.com", "One Foot Down", "Slap the Sign", "UHND", "NDNation", "Blue & Gold", "Notre Dame On SI", "Kalshi", "CollegeFootballData", "Open-Meteo"],
+   ["ESPN", "FightingIrish.com", "One Foot Down", "Slap the Sign", "UHND", "NDNation", "Blue & Gold", "Notre Dame On SI", "CollegeFootballData", "Open-Meteo"],
    "Notre Dame is credited every source its config declares");
 eq(MT.sources.list(ND)[1].supplies, ["depth", "availability"], "the official site: depth chart and availability, once");
 var osuCtx = vm.createContext({});
 ["teams/ohio-state.js"].forEach(function (f) { vm.runInContext(read(f), osuCtx, { filename: f }); });
-eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "BigTen.org", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "Kalshi", "CollegeFootballData", "Open-Meteo"],
+eq(MT.sources.list(osuCtx.TEAM_CONFIG).map(function (x) { return x.name; }), ["ESPN", "BigTen.org", "Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern", "CollegeFootballData", "Open-Meteo"],
    "Ohio State is credited its beat feeds and the Big Ten's report, and no official snapshot it does not have");
 eq(MT.sources.list(osuCtx.TEAM_CONFIG).filter(function (x) { return x.supplies.indexOf("depth") >= 0 || x.supplies.indexOf("availability") >= 0; })
      .map(function (x) { return [x.name, x.supplies.join()]; }), [["BigTen.org", "availability"]],
@@ -178,9 +178,8 @@ var abh = mhost(); MS.more.about(abh, { version: "2026-09-24v", sources: MT.sour
 ok(!/project\s*lnd/i.test(abh.innerHTML + m.innerHTML + st.innerHTML + fbh.innerHTML), "no screen says Project LND (0022 #9)");
 ok(/not affiliated with, endorsed by or sponsored by/.test(abh.innerHTML) && /used only to\s+identify/.test(abh.innerHTML.replace(/" \+ "/g, "")),
    "About Suite says Suite is independent, and whose marks are whose");
-ok(/not betting advice/.test(abh.innerHTML), "with Kalshi markets shown, prices are not betting advice");
-var abx = mhost(); MS.more.about(abx, { sources: [{ name: "ESPN", supplies: ["scores"] }] });
-ok(!/betting/.test(abx.innerHTML), "a team with no markets gets no betting line");
+ok(/projected odds are not betting advice/.test(abh.innerHTML), "projected odds are not betting advice");
+ok(MT.sources.list(ND)[0].supplies.indexOf("outlook") > -1, "and ESPN is credited for Season Outlook's odds");
 ok(/rel="noopener noreferrer"/.test(abh.innerHTML) && /opens in a new tab/.test(abh.innerHTML), "source links open safely, and say so");
 
 // A final without both scores (a forfeit, or a gap in the feed) is not a

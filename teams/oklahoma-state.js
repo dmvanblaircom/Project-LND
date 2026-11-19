@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "197",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-OKST",
-      namePattern:  /oklahoma st/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/oklahoma-state/availability.json", history: "data/oklahoma-state/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/oklahoma-state/odds-history.json" },
     beatNews:     { file: "data/oklahoma-state/news.json" },
     recruits:     { file: "data/oklahoma-state/recruits.json", label: "ESPN recruiting" }
   }

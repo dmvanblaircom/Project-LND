@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "59",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-GT",
-      namePattern:  /georgia tech/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/georgia-tech/availability.json", history: "data/georgia-tech/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/georgia-tech/odds-history.json" },
     beatNews:     { file: "data/georgia-tech/news.json" },
     recruits:     { file: "data/georgia-tech/recruits.json", label: "ESPN recruiting" }
   }

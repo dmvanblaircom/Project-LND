@@ -1,11 +1,11 @@
 /* Suite - Season Outlook's full field (W18; backlog C7, David 2026-10-07:
    "wire up View full field").
 
-     #outlook          Playoff: every team the playoff market prices
-     #outlook/title    National Title: every team the title market prices
+     #outlook          Playoff: every team ESPN's FPI gives a playoff chance
+     #outlook/title    National Title: every team it gives a title chance
 
    Home's Season Outlook shows the team's own two numbers; this is the whole
-   market behind each, most likely first, the team's own row marked and
+   field behind each, most likely first, the team's own row marked and
    repeated above the list so it is never lost below the fold. A secondary
    destination owned by Around (David, 2026-11-05; Home before), reached
    from Season Outlook's "View Full Field".
@@ -13,15 +13,14 @@
    (suite/home.js). Information only: nothing here places, links to, or prices a bet
    (decision 0025).
 
-   This file only draws: app.js fetches, TeamOS.markets.field() decides which
-   teams are priced and at what; nothing here reads a provider payload or
-   names a team.
+   This file only draws: app.js fetches, TeamOS.ratings.projectionField() decides which
+   teams have a chance and what it is; nothing here reads a provider payload
+   or names a team.
 
      Suite.outlook.paint(host, {
        team: { name },
        view: "playoff" | "title",
-       field: Field | null,          TeamOS.markets.field() for this view
-       covered: bool,                the team has Kalshi markets at all
+       field: Field | null,          TeamOS.ratings.projectionField() for this view
        loading: bool, failed: bool, offline: bool,
        asOf: ISO | null, stale: bool })                              */
 
@@ -48,8 +47,8 @@ Suite.outlook = (function () {
       }).join("") + "</nav>";
   }
 
-  // A price under one percent is "<1", never a rounded "0": the market
-  // still gives the team a chance.
+  // A chance under one percent is "<1", never a rounded "0": the
+  // projection still gives the team a chance.
   function pct(v) { return v < 1 ? "<1" : String(Math.round(v)); }
 
   // A move that rounds to nothing is not shown, the same rule as Home.
@@ -73,7 +72,7 @@ Suite.outlook = (function () {
     if (!m.asOf) return "";
     var t = new Date(m.asOf);
     if (isNaN(t)) return "";
-    return (m.stale ? "Saved prices, as of " : "As of ") +
+    return (m.stale ? "Saved projection, as of " : "As of ") +
       t.toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".";
   }
 
@@ -82,16 +81,16 @@ Suite.outlook = (function () {
     var at = -1;
     rows.forEach(function (r, i) { if (r.mine && at < 0) at = i; });
     var mine = at >= 0 ? rows[at] : null;
-    return '<p class="ss-season">The chance the market gives each team to ' + esc(v.what) + ".</p>" +
+    return '<p class="ss-season">The chance ESPN’s FPI gives each team to ' + esc(v.what) + ".</p>" +
       (mine
         ? '<p class="of-you"><span class="of-context"><span class="of-name">' + esc(m.team.name) + '</span> <span class="of-place">' +
           ordinal(at + 1) + " of " + rows.length + ' teams</span></span> <strong class="of-chance">' + pct(mine.value) + '<span class="pct">%</span></strong></p>'
-        : '<p class="of-you">' + esc(m.team.name) + " isn’t priced in this market.</p>") +
-      '<p class="ss-note of-source">Market-implied odds · Kalshi' + (asOfLine(m) ? '<span class="of-asof">' + esc(asOfLine(m)) + '</span>' : "") + '</p>' +
+        : '<p class="of-you">' + esc(m.team.name) + " has no chance in this projection.</p>") +
+      '<p class="ss-note of-source">Projected odds · ESPN FPI' + (asOfLine(m) ? '<span class="of-asof">' + esc(asOfLine(m)) + '</span>' : "") + '</p>' +
       '<section class="card of-card" aria-labelledby="of-head"><h2 class="sr-only" id="of-head">' + esc(v.label) + " field</h2>" +
         '<div class="of-cols" aria-hidden="true"><span class="of-label">Team</span><span class="of-num"><span>Chance</span><span>Δ pts</span></span></div>' +
         '<ol class="of-list">' + rows.map(rowHtml).join("") + "</ol></section>" +
-      '<p class="ss-note">Changes are in percentage points. Market-implied odds. Information only. Powered by Kalshi</p>';
+      '<p class="ss-note">Changes are in percentage points since ESPN’s previous update. Projected odds from ESPN’s Football Power Index. Information only.</p>';
   }
 
   function ordinal(n) {
@@ -103,17 +102,15 @@ Suite.outlook = (function () {
     if (!host) return;
     var v = viewOf(m.view);
     var body;
-    if (!m.covered) {
-      body = '<p class="sec-quiet">No prediction market covers ' + esc(m.team.name) + ".</p>";
-    } else if (m.field) {
+    if (m.field) {
       body = boardHtml(m, v);
     } else if (m.failed) {
       body = '<p class="sec-quiet">' + (m.offline ? "You're offline. The field loads when the connection returns."
-                                                  : "The market didn't load. Pull down to try again.") + "</p>";
+                                                  : "The projection didn't load. Pull down to try again.") + "</p>";
     } else if (m.loading) {
       body = '<p class="sec-quiet">Loading the field…</p>';
     } else {
-      body = '<p class="sec-quiet">No open ' + esc(v.label) + " market right now.</p>";
+      body = '<p class="sec-quiet">No ' + esc(v.label) + " projection right now.</p>";
     }
     var html = strip(v.id) + body;
     if (html === last && host.innerHTML) return;     // a background refresh never resets the scroll

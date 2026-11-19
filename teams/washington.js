@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "264",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-WASH",
-      namePattern:  /\bwashington\b(?! st)/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/washington/availability.json", history: "data/washington/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/washington/odds-history.json" },
     beatNews:     { file: "data/washington/news.json" },
     recruits:     { file: "data/washington/recruits.json", label: "ESPN recruiting" }
   }

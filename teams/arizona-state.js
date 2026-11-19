@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "9",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ASU",
-      namePattern:  /arizona st|sun devils/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -93,7 +88,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/arizona-state/availability.json", history: "data/arizona-state/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/arizona-state/odds-history.json" },
     beatNews:     { file: "data/arizona-state/news.json" },
     recruits:     { file: "data/arizona-state/recruits.json", label: "ESPN recruiting" }
   }

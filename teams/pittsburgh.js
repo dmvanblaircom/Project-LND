@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "221",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-PITT",
-      namePattern:  /\bpitt(sburgh)?\b/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       // This season's game notes, linked from the notes page under this label
@@ -103,7 +98,6 @@ var TEAM_CONFIG = {
     // How to say the players' names, from the week's game notes.
     notes:        { file: "data/pittsburgh/notes.json", label: "pittsburghpanthers.com" },
     availability: { file: "data/pittsburgh/availability.json", history: "data/pittsburgh/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/pittsburgh/odds-history.json" },
     beatNews:     { file: "data/pittsburgh/news.json" },
     recruits:     { file: "data/pittsburgh/recruits.json", label: "ESPN recruiting" }
   }

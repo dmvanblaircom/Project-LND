@@ -2,9 +2,7 @@
    2026-10-27). Same shape as teams/ohio-state.js; nothing else changed.
 
    Values verified on 2026-10-27 from GitHub's network (probe-sources.yml):
-   ESPN team 135 spells the home field "Huntington Bank Stadium". Kalshi
-   lists no Minnesota market today; the declaration below picks one up the
-   day it is listed. */
+   ESPN team 135 spells the home field "Huntington Bank Stadium". */
 
 var TEAM_CONFIG = {
 
@@ -28,11 +26,6 @@ var TEAM_CONFIG = {
       teamId: "135",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MINN",
-      namePattern:  /minnesota|golden gophers/i
-    },
-
     // The Big Ten's availability reports, as for Ohio State
     // (tools/producers/conference_availability.py).
     official: {
@@ -103,7 +96,6 @@ var TEAM_CONFIG = {
 
   snapshots: {
     availability: { file: "data/minnesota/availability.json", history: "data/minnesota/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/minnesota/odds-history.json" },
     beatNews:     { file: "data/minnesota/news.json" },
     recruits:     { file: "data/minnesota/recruits.json", label: "ESPN recruiting" }
   }

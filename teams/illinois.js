@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "356",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ILL",
-      namePattern:  /\billinois\b(?! st)|fighting illini/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/illinois/availability.json", history: "data/illinois/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/illinois/odds-history.json" },
     beatNews:     { file: "data/illinois/news.json" },
     recruits:     { file: "data/illinois/recruits.json", label: "ESPN recruiting" }
   }

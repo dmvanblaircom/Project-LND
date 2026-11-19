@@ -42,6 +42,12 @@ snap = fpi.normalize(REAL, 2026)
 by = {t["espnId"]: t for t in snap["teams"]}
 
 print("the real table")
+nd = by.get("87")
+ok(nd and nd["odds"] == {"playoff": 84.8, "title": 14.3, "titleGame": 25.7, "conference": 0.0, "winOut": 39.0},
+   "ESPN's projections are kept: playoff, title, title game, conference, win out: %s" % (nd or {}).get("odds"))
+ok(nd and nd["projected"] == {"wins": 11.1, "losses": 0.9}, "and the projected record")
+ok(all(0 <= v <= 100 for t in snap["teams"] for v in t["odds"].values()), "every kept chance is a percent")
+ok("prev" not in nd, "a table on its own carries no earlier odds")
 ok(len(snap["teams"]) == 138, "every FBS team in ESPN's table: %d" % len(snap["teams"]))
 ok((snap["season"], snap["week"], snap["weekText"]) == (2026, 5, "Week 5"), "the edition: 2026, Week 5")
 ok(snap["sourceUpdated"] == "2026-09-30T08:00Z", "ESPN's own update time, kept apart from when we fetched")
@@ -96,6 +102,23 @@ with tempfile.TemporaryDirectory() as d:
     json.dump(nxt, open(src, "w"))
     ok(run(src).returncode == 0 and json.load(open(out))["sourceUpdated"] == "2026-10-01T08:00Z",
        "ESPN's next update replaces it")
+    nd1 = [t for t in json.load(open(out))["teams"] if t["espnId"] == "87"][0]
+    ok(nd1.get("prev") == {"playoff": 84.8, "title": 14.3},
+       "a new edition carries the last one's playoff and title odds: %s" % nd1.get("prev"))
+    moved = copy.deepcopy(nxt); moved["lastUpdated"] = "2026-10-02T08:00Z"
+    row = [t for t in moved["teams"] if t["team"]["id"] == "87"][0]
+    names = [c for c in moved["categories"] if c["name"] == "fpi"][0]["names"]
+    vals = [c for c in row["categories"] if c["name"] == "fpi"][0]["values"]
+    vals[names.index("probmakeplayoffs")] = 90.0
+    json.dump(moved, open(src, "w"))
+    run(src)
+    nd2 = [t for t in json.load(open(out))["teams"] if t["espnId"] == "87"][0]
+    ok(nd2["odds"]["playoff"] == 90.0 and nd2["prev"]["playoff"] == 84.8,
+       "and the next edition moves on from it: 84.8 -> 90.0")
+    stamp = json.load(open(out))["fetchedAt"]
+    again = run(src)
+    ok("unchanged" in again.stdout and json.load(open(out))["fetchedAt"] == stamp,
+       "the carried odds never count as a change on their own")
 
 print("\n" + ("%d check(s) FAILED" % failures if failures else "FPI arrives whole and current, or not at all"))
 sys.exit(1 if failures else 0)

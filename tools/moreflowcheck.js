@@ -76,10 +76,10 @@ var THREE_DAYS = new Date(Date.now() - 3 * 864e5).toUTCString();
       // answered while "every source" failed, and Last Updated moved)
       var snap = /\/((depth|availability|notes)(-history)?\.json)(\?|$)/.exec(u);
       if (snap) return answer(route, "snap", fs.readFileSync(path.join(root, "data", "notre-dame", snap[1])));
-      // the Season Outlook markets: the league-wide Kalshi snapshots
-      var odds = /\/(odds-(title|playoff)\.json)(\?|$)/.exec(u);
-      if (odds) return answer(route, "odds", fs.readFileSync(path.join(root, "data", "league", odds[1])));
-      if (/kalshi|corsproxy|allorigins|codetabs/.test(u)) { st.n.odds = (st.n.odds || 0) + 1; return route.abort(); }
+      // Season Outlook's odds: ESPN's FPI projections, the league snapshot
+      // (a fixture the producer made from a real ESPN table)
+      if (/\/data\/league\/fpi\.json(\?|$)/.test(u)) return answer(route, "odds", fixture("fpi-2026-odds-sample.json"));
+      if (/kalshi|corsproxy|allorigins|codetabs/.test(u)) { st.n.relay = (st.n.relay || 0) + 1; return route.abort(); }
       if (u.startsWith(base)) return route.continue();
       if (/\/news\?team=/.test(u)) return answer(route, "espn", ESPN_NEWS);
       if (/\/teams\/87\/roster(\?|$)/.test(u)) return answer(route, "roster", fixture("espn-roster-nd-sep24.json"));

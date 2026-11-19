@@ -1,17 +1,16 @@
-# Fetches team data the browser cannot fetch itself - Kalshi markets, beat-writer
-# RSS, the official depth chart and availability report - and commits it into
-# this repo. GitHub Pages then serves it same-origin, so CORS never enters.
-#
-# This runs from a GitHub-hosted runner, which is a different IP range than
-# Cloudflare's shared edge — the one that Kalshi rate-limits into the ground.
+# Fetches team data the browser cannot fetch itself - ESPN's FPI and its
+# projected odds, beat-writer RSS, the official depth chart and availability
+# report - and commits it into this repo. GitHub Pages then serves it
+# same-origin, so CORS never enters. (Kalshi's markets were removed on
+# 2026-11-19 at Kalshi's request, until Suite holds its data license: David.)
 #
 # Each source is independent: every producer step has continue-on-error, and
 # the commit step adds only what a step that SUCCEEDED produced - team by
 # team where a step reads many teams. A broken source is reported once, as an
 # issue, by the Source health step (tools/producers/health.py). A failing
-# school website can never again cost the odds (it did on 2026-09-23, run 100).
+# school website can never again cost the rest (it did on 2026-09-23, run 100).
 #
-# Cadence (decision 0020): odds, beat news, conference availability and a
+# Cadence (decision 0020): FPI, beat news, conference availability and a
 # media index's game notes every run; the official depth chart every run in a
 # game window or the team's publish window, otherwise every 2 hours
 # (tools/producers/cadence.py).
@@ -53,33 +52,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # The league's Kalshi markets for the season they belong to (W16):
-      # this season's while any is open, next season's once Kalshi lists it,
-      # neither until then - never last season's. The events are the league's
-      # rule (LEAGUE_MARKETS in leagues/college-football.js), not this file's.
-      # Kalshi unreachable leaves the last files as they were.
-      - name: Fetch from Kalshi
-        id: kalshi
-        continue-on-error: true
-        run: python3 tools/producers/markets.py
-
-      - name: Refuse to commit anything that is not market data
-        id: odds
-        if: steps.kalshi.outcome == 'success'
-        continue-on-error: true
-        run: |
-          python3 - <<'PY'
-          import json, sys
-          for f in ("data/league/odds-title.json", "data/league/odds-playoff.json"):
-              try:
-                  d = json.load(open(f))
-              except Exception as e:
-                  sys.exit(f"{f} is not valid JSON: {e}")
-              if "markets" not in d:
-                  sys.exit(f"{f} has no markets key — refusing to commit")
-              print(f, "->", len(d["markets"]), "markets")
-          PY
-
       # ESPN's Football Power Index for every FBS team (W07). ESPN publishes a
       # new edition daily at 08:00Z, 4 AM ET (observed Sep 30, Oct 1 and Oct 2:
       # docs/engineering/rankings-sources.md), so most runs find the same
@@ -88,7 +60,7 @@ jobs:
       # January to June is last season's, as the page counts it.
       - name: Fetch ESPN's FPI
         id: fpi
-        continue-on-error: true      # a refused table must never block the odds
+        continue-on-error: true      # a refused table must never block the rest
         run: |
           Y=$(date -u +%Y); M=$(date -u +%-m)
           [ "$M" -lt 7 ] && Y=$((Y - 1))
@@ -101,24 +73,11 @@ jobs:
       # weeks, and a broken week never replaces a kept one.
       - name: Keep this season's rankings, week by week
         id: rankhistory
-        continue-on-error: true      # a refused week must never block the odds
+        continue-on-error: true      # a refused week must never block the rest
         run: |
           Y=$(date -u +%Y); M=$(date -u +%-m)
           [ "$M" -lt 7 ] && Y=$((Y - 1))
           python3 tools/producers/rankings_history.py --season "$Y"
-
-      # Every team that declares an odds history (backlog C2): its price, read
-      # from the league-wide markets by its own Kalshi declaration.
-      - name: Append each team's price to its season history
-        id: oddshistory
-        if: steps.odds.outcome == 'success'
-        continue-on-error: true
-        run: |
-          fail=0
-          for t in $(python3 tools/producers/teamconfig.py --with oddsHistory); do
-            echo "== $t"; python3 tools/producers/odds_history.py --team "$t" || fail=1
-          done
-          exit $fail
 
       # The last successful check lives in the Actions cache, not the repo, so
       # recording it never makes a commit. One file per team.
@@ -138,7 +97,7 @@ jobs:
       # team's log is printed whole, in order, after they all finish.
       - name: Pull beat writers
         id: news
-        continue-on-error: true      # a dead feed must never block the odds
+        continue-on-error: true      # a dead feed must never block the rest
         run: |
           H="$RUNNER_TEMP/health"; logs="$RUNNER_TEMP/news"; mkdir -p "$H" "$logs"; rm -f "$logs/ok" "$logs/failed"
           teams=$(python3 tools/producers/teamconfig.py --with beatNews)
@@ -259,7 +218,7 @@ jobs:
       # in the same Actions cache as the depth chart's, never in the repo.
       - name: Recruiting classes and the draft board
         id: prospects
-        continue-on-error: true      # a refused class must never block the odds
+        continue-on-error: true      # a refused class must never block the rest
         env:
           BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
@@ -285,7 +244,7 @@ jobs:
       # is refused and the last good one stays.
       - name: Season figures from ESPN's box scores
         id: seasonstats
-        continue-on-error: true      # a refused snapshot must never block the odds
+        continue-on-error: true      # a refused snapshot must never block the rest
         env:
           BY_HAND: ${{ github.event_name == 'workflow_dispatch' && inputs.source != 'clock' }}
         run: |
@@ -316,7 +275,7 @@ jobs:
         run: |
           mkdir -p .cadence
           python3 tools/producers/health.py --dir "$RUNNER_TEMP/health" --state .cadence/health.json --open-issues \
-            --steps "kalshi=${{ steps.kalshi.outcome }},odds=${{ steps.odds.outcome }},oddshistory=${{ steps.oddshistory.outcome }},news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome == 'failure' && 'failure' || (steps.prospects.outputs.ran == 'true' && 'success' || 'skipped') }},champion=${{ steps.champion.outcome == 'failure' && 'failure' || (steps.champion.outputs.ran == 'true' && 'success' || 'skipped') }},seasonstats=${{ steps.seasonstats.outcome == 'failure' && 'failure' || (steps.seasonstats.outputs.ran == 'true' && 'success' || 'skipped') }}"
+            --steps "news=${{ steps.news.outcome }},depth=${{ steps.depth.outcome }},confav=${{ steps.confav.outcome }},notes=${{ steps.notes.outcome }},fpi=${{ steps.fpi.outcome }},rankhistory=${{ steps.rankhistory.outcome }},prospects=${{ steps.prospects.outcome == 'failure' && 'failure' || (steps.prospects.outputs.ran == 'true' && 'success' || 'skipped') }},champion=${{ steps.champion.outcome == 'failure' && 'failure' || (steps.champion.outputs.ran == 'true' && 'success' || 'skipped') }},seasonstats=${{ steps.seasonstats.outcome == 'failure' && 'failure' || (steps.seasonstats.outputs.ran == 'true' && 'success' || 'skipped') }}"
 
       - name: Remember the depth chart checks
         if: always() && hashFiles('.cadence/*') != ''
@@ -330,8 +289,6 @@ jobs:
       # in data/league/.
       - name: Commit what moved
         env:
-          ODDS: ${{ steps.odds.outcome }}
-          HISTORY: ${{ steps.oddshistory.outcome }}
           NEWS_PATHS: ${{ steps.news.outputs.paths }}
           DEPTH_TEAMS: ${{ steps.depth.outputs.teams }}
           CONFAV_PATHS: ${{ steps.confav.outputs.paths }}
@@ -352,8 +309,6 @@ jobs:
               case ", $moved, " in *", $label, "*) ;; *) moved="${moved:+$moved, }$label" ;; esac
             fi
           }
-          [ "$ODDS" = success ]    && add "odds" 'data/league/odds-*.json'
-          [ "$HISTORY" = success ] && add "odds history" 'data/*/odds-history.json'
           # Team by team (David, 2026-11-05): only the teams whose step read them.
           [ -n "$NEWS_PATHS" ]     && add "news" $NEWS_PATHS
           for t in $DEPTH_TEAMS; do

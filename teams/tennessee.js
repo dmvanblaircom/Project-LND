@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2633",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TENN",
-      namePattern:  /(?<!middle )(?<!east )\btennessee\b(?! st| tech)|volunteers/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/tennessee/availability.json", history: "data/tennessee/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/tennessee/odds-history.json" },
     beatNews:     { file: "data/tennessee/news.json" },
     recruits:     { file: "data/tennessee/recruits.json", label: "ESPN recruiting" }
   }

@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2628",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TCU",
-      namePattern:  /\btcu\b|texas christian/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/tcu/availability.json", history: "data/tcu/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/tcu/odds-history.json" },
     beatNews:     { file: "data/tcu/news.json" },
     recruits:     { file: "data/tcu/recruits.json", label: "ESPN recruiting" }
   }

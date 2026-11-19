@@ -8,7 +8,7 @@
       Since 7B the shell is in two halves: the part that belongs to no team,
       precached at install, and the part that belongs to THIS team, which the
       worker cannot know at install time and is told by the page instead.
-   2. Data - the JSON files the Action commits, ESPN, Kalshi, Open-Meteo - is
+   2. Data - the JSON files the Action commits, ESPN, Open-Meteo - is
       fetched live, and the last good copy is kept, stamped X-IW-Stored with
       when it was kept. Offline, that copy comes back with an X-IW-Cached
       header carrying that time, so the page can say the data is old and how
@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-11-17cfp";
+var VERSION = "suite-2026-11-19espn";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -42,7 +42,7 @@ var SHELL_FILES = [
   "./teams/index.js",
   "./leagues/college-football.js", "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js", "./teamos/ratings.js",
-  "./teamos/game.js", "./teamos/around.js", "./teamos/outlook.js", "./teamos/milestones.js", "./teamos/champions.js", "./teamos/notes.js", "./teamos/prospects.js", "./teamos/markets.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/fbs.js",
+  "./teamos/game.js", "./teamos/around.js", "./teamos/outlook.js", "./teamos/milestones.js", "./teamos/champions.js", "./teamos/notes.js", "./teamos/prospects.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/fbs.js",
   // Suite's install identity, the same for every team (decision 0024 §11).
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
@@ -395,7 +395,6 @@ function isShell(url) {
 function isData(url) {
   if (url.origin === self.location.origin) return /\.json$/.test(url.pathname) && !url.pathname.endsWith("/manifest.json");
   return /(^|\.)espn\.com$/.test(url.hostname)
-      || /kalshi\.com$/.test(url.hostname)
       || /open-meteo\.com$/.test(url.hostname)
       || /^suite-api\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname);   // Suite's edge API (decision 0030)
 }

@@ -128,7 +128,7 @@ fs.mkdirSync(shots,{recursive:true});
       ok(/Predictive rating · 2026 season\./.test(q.text)&&!/Updated /.test(q.text)&&!q.banner,spTeam+": this season, no edition date CFBD never gave, fresh");
       var src=await p.page.locator(".rk-source").innerText(),href=await p.page.locator(".rk-source a").getAttribute("href");
       ok(/SP\+/.test(src)&&/CFBD/.test(src)&&/^https:\/\//.test(href),spTeam+": credited to SP+ and CFBD ("+src.trim()+")");
-      ok(p.st.n===0&&p.st.spYears.join()==="2026",spTeam+": asks the edge API for this season's SP+ only, and never loads FPI for it");
+      ok(p.st.n<=1&&p.st.spYears.join()==="2026",spTeam+": asks the edge API for this season's SP+ only; SP+ loads no FPI of its own (the one read, if any, is Season Outlook's, since 2026-11-19)");
       for(var spStyle of ["team","suite"]){
         await p.page.evaluate(function(style){localStorage.setItem("suite-style",style);},spStyle);await p.page.reload();await p.settled();
         for(var spWidth of [320,375,390,768,1280]){

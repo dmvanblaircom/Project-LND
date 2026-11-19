@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2294",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-IOWA",
-      namePattern:  /\biowa\b(?! st)|hawkeyes/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -98,7 +93,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/iowa/availability.json", history: "data/iowa/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/iowa/odds-history.json" },
     beatNews:     { file: "data/iowa/news.json" },
     recruits:     { file: "data/iowa/recruits.json", label: "ESPN recruiting" }
   }

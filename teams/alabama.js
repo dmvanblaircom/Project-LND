@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "333",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ALA",
-      namePattern:  /\balabama\b(?! a&m| st)|crimson tide/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/alabama/availability.json", history: "data/alabama/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/alabama/odds-history.json" },
     beatNews:     { file: "data/alabama/news.json" },
     recruits:     { file: "data/alabama/recruits.json", label: "ESPN recruiting" }
   }
