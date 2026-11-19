@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-11-14T18:38:55.103114+00:00",
+ "updated": "2026-11-19T04:08:33.646121+00:00",
  "reports": [
   {
    "schema": 1,
@@ -460,6 +460,144 @@
      "no": "98",
      "name": "Nate Burrell",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "california",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-19T04:08:33.646121+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-18",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-21",
+   "game": "Stanford",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Dorian Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Carter Vargas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "3",
+     "name": "Jaron-Keawe Sagapolutele",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "4",
+     "name": "Justin Beadles",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Daniel Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "8",
+     "name": "Rico Walker",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Ian Strong",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "Aiden Manutai",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Isaiah Crosby",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Adam Mohammed",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "33",
+     "name": "JD McKinley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Kahlee Tafai",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "51",
+     "name": "Jayden Williams",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Tyson Ruffins",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Jacob Arop",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Nate Burrell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Ashun Shepphard",
+     "status": "questionable",
      "detail": ""
     }
    ],

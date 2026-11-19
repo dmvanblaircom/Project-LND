@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T18:38:55.103114+00:00",
+ "fetchedAt": "2026-11-19T04:08:33.646121+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Virginia",
+ "effectiveAt": "2026-11-18",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-21",
+ "game": "Stanford",
  "players": [
   {
    "pos": "TE",
@@ -29,17 +29,94 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "QB",
+   "no": "3",
+   "name": "Jaron-Keawe Sagapolutele",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
    "no": "4",
-   "name": "Jordan King",
-   "status": "out-game",
+   "name": "Justin Beadles",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "7",
+   "name": "Daniel Harris",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "8",
+   "name": "Rico Walker",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "9",
+   "name": "Ian Strong",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "14",
+   "name": "Aiden Manutai",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "23",
+   "name": "Isaiah Crosby",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Adam Mohammed",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "33",
    "name": "JD McKinley",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "51",
+   "name": "Kahlee Tafai",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "51",
+   "name": "Jayden Williams",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "56",
+   "name": "Tyson Ruffins",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "75",
+   "name": "Jacob Arop",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -47,6 +124,13 @@
    "no": "98",
    "name": "Nate Burrell",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "99",
+   "name": "Ashun Shepphard",
+   "status": "questionable",
    "detail": ""
   }
  ],
