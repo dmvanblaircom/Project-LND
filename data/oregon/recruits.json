@@ -308,6 +308,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272476",
+   "name": "Relando Jefferson",
+   "position": "WR",
+   "highSchool": "Central East High School",
+   "city": "Fresno",
+   "state": "CA",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 250,
+   "stateRank": 179,
+   "status": "Verbal"
+  },
+  {
    "id": "272487",
    "name": "Josh Christensen",
    "position": "DE",
@@ -332,20 +345,7 @@
    "positionRank": 18,
    "stateRank": 6,
    "status": "Verbal"
-  },
-  {
-   "id": "272476",
-   "name": "Relando Jefferson",
-   "position": "WR",
-   "highSchool": "Central East High School",
-   "city": "Fresno",
-   "state": "CA",
-   "grade": 72,
-   "rank": null,
-   "positionRank": 250,
-   "stateRank": 179,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:40Z"
+ "fetchedAt": "2026-11-19T14:30Z"
 }

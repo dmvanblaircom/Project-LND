@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2390",
  "classYear": 2027,
- "listed": 23,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -204,6 +204,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271433",
+   "name": "Brennen Lacey",
+   "position": "RB",
+   "highSchool": "Frisco High School",
+   "city": "Frisco",
+   "state": "TX",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 25,
+   "stateRank": 41,
+   "status": "Verbal"
+  },
+  {
    "id": "261497",
    "name": "Jaylyn Jones",
    "position": "S",
@@ -282,6 +295,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274831",
+   "name": "Armani Eusebio",
+   "position": "OG",
+   "highSchool": "American Heritage High School",
+   "city": "Plantation",
+   "state": "FL",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "272471",
    "name": "Brody Diel",
    "position": "WR",
@@ -308,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-15T10:41Z"
+ "fetchedAt": "2026-11-19T14:29Z"
 }

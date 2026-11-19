@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2348",
  "classYear": 2027,
- "listed": 8,
+ "listed": 9,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -111,7 +111,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "274833",
+   "name": "Jaydn Wood",
+   "position": "WR",
+   "highSchool": null,
+   "city": "New Port Richey",
+   "state": "FL",
+   "grade": 4,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:10Z"
+ "fetchedAt": "2026-11-19T14:29Z"
 }

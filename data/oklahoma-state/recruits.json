@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "197",
  "classYear": 2027,
- "listed": 19,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -243,6 +243,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274832",
+   "name": "Bryson Spencer",
+   "position": "OT",
+   "highSchool": "Huntington High School",
+   "city": "Shreveport",
+   "state": "LA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274824",
    "name": "John Rangel",
    "position": "WR",
@@ -254,7 +267,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "273318",
+   "name": "Mahonri Maiava",
+   "position": "DT",
+   "highSchool": null,
+   "city": "American Samoa",
+   "state": "AS",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T20:40Z"
+ "fetchedAt": "2026-11-19T14:30Z"
 }

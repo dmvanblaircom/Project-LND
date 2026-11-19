@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2026",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273027",
-   "name": "Damion King",
-   "position": "DE",
-   "highSchool": "Westerville North High School",
-   "city": "Westerville",
-   "state": "OH",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 172,
-   "stateRank": 78,
-   "status": "Verbal"
-  },
-  {
    "id": "271828",
    "name": "Levi Porter",
    "position": "OLB",
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:09Z"
+ "fetchedAt": "2026-11-19T14:27Z"
 }
