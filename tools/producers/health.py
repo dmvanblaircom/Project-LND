@@ -39,7 +39,7 @@ NAMES = {
     "depth": "Official depth chart and availability",
     "confav": "Conference injury reports",
     "notes": "Game notes",
-    "fpi": "FPI and projected odds",
+    "fpi": "FPI",
     "rankhistory": "Rankings by week",
     "prospects": "Recruiting and draft",
     "champion": "National champion",

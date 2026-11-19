@@ -187,6 +187,10 @@ fs.mkdirSync(shots,{recursive:true});
     // Full worker cycle: install, store FPI, lose the network, reload, recover.
     var w=await open({worker:true,home:true});
     await w.page.waitForFunction(function(){return navigator.serviceWorker.controller;},null,{timeout:15000});
+    // Season Outlook reads FPI on every open (since 2026-11-19), so the first
+    // read happened before the worker took control; a second open, as a fan's
+    // next visit, reads it through the worker, which keeps the copy.
+    await w.page.reload();await w.page.waitForTimeout(800);
     await w.go("#top25/rankings/fpi");await w.settled();
     await w.page.waitForFunction(function(){return caches.match("data/league/fpi.json").then(function(r){return r&&r.headers.get("X-IW-Stored");});});
     w.st.mode="fail";await w.page.reload();await w.settled();var kept=await screen(w),before=w.st.n;
