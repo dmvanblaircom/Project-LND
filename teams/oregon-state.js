@@ -36,11 +36,6 @@ var TEAM_CONFIG = {
       teamId: "204",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ORST",
-      namePattern:  /\boregon st|beavers/i
-    },
-
     // The Pac-12 posts its availability reports on Pac-12.com, not through HD
     // Intelligence (2026-10-29); there is no reader for that page yet, so
     // none are shown.
@@ -99,7 +94,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/oregon-state/availability.json", history: "data/oregon-state/availability-history.json", label: "Pac-12.com" },
-    oddsHistory:  { file: "data/oregon-state/odds-history.json" },
     beatNews:     { file: "data/oregon-state/news.json" },
     recruits:     { file: "data/oregon-state/recruits.json", label: "ESPN recruiting" }
   }

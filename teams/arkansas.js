@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "8",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ARK",
-      namePattern:  /\barkansas\b(?! st|-pine| pine)|razorbacks/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/arkansas/availability.json", history: "data/arkansas/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/arkansas/odds-history.json" },
     beatNews:     { file: "data/arkansas/news.json" },
     recruits:     { file: "data/arkansas/recruits.json", label: "ESPN recruiting" }
   }

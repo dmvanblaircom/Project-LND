@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "213",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-PSU",
-      namePattern:  /penn st|nittany lions/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/penn-state/availability.json", history: "data/penn-state/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/penn-state/odds-history.json" },
     beatNews:     { file: "data/penn-state/news.json" },
     recruits:     { file: "data/penn-state/recruits.json", label: "ESPN recruiting" }
   }

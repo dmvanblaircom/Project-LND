@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "25",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-CAL",
-      namePattern:  /^california$|^cal$|golden bears/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/california/availability.json", history: "data/california/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/california/odds-history.json" },
     beatNews:     { file: "data/california/news.json" },
     recruits:     { file: "data/california/recruits.json", label: "ESPN recruiting" }
   }

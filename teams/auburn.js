@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-AUB",
-      namePattern:  /\bauburn\b/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/auburn/availability.json", history: "data/auburn/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/auburn/odds-history.json" },
     beatNews:     { file: "data/auburn/news.json" },
     recruits:     { file: "data/auburn/recruits.json", label: "ESPN recruiting" }
   }

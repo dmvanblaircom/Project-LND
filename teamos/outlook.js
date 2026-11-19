@@ -1,6 +1,6 @@
-/* TeamOS - Season Outlook: which market metrics a team actually has.
+/* TeamOS - Season Outlook: which metrics a team actually has.
 
-   Season Outlook shows a team's prediction-market odds - making the playoff,
+   Season Outlook shows a team's projected odds - making the playoff,
    winning the national title. Each market is independent (decision 0024
    §12): a team the playoff market prices but the title market does not
    shows its playoff number alone, cleanly. There is no "No market" card,
@@ -16,6 +16,10 @@
    good copy is shown - is still a value (0022 #4): it is kept, and marked
    stale so the Suite can say "as of" (0024 §13) instead of replacing useful
    data with "Unavailable".
+
+   Where the numbers come from (David, 2026-11-19): projected odds, read
+   out of their snapshot by TeamOS.ratings.projections(); this file never
+   sees a provider's shape.
 
    This file names no provider and no team. */
 

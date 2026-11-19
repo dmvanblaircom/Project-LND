@@ -9,7 +9,7 @@
    Seven sections, each owned by a different layer (docs/04_TEAM_CONFIG.md):
 
      team     the Team domain object. Provider-neutral: nothing in it names
-              ESPN, Kalshi or anyone else. app.js gets it through
+              ESPN or anyone else. app.js gets it through
               TeamOS.createTeam(), which validates and freezes it.
      sources  how each outside feed identifies this team, any patches for
               gaps in a feed, its official sources and its beat feeds. Read
@@ -65,13 +65,6 @@ var TEAM_CONFIG = {
       broadcastFallback: [
         [/purdue/i, "Peacock"]        // 2026-09-26, announced 9/14, absent from ESPN
       ]
-    },
-
-    // How to pick this team's market out of a Kalshi event: the ticker ends
-    // in the team's code, or the market's name says the team.
-    kalshi: {
-      tickerSuffix: "-ND",
-      namePattern:  /notre dame|fighting irish/i
     },
 
     // Official athletics source for the weekly two-deep. The producer reads
@@ -197,8 +190,7 @@ var TEAM_CONFIG = {
   // The snapshots .github/workflows/odds.yml commits for this team. Each
   // is a capability the team has because a source exists for it: the
   // two-deep comes from Notre Dame's official FightingIrish.com media page,
-  // the price history from the Kalshi
-  // markets above, the beat stories from the RSS feeds in sources.beatFeeds.
+  // the beat stories from the RSS feeds in sources.beatFeeds.
   // Every file lives in data/<team id>/, so a second team's can never collide
   // with these, and each is stamped with the team it belongs to
   // (docs/decisions/0008-snapshots-are-owned-by-declaration.md).
@@ -208,7 +200,6 @@ var TEAM_CONFIG = {
     // document, published on its own schedule, with its own date
     // (docs/decisions/0019).
     availability: { file: "data/notre-dame/availability.json", history: "data/notre-dame/availability-history.json", label: "FightingIrish.com" },
-    oddsHistory: { file: "data/notre-dame/odds-history.json" },
     // This week's facts from the same game notes: pronunciations, captains,
     // honors, the series and By the Numbers (tools/producers/gamenotes.py).
     notes:       { file: "data/notre-dame/notes.json", label: "FightingIrish.com" },

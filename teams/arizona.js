@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "12",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-ARIZ",
-      namePattern:  /(?<!northern )\barizona\b(?! st)/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       // This season's game notes, linked from the notes page under this label
@@ -103,7 +98,6 @@ var TEAM_CONFIG = {
     // How to say the players' names, from the week's game notes.
     notes:        { file: "data/arizona/notes.json", label: "arizonawildcats.com" },
     availability: { file: "data/arizona/availability.json", history: "data/arizona/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/arizona/odds-history.json" },
     beatNews:     { file: "data/arizona/news.json" },
     recruits:     { file: "data/arizona/recruits.json", label: "ESPN recruiting" }
   }

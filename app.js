@@ -4,39 +4,11 @@
 // The team this Suite is built around. index.html loads teams/<team>.js and
 // teamos/*.js before this file; TeamOS turns the config's `team` section
 // into a validated, frozen, provider-neutral Team, and everything ESPN
-// knows about it arrives as domain objects (docs/03_DOMAIN_MODEL.md). The
-// only provider config this file still passes on is TEAM_CONFIG.sources.kalshi,
-// to TeamOS.markets.
+// knows about it arrives as domain objects (docs/03_DOMAIN_MODEL.md).
 var TEAM = TeamOS.createTeam(TEAM_CONFIG.team);
-// Kalshi's markets reach the page one way only: the snapshot the refresh
-// workflow commits (odds.yml -> data/league/odds-*.json), same origin, so CORS
-// never enters. Kalshi sends no CORS header and rate-limits Cloudflare's
-// shared network, so neither a direct call nor our edge API can stand in.
-// The public relays that used to follow (corsproxy.io, allorigins,
-// codetabs) are gone (W11): third parties that saw every fan's request and
-// could have altered the prices, for a fallback that only ran when the
-// snapshot itself failed. When it does, the service worker's last copy is
-// shown, and freshness says how old it is.
-var KALSHI_ROUTES = [];
-function localSnapshot(path){
-  // The series names are the league's (LEAGUE_MARKETS), never written here
-  // (code review, 2026-11-09). The playoff series first: the title's name
-  // is a prefix of it (KXNCAAF, KXNCAAFPLAYOFF).
-  path=String(path||"");
-  if(path.indexOf(LEAGUE_MARKETS.playoff.series)>-1) return "data/league/odds-playoff.json";
-  if(path.indexOf(LEAGUE_MARKETS.title.series+"-")>-1) return "data/league/odds-title.json";
-  return null;
-}
-KALSHI_ROUTES.push(function(path){
-  var f = localSnapshot(path);
-  if(!f) throw new Error("no snapshot for this path");
-  return f + "?t=" + Date.now();
-});
-// Which series each snapshot holds, from the league's rules; which season of
-// it is the refresh's choice (tools/producers/markets.py, #160), so no season
-// ticker is written here (code review, 2026-10-25).
-var TITLE_EVENT   = LEAGUE_MARKETS.title.series + "-";     // national championship winner
-var PLAYOFF_EVENT = LEAGUE_MARKETS.playoff.series + "-";   // playoff qualifiers
+// Season Outlook's odds are ESPN's FPI projections, from the snapshot the
+// refresh commits (data/league/fpi.json). Kalshi's markets were removed on
+// 2026-11-19 at Kalshi's request until Suite holds its data license (David).
 
 // The season as every screen reads it, and the next game. Whether any of it
 // is old is per source (SRC, noteSource) - each screen says so itself.
@@ -335,7 +307,6 @@ function sourceKey(url){
   if(dep && url.split("?")[0]===dep.file) return "depth";
   if(av && url.split("?")[0]===av.file) return "availability";
   if(gn && url.split("?")[0]===gn.file) return "notes";
-  if(/odds-(title|playoff)\.json|kalshi/i.test(url)) return "odds";
   if(/open-meteo/.test(url)) return "weather";
   var beat=TeamOS.snapshots.get(TEAM_CONFIG,"beatNews");
   if(url===TeamOS.espn.newsUrl(TEAM_CONFIG)) return "news";
@@ -479,21 +450,6 @@ if("serviceWorker" in navigator){
     MILESTONE_TOLD=null; if(MILESTONE_LAST!==undefined) tellWorkerMilestone(MILESTONE_LAST);
   });
 }
-// Walk the routes until one returns usable market data. A relay that is up but
-// returns an error page counts as a failure, so check the shape too.
-function kalshi(path){
-  var i=0;
-  function attempt(){
-    if(i>=KALSHI_ROUTES.length) return Promise.reject(new Error("all Kalshi routes failed"));
-    var url;
-    try { url = KALSHI_ROUTES[i++](path); }
-    catch(e){ return attempt(); }
-    // the shape check is get()'s, so an unusable answer never counts as fresh
-    return get(url, function(d){ return !!d && !!d.markets; }).catch(attempt);
-  }
-  return attempt();
-}
-
 function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
@@ -901,50 +857,45 @@ function loadRankings(){
   return T25.p;
 }
 
-/* ---------- kalshi ---------- */
-// Kalshi's market schema - prices, names, which market is this team's - is
-// TeamOS.markets'. A team Kalshi takes no market on has no Season Outlook
-// (decision 0024 §12): a capability the team's config declares.
-function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }
-// Every team each event prices, for Season Outlook's "View full field" (W18).
-// settled/failed are per market: the full field says loading, failed or "no
-// open market" for each view on its own.
-var MARKET_FIELD = { title:null, playoff:null, settled:{}, failed:{} };
+/* ---------- season outlook ---------- */
+// ESPN's projected odds for every FBS team, from the FPI snapshot; which
+// numbers are this team's, and the whole field behind each, is
+// TeamOS.outlook's. settled/failed are per view: the full field says
+// loading, failed or "no projection" for each on its own.
+var OUTLOOK = { title:null, playoff:null, settled:{}, failed:{} };
+var OUTLOOK_KEYS = ["playoff", "title"];
 
-function loadStrip(){
-  // A team Kalshi takes no market on has no Season Outlook (decision 0024 §12).
-  if(!hasKalshi()) return Promise.resolve([]);
-  // Two separate event queries, each picking the team out of its payload by
-  // ticker or by name. Each market is independent: one can be missing.
-  return Promise.all([{ ev: TITLE_EVENT, key: "title" }, { ev: PLAYOFF_EVENT, key: "playoff" }].map(function(q){
-    return kalshi("/markets?event_ticker="+q.ev+"&limit=200&status=open").then(function(d){
-      var m = TeamOS.markets.teamMarket(d, TEAM_CONFIG);
-      var p = m ? TeamOS.markets.price(m) : null;
-      MARKET_FIELD[q.key] = TeamOS.markets.field(d, TEAM_CONFIG, q.key);
-      var o = SRC.odds||{};
-      MARKET_FIELD.settled[q.key] = { asOf:o.fetchedAt||null, cached:!!o.cached };
-      MARKET_FIELD.failed[q.key] = false;
-      HOME.markets[q.key] = p==null ? null
-        : { value:p, previous:TeamOS.markets.previous(m), asOf:o.fetchedAt||null, cached:!!o.cached };
-      paintHome(); paintOutlook(); paintTop25();
-      return { key:"odds-"+q.key, outcome: o.cached ? "cached" : "network" };
-    }, function(){
+// The snapshot is the one Rankings' FPI reads (RATINGS.fpi), fetched through
+// it, so the two never ask twice and a fan who opens both waits once.
+function loadStrip(force){
+  return loadRating("fpi", force).then(function(r){
+    var x=RATINGS.fpi, d=x.raw;
+    if(!d){
       // A failed refresh keeps the field already drawn; it fails only a
       // field that never loaded.
-      MARKET_FIELD.failed[q.key] = !MARKET_FIELD[q.key];
+      OUTLOOK_KEYS.forEach(function(k){ OUTLOOK.failed[k] = !OUTLOOK[k]; });
       paintOutlook();
-      return { key:"odds-"+q.key, outcome:"failed" };
+      return [{ key:"fpi", outcome:"failed" }];
+    }
+    var mine = TeamOS.ratings.projections(d, TEAM_CONFIG);
+    OUTLOOK_KEYS.forEach(function(k){
+      OUTLOOK[k] = TeamOS.ratings.projectionField(d, TEAM_CONFIG, k);
+      OUTLOOK.settled[k] = { asOf:d.sourceUpdated||d.fetchedAt||null, cached:!!x.cached };
+      OUTLOOK.failed[k] = false;
+      HOME.markets[k] = mine[k] ? Object.assign({}, mine[k], { cached:!!x.cached }) : null;
     });
-  }));
+    paintHome(); paintOutlook(); paintTop25();
+    return [r];
+  });
 }
 // Season Outlook's full field (suite/outlook.js): the view's market, whole.
 function paintOutlook(){
   var host=$("screenOutlook");
   if(!host || host.hidden) return;
   var view=Suite.nav.current().view==="title" ? "title" : "playoff";
-  var s=MARKET_FIELD.settled[view];
-  Suite.outlook.paint(host, { team:{ name:TEAM.name }, view:view, covered:hasKalshi(),
-    field:MARKET_FIELD[view], loading:!s && !MARKET_FIELD.failed[view], failed:!!MARKET_FIELD.failed[view],
+  var s=OUTLOOK.settled[view];
+  Suite.outlook.paint(host, { team:{ name:TEAM.name }, view:view,
+    field:OUTLOOK[view], loading:!s && !OUTLOOK.failed[view], failed:!!OUTLOOK.failed[view],
     offline:navigator.onLine===false, asOf:s ? s.asOf : null, stale:!!(s && s.cached) });
 }
 
@@ -1469,7 +1420,7 @@ function homeSources(heroLive){
              : { key:key, missing:true, optional:optional };
   }
   var list=[s("schedule",false,12*HOUR)].concat(newsFreshSources(),
-            [s("odds",true,36*HOUR), s("weather",true,6*HOUR)]);
+            [s("fpi",true,48*HOUR), s("weather",true,6*HOUR)]);
   if(heroLive) list.push(s("scoreboard",false,10*60e3));
   return list;
 }
@@ -1668,9 +1619,9 @@ window.addEventListener("online",  function(){
   // week's opponent (Codex review, #84).
   if(!$("screenStats").hidden && statsView()==="team" && (ST.outcome!=="network" || (ST.oppFor && !ST.them))) loadStats(true);
   if(!$("screenStats").hidden && statsView()==="players" && PL.outcome!=="network") loadPlayers(true);
-  // So did the full field: a market that never loaded is asked again
+  // So did the full field: a view that never loaded is asked again
   // (Codex review, #109).
-  if(MARKET_FIELD.failed.title || MARKET_FIELD.failed.playoff) loadStrip();
+  if(OUTLOOK.failed.title || OUTLOOK.failed.playoff) loadStrip();
   paintOutlook();
 });
 window.addEventListener("offline", function(){ paintHome(); paintTop25(); paintRoster(); paintMore(); paintOutlook(); });
@@ -2357,7 +2308,7 @@ function prefetchSummaries(){
 function refreshAll(silent){
   T25.at=0;
   if(!silent) say("Refreshing…");
-  var steps=[loadTeamStatus(), refreshSchedule(false), loadStrip(), loadNews(true)];
+  var steps=[loadTeamStatus(), refreshSchedule(false), loadStrip(true), loadNews(true)];
   if(TeamOS.snapshots.get(TEAM_CONFIG, "notes")) steps.push(loadNotes());
   if(SB.data || SB.p) steps.push(getScoreboard(0).then(function(){ return { key:"scoreboard", outcome:outcomeOf("scoreboard") }; },
                                                        function(){ return { key:"scoreboard", outcome:"failed" }; }));

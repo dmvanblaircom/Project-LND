@@ -2,10 +2,7 @@
    2026-10-27). Same shape as teams/ohio-state.js; nothing else changed.
 
    Values verified on 2026-10-27 from GitHub's network (probe-sources.yml):
-   ESPN team 252 spells the home field "LaVell Edwards Stadium". Kalshi's
-   championship and playoff markets are KXNCAAF-27-BYU and
-   KXNCAAFPLAYOFF-26-BYU, named "BYU". Not "Cougars": Houston and Washington
-   State are Cougars too. */
+   ESPN team 252 spells the home field "LaVell Edwards Stadium". */
 
 var TEAM_CONFIG = {
 
@@ -29,11 +26,6 @@ var TEAM_CONFIG = {
       teamId: "252",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-BYU",
-      namePattern:  /\bbyu\b|brigham young/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     // BYU predates the conference feeds; its name in the Big 12's archive
     // ("BYU") was checked from GitHub's network on 2026-10-29.
@@ -105,7 +97,6 @@ var TEAM_CONFIG = {
 
   snapshots: {
     availability: { file: "data/byu/availability.json", history: "data/byu/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory: { file: "data/byu/odds-history.json" },
     beatNews:    { file: "data/byu/news.json" },
     recruits:    { file: "data/byu/recruits.json", label: "ESPN recruiting" }
   }

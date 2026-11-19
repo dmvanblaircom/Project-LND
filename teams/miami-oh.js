@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "193",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MOH",
-      namePattern:  /miami \(oh\)|miami oh\b|redhawks/i
-    },
-
     // The MAC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://getsomemaction.com/sports/football",
@@ -92,7 +87,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/miami-oh/availability.json", history: "data/miami-oh/availability-history.json", label: "GetSomeMACtion.com" },
-    oddsHistory:  { file: "data/miami-oh/odds-history.json" },
     beatNews:     { file: "data/miami-oh/news.json" },
     recruits:     { file: "data/miami-oh/recruits.json", label: "ESPN recruiting" }
   }

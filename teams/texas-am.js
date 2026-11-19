@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "245",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TXAM",
-      namePattern:  /(?<!east )texas a&m(?!-)/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -93,7 +88,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/texas-am/availability.json", history: "data/texas-am/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/texas-am/odds-history.json" },
     beatNews:     { file: "data/texas-am/news.json" },
     recruits:     { file: "data/texas-am/recruits.json", label: "ESPN recruiting" }
   }

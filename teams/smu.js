@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2567",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-SMU",
-      namePattern:  /\bsmu\b|southern methodist/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -92,7 +87,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/smu/availability.json", history: "data/smu/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/smu/odds-history.json" },
     beatNews:     { file: "data/smu/news.json" },
     recruits:     { file: "data/smu/recruits.json", label: "ESPN recruiting" }
   }

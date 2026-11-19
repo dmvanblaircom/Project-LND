@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "130",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MICH",
-      namePattern:  /(?<!western )(?<!central )(?<!eastern )\bmichigan\b(?! st)|wolverines/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -98,7 +93,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/michigan/availability.json", history: "data/michigan/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/michigan/odds-history.json" },
     beatNews:     { file: "data/michigan/news.json" },
     recruits:     { file: "data/michigan/recruits.json", label: "ESPN recruiting" }
   }

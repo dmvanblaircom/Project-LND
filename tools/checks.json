@@ -47,7 +47,6 @@
   { "id": "pronouncecheck.py", "kind": "unit", "run": "python3 tools/pronouncecheck.py" },
   { "id": "rankingshistorycheck.py", "kind": "unit", "run": "python3 tools/rankingshistorycheck.py" },
   { "id": "prospectsrefreshcheck.py", "kind": "unit", "run": "python3 tools/prospectsrefreshcheck.py" },
-  { "id": "marketscheck.py", "kind": "unit", "run": "python3 tools/marketscheck.py" },
   { "id": "workercheck.mjs", "kind": "unit", "run": "node tools/workercheck.mjs" },
   { "id": "offseasonrendercheck.js", "kind": "unit", "run": "node tools/offseasonrendercheck.js" },
 

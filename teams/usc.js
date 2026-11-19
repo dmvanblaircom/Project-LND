@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "30",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-USC",
-      namePattern:  /\busc\b|trojans/i
-    },
-
     // The Big Ten's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
@@ -98,7 +93,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/usc/availability.json", history: "data/usc/availability-history.json", label: "BigTen.org" },
-    oddsHistory:  { file: "data/usc/odds-history.json" },
     beatNews:     { file: "data/usc/news.json" },
     recruits:     { file: "data/usc/recruits.json", label: "ESPN recruiting" }
   }

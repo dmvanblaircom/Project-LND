@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "142",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MIZZ",
-      namePattern:  /(?<!southeast )\bmissouri\b(?! st)|mizzou/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -93,7 +88,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/missouri/availability.json", history: "data/missouri/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/missouri/odds-history.json" },
     beatNews:     { file: "data/missouri/news.json" },
     recruits:     { file: "data/missouri/recruits.json", label: "ESPN recruiting" }
   }

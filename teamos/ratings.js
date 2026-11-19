@@ -3,6 +3,22 @@
      data/league/fpi.json  ->  TeamOS.ratings.fpi(snapshot, TEAM_CONFIG, season)  ->  Rating | null
      <edge>/v1/cfbd/sp     ->  TeamOS.ratings.spPlus(body, TEAM_CONFIG, season, TEAM_REGISTRY)
                                                                                  ->  Rating | null
+     data/league/fpi.json  ->  TeamOS.ratings.projections(snapshot, TEAM_CONFIG)  ->  { playoff, title }
+                           ->  TeamOS.ratings.projectionField(snapshot, TEAM_CONFIG, key)  ->  Field | null
+
+   Season Outlook's odds are ESPN's FPI projections, kept in the same
+   snapshot (David, 2026-11-19; Kalshi's markets were removed until Suite
+   holds Kalshi's data license). projections() gives the team's playoff
+   and title chance, each { value, previous, asOf } or null, in the shape
+   TeamOS.outlook.metrics() reads; projectionField() every team with a
+   chance, most likely first:
+
+     Field = { key, label, rows: [{ team, value, previous, change, mine }] }
+
+   A team ESPN gives no chance (0%) is not listed; previous is the edition
+   before (the producer carries it), change the move from it. Once the
+   season is decided - no team's title chance strictly between 0 and 100 -
+   there is nothing left to project and both answer nothing.
 
    A rating is not a poll: nobody votes, there are no first-place votes, and
    it is never blended with one. It has the shape of a Poll
@@ -119,5 +135,50 @@ TeamOS.ratings = (function () {
     return { key: rating.key, fetchedAt: rating.updated || rating.fetchedAt, cached: !!cached, maxAgeMs: MAX_AGE_MS };
   }
 
-  return { fpi: fpi, spPlus: spPlus, freshnessSource: freshnessSource, TOP: TOP, MAX_AGE_MS: MAX_AGE_MS };
+  // ---- Season Outlook's projected odds (FPI) ----
+  var ODDS_KEYS = ["playoff", "title"];
+  function fpiTeams(snap) {
+    return snap && snap.source === "fpi" && Array.isArray(snap.teams) ? snap.teams.filter(Boolean) : [];
+  }
+  function undecided(rows) {
+    return rows.some(function (t) { var v = num((t.odds || {}).title); return v != null && v > 0 && v < 100; });
+  }
+  function espnIdOf(config) {
+    var id = config && config.sources && config.sources.espn && config.sources.espn.teamId;
+    return id == null ? null : str(id);
+  }
+  function pctOf(o, key) {
+    var v = num((o || {})[key]);
+    return v != null && v >= 0 && v <= 100 ? v : null;
+  }
+  function projections(snap, config) {
+    var rows = fpiTeams(snap), me = espnIdOf(config), out = { playoff: null, title: null };
+    if (!me || !undecided(rows)) return out;
+    var t = rows.filter(function (r) { return str(r.espnId) === me; })[0];
+    if (!t) return out;
+    ODDS_KEYS.forEach(function (k) {
+      var v = pctOf(t.odds, k);
+      if (v != null) out[k] = { value: v, previous: pctOf(t.prev, k), asOf: snap.sourceUpdated || snap.fetchedAt || null };
+    });
+    return out;
+  }
+  function projectionField(snap, config, key) {
+    var rows = fpiTeams(snap), me = espnIdOf(config);
+    if (ODDS_KEYS.indexOf(key) < 0 || !undecided(rows)) return null;
+    var meta = ((TeamOS.outlook && TeamOS.outlook.MARKETS) || []).filter(function (m) { return m.key === key; })[0];
+    var list = rows.map(function (t) {
+      var v = pctOf(t.odds, key);
+      if (v == null || v <= 0) return null;
+      var p = pctOf(t.prev, key);
+      return { team: str(t.name), value: v, previous: p,
+               change: p == null ? null : Math.round((v - p) * 10) / 10,
+               mine: !!me && str(t.espnId) === me };
+    }).filter(Boolean).sort(function (a, b) {
+      return b.value - a.value || (a.team < b.team ? -1 : a.team > b.team ? 1 : 0);
+    });
+    return list.length ? { key: key, label: meta ? meta.label : key, rows: list } : null;
+  }
+
+  return { fpi: fpi, spPlus: spPlus, projections: projections, projectionField: projectionField,
+           freshnessSource: freshnessSource, TOP: TOP, MAX_AGE_MS: MAX_AGE_MS };
 })();

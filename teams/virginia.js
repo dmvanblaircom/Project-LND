@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "258",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UVA",
-      namePattern:  /(?<!west )\bvirginia\b(?! tech| st| union|-)/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/virginia/availability.json", history: "data/virginia/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/virginia/odds-history.json" },
     beatNews:     { file: "data/virginia/news.json" },
     recruits:     { file: "data/virginia/recruits.json", label: "ESPN recruiting" }
   }

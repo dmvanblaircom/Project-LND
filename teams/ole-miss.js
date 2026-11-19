@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "145",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MISS",
-      namePattern:  /ole miss|^mississippi$/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/ole-miss/availability.json", history: "data/ole-miss/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/ole-miss/odds-history.json" },
     beatNews:     { file: "data/ole-miss/news.json" },
     recruits:     { file: "data/ole-miss/recruits.json", label: "ESPN recruiting" }
   }
