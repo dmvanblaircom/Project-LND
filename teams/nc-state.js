@@ -49,7 +49,8 @@ var TEAM_CONFIG = {
 
   series: [
     { match: /^north carolina( tar heels)?$/i, name: "NC State-North Carolina", kind: "rivalry" },
-    { match: /^clemson( tigers)?$/i, name: "Textile Bowl", kind: "rivalry" }
+    { match: /^clemson( tigers)?$/i, name: "Textile Bowl", kind: "rivalry" },
+    { match: /^east carolina( pirates)?$/i, name: "Victory Barrel", kind: "trophy" }
   ],
 
   links: {

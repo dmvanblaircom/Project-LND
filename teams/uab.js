@@ -45,7 +45,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^memphis( tigers)?$/i, name: "Battle for the Bones", kind: "trophy" }
   ],
 
   links: {

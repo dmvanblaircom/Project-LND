@@ -46,7 +46,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-    { match: /^tcu( horned frogs)?$/i, name: "Iron Skillet", kind: "trophy" }
+    { match: /^tcu( horned frogs)?$/i, name: "Iron Skillet", kind: "trophy" },
+    { match: /^north texas( mean green)?$/i, name: "Safeway Bowl", kind: "rivalry" }
   ],
 
   links: {

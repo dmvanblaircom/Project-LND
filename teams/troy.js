@@ -57,7 +57,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-    { match: /^south alabama( jaguars)?$/i, name: "Battle for the Belt", kind: "trophy" }
+    { match: /^south alabama( jaguars)?$/i, name: "Battle for the Belt", kind: "trophy" },
+    { match: /^jacksonville state( gamecocks)?$/i, name: "Battle for the Ol’ School Bell", kind: "trophy" }
   ],
 
   links: {

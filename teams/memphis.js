@@ -48,7 +48,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^uab( blazers)?$/i, name: "Battle for the Bones", kind: "trophy" },
+    { match: /^arkansas state( red wolves)?$/i, name: "Paint Bucket Bowl", kind: "rivalry" }
   ],
 
   links: {

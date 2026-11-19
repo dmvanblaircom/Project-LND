@@ -44,7 +44,7 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^ball state( cardinals)?$/i, name: "Bronze Stalk Trophy", kind: "trophy" }
   ],
 
   links: {

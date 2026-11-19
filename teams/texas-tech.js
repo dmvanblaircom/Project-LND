@@ -48,7 +48,8 @@ var TEAM_CONFIG = {
   },
 
   series: [
-
+    { match: /^texas( longhorns)?$/i, name: "Chancellor's Spurs", kind: "trophy" },
+    { match: /^tcu( horned frogs)?$/i, name: "Saddle Trophy", kind: "trophy" }
   ],
 
   links: {
