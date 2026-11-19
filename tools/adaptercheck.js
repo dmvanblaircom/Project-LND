@@ -848,13 +848,13 @@ eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the d
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
    ["data/notre-dame/depth.json", "data/notre-dame/depth-history.json", "data/notre-dame/availability.json",
-    "data/notre-dame/availability-history.json", "data/notre-dame/odds-history.json", "data/notre-dame/news.json",
+    "data/notre-dame/availability-history.json", "data/notre-dame/news.json",
     "data/notre-dame/notes.json", "data/notre-dame/recruits.json"],
    "Notre Dame's snapshots, files and histories together - availability is its own now");
 eq(TeamOS.snapshots.files(load("teams/ohio-state.js").TEAM_CONFIG), ["data/ohio-state/availability.json",
-    "data/ohio-state/availability-history.json", "data/ohio-state/odds-history.json", "data/ohio-state/news.json",
+    "data/ohio-state/availability-history.json", "data/ohio-state/news.json",
     "data/ohio-state/notes.json", "data/ohio-state/recruits.json"],
-   "Ohio State caches only what it declares: the Big Ten's availability report, its own odds history and beat news (W20), its recruits and game notes");
+   "Ohio State caches only what it declares: the Big Ten's availability report, its own beat news (W20), its recruits and game notes");
 eq(TeamOS.snapshots.files({}), [], "a config with no snapshots section is not an error");
 eq(TeamOS.snapshots.files({ snapshots: { depth: { file: "d.json" } } }), ["d.json"],
    "a kind with no history contributes one file");
@@ -864,7 +864,7 @@ var ND = TeamOS.createTeam(TEAM_CONFIG.team), OSU = osu.TeamOS.createTeam(osu.TE
 var ndFiles = { depth: JSON.parse(read("data/notre-dame/depth.json")), history: JSON.parse(read("data/notre-dame/depth-history.json")),
                 availability: JSON.parse(read("data/notre-dame/availability.json")),
                 availabilityHistory: JSON.parse(read("data/notre-dame/availability-history.json")),
-                odds: JSON.parse(read("data/notre-dame/odds-history.json")), news: JSON.parse(read("data/notre-dame/news.json")) };
+                news: JSON.parse(read("data/notre-dame/news.json")) };
 
 console.log(" notre-dame");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),
@@ -872,7 +872,6 @@ eq(TeamOS.snapshots.get(TEAM_CONFIG, "depth"),
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "availability"),
    { file:"data/notre-dame/availability.json", history:"data/notre-dame/availability-history.json", label:"FightingIrish.com" },
    "declares an availability report, separately from the depth chart");
-eq(TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"), { file:"data/notre-dame/odds-history.json" }, "declares an odds history");
 eq(TeamOS.snapshots.get(TEAM_CONFIG, "beatNews"),    { file:"data/notre-dame/news.json" },         "declares beat news");
 ok(TeamOS.snapshots.owned(ND, ndFiles.depth),   "owns the committed depth.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.history), "owns the committed depth-history.json");
@@ -881,12 +880,11 @@ ok(TeamOS.snapshots.owned(ND, ndFiles.availabilityHistory), "owns the committed 
 eq([ndFiles.depth.schema, ndFiles.history.schema], [2, 2], "the depth snapshots are in the slot model");
 ok(typeof ndFiles.availability.reported === "boolean" && "effectiveAt" in ndFiles.availability,
    "the availability report says whether it exists, and when it is from");
-ok(TeamOS.snapshots.owned(ND, ndFiles.odds),    "owns the committed odds-history.json");
 ok(TeamOS.snapshots.owned(ND, ndFiles.news),    "owns the committed news.json");
 eq([ndFiles.depth.team, ndFiles.history.team], ["notre-dame", "notre-dame"],
    "official personnel snapshots are stamped with their owning team");
-ok([ndFiles.odds.team, ndFiles.news.team].every(function (t) { return t == null || t === "notre-dame"; }),
-   "the price history and beat news are stamped Notre Dame's, or - written before stamping - rely on the declaration");
+ok([ndFiles.news.team].every(function (t) { return t == null || t === "notre-dame"; }),
+   "the beat news is stamped Notre Dame's, or - written before stamping - relies on the declaration");
 
 // Backlog C2: a team's files live in its own folder, so two teams' can never
 // collide, and a folder never holds another team's file.
@@ -912,8 +910,6 @@ ok(["depth", "depth-history", "availability", "availability-history", "odds-hist
 
 console.log(" ohio-state");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "depth"),       null, "declares no depth chart");
-eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "oddsHistory"), { file:"data/ohio-state/odds-history.json" },
-   "declares its own odds history, in its own folder (W20) - never Notre Dame's");
 eq(osu.TeamOS.snapshots.get(osu.TEAM_CONFIG, "beatNews"),    { file:"data/ohio-state/news.json" }, "declares its own beat news (W20)");
 eq(osu.TEAM_CONFIG.sources.beatFeeds.map(function (f) { return f.name; }),
    ["Ohio State Athletics", "Land-Grant Holy Land", "Ohio State On SI", "On3", "The Lantern"], "the five feeds David approved, 2026-10-02");
@@ -934,7 +930,8 @@ function throws(fn, what) { try { fn(); ok(false, what); } catch (e) { ok(true, 
 throws(function () { TeamOS.snapshots.get(TEAM_CONFIG, "depthChart"); }, "an unknown kind throws");
 throws(function () { TeamOS.snapshots.get({ snapshots: { depth: { history: "x.json" } } }, "depth"); }, "a declaration without a file throws");
 throws(function () { TeamOS.snapshots.get({ snapshots: { depth: "depth.json" } }, "depth"); }, "a bare string throws");
-eq(TeamOS.snapshots.get({ snapshots: { oddsHistory: { file: "x.json" } } }, "oddsHistory"), { file: "x.json" }, "a minimal declaration passes through");
+eq(TeamOS.snapshots.get({ snapshots: { beatNews: { file: "x.json" } } }, "beatNews"), { file: "x.json" }, "a minimal declaration passes through");
+throws(function () { TeamOS.snapshots.get(TEAM_CONFIG, "oddsHistory"); }, "the Kalshi odds history is no longer a kind (removed 2026-11-19)");
 
 
 // ---- team identity: the same questions, two teams, two answers ----
@@ -1084,13 +1081,6 @@ ok(!/:before{content:"[^"]*[A-Z]{2,}[^"]*"}/.test(cssRules), "no section label i
 ok(!/'Barlow|'Grenze/.test(cssRules.replace(/@font-face\{[^}]*\}/g, "")),
    "type comes from the team's stacks, not from the rules (a face's own @font-face aside: Barlow is Rutgers' since Phase 1)");
 
-// ---- a team without a provider's data does not see that surface ----
-// Kalshi prices the championship contenders, not all of FBS. A team it takes
-// no market on has nothing to show, and a card reading "No market" every week
-// is worse than no card. Same shape as the snapshot rule (decision 0008): the
-// capability is declared, and a team without it never sees the surface.
-// Odds reach the page only from the committed snapshot (W11): no public
-// relay ever sees a fan's request or touches the prices.
 function liftFn2(name) {
   var src = read("app.js").replace(/\r\n/g, "\n");
   var m = src.match(new RegExp("^function " + name + "\\([^)]*\\)\\{[\\s\\S]*?^\\}", "m"));
@@ -1105,17 +1095,25 @@ console.log("app.js news: only web links reach an href");
     " { title:'Espn', link:'https://espn.example/2', image:'', source:'ESPN', publishedAt: 1 }]).map(function(a){ return a.title; })", nl);
   eq(got, ["Fine", "Espn"], "a beat story with a javascript: or relative link never reaches Home or News"); }
 
-console.log("odds come from our own snapshot only");
+// Season Outlook's odds are ESPN's FPI projections from the committed
+// snapshot (David, 2026-11-19). Kalshi's markets were removed at Kalshi's
+// request until Suite holds its data license.
+console.log("Season Outlook: ESPN's projections, from our own snapshot only");
 // line comments first: one of them mentions "teamos/*.js", which would
 // otherwise open a block comment and swallow real code
 var appSrc = read("app.js").replace(/^\s*\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
 ok(!/corsproxy|allorigins|codetabs|https?:\/\/[^"']*proxy/i.test(appSrc), "app.js routes nothing through a third-party relay");
-ok(!/api\.elections\.kalshi\.com/.test(appSrc), "nor straight to Kalshi, which sends no CORS header");
-ok(/data\/league\/odds-playoff\.json/.test(appSrc) && /data\/league\/odds-title\.json/.test(appSrc), "the same-origin snapshots are the route");
+ok(!/kalshi/i.test(appSrc), "and asks Kalshi for nothing: no route, no market, no snapshot");
+ok(!/odds-(title|playoff)\.json|odds-history\.json/.test(appSrc), "nor reads the removed Kalshi files");
+ok(/"data\/league\/fpi\.json"/.test(appSrc), "the FPI snapshot is the route");
+ok(!fs.existsSync(path.join(root, "teamos", "markets.js")), "the Kalshi adapter is gone");
+ok(!fs.existsSync(path.join(root, "data", "league", "odds-title.json")) && !fs.existsSync(path.join(root, "data", "league", "odds-playoff.json")),
+   "and so are the stored Kalshi files (Kalshi: storing them in a public repository is not covered)");
+fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f); }).forEach(function (f) {
+  if (/kalshi\s*:|oddsHistory/.test(read("teams/" + f))) ok(false, f + " still declares Kalshi markets or an odds history");
+});
+ok(true, "no team declares Kalshi markets or an odds history");
 
-// Before this, a config with no kalshi block threw on the first market check.
-// Kalshi's schema now lives in TeamOS.markets (W18); app.js only asks it.
-console.log("TeamOS.markets: Kalshi is a capability");
 var appSrc = read("app.js").replace(/\r\n/g, "\n");
 
 // Lift a function out of app.js by matching to a closing brace in column 1.
@@ -1130,118 +1128,83 @@ function liftFn(name) {
                              " - it is probably a one-liner; stub it instead");
   return m[0] + "\n";
 }
-function marketsCtx() {
+function outlookCtx() {
   var c = vm.createContext({});
-  ["teamos/outlook.js", "teamos/markets.js"].forEach(function (f) { vm.runInContext(read(f), c, { filename: f }); });
+  ["teamos/ratings.js", "teamos/outlook.js"].forEach(function (f) { vm.runInContext(read(f), c, { filename: f }); });
   return c;
 }
-var MK = marketsCtx().TeamOS.markets;
-var mkSrc = uncomment(read("teamos/markets.js"));
-ok(!/\bfetch\s*\(|\b(document|window|localStorage)\b/.test(mkSrc), "teamos/markets.js is pure: no fetch, no DOM, no storage");
-ok(!/notre|irish|ohio|buckeye|"-ND"|"-OSU"/i.test(mkSrc), "and names no team");
-ok(!/yes_bid|yes_sub_title|last_price|previous_price/.test(uncomment(appSrc)), "app.js reads no Kalshi field: the schema enters only through TeamOS.markets");
+var OL = outlookCtx().TeamOS.outlook, RT = outlookCtx().TeamOS.ratings;
+eq(Object.keys(OL).sort(), ["MARKETS", "metrics"], "TeamOS.outlook: exactly the documented functions");
+eq(Object.keys(RT).sort(), ["MAX_AGE_MS", "TOP", "fpi", "freshnessSource", "projectionField", "projections", "spPlus"], "TeamOS.ratings: the projections join its documented functions");
+var olSrc = uncomment(read("teamos/outlook.js"));
+ok(!/\bfetch\s*\(|\b(document|window|localStorage)\b/.test(olSrc), "teamos/outlook.js is pure: no fetch, no DOM, no storage");
+ok(!/espn\.com|kalshi|notre|irish|ohio|buckeye/i.test(olSrc), "and names no provider host and no team");
 
-var ndK = { sources: { kalshi: { tickerSuffix: "-ND" } } };
-ok(MK.covers(ndK), "a team that declares Kalshi markets has the capability");
-ok(!MK.covers({ sources: {} }), "a team whose config has no kalshi block does not");
-ok(!MK.covers({}), "nor one with no sources at all");
-ok(!MK.covers({ sources: { kalshi: null } }), "nor one that declares it as null");
-function safe(f) { try { return f(); } catch (e) { return "THREW: " + e.message; } }
-eq(safe(function () { return MK.isTeams({ sources: {} }, "KXNCAAF-27-ND", "Notre Dame"); }), false,
-   "asking whether a market is ours, with no kalshi config, answers no");
-eq(safe(function () { return MK.isTeams({}, "KXNCAAF-27-ND", "Notre Dame"); }), false, "and does not throw with no sources");
-eq(MK.isTeams(ndK, "KXNCAAF-27-ND", "Somebody"), true, "a matching ticker suffix is ours");
-eq(MK.isTeams(ndK, "KXNCAAF-27-OSU", "Ohio St."), false, "another team's ticker is not");
+var ndC = { sources: { espn: { teamId: "87" } } }, osuC = { sources: { espn: { teamId: "194" } } };
+var proj = { source: "fpi", season: 2026, sourceUpdated: "2026-11-18T09:00Z", teams: [
+  { espnId: "61",  name: "Georgia",    odds: { playoff: 97.2, title: 21.0 }, prev: { playoff: 96.0, title: 22.4 } },
+  { espnId: "87",  name: "Notre Dame", odds: { playoff: 95.1, title: 12.3 }, prev: { playoff: 93.0 } },
+  { espnId: "194", name: "Ohio State", odds: { playoff: 36.0 } },
+  { espnId: "9",   name: "Arizona St", odds: { playoff: 0, title: 0 } },
+  { espnId: "2",   name: "Auburn",     odds: { playoff: 0.4, title: 0 } } ] };
 
-console.log("TeamOS.markets: prices, as the app has always read them");
-eq(MK.price({ yes_bid_dollars: "0.8000", yes_ask_dollars: "0.8400" }), 82, "the bid/ask midpoint, as a percent");
-eq(MK.price({ yes_bid_dollars: "0", yes_ask_dollars: "0", last_price_dollars: "0.0300" }), 3, "no quotes: the last trade");
-eq(MK.price({ yes_bid: 40, yes_ask: 44 }), 42, "the older integer-cents shape still reads");
-eq(MK.price({}), null, "no price at all: null, never 0");
-eq(MK.previous({ previous_price_dollars: "0.0500" }), 5, "the previous price, as a percent");
-eq(MK.previous({}), null, "no previous price: null");
+console.log("TeamOS.ratings.projections: the team's own numbers");
+var mine = RT.projections(proj, ndC);
+eq([mine.playoff.value, mine.playoff.previous, mine.title.value, mine.title.previous, mine.title.asOf],
+   [95.1, 93, 12.3, null, "2026-11-18T09:00Z"], "Notre Dame: ESPN's playoff and title odds, each with the last edition's where kept");
+eq(OL.metrics(mine).map(function (x) { return [x.key, x.value, x.change]; }), [["playoff", 95.1, 2.1], ["title", 12.3, null]],
+   "and Home's metrics read them, a move shown only where there is one");
+var osuMine = RT.projections(proj, osuC);
+eq([osuMine.playoff.value, osuMine.title], [36, null], "each number independent: a playoff chance with no title number shows alone");
+eq(RT.projections(proj, { sources: { espn: { teamId: "999" } } }), { playoff: null, title: null }, "a team not in the table: nothing, never a 0");
+eq(RT.projections(proj, {}), { playoff: null, title: null }, "a config with no ESPN id: nothing, and no throw");
+eq(RT.projections(null, ndC), { playoff: null, title: null }, "no snapshot: nothing");
+eq(RT.projections({ source: "sp", teams: proj.teams }, ndC), { playoff: null, title: null }, "a snapshot that is not FPI's: nothing");
 
-console.log("TeamOS.markets: the full field (W18), from the committed snapshots");
-var titleEv = JSON.parse(read("data/league/odds-title.json")), playoffEv = JSON.parse(read("data/league/odds-playoff.json"));
-var osuK = { sources: { kalshi: { tickerSuffix: "-OSU", namePattern: /ohio st/i } } };
-[["title", titleEv, "National Title"], ["playoff", playoffEv, "Playoff"]].forEach(function (e) {
-  var fld = MK.field(e[1], ndK, e[0]);
-  ok(fld && fld.key === e[0] && fld.label === e[2], e[2] + ": the field, under Home's label for it");
-  var priced = e[1].markets.filter(function (m) { return MK.price(m) != null; }).length;
-  eq(fld.rows.length, priced, e[2] + ": every team the event prices, and only those");
-  ok(fld.rows.every(function (r, i) { return !i || r.value <= fld.rows[i - 1].value; }), e[2] + ": most likely first");
-  ok(fld.rows.every(function (r) { return r.value >= 0 && r.value <= 100 && r.team; }), e[2] + ": every row a named team with a percent");
-  var team = MK.teamMarket(e[1], ndK), mine = fld.rows.filter(function (r) { return r.mine; });
-  ok(team ? mine.length === 1 && mine[0].value === MK.price(team) : mine.length === 0,
-     e[2] + ": the team's own row agrees with the number Home shows (" + (mine[0] ? mine[0].value.toFixed(1) + "%" : "not priced") + ")");
-  var osuRows = MK.field(e[1], osuK, e[0]).rows.filter(function (r) { return r.mine; });
-  ok(osuRows.length <= 1 && !osuRows.some(function (r) { return /-ND$/.test(r.ticker); }), e[2] + ": for Ohio State, its own row is marked instead");
-});
-var tiny = { markets: [
-  { ticker: "X-A", yes_sub_title: "Alpha", yes_bid_dollars: "0.2000", yes_ask_dollars: "0.2200", previous_price_dollars: "0.1800", status: "active" },
-  { ticker: "X-B", yes_sub_title: "Beta",  status: "active" },
-  { ticker: "X-C", yes_sub_title: "Gamma", last_price_dollars: "0.5000", status: "settled" },
-  { ticker: "X-D", yes_sub_title: "Delta", yes_bid_dollars: "0.2000", yes_ask_dollars: "0.2200", status: "active" } ] };
-var tf = MK.field(tiny, { sources: { kalshi: { tickerSuffix: "-D" } } }, "title");
-eq(tf.rows.map(function (r) { return r.team; }), ["Alpha", "Delta"], "an unpriced market and a closed one are left out; ties read by name");
-
-console.log("TeamOS.markets: the suffix wins over a look-alike name (Michigan, 2026-10-29)");
-var lookalike = { markets: [
-  { ticker: "KXNCAAFPLAYOFF-26-WMU", yes_sub_title: "Western Michigan", last_price_dollars: "0.0400", status: "active" },
-  { ticker: "KXNCAAFPLAYOFF-26-MICH", yes_sub_title: "Michigan", last_price_dollars: "0.6100", status: "active" } ] };
-var michK = { sources: { kalshi: { tickerSuffix: "-MICH", namePattern: /\bmichigan\b(?! st)|wolverines/i } } };
-eq(MK.teamMarket(lookalike, michK).ticker, "KXNCAAFPLAYOFF-26-MICH", "a pattern that also reads Western Michigan still gets Michigan's own market");
-eq(MK.field(lookalike, michK, "playoff").rows.filter(function (r) { return r.mine; }).map(function (r) { return r.ticker; }), ["KXNCAAFPLAYOFF-26-MICH"],
-   "and only Michigan's row is marked as the team's");
-eq(MK.teamMarket(lookalike, { sources: { kalshi: { namePattern: /western mich/i } } }).ticker, "KXNCAAFPLAYOFF-26-WMU", "a config with only a pattern still finds its market by name");
-eq(MK.teamMarket(lookalike, { sources: { kalshi: { tickerSuffix: "-ND", namePattern: /notre dame/i } } }), null, "and a team not in the event finds none");
-
-console.log("every configured team's name pattern reads only its own market in the committed league snapshots");
-fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; }).forEach(function (f) {
-  var c = vm.createContext({}); vm.runInContext(read("teams/" + f), c, { filename: f });
-  var k = c.TEAM_CONFIG.sources && c.TEAM_CONFIG.sources.kalshi;
-  if (!k || !k.namePattern || !k.tickerSuffix) return;
-  [titleEv, playoffEv].forEach(function (ev) {
-    var hits = ev.markets.filter(function (m) { return k.namePattern.test(MK.name(m) || ""); });
-    var other = hits.filter(function (m) { return !String(m.ticker || "").endsWith(k.tickerSuffix); });
-    if (other.length) ok(false, f + ": its name pattern also reads " + other.map(function (m) { return MK.name(m); }).join(", "));
-  });
-});
-ok(true, "checked every config with a Kalshi suffix and pattern");
-eq([tf.rows[0].change, tf.rows[1].change], [3, null], "change against the source's previous price, else none");
-ok(tf.rows[1].mine && !tf.rows[0].mine, "the team's row is marked");
-eq(MK.field({ markets: [] }, ndK, "title"), null, "an event with nothing priced: no field");
-eq(MK.field(null, ndK, "title"), null, "no event at all: no field");
+console.log("TeamOS.ratings.projectionField: the full field");
+var pf = RT.projectionField(proj, ndC, "playoff");
+eq(pf.label, "Playoff", "under Home's label");
+eq(pf.rows.map(function (r) { return r.team; }), ["Georgia", "Notre Dame", "Ohio State", "Auburn"], "every team with a chance, most likely first; 0% left out");
+eq(pf.rows.map(function (r) { return r.change; }), [1.2, 2.1, null, null], "each move against the last edition, else none");
+eq(pf.rows.filter(function (r) { return r.mine; }).map(function (r) { return r.team; }), ["Notre Dame"], "the team's own row is marked");
+eq(RT.projectionField(proj, osuC, "title").rows.map(function (r) { return r.team; }), ["Georgia", "Notre Dame"], "the title field: only teams with a title chance");
+eq(RT.projectionField(proj, ndC, "heisman"), null, "an unknown view: nothing");
+var settled = JSON.parse(JSON.stringify(proj));
+settled.teams.forEach(function (t) { t.odds.title = t.espnId === "61" ? 100 : 0; });
+eq([RT.projectionField(settled, ndC, "playoff"), RT.projections(settled, ndC)], [null, { playoff: null, title: null }],
+   "once the season is decided (a title at 100%, the rest 0), there is nothing left to project");
 
 console.log(" and the Season Outlook actually goes");
 // Behavioural, not a grep: run the real loadStrip against a stubbed page and
-// see what Home is given (decision 0024 §12: each market independent, and a
-// team Kalshi does not price has no Season Outlook).
-function stripRun(config) {
-  var c = marketsCtx();
+// see what Home is given.
+function stripRun(snapshot, config) {
+  var c = outlookCtx();
   c.console = console;
-  vm.runInContext("var TEAM_CONFIG = " + config + ";", c);
+  vm.runInContext("var TEAM_CONFIG = " + JSON.stringify(config) + ", SNAP = " + JSON.stringify(snapshot) + ";", c);
   vm.runInContext([
-    "var asked = 0, painted = 0, TITLE_EVENT = 'T', PLAYOFF_EVENT = 'P';",
+    "var asked = [], painted = 0;",
     "var HOME = { markets: {} }, SRC = {};",
     "function paintHome(){ painted++; } function paintOutlook(){} function paintTop25(){}",
     // answers synchronously, so the result is here when the check reads it
-    "function kalshi(){ asked++; return { then: function(f){ f({ markets: [] }); return { catch: function(){} }; } }; }"
+    // Rankings' FPI loader, stubbed: it keeps a usable snapshot as RATINGS.fpi.raw
+    "var RATINGS = { fpi: { raw: null, cached: false } };",
+    "function loadRating(key, force){ asked.push(key + (force ? ':force' : '')); var ok = !!SNAP && SNAP.source === 'fpi' && Array.isArray(SNAP.teams); if (ok) RATINGS.fpi.raw = SNAP; return { then: function(f){ return f({ key: 'fpi', outcome: ok ? 'network' : 'failed' }); } }; }",
+    "var OUTLOOK = { title:null, playoff:null, settled:{}, failed:{} }; var OUTLOOK_KEYS = ['playoff', 'title'];"
   ].join("\n"), c);
-  vm.runInContext(liftFn("loadStrip") + "function hasKalshi(){ return TeamOS.markets.covers(TEAM_CONFIG); }\nvar MARKET_FIELD = { settled:{}, failed:{} };\n", c);
-  vm.runInContext("loadStrip();", c);
+  vm.runInContext(liftFn("loadStrip"), c);
+  vm.runInContext("var RESULT = loadStrip();", c);
   return c;
 }
-var ndCfg = JSON.stringify(ndK);
-ok(/^function hasKalshi\(\)\{ return TeamOS\.markets\.covers\(TEAM_CONFIG\); \}$/m.test(appSrc), "app.js asks TeamOS whether the team has markets");
-var noKalshi = stripRun(JSON.stringify({ sources: {} }));
-eq(noKalshi.asked, 0, "a team with no Kalshi markets never asks Kalshi");
-eq(Object.keys(noKalshi.HOME.markets), [], "and Home is given no markets, so no Season Outlook");
-
-var withKalshi = stripRun(ndCfg);
-eq(withKalshi.asked, 2, "a team that has them asks both event queries");
-eq([withKalshi.HOME.markets.title, withKalshi.HOME.markets.playoff], [null, null],
-   "a feed that does not price this team leaves each market empty - not a made-up number");
+var run1 = stripRun(proj, ndC);
+eq(run1.asked, ["fpi"], "one read: the FPI snapshot, through Rankings' own loader, so the two never ask twice");
+eq([run1.HOME.markets.playoff.value, run1.HOME.markets.title.value], [95.1, 12.3], "Home is given the team's two numbers");
+eq([run1.OUTLOOK.playoff.rows.length, run1.OUTLOOK.title.rows.length], [4, 2], "and the full field behind each");
+eq(run1.RESULT, [{ key: "fpi", outcome: "network" }], "and the refresh reports it");
+var run2 = stripRun(proj, { sources: { espn: { teamId: "999" } } });
+eq([run2.HOME.markets.playoff, run2.HOME.markets.title], [null, null], "a team the table does not list: no numbers, so no Season Outlook");
+var run3 = stripRun({ truncated: true }, ndC);
+eq([run3.HOME.markets, run3.OUTLOOK.failed, run3.RESULT[0].outcome], [{}, { playoff: true, title: true }, "failed"],
+   "an unusable answer: nothing shown, each view marked failed");
 
 ok(!/\$\("(strip|mTitle|mPlayoff|oddsboard|hero|heroMini|foot|panel-game|legacy)"\)/.test(appSrc),
    "app.js reaches no pre-canonical element");

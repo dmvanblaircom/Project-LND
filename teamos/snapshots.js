@@ -1,9 +1,9 @@
 /* TeamOS - snapshot ownership.
 
    Some files in this repository are team data, not application data: the
-   depth chart, the availability report, the odds price history and the
-   beat-writer stories. They live in data/<team id>/ (league-wide files, such
-   as the Kalshi markets every team's price is read from, in data/league/).
+   depth chart, the availability report and the beat-writer stories. They
+   live in data/<team id>/ (league-wide files, such as ESPN's FPI, in
+   data/league/).
    The Action once wrote them at the root for one team, and app.js read them
    by name for whichever team was configured - so a second team's page
    showed the first team's two-deep, sparklines and beat stories under its
@@ -24,7 +24,6 @@
      snapshots: {
        depth:        { file: "data/<id>/depth.json", history: "data/<id>/depth-history.json", label: "..." },
        availability: { file: "data/<id>/availability.json", history: "data/<id>/availability-history.json" },
-       oddsHistory: { file: "data/<id>/odds-history.json" },
        beatNews:    { file: "data/<id>/news.json" }
      }
 
@@ -42,7 +41,7 @@ var TeamOS = TeamOS || {};
 TeamOS.snapshots = (function () {
   "use strict";
 
-  var KINDS = { depth: 1, availability: 1, oddsHistory: 1, beatNews: 1, notes: 1, recruits: 1 };
+  var KINDS = { depth: 1, availability: 1, beatNews: 1, notes: 1, recruits: 1 };
 
   function fail(what) { throw new Error("TeamOS.snapshots: " + what); }
 

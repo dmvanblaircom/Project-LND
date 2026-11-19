@@ -36,11 +36,6 @@ var TEAM_CONFIG = {
       teamId: "256",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-JMU",
-      namePattern:  /james madison|\bjmu\b/i
-    },
-
     // The Sun Belt publishes no availability reports that HD Intelligence
     // carries or that could be found on sunbeltsports.org (2026-10-29), so
     // none are shown.
@@ -97,7 +92,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/james-madison/availability.json", history: "data/james-madison/availability-history.json", label: "SunBeltSports.org" },
-    oddsHistory:  { file: "data/james-madison/odds-history.json" },
     beatNews:     { file: "data/james-madison/news.json" },
     recruits:     { file: "data/james-madison/recruits.json", label: "ESPN recruiting" }
   }

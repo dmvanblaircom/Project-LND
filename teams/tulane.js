@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2655",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TULN",
-      namePattern:  /\btulane\b/i
-    },
-
     // The American's availability reports (tools/producers/conference_availability.py).
     official: {
       // This season's game notes, linked from the notes page under this label
@@ -101,7 +96,6 @@ var TEAM_CONFIG = {
     // How to say the players' names, from the week's game notes.
     notes:        { file: "data/tulane/notes.json", label: "tulanegreenwave.com" },
     availability: { file: "data/tulane/availability.json", history: "data/tulane/availability-history.json", label: "TheAmerican.org" },
-    oddsHistory:  { file: "data/tulane/odds-history.json" },
     beatNews:     { file: "data/tulane/news.json" },
     recruits:     { file: "data/tulane/recruits.json", label: "ESPN recruiting" }
   }

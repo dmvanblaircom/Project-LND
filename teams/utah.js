@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "254",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UTAH",
-      namePattern:  /(?<!southern )\butah\b(?! st| tech)/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/utah/availability.json", history: "data/utah/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/utah/odds-history.json" },
     beatNews:     { file: "data/utah/news.json" },
     recruits:     { file: "data/utah/recruits.json", label: "ESPN recruiting" }
   }

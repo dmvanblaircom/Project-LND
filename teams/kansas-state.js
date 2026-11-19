@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2306",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-KSU",
-      namePattern:  /kansas st/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/kansas-state/availability.json", history: "data/kansas-state/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/kansas-state/odds-history.json" },
     beatNews:     { file: "data/kansas-state/news.json" },
     recruits:     { file: "data/kansas-state/recruits.json", label: "ESPN recruiting" }
   }

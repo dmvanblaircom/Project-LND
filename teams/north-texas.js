@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "249",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UNT",
-      namePattern:  /\bnorth texas\b|mean green/i
-    },
-
     // The American's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theamerican.org/sports/football",
@@ -92,7 +87,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/north-texas/availability.json", history: "data/north-texas/availability-history.json", label: "TheAmerican.org" },
-    oddsHistory:  { file: "data/north-texas/odds-history.json" },
     beatNews:     { file: "data/north-texas/news.json" },
     recruits:     { file: "data/north-texas/recruits.json", label: "ESPN recruiting" }
   }

@@ -285,7 +285,7 @@ Suite.more = (function () {
   var SUPPLIES = {
     scores: "Scores", schedule: "Schedule", rankings: "Rankings", rosters: "Rosters and player photos",
     news: "News", depth: "Official depth chart", availability: "Availability report",
-    outlook: "Season Outlook markets", weather: "Kickoff weather", matchup: "Matchup yards allowed", turnovers: "Turnover margin and turnovers", sp: "SP+ rankings"
+    outlook: "Season Outlook odds", weather: "Kickoff weather", matchup: "Matchup yards allowed", turnovers: "Turnover margin and turnovers", sp: "SP+ rankings"
   };
 
   function about(host, m) {
@@ -303,14 +303,13 @@ Suite.more = (function () {
     // Independence (Product, 2026-09-24): the standard statement independent
     // sports apps carry - no affiliation or endorsement, marks used only to
     // identify, third-party data that can lag. Not legal review.
-    var markets = (m.sources || []).some(function (s) { return s.supplies.indexOf("outlook") > -1; });
     var legal = '<section class="ab-legal" aria-labelledby="abLegal"><h2 class="sec-title" id="abLegal">Independent App</h2>' +
       "<p>Suite is an independent app. It is not affiliated with, endorsed by or sponsored by the NCAA, any athletic " +
       "conference, college or university, or any team shown, or by the data sources listed above.</p>" +
       "<p>Team names, logos and other marks are the property of their respective owners and are used only to " +
       "identify the teams.</p>" +
       "<p>Scores, schedules, rankings and news come from the sources above and may be delayed or incomplete. " +
-      "Suite is for information and entertainment" + (markets ? "; market prices are not betting advice." : ".") + "</p></section>";
+      "Suite is for information and entertainment; projected odds are not betting advice.</p></section>";
     put(host, "about", product + sources + legal);
   }
 

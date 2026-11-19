@@ -19,7 +19,7 @@ constant and said nothing). Each source is already isolated per team: a
 failed team keeps its last good files and every other team updates.
 
     python3 tools/producers/health.py --dir "$RUNNER_TEMP/health" \
-        --state .cadence/health.json [--steps "odds=success,fpi=failure"] [--open-issues]
+        --state .cadence/health.json [--steps "news=success,fpi=failure"] [--open-issues]
 """
 import argparse
 import json
@@ -39,9 +39,6 @@ NAMES = {
     "depth": "Official depth chart and availability",
     "confav": "Conference injury reports",
     "notes": "Game notes",
-    "kalshi": "Odds (Kalshi)",
-    "odds": "Odds",
-    "oddshistory": "Odds history",
     "fpi": "FPI",
     "rankhistory": "Rankings by week",
     "prospects": "Recruiting and draft",

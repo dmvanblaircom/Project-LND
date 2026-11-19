@@ -6,8 +6,7 @@
    docs/engineering/phase-5a-ohio-state-proof.md.
 
    Values verified against the feeds on 2026-09-18: ESPN team 194 spells the
-   home field "Ohio Stadium"; Kalshi's championship and playoff markets are
-   KXNCAAF-27-OSU and KXNCAAFPLAYOFF-26-OSU, named "Ohio St.". */
+   home field "Ohio Stadium". */
 
 var TEAM_CONFIG = {
 
@@ -31,11 +30,6 @@ var TEAM_CONFIG = {
       teamId: "194",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-OSU",
-      namePattern:  /ohio st|buckeyes/i
-    },
-
     // The Big Ten's availability reports (four a week for conference games
     // from 2026), published on BigTen.org through HD Intelligence's public
     // report viewer. tools/producers/conference_availability.py reads the
@@ -134,15 +128,13 @@ var TEAM_CONFIG = {
   },
 
   // The snapshots .github/workflows/odds.yml commits for Ohio State, each
-  // because a source exists for it (W20). Price history is read from the
-  // Kalshi markets above, going forward from 2026-10-02 - never back-filled;
-  // the beat stories from sources.beatFeeds. Ohio State publishes no weekly
+  // because a source exists for it (W20): the beat stories from
+  // sources.beatFeeds. Ohio State publishes no weekly
   // depth chart (a credited projection waits on permission, decision 0032);
   // availability is the Big Ten's own report (sources.official). A kind left
   // out shows as unavailable, never as Notre Dame's (Phase 5B).
   snapshots: {
     availability: { file: "data/ohio-state/availability.json", history: "data/ohio-state/availability-history.json", label: "BigTen.org" },
-    oddsHistory: { file: "data/ohio-state/odds-history.json" },
     beatNews:    { file: "data/ohio-state/news.json" },
     // The team's recruiting class, from ESPN (tools/producers/prospects.py;
     // David chose ESPN, 2026-10-03), refreshed once a day.

@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "57",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-FLA",
-      namePattern:  /(?<!south )\bflorida\b(?! st| atlantic| international| a&m)|gators/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/florida/availability.json", history: "data/florida/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/florida/odds-history.json" },
     beatNews:     { file: "data/florida/news.json" },
     recruits:     { file: "data/florida/recruits.json", label: "ESPN recruiting" }
   }

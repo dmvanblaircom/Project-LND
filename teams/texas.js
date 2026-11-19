@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "251",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-TEX",
-      namePattern:  /(?<!north )(?<!west )(?<!east )\btexas\b(?! a&m| tech| st| southern| el paso| san antonio| christian|-)|longhorns/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/texas/availability.json", history: "data/texas/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/texas/odds-history.json" },
     beatNews:     { file: "data/texas/news.json" },
     recruits:     { file: "data/texas/recruits.json", label: "ESPN recruiting" }
   }

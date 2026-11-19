@@ -28,11 +28,6 @@ var TEAM_CONFIG = {
       teamId: "2711",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-WMU",
-      namePattern:  /western mich/i
-    },
-
     // The MAC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://getsomemaction.com/sports/football",
@@ -93,7 +88,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/western-michigan/availability.json", history: "data/western-michigan/availability-history.json", label: "GetSomeMACtion.com" },
-    oddsHistory:  { file: "data/western-michigan/odds-history.json" },
     beatNews:     { file: "data/western-michigan/news.json" },
     recruits:     { file: "data/western-michigan/recruits.json", label: "ESPN recruiting" }
   }

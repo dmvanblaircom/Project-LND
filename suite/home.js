@@ -295,7 +295,7 @@ Suite.home = (function () {
     return '<a class="card out-line" href="#top25">' +
              '<span class="out-line-t">Season Outlook</span>' +
              '<span class="out-line-v">' + parts.join("") + "</span>" +
-             '<span class="sr-only">. Market-implied odds. Open Around.</span>' + CHEVRON + "</a>";
+             '<span class="sr-only">. Projected odds from ESPN FPI. Open Around.</span>' + CHEVRON + "</a>";
   }
 
   function outlookHtml(metrics) { return outlookLine(metrics); }

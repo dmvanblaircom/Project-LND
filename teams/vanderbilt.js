@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "238",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-VAN",
-      namePattern:  /vanderbilt|commodores/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -92,7 +87,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/vanderbilt/availability.json", history: "data/vanderbilt/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/vanderbilt/odds-history.json" },
     beatNews:     { file: "data/vanderbilt/news.json" },
     recruits:     { file: "data/vanderbilt/recruits.json", label: "ESPN recruiting" }
   }

@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "52",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-FSU",
-      namePattern:  /florida st/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/florida-state/availability.json", history: "data/florida-state/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/florida-state/odds-history.json" },
     beatNews:     { file: "data/florida-state/news.json" },
     recruits:     { file: "data/florida-state/recruits.json", label: "ESPN recruiting" }
   }

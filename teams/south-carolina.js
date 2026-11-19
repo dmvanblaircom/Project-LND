@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "2579",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-SCAR",
-      namePattern:  /south carolina(?! st)|gamecocks/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/south-carolina/availability.json", history: "data/south-carolina/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/south-carolina/odds-history.json" },
     beatNews:     { file: "data/south-carolina/news.json" },
     recruits:     { file: "data/south-carolina/recruits.json", label: "ESPN recruiting" }
   }

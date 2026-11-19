@@ -10,7 +10,7 @@
    a team without them is drawn without its schedule, and the sheet says so);
    then what David approves - the palette with each pair's contrast, the
    faces, the header label, the beat feeds - and what was looked up: the
-   ESPN id, the home venue as matched, Kalshi, the conference's availability
+   ESPN id, the home venue as matched, the conference's availability
    report, the trophies. One self-contained HTML file, screenshots inline.
 
    Locally, PW_CHROMIUM points Playwright at a browser. */
@@ -44,7 +44,6 @@ function facts(id) {
     colors: col, pairs: pairs,
     fonts: { ui: (cfg.identity.fonts || {}).ui || "Suite's own", display: (cfg.identity.fonts || {}).display || "Suite's own" },
     feeds: (src.beatFeeds || []).map(function (f) { return { name: f.name, feed: f.feed }; }),
-    kalshi: src.kalshi ? src.kalshi.tickerSuffix : null,
     availability: off.availabilityFeed ? off.availabilityReportLabel || off.availabilityFeed.conference : null,
     series: (cfg.series || []).map(function (s) { return s.name + (s.kind === "rivalry" ? " (rivalry)" : ""); }),
     fixtures: ["schedule", "news"].filter(function (k) { return fs.existsSync(path.join(root, "tools", "fixtures", "espn-" + k + "-" + id + "-review.json")); })
@@ -60,7 +59,6 @@ function card(f, shot) {
     "<dl><dt>Header</dt><dd>" + esc(f.label) + "</dd>" +
     "<dt>ESPN</dt><dd>" + esc(f.espnId) + " · " + esc(f.timeZone) + "</dd>" +
     "<dt>Home venue</dt><dd>" + esc(f.venue) + "</dd>" +
-    "<dt>Kalshi</dt><dd>" + esc(f.kalshi || "none listed") + "</dd>" +
     "<dt>Availability</dt><dd>" + esc(f.availability || "no source") + "</dd>" +
     "<dt>Trophies</dt><dd>" + esc(f.series.join(", ") || "none") + "</dd>" +
     "<dt>Faces</dt><dd>" + esc(f.fonts.ui) + "<br>" + esc(f.fonts.display) + "</dd></dl>" +

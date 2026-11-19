@@ -113,24 +113,24 @@ console.log("a tick whose schedule poll failed still brings its scoreboard to Ho
     ok(r.outcome === "cached", "offline, the team step answered from the kept copy reports cached, not network (" + r.outcome + ")");
   });
 }).then(function () {
-  console.log("an odds answer of the wrong shape never counts as fresh");
-  var ctx = vm.createContext({ SRC: {}, Date: Date, Suite: { nav: { current: function () { return { screen: "home" }; } } }, EDGE: "https://edge", TEAM_CONFIG: {},
-    LEAGUE_MARKETS: { title: { series: "KXNCAAF" }, playoff: { series: "KXNCAAFPLAYOFF" } },
+  console.log("a projections answer of the wrong shape never counts as fresh");
+  var painted = 0;
+  var ctx = vm.createContext({ SRC: {}, Date: Date, HOME: { markets: {} }, Object: Object, console: console,
+    Suite: { nav: { current: function () { return { screen: "home" }; } } }, EDGE: "https://edge", TEAM_CONFIG: {},
+    paintHome: function () { painted++; }, paintOutlook: function () {}, paintTop25: function () {},
+    cachedCopy: function () { return Promise.reject(new Error("none")); }, seasonYear: function () { return 2026; },
     TeamOS: { espn: { teamUrl: function () { return "t"; }, scheduleUrl: function () { return "s"; }, rankingsUrl: function () { return "r"; }, rosterUrl: function () { return "ro"; } },
-              snapshots: { get: function () { return null; } } },
+              snapshots: { get: function () { return null; } },
+              ratings: { fpi: function (d) { return d && d.source === "fpi" && Array.isArray(d.teams) ? { season: 2026, ranks: d.teams } : null; },
+                         projections: function () { return {}; }, projectionField: function () { return null; } } },
     fetchJSON: function () { return Promise.resolve({ data: { truncated: true }, cached: null }); } });
-  run(ctx, ["get", "outcomeOf", "sourceKey", "noteSource", "localSnapshot"], "var KALSHI_ROUTES=[function(p){ var f=localSnapshot(p); if(!f) throw new Error('none'); return f+'?t=1'; }];");
-  run(ctx, ["kalshi"]);
-  return ctx.kalshi("/series/KXNCAAF-26/markets").then(function () { ok(false, "an unusable odds answer was accepted"); }, function () {
-    ok(!ctx.SRC.odds, "the snapshot came back without markets: odds not marked fresh (" + JSON.stringify(ctx.SRC.odds || null) + ")");
+  run(ctx, ["get", "outcomeOf", "sourceKey", "noteSource", "loadRating", "loadStrip"],
+      "var RATINGS={ fpi: { label:'FPI', url:function(){ return 'data/league/fpi.json'; }, model:function(d){ return TeamOS.ratings.fpi(d); }, whole:function(m){ return m.ranks.length===25; }, raw:null, ok:0, p:null } };" +
+      "var OUTLOOK={ title:null, playoff:null, settled:{}, failed:{} }; var OUTLOOK_KEYS=['playoff','title'];");
+  return ctx.loadStrip().then(function (r) {
+    ok(r[0].outcome === "failed" && !ctx.SRC.fpi, "the snapshot came back without teams: failed, and FPI not marked fresh (" + JSON.stringify(ctx.SRC.fpi || null) + ")");
+    ok(painted === 0 && Object.keys(ctx.HOME.markets).length === 0, "and Home is given no odds from it");
   });
-}).then(function () {
-  console.log("the snapshot for a market path is the league's");
-  var ctx = vm.createContext({ LEAGUE_MARKETS: { title: { series: "KXNEW" }, playoff: { series: "KXNEWPLAYOFF" } } });
-  run(ctx, ["localSnapshot"]);
-  ok(ctx.localSnapshot("/events/KXNEWPLAYOFF-26") === "data/league/odds-playoff.json" && ctx.localSnapshot("/events/KXNEW-27") === "data/league/odds-title.json",
-     "a league whose series are renamed still finds its snapshots");
-  ok(ctx.localSnapshot("/events/KXNCAAF-26") === null, "no series written into app.js");
 }).then(function () {
   console.log("");
   if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }

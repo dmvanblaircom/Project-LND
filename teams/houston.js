@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "248",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-HOU",
-      namePattern:  /\bhouston\b(?! christian| baptist)/i
-    },
-
     // The Big 12's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://big12sports.com/sports/football",
@@ -94,7 +89,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/houston/availability.json", history: "data/houston/availability-history.json", label: "Big12Sports.com" },
-    oddsHistory:  { file: "data/houston/odds-history.json" },
     beatNews:     { file: "data/houston/news.json" },
     recruits:     { file: "data/houston/recruits.json", label: "ESPN recruiting" }
   }

@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "167",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-UNM",
-      namePattern:  /\bnew mexico\b(?! st)|\blobos\b/i
-    },
-
     // The Mountain West publishes no availability reports that HD
     // Intelligence carries or that could be found on themw.com (2026-10-29),
     // so none are shown.
@@ -91,7 +86,6 @@ var TEAM_CONFIG = {
   // What .github/workflows/odds.yml commits for New Mexico, each because a
   // source exists for it.
   snapshots: {
-    oddsHistory:  { file: "data/new-mexico/odds-history.json" },
     beatNews:     { file: "data/new-mexico/news.json" },
     recruits:     { file: "data/new-mexico/recruits.json", label: "ESPN recruiting" }
   }

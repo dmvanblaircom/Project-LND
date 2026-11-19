@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "344",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-MSST",
-      namePattern:  /mississippi st/i
-    },
-
     // The SEC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://www.secsports.com/fbreports",
@@ -96,7 +91,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/mississippi-state/availability.json", history: "data/mississippi-state/availability-history.json", label: "SECsports.com" },
-    oddsHistory:  { file: "data/mississippi-state/odds-history.json" },
     beatNews:     { file: "data/mississippi-state/news.json" },
     recruits:     { file: "data/mississippi-state/recruits.json", label: "ESPN recruiting" }
   }

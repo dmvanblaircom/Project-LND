@@ -27,11 +27,6 @@ var TEAM_CONFIG = {
       teamId: "154",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-WAKE",
-      namePattern:  /wake forest/i
-    },
-
     // The ACC's availability reports (tools/producers/conference_availability.py).
     official: {
       availabilityReportIndex: "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
@@ -95,7 +90,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/wake-forest/availability.json", history: "data/wake-forest/availability-history.json", label: "TheACC.com" },
-    oddsHistory:  { file: "data/wake-forest/odds-history.json" },
     beatNews:     { file: "data/wake-forest/news.json" },
     recruits:     { file: "data/wake-forest/recruits.json", label: "ESPN recruiting" }
   }

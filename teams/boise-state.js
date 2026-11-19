@@ -36,11 +36,6 @@ var TEAM_CONFIG = {
       teamId: "68",
       broadcastFallback: []
     },
-    kalshi: {
-      tickerSuffix: "-BSU",
-      namePattern:  /\bboise st/i
-    },
-
     // The Pac-12 posts its availability reports on Pac-12.com, not through HD
     // Intelligence (2026-10-29); there is no reader for that page yet, so
     // none are shown.
@@ -99,7 +94,6 @@ var TEAM_CONFIG = {
   // source exists for it.
   snapshots: {
     availability: { file: "data/boise-state/availability.json", history: "data/boise-state/availability-history.json", label: "Pac-12.com" },
-    oddsHistory:  { file: "data/boise-state/odds-history.json" },
     beatNews:     { file: "data/boise-state/news.json" },
     recruits:     { file: "data/boise-state/recruits.json", label: "ESPN recruiting" }
   }
