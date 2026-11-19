@@ -12,8 +12,8 @@
      node tools/wiremeasure.js --write                ...and to docs/engineering/wire-measurement-2026-11-09.md
      node tools/wiremeasure.js --dump <file.json>     every distinct story, classified, for grading
      node tools/wiremeasure.js --since 2026-11-10 --sample <file.json>
-                                                      a fresh grading sample: only stories first
-                                                      seen on or after the date (none of them were
+                                                      a fresh grading sample: only stories published
+                                                      and first seen on or after the date (none of them were
                                                       read while the rule was written), up to 40
                                                       tagged per kind and 200 untagged
 
@@ -100,9 +100,9 @@ function shuffle(list, salt) {
 function sample(stories, salt) {
   var out = [];
   wire.KINDS.forEach(function (k) {
-    shuffle(stories.filter(function (s) { return s.kind === k; }), salt).slice(0, 40).forEach(function (s) { out.push({ key: s.key, v1: s.kind, sample: "tagged", title: s.title }); });
+    shuffle(stories.filter(function (s) { return s.kind === k; }), salt).slice(0, 40).forEach(function (s) { out.push({ key: s.key, v1: s.kind, sample: "tagged", title: s.title, published: s.published }); });
   });
-  shuffle(stories.filter(function (s) { return !s.kind; }), salt + "-untagged").slice(0, 200).forEach(function (s) { out.push({ key: s.key, v1: null, sample: "untagged", title: s.title }); });
+  shuffle(stories.filter(function (s) { return !s.kind; }), salt + "-untagged").slice(0, 200).forEach(function (s) { out.push({ key: s.key, v1: null, sample: "untagged", title: s.title, published: s.published }); });
   return out;
 }
 
@@ -209,10 +209,13 @@ if (require.main === module) {
   var C = corpus();
   if (arg("--dump")) fs.writeFileSync(arg("--dump"), JSON.stringify(C.stories, null, 1));
   if (arg("--since")) {
-    var fresh = C.stories.filter(function (s) { return s.firstSeen >= arg("--since"); });
+    // Both: published on or after the date (David's gate, 2026-11-11: headlines
+    // published after 2026-11-10) and first seen by Suite since then, so the
+    // rule never read it (Codex, #269). A story with no publication date is out.
+    var fresh = C.stories.filter(function (s) { return s.firstSeen >= arg("--since") && (s.published || "") >= arg("--since"); });
     var out = sample(fresh, "since-" + arg("--since"));
     if (arg("--sample")) fs.writeFileSync(arg("--sample"), JSON.stringify(out, null, 1));
-    console.log(fresh.length + " stories first seen since " + arg("--since") + "; sample of " + out.length + (arg("--sample") ? " written to " + arg("--sample") : ""));
+    console.log(fresh.length + " stories published and first seen since " + arg("--since") + "; sample of " + out.length + (arg("--sample") ? " written to " + arg("--sample") : ""));
     process.exit(0);
   }
   var text = report(C, grades());

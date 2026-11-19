@@ -1,6 +1,6 @@
 # Project LND backlog
 
-**Refreshed 2026-11-09**, clean-slate answers 2026-11-11, from every source we have:
+**Refreshed 2026-11-09**, clean-slate answers 2026-11-11, brought up to date 2026-11-19 (Kalshi removed, Games That Matter, the wire's measurement), from every source we have:
 - the previous queue ([archived](backlog-archive-2026-10-23.md));
 - the product briefs, decisions 0001-0043 and the redesign spec (v1.2, #237);
 - the open pull requests;
@@ -64,11 +64,12 @@ The order below is the program. ChatGPT designs, David approves, and Claude buil
 
 | # | Item | Status | Gate |
 |---|---|---|---|
-| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, merged (#244); **(b)** measurement, at least 90% precision, to David. First run, 2026-11-09 (`docs/engineering/wire-measurement-2026-11-09.md`): 88.1% on held-out headlines, so the gate is not met. David, 2026-11-11: it ships only after a fresh sample of headlines published after 2026-11-10 clears 90%; bare "Availability Report" headlines stay off; the opponent's items stay up through the final; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved | (b) D; (c) and (d) CD; (e) D approves the Worker change |
-| F2 | **Around, the rest of the approved build** ([navigation brief](../product/navigation-brief.md) steps 3-4): **(a)** conference standings, after a source probe; **(b)** the out-of-season sections month by month, from data in hand (standings and bowls, Signing Day classes, Draft picks by school, next season's slate and opponents, final and preseason polls) | approved | (a) C probes; (b) CD designs with R4 |
+| F1 | **The wire, Phase 1** ([brief](../product/wire-brief.md): taxonomy and decisions of 2026-11-09). Status-change headlines in seven categories: Injury, Availability, Suspension, Transfer, Coaching, Commitment, Drafted. Steps: **(a)** groundwork, merged (#244); **(b)** measurement, at least 90% precision. First run, 2026-11-09: 88.1%, gate not met. David, 2026-11-11: it ships only after a fresh sample of headlines published after 2026-11-10 clears 90%; bare "Availability Report" headlines stay off; the opponent's items stay up through the final. **Met 2026-11-19: 92.1%** on 101 headlines first seen after the rule was frozen (`docs/engineering/wire-measurement-2026-11-19.md`); recall roughly 47%, wide range; **(c)** Home's row with R1; **(d)** Around's wire, first out of season, with R4; **(e)** alerts, off by default, with separate switches for the team and the opponent in game week. Alerts need the Worker to read the news snapshots and a per-article "already sent" key | approved; (b) met | (c) and (d) CD; (e) D approves the Worker change |
+| F2 | **Around, the rest of the approved build** ([navigation brief](../product/navigation-brief.md) steps 3-4): **(a)** conference standings: the data is live (`data/league/standings.json`, once a day, Games That Matter Phase 3, #266 and #268); showing the table itself is design work with R4; **(b)** the out-of-season sections month by month, from data in hand (standings and bowls, Signing Day classes, Draft picks by school, next season's slate and opponents, final and preseason polls) | approved | (a) and (b) CD designs with R4 |
 | F3 | **Live refresh on Around's Top 25 games** (David, 2026-11-08: no way to force a play update on a Top 25 game). Auto-refresh runs every 30 s while live; the visible refresh experience is the gap | approved need | CD: direction requested |
 | F4 | **Readers for every school's game notes and depth charts** (David, 2026-10-30: "soon"). Every team links its notes today; only Notre Dame and Ohio State are read. Generalise by layout family (mostly SIDEARM PDFs), school by school, behind a check. Depth: 12 sources found. **Batch 1 (2026-11-13): the pronunciation guide of seven more schools** - Arizona, Troy, UMass, Tulane, Akron, Pittsburgh, Coastal Carolina, 217 names - read by one reader for four layouts and refereed by ESPN's roster (`tools/producers/pronunciations.py`, `notesReads: ["pronounce"]`; review sheet: `docs/engineering/notes-readers-batch1.md`). Survey of the 29 schools with a notes index: the guide is the one section set consistently; "By the Numbers" and the series facts vary too much for one reader. Next: Kentucky and Virginia Tech (their links carry no date, so "newest" needs another rule), then the 109 schools whose notes hang off a schedule page | approved | C, in batches; a review sheet per batch to D |
 | F5 | **Offseason rollover** (W16), live this season. S2/S4 Home and the Recruiting and Draft cards are live; S5 hero fixed (#236). Verify the real transition when each team's season ends (late November to January) | approved; verify live | C watches and fixes |
+| F7 | **Games That Matter** ([proposal](../product/games-that-matter-relevance-proposal.md); David, 2026-11-18 and 11-19). Around lists a game by its stake for my team, in order: Playoff Impact, Résumé Impact, Conference Race, Rivalry, Next Opponent. Phase 1, the stakes and their sentences, shipped (#264). Phase 2, ESPN's projections in place of Kalshi's prices, shipped (#263, decision 0045). Phase 3, the conference race from ESPN's standings, shipped (#266; the Sun Belt's divisions, #268). Rivalry data for teams that had none (#265). The labels are working names until the Creative Director words them (decision 5 of the proposal) | live; labels with CD | CD: the label wording |
 | F6 | **Postseason alerts, first live season.** Weekly CFP releases through Dec 1, Selection Day Dec 6, bowl and playoff set or declined (2025: ND declined its bowl). Fix from what the real payloads show | approved; live | C watches |
 
 ## 4. Proposed: needs a brief, a design or a decision
@@ -126,7 +127,7 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 - **W10 bounded reliability.** Repeated same-version worker install; simplify refresh ownership only where it helps.
 - **W09 release evidence and physical device checks.** David's iPhone observations, push latency, the old shared-link launch. Never claimed from CI.
 - **Ohio State remainder (W20).** Conference-only availability freshness expectations. The depth chart waits on Ourlads' permission (X).
-- **January verification** of polls and markets against live payloads. Keep capturing real delayed, suspended and canceled games; never label invented fixtures as real.
+- **January verification** of polls and ESPN's projections against live payloads (Kalshi's markets were removed, decision 0045). Keep capturing real delayed, suspended and canceled games; never label invented fixtures as real.
 - **Cosmetic:** skipped-job names show a raw `${{ }}` in Actions.
 - **Recheck only if it recurs:** the Top 25 table 2 px wide at Ohio State, 320 px (#154).
 - **SP+ through November: ride it out (David, 2026-11-11, option A).** CFBD refuses the key until its allowance resets (calendar month assumed, decision 0012). Fans see the newest kept table (Week 9), marked as a saved copy (#255). No paid tier, SP+ not hidden. Claude checks on December 2 that the clock read a fresh table and the deploy's SP+ smoke shows `stale=False`.
@@ -143,9 +144,11 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 | Projected NFL team | a usable mock-draft source |
 | Mountain West and Conference USA availability, read rather than linked | a feed from Faktor or the conferences |
 | DEV/Lab environments (#135) | David resuming; Cloudflare sign-in |
+| Kalshi's prices back in Season Outlook, beside ESPN's | Kalshi's Display & Internal Use license (decision 0045): it needs a registered business (a DBA qualifies), is fee-free for 12 months, and the data must be cached privately, not committed. Questions to Kalshi Institutional are open; Claude checks for the answers on December 1 |
 
 ## 7. Housekeeping
 
+- **Branches for David to delete:** `probe/cfp-2026-11-17` and `probe/standings-2026-11-19` (source probes, finished).
 - **Branch cleanup: done** (David, 2026-11-11). He deleted the 22 listed probe, capture and audit branches, and noop-temp. What remains is main, open PR branches and the old branches he chose to keep.
 
   Keep: open PR branches, `claude/lnd-implementation-status-owqyo9`, and anything David chose to keep (branch-cleanup.md).
@@ -171,3 +174,4 @@ Grouped by where it would live, for the tab-by-tab creative review. Within each 
 | The 1,000th-win dry run, logo sizing, the white launch flash, Top 25 sheet flicker, availability publishing schedule, source-health emails | Done and shipped (Oct 25 to Nov 6) |
 | W25 "old branches remain; no deletion campaign" | Replaced by §7: David deletes the listed temporary branches; GitHub deletes merged PR branches automatically |
 | Codex review of #152/#153 tails | Codex is ad hoc only; nothing waits on it |
+| Kalshi's markets in Season Outlook, and their price history | Removed at Kalshi's request until licensed (decision 0045, #263). Season Outlook shows ESPN's FPI projections for every team |
