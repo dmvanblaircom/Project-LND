@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-18T11:08:21.948572+00:00",
+ "updated": "2026-11-19T00:38:19.486809+00:00",
  "items": [
+  {
+   "title": "Huskies Host ODU for Senior Day",
+   "link": "https://uconnhuskies.com/news/2026/11/18/football-huskies-host-odu-for-senior-day",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"UConn Football\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/18/KBP_0653.jpg\" /><br /><br />Media Coverage",
+   "image": "https://uconnhuskies.com/images/2026/11/18/KBP_0653.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-18T23:59:00+00:00"
+  },
   {
    "title": "Elliot\u2019s Saturday Slate: Two weeks remain in regular season, CFP rankings on the line",
    "link": "https://dailycampus.com/2026/11/18/elliots-saturday-slate-two-weeks-remain-in-regular-season-cfp-rankings-on-the-line/",
@@ -100,15 +109,6 @@
    "image": "https://uconnhuskies.com/images/2026/11/4/C06A2071.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-11-04T17:23:00+00:00"
-  },
-  {
-   "title": "WATCH: Game 9 Football Press Conference",
-   "link": "https://uconnhuskies.com/news/2026/11/2/watch-game-9-football-press-conference",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT - The UConn Huskies being a stretch of three-striaght at home this Saturday when they host the North Carolina Tar Heels.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
-   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-11-02T22:31:00+00:00"
   }
  ]
 }
