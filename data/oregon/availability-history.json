@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon",
- "updated": "2026-11-20T01:08:39.598966+00:00",
+ "updated": "2026-11-20T23:08:28.625970+00:00",
  "reports": [
   {
    "schema": 1,
@@ -579,10 +579,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:39.598966+00:00",
+   "fetchedAt": "2026-11-20T23:08:28.625970+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-20",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-20",
    "game": "at Michigan State",
    "players": [
@@ -597,7 +597,7 @@
      "pos": "DL",
      "no": "1",
      "name": "Bear Alexander",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -618,7 +618,7 @@
      "pos": "ILB",
      "no": "6",
      "name": "Jerry Mixon",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

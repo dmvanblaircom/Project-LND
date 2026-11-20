@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:38.121338+00:00",
+ "fetchedAt": "2026-11-20T23:08:27.099325+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-20",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-20",
  "game": "vs. Oregon",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "QB",
    "no": "2",
    "name": "Cam Fancher",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -39,21 +39,7 @@
    "pos": "WR",
    "no": "3",
    "name": "Rodney Bullard Jr.",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "3",
-   "name": "Tre Bell",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "4",
-   "name": "Jaziun Patterson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,7 +53,7 @@
    "pos": "S",
    "no": "7",
    "name": "Michael Richard",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,7 +74,7 @@
    "pos": "CB",
    "no": "22",
    "name": "Tyran Chappell",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -116,7 +102,7 @@
    "pos": "OL",
    "no": "58",
    "name": "Conner Moore",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -130,7 +116,7 @@
    "pos": "TE",
    "no": "82",
    "name": "Brennan Parachek",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
