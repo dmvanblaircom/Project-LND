@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-11-19T11:55:52.919347+00:00",
+ "updated": "2026-11-20T03:08:29.240868+00:00",
  "reports": [
   {
    "schema": 1,
@@ -320,10 +320,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:55:52.919347+00:00",
+   "fetchedAt": "2026-11-20T03:08:29.240868+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "vs. Colorado",
    "players": [
@@ -346,13 +346,6 @@
      "no": "6",
      "name": "Gi'Bran Payne",
      "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "9",
-     "name": "Malachi Henry",
-     "status": "out-game",
      "detail": ""
     },
     {

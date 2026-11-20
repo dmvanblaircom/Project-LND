@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "san-diego-state",
- "updated": "2026-11-19T03:38:43.326190+00:00",
+ "updated": "2026-11-20T03:08:36.357296+00:00",
  "reports": [
   {
    "schema": 1,
@@ -211,10 +211,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T03:38:43.326190+00:00",
+   "fetchedAt": "2026-11-20T03:08:36.357296+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Boise State",
    "players": [
@@ -229,7 +229,7 @@
      "pos": "DL",
      "no": "",
      "name": "Amari Comier",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -250,7 +250,7 @@
      "pos": "ILB",
      "no": "",
      "name": "Tano Letuli",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -271,14 +271,14 @@
      "pos": "DB",
      "no": "",
      "name": "Cammeron Purnell",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "",
      "name": "Nate Acevedo",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -299,7 +299,7 @@
      "pos": "WR",
      "no": "",
      "name": "Parker Threatt",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

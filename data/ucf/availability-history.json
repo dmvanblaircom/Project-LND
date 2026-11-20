@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucf",
- "updated": "2026-11-19T03:08:57.930606+00:00",
+ "updated": "2026-11-20T03:08:38.618465+00:00",
  "reports": [
   {
    "schema": 1,
@@ -579,10 +579,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T03:08:57.930606+00:00",
+   "fetchedAt": "2026-11-20T03:08:38.618465+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-20",
    "game": "vs. Iowa State",
    "players": [
@@ -611,13 +611,6 @@
      "pos": "WR",
      "no": "9",
      "name": "Waden Charles",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "18",
-     "name": "Caden Piening",
      "status": "probable",
      "detail": ""
     },

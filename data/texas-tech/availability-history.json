@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-tech",
- "updated": "2026-11-19T11:56:01.587141+00:00",
+ "updated": "2026-11-20T03:08:37.961730+00:00",
  "reports": [
   {
    "schema": 1,
@@ -383,10 +383,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:56:01.587141+00:00",
+   "fetchedAt": "2026-11-20T03:08:37.961730+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Baylor",
    "players": [
@@ -426,13 +426,6 @@
      "detail": ""
     },
     {
-     "pos": "QB",
-     "no": "4",
-     "name": "Thomas Castellanos",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "6",
      "name": "Jalen Jones",
@@ -443,35 +436,35 @@
      "pos": "S",
      "no": "7",
      "name": "Brenden Jordan",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "17",
      "name": "Leyton Stone",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "21",
      "name": "Miquel Dingle Jr.",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OLB",
      "no": "32",
      "name": "LaDamion Guyton",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
      "pos": "OLB",
      "no": "33",
      "name": "Ansel Nedore",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

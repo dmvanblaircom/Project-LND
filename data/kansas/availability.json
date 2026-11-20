@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:55:55.917269+00:00",
+ "fetchedAt": "2026-11-20T03:08:31.985973+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "vs. BYU",
  "players": [
@@ -19,20 +19,6 @@
    "no": "4",
    "name": "Jalen Dupree",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "6",
-   "name": "Jahlil Hurley",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "15",
-   "name": "Cole Ballard",
-   "status": "probable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-19T11:55:49.493951+00:00",
+ "updated": "2026-11-20T03:08:26.434143+00:00",
  "reports": [
   {
    "schema": 1,
@@ -495,10 +495,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:55:49.493951+00:00",
+   "fetchedAt": "2026-11-20T03:08:26.434143+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Kansas State",
    "players": [
@@ -506,7 +506,7 @@
      "pos": "DL",
      "no": "3",
      "name": "Tre Smith",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -527,14 +527,14 @@
      "pos": "S",
      "no": "13",
      "name": "Cam Chapa",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "15",
      "name": "Malcolm Hartzog Jr.",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
