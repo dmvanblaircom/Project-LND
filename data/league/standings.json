@@ -117,22 +117,22 @@
      "overall": "1-9"
     },
     {
+     "espnId": "242",
+     "name": "Rice",
+     "conf": {
+      "wins": 1,
+      "losses": 6
+     },
+     "overall": "2-9"
+    },
+    {
      "espnId": "218",
      "name": "Temple",
      "conf": {
       "wins": 1,
-      "losses": 5
-     },
-     "overall": "2-8"
-    },
-    {
-     "espnId": "242",
-     "name": "Rice",
-     "conf": {
-      "wins": 0,
       "losses": 6
      },
-     "overall": "1-9"
+     "overall": "2-9"
     }
    ]
   },
@@ -1303,5 +1303,5 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-19T15:29Z"
+ "fetchedAt": "2026-11-20T11:43Z"
 }
