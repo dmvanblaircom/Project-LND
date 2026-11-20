@@ -1827,7 +1827,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .stage-when,.stage-where{margin:0}
 .stage-when{font-weight:600;font-size:var(--s-type-md)}
 .stage-where{font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
-.stage-when .dot,.stage-where .dot{color:var(--r-stage-ink-2)}
+.stage-when .dot,.stage-where .dot{color:inherit}
 .stage-when .nb{white-space:nowrap}
 /* the season's own composition (S2/S4): the photograph stays short */
 .home-hero.is-season .stage{--photo-h:12rem}
@@ -1882,15 +1882,15 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb.no-helmets .sb-vs{margin-top:var(--s-space-7)}
 .sb-series{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-mark)}
 .sb-sit{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45rem;align-self:center;margin:var(--s-space-2) 0 0;
-  padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(255,255,255,.06);
+  padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.88);
   font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .sb-sit-ball{width:1.15rem;height:1.15rem}
 .sb-sit-ball ellipse{fill:#B07A47;stroke:rgba(255,255,255,.85);stroke-width:1}
 .sb-sit-ball path{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round}
 .sb-dd,.sb-spot,.sb-poss-t{white-space:nowrap}
 /* whose ball, in words, between two hairlines */
-.sb-poss{display:flex;align-items:center;justify-content:center;gap:var(--s-space-3);margin:0;font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--r-stage-mark)}
-.sb-poss::before,.sb-poss::after{content:"";width:2rem;height:1px;background:rgba(var(--r-stage-glow-rgb),.55)}
+.sb-poss{display:flex;align-items:center;justify-content:center;gap:var(--s-space-3);margin:0;font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--r-stage-ink)}
+.sb-poss::before,.sb-poss::after{content:"";width:2rem;height:2px;border-radius:1px;background:var(--r-stage-mark)}
 .sb-note{margin:0;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
 
 /* ---- the countdown: KICKOFF IN / 4 DAYS, louder as the kickoff nears ---- */
