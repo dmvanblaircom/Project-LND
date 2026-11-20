@@ -1844,6 +1844,30 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .art-day .sd-bloom,.art-day .sd-beam{display:none}
 .art-day .sd-frame{fill:#46546A}
 .art-day .sd-mast{fill:#3A4658}
+/* ---- at dusk: a 4-6 PM kickoff, the hour the lights come on ----
+   A violet zenith over an ember horizon, the sun low behind the far stands,
+   the bowl in silhouette with its first lights showing, and the towers lit
+   but not yet throwing beams the sky can't swallow. */
+.art-dusk .sd-sun{display:inline;transform:translate(-210px,300px)}
+.art-dusk .sd-sun-0{stop-color:#FFC27A;stop-opacity:.85}
+.art-dusk .sd-sun-1{stop-color:#FF7A45;stop-opacity:0}
+.art-dusk .sd-sky-0{stop-color:#1C1640}
+.art-dusk .sd-sky-1{stop-color:#5B3266}
+.art-dusk .sd-sky-2{stop-color:#E07A4F}
+.art-dusk .sd-halo-0{stop-color:#FFB070;stop-opacity:.3}
+.art-dusk .sd-tier-up{fill:#2E2638;opacity:.95}
+.art-dusk .sd-tier-low{fill:#1E1A28;opacity:.97}
+.art-dusk .sd-rim{stroke:rgba(255,196,140,.6)}
+.art-dusk .sd-crowd.is-s1,.art-dusk .sd-crowd.is-b1{opacity:.18}
+.art-dusk .sd-crowd.is-s3,.art-dusk .sd-crowd.is-b3{opacity:.6}
+.art-dusk .sd-turf-0{stop-color:#2B6B43}
+.art-dusk .sd-turf-1{stop-color:#0E3020}
+.art-dusk .sd-stripe{fill:rgba(255,220,180,.07)}
+.art-dusk .sd-pool-0{stop-color:#FFE2C2;stop-opacity:.18}
+.art-dusk .sd-beam-0{stop-opacity:.14}
+.art-dusk .sd-bloom{opacity:.75}
+.art-dusk .sd-frame{fill:#241E30}
+.art-dusk .sd-mast{fill:#120F1A}
 /* no kickoff time: neither day nor night - the stadium quietly lit */
 .art-none .sd-beam{display:none}
 .art-none .sd-bloom{opacity:.35}
@@ -2010,6 +2034,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   .sb-figure .sb-mark{--mark:4.5rem;margin-top:-2.25rem}
   .sb-name{font-size:var(--s-type-lg)}
   .sb-home .sb-name{line-height:2rem}
+  .sb-home .sb-team{align-self:end}
   .sb-us .sb-name{font-size:var(--s-type-xl)}
   .sb-score{font-size:clamp(4rem,11cqi,6.5rem)}
   .sb-mid{padding-bottom:0}

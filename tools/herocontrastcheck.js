@@ -39,7 +39,7 @@ var server = require("./lib/serve")(root);
 var only = process.argv.slice(2);
 var TEAMS = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
   .map(function (f) { return f.slice(0, -3); }).filter(function (id) { return !only.length || only.indexOf(id) !== -1; }).sort();
-var BATCH = 12;
+var BATCH = 10; // ten rows of stages stay inside the 12000px capture
 
 // What the page draws for one team. Runs in the browser.
 function drawBatch(arg) {
@@ -56,10 +56,13 @@ function drawBatch(arg) {
             ["--t-font-ui", f.ui], ["--t-font-display", f.display]]
       .filter(function (p) { return p[1] != null; }).map(function (p) { return p[0] + ":" + p[1]; }).join(";");
   }
-  // Noon and 7:30 PM Eastern, with the venue zone given as Eastern: day and night.
-  var DAY = "2026-10-03T16:00:00Z", NIGHT = "2026-10-03T23:30:00Z", ZONE = "America/New_York";
+  // Noon, 4:30 PM and 7:30 PM Eastern, with the venue zone given as Eastern:
+  // day, dusk and night.
+  var DAY = "2026-10-03T16:00:00Z", DUSK = "2026-10-03T20:30:00Z", NIGHT = "2026-10-03T23:30:00Z", ZONE = "America/New_York";
   var CASES = [
     ["home-pre-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY }, "2026-10-01T12:00:00Z"],
+    ["home-pre-dusk", "home", 390, { status: "scheduled", hasStarted: false, date: DUSK }, "2026-10-01T12:00:00Z"],
+    ["game-live-dusk", "game", 390, { status: "live", hasStarted: true, date: DUSK, period: 1, clock: "4:10", us: 3, them: 0, situation: { possession: "us", short: "2nd & 3", spot: "OPP 12" } }],
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],
     ["game-live-day", "game", 390, { status: "live", hasStarted: true, date: DAY, period: 2, clock: "9:35", us: 7, them: 13, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
@@ -91,8 +94,10 @@ function drawBatch(arg) {
     });
     var host = document.getElementById("hc");
     host.innerHTML = html;
-    [].forEach.call(host.querySelectorAll(".hc-cell"), function (c) { Suite.scoreboard.fit(c); });
+    void host.offsetHeight; // lay it out, so its faces start loading
+    // Fit the names in the faces they will be read in, not a fallback.
     return document.fonts.ready.then(function () {
+      [].forEach.call(host.querySelectorAll(".hc-cell"), function (c) { Suite.scoreboard.fit(c); });
       return [].map.call(host.querySelectorAll(".hc-cell"), function (c) {
         var r = c.getBoundingClientRect();
         return { team: c.parentNode.getAttribute("data-team"), kase: c.getAttribute("data-case"),
@@ -128,6 +133,14 @@ function drawBatch(arg) {
       for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "suite/stadium.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
+      // Measured once the faces have loaded and the frame has settled: under
+      // load (the parallel suite, a busy runner) a fallback face mid-swap
+      // moves text off its floor and the reading is of a page no fan sees.
+      await page.evaluate(function () {
+        return document.fonts.ready.then(function () {
+          return new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
+        });
+      });
       cells += boxes.length;
       var label = run.style + " " + run.ids[0] + (run.ids.length > 1 ? ".." + run.ids[run.ids.length - 1] : "");
       var res = await audit.auditText(page, label, { maxHeight: 12000, worst: 0.1 });

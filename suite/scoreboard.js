@@ -113,7 +113,9 @@ Suite.scoreboard = (function () {
     var g = m.game, s = g.situation;
     if (!live(st) || !s || ended(g, st)) return "";
     if (TeamOS.game.halftime(g))
-      return s.receives ? '<p class="sb-sit"><span>' + esc(s.receives === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " gets the ball</span></p>" : "";
+      // The brief's explicit wording (§4.2, 2026-11-20), which supersedes the
+      // short "ND gets the ball" pill of 2026-10-14 on Home.
+      return s.receives ? '<p class="sb-sit"><span>' + esc(s.receives === "us" ? m.team.name : g.oppName) + " receives to start the 2nd half</span></p>" : "";
     var bits = [];
     if (s.possession) bits.push('<span class="sb-poss">' + ui.ball("sb-sit-ball") + '<span class="sb-poss-t">' +
                                 esc(s.possession === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " ball</span></span>");
@@ -182,7 +184,7 @@ Suite.scoreboard = (function () {
         : p >= 5 ? (p === 5 ? "Overtime" : "Overtime " + (p - 4)) + ". "
         : p ? ui.period(p) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " : "";
       var sit = "";
-      if (s && TeamOS.game.halftime(g) && s.receives) sit = " " + (s.receives === "us" ? t.name : g.oppName) + " gets the ball to start the second half.";
+      if (s && TeamOS.game.halftime(g) && s.receives) sit = " " + (s.receives === "us" ? t.name : g.oppName) + " receives to start the second half.";
       else if (s && !TeamOS.game.halftime(g) && s.possession)
         sit = " " + (s.possession === "us" ? t.name : g.oppName) + " has the ball" + (s.short ? ", " + s.short : "") + (s.spot ? " at " + s.spot : "") + ".";
       return (st === "paused" ? (g.status === "suspended" ? "Suspended. " : "Delayed. ") : "Live. ") + when + line + sit;
@@ -234,10 +236,11 @@ Suite.scoreboard = (function () {
   function stage(m, opts) {
     opts = opts || {};
     var v = opts.variant === "game" ? "game" : "home", t = m.team, g = m.game;
-    // Day or night needs the venue's zone; without one given, the venue's
-    // state decides, then the team's own (Codex, #239: no zone, no lighting).
+    // Day, dusk or night needs the venue's zone; without one given, the
+    // venue's state decides, then the team's own (Codex, #239: no zone, no
+    // lighting).
     var zone = opts.zone || (g && TeamOS.game.venueZone ? TeamOS.game.venueZone(g, t.timeZone) : null);
-    var atm = g && TeamOS.game.atmosphere ? TeamOS.game.atmosphere(g, zone) : null;
+    var atm = g && TeamOS.game.light ? TeamOS.game.light(g, zone) : null;
     var st = g ? state(g) : "none";
     var id = v === "home" ? '<div class="stage-id"><p class="stage-school">' + esc(t.name) + "</p>" +
                               (t.nick ? '<p class="stage-nick">' + esc(t.nick) + "</p>" : "") + "</div>" : "";

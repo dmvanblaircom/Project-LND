@@ -395,8 +395,9 @@ ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get 
 var homeHalf = homeHero(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: "us", receives: "them" } }));
 ok(!/sb-sit-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
-ok(/class="sb-sit"><span>[^<]+ gets the ball<\/span>/.test(homeHalf) && /gets the ball to start the second half\./.test(homeHalf),
-   "Home at halftime: the pill and a screen reader say who gets the ball to start the second half");
+// The redesign brief's wording on Home (§4.2): "Notre Dame receives to start the 2nd half."
+ok(/class="sb-sit"><span>Purdue receives to start the 2nd half<\/span>/.test(homeHalf) && /Purdue receives to start the second half\./.test(homeHalf),
+   "Home at halftime: the line and a screen reader say who receives to start the second half, by name");
 ok(/sb-sit-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
    "Home in play: the football is still there");
 [["Home", homeHero(noScoreFinal), "sb-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {

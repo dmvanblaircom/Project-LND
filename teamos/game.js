@@ -12,6 +12,7 @@
      hero(games, now, tz)      the ONE game Home is about, and why
      recentFinal(game, now, tz)  does a final still own the hero?
      atmosphere(game, zone)    "day" or "night" from the local kickoff
+     light(game, zone)         the stage's light: "day", "dusk" or "night"
      venueZone(game, fallback) the venue's time zone, as near as TeamOS knows
      localDay(date, zone)      a date's calendar day in a zone, "YYYY-MM-DD"
      schedulePreview(games, now, tz)
@@ -157,6 +158,17 @@ TeamOS.game = (function () {
   function atmosphere(g, zone) {
     if (!g || !g.date || g.timeSet === false || !zone) return null;
     return localHour(g.date, zone) >= NIGHT_FROM ? "night" : "day";
+  }
+
+  // The light on the stage (redesign brief §4.1, §6.1: daylight, dusk or
+  // night). Day and night are 0022 #11's, unchanged; dusk is the last two
+  // hours of its day - a kickoff from 4:00 PM local - when a game starts in
+  // daylight and finishes under the lights. A lighting answer only: anything
+  // that asks day or night still asks atmosphere().
+  var DUSK_FROM = 16;
+  function light(g, zone) {
+    var a = atmosphere(g, zone);
+    return a === "day" && localHour(g.date, zone) >= DUSK_FROM ? "dusk" : a;
   }
 
   // The venue's zone. The schedule gives a venue's state, not its zone, so
@@ -314,7 +326,7 @@ TeamOS.game = (function () {
   }
 
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
-           recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
+           recentFinal: recentFinal, atmosphere: atmosphere, light: light, venueZone: venueZone,
            localDay: localDay, schedulePreview: schedulePreview, results: results, scored: scored, season: season,
            halftime: halftime, endOfGame: endOfGame, boardOrder: boardOrder, feedState: feedState,
            NIGHT_FROM: NIGHT_FROM };
