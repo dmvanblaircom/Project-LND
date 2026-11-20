@@ -17,7 +17,7 @@ var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
 ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 ctx.document = { addEventListener: function () {}, fonts: null };
 ctx.window = { addEventListener: function () {} };
-["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/stadium.js", "suite/home.js", "suite/scoreboard.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 var SB = ctx.Suite.scoreboard;
 
 function game(o) {
@@ -59,13 +59,13 @@ ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, dat
    "noon kickoff in Indiana: day");
 ok(/art-night/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z" }))),
    "no venue state: the team's own zone decides (7:30 PM Eastern, night)");
-ok(/art-dusk/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z", venueState: "CA" }))),
-   "4:30 PM in California is dusk (0022's day, its last two hours), whatever the team's own zone");
-ok(/art-dusk/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z" }), team, { variant: "home", zone: "America/Los_Angeles" })),
+ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z", venueState: "CA" }))),
+   "4:30 PM in California is day, whatever the team's own zone");
+ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z" }), team, { variant: "home", zone: "America/Los_Angeles" })),
    "a zone the caller gives wins");
 ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-14T20:59:00Z", venueState: "IN" }))),
    "3:59 PM in Indiana is still day");
-ok(!/art-(day|dusk|night)/.test(art(game({ status: "pre", state: "pre", hasStarted: false, timeSet: false }))), "no kickoff time: no atmosphere");
+ok(!/art-(day|night)/.test(art(game({ status: "pre", state: "pre", hasStarted: false, timeSet: false }))), "no kickoff time: no atmosphere");
 
 console.log("");
 console.log("the end of the game, before it is final (brief §4.2)");

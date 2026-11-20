@@ -45,7 +45,7 @@ eq(H.newDate({ newDate: { date: "not a date" } }), "New date to be announced", "
 // shows every player, and the fan's own choice outlives the live refresh.
 console.log("Box Score");
 var sctx = vm.createContext({ console: console, Intl: Intl, Date: Date, TeamOS: TeamOS, document: { addEventListener: function () {} } });
-["suite/ui.js", "suite/prospects.js", "suite/home.js", "suite/stadium.js", "suite/scoreboard.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
+["suite/ui.js", "suite/prospects.js", "suite/home.js", "leagues/college-football-art.js", "teamos/art.js", "suite/scoreboard.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
 function host() {
   var parts = {};
   return { innerHTML: "", parts: parts,

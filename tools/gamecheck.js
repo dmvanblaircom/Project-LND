@@ -157,14 +157,6 @@ eq([G.atmosphere(g("scheduled", false, "2026-10-04T00:00:00Z"), "America/Los_Ang
 eq(G.atmosphere(g("scheduled", false, "2026-10-04T01:00:00Z", { timeSet: false }), "America/New_York"), null,
    "no kickoff time announced: no atmosphere");
 
-console.log("the stage's light (redesign brief §4.1, §6.1)");
-eq(G.light(g("scheduled", false, "2026-10-03T19:59:00Z"), "America/New_York"), "day", "3:59 PM local: day");
-eq(G.light(g("scheduled", false, "2026-10-03T20:00:00Z"), "America/New_York"), "dusk", "4:00 PM local: dusk");
-eq([G.light(g("scheduled", false, "2026-10-03T21:59:00Z"), "America/New_York"), G.atmosphere(g("scheduled", false, "2026-10-03T21:59:00Z"), "America/New_York")],
-   ["dusk", "day"], "5:59 PM local: dusk on the stage, and still day for everything that asks 0022 #11");
-eq(G.light(g("scheduled", false, "2026-10-03T22:00:00Z"), "America/New_York"), "night", "6:00 PM local: night");
-eq(G.light(g("scheduled", false, "2026-10-04T01:00:00Z", { timeSet: false }), "America/New_York"), null, "no kickoff time: no light");
-
 console.log("venueZone");
 eq(G.venueZone({ venueState: "IN", city: "Notre Dame" }), "America/Indiana/Indianapolis", "Indiana");
 eq(G.venueZone({ venueState: "TN", city: "Knoxville" }), "America/New_York", "Knoxville is Eastern though Tennessee is mostly Central");

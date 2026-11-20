@@ -1614,7 +1614,7 @@ function paintHome(){
   loadStandings();
   var homeWire=splitWire(now);
   Suite.home.paint(host, {
-    team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation, timeZone:TEAM.timeZone,
+    team:{ id:TEAM.id, name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation, timeZone:TEAM.timeZone, venueName:TEAM.venue && TEAM.venue.name,
            markUrl:TeamOS.espn.mark(espnId, true) },
     now: now,
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },

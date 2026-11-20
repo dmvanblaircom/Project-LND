@@ -56,13 +56,10 @@ function drawBatch(arg) {
             ["--t-font-ui", f.ui], ["--t-font-display", f.display]]
       .filter(function (p) { return p[1] != null; }).map(function (p) { return p[0] + ":" + p[1]; }).join(";");
   }
-  // Noon, 4:30 PM and 7:30 PM Eastern, with the venue zone given as Eastern:
-  // day, dusk and night.
-  var DAY = "2026-10-03T16:00:00Z", DUSK = "2026-10-03T20:30:00Z", NIGHT = "2026-10-03T23:30:00Z", ZONE = "America/New_York";
+  // Noon and 7:30 PM Eastern, with the venue zone given as Eastern: day and night.
+  var DAY = "2026-10-03T16:00:00Z", NIGHT = "2026-10-03T23:30:00Z", ZONE = "America/New_York";
   var CASES = [
     ["home-pre-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY }, "2026-10-01T12:00:00Z"],
-    ["home-pre-dusk", "home", 390, { status: "scheduled", hasStarted: false, date: DUSK }, "2026-10-01T12:00:00Z"],
-    ["game-live-dusk", "game", 390, { status: "live", hasStarted: true, date: DUSK, period: 1, clock: "4:10", us: 3, them: 0, situation: { possession: "us", short: "2nd & 3", spot: "OPP 12" } }],
     // the countdown's game-day and last-two-hours tiers make the stage taller
     ["home-pre-gameday", "home", 390, { status: "scheduled", hasStarted: false, date: DAY }, "2026-10-03T10:00:00Z"],
     ["home-pre-near", "home", 390, { status: "scheduled", hasStarted: false, date: NIGHT }, "2026-10-03T22:15:00Z"],
@@ -133,7 +130,7 @@ function drawBatch(arg) {
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
         '<body><main id="hc"></main></body></html>');
-      for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "suite/stadium.js", "suite/home.js", "suite/scoreboard.js"])
+      for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
       // Measured once the faces have loaded and the frame has settled: under

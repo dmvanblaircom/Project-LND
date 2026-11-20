@@ -71,16 +71,32 @@ Suite.scoreboard = (function () {
     return live(st) && g.situation && !TeamOS.game.halftime(g) && g.situation.possession === (us ? "us" : "them");
   }
 
-  function side(m, us, st, v) {
+  // Each side's photograph, or null. The stage shows helmets only when it has
+  // both - one helmet facing a logo is not a matchup - and otherwise both
+  // official marks stand large where the helmets would (asset guidance,
+  // 2026-11-20: never another team's helmet recoloured).
+  function helmets(m) {
+    var g = m.game, t = m.team;
+    if (!TeamOS.art || !g) return null;
+    var us = TeamOS.art.helmet(t.id), them = TeamOS.art.helmetByProvider(g.oppProviderId);
+    return us && them ? { us: us, them: them } : null;
+  }
+  // A helmet faces the middle: ours to the right, theirs to the left. A photo
+  // facing the wrong way is flipped only when its helmet carries nothing a
+  // flip would reverse.
+  function helmetImg(h, us) {
+    var want = us ? "right" : "left", flip = h.facing !== want && h.mirror;
+    return '<img class="sb-helmet' + (flip ? " is-flipped" : "") + '" src="' + esc(h.src) + '" srcset="' + esc(h.srcset) +
+           '" sizes="(min-width:64rem) 22rem, 46vw" alt="" decoding="async">';
+  }
+
+  function side(m, us, st, v, hm) {
     var g = m.game, t = m.team;
     var name = us ? t.name : g.oppName, abbr = (us ? t.abbr : g.oppAbbr) || name;
     var rank = us ? g.usRank : g.oppRank, record = us ? g.usRecord : g.oppRecord;
     var mark = us ? ui.mark(t.markUrl, t.name, t.abbr, "bare sb-mark")
                   : ui.mark(m.oppMark ? m.oppMark(g.oppProviderId) : null, g.oppName, g.oppAbbr, "bare sb-mark");
-    // Home's stage stands the helmets behind the marks; Game's board is the
-    // marks alone, where the field is the picture.
-    var figure = v === "home" ? '<div class="sb-figure">' + Suite.stadium.helmet(us ? "us" : "them") + mark + "</div>" : mark;
-    return '<div class="sb-team sb-' + (us ? "us" : "them") + tone(g, us) + '">' + figure +
+    return '<div class="sb-team sb-' + (us ? "us" : "them") + tone(g, us) + '">' + mark +
              '<p class="sb-name">' + (rank ? '<span class="sb-rank">#' + esc(rank) + "</span> " : "") +
                '<span class="sb-full">' + esc(name) + '</span><span class="sb-abbr">' + esc(abbr) + "</span></p>" +
              '<p class="sb-rec">' + (record ? esc(record) : " ") + "</p>" +
@@ -106,9 +122,9 @@ Suite.scoreboard = (function () {
     return '<div class="sb-mid"><span class="sb-vs">' + (g.home || g.neutral ? "vs" : "at") + "</span></div>";
   }
 
-  // What the fan should know right now, one line under the board: who has
-  // the ball with down and distance, or who receives after the half - each
-  // only when the source says so.
+  // What the fan should know right now, under the score: down and distance at
+  // the spot, then whose ball it is in words; or who receives after the half
+  // - each only when the source says so.
   function situation(m, st) {
     var g = m.game, s = g.situation;
     if (!live(st) || !s || ended(g, st)) return "";
@@ -117,26 +133,31 @@ Suite.scoreboard = (function () {
       // short "ND gets the ball" pill of 2026-10-14 on Home.
       return s.receives ? '<p class="sb-sit"><span>' + esc(s.receives === "us" ? m.team.name : g.oppName) + " receives to start the 2nd half</span></p>" : "";
     var bits = [];
-    if (s.possession) bits.push('<span class="sb-poss">' + ui.ball("sb-sit-ball") + '<span class="sb-poss-t">' +
-                                esc(s.possession === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " ball</span></span>");
     if (s.short) bits.push('<span class="sb-dd">' + esc(s.short) + "</span>");
-    if (s.spot) bits.push('<span class="sb-spot">' + esc(s.spot) + "</span>");
-    return bits.length ? '<p class="sb-sit">' + bits.join('<span class="sb-sep" aria-hidden="true"></span>') + "</p>" : "";
+    if (s.spot) bits.push('<span class="sb-spot">' + (s.short ? "at " : "") + esc(s.spot) + "</span>");
+    var line = bits.length ? '<p class="sb-sit">' + (s.possession ? ui.ball("sb-sit-ball") : "") + bits.join(" ") + "</p>" : "";
+    var poss = s.possession ? '<p class="sb-poss"><span class="sb-poss-t">' + esc(s.possession === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " ball</span></p>" : "";
+    return line + poss;
   }
 
   // How near the kickoff is, in the fan's own days (brief §4.1): several days
-  // away the countdown is a quiet line; the day before, a figure; game day,
-  // the board's second voice; the last two hours, its first. A value at the
-  // time of drawing, redrawn with the screen - never a ticking clock.
+  // away, the day before, game day, the last two hours. A value at the time of
+  // drawing, redrawn with the screen - never a ticking clock.
+  function calDays(g, now) {
+    var ko = new Date(g.date), d0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.round((new Date(ko.getFullYear(), ko.getMonth(), ko.getDate()) - d0) / 864e5);
+  }
   function nearness(g, now) {
     var ms = Date.parse(g.date) - now.getTime();
     if (!(ms > 0) || g.timeSet === false) return null;
     if (ms <= 2 * 36e5) return "near";
-    var ko = new Date(g.date), d0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var days = Math.round((new Date(ko.getFullYear(), ko.getMonth(), ko.getDate()) - d0) / 864e5);
+    var days = calDays(g, now);
     return days <= 0 ? "day" : days === 1 ? "eve" : "far";
   }
 
+  // KICKOFF IN / 4 DAYS: the board's headline before a game. It grows as the
+  // game nears: the day before it says TOMORROW, on game day the kickoff time,
+  // in the last two hours the hours and minutes, lit.
   function countdown(m, st) {
     var g = m.game, now = m.now || new Date();
     if (st !== "upcoming") return "";
@@ -146,26 +167,28 @@ Suite.scoreboard = (function () {
     var d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), mi = Math.floor(ms % 36e5 / 6e4);
     function said(n, one) { return n + " " + one + (n === 1 ? "" : "s"); }
     var label = "Kickoff in " + (d ? said(d, "day") + ", " : "") + said(h, "hour") + ", " + said(mi, "minute");
-    if (near === "far") return '<p class="sb-cd sb-cd-far"><span class="sb-cd-line">Kickoff in ' + esc(said(d, "day")) + "</span></p>";
-    function cell(n, l) { return '<span class="sb-cd-cell"><span class="sb-cd-n">' + n + '</span><span class="sb-cd-l">' + l + "</span></span>"; }
-    var cells = (d ? cell(d, d === 1 ? "Day" : "Days") : "") + cell(h, h === 1 ? "Hr" : "Hrs") + cell(mi < 10 && !d ? "0" + mi : mi, "Min");
-    return '<p class="sb-cd sb-cd-' + near + '" aria-label="' + esc(label) + '"><span class="sb-cd-k" aria-hidden="true">' +
-             (near === "near" ? "Kickoff" : near === "day" ? "Game day" : "Tomorrow") + '</span><span class="sb-cd-cells" aria-hidden="true">' + cells + "</span></p>";
+    var ko = ui.kickoff(g.date, g.timeSet);
+    var k = near === "far" ? "Kickoff in" : near === "eve" ? "Kickoff" : near === "day" ? "Kickoff today" : "Kickoff in";
+    var big = near === "far" ? said(calDays(g, now), "day")
+            : near === "eve" ? "Tomorrow"
+            : near === "day" ? ko.time
+            : (h ? h + " hr " : "") + mi + " min";
+    return '<p class="sb-cd sb-cd-' + near + '" aria-label="' + esc(label) + '"><span class="sb-cd-k" aria-hidden="true">' + k +
+           '</span><span class="sb-cd-n" aria-hidden="true">' + esc(big) + "</span></p>";
   }
 
-  function top(m, st, variant) {
-    var g = m.game, ko = ui.kickoff(g.date, g.timeSet), bits = "";
-    if (ended(g, st)) bits = '<span class="state-pill end">End of game</span>';
-    else if (st === "live") bits = '<span class="live-pill">Live</span>';
-    else if (st === "paused") bits = '<span class="state-pill paused">' + (g.status === "suspended" ? "Suspended" : "Delayed") + "</span>";
-    else if (st === "delayed" || st === "postponed" || st === "canceled")
-      bits = '<span class="state-pill ' + st + '">' + { delayed: "Delayed", postponed: "Postponed", canceled: "Canceled" }[st] + "</span>" +
-             (st === "postponed" ? '<span class="sb-when">' + esc(Suite.home.newDate(g)) + "</span>" : '<span class="sb-when">' + esc(ko.day) + "</span>");
-    else if (st === "upcoming") bits = '<span class="sb-label">' + (variant === "home" ? "Next game" : "Kickoff") + '</span><span class="sb-when"><span class="nb">' +
-                                       esc(ko.day) + "</span> · <span class=\"nb\">" + esc(ko.time) + "</span></span>";
-    else if (st === "final") bits = '<span class="sb-label">' + esc(ko.day) + "</span>";
-    var net = g.net && st !== "final" && st !== "canceled" ? '<span class="sb-net">' + esc(g.net) + "</span>" : "";
-    return bits || net ? '<div class="sb-top">' + '<div class="sb-status">' + bits + "</div>" + net + "</div>" : "";
+  // The stage's one word for where the game is, in the colour of that state.
+  function pill(g, st, now) {
+    if (ended(g, st)) return { k: "end", t: "End of game" };
+    if (st === "live") return TeamOS.game.halftime(g) ? { k: "half", t: "Halftime" }
+                            : +g.period >= 5 ? { k: "ot", t: "Overtime" } : { k: "live", t: "Live" };
+    if (st === "paused") return { k: "paused", t: g.status === "suspended" ? "Suspended" : "Delayed" };
+    if (st === "final") return { k: "final", t: "Final" };
+    if (st === "delayed") return { k: "paused", t: "Delayed" };
+    if (st === "postponed") return { k: "off", t: "Postponed" };
+    if (st === "canceled") return { k: "off", t: "Canceled" };
+    if (st === "upcoming") { var n = nearness(g, now || new Date()); return n === "day" || n === "near" ? { k: "next", t: "Game day" } : { k: "next", t: "Next game" }; }
+    return null;
   }
 
   function summary(m, st) {
@@ -204,51 +227,68 @@ Suite.scoreboard = (function () {
     opts = opts || {};
     var g = m.game;
     if (!g) return "";
-    var st = state(g), v = opts.variant === "game" ? "game" : "home";
+    var st = state(g), v = opts.variant === "game" ? "game" : "home", hm = v === "home" ? helmets(m) : null;
     var phase = ended(g, st) ? " sb-end" : live(st) && TeamOS.game.halftime(g) ? " sb-half" : live(st) && +g.period >= 5 ? " sb-ot" : "";
-    return '<section class="sb sb-' + v + " sb-st-" + st + phase + '" aria-label="' + esc(summary(m, st)) + '" data-game="' + esc(g.id) + '">' +
-             top(m, st, v) +
-             '<div class="sb-board">' + side(m, true, st, v) + score(m, true, st) + middle(m, st) + score(m, false, st) + side(m, false, st, v) + "</div>" +
-             series(m, st) + situation(m, st) + countdown(m, st) +
+    var scoring = shows(st, g);
+    return '<section class="sb sb-' + v + " sb-st-" + st + phase + (hm ? " has-helmets" : " no-helmets") + (scoring ? " is-scoring" : "") +
+             '" aria-label="' + esc(summary(m, st)) + '" data-game="' + esc(g.id) + '">' +
+             (hm ? '<div class="sb-helmets" aria-hidden="true">' + helmetImg(hm.us, true) + helmetImg(hm.them, false) + "</div>" : "") +
+             '<div class="sb-board">' + side(m, true, st, v, hm) + score(m, true, st) + middle(m, st) + score(m, false, st) + side(m, false, st, v, hm) + "</div>" +
+             situation(m, st) + series(m, st) + countdown(m, st) +
+             (ended(g, st) ? '<p class="sb-note">The game has ended. The final score is being confirmed.</p>' : "") +
            "</section>";
   }
 
-  // The facts a fan plans around, below the board on Home: kickoff weather,
-  // the market's line, where it is played. Each only when the source has
-  // it; the line only before kickoff, and never called live (decision 0025).
+  // When and where, under the board: the day, kickoff time and broadcast; the
+  // venue and its city; then the kickoff weather and the market's line as
+  // quiet facts (decision 0025: the line only before kickoff, never live).
   function facts(m, st) {
-    var g = m.game, out = [], w = m.weather;
-    if (w && (st === "upcoming" || st === "delayed" || live(st)))
-      out.push('<li class="sf sf-wx"><span class="sf-k">' + (live(st) ? "Now" : "Kickoff") + '</span><span class="sf-v">' +
-               esc(w.tempF + "°F") + (w.sky ? " " + esc(w.sky) : "") + "</span></li>");
+    var g = m.game, out = "", w = m.weather, ko = ui.kickoff(g.date, g.timeSet);
+    var pre = st === "upcoming" || st === "delayed" || st === "postponed";
+    if (pre) {
+      var when = st === "postponed" ? [Suite.home.newDate(g)] : [ko.day, g.timeSet === false ? "" : ko.time, g.net].filter(Boolean);
+      out += '<p class="stage-when">' + when.map(function (x) { return '<span class="nb">' + esc(x) + "</span>"; }).join('<span class="dot" aria-hidden="true"> · </span>') + "</p>";
+      if (g.venue) out += '<p class="stage-where">' + esc(g.venue) + (g.city ? '<span class="dot" aria-hidden="true"> · </span>' + esc(g.city + (g.venueState ? ", " + g.venueState : "")) : "") + "</p>";
+    } else if (st === "final") out += '<p class="stage-when"><span class="nb">' + esc(ko.day) + "</span></p>";
+    var chips = [];
+    if (w && (pre || live(st)))
+      chips.push('<li class="sf sf-wx"><span class="sf-k">' + (live(st) ? "Now" : "Kickoff") + '</span><span class="sf-v">' +
+                 esc(w.tempF + "°F") + (w.sky ? " " + esc(w.sky) : "") + "</span></li>");
     if (g.odds && (g.odds.line || g.odds.total != null) && (st === "upcoming" || st === "delayed"))
-      out.push('<li class="sf sf-odds"><span class="sf-k">Line</span><span class="sf-v">' +
-               esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")) + "</span></li>");
-    if (g.venue && (st === "upcoming" || st === "delayed" || st === "postponed"))
-      out.push('<li class="sf sf-venue"><span class="sf-k">Venue</span><span class="sf-v">' + esc(g.venue) +
-               (g.city ? '<span class="sf-place">' + esc(g.city + (g.venueState ? ", " + g.venueState : "")) + "</span>" : "") + "</span></li>");
-    return out.length ? '<ul class="stage-facts">' + out.join("") + "</ul>" : "";
+      chips.push('<li class="sf sf-odds"><span class="sf-k">Line</span><span class="sf-v">' +
+                 esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")) + "</span></li>");
+    if (g.net && (live(st) || ended(g, st))) chips.push('<li class="sf sf-net"><span class="sf-k">TV</span><span class="sf-v">' + esc(g.net) + "</span></li>");
+    return out + (chips.length ? '<ul class="stage-facts">' + chips.join("") + "</ul>" : "");
   }
 
-  // The stage: the stadium with the board on it. Home leads with the
-  // program's identity and offers the way into Game; Game's is the board,
-  // full width, with nothing between it and the views.
+  // The stage: the photograph of the stadium the game is played in, by the
+  // light the kickoff is under, with the matchup standing in front of it
+  // (David, 2026-11-20: real photographs; the venue's own when Suite has it).
+  function photo(m, g) {
+    if (!TeamOS.art) return null;
+    var t = m.team, zone = g ? (TeamOS.game.venueZone ? TeamOS.game.venueZone(g, t.timeZone) : null) : null;
+    var time = g ? TeamOS.game.atmosphere(g, zone) : "day";
+    // No game (the offseason): our own stadium, by day.
+    return TeamOS.art.venue(g || { venue: t.venueName }, time || "night");
+  }
+
   function stage(m, opts) {
     opts = opts || {};
     var v = opts.variant === "game" ? "game" : "home", t = m.team, g = m.game;
-    // Day, dusk or night needs the venue's zone; without one given, the
-    // venue's state decides, then the team's own (Codex, #239: no zone, no
-    // lighting).
+    // Day or night needs the venue's zone; without one given, the venue's
+    // state decides, then the team's own (Codex, #239: no zone, no lighting).
     var zone = opts.zone || (g && TeamOS.game.venueZone ? TeamOS.game.venueZone(g, t.timeZone) : null);
-    var atm = g && TeamOS.game.light ? TeamOS.game.light(g, zone) : null;
-    var st = g ? state(g) : "none";
-    var id = v === "home" ? '<div class="stage-id"><p class="stage-school">' + esc(t.name) + "</p>" +
-                              (t.nick ? '<p class="stage-nick">' + esc(t.nick) + "</p>" : "") + "</div>" : "";
+    var atm = g && TeamOS.game.atmosphere ? TeamOS.game.atmosphere(g, zone) : null;
+    var st = g ? state(g) : "none", p = g ? pill(g, st, m.now) : null, ph = photo(m, g);
     var cta = opts.cta ? '<a class="btn btn-primary stage-cta" href="' + esc(opts.cta.href) + '">' + esc(opts.cta.label) + CHEVRON + "</a>" : "";
     var near = g && st === "upcoming" ? nearness(g, m.now || new Date()) : null;
-    return '<div class="stage stage-' + v + " st-" + st + (near ? " cd-" + near : "") + ' on-dark art-' + (atm || "none") + '">' +
-             '<div class="stage-art" aria-hidden="true">' + Suite.stadium.art() + "</div>" +
-             '<div class="stage-inner">' + id + (g ? board(m, opts) : (opts.body || "")) +
+    var img = ph ? '<div class="stage-photo" aria-hidden="true"><img class="stage-img" src="' + esc(ph.src) + '" srcset="' + esc(ph.srcset) +
+                   '" sizes="(min-width:64rem) 52rem, 100vw" alt="" decoding="async" fetchpriority="high" style="object-position:' + esc(ph.focus) + '"></div>' : "";
+    return '<div class="stage stage-' + v + " st-" + st + (near ? " cd-" + near : "") + ' on-dark art-' + (atm || "none") + (ph ? " has-photo venue-" + esc(ph.key) : " no-photo") + '">' +
+             img + '<div class="stage-art" aria-hidden="true"></div>' +
+             '<div class="stage-inner">' +
+               (p ? '<p class="stage-pill pill-' + p.k + '"><span>' + esc(p.t) + "</span></p>" : "") +
+               (g ? board(m, opts) : (opts.body || "")) +
                (g && m.line ? '<p class="stage-line">' + esc(m.line) + "</p>" : "") +
                (g && v === "home" ? facts(m, st) : "") + cta + "</div></div>";
   }

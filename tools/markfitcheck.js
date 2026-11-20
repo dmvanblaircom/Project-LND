@@ -47,7 +47,7 @@ var LOGO = "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/";
   });
   await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="' + base + '/app.css"></head>' +
     '<body><main class="page-main"><div id="home"></div><div id="home2"></div><div id="top"></div></main></body></html>');
-  for (var f of ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js", "teamos/live.js", "suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/stadium.js", "suite/scoreboard.js", "suite/home.js", "suite/top25.js"])
+  for (var f of ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js", "teamos/live.js", "suite/ui.js", "suite/schedule.js", "suite/prospects.js", "leagues/college-football-art.js", "teamos/art.js", "suite/scoreboard.js", "suite/home.js", "suite/top25.js"])
     await page.addScriptTag({ url: base + "/" + f });
   await page.evaluate(function (LOGO) {
     var team = { name: "Notre Dame", abbr: "ND", markUrl: LOGO + "87.png" };

@@ -1760,220 +1760,101 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @media(max-width:340px){.os-hero h2{font-size:1.7rem}.os-totals dd{font-size:2.625rem}.os-result{grid-template-columns:minmax(4.9rem,max-content) minmax(0,1fr);gap:.625rem}.os-result-score{font-size:1.35rem}}
 
 /* ====================================================================
-   PHASE 2: THE STAGE (Stage 2, Phase 2 brief 2026-11-19)
-   suite/stadium.js draws the stadium and the helmet form; suite/
-   scoreboard.js puts the matchup on it. Everything here reads roles
-   (--r-*), so Team Style lights the stadium in the team's colour and Suite
-   Style in champagne, with no conditional anywhere. Layout follows the
-   stage's own width (container queries): one composition from a 320px
-   phone to a desktop grid cell.
+   PHASE 2: THE STAGE (Stage 2; brief 2026-11-19, imagery 2026-11-20)
+   suite/scoreboard.js puts the matchup in front of a photograph of the
+   stadium the game is played in (TeamOS.art): the venue's own when Suite
+   has it, a defocused stand-in otherwise; by day or under the lights as
+   the kickoff is (0022 #11). The team arrives through light - a glow of its
+   colour rising from the field - and through its helmet and mark. Every
+   colour reads roles (--r-*), so Team Style and Suite Style light it
+   differently with no conditional. Layout follows the stage's own width.
 
-   Under the lights: a night sky over a bowl of stands, the crowd's lights
-   in it, a ribbon board in the team's colour along the fascia, banks of
-   floodlights throwing beams onto a striped field. By day the same stadium
-   in daylight: the lights off, the sky open, the field bright. Static: the
-   picture never moves; the game does.
-
-   The text floor (decision 0041): every word stands on a feathered pool of
-   the team's abyss, so the light can live everywhere else. Measured from
-   the pixels for every team in both styles by tools/herocontrastcheck.js.
+   The text floor (decision 0041): the photograph fades into the team's
+   abyss before the first line of text below the helmets, and the pill on
+   the photo carries its own solid ground. Measured from the pixels for
+   every team in both styles by tools/herocontrastcheck.js.
    ==================================================================== */
 /* Suite Style's own detail: champagne, never the action colour (0041). */
 [data-style="suite"]{--r-stage-detail:rgba(212,184,150,.5);--r-stage-mark:#D4B896;--r-stage-glow-rgb:212,184,150}
 
-.stage{position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);background:var(--r-stage-3)}
-/* The art has a box of its own height, not the stage's: the stadium is drawn
-   to cover (slice), so a stage made taller by its content (a game-day
-   countdown) would scale the picture up and slide the ribbon board down
-   behind the words under the board. A fixed box keeps the stadium in one
-   place in every state; only the stage around it grows. */
-.stage-art{position:absolute;top:0;left:0;right:0;height:min(100%,37.5rem);z-index:-1;overflow:hidden;pointer-events:none;
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 var(--stage-window,54%),rgba(0,0,0,.3) calc(var(--stage-window,54%) + 14%),transparent calc(var(--stage-window,54%) + 30%));
-  mask-image:linear-gradient(180deg,#000 0%,#000 var(--stage-window,54%),rgba(0,0,0,.3) calc(var(--stage-window,54%) + 14%),transparent calc(var(--stage-window,54%) + 30%))}
-.sd{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage{--photo-h:19rem;position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);
+  background:var(--r-stage-3)}
+.stage.no-photo{background:radial-gradient(120% 70% at 50% 0%,rgba(var(--r-stage-glow-rgb),.22),transparent 60%),linear-gradient(180deg,var(--r-stage-1),var(--r-stage-3) 70%)}
+.stage-photo{position:absolute;top:0;left:0;right:0;height:min(100%,var(--photo-h));z-index:-2;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.35) 82%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.35) 82%,transparent 100%)}
+.stage-img{display:block;width:100%;height:100%;object-fit:cover}
+.art-night .stage-img{filter:brightness(.92) saturate(1.05)}
+.art-day .stage-img{filter:brightness(.86) saturate(1.04)}
+.venue-neutral .stage-img{filter:blur(6px) brightness(.62) saturate(.9);transform:scale(1.06)}
+/* the team's light, rising from the field into the stands, and a veil at
+   the top so the header and the pill sit clean */
+.stage-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.55) 0,rgba(var(--t-abyss-rgb),0) 5.5rem),
+             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.30),transparent 72%)}
 
-/* ---- the stadium, at night (the default) ---- */
-.sd-sky-0{stop-color:var(--r-stage-3)}
-.sd-sky-1{stop-color:var(--r-stage-2)}
-.sd-sky-2{stop-color:var(--r-stage-1)}
-.sd-halo-0{stop-color:rgb(var(--r-stage-glow-rgb));stop-opacity:.34}
-.sd-halo-1{stop-color:rgb(var(--r-stage-glow-rgb));stop-opacity:0}
-.sd-tier-up{fill:var(--r-stage-3);opacity:.72}
-.sd-tier-low{fill:var(--r-stage-3);opacity:.9}
-.sd-rim{stroke:rgba(255,246,228,.4);stroke-width:2}
-.sd-crowd{fill:none;stroke-linecap:round;stroke:#FFF1D6}
-.sd-crowd.is-s1,.sd-crowd.is-b1{opacity:.28}
-.sd-crowd.is-s2,.sd-crowd.is-b2{opacity:.5;stroke:rgb(var(--r-stage-glow-rgb))}
-.sd-crowd.is-s3,.sd-crowd.is-b3{opacity:.8}
-.sd-crowd[class*="is-s"]{stroke-width:2.6}
-.sd-crowd[class*="is-b"]{stroke-width:4.4}
-.sd-crowd.is-near{opacity:.75}
-/* the ribbon board along the fascia, in the stage's own colour */
-.sd-wall{fill:rgb(var(--r-stage-glow-rgb));opacity:.7}
-.sd-turf-0{stop-color:#123524}
-.sd-turf-1{stop-color:#061710}
-.sd-stripe{fill:rgba(255,255,255,.05)}
-.sd-stripe.is-alt{fill:rgba(0,0,0,.12)}
-.sd-pool-0{stop-color:#FFFFFF;stop-opacity:.16}
-.sd-pool-1{stop-color:#FFFFFF;stop-opacity:0}
-.sd-mast{fill:#080B12}
-.sd-frame{fill:#1B2333;stroke:rgba(255,255,255,.18);stroke-width:1}
-.sd-lamp{fill:#FFFDF2}
-.sd-bloom{fill:url(#sdBloom)}
-.sd-bloom-0{stop-color:#FFF8E6;stop-opacity:.8}
-.sd-bloom-1{stop-color:#FFF8E6;stop-opacity:0}
-.sd-beam{fill:url(#sdBeam)}
-.sd-beam-0{stop-color:#FFF6E2;stop-opacity:.26}
-.sd-beam-1{stop-color:rgb(var(--r-stage-glow-rgb));stop-opacity:0}
-
-/* ---- by day: the same stadium in daylight ---- */
-.sd-sun{display:none}
-.sd-sun-0{stop-color:#FFF3D6;stop-opacity:.75}
-.sd-sun-1{stop-color:#FFE7B8;stop-opacity:0}
-.art-day .sd-sun{display:inline}
-.art-day .sd-sky-0{stop-color:#1A4C86}
-.art-day .sd-sky-1{stop-color:#4C8CCB}
-.art-day .sd-sky-2{stop-color:#B8D8F2}
-.art-day .sd-halo-0{stop-color:#FFEFD0;stop-opacity:.42}
-.art-day .sd-tier-up{fill:#8193A8;opacity:.96}
-.art-day .sd-tier-low{fill:#5A6C80;opacity:.97}
-.art-day .sd-rim{stroke:rgba(255,250,236,.75)}
-.art-day .sd-crowd{stroke:#F2F5F9}
-.art-day .sd-crowd.is-s2,.art-day .sd-crowd.is-b2{stroke:rgb(var(--r-stage-glow-rgb));opacity:.7}
-.art-day .sd-turf-0{stop-color:#3F9157}
-.art-day .sd-turf-1{stop-color:#1D5631}
-.art-day .sd-stripe{fill:rgba(255,255,255,.1)}
-.art-day .sd-stripe.is-alt{fill:rgba(0,40,10,.12)}
-.art-day .sd-pool-0{stop-color:#FFF8E6;stop-opacity:.22}
-.art-day .sd-lamp{fill:#B7C0CC}
-.art-day .sd-bloom,.art-day .sd-beam{display:none}
-.art-day .sd-frame{fill:#46546A}
-.art-day .sd-mast{fill:#3A4658}
-/* ---- at dusk: a 4-6 PM kickoff, the hour the lights come on ----
-   A violet zenith over an ember horizon, the sun low behind the far stands,
-   the bowl in silhouette with its first lights showing, and the towers lit
-   but not yet throwing beams the sky can't swallow. */
-.art-dusk .sd-sun{display:inline;transform:translate(-210px,300px)}
-.art-dusk .sd-sun-0{stop-color:#FFC27A;stop-opacity:.85}
-.art-dusk .sd-sun-1{stop-color:#FF7A45;stop-opacity:0}
-.art-dusk .sd-sky-0{stop-color:#1C1640}
-.art-dusk .sd-sky-1{stop-color:#5B3266}
-.art-dusk .sd-sky-2{stop-color:#E07A4F}
-.art-dusk .sd-halo-0{stop-color:#FFB070;stop-opacity:.3}
-.art-dusk .sd-tier-up{fill:#2E2638;opacity:.95}
-.art-dusk .sd-tier-low{fill:#1E1A28;opacity:.97}
-.art-dusk .sd-rim{stroke:rgba(255,196,140,.6)}
-.art-dusk .sd-crowd.is-s1,.art-dusk .sd-crowd.is-b1{opacity:.18}
-.art-dusk .sd-crowd.is-s3,.art-dusk .sd-crowd.is-b3{opacity:.6}
-.art-dusk .sd-turf-0{stop-color:#2B6B43}
-.art-dusk .sd-turf-1{stop-color:#0E3020}
-.art-dusk .sd-stripe{fill:rgba(255,220,180,.07)}
-.art-dusk .sd-pool-0{stop-color:#FFE2C2;stop-opacity:.18}
-.art-dusk .sd-beam-0{stop-opacity:.14}
-.art-dusk .sd-bloom{opacity:.75}
-.art-dusk .sd-frame{fill:#241E30}
-.art-dusk .sd-mast{fill:#120F1A}
-/* no kickoff time: neither day nor night - the stadium quietly lit */
-.art-none .sd-beam{display:none}
-.art-none .sd-bloom{opacity:.35}
-
-/* ---- the helmet form ---- */
-.hm-wrap{position:relative;display:block;width:100%}
-.hm{display:block;width:100%;height:auto;overflow:visible}
-.hm-them .hm{transform:scaleX(-1)}
-.hm-s0{stop-color:#FBFCFE}
-.hm-s1{stop-color:#C6CDD8}
-.hm-s2{stop-color:#5D6878}
-.hm-spec-0{stop-color:#FFFFFF;stop-opacity:.9}
-.hm-spec-1{stop-color:#FFFFFF;stop-opacity:0}
-.hm-spec{opacity:.85}
-.hm-rim{stroke-width:6;stroke-linecap:round}
-.hm-rim-0{stop-color:rgb(var(--r-stage-glow-rgb));stop-opacity:1}
-.hm-rim-1{stop-color:rgb(var(--r-stage-glow-rgb));stop-opacity:0}
-.hm-seam{stroke:rgba(20,26,36,.35);stroke-width:2}
-.hm-ear{fill:#1C2330;stroke:rgba(255,255,255,.4);stroke-width:1.5}
-.hm-chin{fill:rgba(10,14,22,.28)}
-.hm-mask{stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
-.hm-m0{stop-color:#5B6576}
-.hm-m1{stop-color:#151A24}
-.hm-clip{fill:#9AA3B1}
-.hm-shadow{fill:#000;opacity:.42}
-/* the opponent's: the same shell under a cooler, plainer light */
-.hm-them .hm-s0{stop-color:#EEF1F5}
-.hm-them .hm-s1{stop-color:#B4BCC8}
-.hm-them .hm-s2{stop-color:#4C5666}
-.hm-them .hm-rim-0{stop-color:#DDE6F2;stop-opacity:.55}
-.hm-them .hm-rim-1{stop-color:#DDE6F2;stop-opacity:0}
-.art-day .hm-shadow{opacity:.3}
-
-/* ---- the composition ---- */
-.stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--s-space-4);
-  padding:var(--s-space-5) var(--gutter) var(--s-space-5)}
-.stage-id p{margin:0}
-.stage-school{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.22em;text-transform:uppercase;color:var(--r-stage-mark)}
-.stage-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.1rem,11cqi,3.4rem);line-height:.95;text-transform:uppercase}
-.stage-cta{width:100%;background:var(--r-signal-action);color:var(--r-signal-action-ink)}
+.stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3);
+  padding:var(--s-space-4) var(--gutter) var(--s-space-5);text-align:center}
+.stage-pill{align-self:center;margin:0}
+.stage-pill span{display:inline-flex;align-items:center;gap:.45rem;padding:.32rem .85rem;border-radius:var(--s-radius-pill);
+  font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(var(--t-abyss-rgb),.88);color:var(--r-stage-ink);border:1px solid var(--r-stage-line)}
+.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-mark)}
+.pill-live span{background:var(--s-live);border-color:var(--s-live);color:#fff}
+.pill-live span::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:#fff}
+.pill-half span{background:#1D3B8F;border-color:#1D3B8F;color:#fff}
+.pill-ot span{background:#5A3DAA;border-color:#5A3DAA;color:#fff}
+.pill-paused span{background:#C98A1B;border-color:#C98A1B;color:#1A1206}
+.pill-end span{background:#E8ECF1;border-color:#E8ECF1;color:#111D35}
+.pill-final span{background:#177245;border-color:#177245;color:#fff}
+.pill-off span{background:#56606E;border-color:#56606E;color:#fff}
+.stage-cta{align-self:center;width:100%;max-width:22rem;background:var(--r-signal-action);color:var(--r-signal-action-ink)}
 .stage-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .stage-cta:focus-visible{outline-color:var(--r-signal-focus)}
-.stage-line{margin:0;text-align:center;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);letter-spacing:.03em;color:var(--r-stage-mark)}
+.stage-line{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);letter-spacing:.03em;color:var(--r-stage-mark)}
 .stage-empty{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-xl);text-transform:uppercase}
-/* the season's own composition (S2/S4) on the stadium: the art fades early,
-   so the season's words stand on the team's deepest colour */
-.home-hero.is-season .stage{--stage-window:22%}
-.stage .os-hero{margin:0;padding:0;background:none}
-
-/* The text floor (0041): words stand on the team's abyss, as bands of haze
-   across the whole stage - the darkest under the school line, nearest the
-   banks; another behind the board, under the names and scores (the helmets
-   and marks are drawn over it, so they keep all their light); another under
-   the facts and the action. Feathered top and bottom, never a patch. */
-.stage .stage-id,.stage .sb-top,.stage .sb-board,.stage .stage-empty{position:relative}
-.stage .stage-id::before,.stage .sb-top::before,.stage .sb-board::before,.stage .stage-empty::before{
-  content:"";position:absolute;z-index:-1;pointer-events:none;top:-1rem;bottom:-1rem;left:calc(-1 * var(--s-space-7));right:calc(-1 * var(--s-space-7));
-  background:rgba(var(--t-abyss-rgb),.8);
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent);mask-image:linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent)}
-.stage .stage-id::before{top:-2rem;bottom:-.75rem;background:var(--t-abyss)}
-.stage .sb-board::before{top:38%;background:rgba(var(--t-abyss-rgb),.72)}
-/* Game's board has no helmets to stand clear of: its band is the whole board */
-.stage-game .sb-board::before{top:-1rem;background:rgba(var(--t-abyss-rgb),.82)}
-.stage .sb-figure > *{position:relative;z-index:1}
+.stage-when,.stage-where{margin:0}
+.stage-when{font-weight:600;font-size:var(--s-type-md)}
+.stage-where{font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.stage-when .dot,.stage-where .dot{color:var(--r-stage-ink-2)}
+.stage-when .nb{white-space:nowrap}
+/* the season's own composition (S2/S4): the photograph stays short */
+.home-hero.is-season .stage{--photo-h:12rem}
+.stage .os-hero{margin:0;padding:0;background:none;text-align:left}
 
 /* ---- the board ---- */
-.sb{container:sb / inline-size;display:flex;flex-direction:column;gap:var(--s-space-3)}
-/* Home: the matchup first, standing in the light; when and where it is
-   played below it, the broadcast's lower third */
-.sb-home .sb-board{order:-1;margin-top:var(--s-space-4)}
-.sb-top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-space-3);min-height:2rem}
-.sb-status{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--s-space-3);row-gap:var(--s-space-1)}
-.sb-label{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);text-transform:uppercase;letter-spacing:.04em}
-.sb-when{color:var(--r-stage-ink-2);font-size:var(--s-type-md)}
-.sb-when .nb{white-space:nowrap}
-.sb-net{flex:none;padding:.2rem .55rem;border:1px solid var(--r-stage-line);border-radius:6px;background:rgba(var(--t-abyss-rgb),.7);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.04em}
-.sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them" "uss mid thems";align-items:end;column-gap:var(--s-space-2);row-gap:var(--s-space-2)}
+.sb{container:sb / inline-size;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3)}
+.sb-helmets{display:flex;justify-content:center;align-items:flex-end;margin:var(--s-space-2) auto 0;width:100%;max-width:30rem}
+.sb-helmet{display:block;width:50%;height:auto;max-height:11rem;object-fit:contain;filter:drop-shadow(0 14px 16px rgba(0,0,0,.6))}
+.sb-helmet:first-child{width:54%;margin-right:-4%;position:relative;z-index:1}
+.sb-helmet:last-child{width:48%;margin-left:-4%}
+.sb-helmet.is-flipped{transform:scaleX(-1)}
+.sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them";align-items:start;column-gap:var(--s-space-2)}
+.sb.is-scoring .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";align-items:center;column-gap:var(--s-space-2)}
 .sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid;align-self:center}
-.sb-team{display:flex;flex-direction:column;align-items:center;gap:var(--s-space-1);min-width:0;text-align:center}
+.sb-team{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:0;text-align:center}
 .sb-team p{margin:0}
-/* Home: the helmet stands behind the mark. Ours is the bigger helmet - our
-   team, our game (brief §4.1) - but the marks are one size on one line, and
-   the name and record lines one height, whatever the data (David's iPhone,
-   2026-10-25) */
-.sb-figure{position:relative;display:flex;flex-direction:column;align-items:center;width:100%;margin-bottom:var(--s-space-1)}
-.sb-us .sb-figure{max-width:9.5rem}
-.sb-them .sb-figure{max-width:7.75rem}
-.sb-figure .sb-mark{--mark:3.25rem;position:relative;margin-top:-1.6rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.55))}
-.sb-game .sb-mark{--mark:3.25rem}
-.sb-name{max-width:100%;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
-.sb-home .sb-name{line-height:1.6rem}
+.sb-mark{--mark:3.1rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.sb.has-helmets .sb-mark{--mark:2.9rem;margin-top:-.4rem}
+.sb.no-helmets .sb-mark{--mark:5.25rem;margin-top:var(--s-space-4)}
+.sb.is-scoring .sb-mark{--mark:2.75rem}
+.sb.no-helmets.is-scoring .sb-mark{--mark:3.6rem}
+.sb-name{max-width:100%;overflow:hidden;white-space:nowrap;line-height:1.5rem;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
 .sb-us .sb-name{font-size:var(--s-type-lg)}
 .sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .sb-abbr,.fit-abbr .sb-full{display:none}
 .fit-abbr .sb-abbr{display:inline}
+/* while there are scores, the phone's columns carry the short name */
+.sb.is-scoring .sb-full{display:none}
+.sb.is-scoring .sb-abbr{display:inline}
+.sb.is-scoring .sb-us .sb-name,.sb.is-scoring .sb-name{font-size:var(--s-type-sm)}
 .sb-rec{min-height:1lh;font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.sb.is-scoring .sb-rec{display:none}
 .sb-score{position:relative;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--s-font-score);font-weight:var(--s-num-primary);
-  font-size:clamp(3rem,22cqi,4.75rem);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  font-size:clamp(2.6rem,17cqi,4.75rem);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sb-score .sb-n{min-width:1.1ch;text-align:center}
 /* the side with the ball: one quiet bar under its score, said in words below */
-.sb-score.has-ball::after{content:"";position:absolute;left:50%;bottom:-.4rem;width:1.8rem;height:3px;margin-left:-.9rem;border-radius:2px;background:var(--r-signal-accent)}
+.sb-score.has-ball::after{content:"";position:absolute;left:50%;bottom:-.45rem;width:1.8rem;height:3px;margin-left:-.9rem;border-radius:2px;background:var(--r-signal-accent)}
 /* a final: the higher score stands forward, the other steps back - the same
    for a win and a loss (0041) */
 .sb-team.is-loser .sb-name,.sb-score.is-loser{color:var(--r-stage-ink-2)}
@@ -1981,70 +1862,60 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 /* a score the refresh just brought: a brief lift of the figure, once */
 .sb-score.is-new .sb-n{animation:sb-new var(--s-dur-slow) var(--s-ease-out) 2}
 @keyframes sb-new{0%{color:var(--r-stage-ink)}40%{color:var(--r-stage-mark);transform:translateY(-.06em) scale(1.06)}100%{color:inherit;transform:none}}
-.sb-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;min-width:3.6rem;text-align:center;padding-bottom:var(--s-space-2)}
-.sb-period{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:3.2rem;text-align:center}
+.sb-period{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.08em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 .sb-mid.is-half .sb-period{font-size:var(--s-type-sm);letter-spacing:.14em;color:var(--r-stage-mark)}
-.sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums}
-.sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);letter-spacing:.22em;text-transform:uppercase}
-.sb-vs{font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
-.sb-series{margin:0;text-align:center;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);letter-spacing:.12em;text-transform:uppercase;color:var(--r-stage-mark)}
-.sb-sit{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--s-space-2) var(--s-space-3);align-self:center;margin:0;
-  padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.82);
-  font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);font-variant-numeric:tabular-nums;letter-spacing:.02em}
-.sb-poss{display:inline-flex;align-items:center;gap:.35rem}
+.sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-xl);line-height:1;font-variant-numeric:tabular-nums}
+.sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.2em;text-transform:uppercase}
+.sb-vs{display:block;margin-top:2.6rem;font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
+.sb.no-helmets .sb-vs{margin-top:var(--s-space-7)}
+.sb-series{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-mark)}
+.sb-sit{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45rem;align-self:center;margin:var(--s-space-2) 0 0;
+  padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(255,255,255,.06);
+  font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .sb-sit-ball{width:1.15rem;height:1.15rem}
 .sb-sit-ball ellipse{fill:#B07A47;stroke:rgba(255,255,255,.85);stroke-width:1}
 .sb-sit-ball path{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round}
-.sb-sep{width:1px;height:1.1em;background:var(--r-stage-line)}
 .sb-dd,.sb-spot,.sb-poss-t{white-space:nowrap}
-/* the states the source names, in Suite's words: a pearl pill that says
-   the game is over but not yet final, never red like LIVE */
-.state-pill.end{background:#EEF1F5;color:#111D35}
+/* whose ball, in words, between two hairlines */
+.sb-poss{display:flex;align-items:center;justify-content:center;gap:var(--s-space-3);margin:0;font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--r-stage-mark)}
+.sb-poss::before,.sb-poss::after{content:"";width:2rem;height:1px;background:rgba(var(--r-stage-glow-rgb),.55)}
+.sb-note{margin:0;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
 
-/* ---- the countdown: as quiet or as loud as the kickoff is near ---- */
-.sb-cd{display:flex;flex-direction:column;align-items:center;gap:.35rem;margin:0;align-self:center}
-.sb-cd-line{font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-size:var(--s-type-md);letter-spacing:.04em;color:var(--r-stage-ink-2)}
-.sb-cd-k{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--r-stage-ink)}
-.sb-cd-cells{display:flex;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.82)}
-.sb-cd-cell{display:flex;flex-direction:column;align-items:center;min-width:4rem;padding:.3rem .55rem}
-.sb-cd-cell + .sb-cd-cell{border-left:1px solid var(--r-stage-line)}
-.sb-cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-xl);line-height:1;font-variant-numeric:tabular-nums;color:var(--r-stage-mark)}
-.sb-cd-l{font-size:var(--s-type-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--r-stage-ink-2)}
-.sb-cd-day .sb-cd-n{font-size:var(--s-type-2xl)}
-.sb-cd-day .sb-cd-cell{min-width:4.6rem;padding:.4rem .7rem}
-.sb-cd-near .sb-cd-n{font-size:var(--s-type-3xl);color:var(--r-stage-ink);text-shadow:0 0 18px rgba(var(--r-stage-glow-rgb),.55)}
-.sb-cd-near .sb-cd-cell{min-width:5.2rem;padding:.45rem .8rem}
-.sb-cd-near .sb-cd-cells{border-color:rgba(var(--r-stage-glow-rgb),.7);box-shadow:0 0 0 1px rgba(var(--r-stage-glow-rgb),.25),0 10px 30px rgba(var(--r-stage-glow-rgb),.18)}
+/* ---- the countdown: KICKOFF IN / 4 DAYS, louder as the kickoff nears ---- */
+.sb-cd{display:flex;flex-direction:column;align-items:center;gap:.15rem;margin:var(--s-space-2) 0 0}
+.sb-cd-k{font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--r-stage-ink)}
+.sb-cd-n{font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-2xl);line-height:1;letter-spacing:.02em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:var(--s-type-3xl)}
+.sb-cd-near .sb-cd-n{text-shadow:0 0 22px rgba(var(--r-stage-glow-rgb),.6)}
 
-/* ---- the facts a fan plans around ---- */
-.stage-facts{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-space-3) var(--s-space-4);margin:0;padding:0}
-.sf{display:flex;flex-direction:column;gap:.1rem;min-width:0}
-.sf-k{font-size:var(--s-type-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-ink-2)}
-.sf-v{font-weight:600;font-size:var(--s-type-md);line-height:1.3;overflow-wrap:anywhere}
-.sf-place{display:block;font-weight:500;color:var(--r-stage-ink-2)}
-.sf-venue:only-child,.sf-venue:nth-child(3){grid-column:1 / -1}
-.sf-odds .sf-v{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-variant-numeric:tabular-nums}
+/* ---- the facts a fan plans around: quiet chips ---- */
+.stage-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s-space-2);margin:0;padding:0}
+.sf{display:inline-flex;align-items:baseline;gap:.4rem;padding:.25rem .7rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.6)}
+.sf-k{font-size:var(--s-type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--r-stage-ink-2)}
+.sf-v{font-weight:600;font-size:var(--s-type-sm)}
+.sf-odds .sf-v,.sf-net .sf-v{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-variant-numeric:tabular-nums}
 
-/* ---- wider: one broadcast row ---- */
+/* ---- wider: the same composition with room to breathe ---- */
 @container stage (min-width:40rem){
-  .stage-art{height:min(100%,43rem)}
-  .stage-inner{padding:var(--s-space-6) var(--s-space-6) var(--s-space-6)}
-  .stage-cta{align-self:center;width:auto;min-width:16rem}
-  .stage-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .sf-venue:only-child,.sf-venue:nth-child(3){grid-column:auto}
+  .stage{--photo-h:26rem}
+  .stage-inner{padding:var(--s-space-5) var(--s-space-6) var(--s-space-6);gap:var(--s-space-3)}
+  .stage-cta{width:auto;min-width:16rem}
 }
-@container sb (min-width:38rem){
-  .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";column-gap:var(--s-space-5);align-items:center}
-  .sb-us .sb-figure{max-width:13rem}
-  .sb-them .sb-figure{max-width:10.5rem}
-  .sb-figure .sb-mark{--mark:4.5rem;margin-top:-2.25rem}
-  .sb-name{font-size:var(--s-type-lg)}
-  .sb-home .sb-name{line-height:2rem}
-  .sb-home .sb-team{align-self:end}
+@container sb (min-width:34rem){
+  .sb-helmets{max-width:40rem}
+  .sb-helmet{max-height:15rem}
+  .sb.has-helmets .sb-mark{--mark:3.6rem}
+  .sb.is-scoring .sb-mark{--mark:3.4rem}
+  .sb-name,.sb.is-scoring .sb-name,.sb.is-scoring .sb-us .sb-name{font-size:var(--s-type-lg)}
   .sb-us .sb-name{font-size:var(--s-type-xl)}
-  .sb-score{font-size:clamp(4rem,11cqi,6.5rem)}
-  .sb-mid{padding-bottom:0}
+  .sb.is-scoring .sb-full{display:inline}
+  .sb.is-scoring .sb-abbr{display:none}
+  .sb.is-scoring .fit-abbr .sb-full,.sb.is-scoring.fit-abbr .sb-full{display:none}
+  .sb.is-scoring .sb-rec{display:block}
+  .sb-score{font-size:clamp(4rem,11cqi,6rem)}
+  .sb-clock{font-size:var(--s-type-2xl)}
+  .sb-cd-n{font-size:var(--s-type-3xl)}
+  .sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:3.5rem}
 }
-.sb-game .sb-score{font-size:clamp(3rem,19cqi,6rem)}
-@container sb (min-width:38rem){.sb-game .sb-score{font-size:clamp(4.5rem,13cqi,7rem)}}
 @media (prefers-reduced-motion:reduce){.sb-score.is-new .sb-n{animation:none;color:var(--r-stage-mark)}}
