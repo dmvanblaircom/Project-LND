@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:38:32.621776+00:00",
+ "fetchedAt": "2026-11-20T01:38:47.546921+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "vs. Texas A&M",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "0",
    "name": "Manny Choice",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "DB",
    "no": "9",
    "name": "Dakoda Fields",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "DL",
    "no": "16",
    "name": "Danny Okoye",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -85,17 +85,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "89",
-   "name": "Hayden Hansen",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "94",
    "name": "Kenny Ozowalu",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],

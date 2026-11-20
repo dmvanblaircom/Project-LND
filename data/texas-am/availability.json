@@ -7,13 +7,20 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:38:34.946629+00:00",
+ "fetchedAt": "2026-11-20T01:38:49.903376+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "at Oklahoma",
  "players": [
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Marcus Ratcliffe",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "6",

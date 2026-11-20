@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "lsu",
- "updated": "2026-11-19T11:38:30.705795+00:00",
+ "updated": "2026-11-20T01:38:45.598420+00:00",
  "reports": [
   {
    "schema": 1,
@@ -383,10 +383,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:38:30.705795+00:00",
+   "fetchedAt": "2026-11-20T01:38:45.598420+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Tennessee",
    "players": [
@@ -408,7 +408,7 @@
      "pos": "LB",
      "no": "7",
      "name": "Whit Weeks",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -423,6 +423,13 @@
      "no": "15",
      "name": "Phillip Wright III",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "23",
+     "name": "Aidan Anding",
+     "status": "probable",
      "detail": ""
     },
     {

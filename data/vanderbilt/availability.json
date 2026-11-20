@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:38:36.324501+00:00",
+ "fetchedAt": "2026-11-20T01:38:51.280775+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "at Florida",
  "players": [
@@ -47,13 +47,6 @@
    "no": "23",
    "name": "Evan Hampton",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "EDG",
-   "no": "29",
-   "name": "Miles Capers",
-   "status": "probable",
    "detail": ""
   },
   {

@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-19T19:37:54.169585+00:00",
+ "updated": "2026-11-20T01:37:53.519021+00:00",
  "items": [
+  {
+   "title": "Arkansas Football Availability Report: Texas week (Thursday)",
+   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-texas-week-thursday/",
+   "source": "HawgBeat",
+   "summary": "The second SEC Availability Report for Arkansas versus Texas was released on Thursday.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/29162034/SILV-THURS.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-20T01:11:10+00:00"
+  },
   {
    "title": "Five Texas Longhorns' Players Arkansas Fans Should Know Before Saturday",
    "link": "https://www.si.com/college/arkansas/football/five-texas-longhorns-players-arkansas-fans-should-know-before-saturday?utm_source=RSS",
@@ -253,15 +262,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/16083506/Bogle.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-16T18:02:10+00:00"
-  },
-  {
-   "title": "Arkansas depth chart released for Week 12 Texas game",
-   "link": "https://on3.com/sites/hawg-beat/news/arkansas-depth-chart-released-for-week-12-texas-game/",
-   "source": "HawgBeat",
-   "summary": "Arkansas depth chart for the road matchup against the Texas Longhorns.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/16075042/Char.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-16T17:28:41+00:00"
   }
  ]
 }

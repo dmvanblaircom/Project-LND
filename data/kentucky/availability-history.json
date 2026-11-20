@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kentucky",
- "updated": "2026-11-19T11:38:30.328327+00:00",
+ "updated": "2026-11-20T01:38:45.212910+00:00",
  "reports": [
   {
    "schema": 1,
@@ -486,10 +486,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:38:30.328327+00:00",
+   "fetchedAt": "2026-11-20T01:38:45.212910+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Missouri",
    "players": [
@@ -497,7 +497,7 @@
      "pos": "WR",
      "no": "4",
      "name": "Nic Anderson",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
