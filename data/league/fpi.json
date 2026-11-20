@@ -8,26 +8,30 @@
  "seasonType": 2,
  "week": 12,
  "weekText": "Week 12",
- "sourceUpdated": "2026-11-19T09:00Z",
+ "sourceUpdated": "2026-11-20T09:00Z",
  "teams": [
   {
    "espnId": "61",
    "name": "Georgia",
    "abbr": "UGA",
    "rank": 1,
-   "rating": 28.1,
+   "rating": 28.0,
    "rankChange": 0,
    "record": "9-1",
    "odds": {
     "playoff": 99.2,
-    "title": 23.3,
-    "titleGame": 39.2,
-    "conference": 62.0,
-    "winOut": 52.9
+    "title": 23.6,
+    "titleGame": 39.5,
+    "conference": 62.1,
+    "winOut": 53.1
    },
    "projected": {
     "wins": 11.5,
     "losses": 1.5
+   },
+   "prev": {
+    "playoff": 99.2,
+    "title": 23.3
    }
   },
   {
@@ -35,19 +39,23 @@
    "name": "Notre Dame",
    "abbr": "ND",
    "rank": 2,
-   "rating": 27.4,
+   "rating": 27.3,
    "rankChange": 0,
    "record": "9-1",
    "odds": {
-    "playoff": 95.8,
-    "title": 16.9,
-    "titleGame": 29.4,
+    "playoff": 96.0,
+    "title": 17.5,
+    "titleGame": 30.1,
     "conference": 0.0,
-    "winOut": 88.0
+    "winOut": 87.9
    },
    "projected": {
     "wins": 10.9,
     "losses": 1.1
+   },
+   "prev": {
+    "playoff": 95.8,
+    "title": 16.9
    }
   },
   {
@@ -60,14 +68,18 @@
    "record": "9-1",
    "odds": {
     "playoff": 98.3,
-    "title": 14.4,
-    "titleGame": 26.9,
+    "title": 14.0,
+    "titleGame": 26.3,
     "conference": 66.2,
-    "winOut": 62.5
+    "winOut": 62.7
    },
    "projected": {
     "wins": 11.6,
     "losses": 1.4
+   },
+   "prev": {
+    "playoff": 98.3,
+    "title": 14.4
    }
   },
   {
@@ -79,15 +91,19 @@
    "rankChange": 0,
    "record": "8-2",
    "odds": {
-    "playoff": 96.7,
-    "title": 12.3,
-    "titleGame": 24.0,
+    "playoff": 96.6,
+    "title": 12.1,
+    "titleGame": 24.1,
     "conference": 14.0,
-    "winOut": 69.1
+    "winOut": 68.8
    },
    "projected": {
     "wins": 10.0,
     "losses": 2.3
+   },
+   "prev": {
+    "playoff": 96.7,
+    "title": 12.3
    }
   },
   {
@@ -99,15 +115,19 @@
    "rankChange": 0,
    "record": "7-3",
    "odds": {
-    "playoff": 41.5,
+    "playoff": 41.3,
     "title": 3.0,
-    "titleGame": 6.2,
-    "conference": 9.0,
-    "winOut": 60.8
+    "titleGame": 6.1,
+    "conference": 9.4,
+    "winOut": 60.2
    },
    "projected": {
     "wins": 8.7,
     "losses": 3.4
+   },
+   "prev": {
+    "playoff": 41.5,
+    "title": 3.0
    }
   },
   {
@@ -122,12 +142,16 @@
     "playoff": 92.3,
     "title": 9.5,
     "titleGame": 19.8,
-    "conference": 19.4,
-    "winOut": 42.4
+    "conference": 19.6,
+    "winOut": 42.2
    },
    "projected": {
     "wins": 9.9,
     "losses": 2.6
+   },
+   "prev": {
+    "playoff": 92.3,
+    "title": 9.5
    }
   },
   {
@@ -143,11 +167,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 43.5
+    "winOut": 43.8
    },
    "projected": {
     "wins": 7.4,
     "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -160,14 +188,18 @@
    "record": "9-1",
    "odds": {
     "playoff": 87.9,
-    "title": 6.0,
-    "titleGame": 14.5,
-    "conference": 55.5,
-    "winOut": 52.4
+    "title": 6.3,
+    "titleGame": 14.4,
+    "conference": 55.8,
+    "winOut": 52.5
    },
    "projected": {
     "wins": 11.3,
     "losses": 1.5
+   },
+   "prev": {
+    "playoff": 87.9,
+    "title": 6.0
    }
   },
   {
@@ -179,15 +211,19 @@
    "rankChange": 0,
    "record": "7-3",
    "odds": {
-    "playoff": 35.4,
-    "title": 1.2,
-    "titleGame": 3.0,
+    "playoff": 34.4,
+    "title": 1.3,
+    "titleGame": 2.9,
     "conference": 12.8,
-    "winOut": 66.5
+    "winOut": 66.0
    },
    "projected": {
-    "wins": 8.9,
+    "wins": 8.8,
     "losses": 3.4
+   },
+   "prev": {
+    "playoff": 35.4,
+    "title": 1.2
    }
   },
   {
@@ -199,15 +235,19 @@
    "rankChange": 0,
    "record": "9-1",
    "odds": {
-    "playoff": 73.2,
-    "title": 3.0,
-    "titleGame": 7.2,
-    "conference": 33.4,
-    "winOut": 23.4
+    "playoff": 73.3,
+    "title": 2.9,
+    "titleGame": 7.0,
+    "conference": 33.5,
+    "winOut": 23.2
    },
    "projected": {
     "wins": 11.0,
     "losses": 2.0
+   },
+   "prev": {
+    "playoff": 73.2,
+    "title": 3.0
    }
   },
   {
@@ -219,15 +259,19 @@
    "rankChange": 0,
    "record": "8-2",
    "odds": {
-    "playoff": 57.5,
+    "playoff": 57.1,
     "title": 2.1,
-    "titleGame": 5.1,
-    "conference": 4.6,
-    "winOut": 32.5
+    "titleGame": 5.5,
+    "conference": 4.3,
+    "winOut": 32.0
    },
    "projected": {
     "wins": 9.4,
     "losses": 2.7
+   },
+   "prev": {
+    "playoff": 57.5,
+    "title": 2.1
    }
   },
   {
@@ -239,15 +283,19 @@
    "rankChange": 0,
    "record": "10-0",
    "odds": {
-    "playoff": 97.4,
-    "title": 5.1,
-    "titleGame": 13.7,
-    "conference": 56.1,
-    "winOut": 39.3
+    "playoff": 97.3,
+    "title": 4.8,
+    "titleGame": 13.3,
+    "conference": 56.2,
+    "winOut": 38.6
    },
    "projected": {
     "wins": 12.2,
     "losses": 0.8
+   },
+   "prev": {
+    "playoff": 97.4,
+    "title": 5.1
    }
   },
   {
@@ -263,11 +311,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 86.4
+    "winOut": 86.6
    },
    "projected": {
     "wins": 7.9,
     "losses": 4.1
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -275,19 +327,23 @@
    "name": "Texas Tech",
    "abbr": "TTU",
    "rank": 14,
-   "rating": 16.8,
+   "rating": 16.7,
    "rankChange": 0,
    "record": "9-1",
    "odds": {
-    "playoff": 53.8,
+    "playoff": 53.2,
     "title": 1.0,
-    "titleGame": 3.1,
-    "conference": 29.3,
-    "winOut": 21.8
+    "titleGame": 2.9,
+    "conference": 28.4,
+    "winOut": 21.1
    },
    "projected": {
     "wins": 10.7,
     "losses": 2.0
+   },
+   "prev": {
+    "playoff": 53.8,
+    "title": 1.0
    }
   },
   {
@@ -299,15 +355,19 @@
    "rankChange": 0,
    "record": "8-2",
    "odds": {
-    "playoff": 59.3,
-    "title": 0.8,
-    "titleGame": 2.6,
-    "conference": 14.5,
-    "winOut": 44.0
+    "playoff": 59.9,
+    "title": 0.7,
+    "titleGame": 2.7,
+    "conference": 15.3,
+    "winOut": 44.8
    },
    "projected": {
-    "wins": 9.7,
+    "wins": 9.8,
     "losses": 2.6
+   },
+   "prev": {
+    "playoff": 59.3,
+    "title": 0.8
    }
   },
   {
@@ -323,11 +383,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.4,
-    "winOut": 45.1
+    "winOut": 43.9
    },
    "projected": {
     "wins": 8.4,
     "losses": 3.7
+   },
+   "prev": {
+    "playoff": 0.5,
+    "title": 0.0
    }
   },
   {
@@ -339,15 +403,19 @@
    "rankChange": 0,
    "record": "8-2",
    "odds": {
-    "playoff": 23.5,
+    "playoff": 24.5,
     "title": 0.3,
     "titleGame": 0.9,
-    "conference": 1.5,
-    "winOut": 35.9
+    "conference": 1.4,
+    "winOut": 36.8
    },
    "projected": {
     "wins": 9.3,
     "losses": 2.8
+   },
+   "prev": {
+    "playoff": 23.5,
+    "title": 0.3
    }
   },
   {
@@ -355,7 +423,7 @@
    "name": "Nebraska",
    "abbr": "NEB",
    "rank": 18,
-   "rating": 14.2,
+   "rating": 14.1,
    "rankChange": 0,
    "record": "6-4",
    "odds": {
@@ -363,11 +431,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 11.7
+    "winOut": 11.9
    },
    "projected": {
     "wins": 6.7,
     "losses": 5.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -379,15 +451,19 @@
    "rankChange": 0,
    "record": "7-3",
    "odds": {
-    "playoff": 8.7,
+    "playoff": 8.9,
     "title": 0.1,
     "titleGame": 0.2,
     "conference": 0.0,
-    "winOut": 44.7
+    "winOut": 45.3
    },
    "projected": {
     "wins": 8.4,
     "losses": 3.6
+   },
+   "prev": {
+    "playoff": 8.7,
+    "title": 0.1
    }
   },
   {
@@ -403,11 +479,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 30.1
+    "winOut": 30.6
    },
    "projected": {
     "wins": 7.1,
     "losses": 4.9
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -423,51 +503,63 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 20.4
+    "winOut": 21.1
    },
    "projected": {
-    "wins": 8.0,
-    "losses": 4.0
-   }
-  },
-  {
-   "espnId": "213",
-   "name": "Penn State",
-   "abbr": "PSU",
-   "rank": 22,
-   "rating": 13.1,
-   "rankChange": 1,
-   "record": "6-4",
-   "odds": {
+    "wins": 8.1,
+    "losses": 3.9
+   },
+   "prev": {
     "playoff": 0.0,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 78.2
-   },
-   "projected": {
-    "wins": 7.8,
-    "losses": 4.2
+    "title": 0.0
    }
   },
   {
    "espnId": "12",
    "name": "Arizona",
    "abbr": "ARIZ",
+   "rank": 22,
+   "rating": 13.1,
+   "rankChange": 0,
+   "record": "7-3",
+   "odds": {
+    "playoff": 0.1,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 0.1,
+    "winOut": 59.6
+   },
+   "projected": {
+    "wins": 8.5,
+    "losses": 3.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "213",
+   "name": "Penn State",
+   "abbr": "PSU",
    "rank": 23,
    "rating": 13.1,
-   "rankChange": -1,
-   "record": "7-3",
+   "rankChange": 0,
+   "record": "6-4",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 60.0
+    "winOut": 78.3
    },
    "projected": {
-    "wins": 8.5,
-    "losses": 3.5
+    "wins": 7.8,
+    "losses": 4.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -483,11 +575,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 54.4
+    "winOut": 54.7
    },
    "projected": {
     "wins": 7.5,
     "losses": 4.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -499,15 +595,19 @@
    "rankChange": 0,
    "record": "10-0",
    "odds": {
-    "playoff": 68.6,
+    "playoff": 68.0,
     "title": 0.7,
-    "titleGame": 2.7,
-    "conference": 21.2,
-    "winOut": 7.3
+    "titleGame": 2.8,
+    "conference": 20.6,
+    "winOut": 6.7
    },
    "projected": {
-    "wins": 11.3,
+    "wins": 11.2,
     "losses": 1.6
+   },
+   "prev": {
+    "playoff": 68.6,
+    "title": 0.7
    }
   },
   {
@@ -523,11 +623,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 49.4
+    "winOut": 49.0
    },
    "projected": {
     "wins": 7.4,
     "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -543,11 +647,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 49.4
+    "winOut": 49.5
    },
    "projected": {
     "wins": 7.4,
     "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -563,11 +671,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 31.5
+    "winOut": 31.1
    },
    "projected": {
     "wins": 7.1,
     "losses": 4.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -583,11 +695,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 8.5
+    "winOut": 8.8
    },
    "projected": {
     "wins": 4.6,
     "losses": 7.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -603,11 +719,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.1,
-    "winOut": 42.4
+    "winOut": 41.8
    },
    "projected": {
     "wins": 8.3,
     "losses": 3.7
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -619,15 +739,19 @@
    "rankChange": 0,
    "record": "9-1",
    "odds": {
-    "playoff": 90.8,
+    "playoff": 90.7,
     "title": 0.3,
     "titleGame": 1.3,
-    "conference": 77.6,
-    "winOut": 62.2
+    "conference": 78.0,
+    "winOut": 62.8
    },
    "projected": {
     "wins": 11.6,
     "losses": 1.4
+   },
+   "prev": {
+    "playoff": 90.8,
+    "title": 0.3
    }
   },
   {
@@ -643,11 +767,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 16.1
+    "winOut": 17.1
    },
    "projected": {
     "wins": 6.8,
     "losses": 5.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -663,11 +791,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 8.6
+    "winOut": 8.4
    },
    "projected": {
     "wins": 6.8,
     "losses": 5.2
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -679,15 +811,19 @@
    "rankChange": 0,
    "record": "7-3",
    "odds": {
-    "playoff": 9.8,
+    "playoff": 10.6,
     "title": 0.0,
-    "titleGame": 0.1,
+    "titleGame": 0.2,
     "conference": 0.0,
-    "winOut": 15.9
+    "winOut": 16.9
    },
    "projected": {
     "wins": 7.8,
     "losses": 4.2
+   },
+   "prev": {
+    "playoff": 9.8,
+    "title": 0.0
    }
   },
   {
@@ -708,6 +844,10 @@
    "projected": {
     "wins": 7.1,
     "losses": 4.9
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -723,11 +863,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 47.5
+    "winOut": 48.3
    },
    "projected": {
     "wins": 6.4,
     "losses": 5.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -743,11 +887,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 5.3
+    "winOut": 5.7
    },
    "projected": {
     "wins": 7.9,
     "losses": 4.1
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -763,11 +911,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 49.5
+    "winOut": 50.4
    },
    "projected": {
     "wins": 7.4,
     "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -783,11 +935,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 4.6
+    "winOut": 4.7
    },
    "projected": {
     "wins": 5.6,
     "losses": 6.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -803,11 +959,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 33.1
+    "winOut": 33.7
    },
    "projected": {
     "wins": 6.2,
     "losses": 5.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -823,11 +983,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 10.7
+    "winOut": 10.6
    },
    "projected": {
-    "wins": 6.7,
-    "losses": 5.3
+    "wins": 6.6,
+    "losses": 5.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -843,11 +1007,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 5.8
+    "winOut": 6.0
    },
    "projected": {
     "wins": 5.5,
     "losses": 6.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -863,11 +1031,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.9
+    "winOut": 3.0
    },
    "projected": {
-    "wins": 6.3,
-    "losses": 5.7
+    "wins": 6.4,
+    "losses": 5.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -883,11 +1055,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 18.8
+    "winOut": 18.7
    },
    "projected": {
     "wins": 7.0,
     "losses": 5.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -902,12 +1078,16 @@
     "playoff": 0.3,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 51.5,
-    "winOut": 48.0
+    "conference": 52.1,
+    "winOut": 48.8
    },
    "projected": {
     "wins": 10.2,
     "losses": 2.6
+   },
+   "prev": {
+    "playoff": 0.3,
+    "title": 0.0
    }
   },
   {
@@ -923,11 +1103,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 8.2
+    "winOut": 8.1
    },
    "projected": {
     "wins": 4.6,
     "losses": 7.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -943,11 +1127,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 8.5
+    "winOut": 8.2
    },
    "projected": {
     "wins": 6.6,
     "losses": 5.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -963,11 +1151,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 32.2
+    "winOut": 32.1
    },
    "projected": {
     "wins": 6.1,
     "losses": 5.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -983,11 +1175,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 21.4
+    "winOut": 21.1
    },
    "projected": {
     "wins": 5.9,
     "losses": 6.1
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1003,11 +1199,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 12.5
+    "winOut": 12.3
    },
    "projected": {
     "wins": 5.1,
     "losses": 6.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1028,6 +1228,10 @@
    "projected": {
     "wins": 4.2,
     "losses": 7.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1042,12 +1246,16 @@
     "playoff": 0.5,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 42.7,
-    "winOut": 34.5
+    "conference": 43.2,
+    "winOut": 35.3
    },
    "projected": {
     "wins": 10.0,
     "losses": 2.7
+   },
+   "prev": {
+    "playoff": 0.5,
+    "title": 0.0
    }
   },
   {
@@ -1063,11 +1271,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 6.3
+    "winOut": 6.6
    },
    "projected": {
     "wins": 6.5,
     "losses": 5.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1079,7 +1291,7 @@
    "rankChange": 0,
    "record": "9-1",
    "odds": {
-    "playoff": 4.0,
+    "playoff": 3.8,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 75.0,
@@ -1088,6 +1300,10 @@
    "projected": {
     "wins": 11.5,
     "losses": 1.5
+   },
+   "prev": {
+    "playoff": 4.0,
+    "title": 0.0
    }
   },
   {
@@ -1102,12 +1318,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 20.5,
-    "winOut": 22.6
+    "conference": 19.8,
+    "winOut": 21.9
    },
    "projected": {
     "wins": 7.9,
     "losses": 4.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1123,11 +1343,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 51.9
+    "winOut": 51.8
    },
    "projected": {
     "wins": 6.4,
     "losses": 5.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1142,52 +1366,64 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 30.5,
-    "winOut": 42.2
+    "conference": 29.5,
+    "winOut": 41.7
    },
    "projected": {
     "wins": 8.9,
     "losses": 3.6
-   }
-  },
-  {
-   "espnId": "2132",
-   "name": "Cincinnati",
-   "abbr": "CIN",
-   "rank": 58,
-   "rating": 2.1,
-   "rankChange": 1,
-   "record": "5-5",
-   "odds": {
-    "playoff": 0.0,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 7.2
    },
-   "projected": {
-    "wins": 5.7,
-    "losses": 6.3
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
    "espnId": "256",
    "name": "James Madison",
    "abbr": "JMU",
-   "rank": 59,
+   "rank": 58,
    "rating": 2.1,
-   "rankChange": -1,
+   "rankChange": 0,
    "record": "8-3",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 29.7,
-    "winOut": 63.0
+    "conference": 30.6,
+    "winOut": 63.3
    },
    "projected": {
     "wins": 9.2,
     "losses": 3.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "2132",
+   "name": "Cincinnati",
+   "abbr": "CIN",
+   "rank": 59,
+   "rating": 2.1,
+   "rankChange": 0,
+   "record": "5-5",
+   "odds": {
+    "playoff": 0.0,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 0.0,
+    "winOut": 6.9
+   },
+   "projected": {
+    "wins": 5.7,
+    "losses": 6.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1203,11 +1439,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 23.2
+    "winOut": 23.0
    },
    "projected": {
     "wins": 6.0,
     "losses": 6.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1228,6 +1468,10 @@
    "projected": {
     "wins": 5.7,
     "losses": 6.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1243,11 +1487,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 1.9
+    "winOut": 1.8
    },
    "projected": {
     "wins": 6.5,
     "losses": 5.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1263,11 +1511,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 9.7
+    "winOut": 9.9
    },
    "projected": {
     "wins": 3.8,
     "losses": 8.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1275,7 +1527,7 @@
    "name": "Kansas St",
    "abbr": "KSU",
    "rank": 64,
-   "rating": 1.6,
+   "rating": 1.5,
    "rankChange": 0,
    "record": "4-6",
    "odds": {
@@ -1283,11 +1535,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 9.1
+    "winOut": 9.3
    },
    "projected": {
     "wins": 4.6,
     "losses": 7.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1303,11 +1559,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.2
+    "winOut": 1.9
    },
    "projected": {
     "wins": 4.3,
     "losses": 7.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1323,40 +1583,24 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.3
+    "winOut": 2.1
    },
    "projected": {
     "wins": 3.4,
     "losses": 8.6
-   }
-  },
-  {
-   "espnId": "2348",
-   "name": "Louisiana Tech",
-   "abbr": "LT",
-   "rank": 67,
-   "rating": 0.9,
-   "rankChange": 0,
-   "record": "8-2",
-   "odds": {
-    "playoff": 2.6,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 51.3,
-    "winOut": 20.3
    },
-   "projected": {
-    "wins": 9.9,
-    "losses": 3.1
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
    "espnId": "277",
    "name": "West Virginia",
    "abbr": "WVU",
-   "rank": 68,
+   "rank": 67,
    "rating": 0.9,
-   "rankChange": 1,
+   "rankChange": 2,
    "record": "5-5",
    "odds": {
     "playoff": 0.0,
@@ -1368,6 +1612,34 @@
    "projected": {
     "wins": 5.3,
     "losses": 6.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "2348",
+   "name": "Louisiana Tech",
+   "abbr": "LT",
+   "rank": 68,
+   "rating": 0.9,
+   "rankChange": -1,
+   "record": "8-2",
+   "odds": {
+    "playoff": 2.8,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 50.2,
+    "winOut": 20.8
+   },
+   "projected": {
+    "wins": 9.9,
+    "losses": 3.1
+   },
+   "prev": {
+    "playoff": 2.6,
+    "title": 0.0
    }
   },
   {
@@ -1375,19 +1647,23 @@
    "name": "N Dakota St",
    "abbr": "NDSU",
    "rank": 69,
-   "rating": 0.9,
+   "rating": 0.8,
    "rankChange": -1,
    "record": "8-2",
    "odds": {
     "playoff": 0.1,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 35.2,
-    "winOut": 35.2
+    "conference": 34.9,
+    "winOut": 34.9
    },
    "projected": {
     "wins": 10.1,
     "losses": 2.7
+   },
+   "prev": {
+    "playoff": 0.1,
+    "title": 0.0
    }
   },
   {
@@ -1403,11 +1679,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 20.5
+    "winOut": 20.8
    },
    "projected": {
     "wins": 4.9,
     "losses": 7.1
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1423,11 +1703,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 70.6
+    "winOut": 70.8
    },
    "projected": {
     "wins": 6.7,
     "losses": 5.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1443,11 +1727,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 47.8
+    "winOut": 47.2
    },
    "projected": {
-    "wins": 7.5,
-    "losses": 4.5
+    "wins": 7.4,
+    "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1463,11 +1751,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 5.4
+    "winOut": 5.9
    },
    "projected": {
     "wins": 5.5,
     "losses": 6.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1483,11 +1775,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 4.0
+    "winOut": 3.8
    },
    "projected": {
     "wins": 4.4,
     "losses": 7.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1502,12 +1798,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 19.1,
-    "winOut": 16.4
+    "conference": 19.2,
+    "winOut": 16.8
    },
    "projected": {
     "wins": 7.4,
     "losses": 5.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1519,15 +1819,19 @@
    "rankChange": 0,
    "record": "8-2",
    "odds": {
-    "playoff": 1.7,
+    "playoff": 1.8,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 21.6,
-    "winOut": 12.8
+    "conference": 22.3,
+    "winOut": 13.4
    },
    "projected": {
     "wins": 9.4,
     "losses": 3.2
+   },
+   "prev": {
+    "playoff": 1.7,
+    "title": 0.0
    }
   },
   {
@@ -1542,12 +1846,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 6.0,
-    "winOut": 14.9
+    "conference": 5.7,
+    "winOut": 14.8
    },
    "projected": {
     "wins": 9.2,
     "losses": 2.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1568,6 +1876,10 @@
    "projected": {
     "wins": 3.1,
     "losses": 8.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1583,11 +1895,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 1.3
+    "winOut": 1.2
    },
    "projected": {
     "wins": 4.2,
     "losses": 7.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1595,7 +1911,7 @@
    "name": "Army",
    "abbr": "ARMY",
    "rank": 80,
-   "rating": -2.7,
+   "rating": -2.8,
    "rankChange": 0,
    "record": "5-4",
    "odds": {
@@ -1608,6 +1924,10 @@
    "projected": {
     "wins": 7.0,
     "losses": 5.1
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1622,52 +1942,64 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 24.6,
-    "winOut": 37.8
+    "conference": 23.8,
+    "winOut": 36.7
    },
    "projected": {
-    "wins": 9.8,
+    "wins": 9.7,
     "losses": 2.7
-   }
-  },
-  {
-   "espnId": "58",
-   "name": "South Florida",
-   "abbr": "USF",
-   "rank": 82,
-   "rating": -3.3,
-   "rankChange": 0,
-   "record": "6-4",
-   "odds": {
-    "playoff": 0.0,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 43.4
    },
-   "projected": {
-    "wins": 7.3,
-    "losses": 4.7
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
    "espnId": "309",
    "name": "Louisiana",
    "abbr": "UL",
-   "rank": 83,
+   "rank": 82,
    "rating": -3.3,
-   "rankChange": 1,
+   "rankChange": 2,
    "record": "7-3",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 48.3
+    "winOut": 48.5
    },
    "projected": {
     "wins": 8.4,
     "losses": 3.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "58",
+   "name": "South Florida",
+   "abbr": "USF",
+   "rank": 83,
+   "rating": -3.3,
+   "rankChange": -1,
+   "record": "6-4",
+   "odds": {
+    "playoff": 0.0,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 0.0,
+    "winOut": 42.9
+   },
+   "projected": {
+    "wins": 7.3,
+    "losses": 4.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1682,12 +2014,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 46.7,
-    "winOut": 43.6
+    "conference": 47.1,
+    "winOut": 43.8
    },
    "projected": {
     "wins": 9.2,
     "losses": 3.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1702,12 +2038,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.9,
-    "winOut": 49.2
+    "conference": 1.0,
+    "winOut": 48.8
    },
    "projected": {
     "wins": 7.4,
     "losses": 4.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1715,7 +2055,7 @@
    "name": "UConn",
    "abbr": "CONN",
    "rank": 86,
-   "rating": -3.9,
+   "rating": -4.0,
    "rankChange": 0,
    "record": "5-5",
    "odds": {
@@ -1723,11 +2063,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 49.4
+    "winOut": 49.5
    },
    "projected": {
     "wins": 6.4,
     "losses": 5.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1735,7 +2079,7 @@
    "name": "Navy",
    "abbr": "NAVY",
    "rank": 87,
-   "rating": -4.2,
+   "rating": -4.3,
    "rankChange": 0,
    "record": "3-6",
    "odds": {
@@ -1743,11 +2087,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 14.7
+    "winOut": 14.3
    },
    "projected": {
     "wins": 4.7,
     "losses": 7.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1763,11 +2111,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 0.7
+    "winOut": 0.6
    },
    "projected": {
     "wins": 4.4,
     "losses": 7.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1782,12 +2134,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.1,
-    "winOut": 22.8
+    "conference": 0.0,
+    "winOut": 23.6
    },
    "projected": {
     "wins": 7.0,
     "losses": 5.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1803,11 +2159,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 7.0
+    "winOut": 7.2
    },
    "projected": {
     "wins": 2.5,
     "losses": 9.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1822,12 +2182,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 24.2,
-    "winOut": 11.6
+    "conference": 24.3,
+    "winOut": 11.1
    },
    "projected": {
     "wins": 8.6,
     "losses": 4.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1843,11 +2207,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.9
+    "winOut": 3.0
    },
    "projected": {
-    "wins": 4.3,
-    "losses": 7.7
+    "wins": 4.4,
+    "losses": 7.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1863,11 +2231,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.2
+    "winOut": 2.3
    },
    "projected": {
     "wins": 2.4,
     "losses": 9.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1883,11 +2255,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 9.3
+    "winOut": 8.7
    },
    "projected": {
     "wins": 5.7,
     "losses": 6.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1903,11 +2279,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 14.3
+    "winOut": 14.1
    },
    "projected": {
     "wins": 6.8,
     "losses": 5.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1922,12 +2302,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 1.9,
+    "conference": 2.2,
     "winOut": 0.1
    },
    "projected": {
     "wins": 5.3,
     "losses": 6.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1943,11 +2327,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 11.2
+    "winOut": 11.4
    },
    "projected": {
     "wins": 3.7,
     "losses": 8.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1963,11 +2351,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 20.5
+    "winOut": 20.7
    },
    "projected": {
     "wins": 5.0,
     "losses": 7.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -1982,12 +2374,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.7,
-    "winOut": 28.8
+    "conference": 0.9,
+    "winOut": 29.0
    },
    "projected": {
     "wins": 7.3,
     "losses": 4.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2002,12 +2398,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.6,
-    "winOut": 26.2
+    "conference": 0.5,
+    "winOut": 25.7
    },
    "projected": {
     "wins": 6.1,
     "losses": 6.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2023,11 +2423,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 26.0
+    "winOut": 25.9
    },
    "projected": {
     "wins": 6.0,
     "losses": 6.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2035,7 +2439,7 @@
    "name": "South Alabama",
    "abbr": "USA",
    "rank": 102,
-   "rating": -9.5,
+   "rating": -9.4,
    "rankChange": 0,
    "record": "5-5",
    "odds": {
@@ -2043,11 +2447,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 38.3
+    "winOut": 39.3
    },
    "projected": {
     "wins": 6.2,
     "losses": 5.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2055,7 +2463,7 @@
    "name": "Tulane",
    "abbr": "TULN",
    "rank": 103,
-   "rating": -9.7,
+   "rating": -9.6,
    "rankChange": 0,
    "record": "5-5",
    "odds": {
@@ -2063,11 +2471,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 6.6
+    "winOut": 6.7
    },
    "projected": {
     "wins": 5.5,
     "losses": 6.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2083,11 +2495,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 30.8
+    "winOut": 30.7
    },
    "projected": {
     "wins": 4.3,
     "losses": 7.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2102,12 +2518,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 21.1,
-    "winOut": 38.3
+    "conference": 21.2,
+    "winOut": 38.1
    },
    "projected": {
     "wins": 9.0,
     "losses": 3.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2122,12 +2542,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 6.9,
-    "winOut": 27.3
+    "conference": 7.0,
+    "winOut": 27.5
    },
    "projected": {
     "wins": 8.4,
     "losses": 3.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2143,11 +2567,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 35.0
+    "winOut": 34.1
    },
    "projected": {
     "wins": 7.3,
     "losses": 4.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2163,11 +2591,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 9.9
+    "winOut": 9.8
    },
    "projected": {
     "wins": 4.8,
     "losses": 7.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2182,12 +2614,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.2,
-    "winOut": 32.4
+    "conference": 0.1,
+    "winOut": 33.4
    },
    "projected": {
     "wins": 5.2,
-    "losses": 6.9
+    "losses": 6.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2203,11 +2639,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 6.4,
-    "winOut": 1.2
+    "winOut": 1.1
    },
    "projected": {
     "wins": 7.6,
     "losses": 4.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2215,7 +2655,7 @@
    "name": "UAB",
    "abbr": "UAB",
    "rank": 111,
-   "rating": -11.5,
+   "rating": -11.6,
    "rankChange": 0,
    "record": "6-4",
    "odds": {
@@ -2223,11 +2663,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.3,
-    "winOut": 2.4
+    "winOut": 2.5
    },
    "projected": {
     "wins": 6.4,
     "losses": 5.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2243,11 +2687,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.3
+    "winOut": 2.1
    },
    "projected": {
     "wins": 4.3,
     "losses": 7.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2263,51 +2711,63 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 10.6
+    "winOut": 10.4
    },
    "projected": {
-    "wins": 4.7,
-    "losses": 7.3
-   }
-  },
-  {
-   "espnId": "218",
-   "name": "Temple",
-   "abbr": "TEM",
-   "rank": 114,
-   "rating": -12.4,
-   "rankChange": 1,
-   "record": "2-8",
-   "odds": {
+    "wins": 4.6,
+    "losses": 7.4
+   },
+   "prev": {
     "playoff": 0.0,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 6.5
-   },
-   "projected": {
-    "wins": 2.8,
-    "losses": 9.2
+    "title": 0.0
    }
   },
   {
    "espnId": "2229",
    "name": "FIU",
    "abbr": "FIU",
-   "rank": 115,
+   "rank": 114,
    "rating": -12.9,
-   "rankChange": 1,
+   "rankChange": 2,
    "record": "4-6",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 30.6
+    "winOut": 30.1
    },
    "projected": {
     "wins": 5.2,
     "losses": 6.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "218",
+   "name": "Temple",
+   "abbr": "TEM",
+   "rank": 115,
+   "rating": -13.0,
+   "rankChange": 0,
+   "record": "2-9",
+   "odds": {
+    "playoff": 0.0,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 0.0,
+    "winOut": 8.8
+   },
+   "projected": {
+    "wins": 2.1,
+    "losses": 9.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2323,11 +2783,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 6.7
+    "winOut": 6.6
    },
    "projected": {
     "wins": 5.5,
     "losses": 7.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2343,11 +2807,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 66.4
+    "winOut": 65.9
    },
    "projected": {
     "wins": 5.7,
     "losses": 6.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2366,8 +2834,12 @@
     "winOut": 4.0
    },
    "projected": {
-    "wins": 4.6,
-    "losses": 7.4
+    "wins": 4.5,
+    "losses": 7.5
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2375,19 +2847,23 @@
    "name": "Rice",
    "abbr": "RICE",
    "rank": 119,
-   "rating": -15.0,
+   "rating": -14.4,
    "rankChange": 0,
-   "record": "1-9",
+   "record": "2-9",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 8.7
+    "winOut": 27.4
    },
    "projected": {
-    "wins": 1.6,
-    "losses": 10.4
+    "wins": 2.3,
+    "losses": 9.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2402,12 +2878,16 @@
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 37.8
+    "conference": 0.1,
+    "winOut": 38.3
    },
    "projected": {
     "wins": 6.2,
     "losses": 5.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2423,11 +2903,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 11.4
+    "winOut": 11.2
    },
    "projected": {
     "wins": 3.8,
     "losses": 8.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2443,11 +2927,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 16.7
+    "winOut": 16.6
    },
    "projected": {
     "wins": 3.8,
     "losses": 8.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2463,11 +2951,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 24.3
+    "winOut": 23.9
    },
    "projected": {
     "wins": 6.0,
     "losses": 6.0
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2488,6 +2980,10 @@
    "projected": {
     "wins": 4.3,
     "losses": 7.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2503,11 +2999,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 14.5
+    "winOut": 14.1
    },
    "projected": {
     "wins": 3.8,
     "losses": 8.2
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2515,7 +3015,7 @@
    "name": "Colorado St",
    "abbr": "CSU",
    "rank": 126,
-   "rating": -16.3,
+   "rating": -16.4,
    "rankChange": 0,
    "record": "3-7",
    "odds": {
@@ -2523,11 +3023,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 1.0
+    "winOut": 0.9
    },
    "projected": {
     "wins": 3.2,
     "losses": 8.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2543,11 +3047,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 45.3
+    "winOut": 44.9
    },
    "projected": {
-    "wins": 5.5,
-    "losses": 6.5
+    "wins": 5.4,
+    "losses": 6.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2563,11 +3071,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 7.0
+    "winOut": 6.8
    },
    "projected": {
     "wins": 3.7,
     "losses": 8.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2583,11 +3095,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 74.1
+    "winOut": 74.3
    },
    "projected": {
     "wins": 4.7,
     "losses": 7.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2603,11 +3119,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 0.8
+    "winOut": 0.7
    },
    "projected": {
     "wins": 1.2,
     "losses": 10.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2623,11 +3143,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 33.7
+    "winOut": 34.1
    },
    "projected": {
     "wins": 3.3,
     "losses": 8.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2635,7 +3159,7 @@
    "name": "Sam Houston",
    "abbr": "SHSU",
    "rank": 132,
-   "rating": -22.0,
+   "rating": -22.1,
    "rankChange": 0,
    "record": "1-9",
    "odds": {
@@ -2648,6 +3172,10 @@
    "projected": {
     "wins": 1.6,
     "losses": 10.4
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2663,11 +3191,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 2.9
+    "winOut": 2.7
    },
    "projected": {
     "wins": 0.7,
     "losses": 11.3
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2683,11 +3215,15 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 20.2
+    "winOut": 20.9
    },
    "projected": {
     "wins": 2.2,
     "losses": 9.8
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2695,7 +3231,7 @@
    "name": "UL Monroe",
    "abbr": "ULM",
    "rank": 135,
-   "rating": -24.2,
+   "rating": -24.1,
    "rankChange": 1,
    "record": "2-8",
    "odds": {
@@ -2703,51 +3239,63 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 4.6
+    "winOut": 4.7
    },
    "projected": {
     "wins": 2.5,
     "losses": 9.5
-   }
-  },
-  {
-   "espnId": "2638",
-   "name": "UTEP",
-   "abbr": "UTEP",
-   "rank": 136,
-   "rating": -24.5,
-   "rankChange": 1,
-   "record": "1-9",
-   "odds": {
-    "playoff": 0.0,
-    "title": 0.0,
-    "titleGame": 0.0,
-    "conference": 0.0,
-    "winOut": 1.7
    },
-   "projected": {
-    "wins": 1.4,
-    "losses": 10.6
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
    "espnId": "2309",
    "name": "Kent State",
    "abbr": "KENT",
-   "rank": 137,
+   "rank": 136,
    "rating": -24.5,
-   "rankChange": -2,
+   "rankChange": -1,
    "record": "3-8",
    "odds": {
     "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 25.9
+    "winOut": 25.7
    },
    "projected": {
     "wins": 3.3,
     "losses": 8.7
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
+   }
+  },
+  {
+   "espnId": "2638",
+   "name": "UTEP",
+   "abbr": "UTEP",
+   "rank": 137,
+   "rating": -24.5,
+   "rankChange": 0,
+   "record": "1-9",
+   "odds": {
+    "playoff": 0.0,
+    "title": 0.0,
+    "titleGame": 0.0,
+    "conference": 0.0,
+    "winOut": 1.8
+   },
+   "projected": {
+    "wins": 1.4,
+    "losses": 10.6
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   },
   {
@@ -2763,13 +3311,17 @@
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
-    "winOut": 6.0
+    "winOut": 6.1
    },
    "projected": {
     "wins": 2.1,
     "losses": 9.9
+   },
+   "prev": {
+    "playoff": 0.0,
+    "title": 0.0
    }
   }
  ],
- "fetchedAt": "2026-11-19T11:55Z"
+ "fetchedAt": "2026-11-20T10:07Z"
 }
