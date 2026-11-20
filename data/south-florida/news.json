@@ -1,7 +1,16 @@
 {
  "team": "south-florida",
- "updated": "2026-11-20T22:35:20.540502+00:00",
+ "updated": "2026-11-20T22:38:11.091283+00:00",
  "items": [
+  {
+   "title": "Know Your Opponent: FAU",
+   "link": "https://on3.com/sites/bulls-insider/news/know-your-opponent-fau/",
+   "source": "Bulls Insider",
+   "summary": "Q&A with sports editor Mikai Datilus of FAU University Press on what to expect from Florida Atlantic.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/20091503/2026-10-17T203147Z_161536040_MT1USATODAY30113631_RTRMADP_3_NCAA-FOOTBALL-FLORIDA-ATLANTIC-AT-ARMY.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-20T22:35:29+00:00"
+  },
   {
    "title": "Bulls Head South to Face Florida Atlantic on Saturday",
    "link": "https://gousfbulls.com/news/2026/11/19/football-bulls-head-south-to-face-florida-atlantic-on-saturday",
@@ -250,7 +259,7 @@
    "link": "https://www.usforacle.com/2026/11/05/photos-usf-football-defeats-uab/",
    "source": "The Oracle",
    "summary": "<p>South Florida hosted the University of Alabama at Birmingham following a bye week in a must-win game to have a shot at making the American Conference Championship. Senior defensive tackle Asani Redwood and senior linebacker Grayson Howard had a pair of fumble recoveries for touchdowns in USF\u2019s 30-10 win. Senior defensive end C.J. Hicks finished [&#8230;]</p>\n<p>The post <a href=\"https://www.usforacle.com/2026/11/05/photos-usf-football-defeats-uab/\">PHOTOS: USF football defeats UAB</a> appeared first on <a href=\"https://www.usforacle.com\">The Oracle</a>.</p>",
-   "image": null,
+   "image": "https://www.usforacle.com/wp-content/uploads/sites/2/2026/11/G96A3109-scaled.jpg",
    "sourceLogo": "https://www.usforacle.com/wp-content/uploads/sites/2/2023/11/cropped-YTJytUXh_400x400-32x32.jpg",
    "published": "2026-11-06T02:06:16+00:00"
   },
@@ -268,7 +277,7 @@
    "link": "https://www.usforacle.com/2026/11/03/usf-football-ecu-michael-van-buren/",
    "source": "The Oracle",
    "summary": "<p>USF football travels to Greenville, NC, Friday night to take on East Carolina University in its ninth game of the season. The Bulls (6-2, 2-2 American) will hope to build off of their 30-10 win over the University of Alabama at Birmingham last Friday and improve their offensive inconsistencies. Head coach Brian Hartline said he [&#8230;]</p>\n<p>The post <a href=\"https://www.usforacle.com/2026/11/03/usf-football-ecu-michael-van-buren/\">Preview: Starting QB unconfirmed as USF gears up for stout ECU defense</a> appeared first on <a href=\"https://www.usforacle.com\">The Oracle</a>.</p>",
-   "image": null,
+   "image": "https://www.usforacle.com/wp-content/uploads/sites/2/2026/11/LUKE_KROMENHOEK_ECUPREVIEW.jpg",
    "sourceLogo": "https://www.usforacle.com/wp-content/uploads/sites/2/2023/11/cropped-YTJytUXh_400x400-32x32.jpg",
    "published": "2026-11-04T03:14:02+00:00"
   },
@@ -307,15 +316,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/12232613/2026-09-12T195906Z_354411993_MT1USATODAY29802376_RTRMADP_3_NCAA-FOOTBALL-SOUTH-FLORIDA-AT-ARMY.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-01T14:03:49+00:00"
-  },
-  {
-   "title": "Bulls defense guides USF to a 30-10 win over UAB",
-   "link": "https://on3.com/sites/bulls-insider/news/bulls-defense-guides-usf-to-a-30-10-win-over-uab/",
-   "source": "Bulls Insider",
-   "summary": "South Florida\u2019s defense and the legs of quarterback Luke Kromenhoek led the Bulls to their sixth win of the season, 30-10 over UAB. The defense provided 14 points alone on fumble recoveries, enough to win the game without the offense even scoring a point.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31145051/USF-UAB-football.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-31T20:45:41+00:00"
   }
  ]
 }
