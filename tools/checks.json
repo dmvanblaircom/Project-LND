@@ -38,6 +38,7 @@
   { "id": "aroundcheck.js", "kind": "unit", "run": "node tools/aroundcheck.js" },
   { "id": "momentscheck.js", "kind": "unit", "run": "node tools/momentscheck.js" },
   { "id": "scoreboardcheck.js", "kind": "unit", "run": "node tools/scoreboardcheck.js" },
+  { "id": "artcheck.js", "kind": "unit", "run": "node tools/artcheck.js" },
   { "id": "pbpfreshcheck.js", "kind": "unit", "run": "node tools/pbpfreshcheck.js" },
   { "id": "appreviewcheck.js", "kind": "unit", "run": "node tools/appreviewcheck.js" },
   { "id": "seasoncheck.js", "kind": "unit", "run": "node tools/seasoncheck.js" },

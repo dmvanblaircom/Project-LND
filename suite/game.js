@@ -633,7 +633,7 @@ Suite.game = (function () {
     if (g.odds && (g.odds.line || g.odds.total != null) && (st === "upcoming" || st === "delayed"))
       row("Line", esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")));
     if (g.series) row("Series", esc(g.series));
-    return rows.length ? '<section class="card gi"><h2 class="gcard-title">Game Info</h2><dl class="gi-list">' + rows.join("") + "</dl></section>" : "";
+    return rows.length ? card("Game Info", '<dl class="gi-list">' + rows.join("") + "</dl>", "", "gi") : "";
   }
 
   // The names row follows ui.fitNames: never an ellipsis, both sides alike.
