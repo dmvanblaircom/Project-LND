@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rice",
- "updated": "2026-11-19T22:38:51.570619+00:00",
+ "updated": "2026-11-20T12:08:32.617510+00:00",
  "reports": [
   {
    "schema": 1,
@@ -574,12 +574,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T22:38:51.570619+00:00",
+   "fetchedAt": "2026-11-20T12:08:32.617510+00:00",
    "reported": true,
    "effectiveAt": "2026-11-19",
    "heading": "Game Day",
    "kickoffDate": "2026-11-19",
-   "game": "Temple",
+   "game": "at Temple",
    "players": [
     {
      "pos": "QB",
