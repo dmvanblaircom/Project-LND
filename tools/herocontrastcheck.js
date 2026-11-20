@@ -63,6 +63,9 @@ function drawBatch(arg) {
     ["home-pre-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY }, "2026-10-01T12:00:00Z"],
     ["home-pre-dusk", "home", 390, { status: "scheduled", hasStarted: false, date: DUSK }, "2026-10-01T12:00:00Z"],
     ["game-live-dusk", "game", 390, { status: "live", hasStarted: true, date: DUSK, period: 1, clock: "4:10", us: 3, them: 0, situation: { possession: "us", short: "2nd & 3", spot: "OPP 12" } }],
+    // the countdown's game-day and last-two-hours tiers make the stage taller
+    ["home-pre-gameday", "home", 390, { status: "scheduled", hasStarted: false, date: DAY }, "2026-10-03T10:00:00Z"],
+    ["home-pre-near", "home", 390, { status: "scheduled", hasStarted: false, date: NIGHT }, "2026-10-03T22:15:00Z"],
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],
     ["game-live-day", "game", 390, { status: "live", hasStarted: true, date: DAY, period: 2, clock: "9:35", us: 7, them: 13, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
@@ -115,7 +118,7 @@ function drawBatch(arg) {
   if (shots) fs.mkdirSync(shots, { recursive: true });
   var failures = [], checked = 0, unassessed = 0, cells = 0, skipped = [];
   try {
-    var context = await browser.newContext({ viewport: { width: 4400, height: 1000 }, timezoneId: "America/New_York" });
+    var context = await browser.newContext({ viewport: { width: 5400, height: 1000 }, timezoneId: "America/New_York" });
     var page = await context.newPage();
     // Logos refused: every mark is its initials (see the header).
     await page.route("**/*", function (route) { return route.request().url().startsWith(base) ? route.continue() : route.abort(); });
@@ -125,7 +128,7 @@ function drawBatch(arg) {
     runs.push({ style: "suite", ids: [TEAMS.indexOf("notre-dame") !== -1 ? "notre-dame" : TEAMS[0]] });
     for (var n = 0; n < runs.length; n++) {
       var run = runs[n];
-      await page.setViewportSize({ width: 4400, height: 1000 }); // a row of nine stages, the desktop one included
+      await page.setViewportSize({ width: 5400, height: 1000 }); // a row of eleven stages, the desktop one included
       await page.setContent('<!doctype html><html lang="en" data-style="' + run.style + '"><head><meta name="viewport" content="width=device-width,initial-scale=1">' +
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +

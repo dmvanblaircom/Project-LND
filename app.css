@@ -1782,7 +1782,12 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 [data-style="suite"]{--r-stage-detail:rgba(212,184,150,.5);--r-stage-mark:#D4B896;--r-stage-glow-rgb:212,184,150}
 
 .stage{position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);background:var(--r-stage-3)}
-.stage-art{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+/* The art has a box of its own height, not the stage's: the stadium is drawn
+   to cover (slice), so a stage made taller by its content (a game-day
+   countdown) would scale the picture up and slide the ribbon board down
+   behind the words under the board. A fixed box keeps the stadium in one
+   place in every state; only the stage around it grows. */
+.stage-art{position:absolute;top:0;left:0;right:0;height:min(100%,37.5rem);z-index:-1;overflow:hidden;pointer-events:none;
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 var(--stage-window,54%),rgba(0,0,0,.3) calc(var(--stage-window,54%) + 14%),transparent calc(var(--stage-window,54%) + 30%));
   mask-image:linear-gradient(180deg,#000 0%,#000 var(--stage-window,54%),rgba(0,0,0,.3) calc(var(--stage-window,54%) + 14%),transparent calc(var(--stage-window,54%) + 30%))}
 .sd{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -1999,7 +2004,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 /* ---- the countdown: as quiet or as loud as the kickoff is near ---- */
 .sb-cd{display:flex;flex-direction:column;align-items:center;gap:.35rem;margin:0;align-self:center}
 .sb-cd-line{font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-size:var(--s-type-md);letter-spacing:.04em;color:var(--r-stage-ink-2)}
-.sb-cd-k{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--r-stage-mark)}
+.sb-cd-k{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--r-stage-ink)}
 .sb-cd-cells{display:flex;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.82)}
 .sb-cd-cell{display:flex;flex-direction:column;align-items:center;min-width:4rem;padding:.3rem .55rem}
 .sb-cd-cell + .sb-cd-cell{border-left:1px solid var(--r-stage-line)}
@@ -2022,6 +2027,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 
 /* ---- wider: one broadcast row ---- */
 @container stage (min-width:40rem){
+  .stage-art{height:min(100%,43rem)}
   .stage-inner{padding:var(--s-space-6) var(--s-space-6) var(--s-space-6)}
   .stage-cta{align-self:center;width:auto;min-width:16rem}
   .stage-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
