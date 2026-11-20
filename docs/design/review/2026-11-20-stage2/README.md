@@ -92,6 +92,8 @@ See **Test results** at the end of this report. Both runs listed there were actu
 
 Rendered by `tools/stagereview.js` from the real app: its renderer, stylesheet and fonts, on the repository's fixtures, with each lifecycle state set on the normalized Game.
 
+**Every team plays the same fixture week.** That is why Ohio State "plays" Notre Dame and every team's venue is Gillette Stadium. Records, ranks and odds are fixture values, not live data.
+
 **Team marks show as initials here.** This environment cannot reach ESPN's logo host, so these pictures double as the asset-fallback evidence (§11 item 9). The same Home **with real marks** is in this PR's CI artifacts: the `suite-visual-*` uploads of the Visual audit, at every width, with `ALLOW_PROVIDER_IMAGES`.
 
 | Sheet | Shows |
@@ -123,3 +125,25 @@ Rendered by `tools/stagereview.js` from the real app: its renderer, stylesheet a
 
 - Branch: `design/stage2-home`.
 - The PR waits for David's merge, because this is a new visual direction (decision 0039).
+
+## Test results (run locally, 2026-11-20)
+
+- **The branch's full check selection** (`node tools/run-checks.js --base origin/main`, which this change selects as every check): **83 of 83 passed** in 1767 s on `a9a8c9c1d`. This PR's CI runs the same selection again, with the real team marks.
+- **`herocontrastcheck`:** 138 teams plus Suite Style, **1529 stages, 25,993 text runs, every word at WCAG AA**. It covers eleven stages per team:
+  - Home pregame by day, at dusk, on game day, near kickoff, and with no time set;
+  - Home live at night, final at night, and live at desktop width;
+  - Game live by day, live at dusk, and final by day.
+- **Contract tests for the new logic:**
+  - `gamecheck`: `light()` at the 4 PM and 6 PM lines, and day/night unchanged;
+  - `scoreboardcheck`: `endOfGame()`, overtime with no clock, the countdown tiers, dusk lighting, and the screen-reader label matching the board;
+  - `suitecheck`: halftime wording, the winner rule, no invented 0-0, and the football's absence at halftime.
+- **Defects the checks or the review renders found during the build, all fixed:**
+  - an invisible focus ring on the quick actions;
+  - marks out of line when one side had no record;
+  - the stadium's ribbon board sliding behind the series line on a game-day stage;
+  - the countdown label below AA in some teams' colours;
+  - two capture limits in the contrast gate that had hidden whole stages from measurement.
+- **Not tested here:**
+  - real devices, since all of this is Chromium through Playwright;
+  - real team marks locally, since ESPN's logo host is blocked here (CI renders them);
+  - a live game in progress, since the states are the normalized Game set by the harness, not a game being played.
