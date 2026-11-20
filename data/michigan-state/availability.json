@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:08:38.975527+00:00",
+ "fetchedAt": "2026-11-20T01:08:38.121338+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-20",
  "game": "vs. Oregon",
  "players": [
@@ -82,6 +82,13 @@
    "no": "21",
    "name": "Marvis Parrish",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "22",
+   "name": "Tyran Chappell",
+   "status": "doubtful",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:08:40.536911+00:00",
+ "fetchedAt": "2026-11-20T01:08:39.598966+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-20",
  "game": "at Michigan State",
  "players": [
@@ -26,6 +26,13 @@
    "no": "1",
    "name": "Bear Alexander",
    "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Iverson Hooks",
+   "status": "out-game",
    "detail": ""
   },
   {

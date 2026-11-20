@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-19T11:08:37.086541+00:00",
+ "updated": "2026-11-20T01:08:37.570265+00:00",
  "reports": [
   {
    "schema": 1,
@@ -768,10 +768,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:08:37.086541+00:00",
+   "fetchedAt": "2026-11-20T01:08:37.570265+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at USC",
    "players": [
@@ -849,7 +849,7 @@
      "pos": "TE",
      "no": "81",
      "name": "Javonte Williams",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     }
    ],

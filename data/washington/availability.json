@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:08:43.673483+00:00",
+ "fetchedAt": "2026-11-20T01:08:43.149135+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "vs. Indiana",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "2",
    "name": "Dezmen Roebuck",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "WR",
    "no": "11",
    "name": "Jordan Clay",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -47,6 +47,13 @@
    "no": "12",
    "name": "Logan George",
    "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "17",
+   "name": "Elijah Durr",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -67,7 +74,7 @@
    "pos": "EDG",
    "no": "52",
    "name": "Devin Hyde",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

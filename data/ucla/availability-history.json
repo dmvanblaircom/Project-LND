@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-19T11:08:42.585681+00:00",
+ "updated": "2026-11-20T01:08:42.229408+00:00",
  "reports": [
   {
    "schema": 1,
@@ -530,10 +530,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:08:42.585681+00:00",
+   "fetchedAt": "2026-11-20T01:08:42.229408+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Michigan",
    "players": [
@@ -555,7 +555,7 @@
      "pos": "LB",
      "no": "9",
      "name": "Jalen Woods",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

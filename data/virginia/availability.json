@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:08:43.326064+00:00",
+ "fetchedAt": "2026-11-20T01:08:42.857733+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "vs. North Carolina",
  "players": [
@@ -19,6 +19,13 @@
    "no": "4",
    "name": "Corey Costner",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "8",
+   "name": "Christian Ellis",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -81,7 +88,7 @@
    "pos": "OL",
    "no": "60",
    "name": "Drake Metcalf",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -96,6 +103,13 @@
    "no": "91",
    "name": "Jason Hammond",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "93",
+   "name": "Billy Koudelka",
+   "status": "questionable",
    "detail": ""
   },
   {

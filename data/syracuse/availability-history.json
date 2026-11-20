@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-11-19T11:08:41.104119+00:00",
+ "updated": "2026-11-20T01:08:40.975285+00:00",
  "reports": [
   {
    "schema": 1,
@@ -570,10 +570,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:08:41.104119+00:00",
+   "fetchedAt": "2026-11-20T01:08:40.975285+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Boston College",
    "players": [
@@ -613,6 +613,13 @@
      "detail": ""
     },
     {
+     "pos": "DB",
+     "no": "25",
+     "name": "Cam Hairston-Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "OL",
      "no": "62",
      "name": "Jackson Iak",
@@ -630,7 +637,7 @@
      "pos": "OL",
      "no": "75",
      "name": "Trevion Mack",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

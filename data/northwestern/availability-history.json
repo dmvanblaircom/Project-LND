@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-11-19T11:08:38.750386+00:00",
+ "updated": "2026-11-20T01:08:38.965318+00:00",
  "reports": [
   {
    "schema": 1,
@@ -824,10 +824,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:08:38.750386+00:00",
+   "fetchedAt": "2026-11-20T01:08:38.965318+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "at Minnesota",
    "players": [
@@ -863,7 +863,7 @@
      "pos": "LB",
      "no": "32",
      "name": "Matthew Smith",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -891,6 +891,13 @@
      "pos": "TE",
      "no": "81",
      "name": "Chris Petrucci",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "88",
+     "name": "Migo Jackson",
      "status": "out-game",
      "detail": ""
     }

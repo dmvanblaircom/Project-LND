@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:08:38.302384+00:00",
+ "fetchedAt": "2026-11-20T01:08:38.595326+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "at Florida State",
  "players": [
@@ -60,7 +60,7 @@
    "pos": "QB",
    "no": "10",
    "name": "Will Wilson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -109,7 +109,7 @@
    "pos": "K",
    "no": "91",
    "name": "Nick Konieczynski",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

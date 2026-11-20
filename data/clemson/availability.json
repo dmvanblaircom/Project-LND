@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:08:35.300795+00:00",
+ "fetchedAt": "2026-11-20T01:08:34.598974+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-20",
  "game": "at Duke",
  "players": [
@@ -39,14 +39,14 @@
    "pos": "WR",
    "no": "6",
    "name": "Tyler Brown",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "7",
    "name": "Jeremiah Alexander",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -102,7 +102,7 @@
    "pos": "DT",
    "no": "29",
    "name": "Champ Thompson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -123,7 +123,7 @@
    "pos": "OL",
    "no": "63",
    "name": "Easton Ware",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
