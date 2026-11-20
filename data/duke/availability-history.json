@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "duke",
- "updated": "2026-11-20T01:08:34.948186+00:00",
+ "updated": "2026-11-20T22:35:42.187415+00:00",
  "reports": [
   {
    "schema": 1,
@@ -663,32 +663,18 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:34.948186+00:00",
+   "fetchedAt": "2026-11-20T22:35:42.187415+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-20",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-20",
    "game": "vs. Clemson",
    "players": [
-    {
-     "pos": "CB",
-     "no": "0",
-     "name": "Dylan Flowers",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "WR",
      "no": "1",
      "name": "Jamien Little",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "1",
-     "name": "Kyon Loud",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -699,20 +685,6 @@
      "detail": ""
     },
     {
-     "pos": "CB",
-     "no": "4",
-     "name": "Evan Smith",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "5",
-     "name": "Kimari Robinson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "WR",
      "no": "7",
      "name": "Kavon Simmons",
@@ -720,24 +692,10 @@
      "detail": ""
     },
     {
-     "pos": "DE",
-     "no": "12",
-     "name": "Bryce Davis",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "QB",
      "no": "13",
      "name": "Terry Walker III",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "15",
-     "name": "Kevin O'Connor",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -759,20 +717,6 @@
      "no": "39",
      "name": "Cosme Salas",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DT",
-     "no": "44",
-     "name": "David Anderson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "44",
-     "name": "Nate Kurisky",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -801,13 +745,6 @@
      "no": "79",
      "name": "Roman Fina",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "84",
-     "name": "Jack Gaskins",
-     "status": "probable",
      "detail": ""
     }
    ],
