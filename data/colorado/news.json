@@ -1,7 +1,16 @@
 {
  "team": "colorado",
- "updated": "2026-11-20T15:59:48.565134+00:00",
+ "updated": "2026-11-20T16:07:58.057647+00:00",
  "items": [
+  {
+   "title": "CU-UC: Some Interesting History",
+   "link": "https://cubuffs.com/news/2026/11/20/football-cu-uc-some-interesting-history",
+   "source": "Colorado Athletics",
+   "summary": "<img alt=\"Ken Johnson 1972\" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/19/Johnson-Ken-CU051.jpg\" /><br /><br />\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 There isn't much history between Colorado (CU) and Cincinnati (UC) on the gridiron; in fact, the two have met just twice before this Saturday's game at Nippert Stadium in Cincinnati.",
+   "image": "https://cubuffs.com/images/2026/11/19/Johnson-Ken-CU051.jpg?width=800",
+   "sourceLogo": "https://cubuffs.com/favicon.ico",
+   "published": "2026-11-20T16:00:00+00:00"
+  },
   {
    "title": "Colorado football Game 11 preview: Buffs at Cincinnati",
    "link": "https://on3.com/sites/buff-blitz/news/colorado-football-game-11-preview-buffs-at-cincinnati/",
@@ -352,15 +361,6 @@
    "image": "https://cubuffs.com/images/2026/11/12/Progressive_-_The_Road_Ahead_16x9_HOU.jpg?width=800",
    "sourceLogo": "https://cubuffs.com/favicon.ico",
    "published": "2026-11-12T17:51:00+00:00"
-  },
-  {
-   "title": "Know Before you Go: Football vs. Houston",
-   "link": "https://cubuffs.com/news/2026/11/11/gameday-know-before-you-go-football-vs-houston",
-   "source": "Colorado Athletics",
-   "summary": "<img alt=\"FB vs. Houston Timeline  \" src=\"https://cubuffs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/FBMK_2026_Houston_Timeline_1920x1080.jpg\" /><br /><br />Everything you need to know before coming to Folsom Field this Friday to watch the Buffs take on the Houston Cougars!",
-   "image": "https://cubuffs.com/images/2026/11/11/FBMK_2026_Houston_Timeline_1920x1080.jpg?width=800",
-   "sourceLogo": "https://cubuffs.com/favicon.ico",
-   "published": "2026-11-11T17:03:00+00:00"
   }
  ]
 }
