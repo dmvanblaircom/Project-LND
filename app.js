@@ -1517,7 +1517,8 @@ function splitWire(now){
   var since=now.getTime()-WIRE_HOURS*HOUR, keys={};
   all.forEach(function(a){
     if(out.items.length>=WIRE_SHOWN || !a || !a.title || !a.link) return;
-    if(a.publishedAt!=null && a.publishedAt<since) return;
+    // Undated stories are not current updates: the wire needs to know a story is recent (Codex, #273)
+    if(a.publishedAt==null || a.publishedAt<since) return;
     var w=TeamOS.wire.item(a, TeamOS.wire.classify(a.title), "team");
     if(w){ out.items.push(w); keys[w.key]=1; }
   });
@@ -1573,7 +1574,9 @@ function homeScoreMoment(host, g){
   if(!live || !was || was.id!==String(g.id)) return;
   var up={ us:(Number(g.us)||0)>was.us, them:(Number(g.them)||0)>was.them };
   if(!up.us && !up.them) return;
-  if(!TeamOS.moments.allow({ first:false, fromNetwork:true, visible:document.visibilityState==="visible",
+  // a scoreboard the worker served from its store after a network failure is
+  // not a new moment, however the score moved (Codex, #273)
+  if(!TeamOS.moments.allow({ first:false, fromNetwork:outcomeOf("scoreboard")==="network", visible:document.visibilityState==="visible",
                              hiddenSince:HOME_HIDDEN, lastLookAt:was.at, now:now })) return;
   ["us","them"].forEach(function(k){
     var el=up[k] && host.querySelector(".sb-score-"+k);
