@@ -752,6 +752,8 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
    Game Details alone; live and final get the view strip (decision 0024 §7). */
 .game-head{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
 .game-head p{margin:0}
+/* Game's header in front of the venue's photograph (as Home's stage) */
+.game-head.has-photo{--photo-h:100%;background:var(--r-stage-3)}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 /* The weather and the line: one centred row under the game, two equal
    halves either side of a rule (David, 2026-10-01). */
@@ -1464,6 +1466,14 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   #screenHome .home-hero{margin:var(--s-space-5) 0 0;border-radius:20px;box-shadow:var(--s-elev-3)}
   #screenHome .champ{margin:var(--s-space-5) 0 0;padding:.7rem 1rem;border-radius:var(--s-radius-card)}
   #screenHome .home-hero .stage-inner{padding:var(--s-space-6)}
+  /* Game: the header across the top, the views on the left, Game Info on the
+     right (the boards of 2026-11-20) */
+  .page-main:has(#screenGame:not([hidden])){max-width:var(--s-content-wide)}
+  #screenGame:not([hidden]):has(> [data-game]){display:grid;grid-template-columns:minmax(0,1fr) 20.5rem;column-gap:var(--s-space-6);align-items:start}
+  #screenGame > *{grid-column:1;min-width:0}
+  #screenGame > [data-game="head"]{grid-column:1 / -1}
+  #screenGame > .game-side:not(:empty){display:block;grid-column:2;grid-row:2 / span 30;position:sticky;top:calc(var(--s-bar-h) + var(--s-space-5));margin-top:var(--s-space-4)}
+  #screenGame .game-head{margin:var(--s-space-5) 0 0;border-radius:20px}
   /* Game, while the team's game is under way: no raised circle here; the
      control carries the state in words - a red Live chip with its light, or
      a quiet Delayed / Suspended - and, from 80rem, the score. */
@@ -1939,12 +1949,28 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   --t-accent-tint:rgba(var(--t-accent-rgb),.28);--t-accent-tint-soft:rgba(var(--t-accent-rgb),.18);
   --r-everyday-page:var(--s-page);--r-everyday-surface:var(--s-surface);--r-everyday-ink:var(--s-ink);--r-everyday-ink-2:var(--s-ink-2);
   --r-everyday-accent:var(--t-accent-text);
+  /* the team's dark colour is "strong ink" across the everyday components
+     (titles, active tabs, focus rings); after dark that ink is light. The
+     stage keeps the real colour through its roles, resolved at the root. */
+  --t-surface:#F3F5F9;--t-surface-rgb:243,245,249;
   color:var(--s-ink)}
+/* the few components that paint the team's colour as a ground keep it */
+#screenHome .site-home,#screenGame .site-home{background:rgba(255,255,255,.16);color:#fff}
+#screenHome .champ{background:var(--r-stage-1)}
+#screenHome .news-img.none,#screenGame .news-img.none{background:linear-gradient(150deg,var(--r-stage-1),var(--t-abyss))}
+#screenGame .seg-mini button[aria-pressed="true"]{background:var(--t-accent);color:var(--t-accent-ink)}
 html:has(#screenHome:not([hidden])),html:has(#screenGame:not([hidden])),
 html:has(#screenHome:not([hidden])) body,html:has(#screenGame:not([hidden])) body{background:var(--t-abyss)}
-/* a focus ring that reads on the dark page */
-#screenHome :focus-visible,#screenGame :focus-visible{outline-color:var(--t-focus)}
 
 /* section heads on the dark page: the ink, and the team's accent for the way on */
 #screenHome .sec-title,#screenGame .sec-title{color:var(--s-ink)}
 #screenHome .sec-link,#screenGame .sec-link{color:var(--t-accent-text)}
+
+/* Game Info (desktop only; the header carries it on a phone) */
+.game-side{display:none}
+.gi-list{margin:0;display:flex;flex-direction:column}
+.gi-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:var(--s-space-3);padding:.6rem 0;border-top:1px solid var(--s-line)}
+.gi-row:first-child{border-top:0}
+.gi-row dt{font-size:var(--s-type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--s-muted);padding-top:.15rem}
+.gi-row dd{margin:0;font-weight:600}
+.gi-sub{display:block;font-weight:500;font-size:var(--s-type-sm);color:var(--s-muted)}

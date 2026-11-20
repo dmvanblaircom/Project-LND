@@ -23,6 +23,7 @@
      STAGE_STYLES   team,suite (default: both)
      ALLOW_PROVIDER_IMAGES=1  let team marks load from the provider (CI can)
      STAGE_FULL=1   the whole page, not the first screen
+     STAGE_SCREEN=game  Game in each state instead of Home
      PW_CHROMIUM    a Chromium to use */
 "use strict";
 
@@ -92,6 +93,15 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
     await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     await page.addInitScript(function (st) {
       try { localStorage.setItem("suite-style", st); } catch (e) {}
+      // and Game's model, to repaint Game in each state (STAGE_SCREEN=game)
+      var gameHook = setInterval(function () {
+        if (window.Suite && Suite.game && Suite.game.paint && !Suite.game.__wrapped) {
+          var gp = Suite.game.paint;
+          Suite.game.paint = function (host, m) { if (host && host.id === "screenGame" && m && m.game) { window.__gameModel = m; window.__gameHost = host; } return gp.apply(this, arguments); };
+          Suite.game.__wrapped = gp;
+          clearInterval(gameHook);
+        }
+      }, 5);
       // keep the app's own Home model as it paints, to repaint it in each state
       var hook = setInterval(function () {
         if (window.Suite && Suite.home && Suite.home.paint && !Suite.home.__wrapped) {
@@ -110,14 +120,42 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
       if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\//.test(url)) return route.continue();
       return route.abort();
     });
-    await page.goto(base + "/?team=" + team + "#home");
+    var GAME = process.env.STAGE_SCREEN === "game";
+    await page.goto(base + "/?team=" + team + (GAME ? "#game" : "#home"));
+    if (GAME) {
+      await page.waitForFunction(function () { return !document.getElementById("launch") && window.__gameModel; }, null, { timeout: 20000 }).catch(function () {});
+      // a real play-by-play for the live and final states (Purdue, from the fixtures)
+      await page.evaluate(function () {
+        var T = TeamOS.createTeam(TEAM_CONFIG.team);
+        return Promise.all(["espn-summary-pur-live.json", "espn-summary-pur-final.json"].map(function (f) {
+          return fetch("/tools/fixtures/" + f).then(function (r) { return r.json(); }).then(function (j) { return TeamOS.espn.gameDetail(j, T, TEAM_CONFIG); });
+        })).then(function (d) { window.__liveDetail = d[0]; window.__finalDetail = d[1]; });
+      }).catch(function (e) { console.log("  detail fixtures: " + e.message); });
+    }
     await page.waitForFunction(function () { return !document.getElementById("launch") && window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game; },
                                null, { timeout: 20000 }).catch(function () {});
-    var ready = await page.evaluate(function () { return !!(window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game); });
+    var ready = await page.evaluate(function (G) { return G ? !!window.__gameModel : !!(window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game); }, GAME);
     if (!ready) { console.log("  " + team + " " + style + " " + width + ": no hero game; skipped"); await ctx.close(); continue; }
     for (var name of PICK) {
       var spec = STATES[name];
-      await page.evaluate(function (a) {
+      if (GAME) await page.evaluate(function (a) {
+        var m = window.__gameModel, base = new Date(a.fixtureNow).getTime();
+        var g = Object.assign({}, m.game, { situation: null, detail: "" });
+        Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
+        if (a.spec.date != null) g.date = new Date(base + a.spec.date).toISOString();
+        if (a.spec.at) g.date = a.spec.at;
+        if (a.spec.status !== "scheduled") g.odds = null;
+        if (!g.usRank && a.name.indexOf("pre") === 0) g.usRank = 9;
+        if (/live|halftime|overtime|end|delayed|suspended/.test(a.name)) g.state = "in";
+        if (/final/.test(a.name)) g.state = "post";
+        var lc = TeamOS.game.lifecycle(g);
+        var detail = lc.phase === "pregame" ? m.detail : /final/.test(a.name) ? window.__finalDetail : window.__liveDetail;
+        if (window.Suite.nav && Suite.nav.setGameState) Suite.nav.setGameState(/live|halftime|overtime|end/.test(a.name) ? "live" : a.name === "delayed" ? "delayed" : a.name === "suspended" ? "suspended" : null);
+        window.__gameHost.__gameLast = {};
+        Suite.game.__wrapped(window.__gameHost, Object.assign({}, m, { game: g, lifecycle: lc, view: lc.defaultView, detail: detail, now: new Date(base) }));
+        window.scrollTo(0, 0);
+      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW });
+      else await page.evaluate(function (a) {
         var m = window.__homeModel, base = new Date(a.fixtureNow).getTime();
         var g = Object.assign({}, m.hero.game, { situation: null, detail: "" });
         Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
@@ -132,7 +170,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         window.scrollTo(0, 0);
       }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW });
       await page.waitForTimeout(150);
-      var file = path.join(out, [team, style, name, width].join("-") + ".png");
+      var file = path.join(out, [team, style, GAME ? "game" : null, name, width].filter(Boolean).join("-") + ".png");
       var hero = await page.$("[data-home=hero]");
       // the first screen as a fan opens it, header and hero; desktop the whole Home
       if (process.env.STAGE_FULL) {

@@ -272,6 +272,20 @@ Suite.scoreboard = (function () {
     return TeamOS.art.venue(g || { venue: t.venueName }, time || "night");
   }
 
+  function photoHtml(ph) {
+    return ph ? '<div class="stage-photo" aria-hidden="true"><img class="stage-img" src="' + esc(ph.src) + '" srcset="' + esc(ph.srcset) +
+                '" sizes="(min-width:64rem) 52rem, 100vw" alt="" decoding="async" fetchpriority="high" style="object-position:' + esc(ph.focus) + '"></div>' : "";
+  }
+  // The same photograph and light behind Game's own header: the classes the
+  // header's box takes, and its layers, or null when Suite has no photo.
+  function backdrop(m) {
+    var ph = photo(m, m.game), g = m.game, t = m.team;
+    if (!ph) return null;
+    var zone = g && TeamOS.game.venueZone ? TeamOS.game.venueZone(g, t.timeZone) : null;
+    var atm = g ? TeamOS.game.atmosphere(g, zone) : null;
+    return { cls: " has-photo art-" + (atm || "none") + " venue-" + ph.key, html: photoHtml(ph) + '<div class="stage-art" aria-hidden="true"></div>' };
+  }
+
   function stage(m, opts) {
     opts = opts || {};
     var v = opts.variant === "game" ? "game" : "home", t = m.team, g = m.game;
@@ -282,8 +296,7 @@ Suite.scoreboard = (function () {
     var st = g ? state(g) : "none", p = g ? pill(g, st, m.now) : null, ph = photo(m, g);
     var cta = opts.cta ? '<a class="btn btn-primary stage-cta" href="' + esc(opts.cta.href) + '">' + esc(opts.cta.label) + CHEVRON + "</a>" : "";
     var near = g && st === "upcoming" ? nearness(g, m.now || new Date()) : null;
-    var img = ph ? '<div class="stage-photo" aria-hidden="true"><img class="stage-img" src="' + esc(ph.src) + '" srcset="' + esc(ph.srcset) +
-                   '" sizes="(min-width:64rem) 52rem, 100vw" alt="" decoding="async" fetchpriority="high" style="object-position:' + esc(ph.focus) + '"></div>' : "";
+    var img = photoHtml(ph);
     return '<div class="stage stage-' + v + " st-" + st + (near ? " cd-" + near : "") + ' on-dark art-' + (atm || "none") + (ph ? " has-photo venue-" + esc(ph.key) : " no-photo") + '">' +
              img + '<div class="stage-art" aria-hidden="true"></div>' +
              '<div class="stage-inner">' +
@@ -297,5 +310,5 @@ Suite.scoreboard = (function () {
   // ellipsis) - the hosts call this after drawing.
   function fit(host) { ui.fitNames(host, ".sb-board", ".sb-name"); }
 
-  return { board: board, stage: stage, state: state, fit: fit, nearness: nearness };
+  return { board: board, stage: stage, backdrop: backdrop, state: state, fit: fit, nearness: nearness };
 })();

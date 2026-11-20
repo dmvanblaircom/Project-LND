@@ -1789,7 +1789,7 @@ function gameModel(V, g, lc, view, base){
   var espnId=TEAM_CONFIG.sources.espn.teamId;
   return {
     feed: feedOf(V, g),
-    team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
+    team:{ id:TEAM.id, name:TEAM.name, abbr:TEAM.abbreviation, timeZone:TEAM.timeZone, venueName:TEAM.venue && TEAM.venue.name, markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
