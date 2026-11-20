@@ -39,7 +39,7 @@ var server = require("./lib/serve")(root);
 var only = process.argv.slice(2);
 var TEAMS = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
   .map(function (f) { return f.slice(0, -3); }).filter(function (id) { return !only.length || only.indexOf(id) !== -1; }).sort();
-var BATCH = 10; // ten rows of stages stay inside the 12000px capture
+var BATCH = 12;
 
 // What the page draws for one team. Runs in the browser.
 function drawBatch(arg) {
@@ -115,7 +115,7 @@ function drawBatch(arg) {
   if (shots) fs.mkdirSync(shots, { recursive: true });
   var failures = [], checked = 0, unassessed = 0, cells = 0, skipped = [];
   try {
-    var context = await browser.newContext({ viewport: { width: 3400, height: 1000 }, timezoneId: "America/New_York" });
+    var context = await browser.newContext({ viewport: { width: 4400, height: 1000 }, timezoneId: "America/New_York" });
     var page = await context.newPage();
     // Logos refused: every mark is its initials (see the header).
     await page.route("**/*", function (route) { return route.request().url().startsWith(base) ? route.continue() : route.abort(); });
@@ -125,7 +125,7 @@ function drawBatch(arg) {
     runs.push({ style: "suite", ids: [TEAMS.indexOf("notre-dame") !== -1 ? "notre-dame" : TEAMS[0]] });
     for (var n = 0; n < runs.length; n++) {
       var run = runs[n];
-      await page.setViewportSize({ width: 3400, height: 1000 });
+      await page.setViewportSize({ width: 4400, height: 1000 }); // a row of nine stages, the desktop one included
       await page.setContent('<!doctype html><html lang="en" data-style="' + run.style + '"><head><meta name="viewport" content="width=device-width,initial-scale=1">' +
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
