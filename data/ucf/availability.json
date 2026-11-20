@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:08:38.618465+00:00",
+ "fetchedAt": "2026-11-20T21:38:35.871742+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-20",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-20",
  "game": "vs. Iowa State",
  "players": [
@@ -18,14 +18,7 @@
    "pos": "DT",
    "no": "0",
    "name": "Horace Lockett",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "5",
-   "name": "DJ Bell",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -36,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "9",
-   "name": "Waden Charles",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "26",
-   "name": "Duke Watson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "38",
    "name": "Jayden Jennings",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],
