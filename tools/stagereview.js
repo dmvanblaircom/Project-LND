@@ -22,6 +22,7 @@
      STAGE_STATES   states (default: all)
      STAGE_STYLES   team,suite (default: both)
      ALLOW_PROVIDER_IMAGES=1  let team marks load from the provider (CI can)
+     STAGE_FULL=1   the whole page, not the first screen
      PW_CHROMIUM    a Chromium to use */
 "use strict";
 
@@ -134,7 +135,16 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
       var file = path.join(out, [team, style, name, width].join("-") + ".png");
       var hero = await page.$("[data-home=hero]");
       // the first screen as a fan opens it, header and hero; desktop the whole Home
-      if (width >= 1024) await page.screenshot({ path: file });
+      if (process.env.STAGE_FULL) {
+        // the whole page as a phone scrolls it: a viewport as tall as the page,
+        // so the fixed header and nav sit where they belong
+        var tall = await page.evaluate(function () { return Math.ceil(document.documentElement.scrollHeight); });
+        await page.setViewportSize({ width: width, height: Math.min(9000, tall) });
+        await page.waitForTimeout(200);
+        await page.screenshot({ path: file });
+        await page.setViewportSize({ width: width, height: width >= 1024 ? 900 : 860 });
+      }
+      else if (width >= 1024) await page.screenshot({ path: file });
       else {
         var box = hero ? await hero.boundingBox() : null;
         await page.screenshot({ path: file, clip: { x: 0, y: 0, width: width, height: Math.min(2400, Math.ceil((box ? box.y + box.height : 860) + 8)) } });

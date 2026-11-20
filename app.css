@@ -385,17 +385,17 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
    edge: the safe-area inset is padding, plus a floor for devices with none. */
 .navbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
   padding:.3rem max(.4rem,env(safe-area-inset-right,0px)) max(.55rem,env(safe-area-inset-bottom,0px)) max(.4rem,env(safe-area-inset-left,0px));
-  background:var(--s-surface);border-top:1px solid var(--s-line);box-shadow:0 -6px 20px rgba(15,27,45,.06)}
+  background:var(--t-abyss);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 28px rgba(0,0,0,.35)}
 /* The nav's surface carries on below it, off-screen, for a bar lifted
    inside the viewport. Below the viewport's own edge it is clipped, and the
    canvas (html, above) is what fills the strip. */
 .navbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
-.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1.15;-webkit-tap-highlight-color:transparent}
+.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:rgba(255,255,255,.72);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1.15;-webkit-tap-highlight-color:transparent}
 .nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-item svg .solid{fill:currentColor;stroke:none}
-.nav-item[aria-current="page"]{color:var(--t-surface);font-weight:700}
+.nav-item[aria-current="page"]{color:#fff;font-weight:700}
 .nav-item[aria-current="page"]::after{content:"";position:absolute;left:22%;right:22%;bottom:-.1rem;height:3px;border-radius:3px;background:var(--t-accent)}
-.nav-item:focus-visible{outline-offset:-3px}
+.nav-item:focus-visible{outline-offset:-3px;outline-color:var(--t-focus)}
 .nav-live{display:none}
 /* The desktop header's Live chip and score (decision 0042): drawn only there. */
 .nav-state,.nav-score{display:none}
@@ -606,11 +606,12 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 
 /* Quick Actions: the two core actions, compact, side by side */
 .qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:var(--s-space-3);margin-top:var(--s-space-4)}
-.qa-item{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ic t chev" "ic s chev";align-items:center;column-gap:.7rem;row-gap:.05rem;
-  min-height:4rem;padding:.7rem .85rem;color:var(--s-ink);text-decoration:none;box-shadow:none;border:1px solid var(--s-line)}
+.qa-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"ic chev" "t t" "s s";align-items:start;row-gap:.15rem;
+  padding:.85rem .9rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:inherit;text-decoration:none;
+  transition:border-color var(--s-dur-fast) var(--s-ease-out)}
 .qa-item:hover{border-color:var(--s-line-strong)}
 .qa-item:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
-.qa-ic{grid-area:ic;display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:var(--s-radius-ctl);background:var(--t-accent-tint-soft);color:var(--t-accent-on-light)}
+.qa-ic{grid-area:ic;display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;margin-bottom:.45rem;border-radius:var(--s-radius-ctl);background:var(--t-accent-tint-soft);color:var(--t-accent-on-light)}
 .qa-ic svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .qa-t{grid-area:t;font-weight:700;font-size:1.02rem;line-height:1.2}
 .qa-s{grid-area:s;font-size:.84rem;line-height:1.3;color:var(--s-muted)}
@@ -1919,3 +1920,31 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   .sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:3.5rem}
 }
 @media (prefers-reduced-motion:reduce){.sb-score.is-new .sb-n{animation:none;color:var(--r-stage-mark)}}
+
+/* ====================================================================
+   HOME AND GAME, AFTER DARK (Stage 2; the boards of 2026-11-20)
+   The two game screens are one dark experience, the stadium carrying on
+   down the page: the same components, re-toned by their tokens in this
+   scope, so nothing here restyles a component. Around, Roster and More keep
+   the everyday light page. The bottom nav is dark everywhere, one bar under
+   every screen, matching the header.
+   ==================================================================== */
+#screenHome,#screenGame{
+  --s-page:var(--t-abyss);--s-surface:var(--t-deep);--s-inset:var(--t-raise);
+  --s-ink:#F3F5F9;--s-ink-2:#CBD3DE;--s-muted:#B3BDCA;
+  --s-line:rgba(255,255,255,.1);--s-line-strong:rgba(255,255,255,.2);
+  --s-win:#5BD39A;--s-loss:#FF968F;
+  --s-shadow-card:0 0 0 1px rgba(255,255,255,.07);--s-shadow-raise:0 0 0 1px rgba(255,255,255,.1),0 10px 28px rgba(0,0,0,.35);
+  --t-accent-on-light:var(--t-accent-text);
+  --t-accent-tint:rgba(var(--t-accent-rgb),.28);--t-accent-tint-soft:rgba(var(--t-accent-rgb),.18);
+  --r-everyday-page:var(--s-page);--r-everyday-surface:var(--s-surface);--r-everyday-ink:var(--s-ink);--r-everyday-ink-2:var(--s-ink-2);
+  --r-everyday-accent:var(--t-accent-text);
+  color:var(--s-ink)}
+html:has(#screenHome:not([hidden])),html:has(#screenGame:not([hidden])),
+html:has(#screenHome:not([hidden])) body,html:has(#screenGame:not([hidden])) body{background:var(--t-abyss)}
+/* a focus ring that reads on the dark page */
+#screenHome :focus-visible,#screenGame :focus-visible{outline-color:var(--t-focus)}
+
+/* section heads on the dark page: the ink, and the team's accent for the way on */
+#screenHome .sec-title,#screenGame .sec-title{color:var(--s-ink)}
+#screenHome .sec-link,#screenGame .sec-link{color:var(--t-accent-text)}
