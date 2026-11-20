@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-12T11:09:29.787241+00:00",
+ "fetchedAt": "2026-11-20T23:38:28.244520+00:00",
  "reported": true,
- "effectiveAt": "2026-11-11",
+ "effectiveAt": "2026-11-20",
  "heading": "Game Day",
- "kickoffDate": "2026-11-11",
- "game": "vs. Massachusetts",
+ "kickoffDate": "2026-11-20",
+ "game": "Bowling Green",
  "players": [
   {
    "pos": "WR",
@@ -50,6 +50,13 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "30",
+   "name": "Hayden Roy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "P",
    "no": "36",
    "name": "Emilio Duran",
@@ -71,13 +78,6 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "43",
-   "name": "Sam Lee",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "63",
    "name": "Grant Zimmerly",
@@ -93,16 +93,23 @@
   },
   {
    "pos": "OL",
-   "no": "70",
-   "name": "Nick Thomas",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "78",
    "name": "Dylan Senda",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "87",
+   "name": "Tucker Kelleher",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "88",
+   "name": "Jacob Newell",
+   "status": "questionable",
    "detail": ""
   },
   {

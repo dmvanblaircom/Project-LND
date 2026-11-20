@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "bowling-green",
- "updated": "2026-11-11T11:08:40.967347+00:00",
+ "updated": "2026-11-20T23:38:20.881345+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1133,6 +1133,130 @@
      "no": "56",
      "name": "Quillan Jimenez",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "57",
+     "name": "Dayln White",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OT",
+     "no": "58",
+     "name": "Ethan Kraatz",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "61",
+     "name": "Pete Pendergest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "76",
+     "name": "Theo Andall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "84",
+     "name": "Trent Taylor",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "bowling-green",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-20T23:38:20.881345+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-20",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-20",
+   "game": "Toledo",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Austyn Dendy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "JoJo Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Isaiah Dawson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Austin Clay",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "17",
+     "name": "Jay Kastantin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Winn Sharp",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "32",
+     "name": "Rico Garcia",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "36",
+     "name": "Jabari Mitchell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "50",
+     "name": "Jonathan Goins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Timothy Taylor Jr.",
+     "status": "out-game",
      "detail": ""
     },
     {

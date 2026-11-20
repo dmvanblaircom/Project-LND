@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "toledo",
- "updated": "2026-11-12T11:09:29.787241+00:00",
+ "updated": "2026-11-20T23:38:28.244520+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1000,6 +1000,130 @@
      "no": "78",
      "name": "Dylan Senda",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "91",
+     "name": "Laith Shamma",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "toledo",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-20T23:38:28.244520+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-20",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-20",
+   "game": "Bowling Green",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Trenton Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "6",
+     "name": "Langston Long",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "13",
+     "name": "Kari Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "Corey Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "27",
+     "name": "Dane Nauman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "30",
+     "name": "Hayden Roy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "P",
+     "no": "36",
+     "name": "Emilio Duran",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "36",
+     "name": "Nathan Gersh",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "41",
+     "name": "Cam Gwinn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "63",
+     "name": "Grant Zimmerly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "65",
+     "name": "Stephen Gales",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Dylan Senda",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Tucker Kelleher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Jacob Newell",
+     "status": "questionable",
      "detail": ""
     },
     {
