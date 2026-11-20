@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T03:38:46.516638+00:00",
+ "fetchedAt": "2026-11-20T03:38:49.568904+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Initial",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "at Oregon State",
  "players": [
@@ -25,14 +25,42 @@
    "pos": "OL",
    "no": "",
    "name": "Jimmy Liston",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
    "name": "George Maile",
-   "status": "doubtful",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "John McClellan",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Eli Wood",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Tevita Tuha",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Kache Kaio",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -43,31 +71,10 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
-   "no": "",
-   "name": "John McClellan",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Eli Wood",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "",
    "name": "Chapman Lewis",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Tevita Tuha",
-   "status": "out-game",
    "detail": ""
   },
   {
