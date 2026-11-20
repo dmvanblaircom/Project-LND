@@ -1,6 +1,6 @@
 {
  "team": "ucla",
- "updated": "2026-11-20T14:08:07.679371+00:00",
+ "updated": "2026-11-20T14:38:13.261458+00:00",
  "items": [
   {
    "title": "UCLA Football vs. Michigan Advanced Statistical Preview",
@@ -19,6 +19,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1541,h_866,x_684,y_135/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bruins/01m7vhgpqam2e3h96p3c.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-20T13:00:04+00:00"
+  },
+  {
+   "title": "UCLA v. Michigan Game Week Central",
+   "link": "https://on3.com/sites/bruin-report-online/news/ucla-v-michigan-game-week-central/",
+   "source": "Bruin Report Online",
+   "summary": "Here's a one-stop shop for the UCLA/Michigan game, with all the practice reports, interviews, analyses, previews, podcasts, depth charts and more...",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/08084211/omosighocalturk.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-20T11:31:00+00:00"
   },
   {
    "title": "Get 50% Off Your Annual BRO Subscription!",
@@ -100,15 +109,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3309,h_1861,x_322,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_bruins/01m7r8ggrw4v1k4afj4m.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-19T13:00:01+00:00"
-  },
-  {
-   "title": "UCLA v. Michigan Game Week Central",
-   "link": "https://on3.com/sites/bruin-report-online/news/ucla-v-michigan-game-week-central/",
-   "source": "Bruin Report Online",
-   "summary": "Here's a one-stop shop for the UCLA/Michigan game, with all the practice reports, interviews, analyses, previews, podcasts, depth charts and more...",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/08084211/omosighocalturk.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-19T11:31:00+00:00"
   },
   {
    "title": "2 Winners, 2 Losers From UCLA's Close Call Against CSU Fullerton",

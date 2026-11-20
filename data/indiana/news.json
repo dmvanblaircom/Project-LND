@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-11-20T14:07:59.978705+00:00",
+ "updated": "2026-11-20T14:38:02.048641+00:00",
  "items": [
+  {
+   "title": "Podcast: Behind Enemy Lines with BLEAV in Washington",
+   "link": "https://hoosierhuddle.com/2026/11/20/podcast-behind-enemy-lines-with-bleav-in-washington/",
+   "source": "Hoosier Huddle",
+   "summary": "Sammy Jacobs is joined by Josh Scharf of BLEAV in Washington to take a look at the Huskies as they face No. 8 Indiana this weekend. Josh gives a breakdown of the UW offense, defense and special teams, as well as gives his prediction for the game.",
+   "image": "https://i0.wp.com/hoosierhuddle.com/wp-content/uploads/2026/05/Bleav-cover.jpg?fit=1254%2C1254&ssl=1",
+   "sourceLogo": "https://i0.wp.com/hoosierhuddle.com/wp-content/uploads/2025/05/cropped-0d42b-hhlogo.jpg?fit=32%2C32&ssl=1",
+   "published": "2026-11-20T14:36:29+00:00"
+  },
   {
    "title": "\u2018Fired Up\u2019 Hoosiers Ready for Final Regular Season Road Trip",
    "link": "https://iuhoosiers.com/news/2026/11/20/football-fired-up-hoosiers-ready-for-final-regular-season-road-trip-PETE",
@@ -246,15 +255,6 @@
    "published": "2026-11-18T16:01:37+00:00"
   },
   {
-   "title": "Indiana\u2019s Success on the Ground Against USC Presents a Bright Future",
-   "link": "https://hoosierhuddle.com/2026/11/18/indianas-success-on-the-ground-against-usc-presents-a-bright-future/",
-   "source": "Hoosier Huddle",
-   "summary": "Indiana Footballs ground game hasn't been up to the Cignetti standard, but in the win against USC, the running game took a step in the right direction, especially in the second half.",
-   "image": "https://i0.wp.com/hoosierhuddle.com/wp-content/uploads/2026/11/20261114_Indiana_USC_3010-edited.jpg?fit=1805%2C1015&ssl=1",
-   "sourceLogo": "https://i0.wp.com/hoosierhuddle.com/wp-content/uploads/2025/05/cropped-0d42b-hhlogo.jpg?fit=32%2C32&ssl=1",
-   "published": "2026-11-18T15:43:00+00:00"
-  },
-  {
    "title": "Indiana football improves to No. 8 in Week 12 CFP rankings",
    "link": "https://www.idsnews.com/article/2026/11/indiana-football-cfp-rankings-usc-cignetti-iu-bloomington",
    "source": "Indiana Daily Student",
@@ -262,15 +262,6 @@
    "image": "https://snworksceo.imgix.net/ids/edbeb88c-fdf7-47ef-ab34-8ce8343f4838.sized-1000x1000.jpg?w=800&h=800",
    "sourceLogo": null,
    "published": "2026-11-18T03:03:56+00:00"
-  },
-  {
-   "title": "Indiana moves up in latest College Football Playoff rankings update",
-   "link": "https://on3.com/teams/indiana-hoosiers/news/indiana-moves-up-in-latest-college-football-playoff-rankings-update/",
-   "source": "On3",
-   "summary": "The third edition of the College Football Playoff rankings were released on Tuesday night, with Indiana moving up to No. 8 following a win over then No. 18 USC. The Hoosiers debuted in the rankings at No. 4 before falling to No. 9 after its bye week. Based on the bracket if the season ended [&#8230;]",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/17152857/2026-10-31T193246Z_2114064609_MT1USATODAY30241295_RTRMADP_3_NCAA-FOOTBALL-MINNESOTA-AT-INDIANA-1.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-18T02:44:21+00:00"
   },
   {
    "title": "Hoosiers Into No. 8 in CFP Rankings at Halfway Point",
@@ -541,6 +532,15 @@
    "image": "https://snworksceo.imgix.net/ids/35e75ce1-926a-4cc4-a0ea-d6ff536b70c4.sized-1000x1000.jpg?w=800&h=800",
    "sourceLogo": null,
    "published": "2026-11-14T02:04:01+00:00"
+  },
+  {
+   "title": "No. 9 Indiana football set for critical Saturday matchup against No. 18 USC",
+   "link": "https://www.idsnews.com/article/2026/11/indiana-football-matchup-usc-cignetti-maiava-iu-bloomington",
+   "source": "Indiana Daily Student",
+   "summary": "<div><p><span data-contrast=\"auto\">No. 9 Indiana football's </span><a href=\"https://www.idsnews.com/article/2026/10/indiana-football-minnesota-overtime-cignetti-homecoming\" target=\"_blank\"><span data-contrast=\"none\"><span data-ccp-charstyle=\"Hyperlink\">overtime victory over </span><span data-ccp-charstyle=\"Hyperlink\">Minnesota</span></span></a><span data-contrast=\"auto\"> ended its streak of nine games in as many weeks. The win was the Hoosiers' eighth of the season and set them up for their bye week.</span><span data-ccp-props=\"{'134233117':false,'134233118':false,'201341983':0,'335551550':1,'",
+   "image": "https://snworksceo.imgix.net/ids/b92f9b49-7431-45e1-b553-083ff9328ae6.sized-1000x1000.jpg?w=800&h=800",
+   "sourceLogo": null,
+   "published": "2026-11-14T00:43:25+00:00"
   }
  ]
 }
