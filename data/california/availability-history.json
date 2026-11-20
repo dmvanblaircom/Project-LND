@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-11-19T11:08:33.154231+00:00",
+ "updated": "2026-11-20T04:08:31.315792+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,10 +474,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T11:08:33.154231+00:00",
+   "fetchedAt": "2026-11-20T04:08:31.315792+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-18",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-19",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-21",
    "game": "vs. Stanford",
    "players": [
@@ -507,6 +507,13 @@
      "no": "4",
      "name": "Justin Beadles",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jordan King",
+     "status": "out-game",
      "detail": ""
     },
     {

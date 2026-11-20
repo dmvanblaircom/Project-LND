@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:08:40.983556+00:00",
+ "fetchedAt": "2026-11-20T04:08:39.583010+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
- "heading": "Initial",
+ "effectiveAt": "2026-11-19",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-21",
  "game": "at California",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "DB",
    "no": "22",
    "name": "Zaiden McDonald",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,7 +88,7 @@
    "pos": "OLB",
    "no": "44",
    "name": "Ernest Cooper",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -144,7 +144,7 @@
    "pos": "DL",
    "no": "98",
    "name": "Max Meier",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],
