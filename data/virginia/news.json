@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-20T02:08:09.275195+00:00",
+ "updated": "2026-11-20T12:38:06.668878+00:00",
  "items": [
+  {
+   "title": "CavsCorner Podcast: Episode 688",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-podcast-episode-688/",
+   "source": "CavsCorner",
+   "summary": "On the latest installment of the\u00a0CavsCorner Podcast, we talk football's bounce-back win and a 6-0 start on the hardwood for the Hoos.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-20T12:26:12+00:00"
+  },
   {
    "title": "Three key matchups to watch closely when Virginia hosts North Carolina",
    "link": "https://www.si.com/college/virginia/football/three-key-matchups-to-watch-closely-when-virginia-hosts-north-carolina-01m7t9vb40rm?utm_source=RSS",
@@ -271,15 +280,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-05T11:45:41+00:00"
-  },
-  {
-   "title": "CavsCorner 4-3-4 Breakdown: How the Hoos Got Here",
-   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-how-the-hoos-got-here/",
-   "source": "CavsCorner",
-   "summary": "In his latest feature for CavsCorner, Deuce Prince explains why he thinks strategy and implementation, and not construction, are to blame for UVa's woes.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-03T17:49:06+00:00"
   }
  ]
 }
