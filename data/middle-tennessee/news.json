@@ -1,7 +1,16 @@
 {
  "team": "middle-tennessee",
- "updated": "2026-11-20T16:38:10.266817+00:00",
+ "updated": "2026-11-20T18:38:01.263547+00:00",
  "items": [
+  {
+   "title": "Blue Raiders go for bowl eligibility at Sam Houston Saturday",
+   "link": "https://goblueraiders.com/news/2026/11/20/football-blue-raiders-go-for-bowl-eligibility-at-sam-houston-saturday",
+   "source": "Middle Tennessee Athletics",
+   "summary": "<img alt=\"Sam Houston Preview\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/19/Sam_Houston_Preview.png\" /><br /><br />",
+   "image": "https://goblueraiders.com/images/2026/11/19/Sam_Houston_Preview.png?width=800",
+   "sourceLogo": "https://goblueraiders.com/favicon.ico",
+   "published": "2026-11-20T18:00:00+00:00"
+  },
   {
    "title": "Logan named to CUSA All-Academic Team",
    "link": "https://goblueraiders.com/news/2026/11/20/football-logan-named-to-cusa-all-academic-team",
@@ -118,15 +127,6 @@
    "image": "https://goblueraiders.com/images/2026/11/3/16x9__4_.png?width=800",
    "sourceLogo": "https://goblueraiders.com/favicon.ico",
    "published": "2026-11-04T22:00:00+00:00"
-  },
-  {
-   "title": "Blue Raiders drop weeknight finale to Kennesaw",
-   "link": "https://goblueraiders.com/news/2026/10/28/football-blue-raiders-drop-weeknight-finale-to-kennesaw",
-   "source": "Middle Tennessee Athletics",
-   "summary": "<img alt=\"FB Recap KSU\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/28/FB_REcap.png\" /><br /><br />MURFREESBORO, Tenn.- On its final weeknight game of the season Middle Tennessee (4-4, 2-2 CUSA) lost momentum in the second half, falling to Kennesaw State (2-6, 1-3 CUSA) 44-28.",
-   "image": "https://goblueraiders.com/images/2026/10/28/FB_REcap.png?width=800",
-   "sourceLogo": "https://goblueraiders.com/favicon.ico",
-   "published": "2026-10-29T04:32:00+00:00"
   }
  ]
 }
