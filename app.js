@@ -2474,7 +2474,7 @@ function paintMore(){
     updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result,
     alerts: alertsModel() });
   if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
-  if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
+  if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG), photos: TeamOS.art ? TeamOS.art.credits() : [] });
 }
 function paintNews(){
   var host=$("screenNews");

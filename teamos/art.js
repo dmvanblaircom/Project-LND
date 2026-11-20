@@ -85,7 +85,7 @@ TeamOS.art = (function () {
       });
     });
     Object.keys(d.helmets).forEach(function (k) {
-      if (d.helmets[k].credit) out.push({ kind: "helmet", key: k, name: k, credit: d.helmets[k].credit });
+      if (d.helmets[k].credit) out.push({ kind: "helmet", key: k, name: d.helmets[k].label || k, credit: d.helmets[k].credit });
     });
     return out;
   }

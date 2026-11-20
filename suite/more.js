@@ -18,7 +18,7 @@
                                  updatedAt, refreshing, online, result,
                                  alerts:{ support, on, busy, denied, note, opts, pick } })
      Suite.more.feedback(host, { href, address })
-     Suite.more.about(host, { version, sources: Source[] })              */
+     Suite.more.about(host, { version, sources: Source[], photos: TeamOS.art.credits() })  */
 
 var Suite = Suite || {};
 
@@ -310,7 +310,17 @@ Suite.more = (function () {
       "identify the teams.</p>" +
       "<p>Scores, schedules, rankings and news come from the sources above and may be delayed or incomplete. " +
       "Suite is for information and entertainment; projected odds are not betting advice.</p></section>";
-    put(host, "about", product + sources + legal);
+    // The photographs' credits: each is freely licensed and carries its
+    // author and licence (David, 2026-11-20), listed where a fan can find them.
+    var photos = (m.photos || []).length ? '<section class="ab-sources" aria-labelledby="abPhotos"><h2 class="sec-title" id="abPhotos">Photo Credits</h2>' +
+      '<ul class="card ab-list">' + m.photos.map(function (p) {
+        var c = p.credit || {}, what = p.kind === "helmet" ? p.name + " helmet" : p.name + (p.time ? " (" + p.time + ")" : "");
+        var by = [c.author, c.license].filter(Boolean).join(" · ");
+        return "<li>" + (c.url ? '<a class="ab-name" href="' + esc(c.url) + '" target="_blank" rel="noopener noreferrer">' + esc(what) + EXTERNAL + NEW_TAB + "</a>"
+                               : '<span class="ab-name">' + esc(what) + "</span>") +
+               '<span class="ab-what">' + esc(by) + (c.changes ? " · " + esc(c.changes) : "") + "</span></li>";
+      }).join("") + "</ul></section>" : "";
+    put(host, "about", product + sources + photos + legal);
   }
 
   return { menu: menu, news: news, settings: settings, feedback: feedback, about: about };
