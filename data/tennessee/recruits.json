@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2633",
  "classYear": 2027,
- "listed": 19,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271293",
-   "name": "Dylan Haley",
-   "position": "CB",
-   "highSchool": "Cherokee Bluff High School",
-   "city": "Flowery Branch",
-   "state": "GA",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 57,
-   "stateRank": 87,
-   "status": "Verbal"
-  },
-  {
    "id": "267073",
    "name": "J.P. Peace",
    "position": "OLB",
@@ -256,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-06T06:46Z"
+ "fetchedAt": "2026-11-20T10:44Z"
 }

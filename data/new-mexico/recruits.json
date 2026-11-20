@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "167",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -17,7 +17,7 @@
    "state": "CA",
    "grade": 77,
    "rank": null,
-   "positionRank": 33,
+   "positionRank": 34,
    "stateRank": 77,
    "status": "Verbal"
   },
@@ -43,7 +43,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 90,
+   "positionRank": 91,
    "stateRank": 122,
    "status": "Verbal"
   },
@@ -230,6 +230,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274840",
+   "name": "Landon Harris",
+   "position": "S",
+   "highSchool": "Woodville High School",
+   "city": "Woodville",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274692",
    "name": "Aaron Torres",
    "position": "DE",
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-20T10:42Z"
 }

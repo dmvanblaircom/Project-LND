@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2335",
  "classYear": 2027,
- "listed": 15,
+ "listed": 14,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -31,7 +31,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 113,
-   "stateRank": 107,
+   "stateRank": 108,
    "status": "Verbal"
   },
   {
@@ -178,19 +178,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273672",
-   "name": "Moses Byrd",
-   "position": "DE",
-   "highSchool": null,
-   "city": "Clarksville",
-   "state": "TN",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "274565",
    "name": "Russell Davis",
    "position": "DT",
@@ -204,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-20T10:41Z"
 }

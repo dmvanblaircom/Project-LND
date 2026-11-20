@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271817",
+   "name": "Cain Brackney",
+   "position": "ILB",
+   "highSchool": "Bixby High School",
+   "city": "Bixby",
+   "state": "OK",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 12,
+   "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
    "id": "268496",
    "name": "Myles Smith",
    "position": "DE",
@@ -136,19 +149,6 @@
    "rank": null,
    "positionRank": 60,
    "stateRank": 24,
-   "status": "Verbal"
-  },
-  {
-   "id": "271817",
-   "name": "Cain Brackney",
-   "position": "ILB",
-   "highSchool": "Bixby High School",
-   "city": "Bixby",
-   "state": "OK",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 35,
-   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-20T10:41Z"
 }

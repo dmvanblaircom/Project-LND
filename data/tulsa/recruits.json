@@ -17,7 +17,7 @@
    "state": "TN",
    "grade": 76,
    "rank": null,
-   "positionRank": 103,
+   "positionRank": 104,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:27Z"
+ "fetchedAt": "2026-11-20T10:44Z"
 }

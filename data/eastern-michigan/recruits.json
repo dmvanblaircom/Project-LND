@@ -30,8 +30,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 218,
-   "stateRank": 177,
+   "positionRank": 219,
+   "stateRank": 178,
    "status": "Verbal"
   },
   {
@@ -43,7 +43,7 @@
    "state": "IL",
    "grade": 73,
    "rank": null,
-   "positionRank": 147,
+   "positionRank": 149,
    "stateRank": 51,
    "status": "Verbal"
   },
@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 247,
-   "stateRank": 230,
+   "positionRank": 248,
+   "stateRank": 231,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 68,
    "rank": null,
    "positionRank": 6,
-   "stateRank": 245,
+   "stateRank": 246,
    "status": "Verbal"
   },
   {
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-17T03:39Z"
+ "fetchedAt": "2026-11-20T10:40Z"
 }

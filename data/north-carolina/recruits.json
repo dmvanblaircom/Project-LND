@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "153",
  "classYear": 2027,
- "listed": 18,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -134,7 +134,7 @@
    "state": "NJ",
    "grade": 77,
    "rank": null,
-   "positionRank": 30,
+   "positionRank": 31,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "PA",
    "grade": 77,
    "rank": null,
-   "positionRank": 34,
+   "positionRank": 35,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -173,8 +173,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 95,
-   "stateRank": 105,
+   "positionRank": 96,
+   "stateRank": 106,
    "status": "Verbal"
   },
   {
@@ -217,12 +217,38 @@
    "status": "Verbal"
   },
   {
+   "id": "271751",
+   "name": "Zachary Ingram",
+   "position": "CB",
+   "highSchool": "Gainesville High School",
+   "city": "Gainesville",
+   "state": "GA",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 171,
+   "stateRank": 203,
+   "status": "Verbal"
+  },
+  {
    "id": "271352",
    "name": "Connail Jackson",
    "position": "RB",
    "highSchool": "Cardinal Mooney High School",
    "city": "Sarasota",
    "state": "FL",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274837",
+   "name": "John Stanley",
+   "position": "LS",
+   "highSchool": "Christian Hertage High School",
+   "city": "Dalton",
+   "state": "GA",
    "grade": 44,
    "rank": null,
    "positionRank": null,
@@ -243,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-20T10:42Z"
 }

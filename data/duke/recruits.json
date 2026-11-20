@@ -82,7 +82,7 @@
    "state": "NJ",
    "grade": 78,
    "rank": null,
-   "positionRank": 26,
+   "positionRank": 27,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-20T10:40Z"
 }

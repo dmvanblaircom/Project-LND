@@ -31,7 +31,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 80,
-   "stateRank": 102,
+   "stateRank": 103,
    "status": "Verbal"
   },
   {
@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 102,
-   "stateRank": 109,
+   "positionRank": 103,
+   "stateRank": 110,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-20T10:39Z"
 }

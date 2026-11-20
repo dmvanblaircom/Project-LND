@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "197",
  "classYear": 2027,
- "listed": 21,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": 211,
    "positionRank": 16,
    "stateRank": 6,
+   "status": "Verbal"
+  },
+  {
+   "id": "272480",
+   "name": "Markius Woods",
+   "position": "DT",
+   "highSchool": "The Lawrenceville School",
+   "city": "Rumson",
+   "state": "NJ",
+   "grade": 80,
+   "rank": null,
+   "positionRank": 37,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -44,7 +57,7 @@
    "grade": 79,
    "rank": null,
    "positionRank": 51,
-   "stateRank": 10,
+   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -83,7 +96,7 @@
    "grade": 77,
    "rank": null,
    "positionRank": 90,
-   "stateRank": 15,
+   "stateRank": 16,
    "status": "Verbal"
   },
   {
@@ -121,7 +134,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 94,
+   "positionRank": 95,
    "stateRank": 127,
    "status": "Verbal"
   },
@@ -282,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:26Z"
+ "fetchedAt": "2026-11-20T10:43Z"
 }

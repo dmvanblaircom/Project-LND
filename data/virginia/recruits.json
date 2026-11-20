@@ -121,7 +121,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 111,
+   "positionRank": 112,
    "stateRank": 28,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:27Z"
+ "fetchedAt": "2026-11-20T10:45Z"
 }

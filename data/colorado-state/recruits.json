@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "36",
  "classYear": 2027,
- "listed": 23,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -43,7 +43,7 @@
    "state": "CA",
    "grade": 76,
    "rank": null,
-   "positionRank": 110,
+   "positionRank": 111,
    "stateRank": 93,
    "status": "Verbal"
   },
@@ -110,19 +110,6 @@
    "rank": null,
    "positionRank": 147,
    "stateRank": 126,
-   "status": "Verbal"
-  },
-  {
-   "id": "273120",
-   "name": "Kevin Davis",
-   "position": "OLB",
-   "highSchool": "Thompson High School",
-   "city": "Alabaster",
-   "state": "AL",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 108,
-   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -197,19 +184,6 @@
    "highSchool": "Vidalia High School",
    "city": "Vidalia",
    "state": "GA",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "272473",
-   "name": "Ashton Jones",
-   "position": "S",
-   "highSchool": "Bentonville High School",
-   "city": "Bentonville",
-   "state": "AR",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -308,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-20T10:40Z"
 }

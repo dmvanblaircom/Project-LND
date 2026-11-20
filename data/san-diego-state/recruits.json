@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "21",
  "classYear": 2027,
- "listed": 30,
+ "listed": 28,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -126,19 +126,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271682",
-   "name": "Johnny Fortune",
-   "position": "OG",
-   "highSchool": "Rancho Cucamonga High School",
-   "city": "Rancho Cucamonga",
-   "state": "CA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 95,
-   "stateRank": 129,
-   "status": "Verbal"
-  },
-  {
    "id": "274025",
    "name": "Kamden Tillis",
    "position": "RB",
@@ -162,19 +149,6 @@
    "rank": null,
    "positionRank": 153,
    "stateRank": 27,
-   "status": "Verbal"
-  },
-  {
-   "id": "273560",
-   "name": "Seth Sullivan",
-   "position": "OT",
-   "highSchool": "Redondo Union High School",
-   "city": "Redondo Beach",
-   "state": "CA",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 141,
-   "stateRank": 140,
    "status": "Verbal"
   },
   {
@@ -399,5 +373,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:26Z"
+ "fetchedAt": "2026-11-20T10:43Z"
 }

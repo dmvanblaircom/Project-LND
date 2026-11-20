@@ -35,6 +35,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271396",
+   "name": "Carl Jones Jr.",
+   "position": "CB",
+   "highSchool": "Tampa Catholic High School",
+   "city": "Tampa",
+   "state": "FL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 88,
+   "stateRank": 97,
+   "status": "Verbal"
+  },
+  {
    "id": "267718",
    "name": "Logan Steele",
    "position": "S",
@@ -74,19 +87,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271396",
-   "name": "Carl Jones Jr.",
-   "position": "CB",
-   "highSchool": "Tampa Catholic High School",
-   "city": "Tampa",
-   "state": "FL",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 112,
-   "stateRank": 121,
-   "status": "Verbal"
-  },
-  {
    "id": "272751",
    "name": "Josiah Ampofo",
    "position": "DT",
@@ -109,7 +109,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 145,
-   "stateRank": 110,
+   "stateRank": 111,
    "status": "Verbal"
   },
   {
@@ -438,5 +438,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:27Z"
+ "fetchedAt": "2026-11-20T10:45Z"
 }

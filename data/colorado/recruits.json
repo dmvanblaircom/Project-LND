@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "38",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,6 +71,19 @@
    "rank": null,
    "positionRank": 40,
    "stateRank": 12,
+   "status": "Verbal"
+  },
+  {
+   "id": "265121",
+   "name": "Li'Marcus Jones",
+   "position": "OT",
+   "highSchool": "Brentwood Academy",
+   "city": "Brentwood",
+   "state": "TN",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 46,
+   "stateRank": 18,
    "status": "Verbal"
   },
   {
@@ -147,8 +160,8 @@
    "state": "FL",
    "grade": 76,
    "rank": null,
-   "positionRank": 98,
-   "stateRank": 106,
+   "positionRank": 99,
+   "stateRank": 107,
    "status": "Verbal"
   },
   {
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-20T10:40Z"
 }
