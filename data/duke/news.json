@@ -1,7 +1,16 @@
 {
  "team": "duke",
- "updated": "2026-11-21T04:37:52.835659+00:00",
+ "updated": "2026-11-21T05:37:52.426167+00:00",
  "items": [
+  {
+   "title": "Clemson Squeaks Past Duke, 20-10",
+   "link": "https://goduke.com/news/2026/11/20/football-clemson-squeaks-past-duke-17-7",
+   "source": "Duke Athletics",
+   "summary": "<img alt=\"Nate Sheppard of Duke football runs ball into end zone versus Clemson at Duke University\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/20/fb_duke_clemson_20261120_0012.jpg\" /><br /><br />Clemson football snuck past Duke, 20-10, on Friday night inside Brooks Field at Wallace Wade\u00a0Stadium. The Tigers led 3-0 at the half and their two second-half touchdowns were enough to hold off a Blue Devil comeback. Duke sophomore running back Nate Sheppard\u00a0scored on a 55-yard blast to account for the Blue Devils'\u00a0lone touchdown.",
+   "image": "https://goduke.com/images/2026/11/20/fb_duke_clemson_20261120_0012.jpg?width=800",
+   "sourceLogo": "https://goduke.com/favicon.ico",
+   "published": "2026-11-21T04:26:00+00:00"
+  },
   {
    "title": "Duke falls to Clemson on Senior Night",
    "link": "https://on3.com/sites/devils-illustrated/news/duke-falls-to-clemson-on-senior-night/",
@@ -280,15 +289,6 @@
    "image": "https://goduke.com/images/2026/9/20/fb_duke_stanford_ledonne_20260919-23_pH6Or.jpg?width=800",
    "sourceLogo": "https://goduke.com/favicon.ico",
    "published": "2026-11-12T16:32:00+00:00"
-  },
-  {
-   "title": "David Shumate Sits Down with Jonathan Patke",
-   "link": "https://goduke.com/news/2026/11/12/football-david-shumate-sits-down-with-jonathan-patke",
-   "source": "Duke Athletics",
-   "summary": "<img alt=\"Duke defensive coordinator Jonathan Patke talks with his linebacker during pregame of a Blue Devil home game.\" src=\"https://goduke.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/Patke.png\" /><br /><br />David Shumate, the play-by-play voice for Duke football, recently sat down with Blue Devil defensive coordinator/linebackers coach Jonathan Patke\u00a0for an interview in the latest edition of GoDuke the Magazine.",
-   "image": "https://goduke.com/images/2026/11/9/Patke.png?width=800",
-   "sourceLogo": "https://goduke.com/favicon.ico",
-   "published": "2026-11-12T14:08:00+00:00"
   }
  ]
 }
