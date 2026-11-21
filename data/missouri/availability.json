@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:38:31.212505+00:00",
+ "fetchedAt": "2026-11-21T23:08:43.614624+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Kentucky",
  "players": [
@@ -23,9 +23,9 @@
   },
   {
    "pos": "CB",
-   "no": "21",
-   "name": "Jahlil Florence",
-   "status": "probable",
+   "no": "20",
+   "name": "Cameron Keys",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -7,20 +7,13 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:09:05.917907+00:00",
+ "fetchedAt": "2026-11-21T23:08:49.696991+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. North Texas",
+ "kickoffDate": "2026-11-21",
+ "game": "UAB",
  "players": [
-  {
-   "pos": "LB",
-   "no": "4",
-   "name": "Brandon Tucker",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "12",
@@ -72,9 +65,16 @@
   },
   {
    "pos": "OL",
-   "no": "74",
-   "name": "Darrell Jones",
+   "no": "53",
+   "name": "Sekope Wallace",
    "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "75",
+   "name": "Jonah Miller",
+   "status": "out-game",
    "detail": ""
   }
  ],

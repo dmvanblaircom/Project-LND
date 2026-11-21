@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-21T22:08:05.933427+00:00",
+ "updated": "2026-11-21T23:08:11.188365+00:00",
  "items": [
+  {
+   "title": "UVa secures bowl eligibility with decisive 41-24 win over UNC",
+   "link": "https://on3.com/sites/cavs-corner/news/uva-secures-bowl-eligibility-with-decisive-41-24-win-over-unc/",
+   "source": "CavsCorner",
+   "summary": "Behind a stellar defensive effort that thwarted three 4th-down attempts, UVa beat UNC 41-24 and locked up a second-straight postseason.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21135159/914315941_1154684446918356_9095745166497001850_n.png.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-21T23:03:12+00:00"
+  },
   {
    "title": "Six takeaways from UVA football\u2019s 41-24 win over North Carolina",
    "link": "https://www.streakingthelawn.com/football/55057/six-takeaways-from-uva-footballs-41-24-win-over-north-carolina",
@@ -289,15 +298,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-10T17:30:00+00:00"
-  },
-  {
-   "title": "CavsCorner 4-3-4 Breakdown: Bye Week Blues",
-   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-bye-week-blues/",
-   "source": "CavsCorner",
-   "summary": "In his latest feature for CavsCorner, Deuce Prince talks about the different ways UVa can approach this week's bye and how that will affect not only this season but the 2027 season as well.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09192934/Deuce-Prince-orange.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-06T17:30:00+00:00"
   }
  ]
 }
