@@ -342,7 +342,7 @@
    "state": "NC",
    "grade": 75,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 119,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -360,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:40Z"
+ "fetchedAt": "2026-11-21T07:10Z"
 }

@@ -134,8 +134,8 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 129,
-   "stateRank": 152,
+   "positionRank": 130,
+   "stateRank": 153,
    "status": "Verbal"
   },
   {
@@ -148,9 +148,9 @@
    "grade": 74,
    "rank": null,
    "positionRank": 62,
-   "stateRank": 191,
+   "stateRank": 192,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:43Z"
+ "fetchedAt": "2026-11-21T07:13Z"
 }

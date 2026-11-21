@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2426",
  "classYear": 2027,
- "listed": 2,
+ "listed": 3,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "274006",
+   "name": "Carter Wallace",
+   "position": "RB",
+   "highSchool": "Valley View High School",
+   "city": "Jonesboro",
+   "state": "AR",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 47,
+   "stateRank": 1,
+   "status": "Verbal"
+  },
   {
    "id": "266734",
    "name": "Caden Cashman",
@@ -35,5 +48,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:13Z"
+ "fetchedAt": "2026-11-21T07:12Z"
 }

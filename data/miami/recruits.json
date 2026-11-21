@@ -314,10 +314,10 @@
    "highSchool": "Central High School",
    "city": "Baton Rouge",
    "state": "LA",
-   "grade": 44,
+   "grade": 74,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 199,
+   "stateRank": 47,
    "status": "Verbal"
   },
   {
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:42Z"
+ "fetchedAt": "2026-11-21T07:11Z"
 }

@@ -199,7 +199,7 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "NC",
    "grade": 76,
    "rank": null,
-   "positionRank": 107,
+   "positionRank": 108,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -238,10 +238,10 @@
    "state": "LA",
    "grade": 74,
    "rank": null,
-   "positionRank": 169,
-   "stateRank": 50,
+   "positionRank": 171,
+   "stateRank": 51,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-21T07:11Z"
 }

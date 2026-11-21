@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2026",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -43,7 +43,7 @@
    "state": "SC",
    "grade": 76,
    "rank": null,
-   "positionRank": 168,
+   "positionRank": 169,
    "stateRank": 27,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 195,
+   "positionRank": 196,
    "stateRank": 60,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "AR",
    "grade": 75,
    "rank": null,
-   "positionRank": 102,
+   "positionRank": 103,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -108,8 +108,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 219,
-   "stateRank": 178,
+   "positionRank": 221,
+   "stateRank": 179,
    "status": "Verbal"
   },
   {
@@ -121,7 +121,7 @@
    "state": "GA",
    "grade": 74,
    "rank": null,
-   "positionRank": 149,
+   "positionRank": 150,
    "stateRank": 176,
    "status": "Verbal"
   },
@@ -135,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 133,
-   "stateRank": 202,
+   "stateRank": 203,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 78,
    "stateRank": 78,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "SC",
    "grade": 72,
    "rank": null,
-   "positionRank": 201,
+   "positionRank": 203,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "NC",
    "grade": 72,
    "rank": null,
-   "positionRank": 143,
+   "positionRank": 144,
    "stateRank": 57,
    "status": "Verbal"
   },
@@ -215,7 +215,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "274845",
+   "name": "Sean Oliver",
+   "position": "DE",
+   "highSchool": null,
+   "city": "Lewisville",
+   "state": "TX",
+   "grade": 4,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:39Z"
+ "fetchedAt": "2026-11-21T07:09Z"
 }

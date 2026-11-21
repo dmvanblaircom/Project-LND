@@ -5,22 +5,9 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2032",
  "classYear": 2027,
- "listed": 19,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
-  {
-   "id": "274006",
-   "name": "Carter Wallace",
-   "position": "RB",
-   "highSchool": "Valley View High School",
-   "city": "Jonesboro",
-   "state": "AR",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 47,
-   "stateRank": 1,
-   "status": "Verbal"
-  },
   {
    "id": "267646",
    "name": "Josh Echols",
@@ -56,7 +43,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 159,
+   "positionRank": 160,
    "stateRank": 73,
    "status": "Verbal"
   },
@@ -82,8 +69,8 @@
    "state": "LA",
    "grade": 73,
    "rank": null,
-   "positionRank": 182,
-   "stateRank": 52,
+   "positionRank": 184,
+   "stateRank": 53,
    "status": "Verbal"
   },
   {
@@ -109,7 +96,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 128,
-   "stateRank": 194,
+   "stateRank": 195,
    "status": "Verbal"
   },
   {
@@ -256,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-21T07:09Z"
 }

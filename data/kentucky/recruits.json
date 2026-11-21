@@ -353,12 +353,12 @@
    "highSchool": "Trinity High School",
    "city": "Louisville",
    "state": "KY",
-   "grade": 44,
+   "grade": 76,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 14,
+   "stateRank": 16,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:41Z"
+ "fetchedAt": "2026-11-21T07:11Z"
 }

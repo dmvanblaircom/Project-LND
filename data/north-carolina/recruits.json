@@ -165,6 +165,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271352",
+   "name": "Connail Jackson",
+   "position": "RB",
+   "highSchool": "Cardinal Mooney High School",
+   "city": "Sarasota",
+   "state": "FL",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 89,
+   "stateRank": 114,
+   "status": "Verbal"
+  },
+  {
    "id": "271271",
    "name": "Nazir Pitchford",
    "position": "CB",
@@ -187,7 +200,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 43,
-   "stateRank": 144,
+   "stateRank": 145,
    "status": "Verbal"
   },
   {
@@ -212,8 +225,21 @@
    "state": "AR",
    "grade": 74,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
+   "id": "274794",
+   "name": "Treveon Lewis",
+   "position": "ILB",
+   "highSchool": "East Paulding High School",
+   "city": "Dallas",
+   "state": "GA",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 69,
+   "stateRank": 178,
    "status": "Verbal"
   },
   {
@@ -225,21 +251,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 171,
-   "stateRank": 203,
-   "status": "Verbal"
-  },
-  {
-   "id": "271352",
-   "name": "Connail Jackson",
-   "position": "RB",
-   "highSchool": "Cardinal Mooney High School",
-   "city": "Sarasota",
-   "state": "FL",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 172,
+   "stateRank": 204,
    "status": "Verbal"
   },
   {
@@ -254,20 +267,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274794",
-   "name": "Treveon Lewis",
-   "position": "ILB",
-   "highSchool": "East Paulding High School",
-   "city": "Dallas",
-   "state": "GA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:42Z"
+ "fetchedAt": "2026-11-21T07:12Z"
 }

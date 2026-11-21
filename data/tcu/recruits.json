@@ -82,8 +82,8 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 163,
-   "stateRank": 149,
+   "positionRank": 164,
+   "stateRank": 150,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 109,
+   "positionRank": 110,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 100,
-   "stateRank": 176,
+   "positionRank": 101,
+   "stateRank": 177,
    "status": "Verbal"
   },
   {
@@ -134,8 +134,8 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 114,
-   "stateRank": 169,
+   "positionRank": 115,
+   "stateRank": 170,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 40,
-   "stateRank": 168,
+   "stateRank": 169,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "LA",
    "grade": 75,
    "rank": null,
-   "positionRank": 137,
+   "positionRank": 138,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -187,7 +187,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 151,
-   "stateRank": 203,
+   "stateRank": 205,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 160,
-   "stateRank": 246,
+   "positionRank": 161,
+   "stateRank": 249,
    "status": "Verbal"
   },
   {
@@ -213,7 +213,20 @@
    "grade": 72,
    "rank": null,
    "positionRank": 142,
-   "stateRank": 262,
+   "stateRank": 265,
+   "status": "Verbal"
+  },
+  {
+   "id": "273288",
+   "name": "Hudson Harbuck",
+   "position": "DE",
+   "highSchool": "All Saints Episcopal School",
+   "city": "Fort Worth",
+   "state": "TX",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 192,
+   "stateRank": 266,
    "status": "Verbal"
   },
   {
@@ -225,21 +238,8 @@
    "state": "EUR",
    "grade": 70,
    "rank": null,
-   "positionRank": 200,
+   "positionRank": 202,
    "stateRank": 7,
-   "status": "Verbal"
-  },
-  {
-   "id": "273288",
-   "name": "Hudson Harbuck",
-   "position": "DE",
-   "highSchool": "All Saints Episcopal School",
-   "city": "Fort Worth",
-   "state": "TX",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -269,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:44Z"
+ "fetchedAt": "2026-11-21T07:14Z"
 }

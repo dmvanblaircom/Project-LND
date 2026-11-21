@@ -30,7 +30,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 121,
+   "positionRank": 122,
    "stateRank": 133,
    "status": "Verbal"
   },
@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 106,
-   "stateRank": 159,
+   "positionRank": 107,
+   "stateRank": 160,
    "status": "Verbal"
   },
   {
@@ -69,7 +69,7 @@
    "state": "MA",
    "grade": 74,
    "rank": null,
-   "positionRank": 157,
+   "positionRank": 159,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "DE",
    "grade": 74,
    "rank": null,
-   "positionRank": 65,
+   "positionRank": 66,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -95,7 +95,7 @@
    "state": "NC",
    "grade": 73,
    "rank": null,
-   "positionRank": 125,
+   "positionRank": 126,
    "stateRank": 51,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "DE",
    "grade": 72,
    "rank": null,
-   "positionRank": 171,
+   "positionRank": 172,
    "stateRank": 6,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-21T07:10Z"
 }

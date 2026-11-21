@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "275",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -110,19 +110,6 @@
    "rank": null,
    "positionRank": 64,
    "stateRank": 4,
-   "status": "Verbal"
-  },
-  {
-   "id": "261083",
-   "name": "Jai Jones",
-   "position": "ATH",
-   "highSchool": "Chandler High School",
-   "city": "Chandler",
-   "state": "AZ",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 30,
-   "stateRank": 11,
    "status": "Verbal"
   },
   {
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:46Z"
+ "fetchedAt": "2026-11-21T07:15Z"
 }

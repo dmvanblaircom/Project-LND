@@ -82,8 +82,8 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 153,
-   "stateRank": 142,
+   "positionRank": 154,
+   "stateRank": 143,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "OH",
    "grade": 76,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 128,
    "stateRank": 41,
    "status": "Verbal"
   },
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 108,
-   "stateRank": 115,
+   "stateRank": 116,
    "status": "Verbal"
   },
   {
@@ -147,7 +147,7 @@
    "state": "IL",
    "grade": 75,
    "rank": null,
-   "positionRank": 131,
+   "positionRank": 132,
    "stateRank": 37,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "MO",
    "grade": 74,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "MO",
    "grade": 73,
    "rank": null,
-   "positionRank": 175,
+   "positionRank": 177,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -275,10 +275,10 @@
    "highSchool": "Eden Prairie High",
    "city": "Eden Prairie",
    "state": "MN",
-   "grade": 44,
+   "grade": 72,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 190,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:41Z"
+ "fetchedAt": "2026-11-21T07:11Z"
 }

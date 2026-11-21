@@ -239,7 +239,20 @@
    "grade": 75,
    "rank": null,
    "positionRank": 93,
-   "stateRank": 166,
+   "stateRank": 167,
+   "status": "Verbal"
+  },
+  {
+   "id": "274784",
+   "name": "Roman Flugence",
+   "position": "ILB",
+   "highSchool": "Boerne-Samuel V. Champion High School",
+   "city": "Boerne",
+   "state": "TX",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 64,
+   "stateRank": 208,
    "status": "Verbal"
   },
   {
@@ -251,7 +264,7 @@
    "state": "EUR",
    "grade": 74,
    "rank": null,
-   "positionRank": 135,
+   "positionRank": 136,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -265,22 +278,9 @@
    "grade": 68,
    "rank": null,
    "positionRank": 9,
-   "stateRank": 271,
-   "status": "Verbal"
-  },
-  {
-   "id": "274784",
-   "name": "Roman Flugence",
-   "position": "ILB",
-   "highSchool": "Boerne-Samuel V. Champion High School",
-   "city": "Boerne",
-   "state": "TX",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "stateRank": 275,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:26Z"
+ "fetchedAt": "2026-11-21T07:14Z"
 }

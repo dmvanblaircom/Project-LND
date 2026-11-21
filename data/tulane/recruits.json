@@ -69,7 +69,7 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 93,
+   "positionRank": 94,
    "stateRank": 36,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "LA",
    "grade": 76,
    "rank": null,
-   "positionRank": 142,
+   "positionRank": 143,
    "stateRank": 32,
    "status": "Verbal"
   },
@@ -95,8 +95,8 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 176,
-   "stateRank": 160,
+   "positionRank": 177,
+   "stateRank": 161,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 78,
-   "stateRank": 181,
+   "stateRank": 182,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "LA",
    "grade": 74,
    "rank": null,
-   "positionRank": 124,
+   "positionRank": 125,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -199,8 +199,8 @@
    "state": "LA",
    "grade": 74,
    "rank": null,
-   "positionRank": 113,
-   "stateRank": 49,
+   "positionRank": 114,
+   "stateRank": 50,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 149,
-   "stateRank": 149,
+   "positionRank": 151,
+   "stateRank": 150,
    "status": "Verbal"
   },
   {
@@ -264,8 +264,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 119,
-   "stateRank": 235,
+   "positionRank": 120,
+   "stateRank": 238,
    "status": "Verbal"
   },
   {
@@ -277,8 +277,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 230,
-   "stateRank": 191,
+   "positionRank": 232,
+   "stateRank": 192,
    "status": "Verbal"
   },
   {
@@ -290,8 +290,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 233,
-   "stateRank": 195,
+   "positionRank": 235,
+   "stateRank": 196,
    "status": "Verbal"
   },
   {
@@ -303,7 +303,7 @@
    "state": "MS",
    "grade": 72,
    "rank": null,
-   "positionRank": 190,
+   "positionRank": 191,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -334,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:27Z"
+ "fetchedAt": "2026-11-21T07:14Z"
 }

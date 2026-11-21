@@ -43,7 +43,7 @@
    "state": "PA",
    "grade": 76,
    "rank": null,
-   "positionRank": 92,
+   "positionRank": 93,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "VA",
    "grade": 75,
    "rank": null,
-   "positionRank": 187,
+   "positionRank": 188,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 19,
-   "stateRank": 28,
+   "stateRank": 29,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "NJ",
    "grade": 72,
    "rank": null,
-   "positionRank": 29,
+   "positionRank": 30,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "MA",
    "grade": 72,
    "rank": null,
-   "positionRank": 81,
+   "positionRank": 83,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:26Z"
+ "fetchedAt": "2026-11-21T07:14Z"
 }

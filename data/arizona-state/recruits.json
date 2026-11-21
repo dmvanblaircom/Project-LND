@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 62,
-   "stateRank": 97,
+   "stateRank": 98,
    "status": "Verbal"
   },
   {
@@ -165,6 +165,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273507",
+   "name": "Noah Reid",
+   "position": "OT",
+   "highSchool": "Shawnee Mission North High School",
+   "city": "Shawnee Mission",
+   "state": "KS",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 106,
+   "stateRank": 8,
+   "status": "Verbal"
+  },
+  {
    "id": "273024",
    "name": "Magic Haynes",
    "position": "DE",
@@ -174,22 +187,9 @@
    "grade": 74,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 120,
-   "status": "Verbal"
-  },
-  {
-   "id": "273507",
-   "name": "Noah Reid",
-   "position": "OT",
-   "highSchool": "Shawnee Mission North High School",
-   "city": "Shawnee Mission",
-   "state": "KS",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "stateRank": 121,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-21T07:09Z"
 }

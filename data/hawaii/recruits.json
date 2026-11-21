@@ -17,8 +17,8 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 112,
-   "stateRank": 135,
+   "positionRank": 113,
+   "stateRank": 136,
    "status": "Verbal"
   },
   {
@@ -30,7 +30,7 @@
    "state": "NV",
    "grade": 71,
    "rank": null,
-   "positionRank": 179,
+   "positionRank": 180,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 70,
    "rank": null,
    "positionRank": 40,
-   "stateRank": 193,
+   "stateRank": 194,
    "status": "Verbal"
   },
   {
@@ -100,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-21T07:10Z"
 }

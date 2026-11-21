@@ -113,6 +113,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274798",
+   "name": "Chase Young",
+   "position": "S",
+   "highSchool": "De La Salle High School",
+   "city": "Concord",
+   "state": "CA",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 106,
+   "stateRank": 86,
+   "status": "Verbal"
+  },
+  {
    "id": "272685",
    "name": "Kyle Davis",
    "position": "OLB",
@@ -134,7 +147,7 @@
    "state": "WI",
    "grade": 75,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 13,
    "status": "Verbal"
   },
@@ -186,7 +199,7 @@
    "state": "NJ",
    "grade": 74,
    "rank": null,
-   "positionRank": 207,
+   "positionRank": 209,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -199,7 +212,7 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 129,
+   "positionRank": 130,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -226,7 +239,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 141,
-   "stateRank": 150,
+   "stateRank": 151,
    "status": "Verbal"
   },
   {
@@ -238,8 +251,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 201,
-   "stateRank": 156,
+   "positionRank": 203,
+   "stateRank": 157,
    "status": "Verbal"
   },
   {
@@ -264,7 +277,7 @@
    "state": "MN",
    "grade": 73,
    "rank": null,
-   "positionRank": 71,
+   "positionRank": 73,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -293,20 +306,7 @@
    "positionRank": 83,
    "stateRank": 75,
    "status": "Verbal"
-  },
-  {
-   "id": "274798",
-   "name": "Chase Young",
-   "position": "CB",
-   "highSchool": "De La Salle High School",
-   "city": "Concord",
-   "state": "CA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-21T07:12Z"
 }

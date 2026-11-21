@@ -134,7 +134,7 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 116,
+   "positionRank": 117,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "NV",
    "grade": 73,
    "rank": null,
-   "positionRank": 121,
+   "positionRank": 122,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 227,
+   "positionRank": 229,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -213,9 +213,9 @@
    "grade": 72,
    "rank": null,
    "positionRank": 26,
-   "stateRank": 47,
+   "stateRank": 48,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:24Z"
+ "fetchedAt": "2026-11-21T07:09Z"
 }

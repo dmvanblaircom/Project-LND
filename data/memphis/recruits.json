@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "235",
  "classYear": 2027,
- "listed": 9,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,19 +19,6 @@
    "rank": null,
    "positionRank": 63,
    "stateRank": 36,
-   "status": "Verbal"
-  },
-  {
-   "id": "271755",
-   "name": "Aubrey Johnson",
-   "position": "WR",
-   "highSchool": "North Shore High School",
-   "city": "Houston",
-   "state": "TX",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 177,
-   "stateRank": 162,
    "status": "Verbal"
   },
   {
@@ -56,7 +43,7 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 103,
+   "positionRank": 104,
    "stateRank": 65,
    "status": "Verbal"
   },
@@ -82,8 +69,8 @@
    "state": "TX",
    "grade": 74,
    "rank": null,
-   "positionRank": 204,
-   "stateRank": 196,
+   "positionRank": 206,
+   "stateRank": 197,
    "status": "Verbal"
   },
   {
@@ -95,8 +82,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 162,
-   "stateRank": 197,
+   "positionRank": 163,
+   "stateRank": 198,
    "status": "Verbal"
   },
   {
@@ -108,7 +95,7 @@
    "state": "MS",
    "grade": 71,
    "rank": null,
-   "positionRank": 154,
+   "positionRank": 155,
    "stateRank": 51,
    "status": "Verbal"
   },
@@ -126,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:25Z"
+ "fetchedAt": "2026-11-21T07:11Z"
 }

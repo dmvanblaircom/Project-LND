@@ -17,7 +17,7 @@
    "state": "CO",
    "grade": 74,
    "rank": null,
-   "positionRank": 219,
+   "positionRank": 221,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 127,
-   "stateRank": 245,
+   "stateRank": 248,
    "status": "Verbal"
   },
   {
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-19T15:27Z"
+ "fetchedAt": "2026-11-21T07:15Z"
 }

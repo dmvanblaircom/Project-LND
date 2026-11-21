@@ -147,7 +147,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 111,
+   "positionRank": 112,
    "stateRank": 124,
    "status": "Verbal"
   },
@@ -200,7 +200,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 105,
-   "stateRank": 168,
+   "stateRank": 169,
    "status": "Verbal"
   },
   {
@@ -226,7 +226,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 63,
-   "stateRank": 179,
+   "stateRank": 180,
    "status": "Verbal"
   },
   {
@@ -238,10 +238,10 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 138,
-   "stateRank": 225,
+   "positionRank": 139,
+   "stateRank": 226,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:42Z"
+ "fetchedAt": "2026-11-21T07:12Z"
 }

@@ -70,7 +70,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 41,
-   "stateRank": 138,
+   "stateRank": 139,
    "status": "Verbal"
   },
   {
@@ -121,8 +121,8 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 174,
-   "stateRank": 158,
+   "positionRank": 175,
+   "stateRank": 159,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 135,
-   "stateRank": 180,
+   "stateRank": 181,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 62,
-   "stateRank": 200,
+   "stateRank": 201,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "LA",
    "grade": 74,
    "rank": null,
-   "positionRank": 196,
+   "positionRank": 197,
    "stateRank": 44,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 96,
-   "stateRank": 199,
+   "stateRank": 200,
    "status": "Verbal"
   },
   {
@@ -186,8 +186,8 @@
    "state": "TX",
    "grade": 74,
    "rank": null,
-   "positionRank": 158,
-   "stateRank": 201,
+   "positionRank": 160,
+   "stateRank": 202,
    "status": "Verbal"
   },
   {
@@ -199,8 +199,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 158,
-   "stateRank": 236,
+   "positionRank": 159,
+   "stateRank": 239,
    "status": "Verbal"
   },
   {
@@ -212,10 +212,10 @@
    "state": "TX",
    "grade": 70,
    "rank": null,
-   "positionRank": 257,
-   "stateRank": 270,
+   "positionRank": 259,
+   "stateRank": 274,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:41Z"
+ "fetchedAt": "2026-11-21T07:10Z"
 }

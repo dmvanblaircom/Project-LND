@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "150",
  "classYear": 2027,
- "listed": 19,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -58,19 +58,6 @@
    "rank": null,
    "positionRank": 10,
    "stateRank": 83,
-   "status": "Verbal"
-  },
-  {
-   "id": "271486",
-   "name": "D.J. Waluyn",
-   "position": "S",
-   "highSchool": "Hoover High School",
-   "city": "Birmingham",
-   "state": "AL",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 70,
-   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -256,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:40Z"
+ "fetchedAt": "2026-11-21T07:10Z"
 }

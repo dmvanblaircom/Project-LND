@@ -238,7 +238,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 15,
+   "positionRank": 16,
    "stateRank": 135,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 164,
+   "positionRank": 166,
    "stateRank": 43,
    "status": "Verbal"
   },
@@ -277,10 +277,10 @@
    "state": "MO",
    "grade": 74,
    "rank": null,
-   "positionRank": 197,
+   "positionRank": 198,
    "stateRank": 14,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:42Z"
+ "fetchedAt": "2026-11-21T07:12Z"
 }
