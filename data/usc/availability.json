@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:43.545327+00:00",
+ "fetchedAt": "2026-11-21T21:38:52.468948+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Maryland",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "DE",
    "no": "10",
    "name": "Braylan Shelby",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

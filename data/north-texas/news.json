@@ -1,7 +1,16 @@
 {
  "team": "north-texas",
- "updated": "2026-11-17T21:08:11.802050+00:00",
+ "updated": "2026-11-21T21:38:04.455445+00:00",
  "items": [
+  {
+   "title": "Mean Green Drop Heartbreaker at Tulane",
+   "link": "https://meangreensports.com/news/2026/11/21/football-mean-green-drop-heartbreaker-at-tulane",
+   "source": "North Texas Athletics",
+   "summary": "<img alt=\"Brendon Haygood touchdown at Tulane\" src=\"https://meangreensports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/IMG_8444.jpeg\" /><br /><br />NEW ORLEANS \u2014 The UNT football team's string of bad voodoo in New Orleans looked to be lifted early in Saturday's game at Tulane after the Mean Green jumped out to a quick 14-point lead near the end of the first quarter.",
+   "image": "https://meangreensports.com/images/2026/11/21/IMG_8444.jpeg?width=800",
+   "sourceLogo": "https://meangreensports.com/favicon.ico",
+   "published": "2026-11-21T20:58:00+00:00"
+  },
   {
    "title": "Mean Green Hit the Road to Face Tulane",
    "link": "https://meangreensports.com/news/2026/11/17/football-mean-green-hit-the-road-to-face-tulane",
@@ -82,15 +91,6 @@
    "image": "https://meangreensports.com/images/2026/11/1/261029_FB_vs_FAU_MRM_5041_large.jpg?width=800",
    "sourceLogo": "https://meangreensports.com/favicon.ico",
    "published": "2026-11-02T17:00:00+00:00"
-  },
-  {
-   "title": "Mean Green Move to 4-0 in American Play",
-   "link": "https://meangreensports.com/news/2026/10/29/football-mean-green-move-to-4-0-in-american-play",
-   "source": "North Texas Athletics",
-   "summary": "<img alt=\"TD Celebration against FAU\" src=\"https://meangreensports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/29/IMG_6289.jpeg\" /><br /><br />DENTON \u2014 The Mean Green offense once again showed why they are one of the most lethal units in the nation, and UNT moved to 4-0 in conference play for the first time since it was a Sun Belt program in 2004, with a 48-41 shootout over Florida Atlantic on Thursday night.",
-   "image": "https://meangreensports.com/images/2026/10/29/IMG_6289.jpeg?width=800",
-   "sourceLogo": "https://meangreensports.com/favicon.ico",
-   "published": "2026-10-30T05:34:00+00:00"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-21T01:08:36.368165+00:00",
+ "updated": "2026-11-21T21:38:45.322558+00:00",
  "reports": [
   {
    "schema": 1,
@@ -768,10 +768,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:36.368165+00:00",
+   "fetchedAt": "2026-11-21T21:38:45.322558+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at USC",
    "players": [
@@ -779,14 +779,7 @@
      "pos": "RB",
      "no": "0",
      "name": "DeJuan Williams",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "7",
-     "name": "Malik Washington",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -794,13 +787,6 @@
      "no": "9",
      "name": "Zahir Mathis",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "13",
-     "name": "Chris Durr Jr.",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -842,7 +828,7 @@
      "pos": "OL",
      "no": "71",
      "name": "Ryan Howerton",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
