@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-11-21T01:08:34.657293+00:00",
+ "updated": "2026-11-21T18:38:31.951800+00:00",
  "reports": [
   {
    "schema": 1,
@@ -280,10 +280,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:34.657293+00:00",
+   "fetchedAt": "2026-11-21T18:38:31.951800+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Washington",
    "players": [

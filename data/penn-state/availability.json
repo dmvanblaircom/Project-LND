@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:39.579888+00:00",
+ "fetchedAt": "2026-11-21T18:38:35.366707+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Rutgers",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "CB",
    "no": "0",
    "name": "Jahmir Joseph",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "3",
    "name": "Jamison Patton",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "RB",
    "no": "21",
    "name": "Carson Hansen",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +74,7 @@
    "pos": "P",
    "no": "96",
    "name": "Lucas Tenbrock",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   }
  ],

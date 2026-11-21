@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan",
- "updated": "2026-11-21T01:08:37.046665+00:00",
+ "updated": "2026-11-21T18:38:33.591716+00:00",
  "reports": [
   {
    "schema": 1,
@@ -614,32 +614,18 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:37.046665+00:00",
+   "fetchedAt": "2026-11-21T18:38:33.591716+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. UCLA",
    "players": [
     {
      "pos": "WR",
-     "no": "0",
-     "name": "Kendrick Bell",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "1",
-     "name": "Rod Moore",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
      "no": "3",
      "name": "Andrew Marsh",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -650,17 +636,17 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "9",
-     "name": "Channing Goodwin",
-     "status": "questionable",
+     "pos": "DT",
+     "no": "17",
+     "name": "Enow Etta",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "20",
      "name": "Jaylen Pile",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -668,6 +654,13 @@
      "no": "22",
      "name": "Braydon Alford",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Jordan Marshall",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -682,13 +675,6 @@
      "no": "37",
      "name": "Julius Holly",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "42",
-     "name": "Jalen Hoffman",
-     "status": "questionable",
      "detail": ""
     },
     {
@@ -707,13 +693,6 @@
     },
     {
      "pos": "OL",
-     "no": "70",
-     "name": "Brady Norton",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
      "no": "77",
      "name": "Blake Frazier",
      "status": "out-game",
@@ -721,9 +700,9 @@
     },
     {
      "pos": "DE",
-     "no": "90",
-     "name": "John Henry Daley",
-     "status": "questionable",
+     "no": "94",
+     "name": "Nate Marshall",
+     "status": "out-game",
      "detail": ""
     }
    ],

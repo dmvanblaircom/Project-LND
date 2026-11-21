@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:43.286236+00:00",
+ "fetchedAt": "2026-11-21T18:38:37.871924+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Michigan",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "LB",
    "no": "9",
    "name": "Jalen Woods",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -67,7 +67,7 @@
    "pos": "OL",
    "no": "51",
    "name": "Riley Robell",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

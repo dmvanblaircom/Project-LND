@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:40.124223+00:00",
+ "fetchedAt": "2026-11-21T18:38:35.740286+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Penn State",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Dyzier Carter",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "1",
@@ -36,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "6",
-   "name": "Abram Wright",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "8",
    "name": "KJ Duff",
@@ -50,24 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "10",
-   "name": "AJ Surace",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "12",
    "name": "Zahmir Dawud",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "12",
-   "name": "Dylan Lonergan",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -100,23 +72,9 @@
   },
   {
    "pos": "OL",
-   "no": "56",
-   "name": "Tyler Needham",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "69",
    "name": "Kwabena Asamoah",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "96",
-   "name": "Keshon Griffin",
-   "status": "questionable",
    "detail": ""
   }
  ],
