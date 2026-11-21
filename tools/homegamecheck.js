@@ -74,7 +74,7 @@ fs.mkdirSync(shots,{recursive:true});
         assert(await page.evaluate(function(){return getComputedStyle(document.querySelector(".mu-v.better")).backgroundColor!==getComputedStyle(document.querySelector(".mu-v:not(.better)")).backgroundColor;}),"The better stat has no visible tint");
         assert(await page.evaluate(function(){return document.documentElement.scrollWidth<=innerWidth+1;}),"Matchup overflows");
         var contrast=await audit.auditText(page,"matchup "+team+style+width);assert.deepStrictEqual(contrast.failures,[]);
-        if(style==="team"&&(width===320||width===390))await page.locator(".gcard").screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
+        if(style==="team"&&(width===320||width===390))await page.locator(".game-body .gcard").first().screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
         passed.push("PASS "+[team,style,width,"nine highlighted comparisons and arrows"].join(" | "));
         await page.evaluate(function(){
           document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;document.getElementById("around").hidden=true;
