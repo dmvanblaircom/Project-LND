@@ -72,14 +72,16 @@ Suite.scoreboard = (function () {
   }
 
   // Each side's photograph, or null. The stage shows helmets only when it has
-  // both - one helmet facing a logo is not a matchup - and otherwise both
-  // official marks stand large where the helmets would (asset guidance,
-  // 2026-11-20: never another team's helmet recoloured).
+  // both and they can face each other - one helmet facing a logo, or two
+  // turned away, is not a matchup - and otherwise both official marks stand
+  // large where the helmets would (asset guidance, 2026-11-20: never another
+  // team's helmet recoloured).
+  function faces(h, want) { return h.facing === want || h.mirror; }
   function helmets(m) {
     var g = m.game, t = m.team;
     if (!TeamOS.art || !g) return null;
     var us = TeamOS.art.helmet(t.id), them = TeamOS.art.helmetByProvider(g.oppProviderId);
-    return us && them ? { us: us, them: them } : null;
+    return us && them && faces(us, "right") && faces(them, "left") ? { us: us, them: them } : null;
   }
   // A helmet faces the middle: ours to the right, theirs to the left. A photo
   // facing the wrong way is flipped only when its helmet carries nothing a

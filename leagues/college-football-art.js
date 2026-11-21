@@ -59,7 +59,7 @@ var TEAM_ART = (function (W) { return {
       // the standard gold shell, unworn, in a display case: the one Commons
       // photo that qualifies (2026-11-21 search); 480 wide is all it holds
       path: "assets/helmets/notre-dame-{w}.webp", widths: [480],
-      facing: "right", mirror: false,     // a maker's name on the chin strap: never flipped
+      facing: "right", mirror: true,      // a plain shell, no decal: flipped to face a right-hand opponent
       credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
                 url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Memorabilia,_Joyce_Center,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045747785).jpg",
                 changes: "cropped, background removed, glare reduced, colour corrected, resized" }

@@ -69,7 +69,7 @@ function drawBatch(arg) {
     ["home-live-nds-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }],
     ["home-pre-os-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, venue: "Ohio Stadium" }, "2026-10-01T12:00:00Z"],
     ["game-live-nds-night", "game", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 3, clock: "9:35", us: 14, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
-    // both helmets on the stage (Notre Dame's page against Ohio State, and Ohio State's against Notre Dame)
+    // helmets: Notre Dame's page against Ohio State shows both; Ohio State's against Notre Dame cannot turn them to face, so shows marks
     ["home-pre-helmets-nd", "home", 390, { status: "scheduled", hasStarted: false, date: NIGHT, venue: "Notre Dame Stadium", oppProviderId: "194", oppName: "Ohio State", oppAbbr: "OSU" }, "2026-10-03T12:00:00Z"],
     ["home-live-helmets-os", "home", 390, { status: "live", hasStarted: true, date: DAY, venue: "Ohio Stadium", oppProviderId: "87", oppName: "Notre Dame", oppAbbr: "ND", period: 2, clock: "4:10", us: 10, them: 7, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
     ["home-pre-helmets-desktop", "home", 860, { status: "scheduled", hasStarted: false, date: NIGHT, venue: "Notre Dame Stadium", oppProviderId: "194", oppName: "Ohio State", oppAbbr: "OSU" }, "2026-10-03T12:00:00Z"],
@@ -143,12 +143,18 @@ function drawBatch(arg) {
       for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
-      // the helmet cases must show helmets where both teams have one, or they test nothing
+      // the helmet cases must show both helmets where they can face each other
+      // (Notre Dame's page against Ohio State), and both marks where they
+      // cannot (Ohio State's against Notre Dame: neither photo may be flipped
+      // the way that page needs), or they test nothing
       var helmetless = await page.evaluate(function () {
-        return [].filter.call(document.querySelectorAll('.hc-row[data-team="notre-dame"] [data-case*="helmets"],.hc-row[data-team="ohio-state"] [data-case*="helmets"]'),
-          function (c) { return c.querySelectorAll(".sb-helmet img, img.sb-helmet").length !== 2; }).map(function (c) { return c.parentNode.getAttribute("data-team") + " " + c.getAttribute("data-case"); });
+        var want = { "notre-dame home-pre-helmets-nd": 2, "notre-dame home-pre-helmets-desktop": 2, "ohio-state home-live-helmets-os": 0 };
+        return Object.keys(want).filter(function (k) {
+          var p = k.split(" "), c = document.querySelector('.hc-row[data-team="' + p[0] + '"] [data-case="' + p[1] + '"]');
+          return c && c.querySelectorAll("img.sb-helmet").length !== want[k];
+        }).map(function (k) { return k + ": expected " + want[k] + " helmets"; });
       });
-      helmetless.forEach(function (h) { failures.push(run.style + " " + h + ": both teams have a helmet and the stage shows fewer than two"); });
+      helmetless.forEach(function (h) { failures.push(run.style + " " + h); });
       // Measured once the faces have loaded and the frame has settled: under
       // load (the parallel suite, a busy runner) a fallback face mid-swap
       // moves text off its floor and the reading is of a page no fan sees.
