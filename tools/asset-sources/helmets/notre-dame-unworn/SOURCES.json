@@ -1,9 +1,25 @@
 {
   "subject": "Standard Notre Dame football helmet (solid metallic gold shell, no decal), not worn",
   "searched": "2026-11-21",
-  "method": "Wikimedia Commons API: list=search (ns 6) for 'Notre Dame helmet', 'Notre Dame football helmet', 'Fighting Irish helmet', 'gold helmet Notre Dame', 'Notre Dame Stadium tour helmet', 'College Football Hall of Fame Notre Dame', 'Notre Dame locker room', 'Notre Dame football equipment', 'Notre Dame helmet display', 'Notre Dame football memorabilia', 'Notre Dame trophy case', 'Joyce Center Notre Dame' and others; category walks of 'Notre Dame Fighting Irish football', 'Notre Dame Fighting Irish football equipment', 'College Football Hall of Fame' and 'American football helmets' (depth 2). About 6,500 files screened by title/category, about 30 checked visually.",
-  "result_summary": "Commons coverage is thin. One photo qualifies. Rejected: 'Notre Dame football helmet.jpg' (582 px wide, below the 800 px floor), 'Shamrock Series helmets' (alternate designs), 'Notredamepostgamehelmetraise.jpg' (helmets held by players, faces), 'Notre dame football uniforms.png' (illustration), Joyce Center trophy cases (no helmets), the 'Football Pre-game Area' set (banners and crowd, no helmets).",
+  "method": "Wikimedia Commons API: list=search (ns 6) for 'Notre Dame helmet', 'Notre Dame football helmet', 'Fighting Irish helmet', 'gold helmet Notre Dame', 'Notre Dame Stadium tour helmet', 'College Football Hall of Fame Notre Dame', 'Notre Dame locker room', 'Notre Dame football equipment', 'Notre Dame helmet display', 'Notre Dame football memorabilia', 'Notre Dame trophy case', 'Joyce Center Notre Dame' and others; category walks of 'Notre Dame Fighting Irish football', 'Notre Dame Fighting Irish football equipment', 'College Football Hall of Fame' and 'American football helmets' (depth 2). About 6,500 files screened by title/category, about 30 checked visually. Flickr (added 2026-11-21): www.flickr.com search filtered to licenses CC BY 2.0/4.0, CC BY-SA 2.0/4.0, CC0, Public Domain Mark and US Government Work, for 'notre dame helmet', 'notre dame football helmet', 'fighting irish helmet', 'notre dame gold helmet', 'ND helmet', 'irish helmet', 'notre dame locker room', 'notre dame stadium tour', 'notre dame helmet display', 'notre dame football equipment', 'college football hall of fame notre dame', 'notre dame bookstore', 'notre dame pregame', 'notre dame football practice', 'gold football helmet' and others (about 190 unique results); candidates verified on their own photo pages.",
+  "result_summary": "Two photos qualify; the Flickr one is the better source. Flickr rejects: Ken Lund's Joyce Center coach displays (no helmets), Chad Kainz pregame set (crowds and players in game helmets), a 'Photo by Matt Cashore/University of Notre Dame' upload marked Public Domain by a third party (license not credible, and no helmet). Commons rejects: 'Notre Dame football helmet.jpg' (582 px wide), 'Shamrock Series helmets' (alternate designs), 'Notredamepostgamehelmetraise.jpg' (helmets held by players, faces), 'Notre dame football uniforms.png' (illustration), Joyce Center trophy cases and pre-game area set (no helmets).",
   "images": [
+    {
+      "local_path": "tools/asset-sources/helmets/notre-dame-unworn/nd-gold-helmet-under-armour-store-display.jpg",
+      "source_site": "Flickr",
+      "source_page": "https://www.flickr.com/photos/kenlund/43371915112/",
+      "original_url": "https://live.staticflickr.com/839/43371915112_4cf0c20a40_o.jpg",
+      "downloaded_url": "https://live.staticflickr.com/839/43371915112_80477f0b63_4k.jpg",
+      "width": 4000,
+      "height": 3000,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "author": "Ken Lund",
+      "credit_line": "Photo: Ken Lund, \"Notre Dame Helmet, Under Armour Retailer, Magnificent Mile, Chicago, Illinois\", CC BY-SA 2.0, via Flickr",
+      "file_note": "Flickr's 4000x3000 '4k' rendition, the same pixel size as the original. The _o original URL returned HTTP 429 for this environment throughout; re-fetch it if exact bytes matter. Taken 2018-07-14.",
+      "note": "Best of the set. One gold Riddell helmet on a black plinth inside an acrylic retail case, 3/4 front-left angle, close and filling much of the frame. Helmet region roughly x 840-2420, y 750-2470 (about 1,550 px wide). Very sharp: metal flake fully resolved. Not isolated: acrylic case reflections, a football and store merchandise behind it. Retail-display trim differs from the game helmet: grey facemask, dark tinted visor, Under Armour logos on the visor clip and chin strap, white 'IRISH' nose bumper. The shell itself is the standard solid gold with no side decal.",
+      "face_check": "No face visible through or around the helmet: it is empty and the tinted visor shows only blue light reflections. The store's black-and-white crowd mural in the upper-left background contains small printed fan faces, well away from the helmet; crop to the helmet region before use."
+    },
     {
       "local_path": "tools/asset-sources/helmets/notre-dame-unworn/nd-gold-helmets-joyce-center-display-case.jpg",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Notre_Dame_Memorabilia,_Joyce_Center,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045747785).jpg",
@@ -16,7 +32,8 @@
       "credit_line": "Photo: Ken Lund, \"Notre Dame Memorabilia, Joyce Center, University of Notre Dame, South Bend, Indiana\", CC BY-SA 2.0, via Wikimedia Commons",
       "file_note": "Full-resolution (3000x4000) rendition served by Commons thumb.php. upload.wikimedia.org was rate-limiting this environment, so this is not the byte-identical original (original sha1 8bf2cf111332e10b73f413eca6ec5b8a2c40a653, 2,740,391 bytes). Same pixel dimensions; re-fetch the original URL if exact bytes matter.",
       "note": "Two standard gold Riddell helmets (white facemask, no decal) on a glass shelf inside a retail display case, 3/4 front-right angle, taken 2013-11-23. Helmet region is roughly x 1500-2500, y 1450-2400 in the full image (about 1,000 px wide). Sharp: metal-flake texture is resolved. Not isolated: behind glass with ceiling-light glare and reflections, a price card in front, other merchandise around it, so it needs cropping or cutout work.",
-      "face_check": "No face is visible through or around the helmets; nobody is wearing or holding them. Caveat: the case glass at upper center (roughly x 1075-1750, y 750-1550, left of and above the helmets) holds a faint reflection of the photographer, partly hidden by the camera. Crop to the helmet region before any use."
+      "face_check": "No face is visible through or around the helmets; nobody is wearing or holding them. Caveat: the case glass at upper center (roughly x 1075-1750, y 750-1550, left of and above the helmets) holds a faint reflection of the photographer, partly hidden by the camera. Crop to the helmet region before any use.",
+      "source_site": "Wikimedia Commons"
     }
   ]
 }
