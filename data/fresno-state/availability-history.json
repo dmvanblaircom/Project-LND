@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "fresno-state",
- "updated": "2026-11-21T03:08:26.784494+00:00",
+ "updated": "2026-11-21T22:38:34.766688+00:00",
  "reports": [
   {
    "schema": 1,
@@ -286,10 +286,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T03:08:26.784494+00:00",
+   "fetchedAt": "2026-11-21T22:38:34.766688+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
-   "heading": "Update 2",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Colorado State",
    "players": [
@@ -311,7 +311,7 @@
      "pos": "DL",
      "no": "",
      "name": "Jahzon Jacks",
-     "status": "out-game",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T04:08:32.814386+00:00",
+ "fetchedAt": "2026-11-21T22:38:40.344822+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at California",
  "players": [
@@ -47,13 +47,6 @@
    "no": "22",
    "name": "Daylen Sharper",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "23",
-   "name": "Nico Brown",
-   "status": "probable",
    "detail": ""
   },
   {

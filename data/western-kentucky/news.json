@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-21T21:38:15.164192+00:00",
+ "updated": "2026-11-21T22:38:10.936463+00:00",
  "items": [
+  {
+   "title": "Hilltoppers Fall At No. 22 Liberty",
+   "link": "https://wkusports.com/news/2026/11/21/football-hilltoppers-fall-at-no-22-liberty",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"FB vs. Liberty Postgame\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/21/moussa_post.png\" /><br /><br />LYNCHBURG, Va. \u2013\u00a0WKU Football lost 45-14 against No. 22 Liberty on Saturday at Williams Stadium in Lynchburg, Virginia.",
+   "image": "https://wkusports.com/images/2026/11/21/moussa_post.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-21T21:58:00+00:00"
+  },
   {
    "title": "WKU Football surrenders 31-point loss to No. 22 Liberty",
    "link": "https://wkuherald.com/99662/sports/wku-football-surrenders-31-point-loss-to-no-22-liberty/",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/11/13/WKU_FB_26___Gameday_Guide___Jax_State.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-14T10:00:00+00:00"
-  },
-  {
-   "title": "Know Before You Go: 2026 Football Gameday Information",
-   "link": "https://wkusports.com/news/2026/11/13/know-before-you-go-2026-football-gameday-information",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/8/3/WKU_FB_26___Gameday_Guide.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/8/3/WKU_FB_26___Gameday_Guide.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-13T19:30:00+00:00"
   }
  ]
 }

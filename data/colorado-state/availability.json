@@ -7,73 +7,24 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T01:38:46.611168+00:00",
+ "fetchedAt": "2026-11-21T22:38:34.093108+00:00",
  "reported": true,
- "effectiveAt": "2026-11-15",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Washington State",
+ "kickoffDate": "2026-11-21",
+ "game": "at Fresno State",
  "players": [
   {
-   "pos": "DB",
+   "pos": "DL",
    "no": "",
-   "name": "MAKIH JOHNSON",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "JOHN HOLTHAUS",
+   "name": "Amare Bell",
    "status": "gtd",
    "detail": ""
   },
   {
-   "pos": "TE",
+   "pos": "ILB",
    "no": "",
-   "name": "GRANT HOUSER",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "PEARCE SPURLIN",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "JUICE VAREEN",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "ELIJAH MCCANTOS",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "JAYDEN CORTELL",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "AJ NOLAND",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "JACKSON HARPER",
+   "name": "Antron Turner",
    "status": "gtd",
    "detail": ""
   }

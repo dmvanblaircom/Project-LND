@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-11-21T04:08:25.991600+00:00",
+ "updated": "2026-11-21T22:38:33.459176+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,10 +474,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T04:08:25.991600+00:00",
+   "fetchedAt": "2026-11-21T22:38:33.459176+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Stanford",
    "players": [
@@ -496,24 +496,10 @@
      "detail": ""
     },
     {
-     "pos": "QB",
-     "no": "2",
-     "name": "EJ Caminong",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "QB",
-     "no": "3",
-     "name": "Jaron-Keawe Sagapolutele",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "OLB",
      "no": "4",
      "name": "Justin Beadles",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -527,7 +513,7 @@
      "pos": "DB",
      "no": "7",
      "name": "Daniel Harris",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -538,59 +524,24 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "9",
-     "name": "Ian Strong",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "DB",
      "no": "14",
      "name": "Aiden Manutai",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "17",
-     "name": "Jordan Sanford",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "RB",
      "no": "20",
      "name": "Ashten Emory",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "23",
      "name": "Isaiah Crosby",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "24",
-     "name": "Adam Mohammed",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "25",
-     "name": "Khamani Hudson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "33",
-     "name": "JD McKinley",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -598,20 +549,6 @@
      "no": "51",
      "name": "Kahlee Tafai",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "51",
-     "name": "Jayden Williams",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "85",
-     "name": "Mason Mini",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -625,7 +562,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Ashun Shepphard",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],
