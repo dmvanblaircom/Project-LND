@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-21T11:07:54.696028+00:00",
+ "updated": "2026-11-21T12:38:01.046258+00:00",
  "items": [
+  {
+   "title": "Game Day Central: Gophers-Wildcats",
+   "link": "https://gophersports.com/news/2026/11/21/football-game-center-gophers-wildcats",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"team, entrance at stadium\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/19/team__sportart_084.jpg\" /><br /><br />The Golden Gophers host the Northwestern Wildcats this morning in the final home game of the season. Kickoff is set for 11AM on FS1.",
+   "image": "https://gophersports.com/images/2026/9/19/team__sportart_084.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-21T11:30:00+00:00"
+  },
   {
    "title": "Game Trailer: Gophers-Wildcats",
    "link": "https://gophersports.com/news/2026/11/20/football-game-trailer-gophers-wildcats",
@@ -127,15 +136,6 @@
    "image": "https://gophersports.com/images/2026/11/12/Tracy_Javon_5622.JPG?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-11-12T17:24:00+00:00"
-  },
-  {
-   "title": "Game 10 Preview: Minnesota at Penn State",
-   "link": "https://gophersports.com/news/2026/11/11/football-game-10-minnesota-at-penn-state",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Team Tunnel\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/sportart_7311.JPG\" /><br /><br />Meeting for the first time in State College since 2022, NR/RV Minnesota visits Penn State Saturday night. Kickoff is set for 6 p.m. CT on FS1 and the Gopher Radio Network.",
-   "image": "https://gophersports.com/images/2026/11/11/sportart_7311.JPG?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-11T16:24:00+00:00"
   }
  ]
 }

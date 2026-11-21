@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-21T03:38:14.607219+00:00",
+ "updated": "2026-11-21T12:38:11.904657+00:00",
  "items": [
+  {
+   "title": "Gameday Guide: Liberty",
+   "link": "https://wkusports.com/news/2026/11/21/football-gameday-guide-liberty",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide \u2013 Liberty 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/20/WKU_FB_26___Gameday_Guide___Liberty_16x9.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/20/WKU_FB_26___Gameday_Guide___Liberty_16x9.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-21T12:00:00+00:00"
+  },
   {
    "title": "WKU Football looks for their first ranked win on the road against No. 22 Liberty",
    "link": "https://wkuherald.com/99638/sports/wku-football-looks-for-their-first-ranked-win-on-the-road-against-no-22-liberty/",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/11/12/WKU_FB_26___Game_Week___Jax_State.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-12T16:32:00+00:00"
-  },
-  {
-   "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-9-26",
-   "link": "https://wkusports.com/news/2026/11/9/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-9-26",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Tyson Helton Press Conference\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/9/tyson.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/11/9/tyson.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-09T17:42:00+00:00"
   }
  ]
 }
