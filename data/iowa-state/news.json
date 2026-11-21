@@ -1,6 +1,6 @@
 {
  "team": "iowa-state",
- "updated": "2026-11-21T03:07:58.933367+00:00",
+ "updated": "2026-11-21T03:25:08.045673+00:00",
  "items": [
   {
    "title": "Turnovers, third-down woes sink Iowa State",
@@ -10,6 +10,15 @@
    "image": "https://platform.widerightnattylite.com/wp-content/uploads/sites/179/2026/11/gettyimages-2305548141.jpg?quality=90&strip=all&crop=0,0,100,100",
    "sourceLogo": null,
    "published": "2026-11-21T02:52:12+00:00"
+  },
+  {
+   "title": "Cyclones Drop Friday Night Contest in Orlando",
+   "link": "https://cyclones.com/news/2026/11/20/football-cyclones-drop-friday-night-contest-in-orlando",
+   "source": "Iowa State Athletics",
+   "summary": "<img alt=\"Aiden Flora runs the ball at UCF (2026)\" src=\"https://cyclones.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/20/CR3_1988__1_.JPG\" /><br /><br />Wet and rainy Florida conditions set the scene for a rough Iowa State evening, as the Cyclones committed four turnovers in their final road game of the season in a loss to UCF, falling 48-17.",
+   "image": "https://cyclones.com/images/2026/11/20/CR3_1988__1_.JPG?width=800",
+   "sourceLogo": "https://cyclones.com/favicon.ico",
+   "published": "2026-11-21T02:50:00+00:00"
   },
   {
    "title": "Iowa State Football Spoils Great Game From Aiden Flora in Blowout Loss",
@@ -406,15 +415,6 @@
    "image": "https://cyclones.com/images/2026/11/11/IMG_2067.JPG.jpg?width=800",
    "sourceLogo": "https://cyclones.com/favicon.ico",
    "published": "2026-11-11T22:23:00+00:00"
-  },
-  {
-   "title": "PRIMER: Iowa State vs. Cincinnati",
-   "link": "https://cyclones.com/news/2026/11/10/football-primer-iowa-state-vs-cincinnati",
-   "source": "Iowa State Athletics",
-   "summary": "<img alt=\"Preview Cover Photo - Iowa State vs. Cincinnati (2026) - Nov. 14 - 11 a.m. (CT) - TNT\" src=\"https://cyclones.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/Primer_Cover_Photo_Cincinnati.jpg\" /><br /><br />AMES, Iowa - Iowa State returns home\u00a0to host Cincinnati in another tough Big 12 Conference showdown Saturday at Jack Trice Stadium. Kickoff is set for 11 a.m. on TNT.",
-   "image": "https://cyclones.com/images/2026/11/10/Primer_Cover_Photo_Cincinnati.jpg?width=800",
-   "sourceLogo": "https://cyclones.com/favicon.ico",
-   "published": "2026-11-11T03:29:00+00:00"
   }
  ]
 }
