@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:34.791782+00:00",
+ "fetchedAt": "2026-11-21T17:38:25.842387+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Illinois",
  "players": [
@@ -29,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "6",
-   "name": "Zach Lutmer",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "10",
    "name": "Burke Gautcher",
@@ -43,24 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "11",
-   "name": "Jacob Wallace",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "11",
    "name": "Brody Schaffer",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "14",
-   "name": "Tony Diaz",
-   "status": "probable",
    "detail": ""
   },
   {

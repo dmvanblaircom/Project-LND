@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-21T16:38:20.658749+00:00",
+ "updated": "2026-11-21T17:38:05.203538+00:00",
  "items": [
+  {
+   "title": "Football Pregame Show: Liberty",
+   "link": "https://wkusports.com/news/2026/11/21/football-pregame-show-liberty",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"FB Pregame Liberty 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/21/FB_PREGAME_RADIO_SHOW_2026_Liberty.jpeg\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/21/FB_PREGAME_RADIO_SHOW_2026_Liberty.jpeg?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-21T17:08:00+00:00"
+  },
   {
    "title": "Gameday Guide: Liberty",
    "link": "https://wkusports.com/news/2026/11/21/football-gameday-guide-liberty",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/8/3/WKU_FB_26___Gameday_Guide.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-13T19:30:00+00:00"
-  },
-  {
-   "title": "Hilltoppers Host Jax State For Homecoming On Saturday",
-   "link": "https://wkusports.com/news/2026/11/12/football-hilltoppers-host-jax-state-for-homecoming-on-saturday",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Game Week \u2013 Jax State\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/12/WKU_FB_26___Game_Week___Jax_State.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football will face Jax State on Saturday, Nov. 14, in the annual Homecoming game at Houchens-Smith Stadium. Kickoff is scheduled for 2:30 p.m. CT and the game will be streamed on ESPN+.",
-   "image": "https://wkusports.com/images/2026/11/12/WKU_FB_26___Game_Week___Jax_State.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-12T16:32:00+00:00"
   }
  ]
 }

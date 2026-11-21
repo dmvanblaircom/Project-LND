@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:34.524401+00:00",
+ "fetchedAt": "2026-11-21T17:38:25.667410+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Iowa",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "WR",
    "no": "1",
    "name": "Jayshon Platt",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "QB",
    "no": "4",
    "name": "Katin Houser",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -54,13 +54,6 @@
    "no": "13",
    "name": "Hudson Clement",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "16",
-   "name": "Tanner Heckel",
-   "status": "questionable",
    "detail": ""
   },
   {

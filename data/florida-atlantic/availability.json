@@ -7,17 +7,45 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:08:52.049658+00:00",
+ "fetchedAt": "2026-11-21T17:38:24.840542+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Tulsa",
+ "kickoffDate": "2026-11-21",
+ "game": "South Florida",
  "players": [
+  {
+   "pos": "DB",
+   "no": "0",
+   "name": "Damon Allen",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Branden Hoch",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "3",
+   "name": "Brooks Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "4",
    "name": "Damarius McGhee",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "6",
+   "name": "Leon Hart Jr.",
    "status": "questionable",
    "detail": ""
   },
@@ -29,9 +57,23 @@
    "detail": ""
   },
   {
-   "pos": "TE",
+   "pos": "WR",
+   "no": "8",
+   "name": "Easton Messer",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "EDG",
    "no": "11",
-   "name": "Brooks Johnson",
+   "name": "Gavench Marcelin",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "17",
+   "name": "Char'Quez Lee",
    "status": "out-game",
    "detail": ""
   },
@@ -72,9 +114,9 @@
   },
   {
    "pos": "OL",
-   "no": "71",
-   "name": "Landon Rapkiewicz",
-   "status": "questionable",
+   "no": "62",
+   "name": "Vincent Fiacable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,7 +130,7 @@
    "pos": "TE",
    "no": "88",
    "name": "Marcus Vinson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-atlantic",
- "updated": "2026-11-15T11:08:52.049658+00:00",
+ "updated": "2026-11-21T17:38:24.840542+00:00",
  "reports": [
   {
    "schema": 1,
@@ -602,6 +602,158 @@
      "no": "88",
      "name": "Marcus Vinson",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Lebron Edmond",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Blake Burris",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "florida-atlantic",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T17:38:24.840542+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "South Florida",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "0",
+     "name": "Damon Allen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Branden Hoch",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "3",
+     "name": "Brooks Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "Damarius McGhee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "6",
+     "name": "Leon Hart Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "RJ Garcia II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Easton Messer",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "11",
+     "name": "Gavench Marcelin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "17",
+     "name": "Char'Quez Lee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "26",
+     "name": "Chase Hanning",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Kaden Shields-Dutton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "41",
+     "name": "Collin Rogers",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Owen Cheatham",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Aiden Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Vincent Fiacable",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "87",
+     "name": "Peter Cannon",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Marcus Vinson",
+     "status": "questionable",
      "detail": ""
     },
     {

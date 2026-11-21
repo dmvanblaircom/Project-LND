@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-florida",
- "updated": "2026-11-13T11:08:54.804888+00:00",
+ "updated": "2026-11-21T17:38:29.911692+00:00",
  "reports": [
   {
    "schema": 1,
@@ -602,6 +602,116 @@
      "no": "82",
      "name": "Gabe Legrand",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "NT",
+     "no": "95",
+     "name": "Iverson Garcia-Ponce",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "south-florida",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T17:38:29.911692+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Florida Atlantic",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Arhmad Branch",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "D.J. Crowther",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Jaden Alexis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "20",
+     "name": "A'Mon Lane-Ganus",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "28",
+     "name": "Ryan Jenkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "JCK",
+     "no": "33",
+     "name": "Ashton Mosley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "38",
+     "name": "Derrick \"Tre\" Nichols III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "67",
+     "name": "Thomas Shrader",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Cash Hudson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Michael Wooten",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Gabe Legrand",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Ryley Zalusky",
+     "status": "questionable",
      "detail": ""
     },
     {

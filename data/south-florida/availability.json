@@ -7,39 +7,18 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-13T11:08:54.804888+00:00",
+ "fetchedAt": "2026-11-21T17:38:29.911692+00:00",
  "reported": true,
- "effectiveAt": "2026-11-12",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-12",
- "game": "vs. Memphis",
+ "kickoffDate": "2026-11-21",
+ "game": "Florida Atlantic",
  "players": [
-  {
-   "pos": "LB",
-   "no": "0",
-   "name": "Grayson Howard",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "1",
-   "name": "C.J. Hicks",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "3",
-   "name": "Michael Van Buren Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "4",
    "name": "Arhmad Branch",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "8",
-   "name": "Amarion Fortenberry",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "12",
    "name": "Jaden Alexis",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "19",
-   "name": "JeyQuan Smith",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -81,21 +46,21 @@
    "pos": "DT",
    "no": "28",
    "name": "Ryan Jenkins",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "JCK",
    "no": "33",
    "name": "Ashton Mosley",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "34",
-   "name": "Keyshaun Birks",
-   "status": "questionable",
+   "pos": "S",
+   "no": "38",
+   "name": "Derrick \"Tre\" Nichols III",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -114,9 +79,9 @@
   },
   {
    "pos": "OL",
-   "no": "79",
-   "name": "Ethan Green",
-   "status": "questionable",
+   "no": "77",
+   "name": "Michael Wooten",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -124,6 +89,13 @@
    "no": "82",
    "name": "Gabe Legrand",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "89",
+   "name": "Ryley Zalusky",
+   "status": "questionable",
    "detail": ""
   },
   {
