@@ -168,6 +168,15 @@
      "overall": "7-3"
     },
     {
+     "espnId": "228",
+     "name": "Clemson",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "7-4"
+    },
+    {
      "espnId": "2567",
      "name": "SMU",
      "conf": {
@@ -177,22 +186,13 @@
      "overall": "7-3"
     },
     {
-     "espnId": "228",
-     "name": "Clemson",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "6-4"
-    },
-    {
      "espnId": "150",
      "name": "Duke",
      "conf": {
       "wins": 4,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "7-3"
+     "overall": "7-4"
     },
     {
      "espnId": "52",
@@ -372,13 +372,13 @@
      "overall": "6-4"
     },
     {
-     "espnId": "66",
-     "name": "Iowa State",
+     "espnId": "2116",
+     "name": "UCF",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 4
      },
-     "overall": "5-5"
+     "overall": "6-5"
     },
     {
      "espnId": "2628",
@@ -390,13 +390,13 @@
      "overall": "5-5"
     },
     {
-     "espnId": "2116",
-     "name": "UCF",
+     "espnId": "66",
+     "name": "Iowa State",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "5-5"
+     "overall": "5-6"
     },
     {
      "espnId": "2132",
@@ -468,6 +468,15 @@
      "overall": "9-1"
     },
     {
+     "espnId": "2483",
+     "name": "Oregon",
+     "conf": {
+      "wins": 6,
+      "losses": 2
+     },
+     "overall": "8-3"
+    },
+    {
      "espnId": "2294",
      "name": "Iowa",
      "conf": {
@@ -479,15 +488,6 @@
     {
      "espnId": "194",
      "name": "Ohio State",
-     "conf": {
-      "wins": 5,
-      "losses": 2
-     },
-     "overall": "7-3"
-    },
-    {
-     "espnId": "2483",
-     "name": "Oregon",
      "conf": {
       "wins": 5,
       "losses": 2
@@ -594,15 +594,6 @@
      "overall": "3-7"
     },
     {
-     "espnId": "127",
-     "name": "Michigan St",
-     "conf": {
-      "wins": 1,
-      "losses": 6
-     },
-     "overall": "3-7"
-    },
-    {
      "espnId": "164",
      "name": "Rutgers",
      "conf": {
@@ -610,6 +601,15 @@
       "losses": 6
      },
      "overall": "2-8"
+    },
+    {
+     "espnId": "127",
+     "name": "Michigan St",
+     "conf": {
+      "wins": 1,
+      "losses": 7
+     },
+     "overall": "3-8"
     }
    ]
   },
@@ -732,6 +732,15 @@
      "overall": "8-3"
     },
     {
+     "espnId": "2649",
+     "name": "Toledo",
+     "conf": {
+      "wins": 6,
+      "losses": 1
+     },
+     "overall": "9-2"
+    },
+    {
      "espnId": "2711",
      "name": "W Michigan",
      "conf": {
@@ -739,15 +748,6 @@
       "losses": 1
      },
      "overall": "8-3"
-    },
-    {
-     "espnId": "2649",
-     "name": "Toledo",
-     "conf": {
-      "wins": 5,
-      "losses": 1
-     },
-     "overall": "8-2"
     },
     {
      "espnId": "193",
@@ -763,9 +763,9 @@
      "name": "Bowling Green",
      "conf": {
       "wins": 3,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "2117",
@@ -837,37 +837,37 @@
    "abbr": "mwest",
    "teams": [
     {
-     "espnId": "2751",
-     "name": "Wyoming",
+     "espnId": "167",
+     "name": "New Mexico",
      "conf": {
       "wins": 6,
       "losses": 1
      },
-     "overall": "7-3"
+     "overall": "9-2"
     },
     {
-     "espnId": "167",
-     "name": "New Mexico",
+     "espnId": "2751",
+     "name": "Wyoming",
+     "conf": {
+      "wins": 6,
+      "losses": 2
+     },
+     "overall": "7-4"
+    },
+    {
+     "espnId": "2005",
+     "name": "Air Force",
      "conf": {
       "wins": 5,
-      "losses": 1
+      "losses": 2
      },
-     "overall": "8-2"
+     "overall": "9-2"
     },
     {
      "espnId": "2449",
      "name": "N Dakota St",
      "conf": {
       "wins": 5,
-      "losses": 2
-     },
-     "overall": "8-2"
-    },
-    {
-     "espnId": "2005",
-     "name": "Air Force",
-     "conf": {
-      "wins": 4,
       "losses": 2
      },
      "overall": "8-2"
@@ -922,9 +922,9 @@
      "name": "UTEP",
      "conf": {
       "wins": 0,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "1-9"
+     "overall": "1-10"
     }
    ]
   },
@@ -1303,5 +1303,5 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-20T11:43Z"
+ "fetchedAt": "2026-11-21T07:50Z"
 }
