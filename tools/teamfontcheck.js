@@ -125,7 +125,7 @@ function fixture(url) {
   var n = await open("/?team=notre-dame#home");
   ok(n.fonts.length === 0, "Notre Dame: no Nunito Sans request");
   ok((await family(n.page, "body")).includes("Instrument Sans"), "Notre Dame uses Instrument Sans");
-  ok((await family(n.page, ".stage-nick")).includes("Instrument Display"), "display uses the native condensed instance");
+  ok((await family(n.page, ".sb-name")).includes("Instrument Display"), "display uses the native condensed instance");
   var head = await family(n.page, ".sec-title");
   ok(head.includes("Instrument Sans") && !/georgia/i.test(head),
      "section titles are the UI sans, no Georgia (Phase 2 spec §3.2: " + head + ")");

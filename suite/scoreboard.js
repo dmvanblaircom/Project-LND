@@ -246,7 +246,7 @@ Suite.scoreboard = (function () {
     var g = m.game, out = "", w = m.weather, ko = ui.kickoff(g.date, g.timeSet);
     var pre = st === "upcoming" || st === "delayed" || st === "postponed";
     if (pre) {
-      var when = st === "postponed" ? [Suite.home.newDate(g)] : [ko.day, g.timeSet === false ? "" : ko.time, g.net].filter(Boolean);
+      var when = st === "postponed" ? [Suite.home.newDate(g)] : [ko.day, ko.time, g.net].filter(Boolean);
       out += '<p class="stage-when">' + when.map(function (x) { return '<span class="nb">' + esc(x) + "</span>"; }).join('<span class="dot" aria-hidden="true"> · </span>') + "</p>";
       if (g.venue) out += '<p class="stage-where">' + esc(g.venue) + (g.city ? '<span class="dot" aria-hidden="true"> · </span>' + esc(g.city + (g.venueState ? ", " + g.venueState : "")) : "") + "</p>";
     } else if (st === "final") out += '<p class="stage-when"><span class="nb">' + esc(ko.day) + "</span></p>";

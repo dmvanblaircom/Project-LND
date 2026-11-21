@@ -754,6 +754,9 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .game-head p{margin:0}
 /* Game's header in front of the venue's photograph (as Home's stage) */
 .game-head.has-photo{--photo-h:100%;background:var(--r-stage-3)}
+/* Game's words stand across the whole photograph, so it sits under an even
+   veil of the team's abyss rather than Home's glow (decision 0041) */
+.game-head.has-photo .stage-art{background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.62),rgba(var(--t-abyss-rgb),.8))}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 /* The weather and the line: one centred row under the game, two equal
    halves either side of a rule (David, 2026-10-01). */
@@ -1895,7 +1898,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 /* ---- the countdown: KICKOFF IN / 4 DAYS, louder as the kickoff nears ---- */
 .sb-cd{display:flex;flex-direction:column;align-items:center;gap:.15rem;margin:var(--s-space-2) 0 0}
 .sb-cd-k{font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--r-stage-ink)}
-.sb-cd-n{font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-2xl);line-height:1;letter-spacing:.02em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;letter-spacing:.02em;text-transform:uppercase;font-variant-numeric:tabular-nums}
 .sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:var(--s-type-3xl)}
 .sb-cd-near .sb-cd-n{text-shadow:0 0 22px rgba(var(--r-stage-glow-rgb),.6)}
 
