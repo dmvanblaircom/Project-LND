@@ -7,27 +7,13 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:44.403468+00:00",
+ "fetchedAt": "2026-11-21T22:09:49.439809+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Miami",
  "players": [
-  {
-   "pos": "WR",
-   "no": "11",
-   "name": "Davion Brown",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "22",
-   "name": "Kenny Woseley Jr.",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "CB",
    "no": "23",
@@ -68,13 +54,6 @@
    "no": "66",
    "name": "Montavious Cunningham",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "72",
-   "name": "Justin Terry",
-   "status": "probable",
    "detail": ""
   },
   {
