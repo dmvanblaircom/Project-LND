@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-21T02:37:57.158240+00:00",
+ "updated": "2026-11-21T04:37:57.246015+00:00",
  "items": [
+  {
+   "title": "Game Trailer: Gophers-Wildcats",
+   "link": "https://gophersports.com/news/2026/11/20/football-game-trailer-gophers-wildcats",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"Taylor Darius Game Trailer\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2025/11/20/cinematic-Northwestern-112125.jpg\" /><br /><br />The Golden Gophers host the Northwestern Wildcats in the final home game of the season. Kickoff is set for 11AM on FS1.",
+   "image": "https://gophersports.com/images/2025/11/20/cinematic-Northwestern-112125.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-21T01:00:00+00:00"
+  },
   {
    "title": "Minnesota Football vs. Northwestern: Staff Predictions",
    "link": "https://www.thedailygopher.com/minnesota-golden-gophers-football/41782/minnesota-football-vs-northwestern-staff-predictions",
@@ -127,15 +136,6 @@
    "image": "https://gophersports.com/images/2026/11/11/sportart_7311.JPG?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-11-11T16:24:00+00:00"
-  },
-  {
-   "title": "Coach Fleck Previews Saturday's Game at Penn State",
-   "link": "https://gophersports.com/news/2026/11/9/football-coach-fleck-previews-saturdays-game-at-penn-state",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Head coach P.J. Fleck running on to the field\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/9/Fleck_PJ_049.jpg\" /><br /><br />Minnesota head coach P.J. Fleck met the media on Monday to preview Saturday night's game against Penn State. Kickoff is set for 6PM on FS1.",
-   "image": "https://gophersports.com/images/2026/11/9/Fleck_PJ_049.jpg?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-09T16:38:00+00:00"
   }
  ]
 }
