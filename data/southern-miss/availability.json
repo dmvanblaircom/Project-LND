@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:08:41.776574+00:00",
+ "fetchedAt": "2026-11-21T15:38:45.423584+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Initial",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. South Alabama",
  "players": [
@@ -22,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "",
-   "name": "Kaden Saunders",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "",
    "name": "Dante Devine",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "marshall",
- "updated": "2026-11-19T01:08:38.290313+00:00",
+ "updated": "2026-11-21T15:38:40.734006+00:00",
  "reports": [
   {
    "schema": 1,
@@ -160,10 +160,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:38.290313+00:00",
+   "fetchedAt": "2026-11-21T15:38:40.734006+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Georgia State",
    "players": [
@@ -206,14 +206,14 @@
      "pos": "DL",
      "no": "",
      "name": "Braydin Ward",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "",
      "name": "Terrente Hinton",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],

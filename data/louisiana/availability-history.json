@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisiana",
- "updated": "2026-11-19T01:08:37.905643+00:00",
+ "updated": "2026-11-21T15:38:40.222284+00:00",
  "reports": [
   {
    "schema": 1,
@@ -134,39 +134,25 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:37.905643+00:00",
+   "fetchedAt": "2026-11-21T15:38:40.222284+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Coastal Carolina",
    "players": [
     {
-     "pos": "DL",
-     "no": "",
-     "name": "Priest Ashe",
-     "status": "probable",
-     "detail": ""
-    },
-    {
      "pos": "ILB",
      "no": "",
      "name": "Jake  St. Andre",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "",
-     "name": "Khristian Mackintrush",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OLB",
      "no": "",
      "name": "Na'Tori Brown",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

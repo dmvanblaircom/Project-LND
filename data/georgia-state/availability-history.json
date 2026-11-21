@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": "2026-11-19T01:08:36.517094+00:00",
+ "updated": "2026-11-21T15:38:38.383240+00:00",
  "reports": [
   {
    "schema": 1,
@@ -272,74 +272,74 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:36.517094+00:00",
+   "fetchedAt": "2026-11-21T15:38:38.383240+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Marshall",
    "players": [
     {
-     "pos": "WR",
+     "pos": "",
+     "no": "",
+     "name": "Dennis Murray Jr",
+     "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "",
      "no": "",
      "name": "Isaiah Stone",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "QB",
+     "pos": "",
      "no": "",
      "name": "Cameran Brown",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "DB",
+     "pos": "",
      "no": "",
      "name": "Malique Harrell",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "TE",
+     "pos": "",
      "no": "",
      "name": "Matt Buron",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "DB",
+     "pos": "",
      "no": "",
      "name": "Curtis Walker",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "ILB",
+     "pos": "",
      "no": "",
      "name": "Ryan Green",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "WR",
+     "pos": "",
      "no": "",
      "name": "Owen Dupree",
      "status": "out-game",
      "detail": ""
     },
     {
-     "pos": "OL",
+     "pos": "",
      "no": "",
      "name": "Jordan Brown",
      "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "",
-     "name": "Dennis Murray Jr",
-     "status": "questionable",
      "detail": ""
     }
    ],

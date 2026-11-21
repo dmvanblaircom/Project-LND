@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "louisiana-tech",
- "updated": "2026-11-19T01:08:37.992746+00:00",
+ "updated": "2026-11-21T15:38:40.337823+00:00",
  "reports": [
   {
    "schema": 1,
@@ -139,10 +139,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:37.992746+00:00",
+   "fetchedAt": "2026-11-21T15:38:40.337823+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Arkansas State",
    "players": [

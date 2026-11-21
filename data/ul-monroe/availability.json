@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:08:43.396974+00:00",
+ "fetchedAt": "2026-11-21T15:38:47.655938+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Initial",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at App State",
  "players": [
@@ -32,63 +32,42 @@
    "pos": "DB",
    "no": "",
    "name": "Taijh Overton",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "",
    "name": "Tyrell Brown",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Gavin Howard",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
    "name": "Van Martinez",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Darrian Gilliam",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "SP",
-   "no": "",
-   "name": "Makenzie Ryan",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "CJ Phillip",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Kaliem Croswell",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Jayden Lewis",
-   "status": "questionable",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "David Jester",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "app-state",
- "updated": "2026-11-19T01:08:32.164678+00:00",
+ "updated": "2026-11-21T15:38:33.284667+00:00",
  "reports": [
   {
    "schema": 1,
@@ -272,10 +272,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:32.164678+00:00",
+   "fetchedAt": "2026-11-21T15:38:33.284667+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. ULM",
    "players": [
@@ -308,6 +308,20 @@
      "detail": ""
     },
     {
+     "pos": "OL",
+     "no": "",
+     "name": "Kamron Burris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jamel Howse",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "RB",
      "no": "",
      "name": "Jaquari Lewis",
@@ -317,43 +331,8 @@
     {
      "pos": "OL",
      "no": "",
-     "name": "Kamron Burris",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "TE",
-     "no": "",
-     "name": "Jamel Howse",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
      "name": "Tyriq Poindexter",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Brooks Yurachek",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Aiden Benton",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Jayden Thomas",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     }
    ],

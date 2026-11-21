@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-11-21T03:08:25.727254+00:00",
+ "updated": "2026-11-21T15:38:36.950765+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,10 +474,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T03:08:25.727254+00:00",
+   "fetchedAt": "2026-11-21T15:38:36.950765+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Cincinnati",
    "players": [
@@ -486,13 +486,6 @@
      "no": "4",
      "name": "Naeten Mitchell",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "13",
-     "name": "Kaleb Mathis",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -541,7 +534,7 @@
      "pos": "DL",
      "no": "99",
      "name": "Dylan Manuel",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     }
    ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-alabama",
- "updated": "2026-11-19T01:08:41.491866+00:00",
+ "updated": "2026-11-21T15:38:45.033757+00:00",
  "reports": [
   {
    "schema": 1,
@@ -370,34 +370,13 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:41.491866+00:00",
+   "fetchedAt": "2026-11-21T15:38:45.033757+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Southern Miss",
    "players": [
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Korchagin, Artem",
-     "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Mosley, Demetress",
-     "status": "out-season",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Siler, Jamal",
-     "status": "out-season",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "",
@@ -406,17 +385,10 @@
      "detail": ""
     },
     {
-     "pos": "OL",
+     "pos": "DB",
      "no": "",
-     "name": "Booker, Jaylen",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Carter, Tyler",
-     "status": "questionable",
+     "name": "Moson, Jaylen",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -500,6 +472,27 @@
      "pos": "DB",
      "no": "",
      "name": "Moore, DJ",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Korchagin, Artem",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Mosley, Demetress",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Siler, Jamal",
      "status": "out-season",
      "detail": ""
     }

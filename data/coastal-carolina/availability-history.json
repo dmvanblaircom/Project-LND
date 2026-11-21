@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-19T02:08:37.390114+00:00",
+ "updated": "2026-11-21T15:38:36.825136+00:00",
  "reports": [
   {
    "schema": 1,
@@ -209,10 +209,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:08:35.385545+00:00",
+   "fetchedAt": "2026-11-21T15:38:36.825136+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Louisiana",
    "players": [
@@ -227,63 +227,28 @@
      "pos": "DL",
      "no": "",
      "name": "Ibe Diawara",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "QB",
      "no": "",
      "name": "Tre Guerra",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "",
-     "name": "Tray Franklin",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "",
      "name": "Jayden Johnson",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Ryan Grayson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "ILB",
-     "no": "",
-     "name": "Kaden Sapp",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Tristian Gardner",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "",
-     "name": "Azarel Juste",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "",
      "name": "Mitch Toney",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-southern",
- "updated": "2026-11-19T01:38:47.100944+00:00",
+ "updated": "2026-11-21T15:38:38.267909+00:00",
  "reports": [
   {
    "schema": 1,
@@ -272,10 +272,10 @@
    "sourceLabel": "SunBeltSports.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-19T01:38:47.100944+00:00",
+   "fetchedAt": "2026-11-21T15:38:38.267909+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Troy",
    "players": [
@@ -311,7 +311,7 @@
      "pos": "DB",
      "no": "",
      "name": "Carlo Thompson",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {

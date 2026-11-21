@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:25.341330+00:00",
+ "fetchedAt": "2026-11-21T15:38:36.564571+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Colorado",
  "players": [
@@ -18,21 +18,21 @@
    "pos": "CB",
    "no": "0",
    "name": "Jacob Finley",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "6",
    "name": "Gi'Bran Payne",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "11",
    "name": "Chidera Otutu",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

@@ -7,34 +7,13 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T01:38:55.514007+00:00",
+ "fetchedAt": "2026-11-21T15:38:46.885994+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Initial",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Georgia Southern",
  "players": [
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jon Bocchino",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Tyler Cappi",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Jaheim Merriweather",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "",
