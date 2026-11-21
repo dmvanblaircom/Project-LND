@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:38:34.102722+00:00",
+ "fetchedAt": "2026-11-21T19:08:37.147974+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Arkansas",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "EDG",
    "no": "1",
    "name": "Colin Simmons",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -29,17 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "24",
-   "name": "Warren Roberson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "50",
    "name": "Laurence Seymore III",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {

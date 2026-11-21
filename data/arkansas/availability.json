@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:38:24.688571+00:00",
+ "fetchedAt": "2026-11-21T19:08:27.342078+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Texas",
  "players": [
@@ -47,13 +47,6 @@
    "no": "89",
    "name": "Gavin Garretson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "97",
-   "name": "Quincy Rhodes Jr.",
-   "status": "probable",
    "detail": ""
   }
  ],
