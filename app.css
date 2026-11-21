@@ -1884,6 +1884,8 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb-mid.is-half .sb-period{font-size:var(--s-type-sm);letter-spacing:.14em;color:var(--r-stage-mark)}
 .sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-xl);line-height:1;font-variant-numeric:tabular-nums}
 .sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.2em;text-transform:uppercase}
+/* on the stage the pill already says Final or Halftime; the space between the scores stays */
+.stage .sb-final,.stage .sb-mid.is-half .sb-period{visibility:hidden}
 .sb-vs{display:block;margin-top:2.6rem;font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
 .sb.no-helmets .sb-vs{margin-top:var(--s-space-7)}
 .sb-series{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-mark)}
