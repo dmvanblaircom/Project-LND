@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "west-virginia",
- "updated": "2026-11-21T03:08:38.243793+00:00",
+ "updated": "2026-11-21T16:39:05.187139+00:00",
  "reports": [
   {
    "schema": 1,
@@ -425,10 +425,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T03:08:38.243793+00:00",
+   "fetchedAt": "2026-11-21T16:39:05.187139+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Houston",
    "players": [

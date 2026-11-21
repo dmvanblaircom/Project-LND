@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:27.423738+00:00",
+ "fetchedAt": "2026-11-21T16:38:53.992871+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at West Virginia",
  "players": [
@@ -18,14 +18,7 @@
    "pos": "QB",
    "no": "1",
    "name": "Conner Weigman",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "3",
-   "name": "JD Rhym",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -40,13 +33,6 @@
    "no": "50",
    "name": "Aaron Wolford",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "De'Marion Thomas",
-   "status": "probable",
    "detail": ""
   }
  ],
