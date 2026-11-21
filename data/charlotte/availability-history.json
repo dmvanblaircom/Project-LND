@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "charlotte",
- "updated": "2026-11-15T11:08:50.796406+00:00",
+ "updated": "2026-11-21T17:08:35.089394+00:00",
  "reports": [
   {
    "schema": 1,
@@ -573,6 +573,95 @@
      "pos": "DL",
      "no": "55",
      "name": "Shaku Sangarie",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "82",
+     "name": "Shelden Golliday",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Jaylen Doss",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "charlotte",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T17:08:35.089394+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Tulsa",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "7",
+     "name": "Chance Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "14",
+     "name": "Kendal Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Seth Franklin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "20",
+     "name": "Zayden Laing-Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "26",
+     "name": "Devon St. Clair",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "32",
+     "name": "Latrell Sellers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "51",
+     "name": "Jamarrion Solomon",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Mathias Nielsen",
      "status": "out-game",
      "detail": ""
     },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-11-15T11:09:04.983468+00:00",
+ "updated": "2026-11-21T17:08:42.284447+00:00",
  "reports": [
   {
    "schema": 1,
@@ -496,6 +496,137 @@
      "pos": "OL",
      "no": "78",
      "name": "Davis Dotson",
+     "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T17:08:42.284447+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Charlotte",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Donnell Gee Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "19",
+     "name": "Grayson Tempest",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Sevion Morrison",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "50",
+     "name": "Ty Anderson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "73",
+     "name": "Cam East",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Davis Dotson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "82",
+     "name": "Chris Gacayan II",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Luke Tevis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Xavier Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "90",
+     "name": "Jayden Madkins",
      "status": "questionable",
      "detail": ""
     }

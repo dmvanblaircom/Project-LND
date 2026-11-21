@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:08:50.796406+00:00",
+ "fetchedAt": "2026-11-21T17:08:35.089394+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. East Carolina",
+ "kickoffDate": "2026-11-21",
+ "game": "Tulsa",
  "players": [
   {
    "pos": "RB",
@@ -22,23 +22,9 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "12",
-   "name": "CJ Clinkscales, Jr.",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "14",
    "name": "Kendal Brown",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "15",
-   "name": "Ayo Tifase",
    "status": "out-game",
    "detail": ""
   },
@@ -81,13 +67,6 @@
    "pos": "OL",
    "no": "55",
    "name": "Mathias Nielsen",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "55",
-   "name": "Shaku Sangarie",
    "status": "out-game",
    "detail": ""
   },
