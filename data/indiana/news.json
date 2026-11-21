@@ -1,7 +1,16 @@
 {
  "team": "indiana",
- "updated": "2026-11-21T20:07:55.704774+00:00",
+ "updated": "2026-11-21T20:37:58.133658+00:00",
  "items": [
+  {
+   "title": "Live Game Blog: Indiana vs Washington",
+   "link": "https://on3.com/teams/indiana-hoosiers/news/live-game-blog-indiana-vs-washington/",
+   "source": "On3",
+   "summary": "Live updates, news, stats, and note from Indiana's game at Washington.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21141703/HXq6Ip_aIAAVc00.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-21T20:15:37+00:00"
+  },
   {
    "title": "Pregame Scoop: Notes and observations from Indiana's warmups at Washington",
    "link": "https://on3.com/teams/indiana-hoosiers/news/pregame-scoop-notes-and-observations-from-indianas-warmups-at-washington/",
@@ -172,6 +181,15 @@
    "image": "https://iuhoosiers.com/images/2026/9/19/_RM_8856.jpg?width=800",
    "sourceLogo": "https://iuhoosiers.com/favicon.ico",
    "published": "2026-11-20T12:00:00+00:00"
+  },
+  {
+   "title": "Indiana football: Washington insider provides insight on the Huskies",
+   "link": "https://www.crimsonquarry.com/indiana-football/32466/washington-preview-q-a-demond-williams-jedd-fisch",
+   "source": "The Crimson Quarry",
+   "summary": "Indiana football is set to hit the road (or the skies, really) for a trip out west to take on Washington on Saturday afternoon at Husky Stadium in Seattle, Washington. We sat down to talk some ball with Mark Schafer of the UW Dawg Pound ahead of the matchup and got in some questions about [&#8230;]",
+   "image": "https://platform.crimsonquarry.com/wp-content/uploads/sites/71/2026/11/gettyimages-2304042244.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-20T03:15:01+00:00"
   },
   {
    "title": "Curt Cignetti Radio Show: Notes and updates from coach ahead of Washington matchup",
@@ -523,24 +541,6 @@
    "image": "https://snworksceo.imgix.net/ids/e50cea06-628e-4478-b652-bb032d8e80d5.sized-1000x1000.jpg?w=800&h=800",
    "sourceLogo": null,
    "published": "2026-11-15T00:05:06+00:00"
-  },
-  {
-   "title": "COLUMN: Strength of schedule shouldn't outweigh winning in CFP rankings",
-   "link": "https://www.idsnews.com/article/2026/11/indiana-football-cfp-rankings-strength-of-schedule-iu-bloomington",
-   "source": "Indiana Daily Student",
-   "summary": "<div><p><span data-contrast=\"auto\">Being a part of the College Football Playoff selection committee seems to be one of the most difficult jobs in the country. No matter how the committee ranks the teams each week, people will have a problem. After all, college football fans are naturally going to think their team should be ranked higher than they actually are. With just </span><a href=\"https://www.idsnews.com/article/2026/10/college-football-playoff-24-indiana-football-bloomington\" target=\"_blank\"><span data-contrast=\"none\"><span data-ccp-charstyle=\"Hyperlink\">12</span><span data-ccp-charstyle",
-   "image": "https://snworksceo.imgix.net/ids/2f80a5e7-9859-4d69-924b-640e41fcf905.sized-1000x1000.jpg?w=800&h=800",
-   "sourceLogo": null,
-   "published": "2026-11-14T20:14:44+00:00"
-  },
-  {
-   "title": "Hep's Talk: Indiana football hosts USC (sorry Minnesota), faces QB controversy",
-   "link": "https://www.idsnews.com/article/2026/11/indiana-football-podcast-college-football-playoff-usc-josh-hoover-grant-wilson",
-   "source": "Indiana Daily Student",
-   "summary": "<figure><div class=\"embed-code\"><iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/episode/5dRvXC21il2JvmyCQGhZBa/video?utm_source=generator&amp;si=47b758dff5504533\" width=\"624\" height=\"351\" frameborder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe></div><figcaption>The Indiana Daily Student football beat discusses the Hoosiers' bye week, their No. 9 ranking in the College Football Playoff and preview USC. The beat also talks about whether Josh Hoover or Grant Wils",
-   "image": "https://snworksceo.imgix.net/ids/35e75ce1-926a-4cc4-a0ea-d6ff536b70c4.sized-1000x1000.jpg?w=800&h=800",
-   "sourceLogo": null,
-   "published": "2026-11-14T02:04:01+00:00"
   }
  ]
 }
