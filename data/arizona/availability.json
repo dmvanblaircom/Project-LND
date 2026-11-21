@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:08:26.434143+00:00",
+ "fetchedAt": "2026-11-21T03:08:22.297816+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Kansas State",
  "players": [
-  {
-   "pos": "DL",
-   "no": "3",
-   "name": "Tre Smith",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "LB",
    "no": "5",
@@ -32,28 +25,14 @@
    "pos": "CB",
    "no": "12",
    "name": "Dwight Bootle II",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "13",
-   "name": "Cam Chapa",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "15",
-   "name": "Malcolm Hartzog Jr.",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "20",
    "name": "Dajon Hinton",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -68,20 +47,6 @@
    "no": "27",
    "name": "Keytrin Harris",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "28",
-   "name": "Swayde Griffin",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "38",
-   "name": "Kevin Moorer Jr.",
-   "status": "questionable",
    "detail": ""
   }
  ],

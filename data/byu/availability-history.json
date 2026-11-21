@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "byu",
- "updated": "2026-11-20T03:08:28.773430+00:00",
+ "updated": "2026-11-21T03:08:24.814288+00:00",
  "reports": [
   {
    "schema": 1,
@@ -418,10 +418,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T03:08:28.773430+00:00",
+   "fetchedAt": "2026-11-21T03:08:24.814288+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "at Kansas",
    "players": [
@@ -451,6 +451,13 @@
      "no": "30",
      "name": "Sione Moa",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "57",
+     "name": "Keanu Tanuvasa",
+     "status": "questionable",
      "detail": ""
     },
     {

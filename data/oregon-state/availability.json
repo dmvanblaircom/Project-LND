@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:38:45.397081+00:00",
+ "fetchedAt": "2026-11-21T03:08:33.014210+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-21",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Utah State",
  "players": [
@@ -25,14 +25,14 @@
    "pos": "OL",
    "no": "",
    "name": "Jacob Anderson",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "Cornell Hatcher",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {

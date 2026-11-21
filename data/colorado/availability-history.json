@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "colorado",
- "updated": "2026-11-20T03:08:29.571043+00:00",
+ "updated": "2026-11-21T03:08:25.727254+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,10 +474,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T03:08:29.571043+00:00",
+   "fetchedAt": "2026-11-21T03:08:25.727254+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "at Cincinnati",
    "players": [
@@ -506,7 +506,7 @@
      "pos": "DB",
      "no": "20",
      "name": "Cree Thomas",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -517,17 +517,10 @@
      "detail": ""
     },
     {
-     "pos": "WR",
-     "no": "32",
-     "name": "Alex Ward",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
      "pos": "LB",
      "no": "51",
      "name": "Carson Crawford",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

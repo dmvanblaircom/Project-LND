@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:08:26.544235+00:00",
+ "fetchedAt": "2026-11-21T03:08:22.425137+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Oklahoma State",
  "players": [
@@ -26,13 +26,6 @@
    "no": "64",
    "name": "Wade Helton",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "75",
-   "name": "Jarmaine Mitchell",
-   "status": "out-game",
    "detail": ""
   },
   {

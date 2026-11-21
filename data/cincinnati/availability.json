@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:08:29.240868+00:00",
+ "fetchedAt": "2026-11-21T03:08:25.341330+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Colorado",
  "players": [
@@ -18,21 +18,14 @@
    "pos": "CB",
    "no": "0",
    "name": "Jacob Finley",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "3",
-   "name": "Cole Tabb",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "6",
    "name": "Gi'Bran Payne",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

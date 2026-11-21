@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T03:08:27.557708+00:00",
+ "fetchedAt": "2026-11-21T03:08:23.728358+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Texas Tech",
  "players": [
@@ -67,6 +67,13 @@
    "pos": "OL",
    "no": "61",
    "name": "Cayden Tone",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "64",
+   "name": "Jaydon Mendiola",
    "status": "out-game",
    "detail": ""
   },
