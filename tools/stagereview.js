@@ -26,6 +26,8 @@
      STAGE_SCREEN=game  Game in each state instead of Home
      STAGE_OPP      "providerId:Name:ABBR" - play this opponent instead (e.g. 194:Ohio State:OSU)
      STAGE_VENUE    "Venue name:home|away|neutral[:City:ST]" - play at this venue
+     STAGE_PROBE=1  fail when a component paints the dark screens' ink as a ground
+     STAGE_NOSHOT=1 with STAGE_PROBE, probe only (no screenshots)
      PW_CHROMIUM    a Chromium to use */
 "use strict";
 
@@ -87,7 +89,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
-  var shots = 0;
+  var shots = 0, probeHits = [];
   for (var team of TEAMS) for (var style of STYLES) for (var width of WIDTHS) {
     var ctx = await browser.newContext({ viewport: { width: width, height: width >= 1024 ? 900 : 860 }, serviceWorkers: "block",
                                          timezoneId: "America/New_York", locale: "en-US", deviceScaleFactor: 1 });
@@ -136,8 +138,8 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         })).then(function (d) { window.__liveDetail = d[0]; window.__finalDetail = d[1]; });
       }).catch(function (e) { console.log("  detail fixtures: " + e.message); });
     }
-    await page.waitForFunction(function () { return !document.getElementById("launch") && window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game; },
-                               null, { timeout: 20000 }).catch(function () {});
+    if (!GAME) await page.waitForFunction(function () { return !document.getElementById("launch") && window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game; },
+                                          null, { timeout: 20000 }).catch(function () {});
     var ready = await page.evaluate(function (G) { return G ? !!window.__gameModel : !!(window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game); }, GAME);
     if (!ready) { console.log("  " + team + " " + style + " " + width + ": no hero game; skipped"); await ctx.close(); continue; }
     for (var name of PICK) {
@@ -180,6 +182,27 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         window.scrollTo(0, 0);
       }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
       await page.waitForTimeout(150);
+      if (process.env.STAGE_PROBE) {
+        // Home and Game are dark and redefine --t-surface as their ink; a
+        // component that paints that token as a ground there has lost the
+        // team's colour (2026-11-21: the drive field's own end zone went white)
+        var hits = await page.evaluate(function () {
+          var ink = getComputedStyle(document.querySelector("#screenHome:not([hidden]),#screenGame:not([hidden])") || document.body).getPropertyValue("--t-surface").trim();
+          var probe = document.createElement("i"); probe.style.color = ink; document.body.appendChild(probe);
+          var rgb = getComputedStyle(probe).color; probe.remove();
+          var out = [];
+          document.querySelectorAll("#screenHome:not([hidden]) *,#screenGame:not([hidden]) *").forEach(function (e) {
+            var cs = getComputedStyle(e), r = e.getBoundingClientRect();
+            if (r.width < 4 || r.height < 4 || cs.visibility === "hidden" || cs.display === "none") return;
+            var paints = cs.backgroundColor === rgb || cs.backgroundImage.indexOf(rgb) !== -1 ||
+                         (e instanceof SVGElement && e.tagName !== "text" && cs.fill === rgb);
+            if (paints) out.push(e.tagName.toLowerCase() + (e.getAttribute("class") ? "." + e.getAttribute("class").trim().split(/\s+/).join(".") : ""));
+          });
+          return out.filter(function (x, i, a) { return a.indexOf(x) === i; });
+        });
+        hits.forEach(function (h) { probeHits.push([team, style, width, GAME ? "game" : "home", name, h].join(" | ")); });
+        if (process.env.STAGE_NOSHOT) continue;
+      }
       var file = path.join(out, [team, style, GAME ? "game" : null, name, width].filter(Boolean).join("-") + ".png");
       var hero = await page.$("[data-home=hero]");
       // the first screen as a fan opens it, header and hero; desktop the whole Home
@@ -205,4 +228,9 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
   await browser.close();
   server.close();
   console.log(shots + " screenshots in " + path.relative(root, out));
+  if (process.env.STAGE_PROBE) {
+    probeHits.forEach(function (h) { console.log("  INK AS GROUND " + h); });
+    console.log(probeHits.length ? probeHits.length + " components paint the dark screens' ink as a ground" : "no component paints the dark screens' ink as a ground");
+    if (probeHits.length) process.exitCode = 1;
+  }
 })().catch(function (e) { console.error(e); process.exit(1); });

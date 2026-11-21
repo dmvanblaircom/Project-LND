@@ -1965,6 +1965,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 #screenHome .champ{background:var(--r-stage-1)}
 #screenHome .news-img.none,#screenGame .news-img.none{background:linear-gradient(150deg,var(--r-stage-1),var(--t-abyss))}
 #screenGame .seg-mini button[aria-pressed="true"]{background:var(--t-accent);color:var(--t-accent-ink)}
+#screenGame .f-ez.mine{fill:var(--r-stage-1)}
 /* the team's own art (when Suite has no photograph) keeps the team's real colour */
 #screenHome .art-slot,#screenGame .art-slot{background:radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.7),transparent 62%),var(--s-art-env,none) center/cover no-repeat,linear-gradient(170deg,var(--r-stage-1) 0%,var(--t-deep) 48%,var(--t-abyss) 100%)}
 html:has(#screenHome:not([hidden])),html:has(#screenGame:not([hidden])),
