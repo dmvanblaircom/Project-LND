@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:37.299758+00:00",
+ "fetchedAt": "2026-11-21T01:08:35.969760+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Pittsburgh",
  "players": [
@@ -18,14 +18,7 @@
    "pos": "DB",
    "no": "1",
    "name": "Jabari Mack",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "5",
-   "name": "Keyjuan Brown",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -46,7 +39,7 @@
    "pos": "TE",
    "no": "44",
    "name": "Travis Egan",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -68,13 +61,6 @@
    "no": "70",
    "name": "Anwar O'neal",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "71",
-   "name": "Cason Henry",
-   "status": "probable",
    "detail": ""
   },
   {

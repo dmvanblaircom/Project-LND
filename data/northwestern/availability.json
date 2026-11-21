@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:38.965318+00:00",
+ "fetchedAt": "2026-11-21T01:08:38.413331+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Minnesota",
  "players": [
@@ -36,17 +36,17 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "22",
-   "name": "Daniel Anderson",
+   "pos": "WR",
+   "no": "16",
+   "name": "Brennan Saxe",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "32",
-   "name": "Matthew Smith",
-   "status": "probable",
+   "pos": "RB",
+   "no": "22",
+   "name": "Daniel Anderson",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:39.877859+00:00",
+ "fetchedAt": "2026-11-21T01:08:39.728302+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Louisville",
  "players": [
@@ -39,20 +39,27 @@
    "pos": "DL",
    "no": "16",
    "name": "Eliyt Nairne",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "17",
    "name": "Elijah Lagg",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "18",
    "name": "Max Hunt",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "21",
+   "name": "Shadarian Harrison",
    "status": "out-game",
    "detail": ""
   },
@@ -85,10 +92,17 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "49",
+   "name": "Jordan Fields",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DL",
    "no": "55",
    "name": "Sean FitzSimmons",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

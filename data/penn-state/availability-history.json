@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-11-20T01:08:39.767755+00:00",
+ "updated": "2026-11-21T01:08:39.579888+00:00",
  "reports": [
   {
    "schema": 1,
@@ -817,10 +817,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:39.767755+00:00",
+   "fetchedAt": "2026-11-21T01:08:39.579888+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "vs. Rutgers",
    "players": [
@@ -829,6 +829,13 @@
      "no": "0",
      "name": "Jahmir Joseph",
      "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "3",
+     "name": "Jamison Patton",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -856,7 +863,7 @@
      "pos": "RB",
      "no": "21",
      "name": "Carson Hansen",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -864,20 +871,6 @@
      "no": "25",
      "name": "Alex Tatsch",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "35",
-     "name": "Tyler Armstead",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DT",
-     "no": "56",
-     "name": "Alijah Carnell",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -891,7 +884,7 @@
      "pos": "P",
      "no": "96",
      "name": "Lucas Tenbrock",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     }
    ],

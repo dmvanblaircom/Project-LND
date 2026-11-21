@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:35.859964+00:00",
+ "fetchedAt": "2026-11-21T01:08:33.702107+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Wake Forest",
  "players": [
@@ -103,6 +103,13 @@
    "no": "71",
    "name": "Markell Samuel",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Josh Petty",
+   "status": "questionable",
    "detail": ""
   },
   {

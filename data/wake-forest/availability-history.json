@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-11-20T01:08:43.061332+00:00",
+ "updated": "2026-11-21T01:08:44.557645+00:00",
  "reports": [
   {
    "schema": 1,
@@ -334,32 +334,18 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:43.061332+00:00",
+   "fetchedAt": "2026-11-21T01:08:44.557645+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "at Georgia Tech",
    "players": [
-    {
-     "pos": "QB",
-     "no": "3",
-     "name": "Gio Lopez",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "DB",
      "no": "15",
      "name": "Devin Cook",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "18",
-     "name": "Drayden Dickmann",
-     "status": "probable",
      "detail": ""
     },
     {

@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:43.149135+00:00",
+ "fetchedAt": "2026-11-21T01:08:44.693621+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Indiana",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "EDG",
    "no": "12",
    "name": "Logan George",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -67,6 +67,13 @@
    "pos": "RB",
    "no": "22",
    "name": "Trey Cooley",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "K",
+   "no": "38",
+   "name": "Hunter McKee",
    "status": "doubtful",
    "detail": ""
   },
@@ -74,7 +81,7 @@
    "pos": "EDG",
    "no": "52",
    "name": "Devin Hyde",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

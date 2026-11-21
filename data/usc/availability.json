@@ -7,20 +7,13 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:42.396262+00:00",
+ "fetchedAt": "2026-11-21T01:08:43.545327+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Maryland",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Zacharyus Williams",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "WR",
    "no": "9",
@@ -40,27 +33,6 @@
    "no": "10",
    "name": "Corey Simms",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "17",
-   "name": "Kayden Dixon-Wyatt",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "19",
-   "name": "Mark Bowman",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "CB",
-   "no": "21",
-   "name": "RJ Sermons",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -95,7 +67,7 @@
    "pos": "LB",
    "no": "58",
    "name": "GianCarlo Rufo",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

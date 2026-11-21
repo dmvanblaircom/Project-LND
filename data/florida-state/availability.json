@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:35.418363+00:00",
+ "fetchedAt": "2026-11-21T01:08:33.026953+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. NC State",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "DB",
    "no": "0",
    "name": "Quindarrius Jones",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -51,23 +51,9 @@
   },
   {
    "pos": "DL",
-   "no": "8",
-   "name": "Deante McCray",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "14",
-   "name": "Ma'Khi Jones",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
    "no": "15",
    "name": "Rylan Kennedy",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -78,24 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "18",
-   "name": "Jamari Howard",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "24",
    "name": "Amari Thomas",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "29",
-   "name": "Caleb LaVallee",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -128,13 +100,6 @@
   },
   {
    "pos": "OL",
-   "no": "52",
-   "name": "Chavez Thompson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
    "no": "55",
    "name": "Bradyn Welch-Joiner",
    "status": "out-game",
@@ -145,13 +110,6 @@
    "no": "55",
    "name": "Kevin Wynn",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "93",
-   "name": "Conor McAneney",
-   "status": "probable",
    "detail": ""
   }
  ],

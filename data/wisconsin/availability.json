@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:43.490777+00:00",
+ "fetchedAt": "2026-11-21T01:08:45.211913+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Purdue",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "CB",
    "no": "2",
    "name": "Javan Robinson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "QB",
    "no": "10",
    "name": "Ryan Hopkins",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -47,13 +47,6 @@
    "no": "11",
    "name": "Carson Van Dinter",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "15",
-   "name": "Nate Palmer",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -81,7 +74,7 @@
    "pos": "OL",
    "no": "75",
    "name": "Emerson Mandell",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

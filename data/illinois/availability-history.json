@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "illinois",
- "updated": "2026-11-20T01:08:36.350004+00:00",
+ "updated": "2026-11-21T01:08:34.524401+00:00",
  "reports": [
   {
    "schema": 1,
@@ -712,10 +712,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:36.350004+00:00",
+   "fetchedAt": "2026-11-21T01:08:34.524401+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "vs. Iowa",
    "players": [
@@ -730,7 +730,7 @@
      "pos": "QB",
      "no": "4",
      "name": "Katin Houser",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -765,7 +765,7 @@
      "pos": "DB",
      "no": "16",
      "name": "Tanner Heckel",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {

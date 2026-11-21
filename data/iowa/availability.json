@@ -7,13 +7,20 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:08:36.524425+00:00",
+ "fetchedAt": "2026-11-21T01:08:34.791782+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Illinois",
  "players": [
+  {
+   "pos": "DB",
+   "no": "0",
+   "name": "Cody Haddad",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "2",
@@ -25,7 +32,7 @@
    "pos": "DB",
    "no": "6",
    "name": "Zach Lutmer",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -39,7 +46,7 @@
    "pos": "DB",
    "no": "11",
    "name": "Jacob Wallace",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +60,14 @@
    "pos": "WR",
    "no": "14",
    "name": "Tony Diaz",
-   "status": "questionable",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "15",
+   "name": "Carson Cooney",
+   "status": "out-game",
    "detail": ""
   },
   {

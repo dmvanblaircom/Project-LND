@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "rutgers",
- "updated": "2026-11-20T01:08:40.150464+00:00",
+ "updated": "2026-11-21T01:08:40.124223+00:00",
  "reports": [
   {
    "schema": 1,
@@ -558,10 +558,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:08:40.150464+00:00",
+   "fetchedAt": "2026-11-21T01:08:40.124223+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "at Penn State",
    "players": [
@@ -569,7 +569,7 @@
      "pos": "WR",
      "no": "0",
      "name": "Dyzier Carter",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -604,7 +604,7 @@
      "pos": "QB",
      "no": "10",
      "name": "AJ Surace",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -618,7 +618,7 @@
      "pos": "QB",
      "no": "12",
      "name": "Dylan Lonergan",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -632,7 +632,7 @@
      "pos": "DB",
      "no": "27",
      "name": "Sage Clawges",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -653,7 +653,7 @@
      "pos": "OL",
      "no": "56",
      "name": "Tyler Needham",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
