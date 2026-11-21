@@ -21,8 +21,38 @@
               never another team's helmet recoloured (asset guidance,
               2026-11-20). */
 
-var TEAM_ART = {
-  venues: {},
+var TEAM_ART = (function (W) { return {
+  venues: {
+    "notre-dame-stadium": {
+      label: "Notre Dame Stadium", names: ["Notre Dame Stadium"],
+      day: { path: "assets/venues/notre-dame-stadium/day-{w}.webp", widths: W, focus: "50% 58%",
+             credit: { author: "MC1 Daniel Hinton, U.S. Navy", license: "Public domain",
+                       url: "https://commons.wikimedia.org/wiki/File:Fans_and_players_gather_for_a_football_game_Sept._6,_2014,_at_Notre_Dame_Stadium_in_South_Bend,_Ind_140906-D-KC128-220.jpg",
+                       changes: "cropped, resized" } },
+      night: { path: "assets/venues/notre-dame-stadium/night-{w}.webp", widths: W, focus: "50% 55%",
+               credit: { author: "Eccekevin", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                         url: "https://commons.wikimedia.org/wiki/File:NotreDameStadiumNight.jpg", changes: "cropped, resized" } }
+    },
+    "ohio-stadium": {
+      label: "Ohio Stadium", names: ["Ohio Stadium"],
+      // no freely licensed night photograph found yet: night games show the day one
+      day: { path: "assets/venues/ohio-stadium/day-{w}.webp", widths: W, focus: "62% 55%",
+             credit: { author: "Dan Keck", license: "CC0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+                       url: "https://commons.wikimedia.org/wiki/File:Ohio_Stadium_(37516165921).jpg", changes: "cropped, resized" } }
+    },
+    // the stand-in: blurred and darkened into the file, so no fan could place it
+    neutral: {
+      label: "Stadium (blurred)",
+      day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
+             credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
+                       url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045855126).jpg",
+                       changes: "cropped, blurred, darkened, resized" } },
+      night: { path: "assets/venues/neutral/night-{w}.webp", widths: W,
+               credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
+                         url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045985644).jpg",
+                         changes: "cropped, blurred, darkened, resized" } }
+    }
+  },
   helmets: {
     "ohio-state": {
       label: "Ohio State",
@@ -33,4 +63,4 @@ var TEAM_ART = {
                 changes: "background removed, cropped, resized" }
     }
   }
-};
+}; })([800, 1280, 1920]);

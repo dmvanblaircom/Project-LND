@@ -1804,7 +1804,11 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    the top so the header and the pill sit clean */
 .stage-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.55) 0,rgba(var(--t-abyss-rgb),0) 5.5rem),
-             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.30),transparent 72%)}
+             /* the floor the words stand on: the photograph darkens into the
+                team's abyss from a third of the way down, so the names, scores
+                and status below the stands always read (0041) */
+             linear-gradient(180deg,rgba(var(--t-abyss-rgb),0) calc(var(--photo-h) * .26),rgba(var(--t-abyss-rgb),.62) calc(var(--photo-h) * .5),rgba(var(--t-abyss-rgb),.86) calc(var(--photo-h) * .78)),
+             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.22),transparent 72%)}
 
 .stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3);
   padding:var(--s-space-4) var(--gutter) var(--s-space-5);text-align:center}

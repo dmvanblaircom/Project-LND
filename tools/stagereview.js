@@ -24,6 +24,8 @@
      ALLOW_PROVIDER_IMAGES=1  let team marks load from the provider (CI can)
      STAGE_FULL=1   the whole page, not the first screen
      STAGE_SCREEN=game  Game in each state instead of Home
+     STAGE_OPP      "providerId:Name:ABBR" - play this opponent instead (e.g. 194:Ohio State:OSU)
+     STAGE_VENUE    "Venue name:home|away|neutral[:City:ST]" - play at this venue
      PW_CHROMIUM    a Chromium to use */
 "use strict";
 
@@ -121,6 +123,8 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
       return route.abort();
     });
     var GAME = process.env.STAGE_SCREEN === "game";
+    var OPP = process.env.STAGE_OPP ? process.env.STAGE_OPP.split(":") : null;
+    var VENUE = process.env.STAGE_VENUE ? process.env.STAGE_VENUE.split(":") : null;
     await page.goto(base + "/?team=" + team + (GAME ? "#game" : "#home"));
     if (GAME) {
       await page.waitForFunction(function () { return !document.getElementById("launch") && window.__gameModel; }, null, { timeout: 20000 }).catch(function () {});
@@ -141,6 +145,9 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
       if (GAME) await page.evaluate(function (a) {
         var m = window.__gameModel, base = new Date(a.fixtureNow).getTime();
         var g = Object.assign({}, m.game, { situation: null, detail: "" });
+        if (a.opp) Object.assign(g, { oppProviderId: a.opp[0], oppName: a.opp[1], oppAbbr: a.opp[2], series: null });
+        if (a.venue) Object.assign(g, { venue: a.venue[0], home: a.venue[1] === "home", neutral: a.venue[1] === "neutral",
+                                        city: a.venue[2] || g.city, venueState: a.venue[3] || g.venueState });
         Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
         if (a.spec.date != null) g.date = new Date(base + a.spec.date).toISOString();
         if (a.spec.at) g.date = a.spec.at;
@@ -154,10 +161,13 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         window.__gameHost.__gameLast = {};
         Suite.game.__wrapped(window.__gameHost, Object.assign({}, m, { game: g, lifecycle: lc, view: lc.defaultView, detail: detail, now: new Date(base) }));
         window.scrollTo(0, 0);
-      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW });
+      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
       else await page.evaluate(function (a) {
         var m = window.__homeModel, base = new Date(a.fixtureNow).getTime();
         var g = Object.assign({}, m.hero.game, { situation: null, detail: "" });
+        if (a.opp) Object.assign(g, { oppProviderId: a.opp[0], oppName: a.opp[1], oppAbbr: a.opp[2], series: null });
+        if (a.venue) Object.assign(g, { venue: a.venue[0], home: a.venue[1] === "home", neutral: a.venue[1] === "neutral",
+                                        city: a.venue[2] || g.city, venueState: a.venue[3] || g.venueState });
         Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
         if (a.spec.date != null) g.date = new Date(base + a.spec.date).toISOString();
         if (a.spec.at) g.date = a.spec.at;
@@ -168,7 +178,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         if (window.Suite.nav && Suite.nav.setGameState) Suite.nav.setGameState(/live|halftime|overtime|end/.test(a.name) ? "live" : a.name === "delayed" ? "delayed" : a.name === "suspended" ? "suspended" : null);
         Suite.home.__wrapped(window.__homeHost, m2);
         window.scrollTo(0, 0);
-      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW });
+      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
       await page.waitForTimeout(150);
       var file = path.join(out, [team, style, GAME ? "game" : null, name, width].filter(Boolean).join("-") + ".png");
       var hero = await page.$("[data-home=hero]");
