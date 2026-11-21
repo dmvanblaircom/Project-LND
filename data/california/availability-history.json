@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-11-20T04:08:31.315792+00:00",
+ "updated": "2026-11-21T04:08:25.991600+00:00",
  "reports": [
   {
    "schema": 1,
@@ -474,10 +474,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T04:08:31.315792+00:00",
+   "fetchedAt": "2026-11-21T04:08:25.991600+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "vs. Stanford",
    "players": [
@@ -493,6 +493,13 @@
      "no": "1",
      "name": "Carter Vargas",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "EJ Caminong",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -527,14 +534,14 @@
      "pos": "TE",
      "no": "8",
      "name": "Rico Walker",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "9",
      "name": "Ian Strong",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -542,6 +549,20 @@
      "no": "14",
      "name": "Aiden Manutai",
      "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "17",
+     "name": "Jordan Sanford",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "Ashten Emory",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -559,10 +580,17 @@
      "detail": ""
     },
     {
+     "pos": "DB",
+     "no": "25",
+     "name": "Khamani Hudson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
      "pos": "ILB",
      "no": "33",
      "name": "JD McKinley",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -580,16 +608,9 @@
      "detail": ""
     },
     {
-     "pos": "OL",
-     "no": "56",
-     "name": "Tyson Ruffins",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "75",
-     "name": "Jacob Arop",
+     "pos": "TE",
+     "no": "85",
+     "name": "Mason Mini",
      "status": "probable",
      "detail": ""
     },
