@@ -1,7 +1,16 @@
 {
  "team": "east-carolina",
- "updated": "2026-11-15T00:10:39.632045+00:00",
+ "updated": "2026-11-21T00:07:55.557391+00:00",
  "items": [
+  {
+   "title": "ECU Travels North To Army For Noon Kickoff",
+   "link": "https://ecupirates.com/news/2026/11/20/football-ecu-travels-north-to-army-for-noon-kickoff",
+   "source": "ECU Athletics",
+   "summary": "<img alt=\"Defense at Charlotte 2026\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/20/Defense01CLT.png\" /><br /><br />",
+   "image": "https://ecupirates.com/images/2026/11/20/Defense01CLT.png?width=800",
+   "sourceLogo": "https://ecupirates.com/favicon.ico",
+   "published": "2026-11-20T23:47:00+00:00"
+  },
   {
    "title": "ECU Defeats Charlotte To Become Bowl Eligible, 17-16",
    "link": "https://ecupirates.com/news/2026/11/14/football-ecu-defeats-charlotte-to-become-bowl-eligible-17-16",
@@ -82,15 +91,6 @@
    "image": "https://ecupirates.com/images/2026/10/31/Intro-Memphis.jpg?width=800",
    "sourceLogo": "https://ecupirates.com/favicon.ico",
    "published": "2026-10-31T15:43:00+00:00"
-  },
-  {
-   "title": "ECU Falls At Memphis In Overtime, 41-34",
-   "link": "https://ecupirates.com/news/2026/10/23/football-pirates-fall-at-memphis-in-overtime-41-34",
-   "source": "ECU Athletics",
-   "summary": "<img alt=\"Memphis Recap\" src=\"https://ecupirates.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/22/Memphis_Recap.jpg\" /><br /><br />Memphis, Tenn.\u00a0\u2013 East Carolina suffered a devastating dose of d&eacute;j&agrave; vu in consecutive Thursday night American Conference road games.",
-   "image": "https://ecupirates.com/images/2026/10/22/Memphis_Recap.jpg?width=800",
-   "sourceLogo": "https://ecupirates.com/favicon.ico",
-   "published": "2026-10-23T05:07:00+00:00"
   }
  ]
 }
