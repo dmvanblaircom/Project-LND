@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "bowling-green",
- "updated": "2026-11-20T23:38:20.881345+00:00",
+ "updated": "2026-11-21T11:39:16.644995+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1182,12 +1182,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T23:38:20.881345+00:00",
+   "fetchedAt": "2026-11-21T11:39:16.644995+00:00",
    "reported": true,
    "effectiveAt": "2026-11-20",
    "heading": "Game Day",
    "kickoffDate": "2026-11-20",
-   "game": "Toledo",
+   "game": "at Toledo",
    "players": [
     {
      "pos": "RB",
