@@ -3,7 +3,10 @@
    its files under assets/, and no screen changes.
 
    Every photograph is a freely licensed one (Creative Commons or public
-   domain, from Wikimedia Commons) and carries its credit, which More shows.
+   domain, from Wikimedia Commons) and carries its credit, which More shows:
+   { author, license, licenseUrl, url (its Commons page), changes }. The
+   originals and their source records are on the assets/* branches the
+   sourcing sessions pushed (tools/asset-sources/), not in the app.
 
      venues   by Suite's own key. `names` are every spelling the schedule uses
               for the venue (ESPN's fullName), matched case-insensitively;
@@ -20,5 +23,14 @@
 
 var TEAM_ART = {
   venues: {},
-  helmets: {}
+  helmets: {
+    "ohio-state": {
+      label: "Ohio State",
+      path: "assets/helmets/ohio-state-{w}.webp", widths: [480, 960],
+      facing: "left", mirror: false,      // Buckeye leaves and a maker's name: never flipped
+      credit: { author: "Erik Drost", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0",
+                url: "https://commons.wikimedia.org/wiki/File:Ohio_State_Buckeyes_(50803332572).jpg",
+                changes: "background removed, cropped, resized" }
+    }
+  }
 };
