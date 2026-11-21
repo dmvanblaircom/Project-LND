@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-11-19div";
+var VERSION = "suite-2026-11-20s2";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -38,11 +38,11 @@ var DATA    = VERSION + "-data";
 // - and nothing that is not.
 var SHELL_FILES = [
   "./", "./index.html", "./app.css", "./app.js", "./chooser.js",
-  "./suite/ui.js", "./suite/favorites.js", "./suite/nav.js", "./suite/schedule.js", "./suite/offseason.js", "./suite/prospects.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js", "./suite/outlook.js",
-  "./teams/index.js",
+  "./suite/ui.js", "./suite/favorites.js", "./suite/nav.js", "./suite/schedule.js", "./suite/offseason.js", "./suite/prospects.js", "./suite/scoreboard.js", "./suite/home.js", "./suite/game.js", "./suite/top25.js", "./suite/roster.js", "./suite/more.js", "./suite/stats.js", "./suite/outlook.js",
+  "./teams/index.js", "./leagues/college-football-art.js",
   "./leagues/college-football.js", "./teamos/registry.js", "./teamos/team.js", "./teamos/snapshots.js", "./teamos/identity.js",
   "./teamos/live.js", "./teamos/season.js", "./teamos/espn.js", "./teamos/ratings.js",
-  "./teamos/game.js", "./teamos/around.js", "./teamos/outlook.js", "./teamos/milestones.js", "./teamos/champions.js", "./teamos/notes.js", "./teamos/prospects.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/fbs.js",
+  "./teamos/game.js", "./teamos/art.js", "./teamos/around.js", "./teamos/outlook.js", "./teamos/milestones.js", "./teamos/champions.js", "./teamos/notes.js", "./teamos/wire.js", "./teamos/moments.js", "./teamos/prospects.js", "./teamos/freshness.js", "./teamos/weather.js", "./teamos/roster.js", "./teamos/sources.js", "./teamos/fbs.js",
   // Suite's install identity, the same for every team (decision 0024 §11).
   // The manifest's own icons are read from it at install; these are the ones
   // only index.html names. tools/identitycheck.js keeps the two lists equal.
@@ -387,7 +387,9 @@ function isShell(url) {
   if (url.origin === self.location.origin) {
     var p = url.pathname;
     return p.endsWith("/") || /\/index\.html$/.test(p) || /\/manifest\.json$/.test(p)
-        || /\.(css|js|png|svg|woff2)$/.test(p);
+        // and Suite's stadium photographs: kept once seen, so a
+        // venue the fan has looked at still shows offline
+        || /\.(css|js|png|svg|woff2|webp|jpe?g)$/.test(p);
   }
   return url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com";
 }

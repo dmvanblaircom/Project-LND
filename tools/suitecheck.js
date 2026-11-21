@@ -45,7 +45,7 @@ eq(H.newDate({ newDate: { date: "not a date" } }), "New date to be announced", "
 // shows every player, and the fan's own choice outlives the live refresh.
 console.log("Box Score");
 var sctx = vm.createContext({ console: console, Intl: Intl, Date: Date, TeamOS: TeamOS, document: { addEventListener: function () {} } });
-["suite/ui.js", "suite/prospects.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
+["suite/ui.js", "suite/prospects.js", "suite/home.js", "leagues/college-football-art.js", "teamos/art.js", "suite/scoreboard.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), sctx, { filename: f }); });
 function host() {
   var parts = {};
   return { innerHTML: "", parts: parts,
@@ -383,9 +383,9 @@ var noScoreFinal = Object.assign({}, liveG, { state: "post", status: "final", us
 console.log("Final winner emphasis follows the score, including a team loss");
 [[41,13,"us"],[13,41,"them"],[0,13,"them"],[24,24,null],[null,13,null]].forEach(function(x){
   var g=Object.assign({},noScoreFinal,{us:x[0],them:x[1]});
-  [["Home",homeHero(g),"gc-side"],["Game",headHtml(g),"gh-team"]].forEach(function(c){
-    var winners=c[1].match(new RegExp(c[2]+' (us|them) is-winner','g'))||[];
-    ok(x[2] ? winners.length===1 && winners[0]===c[2]+" "+x[2]+" is-winner" : winners.length===0,
+  [["Home",homeHero(g),"sb-team sb-"],["Game",headHtml(g),"gh-team "]].forEach(function(c){
+    var winners=c[1].match(new RegExp(c[2]+'(us|them) is-winner','g'))||[];
+    ok(x[2] ? winners.length===1 && winners[0]===c[2]+x[2]+" is-winner" : winners.length===0,
        c[0]+": "+x[0]+" to "+x[1]+" highlights "+(x[2]||"neither side"));
   });
 });
@@ -394,22 +394,23 @@ ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get 
 // and the pill says who gets it to start the second half.
 var homeHalf = homeHero(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: "us", receives: "them" } }));
-ok(!/gc-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
-ok(/class="gc-situation"[^>]*><span>[^<]+ gets the ball<\/span>/.test(homeHalf) && /gets the ball to start the second half\./.test(homeHalf),
-   "Home at halftime: the pill and a screen reader say who gets the ball to start the second half");
-ok(/gc-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
+ok(!/sb-sit-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
+// The redesign brief's wording on Home (§4.2): "Notre Dame receives to start the 2nd half."
+ok(/class="sb-sit"><span>Purdue receives to start the 2nd half<\/span>/.test(homeHalf) && /Purdue receives to start the second half\./.test(homeHalf),
+   "Home at halftime: the line and a screen reader say who receives to start the second half, by name");
+ok(/sb-sit-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
    "Home in play: the football is still there");
-[["Home", homeHero(noScoreFinal), "gc-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
+[["Home", homeHero(noScoreFinal), "sb-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {
   ok(!new RegExp(c[2]).test(c[1]), c[0] + ": no score is drawn for either team");
   ok(/Final\. Notre Dame (at|versus) [^.]*Purdue\./.test(c[1]) && !/Notre Dame 0,/.test(c[1]),
      c[0] + ": a screen reader hears Final and the matchup, not 0 to 0");
 });
 var zeroZero = Object.assign({}, noScoreFinal, { us: "0", them: "0" });
-[["Home", homeHero(zeroZero), "gc-score"], ["Game", headHtml(zeroZero), "gh-score"]].forEach(function (c) {
+[["Home", homeHero(zeroZero), "sb-n"], ["Game", headHtml(zeroZero), "gh-score"]].forEach(function (c) {
   ok((c[1].match(new RegExp('class="' + c[2] + '">0', "g")) || []).length === 2 && /Notre Dame 0, [^.]*Purdue 0/.test(c[1]),
      c[0] + ": a real 0-0 is still a score, drawn and read");
 });
-ok((homeHero(Object.assign({}, liveG, { us: null, them: null })).match(/class="gc-score">0/g) || []).length === 2,
+ok((homeHero(Object.assign({}, liveG, { us: null, them: null })).match(/class="sb-n">0/g) || []).length === 2,
    "a live game before anyone scores still reads 0-0, as before");
 
 // ---- a finished drive, and the last play's time (live scan #2, #3) ----

@@ -164,9 +164,9 @@ console.log("3. Home");
     var r = await page.evaluate(function () {
       var s = document.querySelector('#screenHome [data-home="milestone"]');
       var order = [].map.call(document.querySelectorAll("#screenHome [data-home]"), function (e) { return e.getAttribute("data-home"); });
-      var made = document.querySelector("#screenHome .gamecard .gc-milestone");
+      var made = document.querySelector("#screenHome .stage .stage-line");
       return { shown: !!s && !s.hidden, text: s ? s.innerText.replace(/\s+/g, " ").trim() : "", order: order,
-               hero: (document.querySelector("#screenHome .gamecard") || {}).innerText || "", made: made ? made.textContent : null };
+               hero: (document.querySelector("#screenHome .stage") || {}).innerText || "", made: made ? made.textContent : null };
     });
     if (opts.sw) {
       // what the page told this device's service worker, for the final alert

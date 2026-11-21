@@ -154,8 +154,11 @@ Suite.game = (function () {
         : "";
       center = '<div class="gh-center">' + top + clock + sit + "</div>";
     }
-    return '<section class="game-head on-dark gh-' + st + '" aria-label="' + esc(summary(m, st)) + '">' +
-             ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl }) +
+    // The stadium the game is played in, as on Home (David, 2026-11-20); the
+    // team's art when Suite has no photograph.
+    var bd = Suite.scoreboard && Suite.scoreboard.backdrop ? Suite.scoreboard.backdrop(m) : null;
+    return '<section class="game-head on-dark gh-' + st + (bd ? bd.cls : "") + '" aria-label="' + esc(summary(m, st)) + '">' +
+             (bd ? bd.html : ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl })) +
              '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
                // The countdown under the matchup, the hero's full width: in
@@ -614,6 +617,25 @@ Suite.game = (function () {
     return box(m) + linescore(m) + notesLink(m);                // box, the final default
   }
 
+  // Game Info, beside the views on desktop (the boards of 2026-11-20): when
+  // and where, the broadcast, the kickoff weather and the line - each only
+  // when the source has it; the line only before kickoff (decision 0025).
+  // On a phone the header already says all of it, so the panel is not shown.
+  function info(m) {
+    var g = m.game, st = state(g), ko = ui.kickoff(g.date, g.timeSet), wx = m.weather, rows = [];
+    function row(k, v, sub) { rows.push('<div class="gi-row"><dt>' + esc(k) + "</dt><dd>" + v + (sub ? '<span class="gi-sub">' + esc(sub) + "</span>" : "") + "</dd></div>"); }
+    if (ko.day) row("Date", esc(ko.day));
+    if (g.timeSet !== false && ko.time && st !== "final") row("Kickoff", esc(ko.time));
+    if (g.venue) row("Venue", esc(g.venue), [g.city, g.venueState].filter(Boolean).join(", "));
+    if (g.net) row("TV", esc(g.net));
+    if (wx && st !== "final" && st !== "canceled" && st !== "postponed")
+      row(st === "live" || st === "paused" ? "Weather now" : "Kickoff weather", esc(wx.tempF + "°F") + (wx.sky ? " " + esc(wx.sky) : ""), wx.windMph != null ? "Wind " + wx.windMph + " mph" : "");
+    if (g.odds && (g.odds.line || g.odds.total != null) && (st === "upcoming" || st === "delayed"))
+      row("Line", esc([g.odds.line, g.odds.total != null ? "O/U " + g.odds.total : ""].filter(Boolean).join(" · ")));
+    if (g.series) row("Series", esc(g.series));
+    return rows.length ? card("Game Info", '<dl class="gi-list">' + rows.join("") + "</dl>", "", "gi") : "";
+  }
+
   // The names row follows ui.fitNames: never an ellipsis, both sides alike.
   // The opponent's title shrinks to fit (to 18px, then its abbreviation),
   // and the countdown's labels take their short forms when they must.
@@ -637,11 +659,12 @@ Suite.game = (function () {
     if (!host.querySelector("[data-game]")) {
       host.innerHTML = '<div data-game="head"></div><div data-game="strip"></div>' +
         '<div class="game-schedule"><a class="sec-link" href="#schedule">Full Schedule' + CHEVRON + "</a></div>" +
-        '<div data-game="body" class="game-body"></div>';
+        '<div data-game="body" class="game-body"></div>' +
+        '<aside data-game="info" class="game-side" aria-label="Game information"></aside>';
       last = host.__gameLast = {};
     }
-    var html = { head: header(m), strip: strip(m), body: body(m) };
-    ["head", "strip", "body"].forEach(function (k) {
+    var html = { head: header(m), strip: strip(m), body: body(m), info: info(m) };
+    ["head", "strip", "body", "info"].forEach(function (k) {
       if (last[k] === html[k]) return;
       var el = host.querySelector('[data-game="' + k + '"]');
       ui.fill(el, html[k]);

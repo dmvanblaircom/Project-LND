@@ -1,0 +1,9 @@
+/* Concept A, docked bar: the bottom bar docks full width and lines its five
+   destinations up with the content column. (As shown in the Stage 1b
+   specimen, section 7.) */
+@media (min-width:64rem){
+  .navbar{left:0;right:0;width:auto;transform:none;border:0;border-top:1px solid var(--s-line);border-radius:0;
+    padding-left:max(var(--gutter),calc((100% - var(--s-content-max)) / 2));
+    padding-right:max(var(--gutter),calc((100% - var(--s-content-max)) / 2))}
+  .navbar::after{left:0;right:0;border:0}
+}

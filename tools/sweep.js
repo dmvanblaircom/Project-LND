@@ -71,7 +71,7 @@ var SHEET_MAX = 4200;                                    // px of a screen a con
 // Where a name or a figure is drawn (visualcheck's list, plus the rows a
 // fan scans on each screen).
 var NAME_SELECTORS = ".sched-opp, .ro-name, .rk-team, .rk-name, .tg-name, .sp-team, .series-name, .ld-name, " +
-                     ".gh-name, .gh-opp, .gc-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title, " +
+                     ".gh-name, .gh-opp, .sb-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title, " +
                      ".news-title, .nw-title, .story-title, h1, h2, h3";
 var LEAK = /\b(undefined|NaN|null)\b|\[object Object\]|Invalid Date/;
 var EMPTY = /\b(unavailable|not available|no [a-z ]{0,30} yet|nothing to show|couldn['’]t (load|find)|no data)\b/i;

@@ -17,7 +17,7 @@ var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
 ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 ctx.document = { addEventListener: function () {}, fonts: null };
 ctx.window = { addEventListener: function () {} };
-["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/home.js", "suite/scoreboard.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 var SB = ctx.Suite.scoreboard;
 
 function game(o) {
@@ -44,7 +44,7 @@ ok(/^Live\. Overtime 2\. /.test(ot2), "double overtime: Overtime 2 (" + ot2 + ")
 var liveNone = SB.board({ team: team, game: game({ status: "live", state: "in", period: 1, clock: "15:00", us: null, them: null }) });
 ok(/Notre Dame 0, Navy 0\./.test(label(liveNone)) && /sb-n">0</.test(liveNone), "a live game with no score yet: the board shows 0-0 and the label says 0-0, the same");
 var soon = new Date("2026-11-14T17:00:00Z"), now1 = new Date(soon.getTime() - (864e5 + 36e5 + 6e4));
-var cdL = (/class="sb-cd" aria-label="([^"]*)"/.exec(SB.board({ team: team, game: game({ status: "pre", state: "pre", hasStarted: false, date: soon.toISOString(), us: null, them: null }), now: now1 })) || [])[1];
+var cdL = (/class="sb-cd[^"]*" aria-label="([^"]*)"/.exec(SB.board({ team: team, game: game({ status: "pre", state: "pre", hasStarted: false, date: soon.toISOString(), us: null, them: null }), now: now1 })) || [])[1];
 ok(cdL === "Kickoff in 1 day, 1 hour, 1 minute", "one day, one hour, one minute: singular, as the cells show (" + cdL + ")");
 var noDate = label(SB.board({ team: team, game: game({ status: "pre", state: "pre", hasStarted: false, date: "", us: null, them: null }) }));
 ok(!/, ,|, \./.test(noDate) && /^Next game: Notre Dame versus Navy\.$/.test(noDate), "no date: no empty parts read out (" + noDate + ")");
@@ -63,8 +63,29 @@ ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, dat
    "4:30 PM in California is day, whatever the team's own zone");
 ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-15T00:30:00Z" }), team, { variant: "home", zone: "America/Los_Angeles" })),
    "a zone the caller gives wins");
+ok(/art-day/.test(art(game({ status: "pre", state: "pre", hasStarted: false, date: "2026-11-14T20:59:00Z", venueState: "IN" }))),
+   "3:59 PM in Indiana is still day");
 ok(!/art-(day|night)/.test(art(game({ status: "pre", state: "pre", hasStarted: false, timeSet: false }))), "no kickoff time: no atmosphere");
 
 console.log("");
+console.log("the end of the game, before it is final (brief §4.2)");
+var G = ctx.TeamOS.game;
+ok(G.endOfGame({ status: "live", period: 4, clock: "0:00", us: 27, them: 24 }), "4th quarter at 0:00, score not tied: the end of the game");
+ok(!G.endOfGame({ status: "live", period: 4, clock: "0:00", us: 24, them: 24 }), "tied at 0:00: overtime is coming, not an end");
+ok(!G.endOfGame({ status: "live", period: 5, clock: "0:00", us: 31, them: 24 }), "overtime has no clock: its 0:00 says nothing");
+ok(!G.endOfGame({ status: "live", period: 4, clock: "0:12", us: 27, them: 24 }), "time left: still live");
+ok(!G.endOfGame({ status: "final", period: 4, clock: "0:00", us: 27, them: 24 }), "final is final, not the end of the game");
+var endB = SB.board({ team: team, game: game({ status: "live", state: "in", period: 4, clock: "0:00", us: 27, them: 24 }) });
+ok(/End of game/.test(endB) && !/live-pill/.test(endB) && !/is-winner/.test(endB), "the board says End of game - not LIVE, and no winner yet");
+ok(/^End of game, not yet final\./.test(label(endB)), "and the screen reader hears that it is not yet final");
+var ot = SB.board({ team: team, game: game({ status: "live", state: "in", period: 6, clock: "0:00", us: 31, them: 31 }) });
+ok(/2OT/.test(ot) && !/sb-clock/.test(ot), "double overtime is named, with no clock");
+console.log("the countdown grows as the kickoff nears (brief §4.1)");
+var t0 = new Date("2026-10-27T16:00:00Z");
+function near(ms) { return SB.nearness({ date: new Date(t0.getTime() + ms).toISOString(), timeSet: true }, t0); }
+ok(near(4 * 864e5) === "far" && near(864e5 + 2 * 36e5) === "eve" && near(5 * 36e5) === "day" && near(75 * 6e4) === "near",
+   "days away: a line; tomorrow; game day; the last two hours");
+ok(SB.nearness({ date: t0.toISOString(), timeSet: false }, t0) === null, "no kickoff time: no countdown");
+
 if (failures) { console.log(failures + " check(s) FAILED"); process.exit(1); }
 console.log("the scoreboard reads only what it was given, and lights by the venue's clock");

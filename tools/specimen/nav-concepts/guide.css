@@ -1,0 +1,9 @@
+/* Evaluation overlay: the canvas the wide (72rem) desktop grid gets under
+   each concept, as a dashed outline. Append after a concept's file; set
+   --nv-guide-left / --nv-guide-right / --nv-guide-bottom per concept. */
+@media (min-width:64rem){
+  body::after{content:"";position:fixed;z-index:200;pointer-events:none;top:calc(var(--s-bar-h) + .5rem);
+    left:var(--nv-guide-left,max(var(--gutter),calc((100% - var(--s-content-wide)) / 2)));
+    right:var(--nv-guide-right,max(var(--gutter),calc((100% - var(--s-content-wide)) / 2)));
+    bottom:var(--nv-guide-bottom,.5rem);border:2px dashed rgba(236,72,153,.85);border-radius:6px;background:rgba(236,72,153,.05)}
+}
