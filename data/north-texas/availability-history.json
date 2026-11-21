@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-texas",
- "updated": "2026-11-15T11:09:00.811058+00:00",
+ "updated": "2026-11-21T15:08:50.784264+00:00",
  "reports": [
   {
    "schema": 1,
@@ -637,6 +637,123 @@
      "no": "97",
      "name": "Roberto Rodriguez",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "98",
+     "name": "Amarion Berry",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Avion Carter",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "north-texas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T15:08:50.784264+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Tulane",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Corri Milliner",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "Tayven Jackson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Taye Seymore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Shandon King",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "8",
+     "name": "Caden Jenkins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "9",
+     "name": "Chaston Ditta",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "17",
+     "name": "Brec Long",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "22",
+     "name": "Julian Knox Sr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "27",
+     "name": "Zach Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "40",
+     "name": "Kailer Pettijohn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "85",
+     "name": "Drew Clemens",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "97",
+     "name": "Roberto Rodriguez",
+     "status": "questionable",
      "detail": ""
     },
     {

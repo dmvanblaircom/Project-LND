@@ -7,20 +7,13 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-08T11:08:48.787788+00:00",
+ "fetchedAt": "2026-11-21T15:08:50.245893+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "vs. Temple",
+ "kickoffDate": "2026-11-21",
+ "game": "Memphis",
  "players": [
-  {
-   "pos": "CB",
-   "no": "4",
-   "name": "Sean Martin",
-   "status": "questionable",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "5",
@@ -29,9 +22,9 @@
    "detail": ""
   },
   {
-   "pos": "WR",
+   "pos": "S",
    "no": "6",
-   "name": "Bash Bodily",
+   "name": "Phillip Hamilton",
    "status": "out-game",
    "detail": ""
   },
@@ -43,30 +36,16 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "16",
-   "name": "Giuseppe Sessi",
+   "pos": "TE",
+   "no": "43",
+   "name": "Gavin Noe",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "42",
-   "name": "Christian Cromer",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "43",
-   "name": "Gavin Noe",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OG",
-   "no": "68",
-   "name": "Hoke Smith II",
+   "pos": "LB",
+   "no": "47",
+   "name": "Harry Beacham III",
    "status": "questionable",
    "detail": ""
   },
@@ -74,7 +53,7 @@
    "pos": "WR",
    "no": "82",
    "name": "Akeem Clark",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -93,15 +72,29 @@
   },
   {
    "pos": "DT",
-   "no": "97",
-   "name": "Matt Reyes",
+   "no": "92",
+   "name": "Alex McCalop",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "NG",
+   "no": "94",
+   "name": "Xavyer Arrington",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "95",
+   "name": "Griffen Willis",
    "status": "questionable",
    "detail": ""
   },
   {
    "pos": "NG",
-   "no": "99",
-   "name": "Chris Herock",
+   "no": "96",
+   "name": "Connor Young",
    "status": "questionable",
    "detail": ""
   }

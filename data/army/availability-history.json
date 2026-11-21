@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "army",
- "updated": "2026-11-01T11:09:24.670066+00:00",
+ "updated": "2026-11-21T15:08:42.728493+00:00",
  "reports": [
   {
    "schema": 1,
@@ -720,6 +720,172 @@
      "pos": "WR",
      "no": "83",
      "name": "Kurt Thompson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Sean Donovan",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "army",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T15:08:42.728493+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "East Carolina",
+   "players": [
+    {
+     "pos": "SB",
+     "no": "1",
+     "name": "Riley Reed",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "7",
+     "name": "Jaydan Mayes",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "11",
+     "name": "David Thom-Rogers",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Josh Milhollin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "14",
+     "name": "Wanye Chukes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "16",
+     "name": "Taps Hananda",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "SB",
+     "no": "18",
+     "name": "Brady Mott",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "22",
+     "name": "Larry Pickett Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "32",
+     "name": "Cameron Binkowski",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "34",
+     "name": "Carson Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "42",
+     "name": "Elijah Walton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "43",
+     "name": "Samuel Hayward",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Brady Small",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "52",
+     "name": "Kody Harris-Miller",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Henry Appleton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "58",
+     "name": "Rhett VanBoening",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "64",
+     "name": "Brandon Wraalstad",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Miles Hagan",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Kyle Kloska",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "85",
+     "name": "Xander Walker",
      "status": "out-game",
      "detail": ""
     },

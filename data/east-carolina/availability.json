@@ -7,45 +7,24 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:08:51.652359+00:00",
+ "fetchedAt": "2026-11-21T15:08:45.565097+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Charlotte",
+ "kickoffDate": "2026-11-21",
+ "game": "Army",
  "players": [
   {
    "pos": "DB",
    "no": "2",
    "name": "Jaylen Bowden",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "4",
-   "name": "TJ Engleman Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "5",
-   "name": "DeJuan Lacy",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "6",
    "name": "DeMarius Hines",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "8",
-   "name": "Ismael Smith Flores",
    "status": "out-game",
    "detail": ""
   },
@@ -78,13 +57,6 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "14",
-   "name": "Dillon Lorick",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "28",
    "name": "David Coleman Jr.",
@@ -103,13 +75,6 @@
    "no": "73",
    "name": "Karson Jones",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "88",
-   "name": "Dawson Quarterman",
-   "status": "out-game",
    "detail": ""
   }
  ],

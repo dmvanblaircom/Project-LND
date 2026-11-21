@@ -7,24 +7,45 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-01T11:09:24.670066+00:00",
+ "fetchedAt": "2026-11-21T15:08:42.728493+00:00",
  "reported": true,
- "effectiveAt": "2026-10-31",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-10-31",
- "game": "at Memphis",
+ "kickoffDate": "2026-11-21",
+ "game": "East Carolina",
  "players": [
   {
-   "pos": "NB",
-   "no": "10",
-   "name": "Cole Searight",
+   "pos": "SB",
+   "no": "1",
+   "name": "Riley Reed",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "7",
+   "name": "Jaydan Mayes",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "11",
+   "name": "David Thom-Rogers",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "14",
    "name": "Josh Milhollin",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "14",
+   "name": "Wanye Chukes",
    "status": "out-game",
    "detail": ""
   },
@@ -43,24 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
-   "no": "19",
-   "name": "Jaquavious Moss",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "S",
    "no": "22",
    "name": "Larry Pickett Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "29",
-   "name": "Kai Woolfolk",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -78,17 +85,38 @@
    "detail": ""
   },
   {
-   "pos": "SB",
-   "no": "40",
-   "name": "Charlie Daly",
+   "pos": "ILB",
+   "no": "42",
+   "name": "Elijah Walton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "43",
+   "name": "Samuel Hayward",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "ILB",
-   "no": "53",
-   "name": "Phillip Goodrich",
+   "pos": "OL",
+   "no": "51",
+   "name": "Brady Small",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "52",
+   "name": "Kody Harris-Miller",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "58",
+   "name": "Henry Appleton",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -100,6 +128,13 @@
   },
   {
    "pos": "OL",
+   "no": "64",
+   "name": "Brandon Wraalstad",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "69",
    "name": "Miles Hagan",
    "status": "out-game",
@@ -107,15 +142,15 @@
   },
   {
    "pos": "OL",
-   "no": "76",
-   "name": "Max Stober",
+   "no": "75",
+   "name": "Kyle Kloska",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "83",
-   "name": "Kurt Thompson",
+   "pos": "DL",
+   "no": "85",
+   "name": "Xander Walker",
    "status": "out-game",
    "detail": ""
   },

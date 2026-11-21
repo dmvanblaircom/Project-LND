@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:45.211913+00:00",
+ "fetchedAt": "2026-11-21T15:08:57.224817+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Purdue",
  "players": [
@@ -29,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "6",
-   "name": "Jai'mier Scott",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "10",
-   "name": "Ryan Hopkins",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "S",
    "no": "11",
    "name": "Carson Van Dinter",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -67,14 +53,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Barrett Nelson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "75",
-   "name": "Emerson Mandell",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

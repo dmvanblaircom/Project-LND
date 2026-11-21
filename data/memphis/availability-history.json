@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "memphis",
- "updated": "2026-11-13T11:08:51.242951+00:00",
+ "updated": "2026-11-21T15:08:49.196457+00:00",
  "reports": [
   {
    "schema": 1,
@@ -288,6 +288,60 @@
    "heading": "Game Day",
    "kickoffDate": "2026-11-12",
    "game": "at South Florida",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "39",
+     "name": "Desmond Cox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "40",
+     "name": "Trey McDonald",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "59",
+     "name": "Aaron Karas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Richard Thigpen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "J'Mari Monette",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "memphis",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T15:08:49.196457+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Navy",
    "players": [
     {
      "pos": "LB",

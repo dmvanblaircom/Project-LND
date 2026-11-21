@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:33.702107+00:00",
+ "fetchedAt": "2026-11-21T15:08:46.706939+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Wake Forest",
  "players": [
@@ -109,7 +109,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Josh Petty",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -144,14 +144,14 @@
    "pos": "WR",
    "no": "89",
    "name": "Chris Elko",
-   "status": "doubtful",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "96",
    "name": "Shymeik Jones",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

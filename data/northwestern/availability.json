@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:38.413331+00:00",
+ "fetchedAt": "2026-11-21T15:08:50.909870+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Minnesota",
  "players": [
@@ -25,14 +25,14 @@
    "pos": "DB",
    "no": "7",
    "name": "Ore Adeyi",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "13",
    "name": "Josh Fussell",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

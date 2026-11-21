@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T01:08:39.858173+00:00",
+ "fetchedAt": "2026-11-21T15:08:52.296108+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Wisconsin",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "TE",
    "no": "81",
    "name": "George Burhenn",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {

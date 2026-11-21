@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-11-21T01:08:38.674237+00:00",
+ "updated": "2026-11-21T15:08:51.162778+00:00",
  "reports": [
   {
    "schema": 1,
@@ -649,10 +649,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:38.674237+00:00",
+   "fetchedAt": "2026-11-21T15:08:51.162778+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Nebraska",
    "players": [

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "nebraska",
- "updated": "2026-11-21T01:08:38.001072+00:00",
+ "updated": "2026-11-21T15:08:50.514694+00:00",
  "reports": [
   {
    "schema": 1,
@@ -565,10 +565,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:38.001072+00:00",
+   "fetchedAt": "2026-11-21T15:08:50.514694+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Ohio State",
    "players": [
@@ -590,7 +590,7 @@
      "pos": "DL",
      "no": "5",
      "name": "Anthony Jones Jr.",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -639,7 +639,7 @@
      "pos": "OL",
      "no": "65",
      "name": "Paul Mubenga",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {

@@ -7,17 +7,24 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:09:00.811058+00:00",
+ "fetchedAt": "2026-11-21T15:08:50.784264+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at UTSA",
+ "kickoffDate": "2026-11-21",
+ "game": "Tulane",
  "players": [
   {
    "pos": "WR",
    "no": "0",
    "name": "Corri Milliner",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "2",
+   "name": "Tayven Jackson",
    "status": "out-game",
    "detail": ""
   },
@@ -26,13 +33,6 @@
    "no": "2",
    "name": "Taye Seymore",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "6",
-   "name": "Josiah Martin",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -57,10 +57,10 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "14",
-   "name": "Kyle Koch",
-   "status": "questionable",
+   "pos": "TE",
+   "no": "17",
+   "name": "Brec Long",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -71,23 +71,9 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "22",
-   "name": "Colin Page",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "27",
    "name": "Zach Johnson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "31",
-   "name": "Aaden Little",
    "status": "out-game",
    "detail": ""
   },
@@ -109,7 +95,7 @@
    "pos": "OL",
    "no": "97",
    "name": "Roberto Rodriguez",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

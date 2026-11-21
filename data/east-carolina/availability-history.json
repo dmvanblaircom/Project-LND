@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "east-carolina",
- "updated": "2026-11-15T11:08:51.652359+00:00",
+ "updated": "2026-11-21T15:08:45.565097+00:00",
  "reports": [
   {
    "schema": 1,
@@ -504,6 +504,88 @@
      "no": "88",
      "name": "Dawson Quarterman",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "east-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-21T15:08:45.565097+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-21",
+   "game": "Army",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Jaylen Bowden",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "DeMarius Hines",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "10",
+     "name": "Brock Spalding",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Jeremiah Melvin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Mitch Griffis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Ayden Duncanson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "28",
+     "name": "David Coleman Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "34",
+     "name": "Adam Cole",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "73",
+     "name": "Karson Jones",
+     "status": "questionable",
      "detail": ""
     }
    ],

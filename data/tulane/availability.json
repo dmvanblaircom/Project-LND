@@ -7,13 +7,20 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T11:09:04.859688+00:00",
+ "fetchedAt": "2026-11-21T15:08:54.958608+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
+ "effectiveAt": "2026-11-21",
  "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Rice",
+ "kickoffDate": "2026-11-21",
+ "game": "North Texas",
  "players": [
+  {
+   "pos": "S",
+   "no": "1",
+   "name": "Jack Tchienchou",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "LB",
    "no": "4",
@@ -22,17 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "6",
-   "name": "Johnnie Daniels",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "S",
    "no": "7",
    "name": "Kevin Adams III",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -57,6 +57,13 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "16",
+   "name": "Garrett Mmahat",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "CB",
    "no": "22",
    "name": "Justin Agu",
@@ -71,23 +78,16 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "25",
-   "name": "Jamauri McClure",
+   "pos": "WR",
+   "no": "39",
+   "name": "John Barton",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "P",
-   "no": "34",
-   "name": "William Hudlow",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "39",
-   "name": "John Barton",
+   "pos": "LB",
+   "no": "43",
+   "name": "Grayson McPherson",
    "status": "out-game",
    "detail": ""
   },
@@ -120,30 +120,16 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "73",
-   "name": "Elijah Baker",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "81",
    "name": "Deuce Hadley Jr.",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
-   "no": "90",
-   "name": "Jordyn Crites",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "98",
-   "name": "PaLanding Drammeh",
+   "no": "99",
+   "name": "Josh Lewis",
    "status": "questionable",
    "detail": ""
   }

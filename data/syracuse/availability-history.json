@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "syracuse",
- "updated": "2026-11-21T01:08:41.373087+00:00",
+ "updated": "2026-11-21T15:08:53.702767+00:00",
  "reports": [
   {
    "schema": 1,
@@ -570,10 +570,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:08:41.373087+00:00",
+   "fetchedAt": "2026-11-21T15:08:53.702767+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Boston College",
    "players": [
@@ -644,7 +644,7 @@
      "pos": "OL",
      "no": "75",
      "name": "Trevion Mack",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
