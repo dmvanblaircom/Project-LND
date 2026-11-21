@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:23.728358+00:00",
+ "fetchedAt": "2026-11-21T19:00:52.109633+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-21",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Texas Tech",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "LB",
    "no": "10",
    "name": "Kyland Reed",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -39,14 +39,7 @@
    "pos": "S",
    "no": "14",
    "name": "Daniel Cobbs",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "18",
-   "name": "Taz Williams Jr.",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
