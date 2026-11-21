@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-am",
- "updated": "2026-11-21T01:38:34.199049+00:00",
+ "updated": "2026-11-21T19:38:35.692120+00:00",
  "reports": [
   {
    "schema": 1,
@@ -320,13 +320,20 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:38:34.199049+00:00",
+   "fetchedAt": "2026-11-21T19:38:35.692120+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Oklahoma",
    "players": [
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Dezz Ricks",
+     "status": "gtd",
+     "detail": ""
+    },
     {
      "pos": "S",
      "no": "3",

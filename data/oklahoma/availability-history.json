@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-21T01:38:32.026184+00:00",
+ "updated": "2026-11-21T19:38:32.466497+00:00",
  "reports": [
   {
    "schema": 1,
@@ -710,10 +710,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T01:38:32.026184+00:00",
+   "fetchedAt": "2026-11-21T19:38:32.466497+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-20",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-21",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. Texas A&M",
    "players": [
@@ -721,7 +721,7 @@
      "pos": "RB",
      "no": "6",
      "name": "Tory Blaylock",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -735,7 +735,7 @@
      "pos": "DB",
      "no": "9",
      "name": "Dakoda Fields",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -763,7 +763,7 @@
      "pos": "OL",
      "no": "70",
      "name": "Ryan Fodje",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
