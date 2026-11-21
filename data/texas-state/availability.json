@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:35.624770+00:00",
+ "fetchedAt": "2026-11-21T21:08:36.215183+00:00",
  "reported": true,
  "effectiveAt": "2026-11-21",
- "heading": "Update 2",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Washington State",
  "players": [
@@ -18,6 +18,27 @@
    "pos": "OL",
    "no": "",
    "name": "Rasheed Jackson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Javante Mackey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Ta'Derius Collins",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "JP Deeter",
    "status": "out-game",
    "detail": ""
   },
@@ -33,20 +54,6 @@
    "no": "",
    "name": "Amarion Atwood",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "JP Deeter",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Javante Mackey",
-   "status": "questionable",
    "detail": ""
   },
   {
