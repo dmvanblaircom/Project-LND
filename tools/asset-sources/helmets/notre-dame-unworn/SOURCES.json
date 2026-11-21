@@ -1,0 +1,22 @@
+{
+  "subject": "Standard Notre Dame football helmet (solid metallic gold shell, no decal), not worn",
+  "searched": "2026-11-21",
+  "method": "Wikimedia Commons API: list=search (ns 6) for 'Notre Dame helmet', 'Notre Dame football helmet', 'Fighting Irish helmet', 'gold helmet Notre Dame', 'Notre Dame Stadium tour helmet', 'College Football Hall of Fame Notre Dame', 'Notre Dame locker room', 'Notre Dame football equipment', 'Notre Dame helmet display', 'Notre Dame football memorabilia', 'Notre Dame trophy case', 'Joyce Center Notre Dame' and others; category walks of 'Notre Dame Fighting Irish football', 'Notre Dame Fighting Irish football equipment', 'College Football Hall of Fame' and 'American football helmets' (depth 2). About 6,500 files screened by title/category, about 30 checked visually.",
+  "result_summary": "Commons coverage is thin. One photo qualifies. Rejected: 'Notre Dame football helmet.jpg' (582 px wide, below the 800 px floor), 'Shamrock Series helmets' (alternate designs), 'Notredamepostgamehelmetraise.jpg' (helmets held by players, faces), 'Notre dame football uniforms.png' (illustration), Joyce Center trophy cases (no helmets), the 'Football Pre-game Area' set (banners and crowd, no helmets).",
+  "images": [
+    {
+      "local_path": "tools/asset-sources/helmets/notre-dame-unworn/nd-gold-helmets-joyce-center-display-case.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Notre_Dame_Memorabilia,_Joyce_Center,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045747785).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Notre_Dame_Memorabilia%2C_Joyce_Center%2C_University_of_Notre_Dame%2C_South_Bend%2C_Indiana_%2811045747785%29.jpg",
+      "width": 3000,
+      "height": 4000,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Ken Lund from Reno, Nevada, USA",
+      "credit_line": "Photo: Ken Lund, \"Notre Dame Memorabilia, Joyce Center, University of Notre Dame, South Bend, Indiana\", CC BY-SA 2.0, via Wikimedia Commons",
+      "file_note": "Full-resolution (3000x4000) rendition served by Commons thumb.php. upload.wikimedia.org was rate-limiting this environment, so this is not the byte-identical original (original sha1 8bf2cf111332e10b73f413eca6ec5b8a2c40a653, 2,740,391 bytes). Same pixels dimensions; re-fetch the original URL if exact bytes matter.",
+      "note": "Two standard gold Riddell helmets (white facemask, no decal) on a glass shelf inside a retail display case, 3/4 front-right angle, taken 2013-11-23. Helmet region is roughly x 2000-3250, y 1930-3200 in the full image (about 1,250 px wide). Sharp: metal-flake texture is resolved. Not isolated: behind glass with ceiling-light glare and reflections, a price card in front, other merchandise around it, so it needs cropping or cutout work.",
+      "face_check": "No face is visible through or around the helmets; nobody is wearing or holding them. Caveat: the case glass at upper center (roughly x 1430-2330, y 1000-2070, left of and above the helmets) holds a faint reflection of the photographer, partly hidden by the camera. Crop to the helmet region before any use."
+    }
+  ]
+}
