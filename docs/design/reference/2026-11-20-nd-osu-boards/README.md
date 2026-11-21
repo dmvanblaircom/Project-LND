@@ -22,4 +22,5 @@ These are reference boards from ChatGPT (Creative Director, decision 0040) for t
 - **Stadium:** real Creative Commons photographs of the venue where the game is played: the home team's stadium, so the opponent's stadium when we are away. A neutral site, or a venue Suite has no photo of, gets a defocused, unrecognisable stadium.
 - **Time of day:** day and night only. Dusk is dropped ("too orange").
 - **Teams without a helmet image:** the team's large official mark, never a recoloured generic helmet.
+- **Superseded 2026-11-21 (decision 0046):** every team is shown by its large official mark; Suite shows no helmets. The boards' helmets are not built.
 - **Workflow:** helper sessions on the Project-LND environment fetch the files; this branch processes and ships them.

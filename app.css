@@ -1779,12 +1779,12 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
    stadium the game is played in (TeamOS.art): the venue's own when Suite
    has it, a defocused stand-in otherwise; by day or under the lights as
    the kickoff is (0022 #11). The team arrives through light - a glow of its
-   colour rising from the field - and through its helmet and mark. Every
+   colour rising from the field - and through its official mark. Every
    colour reads roles (--r-*), so Team Style and Suite Style light it
    differently with no conditional. Layout follows the stage's own width.
 
    The text floor (decision 0041): the photograph fades into the team's
-   abyss before the first line of text below the helmets, and the pill on
+   abyss before the first line of text, and the pill on
    the photo carries its own solid ground. Measured from the pixels for
    every team in both styles by tools/herocontrastcheck.js.
    ==================================================================== */
@@ -1841,21 +1841,13 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 
 /* ---- the board ---- */
 .sb{container:sb / inline-size;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3)}
-.sb-helmets{display:flex;justify-content:center;align-items:flex-end;margin:var(--s-space-2) auto 0;width:100%;max-width:30rem}
-.sb-helmet{display:block;width:50%;height:auto;max-height:11rem;object-fit:contain;filter:drop-shadow(0 14px 16px rgba(0,0,0,.6))}
-.sb-helmet:first-child{width:54%;margin-right:-4%;position:relative;z-index:1}
-.sb-helmet:last-child{width:48%;margin-left:-4%}
-.sb-helmet.is-flipped{transform:scaleX(-1)}
 .sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them";align-items:start;column-gap:var(--s-space-2)}
 .sb.is-scoring .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";align-items:center;column-gap:var(--s-space-2)}
 .sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid;align-self:center}
 .sb-team{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:0;text-align:center}
 .sb-team p{margin:0}
-.sb-mark{--mark:3.1rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
-.sb.has-helmets .sb-mark{--mark:2.9rem;margin-top:-.4rem}
-.sb.no-helmets .sb-mark{--mark:5.25rem;margin-top:var(--s-space-4)}
-.sb.is-scoring .sb-mark{--mark:2.75rem}
-.sb.no-helmets.is-scoring .sb-mark{--mark:3.6rem}
+.sb-mark{--mark:5.25rem;margin-top:var(--s-space-4);filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.sb.is-scoring .sb-mark{--mark:3.6rem}
 .sb-name{max-width:100%;overflow:hidden;white-space:nowrap;line-height:1.5rem;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
 .sb-us .sb-name{font-size:var(--s-type-lg)}
 .sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
@@ -1886,8 +1878,7 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.2em;text-transform:uppercase}
 /* on the stage the pill already says Final or Halftime; the space between the scores stays */
 .stage .sb-final,.stage .sb-mid.is-half .sb-period{visibility:hidden}
-.sb-vs{display:block;margin-top:2.6rem;font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
-.sb.no-helmets .sb-vs{margin-top:var(--s-space-7)}
+.sb-vs{display:block;margin-top:var(--s-space-7);font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
 .sb-series{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-mark)}
 .sb-sit{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45rem;align-self:center;margin:var(--s-space-2) 0 0;
   padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.88);
@@ -1922,10 +1913,6 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
   .stage-cta{width:auto;min-width:16rem}
 }
 @container sb (min-width:34rem){
-  .sb-helmets{max-width:40rem}
-  .sb-helmet{max-height:15rem}
-  .sb.has-helmets .sb-mark{--mark:3.6rem}
-  .sb.is-scoring .sb-mark{--mark:3.4rem}
   .sb-name,.sb.is-scoring .sb-name,.sb.is-scoring .sb-us .sb-name{font-size:var(--s-type-lg)}
   .sb-us .sb-name{font-size:var(--s-type-xl)}
   .sb.is-scoring .sb-full{display:inline}

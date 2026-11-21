@@ -5,9 +5,9 @@ Visual destination: the boards in `docs/design/reference/2026-11-20-nd-osu-board
 
 ## What changed from Stage 2 v1
 
-- **Photographs replace the drawn SVG stadium and helmets.** `suite/stadium.js` is gone. The stage and the Game header show a real photo of the **stadium the game is played in**: ours at home, the opponent's away, a known neutral site's own. One rule covers all three: match the venue the schedule names. Any venue Suite has no photo of gets a blurred, darkened stand-in.
+- **Photographs replace the drawn SVG stadium.** `suite/stadium.js` is gone. The stage and the Game header show a real photo of the **stadium the game is played in**: ours at home, the opponent's away, a known neutral site's own. One rule covers all three: match the venue the schedule names. Any venue Suite has no photo of gets a blurred, darkened stand-in.
 - **Day and night only** (David: dusk was too orange). Light follows the kickoff's local time.
-- **Helmets show only when both teams have a photo and the two can face each other.** Otherwise both official marks stand large. Notre Dame vs Ohio State shows both helmets on Notre Dame's page. On Ohio State's page the Ohio State photo can't be flipped (it would reverse "Riddell"), so that page shows both marks.
+- **Every team is shown by its large official mark, never a helmet** (decision 0046, David 2026-11-21). Commons covers too few teams, and the two helmet photos tried (Notre Dame, Ohio State) were not reliable. The boards' helmets are the one element not built.
 - **Home and Game are dark**, as in the boards. The stage keeps the real team colours; quick actions show the icon over the label; section heads and cards are on dark.
 - **Game on desktop has two columns**: the tabbed detail on the left, plus a new Game Info card (date, kickoff, venue, TV, series).
 - **Stage copy**:
@@ -27,13 +27,11 @@ Visual destination: the boards in `docs/design/reference/2026-11-20-nd-osu-board
 | Notre Dame Stadium, night | `assets/venues/notre-dame-stadium/night-{800,1280,1920}.webp` | [Commons](https://commons.wikimedia.org/wiki/File:NotreDameStadiumNight.jpg) | Eccekevin | CC BY-SA 4.0 |
 | Ohio Stadium, day (also used at night) | `assets/venues/ohio-stadium/day-{800,1280,1920}.webp` | [Commons](https://commons.wikimedia.org/wiki/File:Ohio_Stadium_(37516165921).jpg) | Dan Keck | CC0 |
 | Neutral stand-in, day / night | `assets/venues/neutral/{day,night}-{800,1280,1920}.webp` | Commons [11045855126](https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045855126).jpg), [11045985644](https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045985644).jpg) | Ken Lund | CC BY-SA 2.0 (blurred and darkened so the venue cannot be placed) |
-| Ohio State helmet | `assets/helmets/ohio-state-{480,960}.webp` | [Commons](https://commons.wikimedia.org/wiki/File:Ohio_State_Buckeyes_(50803332572).jpg) | Erik Drost | CC BY 2.0 (background removed) |
-| Notre Dame helmet | `assets/helmets/notre-dame-480.webp` | [Commons](https://commons.wikimedia.org/wiki/File:Notre_Dame_Memorabilia,_Joyce_Center,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045747785).jpg) | Ken Lund | CC BY-SA 2.0 (cut out of a display case; glare reduced, colour corrected) |
 
-- **Total:** 2.4 MB, fetched only for the venue and light in use.
+- **Total:** 2.1 MB, fetched only for the venue and light in use.
 - **Data:** `leagues/college-football-art.js`.
 - **Logic:** `teamos/art.js`.
-- **Commons helmet coverage survey (all 138 teams):** `docs/design/reference/2026-11-20-nd-osu-boards/helmet-coverage.md`. Six teams have a clean helmet photo, 11 a usable one, and 108 have none. So the official mark is the default, and Commons cannot be the source for a helmet set.
+- **Commons helmet coverage survey (all 138 teams):** `docs/design/reference/2026-11-20-nd-osu-boards/helmet-coverage.md`. Six teams have a clean helmet photo, 11 a usable one, and 108 have none. That survey is why decision 0046 shows every team by its official mark.
 
 ## Screenshots (`sheets/`)
 
@@ -45,11 +43,11 @@ Visual destination: the boards in `docs/design/reference/2026-11-20-nd-osu-board
   - Game, Notre Dame at 1280: `notre-dame-team-game-{pre-far,live,final-win}-1280.jpg`.
 - **The proof-of-concept matchup, v2 only** (Notre Dame vs Ohio State at the real venues):
   - `ndosu-venues-390.jpg`: home pre, home live at night, away at Ohio Stadium, neutral-site stand-in.
-  - `ndosu-osu-390.jpg`: Ohio State's page at Ohio Stadium (marks; see above), plus Notre Dame's halftime and final.
+  - `ndosu-osu-390.jpg`: Ohio State's page at Ohio Stadium, plus Notre Dame's halftime and final.
   - `ndosu-desktop.jpg`: Home pre and live, Game live, and Ohio State's Home at 1280.
   - `ndosu-game-390.jpg`: Game pre, live and final.
 
-The fixture's default opponent is Navy at Gillette Stadium, so the three-way sheets show the neutral stand-in and both marks. The matchup sheets show the real venues and helmets.
+The fixture's default opponent is Navy at Gillette Stadium, so the three-way sheets show the neutral stand-in and both marks. The matchup sheets show the real venues.
 
 Team marks are refused in this environment, so marks render as initials. CI loads the real logos.
 
@@ -58,16 +56,13 @@ Team marks are refused in this environment, so marks render as initials. CI load
 See the delivery report in the session for the full results. In brief:
 
 - **`tools/run-checks.js --base origin/main`:** 85 of 85 passed (1,818 s, 2026-11-21).
-- **`herocontrastcheck`:** 138 teams, 2,363 stages, 36,974 text runs, every word at WCAG AA. Includes the real venues, day and night, and stages with both helmets. Asserts helmets where the pair can face each other and marks where it cannot.
+- **`herocontrastcheck`:** 138 teams, every stage, every word at WCAG AA, including the real venues by day and night.
 - **`darkgroundcheck` (new):** no component on dark Home or Game paints the ink as a ground. Added after the drive field's own end zone went white in v2.
-- **`artcheck` (new):** 15 checks covering venue selection (home, away, neutral, missing), day and night, helmets via the registry, credits, and that every real file exists with its credit.
+- **`artcheck` (new):** venue selection (home, away, neutral, missing), day and night, credits, that every real file exists with its credit, and that no helmet lookup exists.
 
 ## Known limitations
 
-- **The Notre Dame helmet is the weakest asset.** It's a 450 px retail-case photo with a soft edge and some residual glare, fine on phones and soft on retina desktop. Removing it is one entry in the art data; the stage then shows marks. A better photo (licensed stock, or one taken for Suite) drops in by the same entry.
 - **No Ohio State night photo.** Ohio Stadium uses its day photo for night games.
-- **Ohio State's page vs Notre Dame shows marks.** The Ohio State photo faces left and can't be flipped. A right-facing Ohio State helmet photo fixes it.
 - **Venue photos exist for two stadiums.** Every other venue gets the neutral stand-in until its photo is added (data only).
-- **Helmets beyond these two teams:** see the survey. Commons cannot supply a consistent set.
 - **The bottom nav is dark on every screen**, not only Home and Game.
 - **Availability (quick action)** covers our team only, as before.

@@ -69,10 +69,6 @@ function drawBatch(arg) {
     ["home-live-nds-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }],
     ["home-pre-os-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, venue: "Ohio Stadium" }, "2026-10-01T12:00:00Z"],
     ["game-live-nds-night", "game", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 3, clock: "9:35", us: 14, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
-    // helmets: Notre Dame's page against Ohio State shows both; Ohio State's against Notre Dame cannot turn them to face, so shows marks
-    ["home-pre-helmets-nd", "home", 390, { status: "scheduled", hasStarted: false, date: NIGHT, venue: "Notre Dame Stadium", oppProviderId: "194", oppName: "Ohio State", oppAbbr: "OSU" }, "2026-10-03T12:00:00Z"],
-    ["home-live-helmets-os", "home", 390, { status: "live", hasStarted: true, date: DAY, venue: "Ohio Stadium", oppProviderId: "87", oppName: "Notre Dame", oppAbbr: "ND", period: 2, clock: "4:10", us: 10, them: 7, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
-    ["home-pre-helmets-desktop", "home", 860, { status: "scheduled", hasStarted: false, date: NIGHT, venue: "Notre Dame Stadium", oppProviderId: "194", oppName: "Ohio State", oppAbbr: "OSU" }, "2026-10-03T12:00:00Z"],
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],
     ["game-live-day", "game", 390, { status: "live", hasStarted: true, date: DAY, period: 2, clock: "9:35", us: 7, them: 13, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
@@ -90,7 +86,7 @@ function drawBatch(arg) {
   })).then(function (teams) {
     var html = "";
     teams.forEach(function (T) {
-      var t = { id: T.id, name: T.team.name, abbr: T.team.abbreviation, nick: (reg[T.id] || {}).nick || "", markUrl: null };
+      var t = { name: T.team.name, abbr: T.team.abbreviation, nick: (reg[T.id] || {}).nick || "", markUrl: null };
       html += '<div class="hc-row" data-team="' + esc(T.id) + '" data-style="' + style + '" style="' + esc(tokens(T.look)) + ';font-family:var(--t-font-ui)">';
       CASES.forEach(function (C) {
         var g = Object.assign({ id: "1", oppName: "Opponent", oppAbbr: "OPP", oppProviderId: null, usRank: 12, usRecord: "4-1", oppRecord: "3-2", home: true, net: "ESPN", timeSet: true }, C[3]);
@@ -125,7 +121,7 @@ function drawBatch(arg) {
   if (shots) fs.mkdirSync(shots, { recursive: true });
   var failures = [], checked = 0, unassessed = 0, cells = 0, skipped = [];
   try {
-    var context = await browser.newContext({ viewport: { width: 9000, height: 1000 }, timezoneId: "America/New_York" });
+    var context = await browser.newContext({ viewport: { width: 7600, height: 1000 }, timezoneId: "America/New_York" });
     var page = await context.newPage();
     // Logos refused: every mark is its initials (see the header).
     await page.route("**/*", function (route) { return route.request().url().startsWith(base) ? route.continue() : route.abort(); });
@@ -135,7 +131,7 @@ function drawBatch(arg) {
     runs.push({ style: "suite", ids: [TEAMS.indexOf("notre-dame") !== -1 ? "notre-dame" : TEAMS[0]] });
     for (var n = 0; n < runs.length; n++) {
       var run = runs[n];
-      await page.setViewportSize({ width: 9000, height: 1000 }); // a row of nineteen stages, three desktop ones included
+      await page.setViewportSize({ width: 7600, height: 1000 }); // a row of sixteen stages, two desktop ones included
       await page.setContent('<!doctype html><html lang="en" data-style="' + run.style + '"><head><meta name="viewport" content="width=device-width,initial-scale=1">' +
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
@@ -143,18 +139,6 @@ function drawBatch(arg) {
       for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
       var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
-      // the helmet cases must show both helmets where they can face each other
-      // (Notre Dame's page against Ohio State), and both marks where they
-      // cannot (Ohio State's against Notre Dame: neither photo may be flipped
-      // the way that page needs), or they test nothing
-      var helmetless = await page.evaluate(function () {
-        var want = { "notre-dame home-pre-helmets-nd": 2, "notre-dame home-pre-helmets-desktop": 2, "ohio-state home-live-helmets-os": 0 };
-        return Object.keys(want).filter(function (k) {
-          var p = k.split(" "), c = document.querySelector('.hc-row[data-team="' + p[0] + '"] [data-case="' + p[1] + '"]');
-          return c && c.querySelectorAll("img.sb-helmet").length !== want[k];
-        }).map(function (k) { return k + ": expected " + want[k] + " helmets"; });
-      });
-      helmetless.forEach(function (h) { failures.push(run.style + " " + h); });
       // Measured once the faces have loaded and the frame has settled: under
       // load (the parallel suite, a busy runner) a fallback face mid-swap
       // moves text off its floor and the reading is of a page no fan sees.

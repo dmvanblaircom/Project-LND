@@ -387,7 +387,7 @@ function isShell(url) {
   if (url.origin === self.location.origin) {
     var p = url.pathname;
     return p.endsWith("/") || /\/index\.html$/.test(p) || /\/manifest\.json$/.test(p)
-        // and Suite's photographs (stadiums, helmets): kept once seen, so a
+        // and Suite's stadium photographs: kept once seen, so a
         // venue the fan has looked at still shows offline
         || /\.(css|js|png|svg|woff2|webp|jpe?g)$/.test(p);
   }

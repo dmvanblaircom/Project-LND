@@ -20,7 +20,7 @@
                 (a forecast's); otherwise the venue's state decides, then the
                 team's own zone (TeamOS.game.venueZone) }
 
-   Our team, our game (brief §4.1): our helmet and mark lead on the left and
+   Our team, our game (brief §4.1): our mark leads on the left and
    carry the stage's light; the opponent stands across from us, mirrored,
    a step back but never a footnote. A final is team-neutral (decision
    0041): the same stage win or lose, no Win or Loss word; the scores and
@@ -71,28 +71,7 @@ Suite.scoreboard = (function () {
     return live(st) && g.situation && !TeamOS.game.halftime(g) && g.situation.possession === (us ? "us" : "them");
   }
 
-  // Each side's photograph, or null. The stage shows helmets only when it has
-  // both and they can face each other - one helmet facing a logo, or two
-  // turned away, is not a matchup - and otherwise both official marks stand
-  // large where the helmets would (asset guidance, 2026-11-20: never another
-  // team's helmet recoloured).
-  function faces(h, want) { return h.facing === want || h.mirror; }
-  function helmets(m) {
-    var g = m.game, t = m.team;
-    if (!TeamOS.art || !g) return null;
-    var us = TeamOS.art.helmet(t.id), them = TeamOS.art.helmetByProvider(g.oppProviderId);
-    return us && them && faces(us, "right") && faces(them, "left") ? { us: us, them: them } : null;
-  }
-  // A helmet faces the middle: ours to the right, theirs to the left. A photo
-  // facing the wrong way is flipped only when its helmet carries nothing a
-  // flip would reverse.
-  function helmetImg(h, us) {
-    var want = us ? "right" : "left", flip = h.facing !== want && h.mirror;
-    return '<img class="sb-helmet' + (flip ? " is-flipped" : "") + '" src="' + esc(h.src) + '" srcset="' + esc(h.srcset) +
-           '" sizes="(min-width:64rem) 22rem, 46vw" alt="" decoding="async">';
-  }
-
-  function side(m, us, st, v, hm) {
+  function side(m, us, st, v) {
     var g = m.game, t = m.team;
     var name = us ? t.name : g.oppName, abbr = (us ? t.abbr : g.oppAbbr) || name;
     var rank = us ? g.usRank : g.oppRank, record = us ? g.usRecord : g.oppRecord;
@@ -229,13 +208,12 @@ Suite.scoreboard = (function () {
     opts = opts || {};
     var g = m.game;
     if (!g) return "";
-    var st = state(g), v = opts.variant === "game" ? "game" : "home", hm = v === "home" ? helmets(m) : null;
+    var st = state(g), v = opts.variant === "game" ? "game" : "home";
     var phase = ended(g, st) ? " sb-end" : live(st) && TeamOS.game.halftime(g) ? " sb-half" : live(st) && +g.period >= 5 ? " sb-ot" : "";
     var scoring = shows(st, g);
-    return '<section class="sb sb-' + v + " sb-st-" + st + phase + (hm ? " has-helmets" : " no-helmets") + (scoring ? " is-scoring" : "") +
+    return '<section class="sb sb-' + v + " sb-st-" + st + phase + (scoring ? " is-scoring" : "") +
              '" aria-label="' + esc(summary(m, st)) + '" data-game="' + esc(g.id) + '">' +
-             (hm ? '<div class="sb-helmets" aria-hidden="true">' + helmetImg(hm.us, true) + helmetImg(hm.them, false) + "</div>" : "") +
-             '<div class="sb-board">' + side(m, true, st, v, hm) + score(m, true, st) + middle(m, st) + score(m, false, st) + side(m, false, st, v, hm) + "</div>" +
+             '<div class="sb-board">' + side(m, true, st, v) + score(m, true, st) + middle(m, st) + score(m, false, st) + side(m, false, st, v) + "</div>" +
              situation(m, st) + series(m, st) + countdown(m, st) +
              (ended(g, st) ? '<p class="sb-note">The game has ended. The final score is being confirmed.</p>' : "") +
            "</section>";

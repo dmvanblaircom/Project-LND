@@ -314,7 +314,7 @@ Suite.more = (function () {
     // author and licence (David, 2026-11-20), listed where a fan can find them.
     var photos = (m.photos || []).length ? '<section class="ab-sources" aria-labelledby="abPhotos"><h2 class="sec-title" id="abPhotos">Photo Credits</h2>' +
       '<ul class="card ab-list">' + m.photos.map(function (p) {
-        var c = p.credit || {}, what = p.kind === "helmet" ? p.name + " helmet" : p.name + (p.time ? " (" + p.time + ")" : "");
+        var c = p.credit || {}, what = p.name + (p.time ? " (" + p.time + ")" : "");
         var by = [c.author, c.license].filter(Boolean).join(" · ");
         return "<li>" + (c.url ? '<a class="ab-name" href="' + esc(c.url) + '" target="_blank" rel="noopener noreferrer">' + esc(what) + EXTERNAL + NEW_TAB + "</a>"
                                : '<span class="ab-name">' + esc(what) + "</span>") +
