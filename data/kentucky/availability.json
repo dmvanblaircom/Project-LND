@@ -7,25 +7,25 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:38:45.212910+00:00",
+ "fetchedAt": "2026-11-21T01:38:29.809569+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Missouri",
  "players": [
-  {
-   "pos": "WR",
-   "no": "4",
-   "name": "Nic Anderson",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "ILB",
    "no": "4",
    "name": "Antwan Smith",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "6",
+   "name": "Ahmad Breaux",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -37,9 +37,23 @@
   },
   {
    "pos": "DB",
+   "no": "19",
+   "name": "Kevis Thomas",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
    "no": "24",
    "name": "Jaden Smith",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "27",
+   "name": "Isaiah McMillian",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -54,6 +68,13 @@
    "no": "31",
    "name": "Quintavion Norman",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "P",
+   "no": "48",
+   "name": "Thomas O'Hara",
+   "status": "questionable",
    "detail": ""
   }
  ],

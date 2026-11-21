@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:38:47.546921+00:00",
+ "fetchedAt": "2026-11-21T01:38:32.026184+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Texas A&M",
  "players": [
-  {
-   "pos": "WR",
-   "no": "0",
-   "name": "Manny Choice",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "RB",
    "no": "6",
@@ -50,13 +43,6 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "16",
-   "name": "Danny Okoye",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "TE",
    "no": "22",
    "name": "Trynae Washington",
@@ -82,13 +68,6 @@
    "no": "72",
    "name": "Fred Hinton",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "94",
-   "name": "Kenny Ozowalu",
-   "status": "probable",
    "detail": ""
   }
  ],

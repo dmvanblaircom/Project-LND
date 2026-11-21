@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:38:49.903376+00:00",
+ "fetchedAt": "2026-11-21T01:38:34.199049+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Oklahoma",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "WR",
    "no": "18",
    "name": "TK Norman",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

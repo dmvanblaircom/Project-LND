@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "south-carolina",
- "updated": "2026-11-20T01:38:48.983309+00:00",
+ "updated": "2026-11-21T01:38:33.321622+00:00",
  "reports": [
   {
    "schema": 1,
@@ -549,10 +549,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:38:48.983309+00:00",
+   "fetchedAt": "2026-11-21T01:38:33.321622+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "vs. Georgia",
    "players": [
@@ -567,7 +567,7 @@
      "pos": "WR",
      "no": "3",
      "name": "Mazeo Bennett Jr.",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -581,14 +581,7 @@
      "pos": "DB",
      "no": "8",
      "name": "Judge Collier",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "8",
-     "name": "Nyck Harbor",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -616,7 +609,7 @@
      "pos": "EDG",
      "no": "40",
      "name": "Anthony Addison",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

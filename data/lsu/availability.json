@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:38:45.598420+00:00",
+ "fetchedAt": "2026-11-21T01:38:30.156877+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "at Tennessee",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "WR",
    "no": "6",
    "name": "Winston Watkins Jr.",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -50,24 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "23",
-   "name": "Aidan Anding",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "26",
    "name": "Charles Ross II",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "28",
-   "name": "Jhase Thomas",
-   "status": "probable",
    "detail": ""
   },
   {

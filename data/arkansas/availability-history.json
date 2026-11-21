@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-11-20T01:38:39.757145+00:00",
+ "updated": "2026-11-21T01:38:24.688571+00:00",
  "reports": [
   {
    "schema": 1,
@@ -313,10 +313,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-20T01:38:39.757145+00:00",
+   "fetchedAt": "2026-11-21T01:38:24.688571+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-19",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-20",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-21",
    "game": "at Texas",
    "players": [
@@ -331,7 +331,7 @@
      "pos": "DB",
      "no": "34",
      "name": "Brylan Green",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

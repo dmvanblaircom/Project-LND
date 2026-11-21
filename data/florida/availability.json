@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T01:38:43.487224+00:00",
+ "fetchedAt": "2026-11-21T01:38:28.013053+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-20",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-21",
  "game": "vs. Vanderbilt",
  "players": [
@@ -25,14 +25,14 @@
    "pos": "S",
    "no": "1",
    "name": "Bryce Thornton",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "3",
    "name": "Bailey Stockton",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "CB",
    "no": "27",
    "name": "Dijon Johnson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
