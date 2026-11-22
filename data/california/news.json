@@ -1,7 +1,25 @@
 {
  "team": "california",
- "updated": "2026-11-22T04:07:48.441062+00:00",
+ "updated": "2026-11-22T04:37:49.286524+00:00",
  "items": [
+  {
+   "title": "Cal Falls In 129th Big Game",
+   "link": "https://calbears.com/news/2026/11/21/football-cal-falls-in-129th-big-game",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Mason Mini\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/11-21-26_BIG_GAME_NEWS-1.jpg\" /><br /><br />Stanford Pulls Away In Second Half For 44-28 Win",
+   "image": "https://calbears.com/images/2026/11/21/11-21-26_BIG_GAME_NEWS-1.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-22T04:09:00+00:00"
+  },
+  {
+   "title": "Cal Game Summary: Stanford Crushes Bears; Tosh Lupoi's Job in Jeopardy",
+   "link": "https://www.si.com/college/cal/football/cal-game-summary-stanford-crushes-bears-tosh-lupoi-s-job-in-jeopardy-01m7x6tfmczw?utm_source=RSS",
+   "source": "Cal On SI",
+   "summary": "Bears lose the Big Game for the second straight year, both by decisive scores",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4029,h_2266,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m80g7sym2xds6r4xy9.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-22T04:07:22+00:00"
+  },
   {
    "title": "Tosh Lupoi Continues to Bring New Lows in 129th Big Game Loss",
    "link": "https://on3.com/sites/golden-bear-report/news/tosh-lupoi-continues-to-bring-new-lows-in-129th-big-game-loss/",
@@ -30,10 +48,10 @@
    "published": "2026-11-21T23:24:26+00:00"
   },
   {
-   "title": "Big Game Thread: Cal & Stanford Clash for the 129th Time",
+   "title": "Big Game Thread: Cal Tries to Get Creative vs. Stanford and Falls 44-28",
    "link": "https://www.si.com/college/cal/football/big-game-thread-cal-stanford-clash-for-the-129th-time-01m7ye7bfzxd?utm_source=RSS",
    "source": "Cal On SI",
-   "summary": "Can Cal snap its current four-game losing streak to recapture The Axe?",
+   "summary": "The Bears lose their fifth straight game and Stanford becomes bowl eligible for the first time since 2018",
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6000,h_3375,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7ye9j9hyf8wxs99ph.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-21T23:08:19+00:00"
@@ -298,24 +316,6 @@
    "image": "https://calbears.com/images/2026/11/14/DSC06949.JPG?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-14T23:53:00+00:00"
-  },
-  {
-   "title": "Cal Football Game Summary: Virginia Dominates the Bears",
-   "link": "https://www.si.com/college/cal/football/cal-football-game-summary-virginia-dominates-the-bears-01m7b5d62hw5?utm_source=RSS",
-   "source": "Cal On SI",
-   "summary": "Bears lose fourth straight game and are shut out in the second half for the third straight game",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4771,h_2683,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/cal_sports_report/01m7e23dn0zssgxz5hma.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-14T23:47:57+00:00"
-  },
-  {
-   "title": "The Beauty Of All The Steps",
-   "link": "https://calbears.com/news/2026/11/13/football-the-beauty-of-all-the-steps",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Inside Cal Football: The Beauty Of All The Steps\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/Inside_Cal_FB_Feature_WebOKOYE.jpg\" /><br /><br />Emmanuel Okoye's Sees Beauty In His Journey From Nigeria To Berkeley",
-   "image": "https://calbears.com/images/2026/11/13/Inside_Cal_FB_Feature_WebOKOYE.jpg?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-13T17:30:00+00:00"
   }
  ]
 }
