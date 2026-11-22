@@ -1,6 +1,6 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-22T22:08:02.774347+00:00",
+ "updated": "2026-11-22T22:37:56.134323+00:00",
  "items": [
   {
    "title": "Five Things We Learned About Oklahoma State After Rallying to Beat Arizona State",
@@ -10,6 +10,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4951,h_2784,x_0,y_112/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_pokes/01m82faxfhy9n936wrk5.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-22T22:00:01+00:00"
+  },
+  {
+   "title": "Eric Morris postgame press conference after Cowboy Football's overtime win over Arizona State",
+   "link": "https://okstate.com/news/2026/11/22/eric-morris-postgame-press-conference-after-cowboy-footballs-overtime-win-over-arizona-state",
+   "source": "Oklahoma State Athletics",
+   "summary": "<img alt=\"Morris at ASU\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/22/261121_football_arizona_state_bw_48.jpeg\" /><br /><br />STILLWATER - Oklahoma State's football coach Eric Morris\u00a0met with the media after a 30-27 comeback win over the Arizona State Sun Devils. See the video and hear his comments here:",
+   "image": "https://okstate.com/images/2026/11/22/261121_football_arizona_state_bw_48.jpeg?width=800",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-22T22:00:00+00:00"
   },
   {
    "title": "Grading Every Oklahoma State Position Group After Overtime Victory over Arizona State",
@@ -343,15 +352,6 @@
    "image": "https://okstate.com/images/2026/11/15/20261115_jcd_usa_0015.JPG?width=800",
    "sourceLogo": "https://okstate.com/favicon.ico",
    "published": "2026-11-15T21:00:00+00:00"
-  },
-  {
-   "title": "OSU-Texas Tech Postgame Quotes",
-   "link": "https://okstate.com/news/2026/11/15/cowboy-football-osu-texas-tech-postgame-quotes",
-   "source": "Oklahoma State Athletics",
-   "summary": "Postgame quotes from Oklahoma State and Texas Tech",
-   "image": "https://okstate.com/images/logos/site/site.png",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-11-15T07:17:00+00:00"
   }
  ]
 }
