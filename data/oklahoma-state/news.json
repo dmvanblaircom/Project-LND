@@ -1,7 +1,16 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-22T07:37:57.524768+00:00",
+ "updated": "2026-11-22T08:07:58.475595+00:00",
  "items": [
+  {
+   "title": "Oklahoma State Postgame Notes vs Arizona State",
+   "link": "https://okstate.com/news/2026/11/22/cowboy-football-oklahoma-state-postgame-notes-vs-arizona-state",
+   "source": "Oklahoma State Athletics",
+   "summary": "November 21, 2026\u00a0 |\u00a0 Tempe, Arizona\u00a0 |\u00a0 Mountain America Stadium",
+   "image": "https://okstate.com/images/logos/site/site.png",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-22T07:58:00+00:00"
+  },
   {
    "title": "Four Immediate Takeaways from Oklahoma State Football's 30-27 Win Over Arizona State",
    "link": "https://www.si.com/college/oklahomastate/football/four-immediate-takeaways-oklahoma-state-football-s-30-27-win-over-arizona-state?utm_source=RSS",
@@ -334,15 +343,6 @@
    "image": "https://okstate.com/images/2026/11/15/3D6A7529.jpeg?width=800",
    "sourceLogo": "https://okstate.com/favicon.ico",
    "published": "2026-11-15T06:51:00+00:00"
-  },
-  {
-   "title": "Oklahoma State Postgame Notes \u2013 Texas Tech",
-   "link": "https://okstate.com/news/2026/11/15/cowboy-football-oklahoma-state-postgame-notes-texas-tech",
-   "source": "Oklahoma State Athletics",
-   "summary": "November 14, 2026\u00a0 |\u00a0 Stillwater, Oklahoma\u00a0 |\u00a0 Boone Pickens Stadium",
-   "image": "https://okstate.com/images/logos/site/site.png",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-11-15T06:39:00+00:00"
   }
  ]
 }
