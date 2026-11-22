@@ -1,7 +1,16 @@
 {
  "team": "ul-monroe",
- "updated": "2026-11-20T16:38:16.088733+00:00",
+ "updated": "2026-11-22T00:38:08.133782+00:00",
  "items": [
+  {
+   "title": "Warhawks Fall in Overtime Thriller at Mountaineers",
+   "link": "https://ulmwarhawks.com/news/2026/11/21/football-warhawks-fall-in-overtime-thriller-at-mountaineers.aspx",
+   "source": "ULM Athletics",
+   "summary": "<img alt=\"AppStateRecap\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/ULMFootballRecap.png\" /><br /><br />Quarterback Austin Carlisle threw for 167 yards and rushed for 59 to lead the team.",
+   "image": "https://ulmwarhawks.com/images/2026/11/21/ULMFootballRecap.png?width=800",
+   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
+   "published": "2026-11-22T00:00:00+00:00"
+  },
   {
    "title": "Football Preview: Warhawks Travel East to Face Mountaineers",
    "link": "https://ulmwarhawks.com/news/2026/11/20/football-preview-warhawks-travel-east-to-face-mountaineers.aspx",
@@ -82,15 +91,6 @@
    "image": "https://ulmwarhawks.com/images/2026/10/23/PhillipPreview.png?width=800",
    "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
    "published": "2026-10-23T21:50:00+00:00"
-  },
-  {
-   "title": "Warhawks Drop in I-20 Showdown to Bulldogs",
-   "link": "https://ulmwarhawks.com/news/2026/10/18/football-warhawks-drop-in-i-20-showdown-to-bulldogs.aspx",
-   "source": "ULM Athletics",
-   "summary": "<img alt=\"LATRecap\" src=\"https://ulmwarhawks.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/18/LATRecap.png\" /><br /><br />After a defensive battle in the first half, Louisiana Tech was able to string together scoring plays in the second half.",
-   "image": "https://ulmwarhawks.com/images/2026/10/18/LATRecap.png?width=800",
-   "sourceLogo": "https://ulmwarhawks.com/favicon.ico",
-   "published": "2026-10-18T06:51:00+00:00"
   }
  ]
 }

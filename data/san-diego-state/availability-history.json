@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "san-diego-state",
- "updated": "2026-11-21T03:08:33.911107+00:00",
+ "updated": "2026-11-22T00:39:09.407132+00:00",
  "reports": [
   {
    "schema": 1,
@@ -211,34 +211,13 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T03:08:33.911107+00:00",
+   "fetchedAt": "2026-11-22T00:39:09.407132+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-21",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-22",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "at Boise State",
    "players": [
-    {
-     "pos": "OLB",
-     "no": "",
-     "name": "Dominic Coelho",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Amari Comier",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "",
-     "name": "Kainoa Davis",
-     "status": "questionable",
-     "detail": ""
-    },
     {
      "pos": "ILB",
      "no": "",
@@ -250,14 +229,14 @@
      "pos": "ILB",
      "no": "",
      "name": "Tano Letuli",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "",
      "name": "Jelani McLaughlin",
-     "status": "questionable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -277,13 +256,6 @@
     {
      "pos": "WR",
      "no": "",
-     "name": "Nate Acevedo",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
      "name": "Jacob Bostick",
      "status": "out-game",
      "detail": ""
@@ -292,14 +264,7 @@
      "pos": "WR",
      "no": "",
      "name": "Bert Emanuel Jr",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Parker Threatt",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {
@@ -334,6 +299,13 @@
      "pos": "SP",
      "no": "",
      "name": "Luke Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jalen Thomeson",
      "status": "out-game",
      "detail": ""
     }

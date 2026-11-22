@@ -7,20 +7,13 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:23.959304+00:00",
+ "fetchedAt": "2026-11-22T00:38:59.464281+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-22",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. San Diego State",
  "players": [
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Ryder Swanson",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "OL",
    "no": "",
