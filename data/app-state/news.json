@@ -1,9 +1,18 @@
 {
  "team": "app-state",
- "updated": "2026-11-22T01:07:52.806106+00:00",
+ "updated": "2026-11-22T02:07:53.847811+00:00",
  "items": [
   {
-   "title": "Blocked PAT, Overtime Touchdown Lift App State Over ULM",
+   "title": "Postgame Notes from App State's Win vs. ULM",
+   "link": "https://appstatesports.com/news/2026/11/21/football-postgame-notes-from-app-states-win-vs-ulm.aspx",
+   "source": "App State Athletics",
+   "summary": "<img alt=\"Joe Reddish\" src=\"https://appstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/IMG_6583.jpeg\" /><br /><br />POSTGAME NOTES: App State 17, ULM 16 (OT)",
+   "image": "https://appstatesports.com/images/2026/11/21/IMG_6583.jpeg?width=800",
+   "sourceLogo": "https://appstatesports.com/favicon.ico",
+   "published": "2026-11-22T00:48:00+00:00"
+  },
+  {
+   "title": "Blocked Kick, Overtime Touchdown Lift App State Over ULM",
    "link": "https://appstatesports.com/news/2026/11/21/football-blocked-pat-touchdown-in-overtime-lift-app-state-over-ulm.aspx",
    "source": "App State Athletics",
    "summary": "<img alt=\"Jackson Grier\" src=\"https://appstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/DPJ04150.JPG\" /><br /><br />BOONE, N.C. \u2014 A walk-off kick delivered another overtime win in dramatic fashion at The Rock.",
@@ -118,15 +127,6 @@
    "image": "https://appstatesports.com/images/2026/9/25/Vs._Maine_9_5_2026_Zander_GT_-54_1920x1080.jpg?width=800",
    "sourceLogo": "https://appstatesports.com/favicon.ico",
    "published": "2026-11-06T19:59:00+00:00"
-  },
-  {
-   "title": "App State Football Hosts Georgia State on Heroes Day",
-   "link": "https://appstatesports.com/news/2026/11/5/app-state-football-hosts-georgia-state-on-heroes-day.aspx",
-   "source": "App State Athletics",
-   "summary": "<img alt=\"Kaleb Purdy\" src=\"https://appstatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/FB_JMU_102226_JC_57.jpg\" /><br /><br />BOONE, N.C. \u2014\u00a0App State Football begins the final month of the regular season with a Heroes Day home game against Georgia State on Saturday in Kidd Brewer Stadium.",
-   "image": "https://appstatesports.com/images/2026/11/5/FB_JMU_102226_JC_57.jpg?width=800",
-   "sourceLogo": "https://appstatesports.com/favicon.ico",
-   "published": "2026-11-06T02:48:00+00:00"
   },
   {
    "title": "Mountaineers set sights on Panthers with opportunity to become bowl-eligible",

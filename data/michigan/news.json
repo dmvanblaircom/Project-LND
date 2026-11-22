@@ -1,7 +1,25 @@
 {
  "team": "michigan",
- "updated": "2026-11-22T01:38:05.243421+00:00",
+ "updated": "2026-11-22T02:08:02.498457+00:00",
  "items": [
+  {
+   "title": "Recruits react to Michigan's overtime win vs. UCLA",
+   "link": "https://on3.com/teams/michigan-wolverines/news/recruits-react-to-michigans-overtime-thriller-win-over-ucla/",
+   "source": "On3",
+   "summary": "Michigan hosted a bunch of commits, a couple of flip targets and other coveted recruits for its matchup with UCLA.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21193047/Jacob-Thomas-1.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-22T01:45:00+00:00"
+  },
+  {
+   "title": "Michigan Stuns No. 4 UCLA in Triple Overtime to Hand Bruins First Loss",
+   "link": "https://mgoblue.com/news/2026/11/21/football-michigan-stuns-no-4-ucla-in-triple-overtime-to-hand-bruins-first-loss",
+   "source": "Michigan Athletics",
+   "summary": "<img alt=\"Jalen Hoffman\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/20261121-fbl-hoffman.jpg\" /><br /><br />Jalen Hoffman's catch on a two-point conversion from Bryce Underwood in the third overtime lifted Michigan to a thrilling upset of No. 4 UCLA.",
+   "image": "https://mgoblue.com/images/2026/11/21/20261121-fbl-hoffman.jpg?width=800",
+   "sourceLogo": "https://mgoblue.com/favicon.ico",
+   "published": "2026-11-22T01:36:00+00:00"
+  },
   {
    "title": "Kyle Whittingham Announces Plans for Andrew Marsh for Michigan vs. Ohio State Game",
    "link": "https://www.si.com/college/michigan/football/kyle-whittingham-announces-plans-for-andrew-marsh-for-michigan-vs-ohio-state-game?utm_source=RSS",
@@ -282,15 +300,6 @@
    "published": "2026-11-21T03:03:38+00:00"
   },
   {
-   "title": "Michigan vs. UCLA availability report: Friday night update on Andrew Marsh, others",
-   "link": "https://on3.com/teams/michigan-wolverines/news/michigan-vs-ucla-availability-report-friday-night-update-on-andrew-marsh-others/",
-   "source": "On3",
-   "summary": "Michigan and UCLA have released their third injury reports of the week ahead of Saturday's showdown in Ann Arbor.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/10/19180511/Michigan-Thumbnail-2025-10-19T190449.478.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-21T01:04:56+00:00"
-  },
-  {
    "title": "Kyle Whittingham's First Words Will Also Likely Be His Last As Michigan's Head Coach",
    "link": "https://www.si.com/college/michigan/football/kyle-whittingham-s-first-words-will-also-likely-be-his-last-as-michigan-s-head-coach?utm_source=RSS",
    "source": "Michigan On SI",
@@ -433,15 +442,6 @@
    "image": "https://mgoblue.com/images/2026/11/14/20261114-fbl-oregon-manuel-beigel-1.jpg?width=800",
    "sourceLogo": "https://mgoblue.com/favicon.ico",
    "published": "2026-11-15T00:22:00+00:00"
-  },
-  {
-   "title": "Game Center: Michigan at #18 Oregon",
-   "link": "https://mgoblue.com/news/2026/11/11/football-what-you-need-to-know-for-gameday-michigan-at-oregon",
-   "source": "Michigan Athletics",
-   "summary": "<img alt=\"Savion Hiter\" src=\"https://mgoblue.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/20261114-fbl-hiter1.jpg\" /><br /><br />Get full team stats, game leaders and more from Michigan's road matchup at #18 Oregon.",
-   "image": "https://mgoblue.com/images/2026/11/14/20261114-fbl-hiter1.jpg?width=800",
-   "sourceLogo": "https://mgoblue.com/favicon.ico",
-   "published": "2026-11-11T19:17:00+00:00"
   }
  ]
 }
