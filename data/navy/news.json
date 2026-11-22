@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-22T00:38:01.632313+00:00",
+ "updated": "2026-11-22T01:07:59.567259+00:00",
  "items": [
+  {
+   "title": "Navy vs Memphis - Pregame Warmup Photo Gallery",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-pregame-warmup-photo-gallery/",
+   "source": "The Mid Report",
+   "summary": "Pregame warmup photos from the Mids\u2019 game vs the Memphis Tigers on Saturday, Nov 21, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21183040/DSC_1619.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-22T01:00:10+00:00"
+  },
   {
    "title": "Navy vs Memphis - Senior Photo Gallery",
    "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-senior-gallery/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31184627/DSC_0585.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-01T19:00:00+00:00"
-  },
-  {
-   "title": "Navy vs Notre Dame - Pregame Warmup Photo Gallery",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-notre-dame-pregame-warmup-photo-gallery/",
-   "source": "The Mid Report",
-   "summary": "Pregame warmup photos from the Mids\u2019 game vs the Notre Dame Fighting Irish on Saturday, Oct 31, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31153120/DSC_0534.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-31T20:44:26+00:00"
   }
  ]
 }
