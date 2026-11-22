@@ -1,6 +1,6 @@
 {
  "team": "wisconsin",
- "updated": "2026-11-21T22:38:11.962789+00:00",
+ "updated": "2026-11-22T00:08:13.352904+00:00",
  "items": [
   {
    "title": "Winners and Losers: Wisconsin Football Runs All Over Purdue as Minnesota Awaits",
@@ -46,15 +46,6 @@
    "image": "https://uwbadgers.com/images/2026/11/21/261121FB-14594.jpeg?width=800",
    "sourceLogo": "https://uwbadgers.com/favicon.ico",
    "published": "2026-11-21T20:21:00+00:00"
-  },
-  {
-   "title": "Game Day Central: Football at Purdue",
-   "link": "https://uwbadgers.com/news/2026/11/21/game-day-central-football-at-purdue",
-   "source": "Wisconsin Athletics",
-   "summary": "<img alt=\"Wisconsin Badgers during an NCAA Big Ten Conference college football game against the Purdue Boilermakers, Nov. 21, 2026, in West Lafayette, Ind. (Photo by David Stluka/Wisconsin Athletic Communications)\" src=\"https://uwbadgers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/261121FB-11882.jpeg\" /><br /><br />",
-   "image": "https://uwbadgers.com/images/2026/11/21/261121FB-11882.jpeg?width=800",
-   "sourceLogo": "https://uwbadgers.com/favicon.ico",
-   "published": "2026-11-21T17:32:00+00:00"
   },
   {
    "title": "Wisconsin vs. Purdue: Game thread, live updates",
@@ -298,6 +289,15 @@
    "image": "https://uwbadgers.com/images/2026/11/9/261107FB-13902.jpeg?width=800",
    "sourceLogo": "https://uwbadgers.com/favicon.ico",
    "published": "2026-11-09T19:59:00+00:00"
+  },
+  {
+   "title": "Wisconsin defeats Rutgers, 31-10",
+   "link": "https://uwbadgers.com/news/2026/11/7/football-wisconsin-defeats-rutgers-31-10",
+   "source": "Wisconsin Athletics",
+   "summary": "<img alt=\"Sebastian Cheeks and Mason Posa\" src=\"https://uwbadgers.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/261107FB-17208.jpg\" /><br /><br />MADISON, Wis. \u2014 The Wisconsin Football (6-3, 4-2 Big Ten) posted a 31-10 victory over Rutgers (2-7, 1-5) on Saturday inside Camp Randall Stadium in Madison, marking UW's 7th-straight home win.",
+   "image": "https://uwbadgers.com/images/2026/11/7/261107FB-17208.jpg?width=800",
+   "sourceLogo": "https://uwbadgers.com/favicon.ico",
+   "published": "2026-11-08T00:39:00+00:00"
   }
  ]
 }

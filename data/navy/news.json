@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-21T23:38:00.660523+00:00",
+ "updated": "2026-11-22T00:08:02.564088+00:00",
  "items": [
+  {
+   "title": "Navy vs Memphis - Senior Gallery",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-senior-gallery/",
+   "source": "The Mid Report",
+   "summary": "Photos of the 39 USNA Class of 2027 seniors and their families prior to the Navy game vs Memphis on Saturday, November 21, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21140357/DSC_1732.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-22T00:02:33+00:00"
+  },
   {
    "title": "Navy Rallies to Stun No. 24 Memphis 38-34 on Listorti's Last-Second Touchdown",
    "link": "https://navysports.com/news/2026/11/21/football-navy-rallies-to-stun-no-24-memphis-38-34-on-listortis-last-second-touchdown.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31153120/DSC_0534.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-31T20:44:26+00:00"
-  },
-  {
-   "title": "The Notre Dame Preview",
-   "link": "https://on3.com/sites/the-mid-report/news/the-notre-dame-preview-2/",
-   "source": "The Mid Report",
-   "summary": "How will the Mids attack an Irish squad with no glaring weaknesses?",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/28165208/Untitled-Design-145.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-29T23:53:21+00:00"
   }
  ]
 }
