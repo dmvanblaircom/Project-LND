@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2348",
  "classYear": 2027,
- "listed": 10,
+ "listed": 11,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -137,7 +137,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "274564",
+   "name": "Seth Kidd",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Mobile",
+   "state": "AL",
+   "grade": 4,
+   "rank": 1,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-22T04:09Z"
 }

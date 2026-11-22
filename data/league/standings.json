@@ -9,24 +9,6 @@
    "abbr": "American",
    "teams": [
     {
-     "espnId": "235",
-     "name": "Memphis",
-     "conf": {
-      "wins": 5,
-      "losses": 1
-     },
-     "overall": "8-2"
-    },
-    {
-     "espnId": "249",
-     "name": "North Texas",
-     "conf": {
-      "wins": 5,
-      "losses": 1
-     },
-     "overall": "7-3"
-    },
-    {
      "espnId": "2636",
      "name": "UTSA",
      "conf": {
@@ -36,22 +18,31 @@
      "overall": "8-2"
     },
     {
-     "espnId": "349",
-     "name": "Army",
-     "conf": {
-      "wins": 4,
-      "losses": 2
-     },
-     "overall": "5-4"
-    },
-    {
      "espnId": "151",
      "name": "East Carolina",
      "conf": {
-      "wins": 4,
+      "wins": 5,
       "losses": 2
      },
-     "overall": "6-4"
+     "overall": "7-4"
+    },
+    {
+     "espnId": "235",
+     "name": "Memphis",
+     "conf": {
+      "wins": 5,
+      "losses": 2
+     },
+     "overall": "8-3"
+    },
+    {
+     "espnId": "249",
+     "name": "North Texas",
+     "conf": {
+      "wins": 5,
+      "losses": 2
+     },
+     "overall": "7-4"
     },
     {
      "espnId": "5",
@@ -63,58 +54,67 @@
      "overall": "6-4"
     },
     {
-     "espnId": "2226",
-     "name": "FAU",
+     "espnId": "349",
+     "name": "Army",
      "conf": {
-      "wins": 3,
-      "losses": 3
-     },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "2655",
-     "name": "Tulane",
-     "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
      "overall": "5-5"
     },
     {
+     "espnId": "2226",
+     "name": "FAU",
+     "conf": {
+      "wins": 4,
+      "losses": 3
+     },
+     "overall": "7-4"
+    },
+    {
+     "espnId": "2655",
+     "name": "Tulane",
+     "conf": {
+      "wins": 4,
+      "losses": 3
+     },
+     "overall": "6-5"
+    },
+    {
      "espnId": "202",
      "name": "Tulsa",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
      "espnId": "2426",
      "name": "Navy",
      "conf": {
-      "wins": 2,
+      "wins": 3,
       "losses": 4
      },
-     "overall": "3-6"
+     "overall": "4-6"
     },
     {
      "espnId": "58",
      "name": "South Florida",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "2429",
      "name": "Charlotte",
      "conf": {
       "wins": 1,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "1-9"
+     "overall": "1-10"
     },
     {
      "espnId": "242",
@@ -144,28 +144,28 @@
      "espnId": "2390",
      "name": "Miami",
      "conf": {
-      "wins": 7,
+      "wins": 8,
       "losses": 0
      },
-     "overall": "9-1"
+     "overall": "10-1"
     },
     {
      "espnId": "154",
      "name": "Wake Forest",
      "conf": {
-      "wins": 6,
+      "wins": 7,
       "losses": 1
      },
-     "overall": "9-1"
+     "overall": "10-1"
     },
     {
      "espnId": "97",
      "name": "Louisville",
      "conf": {
-      "wins": 6,
+      "wins": 7,
       "losses": 2
      },
-     "overall": "7-3"
+     "overall": "8-3"
     },
     {
      "espnId": "228",
@@ -183,7 +183,7 @@
       "wins": 5,
       "losses": 3
      },
-     "overall": "7-3"
+     "overall": "7-4"
     },
     {
      "espnId": "150",
@@ -195,103 +195,103 @@
      "overall": "7-4"
     },
     {
-     "espnId": "52",
-     "name": "Florida St",
+     "espnId": "24",
+     "name": "Stanford",
+     "conf": {
+      "wins": 4,
+      "losses": 4
+     },
+     "overall": "6-5"
+    },
+    {
+     "espnId": "258",
+     "name": "Virginia",
+     "conf": {
+      "wins": 4,
+      "losses": 4
+     },
+     "overall": "6-5"
+    },
+    {
+     "espnId": "103",
+     "name": "Boston College",
      "conf": {
       "wins": 3,
       "losses": 4
      },
-     "overall": "5-5"
+     "overall": "5-6"
+    },
+    {
+     "espnId": "52",
+     "name": "Florida St",
+     "conf": {
+      "wins": 3,
+      "losses": 5
+     },
+     "overall": "5-6"
+    },
+    {
+     "espnId": "152",
+     "name": "NC State",
+     "conf": {
+      "wins": 3,
+      "losses": 5
+     },
+     "overall": "5-6"
     },
     {
      "espnId": "221",
      "name": "Pitt",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "24",
-     "name": "Stanford",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "5-5"
-    },
-    {
-     "espnId": "258",
-     "name": "Virginia",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "5-5"
+     "overall": "6-5"
     },
     {
      "espnId": "259",
      "name": "Virginia Tech",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "103",
-     "name": "Boston College",
-     "conf": {
-      "wins": 2,
-      "losses": 4
-     },
-     "overall": "4-6"
+     "overall": "6-5"
     },
     {
      "espnId": "153",
      "name": "North Carolina",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "5-5"
+     "overall": "5-6"
     },
     {
      "espnId": "183",
      "name": "Syracuse",
      "conf": {
       "wins": 3,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "5-5"
+     "overall": "5-6"
     },
     {
      "espnId": "25",
      "name": "California",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "59",
      "name": "Georgia Tech",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "3-7"
-    },
-    {
-     "espnId": "152",
-     "name": "NC State",
-     "conf": {
-      "wins": 2,
-      "losses": 5
-     },
-     "overall": "4-6"
+     "overall": "3-8"
     }
    ]
   },
@@ -312,28 +312,37 @@
      "espnId": "2641",
      "name": "Texas Tech",
      "conf": {
-      "wins": 6,
+      "wins": 7,
       "losses": 1
      },
-     "overall": "9-1"
+     "overall": "10-1"
     },
     {
      "espnId": "252",
      "name": "BYU",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 2
      },
-     "overall": "8-2"
+     "overall": "9-2"
     },
     {
      "espnId": "12",
      "name": "Arizona",
      "conf": {
-      "wins": 4,
+      "wins": 5,
       "losses": 3
      },
-     "overall": "7-3"
+     "overall": "8-3"
+    },
+    {
+     "espnId": "248",
+     "name": "Houston",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "8-3"
     },
     {
      "espnId": "9",
@@ -345,24 +354,6 @@
      "overall": "6-4"
     },
     {
-     "espnId": "239",
-     "name": "Baylor",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "248",
-     "name": "Houston",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "7-3"
-    },
-    {
      "espnId": "197",
      "name": "Oklahoma St",
      "conf": {
@@ -370,6 +361,15 @@
       "losses": 3
      },
      "overall": "6-4"
+    },
+    {
+     "espnId": "239",
+     "name": "Baylor",
+     "conf": {
+      "wins": 4,
+      "losses": 4
+     },
+     "overall": "6-5"
     },
     {
      "espnId": "2116",
@@ -390,6 +390,15 @@
      "overall": "5-5"
     },
     {
+     "espnId": "2132",
+     "name": "Cincinnati",
+     "conf": {
+      "wins": 3,
+      "losses": 5
+     },
+     "overall": "6-5"
+    },
+    {
      "espnId": "66",
      "name": "Iowa State",
      "conf": {
@@ -399,49 +408,40 @@
      "overall": "5-6"
     },
     {
-     "espnId": "2132",
-     "name": "Cincinnati",
-     "conf": {
-      "wins": 2,
-      "losses": 5
-     },
-     "overall": "5-5"
-    },
-    {
      "espnId": "38",
      "name": "Colorado",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "2305",
      "name": "Kansas",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "277",
      "name": "West Virginia",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "5-5"
+     "overall": "5-6"
     },
     {
      "espnId": "2306",
      "name": "Kansas St",
      "conf": {
       "wins": 1,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "4-6"
+     "overall": "4-7"
     }
    ]
   },
@@ -454,18 +454,27 @@
      "name": "UCLA",
      "conf": {
       "wins": 7,
-      "losses": 0
+      "losses": 1
      },
-     "overall": "10-0"
+     "overall": "10-1"
     },
     {
      "espnId": "84",
      "name": "Indiana",
      "conf": {
       "wins": 6,
-      "losses": 1
+      "losses": 2
      },
-     "overall": "9-1"
+     "overall": "9-2"
+    },
+    {
+     "espnId": "2294",
+     "name": "Iowa",
+     "conf": {
+      "wins": 6,
+      "losses": 2
+     },
+     "overall": "9-2"
     },
     {
      "espnId": "2483",
@@ -477,130 +486,121 @@
      "overall": "8-3"
     },
     {
-     "espnId": "2294",
-     "name": "Iowa",
-     "conf": {
-      "wins": 5,
-      "losses": 2
-     },
-     "overall": "8-2"
-    },
-    {
      "espnId": "194",
      "name": "Ohio State",
      "conf": {
       "wins": 5,
-      "losses": 2
+      "losses": 3
      },
-     "overall": "7-3"
+     "overall": "7-4"
+    },
+    {
+     "espnId": "30",
+     "name": "USC",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "8-3"
+    },
+    {
+     "espnId": "275",
+     "name": "Wisconsin",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "7-4"
     },
     {
      "espnId": "356",
      "name": "Illinois",
      "conf": {
       "wins": 4,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "30",
-     "name": "USC",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "7-3"
-    },
-    {
-     "espnId": "275",
-     "name": "Wisconsin",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "135",
      "name": "Minnesota",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 4
      },
-     "overall": "5-5"
+     "overall": "6-5"
     },
     {
      "espnId": "158",
      "name": "Nebraska",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 4
      },
-     "overall": "6-4"
+     "overall": "7-4"
+    },
+    {
+     "espnId": "264",
+     "name": "Washington",
+     "conf": {
+      "wins": 4,
+      "losses": 4
+     },
+     "overall": "7-4"
+    },
+    {
+     "espnId": "130",
+     "name": "Michigan",
+     "conf": {
+      "wins": 3,
+      "losses": 5
+     },
+     "overall": "6-5"
     },
     {
      "espnId": "77",
      "name": "Northwestern",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "213",
      "name": "Penn State",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "264",
-     "name": "Washington",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "120",
      "name": "Maryland",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "4-6"
-    },
-    {
-     "espnId": "130",
-     "name": "Michigan",
-     "conf": {
-      "wins": 2,
-      "losses": 5
-     },
-     "overall": "5-5"
+     "overall": "4-7"
     },
     {
      "espnId": "2509",
      "name": "Purdue",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "164",
      "name": "Rutgers",
      "conf": {
-      "wins": 1,
+      "wins": 2,
       "losses": 6
      },
-     "overall": "2-8"
+     "overall": "3-8"
     },
     {
      "espnId": "127",
@@ -621,91 +621,91 @@
      "espnId": "2335",
      "name": "Liberty",
      "conf": {
-      "wins": 6,
+      "wins": 7,
       "losses": 0
      },
-     "overall": "9-1"
+     "overall": "10-1"
     },
     {
      "espnId": "55",
      "name": "Jax State",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 1
      },
-     "overall": "7-3"
+     "overall": "8-3"
     },
     {
      "espnId": "48",
      "name": "Delaware",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "5-5"
+     "overall": "6-5"
     },
     {
      "espnId": "338",
      "name": "Kennesaw St",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "4-6"
+     "overall": "5-6"
     },
     {
      "espnId": "2393",
      "name": "MTSU",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "5-5"
+     "overall": "6-5"
     },
     {
      "espnId": "2623",
      "name": "Missouri St",
      "conf": {
       "wins": 3,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "98",
      "name": "Western KY",
      "conf": {
       "wins": 3,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "2229",
      "name": "FIU",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "166",
      "name": "New Mexico St",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "2534",
      "name": "Sam Houston",
      "conf": {
       "wins": 0,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "1-9"
+     "overall": "1-10"
     }
    ]
   },
@@ -846,6 +846,15 @@
      "overall": "9-2"
     },
     {
+     "espnId": "2449",
+     "name": "N Dakota St",
+     "conf": {
+      "wins": 6,
+      "losses": 2
+     },
+     "overall": "9-2"
+    },
+    {
      "espnId": "2751",
      "name": "Wyoming",
      "conf": {
@@ -864,22 +873,13 @@
      "overall": "9-2"
     },
     {
-     "espnId": "2449",
-     "name": "N Dakota St",
+     "espnId": "2439",
+     "name": "UNLV",
      "conf": {
       "wins": 5,
       "losses": 2
      },
-     "overall": "8-2"
-    },
-    {
-     "espnId": "2439",
-     "name": "UNLV",
-     "conf": {
-      "wins": 4,
-      "losses": 2
-     },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
      "espnId": "2440",
@@ -895,9 +895,9 @@
      "name": "San Jos\u00e9 St",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "5-6"
+     "overall": "5-7"
     },
     {
      "espnId": "62",
@@ -913,9 +913,9 @@
      "name": "N Illinois",
      "conf": {
       "wins": 0,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "0-10"
+     "overall": "0-11"
     },
     {
      "espnId": "2638",
@@ -942,6 +942,15 @@
      "overall": "9-1"
     },
     {
+     "espnId": "326",
+     "name": "Texas St",
+     "conf": {
+      "wins": 5,
+      "losses": 2
+     },
+     "overall": "7-4"
+    },
+    {
      "espnId": "21",
      "name": "San Diego St",
      "conf": {
@@ -949,15 +958,6 @@
       "losses": 2
      },
      "overall": "5-5"
-    },
-    {
-     "espnId": "326",
-     "name": "Texas St",
-     "conf": {
-      "wins": 4,
-      "losses": 2
-     },
-     "overall": "6-4"
     },
     {
      "espnId": "204",
@@ -1000,9 +1000,9 @@
      "name": "Washington St",
      "conf": {
       "wins": 1,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "2-8"
+     "overall": "2-9"
     }
    ]
   },
@@ -1014,10 +1014,10 @@
      "espnId": "61",
      "name": "Georgia",
      "conf": {
-      "wins": 7,
+      "wins": 8,
       "losses": 1
      },
-     "overall": "9-1"
+     "overall": "10-1"
     },
     {
      "espnId": "333",
@@ -1026,43 +1026,52 @@
       "wins": 6,
       "losses": 2
      },
-     "overall": "8-2"
+     "overall": "9-2"
     },
     {
      "espnId": "2633",
      "name": "Tennessee",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 2
      },
-     "overall": "8-2"
+     "overall": "9-2"
     },
     {
      "espnId": "251",
      "name": "Texas",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 2
      },
-     "overall": "8-2"
+     "overall": "9-2"
+    },
+    {
+     "espnId": "201",
+     "name": "Oklahoma",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "7-4"
+    },
+    {
+     "espnId": "57",
+     "name": "Florida",
+     "conf": {
+      "wins": 5,
+      "losses": 4
+     },
+     "overall": "7-4"
     },
     {
      "espnId": "96",
      "name": "Kentucky",
      "conf": {
       "wins": 5,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "7-3"
-    },
-    {
-     "espnId": "201",
-     "name": "Oklahoma",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
      "espnId": "2",
@@ -1071,16 +1080,16 @@
       "wins": 4,
       "losses": 4
      },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
-     "espnId": "57",
-     "name": "Florida",
+     "espnId": "142",
+     "name": "Missouri",
      "conf": {
       "wins": 4,
       "losses": 4
      },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
      "espnId": "145",
@@ -1089,43 +1098,34 @@
       "wins": 4,
       "losses": 4
      },
-     "overall": "6-4"
+     "overall": "7-4"
     },
     {
      "espnId": "2579",
      "name": "South Carolina",
      "conf": {
       "wins": 4,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "99",
      "name": "LSU",
      "conf": {
       "wins": 3,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "142",
-     "name": "Missouri",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "8",
      "name": "Arkansas",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "344",
@@ -1134,25 +1134,25 @@
       "wins": 2,
       "losses": 6
      },
-     "overall": "4-6"
+     "overall": "5-6"
     },
     {
      "espnId": "245",
      "name": "Texas A&M",
      "conf": {
       "wins": 1,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "4-6"
+     "overall": "4-7"
     },
     {
      "espnId": "238",
      "name": "Vanderbilt",
      "conf": {
       "wins": 1,
-      "losses": 6
+      "losses": 7
      },
-     "overall": "4-6"
+     "overall": "4-7"
     }
    ]
   },
@@ -1164,20 +1164,20 @@
      "espnId": "2348",
      "name": "Louisiana Tech",
      "conf": {
-      "wins": 6,
+      "wins": 7,
       "losses": 0
      },
-     "overall": "8-2",
+     "overall": "9-2",
      "division": "Sun Belt - West"
     },
     {
      "espnId": "290",
      "name": "GA Southern",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 1
      },
-     "overall": "6-4",
+     "overall": "7-4",
      "division": "Sun Belt - East"
     },
     {
@@ -1194,50 +1194,60 @@
      "espnId": "309",
      "name": "Louisiana",
      "conf": {
-      "wins": 4,
+      "wins": 5,
       "losses": 2
      },
-     "overall": "7-3",
+     "overall": "8-3",
      "division": "Sun Belt - West"
     },
     {
      "espnId": "2026",
      "name": "App State",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "6-4",
-     "division": "Sun Belt - East"
-    },
-    {
-     "espnId": "324",
-     "name": "Coastal",
-     "conf": {
-      "wins": 3,
-      "losses": 3
-     },
-     "overall": "4-6",
+     "overall": "7-4",
      "division": "Sun Belt - East"
     },
     {
      "espnId": "6",
      "name": "South Alabama",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "5-5",
+     "overall": "6-5",
      "division": "Sun Belt - West"
+    },
+    {
+     "espnId": "324",
+     "name": "Coastal",
+     "conf": {
+      "wins": 3,
+      "losses": 4
+     },
+     "overall": "4-7",
+     "division": "Sun Belt - East"
+    },
+    {
+     "espnId": "276",
+     "name": "Marshall",
+     "conf": {
+      "wins": 3,
+      "losses": 4
+     },
+     "overall": "6-5",
+     "division": "Sun Belt - East"
     },
     {
      "espnId": "2032",
      "name": "Arkansas St",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "4-6",
+     "overall": "4-7",
      "division": "Sun Belt - West"
     },
     {
@@ -1245,50 +1255,10 @@
      "name": "Georgia St",
      "conf": {
       "wins": 2,
-      "losses": 4
+      "losses": 5
      },
-     "overall": "5-5",
+     "overall": "5-6",
      "division": "Sun Belt - East"
-    },
-    {
-     "espnId": "276",
-     "name": "Marshall",
-     "conf": {
-      "wins": 2,
-      "losses": 4
-     },
-     "overall": "5-5",
-     "division": "Sun Belt - East"
-    },
-    {
-     "espnId": "2572",
-     "name": "Southern Miss",
-     "conf": {
-      "wins": 2,
-      "losses": 4
-     },
-     "overall": "3-7",
-     "division": "Sun Belt - West"
-    },
-    {
-     "espnId": "2653",
-     "name": "Troy",
-     "conf": {
-      "wins": 2,
-      "losses": 4
-     },
-     "overall": "4-6",
-     "division": "Sun Belt - West"
-    },
-    {
-     "espnId": "2433",
-     "name": "UL Monroe",
-     "conf": {
-      "wins": 2,
-      "losses": 4
-     },
-     "overall": "2-8",
-     "division": "Sun Belt - West"
     },
     {
      "espnId": "295",
@@ -1297,11 +1267,41 @@
       "wins": 2,
       "losses": 5
      },
-     "overall": "3-7",
+     "overall": "3-8",
      "division": "Sun Belt - East"
+    },
+    {
+     "espnId": "2572",
+     "name": "Southern Miss",
+     "conf": {
+      "wins": 2,
+      "losses": 5
+     },
+     "overall": "3-8",
+     "division": "Sun Belt - West"
+    },
+    {
+     "espnId": "2653",
+     "name": "Troy",
+     "conf": {
+      "wins": 2,
+      "losses": 5
+     },
+     "overall": "4-7",
+     "division": "Sun Belt - West"
+    },
+    {
+     "espnId": "2433",
+     "name": "UL Monroe",
+     "conf": {
+      "wins": 2,
+      "losses": 5
+     },
+     "overall": "2-9",
+     "division": "Sun Belt - West"
     }
    ]
   }
  ],
- "fetchedAt": "2026-11-21T07:50Z"
+ "fetchedAt": "2026-11-22T04:12Z"
 }

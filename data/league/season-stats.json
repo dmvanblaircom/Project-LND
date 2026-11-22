@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-21T07:50:34Z",
+ "builtAt": "2026-11-22T04:12:41Z",
  "ranked": {
   "passOffense": true,
   "turnoverMargin": true
@@ -8,7 +8,7 @@
  "source": "espn-box-scores",
  "teams": {
   "103": {
-   "games": 10,
+   "games": 11,
    "giveaways": 16,
    "passAllowed": 191.0,
    "ranks": {
@@ -17,7 +17,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 61,
+     "rank": 56,
      "tied": true
     }
    },
@@ -30,11 +30,11 @@
    "passAllowed": 181.7,
    "ranks": {
     "passOffense": {
-     "rank": 113,
+     "rank": 112,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 31,
      "tied": true
     }
    },
@@ -42,8 +42,8 @@
    "takeaways": 15
   },
   "12": {
-   "games": 10,
-   "giveaways": 10,
+   "games": 11,
+   "giveaways": 12,
    "passAllowed": 203.4,
    "ranks": {
     "passOffense": {
@@ -51,16 +51,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 56,
      "tied": true
     }
    },
    "rushAllowed": 142.3,
-   "takeaways": 12
+   "takeaways": 13
   },
   "120": {
-   "games": 10,
-   "giveaways": 11,
+   "games": 11,
+   "giveaways": 14,
    "passAllowed": 214.3,
    "ranks": {
     "passOffense": {
@@ -68,7 +68,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 56,
      "tied": true
     }
    },
@@ -78,23 +78,23 @@
   "127": {
    "games": 11,
    "giveaways": 15,
-   "passAllowed": 203.7,
+   "passAllowed": 206.5,
    "ranks": {
     "passOffense": {
-     "rank": 106,
+     "rank": 115,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 112,
      "tied": true
     }
    },
-   "rushAllowed": 132.8,
+   "rushAllowed": 137.8,
    "takeaways": 10
   },
   "130": {
-   "games": 10,
-   "giveaways": 19,
+   "games": 11,
+   "giveaways": 20,
    "passAllowed": 173.4,
    "ranks": {
     "passOffense": {
@@ -102,33 +102,33 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 134,
+     "rank": 127,
      "tied": true
     }
    },
    "rushAllowed": 103.1,
-   "takeaways": 9
+   "takeaways": 12
   },
   "135": {
-   "games": 10,
+   "games": 11,
    "giveaways": 11,
    "passAllowed": 185.6,
    "ranks": {
     "passOffense": {
-     "rank": 92,
+     "rank": 91,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 22,
      "tied": true
     }
    },
    "rushAllowed": 140.1,
-   "takeaways": 16
+   "takeaways": 17
   },
   "142": {
-   "games": 10,
-   "giveaways": 7,
+   "games": 11,
+   "giveaways": 8,
    "passAllowed": 239.8,
    "ranks": {
     "passOffense": {
@@ -136,16 +136,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 8,
+     "rank": 6,
      "tied": true
     }
    },
    "rushAllowed": 107.2,
-   "takeaways": 16
+   "takeaways": 19
   },
   "145": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 217.7,
    "ranks": {
     "passOffense": {
@@ -153,49 +153,49 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 167.4,
-   "takeaways": 12
+   "takeaways": 14
   },
   "150": {
    "games": 11,
    "giveaways": 7,
-   "passAllowed": 206.1,
+   "passAllowed": 202.3,
    "ranks": {
     "passOffense": {
-     "rank": 59,
+     "rank": 68,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
-   "rushAllowed": 101.0,
+   "rushAllowed": 111.8,
    "takeaways": 11
   },
   "151": {
-   "games": 10,
-   "giveaways": 19,
+   "games": 11,
+   "giveaways": 20,
    "passAllowed": 191.3,
    "ranks": {
     "passOffense": {
-     "rank": 110,
+     "rank": 109,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 112,
      "tied": true
     }
    },
    "rushAllowed": 130.7,
-   "takeaways": 14
+   "takeaways": 15
   },
   "152": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 237.6,
    "ranks": {
@@ -204,16 +204,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 70,
      "tied": true
     }
    },
    "rushAllowed": 142.4,
-   "takeaways": 9
+   "takeaways": 11
   },
   "153": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 219.9,
    "ranks": {
     "passOffense": {
@@ -221,7 +221,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 112,
      "tied": true
     }
    },
@@ -229,8 +229,8 @@
    "takeaways": 11
   },
   "154": {
-   "games": 10,
-   "giveaways": 4,
+   "games": 11,
+   "giveaways": 5,
    "passAllowed": 223.4,
    "ranks": {
     "passOffense": {
@@ -238,15 +238,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 12,
      "tied": true
     }
    },
    "rushAllowed": 83.1,
-   "takeaways": 10
+   "takeaways": 13
   },
   "158": {
-   "games": 10,
+   "games": 11,
    "giveaways": 7,
    "passAllowed": 177.1,
    "ranks": {
@@ -255,12 +255,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 16,
      "tied": true
     }
    },
    "rushAllowed": 91.4,
-   "takeaways": 12
+   "takeaways": 14
   },
   "16": {
    "games": 11,
@@ -268,11 +268,11 @@
    "passAllowed": 175.5,
    "ranks": {
     "passOffense": {
-     "rank": 114,
+     "rank": 113,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 112,
      "tied": true
     }
    },
@@ -280,24 +280,24 @@
    "takeaways": 12
   },
   "164": {
-   "games": 10,
+   "games": 11,
    "giveaways": 16,
    "passAllowed": 222.2,
    "ranks": {
     "passOffense": {
-     "rank": 93,
+     "rank": 92,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 128,
+     "rank": 121,
      "tied": true
     }
    },
    "rushAllowed": 191.4,
-   "takeaways": 8
+   "takeaways": 10
   },
   "166": {
-   "games": 10,
+   "games": 11,
    "giveaways": 20,
    "passAllowed": 211.2,
    "ranks": {
@@ -316,7 +316,7 @@
   "167": {
    "games": 11,
    "giveaways": 11,
-   "passAllowed": 172.7,
+   "passAllowed": 169.9,
    "ranks": {
     "passOffense": {
      "rank": 132,
@@ -327,11 +327,11 @@
      "tied": false
     }
    },
-   "rushAllowed": 76.2,
+   "rushAllowed": 73.5,
    "takeaways": 28
   },
   "183": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 217.6,
    "ranks": {
@@ -340,7 +340,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 52,
      "tied": true
     }
    },
@@ -350,18 +350,18 @@
   "189": {
    "games": 11,
    "giveaways": 14,
-   "passAllowed": 182.5,
+   "passAllowed": 183.3,
    "ranks": {
     "passOffense": {
-     "rank": 116,
+     "rank": 118,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
-   "rushAllowed": 198.5,
+   "rushAllowed": 189.5,
    "takeaways": 12
   },
   "193": {
@@ -374,7 +374,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 31,
      "tied": true
     }
    },
@@ -382,8 +382,8 @@
    "takeaways": 13
   },
   "194": {
-   "games": 10,
-   "giveaways": 13,
+   "games": 11,
+   "giveaways": 15,
    "passAllowed": 193.4,
    "ranks": {
     "passOffense": {
@@ -391,7 +391,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 91,
      "tied": true
     }
    },
@@ -404,11 +404,11 @@
    "passAllowed": 202.5,
    "ranks": {
     "passOffense": {
-     "rank": 111,
+     "rank": 110,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 91,
      "tied": true
     }
    },
@@ -425,7 +425,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
@@ -433,8 +433,8 @@
    "takeaways": 15
   },
   "2": {
-   "games": 10,
-   "giveaways": 12,
+   "games": 11,
+   "giveaways": 13,
    "passAllowed": 241.5,
    "ranks": {
     "passOffense": {
@@ -442,7 +442,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 31,
      "tied": true
     }
    },
@@ -452,18 +452,18 @@
   "2005": {
    "games": 11,
    "giveaways": 8,
-   "passAllowed": 159.7,
+   "passAllowed": 153.5,
    "ranks": {
     "passOffense": {
      "rank": 138,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 52,
      "tied": true
     }
    },
-   "rushAllowed": 129.0,
+   "rushAllowed": 119.5,
    "takeaways": 10
   },
   "2006": {
@@ -484,8 +484,8 @@
    "takeaways": 10
   },
   "201": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 166.3,
    "ranks": {
     "passOffense": {
@@ -493,16 +493,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 128.3,
-   "takeaways": 13
+   "takeaways": 14
   },
   "202": {
-   "games": 10,
-   "giveaways": 8,
+   "games": 11,
+   "giveaways": 9,
    "passAllowed": 208.6,
    "ranks": {
     "passOffense": {
@@ -510,33 +510,33 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 7,
+     "rank": 9,
      "tied": false
     }
    },
    "rushAllowed": 178.1,
-   "takeaways": 18
+   "takeaways": 19
   },
   "2026": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 220.8,
    "ranks": {
     "passOffense": {
-     "rank": 32,
+     "rank": 31,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
    "rushAllowed": 149.6,
-   "takeaways": 14
+   "takeaways": 15
   },
   "2032": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 185.3,
    "ranks": {
     "passOffense": {
@@ -544,7 +544,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 63,
      "tied": true
     }
    },
@@ -561,7 +561,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
@@ -578,7 +578,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
@@ -595,7 +595,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
@@ -612,7 +612,7 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 91,
      "tied": true
     }
    },
@@ -622,18 +622,18 @@
   "2116": {
    "games": 11,
    "giveaways": 12,
-   "passAllowed": 244.7,
+   "passAllowed": 232.4,
    "ranks": {
     "passOffense": {
-     "rank": 79,
+     "rank": 76,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 22,
      "tied": true
     }
    },
-   "rushAllowed": 135.3,
+   "rushAllowed": 140.2,
    "takeaways": 18
   },
   "2117": {
@@ -646,7 +646,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 63,
      "tied": true
     }
    },
@@ -654,8 +654,8 @@
    "takeaways": 15
   },
   "213": {
-   "games": 10,
-   "giveaways": 7,
+   "games": 11,
+   "giveaways": 9,
    "passAllowed": 148.8,
    "ranks": {
     "passOffense": {
@@ -663,7 +663,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 11,
+     "rank": 22,
      "tied": true
     }
    },
@@ -671,8 +671,8 @@
    "takeaways": 15
   },
   "2132": {
-   "games": 10,
-   "giveaways": 9,
+   "games": 11,
+   "giveaways": 10,
    "passAllowed": 275.0,
    "ranks": {
     "passOffense": {
@@ -680,12 +680,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 16,
      "tied": true
     }
    },
    "rushAllowed": 180.9,
-   "takeaways": 13
+   "takeaways": 17
   },
   "218": {
    "games": 11,
@@ -697,7 +697,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 91,
      "tied": true
     }
    },
@@ -714,7 +714,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 70,
      "tied": true
     }
    },
@@ -722,8 +722,8 @@
    "takeaways": 12
   },
   "221": {
-   "games": 10,
-   "giveaways": 12,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 243.6,
    "ranks": {
     "passOffense": {
@@ -731,16 +731,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 63,
      "tied": true
     }
    },
    "rushAllowed": 71.2,
-   "takeaways": 14
+   "takeaways": 16
   },
   "2226": {
-   "games": 10,
-   "giveaways": 10,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 228.4,
    "ranks": {
     "passOffense": {
@@ -748,15 +748,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 22,
      "tied": true
     }
    },
    "rushAllowed": 238.0,
-   "takeaways": 15
+   "takeaways": 17
   },
   "2229": {
-   "games": 10,
+   "games": 11,
    "giveaways": 15,
    "passAllowed": 190.3,
    "ranks": {
@@ -765,7 +765,7 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 105,
      "tied": true
     }
    },
@@ -773,8 +773,8 @@
    "takeaways": 11
   },
   "2247": {
-   "games": 10,
-   "giveaways": 13,
+   "games": 11,
+   "giveaways": 14,
    "passAllowed": 229.7,
    "ranks": {
     "passOffense": {
@@ -782,7 +782,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 56,
      "tied": true
     }
    },
@@ -792,40 +792,40 @@
   "228": {
    "games": 11,
    "giveaways": 16,
-   "passAllowed": 205.1,
+   "passAllowed": 200.0,
    "ranks": {
     "passOffense": {
-     "rank": 117,
+     "rank": 116,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 63,
      "tied": true
     }
    },
-   "rushAllowed": 137.0,
+   "rushAllowed": 133.5,
    "takeaways": 16
   },
   "2294": {
-   "games": 10,
-   "giveaways": 10,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 195.7,
    "ranks": {
     "passOffense": {
-     "rank": 95,
+     "rank": 94,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 56,
      "tied": true
     }
    },
    "rushAllowed": 83.6,
-   "takeaways": 10
+   "takeaways": 12
   },
   "23": {
-   "games": 11,
-   "giveaways": 10,
+   "games": 12,
+   "giveaways": 11,
    "passAllowed": 206.1,
    "ranks": {
     "passOffense": {
@@ -833,33 +833,33 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 22,
      "tied": true
     }
    },
    "rushAllowed": 178.7,
-   "takeaways": 15
+   "takeaways": 17
   },
   "2305": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 18,
    "passAllowed": 190.1,
    "ranks": {
     "passOffense": {
-     "rank": 60,
+     "rank": 59,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 112,
      "tied": true
     }
    },
    "rushAllowed": 145.5,
-   "takeaways": 11
+   "takeaways": 13
   },
   "2306": {
-   "games": 10,
-   "giveaways": 11,
+   "games": 11,
+   "giveaways": 12,
    "passAllowed": 178.2,
    "ranks": {
     "passOffense": {
@@ -867,12 +867,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 165.1,
-   "takeaways": 7
+   "takeaways": 9
   },
   "2309": {
    "games": 11,
@@ -884,16 +884,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 136,
-     "tied": true
+     "rank": 135,
+     "tied": false
     }
    },
    "rushAllowed": 156.1,
    "takeaways": 9
   },
   "2335": {
-   "games": 10,
-   "giveaways": 7,
+   "games": 11,
+   "giveaways": 9,
    "passAllowed": 187.4,
    "ranks": {
     "passOffense": {
@@ -901,7 +901,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 11,
+     "rank": 22,
      "tied": true
     }
    },
@@ -909,25 +909,25 @@
    "takeaways": 15
   },
   "2348": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 201.3,
    "ranks": {
     "passOffense": {
-     "rank": 33,
+     "rank": 32,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 4,
-     "tied": true
+     "rank": 2,
+     "tied": false
     }
    },
    "rushAllowed": 131.6,
-   "takeaways": 26
+   "takeaways": 28
   },
   "235": {
-   "games": 10,
-   "giveaways": 13,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 197.3,
    "ranks": {
     "passOffense": {
@@ -935,32 +935,32 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 36,
      "tied": true
     }
    },
    "rushAllowed": 197.2,
-   "takeaways": 19
+   "takeaways": 20
   },
   "238": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 220.9,
    "ranks": {
     "passOffense": {
-     "rank": 66,
+     "rank": 65,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 112,
      "tied": true
     }
    },
    "rushAllowed": 133.2,
-   "takeaways": 10
+   "takeaways": 11
   },
   "239": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 224.6,
    "ranks": {
@@ -969,16 +969,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 16,
      "tied": true
     }
    },
    "rushAllowed": 120.0,
-   "takeaways": 16
+   "takeaways": 19
   },
   "2390": {
-   "games": 10,
-   "giveaways": 5,
+   "games": 11,
+   "giveaways": 7,
    "passAllowed": 254.5,
    "ranks": {
     "passOffense": {
@@ -986,7 +986,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 36,
      "tied": true
     }
    },
@@ -994,8 +994,8 @@
    "takeaways": 11
   },
   "2393": {
-   "games": 10,
-   "giveaways": 7,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 200.7,
    "ranks": {
     "passOffense": {
@@ -1003,15 +1003,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 46,
      "tied": true
     }
    },
    "rushAllowed": 208.3,
-   "takeaways": 13
+   "takeaways": 14
   },
   "24": {
-   "games": 10,
+   "games": 11,
    "giveaways": 8,
    "passAllowed": 256.3,
    "ranks": {
@@ -1020,12 +1020,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 46,
      "tied": true
     }
    },
    "rushAllowed": 192.5,
-   "takeaways": 10
+   "takeaways": 11
   },
   "242": {
    "games": 11,
@@ -1037,7 +1037,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 121,
      "tied": true
     }
    },
@@ -1045,8 +1045,8 @@
    "takeaways": 9
   },
   "2426": {
-   "games": 9,
-   "giveaways": 12,
+   "games": 10,
+   "giveaways": 13,
    "passAllowed": 242.9,
    "ranks": {
     "passOffense": {
@@ -1054,16 +1054,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 105,
      "tied": true
     }
    },
    "rushAllowed": 112.7,
-   "takeaways": 6
+   "takeaways": 9
   },
   "2429": {
-   "games": 10,
-   "giveaways": 18,
+   "games": 11,
+   "giveaways": 19,
    "passAllowed": 251.4,
    "ranks": {
     "passOffense": {
@@ -1071,16 +1071,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 105,
      "tied": true
     }
    },
    "rushAllowed": 183.5,
-   "takeaways": 14
+   "takeaways": 15
   },
   "2433": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 195.6,
    "ranks": {
     "passOffense": {
@@ -1088,29 +1088,29 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 128,
+     "rank": 127,
      "tied": true
     }
    },
    "rushAllowed": 217.4,
-   "takeaways": 8
+   "takeaways": 9
   },
   "2439": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 188.1,
    "ranks": {
     "passOffense": {
-     "rank": 94,
+     "rank": 93,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 207.2,
-   "takeaways": 13
+   "takeaways": 14
   },
   "2440": {
    "games": 10,
@@ -1118,54 +1118,54 @@
    "passAllowed": 161.0,
    "ranks": {
     "passOffense": {
-     "rank": 131,
+     "rank": 130,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 138,
-     "tied": false
+     "rank": 136,
+     "tied": true
     }
    },
    "rushAllowed": 157.1,
    "takeaways": 6
   },
   "2449": {
-   "games": 10,
-   "giveaways": 9,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 135.1,
    "ranks": {
     "passOffense": {
-     "rank": 112,
+     "rank": 111,
      "tied": false
     },
     "turnoverMargin": {
      "rank": 6,
-     "tied": false
+     "tied": true
     }
    },
    "rushAllowed": 115.0,
-   "takeaways": 20
+   "takeaways": 22
   },
   "245": {
-   "games": 10,
-   "giveaways": 13,
+   "games": 11,
+   "giveaways": 14,
    "passAllowed": 182.5,
    "ranks": {
     "passOffense": {
-     "rank": 107,
+     "rank": 106,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 70,
      "tied": true
     }
    },
    "rushAllowed": 136.5,
-   "takeaways": 11
+   "takeaways": 13
   },
   "2459": {
-   "games": 10,
-   "giveaways": 18,
+   "games": 11,
+   "giveaways": 20,
    "passAllowed": 204.7,
    "ranks": {
     "passOffense": {
@@ -1173,15 +1173,15 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 128,
+     "rank": 127,
      "tied": true
     }
    },
    "rushAllowed": 214.3,
-   "takeaways": 10
+   "takeaways": 12
   },
   "248": {
-   "games": 10,
+   "games": 11,
    "giveaways": 8,
    "passAllowed": 249.3,
    "ranks": {
@@ -1190,7 +1190,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 22,
      "tied": true
     }
    },
@@ -1200,23 +1200,23 @@
   "2483": {
    "games": 11,
    "giveaways": 13,
-   "passAllowed": 209.5,
+   "passAllowed": 201.4,
    "ranks": {
     "passOffense": {
      "rank": 14,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
-   "rushAllowed": 133.8,
+   "rushAllowed": 128.9,
    "takeaways": 17
   },
   "249": {
-   "games": 10,
-   "giveaways": 11,
+   "games": 11,
+   "giveaways": 13,
    "passAllowed": 213.1,
    "ranks": {
     "passOffense": {
@@ -1224,16 +1224,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
    "rushAllowed": 179.2,
-   "takeaways": 15
+   "takeaways": 17
   },
   "25": {
-   "games": 10,
-   "giveaways": 12,
+   "games": 11,
+   "giveaways": 13,
    "passAllowed": 209.5,
    "ranks": {
     "passOffense": {
@@ -1241,7 +1241,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 91,
      "tied": true
     }
    },
@@ -1249,8 +1249,8 @@
    "takeaways": 10
   },
   "2509": {
-   "games": 10,
-   "giveaways": 10,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 239.0,
    "ranks": {
     "passOffense": {
@@ -1258,7 +1258,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 61,
+     "rank": 63,
      "tied": true
     }
    },
@@ -1266,55 +1266,55 @@
    "takeaways": 11
   },
   "251": {
-   "games": 10,
+   "games": 11,
    "giveaways": 17,
    "passAllowed": 186.2,
+   "ranks": {
+    "passOffense": {
+     "rank": 66,
+     "tied": false
+    },
+    "turnoverMargin": {
+     "rank": 80,
+     "tied": true
+    }
+   },
+   "rushAllowed": 102.5,
+   "takeaways": 15
+  },
+  "252": {
+   "games": 11,
+   "giveaways": 14,
+   "passAllowed": 195.5,
+   "ranks": {
+    "passOffense": {
+     "rank": 79,
+     "tied": false
+    },
+    "turnoverMargin": {
+     "rank": 63,
+     "tied": true
+    }
+   },
+   "rushAllowed": 100.3,
+   "takeaways": 14
+  },
+  "2534": {
+   "games": 11,
+   "giveaways": 11,
+   "passAllowed": 163.4,
    "ranks": {
     "passOffense": {
      "rank": 67,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
-     "tied": true
-    }
-   },
-   "rushAllowed": 102.5,
-   "takeaways": 13
-  },
-  "252": {
-   "games": 10,
-   "giveaways": 12,
-   "passAllowed": 195.5,
-   "ranks": {
-    "passOffense": {
-     "rank": 78,
-     "tied": false
-    },
-    "turnoverMargin": {
-     "rank": 65,
-     "tied": true
-    }
-   },
-   "rushAllowed": 100.3,
-   "takeaways": 12
-  },
-  "2534": {
-   "games": 10,
-   "giveaways": 10,
-   "passAllowed": 163.4,
-   "ranks": {
-    "passOffense": {
-     "rank": 68,
-     "tied": false
-    },
-    "turnoverMargin": {
-     "rank": 73,
+     "rank": 52,
      "tied": true
     }
    },
    "rushAllowed": 182.1,
-   "takeaways": 9
+   "takeaways": 13
   },
   "254": {
    "games": 10,
@@ -1326,7 +1326,7 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 48,
+     "rank": 46,
      "tied": true
     }
    },
@@ -1339,11 +1339,11 @@
    "passAllowed": 241.7,
    "ranks": {
     "passOffense": {
-     "rank": 31,
+     "rank": 30,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 61,
+     "rank": 56,
      "tied": true
     }
    },
@@ -1351,8 +1351,8 @@
    "takeaways": 13
   },
   "2567": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 199.4,
    "ranks": {
     "passOffense": {
@@ -1360,16 +1360,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 112,
      "tied": true
     }
    },
    "rushAllowed": 141.9,
-   "takeaways": 9
+   "takeaways": 11
   },
   "2572": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 234.5,
    "ranks": {
     "passOffense": {
@@ -1377,16 +1377,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 105,
      "tied": true
     }
    },
    "rushAllowed": 210.7,
-   "takeaways": 12
+   "takeaways": 13
   },
   "2579": {
-   "games": 10,
-   "giveaways": 17,
+   "games": 11,
+   "giveaways": 18,
    "passAllowed": 224.2,
    "ranks": {
     "passOffense": {
@@ -1402,7 +1402,7 @@
    "takeaways": 6
   },
   "258": {
-   "games": 10,
+   "games": 11,
    "giveaways": 6,
    "passAllowed": 186.6,
    "ranks": {
@@ -1411,15 +1411,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 12,
      "tied": true
     }
    },
    "rushAllowed": 148.6,
-   "takeaways": 12
+   "takeaways": 14
   },
   "259": {
-   "games": 10,
+   "games": 11,
    "giveaways": 15,
    "passAllowed": 229.7,
    "ranks": {
@@ -1428,16 +1428,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 128,
+     "rank": 121,
      "tied": true
     }
    },
    "rushAllowed": 119.9,
-   "takeaways": 7
+   "takeaways": 9
   },
   "26": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 176.9,
    "ranks": {
     "passOffense": {
@@ -1445,29 +1445,29 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 2,
-     "tied": true
+     "rank": 4,
+     "tied": false
     }
    },
    "rushAllowed": 85.3,
-   "takeaways": 30
+   "takeaways": 31
   },
   "2623": {
-   "games": 10,
+   "games": 11,
    "giveaways": 11,
    "passAllowed": 235.3,
    "ranks": {
     "passOffense": {
-     "rank": 65,
+     "rank": 64,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 46,
      "tied": true
     }
    },
    "rushAllowed": 183.0,
-   "takeaways": 13
+   "takeaways": 14
   },
   "2628": {
    "games": 10,
@@ -1479,7 +1479,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 70,
      "tied": true
     }
    },
@@ -1487,8 +1487,8 @@
    "takeaways": 14
   },
   "2633": {
-   "games": 10,
-   "giveaways": 11,
+   "games": 11,
+   "giveaways": 14,
    "passAllowed": 164.2,
    "ranks": {
     "passOffense": {
@@ -1496,12 +1496,12 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 11,
+     "rank": 12,
      "tied": true
     }
    },
    "rushAllowed": 120.5,
-   "takeaways": 19
+   "takeaways": 22
   },
   "2636": {
    "games": 10,
@@ -1513,7 +1513,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 18,
+     "rank": 22,
      "tied": true
     }
    },
@@ -1523,23 +1523,23 @@
   "2638": {
    "games": 11,
    "giveaways": 18,
-   "passAllowed": 226.9,
+   "passAllowed": 220.5,
    "ranks": {
     "passOffense": {
      "rank": 133,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 105,
      "tied": true
     }
    },
-   "rushAllowed": 176.7,
+   "rushAllowed": 199.6,
    "takeaways": 14
   },
   "264": {
-   "games": 10,
-   "giveaways": 11,
+   "games": 11,
+   "giveaways": 12,
    "passAllowed": 217.2,
    "ranks": {
     "passOffense": {
@@ -1547,7 +1547,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 36,
      "tied": true
     }
    },
@@ -1555,8 +1555,8 @@
    "takeaways": 16
   },
   "2641": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 288.0,
    "ranks": {
     "passOffense": {
@@ -1564,7 +1564,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 70,
      "tied": true
     }
    },
@@ -1574,48 +1574,48 @@
   "2649": {
    "games": 11,
    "giveaways": 11,
-   "passAllowed": 192.3,
+   "passAllowed": 187.9,
    "ranks": {
     "passOffense": {
-     "rank": 30,
+     "rank": 35,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 48,
+     "rank": 46,
      "tied": true
     }
    },
-   "rushAllowed": 109.4,
+   "rushAllowed": 103.5,
    "takeaways": 14
   },
   "265": {
-   "games": 10,
+   "games": 11,
    "giveaways": 14,
    "passAllowed": 203.6,
+   "ranks": {
+    "passOffense": {
+     "rank": 107,
+     "tied": false
+    },
+    "turnoverMargin": {
+     "rank": 112,
+     "tied": true
+    }
+   },
+   "rushAllowed": 163.8,
+   "takeaways": 9
+  },
+  "2653": {
+   "games": 11,
+   "giveaways": 18,
+   "passAllowed": 205.2,
    "ranks": {
     "passOffense": {
      "rank": 108,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
-     "tied": true
-    }
-   },
-   "rushAllowed": 163.8,
-   "takeaways": 8
-  },
-  "2653": {
-   "games": 10,
-   "giveaways": 15,
-   "passAllowed": 205.2,
-   "ranks": {
-    "passOffense": {
-     "rank": 109,
-     "tied": false
-    },
-    "turnoverMargin": {
-     "rank": 65,
+     "rank": 91,
      "tied": true
     }
    },
@@ -1623,8 +1623,8 @@
    "takeaways": 15
   },
   "2655": {
-   "games": 10,
-   "giveaways": 17,
+   "games": 11,
+   "giveaways": 19,
    "passAllowed": 203.1,
    "ranks": {
     "passOffense": {
@@ -1632,12 +1632,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 121,
      "tied": true
     }
    },
    "rushAllowed": 215.6,
-   "takeaways": 11
+   "takeaways": 13
   },
   "2711": {
    "games": 11,
@@ -1649,7 +1649,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
@@ -1657,7 +1657,7 @@
    "takeaways": 13
   },
   "275": {
-   "games": 10,
+   "games": 11,
    "giveaways": 13,
    "passAllowed": 185.0,
    "ranks": {
@@ -1666,32 +1666,32 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 80,
      "tied": true
     }
    },
    "rushAllowed": 101.6,
-   "takeaways": 10
+   "takeaways": 11
   },
   "2751": {
    "games": 11,
    "giveaways": 16,
-   "passAllowed": 167.1,
+   "passAllowed": 173.2,
    "ranks": {
     "passOffense": {
-     "rank": 130,
+     "rank": 131,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 91,
      "tied": true
     }
    },
-   "rushAllowed": 189.0,
+   "rushAllowed": 189.9,
    "takeaways": 13
   },
   "276": {
-   "games": 10,
+   "games": 11,
    "giveaways": 19,
    "passAllowed": 241.7,
    "ranks": {
@@ -1700,24 +1700,24 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 112,
      "tied": true
     }
    },
    "rushAllowed": 177.4,
-   "takeaways": 13
+   "takeaways": 14
   },
   "277": {
-   "games": 10,
+   "games": 11,
    "giveaways": 9,
    "passAllowed": 305.7,
    "ranks": {
     "passOffense": {
-     "rank": 77,
+     "rank": 78,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 51,
+     "rank": 52,
      "tied": true
     }
    },
@@ -1730,11 +1730,11 @@
    "passAllowed": 234.0,
    "ranks": {
     "passOffense": {
-     "rank": 76,
+     "rank": 77,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 11,
+     "rank": 12,
      "tied": true
     }
    },
@@ -1742,7 +1742,7 @@
    "takeaways": 15
   },
   "290": {
-   "games": 10,
+   "games": 11,
    "giveaways": 10,
    "passAllowed": 185.6,
    "ranks": {
@@ -1751,15 +1751,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 16,
      "tied": true
     }
    },
    "rushAllowed": 128.6,
-   "takeaways": 14
+   "takeaways": 17
   },
   "295": {
-   "games": 10,
+   "games": 11,
    "giveaways": 21,
    "passAllowed": 207.6,
    "ranks": {
@@ -1768,15 +1768,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 70,
      "tied": true
     }
    },
    "rushAllowed": 131.4,
-   "takeaways": 19
+   "takeaways": 20
   },
   "30": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 229.6,
    "ranks": {
@@ -1785,16 +1785,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 70,
      "tied": true
     }
    },
    "rushAllowed": 126.9,
-   "takeaways": 8
+   "takeaways": 11
   },
   "309": {
-   "games": 10,
-   "giveaways": 12,
+   "games": 11,
+   "giveaways": 13,
    "passAllowed": 184.4,
    "ranks": {
     "passOffense": {
@@ -1802,16 +1802,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 16,
+     "rank": 10,
      "tied": true
     }
    },
    "rushAllowed": 143.5,
-   "takeaways": 19
+   "takeaways": 22
   },
   "324": {
-   "games": 10,
-   "giveaways": 21,
+   "games": 11,
+   "giveaways": 24,
    "passAllowed": 215.7,
    "ranks": {
     "passOffense": {
@@ -1819,16 +1819,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 80,
      "tied": true
     }
    },
    "rushAllowed": 172.8,
-   "takeaways": 21
+   "takeaways": 22
   },
   "326": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 15,
    "passAllowed": 288.0,
    "ranks": {
     "passOffense": {
@@ -1836,7 +1836,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 105,
      "tied": true
     }
    },
@@ -1849,11 +1849,11 @@
    "passAllowed": 212.8,
    "ranks": {
     "passOffense": {
-     "rank": 115,
+     "rank": 114,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 94,
+     "rank": 91,
      "tied": true
     }
    },
@@ -1861,12 +1861,12 @@
    "takeaways": 10
   },
   "333": {
-   "games": 10,
+   "games": 11,
    "giveaways": 14,
    "passAllowed": 238.2,
    "ranks": {
     "passOffense": {
-     "rank": 35,
+     "rank": 34,
      "tied": false
     },
     "turnoverMargin": {
@@ -1878,16 +1878,16 @@
    "takeaways": 21
   },
   "338": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 226.7,
    "ranks": {
     "passOffense": {
-     "rank": 64,
+     "rank": 63,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 63,
      "tied": true
     }
    },
@@ -1895,8 +1895,8 @@
    "takeaways": 12
   },
   "344": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 18,
    "passAllowed": 248.9,
    "ranks": {
     "passOffense": {
@@ -1904,16 +1904,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 126,
+     "rank": 127,
      "tied": true
     }
    },
    "rushAllowed": 123.4,
-   "takeaways": 9
+   "takeaways": 10
   },
   "349": {
-   "games": 9,
-   "giveaways": 5,
+   "games": 10,
+   "giveaways": 6,
    "passAllowed": 226.3,
    "ranks": {
     "passOffense": {
@@ -1921,29 +1921,29 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 61,
+     "rank": 56,
      "tied": true
     }
    },
    "rushAllowed": 164.3,
-   "takeaways": 6
+   "takeaways": 7
   },
   "356": {
-   "games": 10,
-   "giveaways": 9,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 246.3,
    "ranks": {
     "passOffense": {
-     "rank": 62,
+     "rank": 61,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 128.9,
-   "takeaways": 7
+   "takeaways": 8
   },
   "36": {
    "games": 10,
@@ -1955,7 +1955,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 38,
+     "rank": 36,
      "tied": true
     }
    },
@@ -1963,25 +1963,25 @@
    "takeaways": 14
   },
   "38": {
-   "games": 10,
-   "giveaways": 19,
+   "games": 11,
+   "giveaways": 23,
    "passAllowed": 246.5,
    "ranks": {
     "passOffense": {
-     "rank": 34,
+     "rank": 33,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 134,
-     "tied": true
+     "rank": 138,
+     "tied": false
     }
    },
    "rushAllowed": 140.4,
-   "takeaways": 9
+   "takeaways": 10
   },
   "41": {
-   "games": 10,
-   "giveaways": 10,
+   "games": 11,
+   "giveaways": 11,
    "passAllowed": 248.4,
    "ranks": {
     "passOffense": {
@@ -1989,7 +1989,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 80,
      "tied": true
     }
    },
@@ -1997,7 +1997,7 @@
    "takeaways": 9
   },
   "48": {
-   "games": 10,
+   "games": 11,
    "giveaways": 12,
    "passAllowed": 275.9,
    "ranks": {
@@ -2006,7 +2006,7 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 31,
      "tied": true
     }
    },
@@ -2023,7 +2023,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 121,
      "tied": true
     }
    },
@@ -2031,8 +2031,8 @@
    "takeaways": 11
   },
   "52": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 18,
    "passAllowed": 231.2,
    "ranks": {
     "passOffense": {
@@ -2040,7 +2040,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 126,
+     "rank": 132,
      "tied": true
     }
    },
@@ -2048,8 +2048,8 @@
    "takeaways": 9
   },
   "55": {
-   "games": 10,
-   "giveaways": 15,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 174.1,
    "ranks": {
     "passOffense": {
@@ -2057,7 +2057,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 121,
      "tied": true
     }
    },
@@ -2065,8 +2065,8 @@
    "takeaways": 10
   },
   "57": {
-   "games": 10,
-   "giveaways": 13,
+   "games": 11,
+   "giveaways": 14,
    "passAllowed": 227.4,
    "ranks": {
     "passOffense": {
@@ -2074,50 +2074,50 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 81,
+     "rank": 80,
      "tied": true
     }
    },
    "rushAllowed": 127.3,
-   "takeaways": 11
+   "takeaways": 12
   },
   "58": {
-   "games": 10,
-   "giveaways": 5,
+   "games": 11,
+   "giveaways": 7,
    "passAllowed": 196.3,
    "ranks": {
     "passOffense": {
-     "rank": 118,
+     "rank": 117,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 36,
      "tied": true
     }
    },
    "rushAllowed": 143.2,
-   "takeaways": 10
+   "takeaways": 11
   },
   "59": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 17,
    "passAllowed": 190.7,
    "ranks": {
     "passOffense": {
-     "rank": 61,
+     "rank": 60,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 118,
+     "rank": 127,
      "tied": true
     }
    },
    "rushAllowed": 209.1,
-   "takeaways": 8
+   "takeaways": 9
   },
   "6": {
-   "games": 10,
-   "giveaways": 7,
+   "games": 11,
+   "giveaways": 8,
    "passAllowed": 234.2,
    "ranks": {
     "passOffense": {
@@ -2125,15 +2125,15 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 31,
      "tied": true
     }
    },
    "rushAllowed": 168.8,
-   "takeaways": 12
+   "takeaways": 13
   },
   "61": {
-   "games": 10,
+   "games": 11,
    "giveaways": 10,
    "passAllowed": 186.3,
    "ranks": {
@@ -2142,12 +2142,12 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 11,
+     "rank": 10,
      "tied": true
     }
    },
    "rushAllowed": 85.6,
-   "takeaways": 18
+   "takeaways": 19
   },
   "62": {
    "games": 10,
@@ -2159,7 +2159,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 70,
      "tied": true
     }
    },
@@ -2169,18 +2169,18 @@
   "66": {
    "games": 11,
    "giveaways": 13,
-   "passAllowed": 220.7,
+   "passAllowed": 223.8,
    "ranks": {
     "passOffense": {
-     "rank": 91,
+     "rank": 95,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 70,
      "tied": true
     }
    },
-   "rushAllowed": 174.1,
+   "rushAllowed": 176.9,
    "takeaways": 12
   },
   "68": {
@@ -2193,7 +2193,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 48,
+     "rank": 46,
      "tied": true
     }
    },
@@ -2201,25 +2201,25 @@
    "takeaways": 9
   },
   "77": {
-   "games": 10,
-   "giveaways": 4,
+   "games": 11,
+   "giveaways": 5,
    "passAllowed": 214.6,
    "ranks": {
     "passOffense": {
-     "rank": 63,
+     "rank": 62,
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 4,
-     "tied": true
+     "rank": 5,
+     "tied": false
     }
    },
    "rushAllowed": 151.2,
    "takeaways": 18
   },
   "8": {
-   "games": 10,
-   "giveaways": 14,
+   "games": 11,
+   "giveaways": 16,
    "passAllowed": 212.1,
    "ranks": {
     "passOffense": {
@@ -2227,7 +2227,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 65,
+     "rank": 80,
      "tied": true
     }
    },
@@ -2235,7 +2235,7 @@
    "takeaways": 14
   },
   "84": {
-   "games": 10,
+   "games": 11,
    "giveaways": 7,
    "passAllowed": 196.4,
    "ranks": {
@@ -2244,16 +2244,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 27,
+     "rank": 22,
      "tied": true
     }
    },
    "rushAllowed": 77.8,
-   "takeaways": 12
+   "takeaways": 13
   },
   "87": {
-   "games": 10,
-   "giveaways": 4,
+   "games": 11,
+   "giveaways": 6,
    "passAllowed": 152.7,
    "ranks": {
     "passOffense": {
@@ -2261,12 +2261,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 2,
-     "tied": true
+     "rank": 3,
+     "tied": false
     }
    },
    "rushAllowed": 86.9,
-   "takeaways": 20
+   "takeaways": 21
   },
   "9": {
    "games": 10,
@@ -2278,7 +2278,7 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 73,
+     "rank": 70,
      "tied": true
     }
    },
@@ -2286,8 +2286,8 @@
    "takeaways": 10
   },
   "96": {
-   "games": 10,
-   "giveaways": 9,
+   "games": 11,
+   "giveaways": 12,
    "passAllowed": 226.3,
    "ranks": {
     "passOffense": {
@@ -2295,16 +2295,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 8,
+     "rank": 16,
      "tied": true
     }
    },
    "rushAllowed": 135.7,
-   "takeaways": 18
+   "takeaways": 19
   },
   "97": {
-   "games": 10,
-   "giveaways": 8,
+   "games": 11,
+   "giveaways": 10,
    "passAllowed": 257.2,
    "ranks": {
     "passOffense": {
@@ -2312,15 +2312,15 @@
      "tied": true
     },
     "turnoverMargin": {
-     "rank": 8,
+     "rank": 6,
      "tied": true
     }
    },
    "rushAllowed": 136.1,
-   "takeaways": 17
+   "takeaways": 21
   },
   "98": {
-   "games": 10,
+   "games": 11,
    "giveaways": 15,
    "passAllowed": 222.6,
    "ranks": {
@@ -2329,16 +2329,16 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 111,
+     "rank": 91,
      "tied": true
     }
    },
    "rushAllowed": 161.8,
-   "takeaways": 10
+   "takeaways": 12
   },
   "99": {
-   "games": 10,
-   "giveaways": 16,
+   "games": 11,
+   "giveaways": 19,
    "passAllowed": 176.2,
    "ranks": {
     "passOffense": {
@@ -2346,12 +2346,12 @@
      "tied": false
     },
     "turnoverMargin": {
-     "rank": 103,
+     "rank": 105,
      "tied": true
     }
    },
    "rushAllowed": 86.1,
-   "takeaways": 12
+   "takeaways": 15
   }
  }
 }

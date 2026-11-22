@@ -1,7 +1,16 @@
 {
  "team": "tulsa",
- "updated": "2026-11-22T00:38:08.093952+00:00",
+ "updated": "2026-11-22T04:07:59.005065+00:00",
  "items": [
+  {
+   "title": "Tulsa overcomes slow start to rout Charlotte 42-14",
+   "link": "https://on3.com/sites/inside-tulsa-sports/news/tulsa-football-beats-charlotte-42-14/",
+   "source": "Inside Tulsa Sports",
+   "summary": "Tulsa scored 35 consecutive points to beat Charlotte 42-14, securing its first winning season since 2021 behind ManMan Singleton's three touchdowns.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21214631/HXrla_gWgAATZQc-1200.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-22T03:48:05+00:00"
+  },
   {
    "title": "Tulsa Earns Seventh Victory of the Season with Win over Charlotte",
    "link": "https://tulsahurricane.com/news/2026/11/21/football-tulsa-earns-seventh-victory-of-the-season-with-win-over-charlotte",
@@ -190,15 +199,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/08/16111258/Tre-Lamb-Tulsa-Football.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-04T15:35:23+00:00"
-  },
-  {
-   "title": "Tulsa Football turns its focus to bowl eligibility with four games remaining",
-   "link": "https://on3.com/sites/inside-tulsa-sports/news/tulsa-football-bowl-eligibility-tre-lamb/",
-   "source": "Inside Tulsa Sports",
-   "summary": "Tulsa football needs two wins in its final four games to become bowl eligible. Tre Lamb explains why reaching a bowl matters to the program.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/31150220/Damari-Alston-TU-1200.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-31T20:04:23+00:00"
   }
  ]
 }

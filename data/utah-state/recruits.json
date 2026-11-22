@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "328",
  "classYear": 2027,
- "listed": 7,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "271835",
+   "name": "Landon Guenter",
+   "position": "OT",
+   "highSchool": "Redwood High School",
+   "city": "Visalia",
+   "state": "CA",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 174,
+   "stateRank": 183,
+   "status": "Verbal"
+  },
   {
    "id": "273272",
    "name": "Brayden Hanks",
@@ -100,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-18T00:11Z"
+ "fetchedAt": "2026-11-22T04:10Z"
 }
