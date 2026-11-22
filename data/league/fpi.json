@@ -19,9 +19,9 @@
    "rankChange": 0,
    "record": "10-1",
    "odds": {
-    "playoff": 99.8,
-    "title": 26.6,
-    "titleGame": 44.6,
+    "playoff": 99.9,
+    "title": 27.7,
+    "titleGame": 45.5,
     "conference": 62.0,
     "winOut": 60.9
    },
@@ -43,9 +43,9 @@
    "rankChange": 0,
    "record": "10-1",
    "odds": {
-    "playoff": 98.6,
-    "title": 18.7,
-    "titleGame": 32.3,
+    "playoff": 98.5,
+    "title": 17.1,
+    "titleGame": 30.4,
     "conference": 0.0,
     "winOut": 95.0
    },
@@ -67,9 +67,9 @@
    "rankChange": 3,
    "record": "9-2",
    "odds": {
-    "playoff": 92.3,
-    "title": 13.0,
-    "titleGame": 24.7,
+    "playoff": 94.9,
+    "title": 12.9,
+    "titleGame": 25.2,
     "conference": 31.2,
     "winOut": 38.5
    },
@@ -91,9 +91,9 @@
    "rankChange": -1,
    "record": "10-1",
    "odds": {
-    "playoff": 96.7,
-    "title": 11.1,
-    "titleGame": 22.2,
+    "playoff": 99.0,
+    "title": 11.6,
+    "titleGame": 23.4,
     "conference": 61.2,
     "winOut": 59.9
    },
@@ -115,9 +115,9 @@
    "rankChange": -1,
    "record": "9-2",
    "odds": {
-    "playoff": 91.5,
-    "title": 10.1,
-    "titleGame": 20.6,
+    "playoff": 94.7,
+    "title": 11.3,
+    "titleGame": 23.3,
     "conference": 3.4,
     "winOut": 81.8
    },
@@ -139,9 +139,9 @@
    "rankChange": -1,
    "record": "7-4",
    "odds": {
-    "playoff": 0.7,
+    "playoff": 0.2,
     "title": 0.0,
-    "titleGame": 0.1,
+    "titleGame": 0.0,
     "conference": 0.0,
     "winOut": 89.1
    },
@@ -163,9 +163,9 @@
    "rankChange": 2,
    "record": "8-3",
    "odds": {
-    "playoff": 58.8,
-    "title": 2.4,
-    "titleGame": 5.2,
+    "playoff": 61.2,
+    "title": 2.2,
+    "titleGame": 5.3,
     "conference": 57.2,
     "winOut": 58.3
    },
@@ -187,9 +187,9 @@
    "rankChange": 0,
    "record": "9-2",
    "odds": {
-    "playoff": 86.9,
-    "title": 3.6,
-    "titleGame": 9.1,
+    "playoff": 46.9,
+    "title": 1.8,
+    "titleGame": 4.2,
     "conference": 17.1,
     "winOut": 81.2
    },
@@ -235,9 +235,9 @@
    "rankChange": 0,
    "record": "10-1",
    "odds": {
-    "playoff": 74.2,
-    "title": 3.0,
-    "titleGame": 7.5,
+    "playoff": 79.3,
+    "title": 3.1,
+    "titleGame": 7.8,
     "conference": 38.8,
     "winOut": 29.8
    },
@@ -259,8 +259,8 @@
    "rankChange": 1,
    "record": "11-0",
    "odds": {
-    "playoff": 99.2,
-    "title": 5.9,
+    "playoff": 99.4,
+    "title": 6.4,
     "titleGame": 16.3,
     "conference": 56.8,
     "winOut": 53.4
@@ -283,9 +283,9 @@
    "rankChange": -1,
    "record": "9-2",
    "odds": {
-    "playoff": 87.2,
-    "title": 2.6,
-    "titleGame": 7.4,
+    "playoff": 89.1,
+    "title": 2.8,
+    "titleGame": 7.5,
     "conference": 3.4,
     "winOut": 76.5
    },
@@ -331,9 +331,9 @@
    "rankChange": 0,
    "record": "10-1",
    "odds": {
-    "playoff": 64.0,
-    "title": 1.3,
-    "titleGame": 3.7,
+    "playoff": 75.2,
+    "title": 1.6,
+    "titleGame": 4.7,
     "conference": 37.1,
     "winOut": 36.1
    },
@@ -379,9 +379,9 @@
    "rankChange": 1,
    "record": "9-2",
    "odds": {
-    "playoff": 11.0,
-    "title": 0.1,
-    "titleGame": 0.3,
+    "playoff": 30.8,
+    "title": 0.4,
+    "titleGame": 1.3,
     "conference": 9.4,
     "winOut": 43.4
    },
@@ -403,9 +403,9 @@
    "rankChange": -2,
    "record": "9-2",
    "odds": {
-    "playoff": 71.0,
-    "title": 0.8,
-    "titleGame": 2.8,
+    "playoff": 84.0,
+    "title": 0.9,
+    "titleGame": 3.5,
     "conference": 6.1,
     "winOut": 78.0
    },
@@ -451,7 +451,7 @@
    "rankChange": 1,
    "record": "7-4",
    "odds": {
-    "playoff": 0.0,
+    "playoff": 0.1,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
@@ -475,9 +475,9 @@
    "rankChange": -1,
    "record": "8-3",
    "odds": {
-    "playoff": 1.6,
+    "playoff": 7.8,
     "title": 0.0,
-    "titleGame": 0.1,
+    "titleGame": 0.2,
     "conference": 0.1,
     "winOut": 49.1
    },
@@ -523,9 +523,9 @@
    "rankChange": 3,
    "record": "10-1",
    "odds": {
-    "playoff": 66.3,
-    "title": 0.6,
-    "titleGame": 2.5,
+    "playoff": 38.9,
+    "title": 0.3,
+    "titleGame": 0.9,
     "conference": 16.3,
     "winOut": 13.9
    },
@@ -787,9 +787,9 @@
    "rankChange": -2,
    "record": "9-2",
    "odds": {
-    "playoff": 73.6,
+    "playoff": 41.9,
     "title": 0.1,
-    "titleGame": 0.6,
+    "titleGame": 0.4,
     "conference": 87.8,
     "winOut": 73.5
    },
@@ -811,7 +811,7 @@
    "rankChange": 1,
    "record": "7-4",
    "odds": {
-    "playoff": 0.1,
+    "playoff": 0.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
@@ -859,7 +859,7 @@
    "rankChange": -2,
    "record": "7-4",
    "odds": {
-    "playoff": 0.2,
+    "playoff": 0.1,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 0.0,
@@ -1075,7 +1075,7 @@
    "rankChange": 0,
    "record": "9-2",
    "odds": {
-    "playoff": 1.0,
+    "playoff": 2.2,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 54.3,
@@ -1219,7 +1219,7 @@
    "rankChange": 3,
    "record": "10-1",
    "odds": {
-    "playoff": 11.6,
+    "playoff": 26.0,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 78.2,
@@ -1363,7 +1363,7 @@
    "rankChange": 10,
    "record": "9-2",
    "odds": {
-    "playoff": 6.8,
+    "playoff": 15.2,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 53.3,
@@ -1747,7 +1747,7 @@
    "rankChange": 4,
    "record": "9-2",
    "odds": {
-    "playoff": 0.1,
+    "playoff": 0.2,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 8.2,
@@ -1795,7 +1795,7 @@
    "rankChange": -7,
    "record": "9-2",
    "odds": {
-    "playoff": 0.1,
+    "playoff": 0.3,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 31.2,
@@ -1843,7 +1843,7 @@
    "rankChange": -1,
    "record": "9-2",
    "odds": {
-    "playoff": 6.8,
+    "playoff": 14.2,
     "title": 0.0,
     "titleGame": 0.0,
     "conference": 36.4,
@@ -3323,5 +3323,5 @@
    }
   }
  ],
- "fetchedAt": "2026-11-22T10:37Z"
+ "fetchedAt": "2026-11-22T14:37Z"
 }
