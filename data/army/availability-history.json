@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "army",
- "updated": "2026-11-21T15:08:42.728493+00:00",
+ "updated": "2026-11-22T11:38:30.163095+00:00",
  "reports": [
   {
    "schema": 1,
@@ -742,12 +742,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T15:08:42.728493+00:00",
+   "fetchedAt": "2026-11-22T11:38:30.163095+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
-   "game": "East Carolina",
+   "game": "vs. East Carolina",
    "players": [
     {
      "pos": "SB",

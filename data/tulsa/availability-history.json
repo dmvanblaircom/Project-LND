@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-11-21T17:08:42.284447+00:00",
+ "updated": "2026-11-22T11:38:43.143211+00:00",
  "reports": [
   {
    "schema": 1,
@@ -511,12 +511,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T17:08:42.284447+00:00",
+   "fetchedAt": "2026-11-22T11:38:43.143211+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
-   "game": "Charlotte",
+   "game": "vs. Charlotte",
    "players": [
     {
      "pos": "WR",

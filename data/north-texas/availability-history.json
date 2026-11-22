@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-texas",
- "updated": "2026-11-21T15:08:50.784264+00:00",
+ "updated": "2026-11-22T11:38:38.991972+00:00",
  "reports": [
   {
    "schema": 1,
@@ -665,12 +665,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T15:08:50.784264+00:00",
+   "fetchedAt": "2026-11-22T11:38:38.991972+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
-   "game": "Tulane",
+   "game": "at Tulane",
    "players": [
     {
      "pos": "WR",

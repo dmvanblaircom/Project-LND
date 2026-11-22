@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "florida-atlantic",
- "updated": "2026-11-21T17:38:24.840542+00:00",
+ "updated": "2026-11-22T11:38:34.252592+00:00",
  "reports": [
   {
    "schema": 1,
@@ -630,12 +630,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T17:38:24.840542+00:00",
+   "fetchedAt": "2026-11-22T11:38:34.252592+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
-   "game": "South Florida",
+   "game": "vs. South Florida",
    "players": [
     {
      "pos": "DB",

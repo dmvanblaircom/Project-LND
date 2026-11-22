@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "uab",
- "updated": "2026-11-21T23:08:48.826842+00:00",
+ "updated": "2026-11-22T11:38:43.272193+00:00",
  "reports": [
   {
    "schema": 1,
@@ -406,12 +406,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-21T23:08:48.826842+00:00",
+   "fetchedAt": "2026-11-22T11:38:43.272193+00:00",
    "reported": true,
    "effectiveAt": "2026-11-21",
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
-   "game": "UTSA",
+   "game": "vs. UTSA",
    "players": [
     {
      "pos": "WR",
