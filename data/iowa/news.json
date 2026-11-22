@@ -1,7 +1,16 @@
 {
  "team": "iowa",
- "updated": "2026-11-22T01:07:57.434876+00:00",
+ "updated": "2026-11-22T01:38:02.728745+00:00",
  "items": [
+  {
+   "title": "Five Things: Breaking down the Hawkeyes win over Illinois",
+   "link": "https://on3.com/teams/iowa-hawkeyes/news/five-things-breaking-down-the-hawkeyes-win-over-illinois/",
+   "source": "On3",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21180927/Jaylen-Watson-Illinois.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-22T01:30:10+00:00"
+  },
   {
    "title": "Photos: The Hawkeyes Fight On",
    "link": "https://dailyiowan.com/2026/11/21/photos-the-hawkeyes-fight-on/",
@@ -37,15 +46,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21180447/Hank-Brown-Illinois-2.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-22T00:06:11+00:00"
-  },
-  {
-   "title": "Hawkeyes Power Past Illini, 34-17",
-   "link": "https://hawkeyesports.com/news/2026/11/21/hawkeyes-power-past-illini-34-17",
-   "source": "Iowa Athletics",
-   "summary": "No. 15 Iowa defeated Illinois, 34-17, on Saturday afternoon.",
-   "image": "https://hawkeyesports.com/imgproxy/TGyBBetCZLqN3NouYD6XE2S4TXJruE-Aliu-hfTRJFY/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzIxL2N3ellqYjlRNkZhbndnbnZrWGNMZ1Y0VEx1bkt6VDB6dmxwWElaTFUuanBn.jpg",
-   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
-   "published": "2026-11-22T00:00:00+00:00"
   },
   {
    "title": "Iowa Football vs. Illinois: What Went Right, Wrong in CFP-Boosting Win",
@@ -444,15 +444,6 @@
    "published": "2026-11-18T23:32:40+00:00"
   },
   {
-   "title": "Hawkeye Report Podcast with Trevor Lauck",
-   "link": "https://on3.com/teams/iowa-hawkeyes/news/hawkeye-report-podcast-trevor-lauck-caseys-pizza/",
-   "source": "On3",
-   "summary": "Special podcast with Iowa offensive lineman Trevor Lauck talking Casey's Pizza and special deals for Iowa fans!",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/03151251/Trevor-Lauck1.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-18T22:43:58+00:00"
-  },
-  {
    "title": "Carnegie, Heiden Named to Wooden Award Watch List",
    "link": "https://hawkeyesports.com/news/2026/11/18/carnegie-heiden-named-to-wooden-award-watch-list",
    "source": "Iowa Athletics",
@@ -487,6 +478,15 @@
    "image": "https://hawkeyesports.com/imgproxy/iKwNNi1-Rt2HjTBOttj5EK2hwursFzrr9lHAxbGycKw/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzE3LzNzUXpqNkRscGF5QllpS0I1MEdLcER1blhhMjB5U1dOUlZ0M0RDM2UuanBn.jpg",
    "sourceLogo": "https://hawkeyesports.com/favicon.ico",
    "published": "2026-11-17T21:15:00+00:00"
+  },
+  {
+   "title": "Heiden Named USBWA National Player of the Week",
+   "link": "https://hawkeyesports.com/news/2026/11/17/heiden-named-usbwa-national-player-of-the-week2026",
+   "source": "Iowa Athletics",
+   "summary": "Third-year center earns third career national weekly honor following top-10 win over Vanderbilt",
+   "image": "https://hawkeyesports.com/imgproxy/FwF01xgbBdHjV9Rfy8GpVf7p64TPos4gw-gRJqwgbG8/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2hhd2tleWVzcG9ydHMtcHJvZC8yMDI2LzExLzE3L2RrUmZCS3JXa0JRdTBtdktaY0tITTk0Mk01YXczSUhDUGRYelJyanQucG5n.png",
+   "sourceLogo": "https://hawkeyesports.com/favicon.ico",
+   "published": "2026-11-17T20:03:00+00:00"
   }
  ]
 }

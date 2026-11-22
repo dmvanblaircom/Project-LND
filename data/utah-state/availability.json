@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:37.132315+00:00",
+ "fetchedAt": "2026-11-22T01:38:46.046602+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-22",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "at Oregon State",
  "players": [
@@ -67,14 +67,7 @@
    "pos": "OL",
    "no": "",
    "name": "Jackson Nelson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Chapman Lewis",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T03:08:33.014210+00:00",
+ "fetchedAt": "2026-11-22T01:38:42.966411+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-22",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-21",
  "game": "vs. Utah State",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "RB",
    "no": "",
    "name": "Cornell Hatcher",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -40,13 +40,6 @@
    "no": "",
    "name": "Aaron Butler",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "AJ Newberry",
-   "status": "probable",
    "detail": ""
   },
   {
