@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-23T00:43:22Z",
+ "builtAt": "2026-11-23T21:13:36Z",
  "ranked": {
   "passOffense": true,
   "turnoverMargin": true
@@ -1727,7 +1727,7 @@
   "278": {
    "games": 11,
    "giveaways": 8,
-   "passAllowed": 250.3,
+   "passAllowed": 248.9,
    "ranks": {
     "passOffense": {
      "rank": 79,
@@ -1738,7 +1738,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 161.5,
+   "rushAllowed": 162.9,
    "takeaways": 16
   },
   "290": {
