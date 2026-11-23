@@ -1,7 +1,16 @@
 {
  "team": "unlv",
- "updated": "2026-11-22T05:08:02.386746+00:00",
+ "updated": "2026-11-23T23:08:08.767334+00:00",
  "items": [
+  {
+   "title": "Game Promotions Announced for Football vs. UNR",
+   "link": "https://unlvrebels.com/news/2026/11/23/game-promotions-announced-for-football-vs-unr",
+   "source": "UNLV Athletics",
+   "summary": "<img alt=\"Fremont Cannon\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2023/10/9/Fremon_Cannon_2023_by_Josh_Hawkins.JPG\" /><br /><br />UNLV Football will celebrate Senior Night during the annual Battle for the Fremont Cannon against the UNR Wolf Pack at Allegiant Stadium on Saturday.",
+   "image": "https://unlvrebels.com/images/2023/10/9/Fremon_Cannon_2023_by_Josh_Hawkins.JPG?width=800",
+   "sourceLogo": "https://unlvrebels.com/favicon.ico",
+   "published": "2026-11-23T22:35:00+00:00"
+  },
   {
    "title": "Rebs Continue Road Dominance With Rare Win At San Jose State",
    "link": "https://unlvrebels.com/news/2026/11/21/football-rebs-continue-road-dominance-with-rare-win-at-san-jose-state",
@@ -82,15 +91,6 @@
    "image": "https://unlvrebels.com/images/2026/11/2/donoghue_photo__46_of_66___1_.jpg?width=800",
    "sourceLogo": "https://unlvrebels.com/favicon.ico",
    "published": "2026-11-03T00:52:00+00:00"
-  },
-  {
-   "title": "Game Promotions Announced for Football vs. Wyoming",
-   "link": "https://unlvrebels.com/news/2026/11/2/game-promotions-announced-for-football-vs-wyoming",
-   "source": "UNLV Athletics",
-   "summary": "<img alt=\"Jackson Arnold vs Cal\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/3/_LKP9039.jpg\" /><br /><br />UNLV Football will celebrate our nation's veterans and honor Native American Heritage Month at Allegiant Stadium with an evening battle against the Wyoming Cowboys.",
-   "image": "https://unlvrebels.com/images/2026/10/3/_LKP9039.jpg?width=800",
-   "sourceLogo": "https://unlvrebels.com/favicon.ico",
-   "published": "2026-11-02T20:55:00+00:00"
   }
  ]
 }

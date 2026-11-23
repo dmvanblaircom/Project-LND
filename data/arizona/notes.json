@@ -3,15 +3,15 @@
  "team": "arizona",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://arizonawildcats.com/documents/2026/11/16/Game_11_Notes_vs_Kansas_State.pdf",
+ "sourceUrl": "https://arizonawildcats.com/documents/2026/11/23/Game_12_Notes_vs_Arizona_State.pdf",
  "sourceLabel": "arizonawildcats.com",
- "pdf": "https://arizonawildcats.com/documents/download/2026/11/16/Game_11_Notes_vs_Kansas_State.pdf",
+ "pdf": "https://arizonawildcats.com/documents/download/2026/11/23/Game_12_Notes_vs_Arizona_State.pdf",
  "parser": "say-1",
  "reads": [
   "pronounce"
  ],
- "fetchedAt": "2026-11-17T16:39:47.193796+00:00",
- "publishedAt": "2026-11-16",
+ "fetchedAt": "2026-11-23T23:08:49.385522+00:00",
+ "publishedAt": "2026-11-23",
  "game": null,
  "pronounce": {
   "Dash Fifita": "fuh-FEET-uh",
