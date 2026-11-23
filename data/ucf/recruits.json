@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2116",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -215,7 +215,20 @@
    "positionRank": 28,
    "stateRank": 235,
    "status": "Verbal"
+  },
+  {
+   "id": "274894",
+   "name": "C.J. Clemons",
+   "position": "OT",
+   "highSchool": "State College High School",
+   "city": "State College",
+   "state": "PA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:14Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

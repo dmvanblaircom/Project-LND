@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2132",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": 234,
    "positionRank": 37,
    "stateRank": 10,
+   "status": "Verbal"
+  },
+  {
+   "id": "274554",
+   "name": "LaDarius Jemes",
+   "position": "DE",
+   "highSchool": null,
+   "city": "Huntsville",
+   "state": "AL",
+   "grade": 80,
+   "rank": 2,
+   "positionRank": 1,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -295,18 +308,18 @@
    "status": "Verbal"
   },
   {
-   "id": "274554",
-   "name": "LaDarius Jemes",
-   "position": "DE",
-   "highSchool": null,
-   "city": "Huntsville",
-   "state": "AL",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
+   "id": "269055",
+   "name": "Trevor Jacobs",
+   "position": "ATH",
+   "highSchool": "Lincoln High School",
+   "city": "Tallahassee",
+   "state": "FL",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 91,
+   "stateRank": 193,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

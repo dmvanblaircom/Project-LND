@@ -126,6 +126,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273318",
+   "name": "Mahonri Maiava",
+   "position": "DT",
+   "highSchool": null,
+   "city": "American Samoa",
+   "state": "AS",
+   "grade": 76,
+   "rank": 20,
+   "positionRank": 4,
+   "stateRank": 1,
+   "status": "Verbal"
+  },
+  {
    "id": "272501",
    "name": "J'lynnd Kellow",
    "position": "CB",
@@ -267,20 +280,7 @@
    "positionRank": 180,
    "stateRank": 271,
    "status": "Verbal"
-  },
-  {
-   "id": "273318",
-   "name": "Mahonri Maiava",
-   "position": "DT",
-   "highSchool": null,
-   "city": "American Samoa",
-   "state": "AS",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

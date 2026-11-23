@@ -100,6 +100,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274546",
+   "name": "Dorian Williams",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Las Vegas",
+   "state": "NV",
+   "grade": 82,
+   "rank": 1,
+   "positionRank": 1,
+   "stateRank": 1,
+   "status": "Verbal"
+  },
+  {
    "id": "262010",
    "name": "Sean Tatum",
    "position": "OT",
@@ -306,20 +319,7 @@
    "positionRank": 199,
    "stateRank": 47,
    "status": "Verbal"
-  },
-  {
-   "id": "274546",
-   "name": "Dorian Williams",
-   "position": "OT",
-   "highSchool": null,
-   "city": "Las Vegas",
-   "state": "NV",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T01:11Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

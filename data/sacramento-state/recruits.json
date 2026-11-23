@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "16",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "271786",
+   "name": "Landon White",
+   "position": "WR",
+   "highSchool": "Rancho Cucamonga High School",
+   "city": "Rancho Cucamonga",
+   "state": "CA",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 80,
+   "stateRank": 50,
+   "status": "Verbal"
+  },
   {
    "id": "266692",
    "name": "Koby Shabazz",
@@ -217,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

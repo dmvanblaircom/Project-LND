@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274541",
+   "name": "Beaux Sauve",
+   "position": "DE",
+   "highSchool": null,
+   "city": "Loomis",
+   "state": "CA",
+   "grade": 76,
+   "rank": 18,
+   "positionRank": 3,
+   "stateRank": 5,
+   "status": "Verbal"
+  },
+  {
    "id": "272276",
    "name": "Grayson Kazmouz",
    "position": "DE",
@@ -202,20 +215,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274541",
-   "name": "Beaux Sauve",
-   "position": "DE",
-   "highSchool": null,
-   "city": "Loomis",
-   "state": "CA",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

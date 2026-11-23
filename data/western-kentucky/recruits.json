@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "98",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -97,6 +97,19 @@
    "rank": null,
    "positionRank": 187,
    "stateRank": 190,
+   "status": "Verbal"
+  },
+  {
+   "id": "273120",
+   "name": "Kevin Davis",
+   "position": "OLB",
+   "highSchool": "Thompson High School",
+   "city": "Alabaster",
+   "state": "AL",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 108,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -295,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-23T21:41Z"
 }

@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274626",
+   "name": "Jontavius Wyman",
+   "position": "CB",
+   "highSchool": null,
+   "city": "Jonesboro",
+   "state": "GA",
+   "grade": 76,
+   "rank": 28,
+   "positionRank": 7,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
    "id": "271626",
    "name": "Braylon Lane",
    "position": "WR",
@@ -280,20 +293,7 @@
    "positionRank": 190,
    "stateRank": 15,
    "status": "Verbal"
-  },
-  {
-   "id": "274626",
-   "name": "Jontavius Wyman",
-   "position": "CB",
-   "highSchool": null,
-   "city": "Jonesboro",
-   "state": "GA",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

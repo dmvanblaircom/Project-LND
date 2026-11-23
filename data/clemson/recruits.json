@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "228",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -295,19 +295,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272438",
-   "name": "Michael Gallaway",
-   "position": "K",
-   "highSchool": "Palmetto High School",
-   "city": "Palmetto",
-   "state": "FL",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 1,
-   "stateRank": 123,
-   "status": "Verbal"
-  },
-  {
    "id": "272404",
    "name": "Nicholas Pollack",
    "position": "TE-H",
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

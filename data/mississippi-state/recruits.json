@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "344",
  "classYear": 2027,
- "listed": 16,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -61,19 +61,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272880",
-   "name": "Yoshawn Hudson",
-   "position": "RB",
-   "highSchool": "Winona High School",
-   "city": "Winona",
-   "state": "MS",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 39,
-   "stateRank": 14,
-   "status": "Verbal"
-  },
-  {
    "id": "271919",
    "name": "Gavin Hampton",
    "position": "QB-PP",
@@ -110,6 +97,19 @@
    "rank": null,
    "positionRank": 99,
    "stateRank": 23,
+   "status": "Verbal"
+  },
+  {
+   "id": "274628",
+   "name": "Jekai Lee",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Portsmouth",
+   "state": "VA",
+   "grade": 76,
+   "rank": 15,
+   "positionRank": 2,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -191,19 +191,6 @@
    "status": "Verbal"
   },
   {
-   "id": "274628",
-   "name": "Jekai Lee",
-   "position": "DT",
-   "highSchool": null,
-   "city": "Portsmouth",
-   "state": "VA",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "274812",
    "name": "Jourdan Butler",
    "position": "TE-Y",
@@ -211,11 +198,11 @@
    "city": "Pearl",
    "state": "MS",
    "grade": 4,
-   "rank": 1,
+   "rank": 101,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

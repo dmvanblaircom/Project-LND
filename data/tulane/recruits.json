@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2655",
  "classYear": 2027,
- "listed": 25,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": null,
    "positionRank": 2,
    "stateRank": 15,
+   "status": "Verbal"
+  },
+  {
+   "id": "272880",
+   "name": "Yoshawn Hudson",
+   "position": "RB",
+   "highSchool": "Winona High School",
+   "city": "Winona",
+   "state": "MS",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 39,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -334,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:14Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

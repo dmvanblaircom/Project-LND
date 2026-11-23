@@ -22,6 +22,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274803",
+   "name": "Kamren Greene",
+   "position": "OLB",
+   "highSchool": null,
+   "city": "Tallahassee",
+   "state": "FL",
+   "grade": 76,
+   "rank": 29,
+   "positionRank": 2,
+   "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
    "id": "262564",
    "name": "Jayden St. Fort",
    "position": "WR",
@@ -254,20 +267,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274803",
-   "name": "Kamren Greene",
-   "position": "S",
-   "highSchool": null,
-   "city": "Tallahassee",
-   "state": "FL",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:10Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

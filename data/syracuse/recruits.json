@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "183",
  "classYear": 2027,
- "listed": 23,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -165,19 +165,6 @@
    "status": "Verbal"
   },
   {
-   "id": "272642",
-   "name": "Jamel Griffin",
-   "position": "CB",
-   "highSchool": "Opelika High School",
-   "city": "Opelika",
-   "state": "AL",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 110,
-   "stateRank": 51,
-   "status": "Verbal"
-  },
-  {
    "id": "272606",
    "name": "Mikey McQueen",
    "position": "WR",
@@ -308,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:14Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

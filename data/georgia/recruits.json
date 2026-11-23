@@ -126,6 +126,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272592",
+   "name": "Christian Mays",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Lakewood",
+   "state": "CO",
+   "grade": 80,
+   "rank": 3,
+   "positionRank": 1,
+   "stateRank": 1,
+   "status": "Verbal"
+  },
+  {
    "id": "265497",
    "name": "Antwan McKoy",
    "position": "DT",
@@ -282,6 +295,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273719",
+   "name": "Alius Mayo",
+   "position": "CB",
+   "highSchool": null,
+   "city": "Stockton",
+   "state": "CA",
+   "grade": 77,
+   "rank": 13,
+   "positionRank": 3,
+   "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
    "id": "262548",
    "name": "Jakeyveon Parker",
    "position": "RB",
@@ -306,33 +332,7 @@
    "positionRank": 107,
    "stateRank": 80,
    "status": "Verbal"
-  },
-  {
-   "id": "273719",
-   "name": "Alius Mayo",
-   "position": "CB",
-   "highSchool": null,
-   "city": "Stockton",
-   "state": "CA",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "272592",
-   "name": "Christian Mays",
-   "position": "DT",
-   "highSchool": null,
-   "city": "Lakewood",
-   "state": "CO",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-11T03:40Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

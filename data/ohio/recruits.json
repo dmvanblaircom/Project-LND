@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "195",
  "classYear": 2027,
- "listed": 15,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -191,6 +191,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274853",
+   "name": "Sincere Daye",
+   "position": "S",
+   "highSchool": "Hough High School",
+   "city": "Cornelius",
+   "state": "NC",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273448",
    "name": "Tank Rhodes",
    "position": "S",
@@ -204,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }

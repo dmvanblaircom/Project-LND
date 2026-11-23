@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "62",
  "classYear": 2027,
- "listed": 7,
+ "listed": 8,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,19 @@
    "rank": null,
    "positionRank": 40,
    "stateRank": 194,
+   "status": "Verbal"
+  },
+  {
+   "id": "274852",
+   "name": "Kaho Valikoula",
+   "position": "OG",
+   "highSchool": "Kahuku High School",
+   "city": "Kahuku",
+   "state": "HI",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -100,5 +113,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:10Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

@@ -9,6 +9,19 @@
  "committedElsewhere": 0,
  "recruits": [
   {
+   "id": "274842",
+   "name": "Ashford Landheart",
+   "position": "WR",
+   "highSchool": null,
+   "city": "Fresno",
+   "state": "TX",
+   "grade": 76,
+   "rank": 23,
+   "positionRank": 1,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
    "id": "274525",
    "name": "Zachais Ratliff",
    "position": "OG",
@@ -113,19 +126,6 @@
    "status": "Verbal"
   },
   {
-   "id": "274842",
-   "name": "Ashford Landheart",
-   "position": "WR",
-   "highSchool": null,
-   "city": "Fresno",
-   "state": "TX",
-   "grade": 4,
-   "rank": 1,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "274833",
    "name": "Jaydn Wood",
    "position": "WR",
@@ -133,7 +133,7 @@
    "city": "New Port Richey",
    "state": "FL",
    "grade": 4,
-   "rank": 1,
+   "rank": 101,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
@@ -146,11 +146,11 @@
    "city": "Mobile",
    "state": "AL",
    "grade": 4,
-   "rank": 1,
+   "rank": 101,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-22T04:09Z"
+ "fetchedAt": "2026-11-23T21:39Z"
 }

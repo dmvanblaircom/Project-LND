@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "201",
  "classYear": 2027,
- "listed": 27,
+ "listed": 28,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -358,7 +358,20 @@
    "positionRank": 56,
    "stateRank": 21,
    "status": "Verbal"
+  },
+  {
+   "id": "274846",
+   "name": "Ben Rogers",
+   "position": "RB",
+   "highSchool": "Newcastle High School",
+   "city": "Newcastle",
+   "state": "OK",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:43Z"
+ "fetchedAt": "2026-11-23T21:40Z"
 }
