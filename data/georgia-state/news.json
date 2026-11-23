@@ -1,7 +1,16 @@
 {
  "team": "georgia-state",
- "updated": "2026-11-23T12:07:57.599949+00:00",
+ "updated": "2026-11-23T18:37:53.859976+00:00",
  "items": [
+  {
+   "title": "Panthers Host Louisiana for Senior Day",
+   "link": "https://georgiastatesports.com/news/2026/11/23/football-panthers-host-louisiana-for-senior-day.aspx",
+   "source": "Georgia State Athletics",
+   "summary": "<img alt=\"Game Preview: Louisiana\" src=\"https://georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/FB_2026_GAMEWEEK_16X9_55_.png\" /><br /><br />GEORGIA STATE (5-6, 2-5 SBC) vs\u00a0LOUISIANA\u00a0(8-3, 5-2 SBC)",
+   "image": "https://georgiastatesports.com/images/2026/11/23/FB_2026_GAMEWEEK_16X9_55_.png?width=800",
+   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
+   "published": "2026-11-23T18:00:00+00:00"
+  },
   {
    "title": "Last-Second Touchdown not Enough in Loss to Marshall",
    "link": "https://georgiastatesports.com/news/2026/11/21/football-del-rio-wilson-runs-in-game-winning-td-to-lead-marshall-past-panthers-28-27.aspx",
@@ -19,15 +28,6 @@
    "image": "https://georgiastatesports.com/images/2026/11/16/FB_2026_GAMEWEEK_16X9_5_.png?width=800",
    "sourceLogo": "https://georgiastatesports.com/favicon.ico",
    "published": "2026-11-16T19:00:00+00:00"
-  },
-  {
-   "title": "Panthers Come up Short in 34-17 Loss to Georgia Southern",
-   "link": "https://georgiastatesports.com/news/2026/11/14/football-panthers-come-up-short-in-a-34-17-loss-to-georgia-southern.aspx",
-   "source": "Georgia State Athletics",
-   "summary": "<img alt=\"FB vs. GS\" src=\"https://georgiastatesports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC00070.jpeg\" /><br /><br />",
-   "image": "https://georgiastatesports.com/images/2026/11/14/DSC00070.jpeg?width=800",
-   "sourceLogo": "https://georgiastatesports.com/favicon.ico",
-   "published": "2026-11-14T23:51:00+00:00"
   }
  ]
 }
