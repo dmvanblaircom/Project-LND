@@ -1,7 +1,16 @@
 {
  "team": "buffalo",
- "updated": "2026-11-19T06:07:59.695070+00:00",
+ "updated": "2026-11-23T16:07:53.259519+00:00",
  "items": [
+  {
+   "title": "MAC Honors Burch and Davis",
+   "link": "https://ubbulls.com/news/2026/11/23/football-mac-honors-burch-and-davis",
+   "source": "UB Athletics",
+   "summary": "<img alt=\"Messiah Burch and Ronnell Davis\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/Burch_Davis.jpg\" /><br /><br />BUFFALO, NY \u2013 University at Buffalo running back Messiah Burch and safety Ronnell Davis were named the Mid-American Conference Offensive and Defensive Player of the Week, respectively, the league announced on Monday.",
+   "image": "https://ubbulls.com/images/2026/11/23/Burch_Davis.jpg?width=800",
+   "sourceLogo": "https://ubbulls.com/favicon.ico",
+   "published": "2026-11-23T16:00:00+00:00"
+  },
   {
    "title": "Bulls Grill Central Michigan, 40-21",
    "link": "https://ubbulls.com/news/2026/11/19/football-bulls-grill-central-michigan-40-21",
@@ -82,15 +91,6 @@
    "image": "https://ubbulls.com/images/2026/11/4/2Q.jpg?width=800",
    "sourceLogo": "https://ubbulls.com/favicon.ico",
    "published": "2026-11-04T06:51:00+00:00"
-  },
-  {
-   "title": "Coach Lembo's Weekly Press Conference: Week 9",
-   "link": "https://ubbulls.com/news/2026/10/30/football-coach-lembos-weekly-press-conference-week-9",
-   "source": "UB Athletics",
-   "summary": "<img alt=\"Pete Lembo speaking at a podium\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/30/LemboPC.jpg\" /><br /><br />",
-   "image": "https://ubbulls.com/images/2026/10/30/LemboPC.jpg?width=800",
-   "sourceLogo": "https://ubbulls.com/favicon.ico",
-   "published": "2026-10-30T19:56:00+00:00"
   }
  ]
 }
