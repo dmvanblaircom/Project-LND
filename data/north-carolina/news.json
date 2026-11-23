@@ -1,6 +1,6 @@
 {
  "team": "north-carolina",
- "updated": "2026-11-23T02:38:09.562149+00:00",
+ "updated": "2026-11-23T03:37:59.423833+00:00",
  "items": [
   {
    "title": "Once-Promising Season Spirals as UNC Faces Familiar Late Struggles",
@@ -28,6 +28,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/22162138/takes.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-22T22:22:01+00:00"
+  },
+  {
+   "title": "Football's Back To The Drawing Board",
+   "link": "https://goheels.com/news/2026/11/22/footballs-back-to-the-drawing-board",
+   "source": "North Carolina Athletics",
+   "summary": "<img alt=\"Demon June at Virginia\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/June-D_CM1001241121_Y6lzJ.jpeg\" /><br /><br />Head coach Bill Belichick and his players took accountability for the miscues that plagued the Tar Heels at Virginia.",
+   "image": "https://goheels.com/images/2026/11/21/June-D_CM1001241121_Y6lzJ.jpeg?width=800",
+   "sourceLogo": "https://goheels.com/favicon.ico",
+   "published": "2026-11-22T21:00:00+00:00"
   },
   {
    "title": "UNC Football has its worst report card of the year against Virginia",
@@ -397,15 +406,6 @@
    "image": "https://goheels.com/images/2026/11/14/huddle.lou.620.jpg?width=800",
    "sourceLogo": "https://goheels.com/favicon.ico",
    "published": "2026-11-15T03:52:00+00:00"
-  },
-  {
-   "title": "Football Hosts Louisville Saturday For Homecoming, Military Appreciation Game",
-   "link": "https://goheels.com/news/2026/11/13/football-hosts-louisville-saturday-on-homecoming-military-appreciation",
-   "source": "North Carolina Athletics",
-   "summary": "<img alt=\"Kenan Stadium Overview During Team Runout With Fireworks\" src=\"https://goheels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/13/DSC05424.jpg\" /><br /><br />Carolina will host Louisville on Saturday, Nov. 14, in the program's Military Appreciation Game, Homecoming and Monogram Day. Kickoff from Kenan Stadium is set for 7 p.m. on ESPN2.",
-   "image": "https://goheels.com/images/2026/11/13/DSC05424.jpg?width=800",
-   "sourceLogo": "https://goheels.com/favicon.ico",
-   "published": "2026-11-13T15:10:00+00:00"
   }
  ]
 }
