@@ -3,15 +3,15 @@
  "team": "troy",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://troytrojans.com/documents/2026/11/16/TROY_GS_G11.pdf",
+ "sourceUrl": "https://troytrojans.com/documents/2026/11/23/TROY_ASTATE_G12.pdf",
  "sourceLabel": "troytrojans.com",
- "pdf": "https://troytrojans.com/documents/download/2026/11/16/TROY_GS_G11.pdf",
+ "pdf": "https://troytrojans.com/documents/download/2026/11/23/TROY_ASTATE_G12.pdf",
  "parser": "say-1",
  "reads": [
   "pronounce"
  ],
- "fetchedAt": "2026-11-16T22:39:41.059734+00:00",
- "publishedAt": "2026-11-16",
+ "fetchedAt": "2026-11-23T18:09:08.313412+00:00",
+ "publishedAt": "2026-11-23",
  "game": null,
  "pronounce": {
   "Jordan Lovett": "LOVE-it",
