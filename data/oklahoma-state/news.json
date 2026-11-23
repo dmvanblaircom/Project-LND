@@ -1,7 +1,16 @@
 {
  "team": "oklahoma-state",
- "updated": "2026-11-23T16:08:04.608406+00:00",
+ "updated": "2026-11-23T16:38:08.654048+00:00",
  "items": [
+  {
+   "title": "Photo Gallery: Cowboy Football at Arizona State",
+   "link": "https://okstate.com/news/2026/11/23/photo-gallery-cowboy-football-at-arizona-state",
+   "source": "Oklahoma State Athletics",
+   "summary": "<img alt=\"Image Taken at the Arizona State Sun Devils vs Oklahoma State Cowboys Football Game, Saturday, November 21, 2026, Mountain America Stadium, Tempe, AZ. Bruce Waterfield/OSU Athletics\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/261121_football_arizona_state_bw_151.jpg\" /><br /><br />",
+   "image": "https://okstate.com/images/2026/11/23/261121_football_arizona_state_bw_151.jpg?width=800",
+   "sourceLogo": "https://okstate.com/favicon.ico",
+   "published": "2026-11-23T16:14:00+00:00"
+  },
   {
    "title": "10 Thoughts on Oklahoma State's early morning win in Tempe",
    "link": "https://on3.com/sites/o-state-illustrated/news/10-thoughts-on-oklahoma-states-early-morning-win-in-tempe/",
@@ -325,15 +334,6 @@
    "image": "https://okstate.com/images/2026/9/26/260926_football_wvu_bw_67_w4Xsb.jpg?width=800",
    "sourceLogo": "https://okstate.com/favicon.ico",
    "published": "2026-11-16T17:11:00+00:00"
-  },
-  {
-   "title": "Eric Morris postgame press conference after Cowboy Football's contest against Texas Tech",
-   "link": "https://okstate.com/news/2026/11/15/eric-morris-postgame-press-conference-after-cowboy-footballs-contest-against-texas-tech",
-   "source": "Oklahoma State Athletics",
-   "summary": "<img alt=\"Eric Morris postgame Texas Tech\" src=\"https://okstate.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/15/20261115_jcd_usa_0015.JPG\" /><br /><br />STILLWATER -\u00a0Oklahoma State's football coach Eric Morris met with the media after a 52-27 loss to the Texas Tech Red Raiders. See the video and hear his comments here:",
-   "image": "https://okstate.com/images/2026/11/15/20261115_jcd_usa_0015.JPG?width=800",
-   "sourceLogo": "https://okstate.com/favicon.ico",
-   "published": "2026-11-15T21:00:00+00:00"
   }
  ]
 }
