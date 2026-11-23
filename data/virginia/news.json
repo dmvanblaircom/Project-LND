@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-23T07:38:05.059539+00:00",
+ "updated": "2026-11-23T11:38:03.059622+00:00",
  "items": [
+  {
+   "title": "Take Two: Breaking down UVa's win over the Tar Heels",
+   "link": "https://on3.com/sites/cavs-corner/news/take-two-breaking-down-uvas-win-over-the-tar-heels/",
+   "source": "CavsCorner",
+   "summary": "We look back at UVa's 41-24 win over Carolina as we break down what stood out and how things looked in a decisive victory over the Tar Heels.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/22101101/2026-11-21T195838Z_1580204650_MT1USATODAY30415500_RTRMADP_3_NCAA-FOOTBALL-NORTH-CAROLINA-AT-VIRGINIA.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-23T11:30:00+00:00"
+  },
   {
    "title": "Where Will Virginia Land in Third AP Poll?",
    "link": "https://www.si.com/college/virginia/where-will-virginia-land-in-third-ap-poll-01m7qv5s9xkz?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/17052747/USATSI_27072439-scaled.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-11T11:30:00+00:00"
-  },
-  {
-   "title": "CavsCorner 4-3-4 Breakdown: The State of Play",
-   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-the-state-of-play/",
-   "source": "CavsCorner",
-   "summary": "In his latest feature for CavsCorner, Deuce Prince breaks down the stakes of UVa's do-or-die matchup against Cal at Scott Stadium this Saturday and the massive implications for the future of Cavalier football.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-10T17:30:00+00:00"
   }
  ]
 }
