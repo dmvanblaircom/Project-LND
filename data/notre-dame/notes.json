@@ -3,13 +3,13 @@
  "team": "notre-dame",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/66dfd7ee-6b2b-4794-9d5e-268b9457c90b.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/5fc1ff39-c143-4e94-817c-30912e57ac2c.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/16/AvQGxqi4wBRcqbOcS4ei7t2cKTS29pBnwPnfSC6A.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/23/HuXXem4GcCgs4fKkfgExMR6PNUC2qExcKdJFlW4h.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-16T22:08:37.307405+00:00",
- "publishedAt": "2026-11-16",
- "game": "SMU",
+ "fetchedAt": "2026-11-23T19:08:18.286115+00:00",
+ "publishedAt": "2026-11-23",
+ "game": "Syracuse",
  "pronounce": {
   "Khary Adams": "CAR-ee",
   "Matty Augustine": "August-EEN",
@@ -25,7 +25,6 @@
   "Kaydon Finley": "KAY-den",
   "Preston Fryzel": "fry-ZELL",
   "Henry Garrity": "GARE [like stare]-itty",
-  "Michael Giovacco": "Geo-VAH-coe",
   "Tionne Gray": "TEE-on",
   "Jaden Greathouse": "JAY-den",
   "Blake Hebert": "HEE-bert",
@@ -87,6 +86,7 @@
    "Associated Press National Player of the Week (Nov. 9)",
    "Davey O’Brien Award Preseason Watch List",
    "Davey O’Brien Great 8 (Oct. 5, Nov. 9)",
+   "Davey O’Brien National Quarterback Award Semifinalist (Nov. 17)",
    "Davey O’Brien National Quarterback of the Week (Nov. 10)",
    "Davey O’Brien Quarterback Class of 2026 (Nov. 10)",
    "ESPN Preseason All-America Second Team",
@@ -94,6 +94,7 @@
    "Johnny Unitas Golden Arm Award Top 15 (Oct. 8)",
    "Johnny Unitas Golden Arm Award Top 10 (Nov. 6)",
    "Johnny Unitas Golden Arm Award Player of the Week (Nov. 10)",
+   "Johnny Unitas Golden Arm Award Top 5 Finalist (Nov. 20)",
    "Manning Award Watch List",
    "Manning Award Star of the Week (Oct. 5, Nov. 9)",
    "Maxwell Award Watch List",
@@ -115,6 +116,7 @@
   "Jordan Faison": [
    "Burlsworth Trophy Nominee",
    "Burlsworth Trophy Semifinalist (Nov. 10)",
+   "Burlsworth Trophy Finalist (Nov. 17)",
    "Pony Express Award Watch List",
    "Senior Bowl Top 300"
   ],
@@ -166,6 +168,7 @@
    "Associated Press Preseason All-America First Team",
    "Associated Press Midseason All-America First Team",
    "Bronko Nagurski Trophy Watch List",
+   "Bronko Nagurski Trophy Finalist (Nov. 19)",
    "CBS Sports Preseason All-America First Team",
    "Chuck Bednarik Award Watch List",
    "Chuck Bednarik Award Semifinalist (Nov. 10)",
@@ -235,88 +238,85 @@
    "Paul Hornung Award Weekly Honor Roll (Oct. 6)",
    "Shaun Alexander Award Freshman of the Week (Oct. 13)",
    "On3 Midseason True Freshman All-America Team",
-   "Shaun Alexander Award Freshman of the Year Semifinalist"
+   "Shaun Alexander Award Freshman of the Year Semifinalist (Nov 4.)"
   ],
   "Aneyas Williams": [
    "Paul Hornung Award Weekly Honor Roll (Sept. 9)"
   ],
   "Kedren Young": [
    "College Football Comeback Player of the Year Pre-Season Watch List",
-   "Notre Dame Offensive Line Joe Moore Award Midseason Honor Roll"
+   "Notre Dame Offensive Line Joe Moore Award Midseason Honor Roll",
+   "Joe Moore Award Semifinalist (Nov. 11)"
   ]
  },
  "glance": [
-  "Saturday evening will mark the 14th meeting between Notre Dame and SMU. The series stands with a 10-3-0 Notre Dame advantage all-time.",
-  "Saturday night against SMU will be Notre Dame's 2026 senior night.",
-  "The Irish are 6-1-0 all-time in home games against the Mustangs.",
-  "The first meeting between Notre Dame and SMU inside Notre Dame Stadium came in 1930, when the Irish defeated the Mustangs 20-14.",
-  "It is the first meeting between SMU and Notre Dame since the Mustangs joined the ACC in 2024.",
-  "The Irish claimed a 59-6 win inside Notre Dame Stadium over the Mustangs 1989. The Irish were the number one team in the nation at the time."
+  "Saturday afternoon marks the 13th meeting between Notre Dame and Syracuse. The Irish lead the all-time series 9-3-0 and are 2-0 against the Orange under Marcus Freeman.",
+  "Saturday will mark the fifth consecutive meeting in which at least one team has been ranked, a streak that began in 2018.",
+  "Marcus Freeman and Fran Brown will meet for the second time as head coaches.",
+  "Before becoming head coaches, Freeman and Brown were on opposing staffs twice, first when Freeman was an assistant at Kent State while Brown was on staff at Temple in 2011 and again when Freeman was an assistant at Cincinnati while Brown was an assistant at Temple in 2019.",
+  "Notre Dame is 25-4 against current ACC opponents under Dick Corbett Head Coach Marcus Freeman.",
+  "In their most recent meeting, Notre Dame defeated Syracuse 70-7 on Senior Day at Notre Dame Stadium on Nov. 22, 2025."
  ],
  "numbers": [
   {
    "n": "2",
-   "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players to be elected captain twice."
-  },
-  {
-   "n": "3",
-   "text": "Touchdown catches for Micah Gilbert over the last two games."
-  },
-  {
-   "n": "3",
-   "text": "Interceptions for Luke Talich, who leads the Irish."
-  },
-  {
-   "n": "5",
-   "text": "Luke Talich is the fifth NDFB player to have a receiving touchdown, an interception-return touchdown and a punt-return touchdown."
+   "text": "Drayk Bowen and Adon Shuler are the 28th and 29th players in Notre Dame history to be elected captain twice."
   },
   {
    "n": "10",
-   "text": "Consecutive games with a touchdown for Nolan James Jr., tying Creighton Miller and Autry Denson for the eighth-longest streak in program history."
+   "text": "Notre Dame victories over teams ranked No. 1 in the AP poll."
   },
   {
-   "n": "10",
-   "text": "Notre Dame victories over AP No. 1 teams following the 31-24 win over Miami."
+   "n": "11",
+   "text": "Consecutive games with a touchdown for Nolan James Jr., who has scored in every game this season."
   },
   {
-   "n": "13",
-   "text": "Consecutive November victories for Marcus Freeman."
+   "n": "14",
+   "text": "Consecutive November victories for Marcus Freeman, who is 17-2 in the month as Notre Dame’s head coach."
   },
   {
-   "n": "20",
-   "text": "Takeaways through 10 games, with 10 interceptions and 10 fumble recoveries."
+   "n": "21",
+   "text": "Takeaways for Notre Dame through 11 games, including 11 interceptions and 10 fumble recoveries."
   },
   {
-   "n": "22",
+   "n": "23",
    "text": "Consecutive games in which Notre Dame has scored at least 24 points, a program record."
   },
   {
-   "n": "27",
-   "text": "Consecutive home wins over ACC opponents, a program record."
+   "n": "25",
+   "text": "Wins against current ACC opponents under Marcus Freeman."
   },
   {
-   "n": "31",
-   "text": "Consecutive games with a reception for Jordan Faison, who extended the streak with a four-yard catch on Notre Dame’s first offensive play against Boston College."
+   "n": "32",
+   "text": "Consecutive games with a reception for Jordan Faison, tying T.J. Jones for the longest streak by a Notre Dame wide receiver since 1998."
   },
   {
    "n": "34",
-   "text": "Non-offensive touchdowns for Notre Dame since 2021, the most in the FBS."
+   "text": "Non-offensive touchdowns for Notre Dame since 2021."
   },
   {
-   "n": "47",
+   "n": "48",
    "text": "Career touchdown passes for CJ Carr, sixth in Notre Dame history."
   },
   {
    "n": "76",
-   "text": "Points Notre Dame has scored off 20 takeaways this season."
+   "text": "Yards on Jasper Scaife’s fourth-quarter punt against SMU, the third-longest by a Notre Dame player in records dating to 1973 and the longest since Hunter Smith’s 79-yarder at Arizona State in 1998. 89.1 Rushing yards allowed per game by Notre Dame through 11 games."
+  },
+  {
+   "n": "99",
+   "text": "Yards Notre Dame covered on its opening scoring drive against SMU."
   },
   {
    "n": "319",
    "text": "Passing yards for CJ Carr in Notre Dame’s 31-24 win over No. 1 Miami."
   },
   {
-   "n": "655",
-   "text": "Rushing yards for Jonaz Walton, fifth among Notre Dame true freshmen."
+   "n": "704",
+   "text": "Rushing yards for Jonaz Walton, who passed Autry Denson (695) for fourth on Notre Dame’s single-season true freshman rushing list."
+  },
+  {
+   "n": "2,042",
+   "text": "Career receiving yards for Jordan Faison, who became the 14th player in Notre Dame history to reach 2,000."
   }
  ]
 }

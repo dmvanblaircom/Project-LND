@@ -3,15 +3,15 @@
  "team": "notre-dame",
  "capability": "availability",
  "tier": "official",
- "game": "SMU",
- "sourceUrl": "https://fightingirish.com/documents/66dfd7ee-6b2b-4794-9d5e-268b9457c90b.pdf",
+ "game": "at Syracuse",
+ "sourceUrl": "https://fightingirish.com/documents/5fc1ff39-c143-4e94-817c-30912e57ac2c.pdf",
  "sourceLabel": "FightingIrish.com",
- "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/16/AvQGxqi4wBRcqbOcS4ei7t2cKTS29pBnwPnfSC6A.pdf",
+ "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/23/HuXXem4GcCgs4fKkfgExMR6PNUC2qExcKdJFlW4h.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-16T22:08:37.307405+00:00",
+ "fetchedAt": "2026-11-23T19:08:18.286115+00:00",
  "reported": true,
- "effectiveAt": "2026-11-16",
- "heading": "AVAILABILITY UPDATE (NOV. 16)",
+ "effectiveAt": "2026-11-23",
+ "heading": "AVAILABILITY UPDATE (NOV. 23)",
  "players": [
   {
    "no": "",
@@ -22,27 +22,6 @@
   },
   {
    "no": "",
-   "pos": "DL",
-   "name": "Francis Brewu",
-   "status": "questionable",
-   "detail": "Left Knee"
-  },
-  {
-   "no": "",
-   "pos": "S",
-   "name": "Brauntae Johnson",
-   "status": "questionable",
-   "detail": "Left Foot"
-  },
-  {
-   "no": "",
-   "pos": "DL",
-   "name": "Jason Onye",
-   "status": "questionable",
-   "detail": "Right Knee"
-  },
-  {
-   "no": "",
    "pos": "LB",
    "name": "Drayk Bowen",
    "status": "out-game",
@@ -50,10 +29,10 @@
   },
   {
    "no": "",
-   "pos": "DL",
-   "name": "Christopher Burgess Jr.",
+   "pos": "WR",
+   "name": "Jaden Greathouse",
    "status": "out-game",
-   "detail": "Left Tibia"
+   "detail": "Right Hand"
   },
   {
    "no": "",
@@ -68,6 +47,20 @@
    "name": "DJ McKinney",
    "status": "out-game",
    "detail": "Right Ankle"
+  },
+  {
+   "no": "",
+   "pos": "LB",
+   "name": "Kyngstonn Viliamu-Asa",
+   "status": "out-game",
+   "detail": "Left Knee"
+  },
+  {
+   "no": "",
+   "pos": "S",
+   "name": "Luke Talich",
+   "status": "out-season",
+   "detail": "Right Achilles"
   }
  ]
 }

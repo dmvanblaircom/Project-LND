@@ -3,11 +3,11 @@
  "team": "notre-dame",
  "capability": "depth",
  "tier": "official",
- "sourceUrl": "https://fightingirish.com/documents/aa43c6ef-58fa-470d-af24-4b9f15ceeb3a.pdf",
+ "sourceUrl": "https://fightingirish.com/documents/7e31f110-e73d-4ce2-a60b-e4d09c544819.pdf",
  "sourceLabel": "FightingIrish.com",
- "title": "DEPTH CHART - GAME 11 VS SMU",
- "game": "SMU",
- "fetchedAt": "2026-11-16T22:08:37.307405+00:00",
+ "title": "DEPTH CHART - GAME 12 AT SYRACUSE",
+ "game": "at Syracuse",
+ "fetchedAt": "2026-11-23T19:08:18.286115+00:00",
  "units": [
   {
    "unit": "Defense",
@@ -139,9 +139,9 @@
        "level": 1,
        "players": [
         {
-         "no": "4",
-         "name": "Jaiden Ausberry",
-         "cl": "Sr."
+         "no": "3",
+         "name": "Jaylen Sneed",
+         "cl": "5th"
         }
        ]
       },
@@ -149,9 +149,14 @@
        "level": 2,
        "players": [
         {
-         "no": "3",
-         "name": "Jaylen Sneed",
-         "cl": "5th"
+         "no": "16",
+         "name": "Ko’o Kia",
+         "cl": "So."
+        },
+        {
+         "no": "35",
+         "name": "Teddy Rezac",
+         "cl": "Jr."
         }
        ]
       }
@@ -165,9 +170,9 @@
        "level": 1,
        "players": [
         {
-         "no": "27",
-         "name": "Kyngstonn Viliamu-Asa",
-         "cl": "Jr."
+         "no": "4",
+         "name": "Jaiden Ausberry",
+         "cl": "Sr."
         }
        ]
       },
@@ -177,16 +182,6 @@
         {
          "no": "19",
          "name": "Madden Faraimo",
-         "cl": "So."
-        }
-       ]
-      },
-      {
-       "level": 3,
-       "players": [
-        {
-         "no": "16",
-         "name": "Ko’o Kia",
          "cl": "So."
         }
        ]
@@ -284,9 +279,9 @@
        "level": 1,
        "players": [
         {
-         "no": "28",
-         "name": "Luke Talich",
-         "cl": "Sr."
+         "no": "9",
+         "name": "Brauntae Johnson",
+         "cl": "Jr."
         }
        ]
       },
@@ -381,11 +376,6 @@
       {
        "level": 1,
        "players": [
-        {
-         "no": "1",
-         "name": "Jaden Greathouse",
-         "cl": "Sr."
-        },
         {
          "no": "3",
          "name": "Mylan Graham",
@@ -902,6 +892,16 @@
   },
   {
    "unit": "Defense",
+   "label": "WILL",
+   "ordinal": 1,
+   "level": 2,
+   "names": [
+    "Ko’o Kia",
+    "Teddy Rezac"
+   ]
+  },
+  {
+   "unit": "Defense",
    "label": "NICKEL",
    "ordinal": 1,
    "level": 2,
@@ -918,16 +918,6 @@
    "names": [
     "Cam Williams",
     "Logan Saldate"
-   ]
-  },
-  {
-   "unit": "Offense",
-   "label": "WR",
-   "ordinal": 2,
-   "level": 1,
-   "names": [
-    "Jaden Greathouse",
-    "Mylan Graham"
    ]
   },
   {
@@ -1022,5 +1012,56 @@
    ]
   }
  ],
- "changes": []
+ "changes": [
+  {
+   "kind": "up",
+   "name": "Jaylen Sneed",
+   "text": "Jaylen Sneed moves up to first team at WILL"
+  },
+  {
+   "kind": "added",
+   "name": "Ko’o Kia",
+   "text": "Ko’o Kia now also listed at WILL, second team"
+  },
+  {
+   "kind": "removed",
+   "name": "Ko’o Kia",
+   "text": "Ko’o Kia no longer listed at MIKE"
+  },
+  {
+   "kind": "enters",
+   "name": "Teddy Rezac",
+   "text": "Teddy Rezac enters the depth chart at WILL, second team"
+  },
+  {
+   "kind": "added",
+   "name": "Jaiden Ausberry",
+   "text": "Jaiden Ausberry now also listed at MIKE, first team"
+  },
+  {
+   "kind": "removed",
+   "name": "Jaiden Ausberry",
+   "text": "Jaiden Ausberry no longer listed at WILL"
+  },
+  {
+   "kind": "enters",
+   "name": "Brauntae Johnson",
+   "text": "Brauntae Johnson enters the depth chart at FIELD, first team"
+  },
+  {
+   "kind": "leaves",
+   "name": "Kyngstonn Viliamu-Asa",
+   "text": "Kyngstonn Viliamu-Asa is off the depth chart"
+  },
+  {
+   "kind": "leaves",
+   "name": "Luke Talich",
+   "text": "Luke Talich is off the depth chart"
+  },
+  {
+   "kind": "leaves",
+   "name": "Jaden Greathouse",
+   "text": "Jaden Greathouse is off the depth chart"
+  }
+ ]
 }

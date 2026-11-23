@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-23T18:38:05.312612+00:00",
+ "updated": "2026-11-23T19:08:00.317270+00:00",
  "items": [
+  {
+   "title": "Navy vs Memphis - Game Photo Gallery Part 1",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-game-photo-gallery-part-1/",
+   "source": "The Mid Report",
+   "summary": "Photos from the first quarter of Navy\u2019s 38-34 win over the Memphis Tigers on November 21, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/22115632/DSC_1781.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-23T19:00:00+00:00"
+  },
   {
    "title": "Navy Quarterback Jackson Gutierrez Named to Davey O\u2019Brien Great 8 List",
    "link": "https://navysports.com/news/2026/11/23/football-navy-quarterback-jackson-gutierrez-named-to-davey-o-brien-great-8-list.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02150219/DSC_0847.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-03T19:00:00+00:00"
-  },
-  {
-   "title": "Navy vs Notre Dame - Game Photo Gallery Part 1",
-   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-notre-dame-game-photo-gallery-part-1/",
-   "source": "The Mid Report",
-   "summary": "Photos from the first quarter of Navy\u2019s 35-13 loss to the Notre Dame Fighting Irish on October 31, 2026, as seen through the lens of staff photographer Alison Althouse.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/01142121/DSC_0627.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-02T19:00:00+00:00"
   }
  ]
 }

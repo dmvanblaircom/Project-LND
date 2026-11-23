@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "notre-dame",
- "updated": "2026-11-16T22:08:37.307405+00:00",
+ "updated": "2026-11-23T19:08:18.286115+00:00",
  "reports": [
   {
    "schema": 1,
@@ -908,6 +908,72 @@
      "name": "DJ McKinney",
      "status": "out-game",
      "detail": "Right Ankle"
+    }
+   ]
+  },
+  {
+   "schema": 1,
+   "team": "notre-dame",
+   "capability": "availability",
+   "tier": "official",
+   "game": "at Syracuse",
+   "sourceUrl": "https://fightingirish.com/documents/5fc1ff39-c143-4e94-817c-30912e57ac2c.pdf",
+   "sourceLabel": "FightingIrish.com",
+   "pdf": "https://storage.googleapis.com/fightingirish-com/2026/11/23/HuXXem4GcCgs4fKkfgExMR6PNUC2qExcKdJFlW4h.pdf",
+   "parser": 2,
+   "fetchedAt": "2026-11-23T19:08:18.286115+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-23",
+   "heading": "AVAILABILITY UPDATE (NOV. 23)",
+   "players": [
+    {
+     "no": "",
+     "pos": "OL",
+     "name": "Will Black",
+     "status": "questionable",
+     "detail": "Concussion"
+    },
+    {
+     "no": "",
+     "pos": "LB",
+     "name": "Drayk Bowen",
+     "status": "out-game",
+     "detail": "Right Ankle"
+    },
+    {
+     "no": "",
+     "pos": "WR",
+     "name": "Jaden Greathouse",
+     "status": "out-game",
+     "detail": "Right Hand"
+    },
+    {
+     "no": "",
+     "pos": "DL",
+     "name": "Tiki Hola",
+     "status": "out-game",
+     "detail": "Right Knee"
+    },
+    {
+     "no": "",
+     "pos": "CB",
+     "name": "DJ McKinney",
+     "status": "out-game",
+     "detail": "Right Ankle"
+    },
+    {
+     "no": "",
+     "pos": "LB",
+     "name": "Kyngstonn Viliamu-Asa",
+     "status": "out-game",
+     "detail": "Left Knee"
+    },
+    {
+     "no": "",
+     "pos": "S",
+     "name": "Luke Talich",
+     "status": "out-season",
+     "detail": "Right Achilles"
     }
    ]
   }
