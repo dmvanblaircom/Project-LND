@@ -1,7 +1,16 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-23T19:08:00.263935+00:00",
+ "updated": "2026-11-23T20:38:04.985391+00:00",
  "items": [
+  {
+   "title": "Pat Fitzgerald Weekly Press Conference Coverage",
+   "link": "https://msuspartans.com/news/2026/11/23/football-pat-fitzgerald-weekly-press-conference-coverage",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Coach Fitzgerald and team huddle pre-game vs Oregon\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/20/MMP34049_o8xAo.JPG\" /><br /><br />EAST LANSING, Mich. \u2013\u00a0Michigan State head football coach\u00a0Pat Fitzgerald\u00a0held his weekly press conference Monday inside the Spartan Stadium North End Zone Media Center to preview this Saturday's game at Rutgers.",
+   "image": "https://msuspartans.com/images/2026/11/20/MMP34049_o8xAo.JPG?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-23T20:04:00+00:00"
+  },
   {
    "title": "Michigan State Extends Uniform Contract with Nike Through 2035",
    "link": "https://www.si.com/college/michiganstate/msu-extends-uniform-contract-nike-through-2035?utm_source=RSS",
@@ -354,15 +363,6 @@
    "published": "2026-11-17T14:23:00+00:00"
   },
   {
-   "title": "Pat Fitzgerald Weekly Press Conference Coverage",
-   "link": "https://msuspartans.com/news/2026/11/16/football-pat-fitzgerald-weekly-press-conference-coverage",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Pat Fitzgerald \" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/20261114_Washington_Fitzgerald_Pat_0138.jpg\" /><br /><br />EAST LANSING, Mich. \u2013\u00a0Michigan State head football coach\u00a0Pat Fitzgerald\u00a0held his weekly press conference Monday inside the Spartan Stadium North End Zone Media Center to preview this Friday's game against Oregon.",
-   "image": "https://msuspartans.com/images/2026/11/16/20261114_Washington_Fitzgerald_Pat_0138.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-16T19:45:00+00:00"
-  },
-  {
    "title": "Post-Game Notes: Washington",
    "link": "https://msuspartans.com/news/2026/11/14/football-post-game-notes-washington",
    "source": "Michigan State Athletics",
@@ -397,15 +397,6 @@
    "image": "https://msuspartans.com/images/2026/9/5/_EY34770.JPG?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-14T04:57:00+00:00"
-  },
-  {
-   "title": "Former Spartan Academic All-American Blanche Martin Passes Away",
-   "link": "https://msuspartans.com/news/2026/11/12/football-former-spartan-academic-all-american-blanche-martin-passes-away",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Blanche Martin\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/12/Blanche_Martin_posed.jpg\" /><br /><br />EAST LANSING, Mich. \u2013 Former Michigan State Academic All-American Dr. Blanche Martin has passed away at the age of 89 (1937-2026).",
-   "image": "https://msuspartans.com/images/2026/11/12/Blanche_Martin_posed.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-12T20:40:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "troy",
- "updated": "2026-11-23T16:08:08.899181+00:00",
+ "updated": "2026-11-23T20:38:13.414712+00:00",
  "items": [
+  {
+   "title": "Gerad Parker Press Conference - Arkansas State Game",
+   "link": "https://troytrojans.com/news/2026/11/23/football-gerad-parker-press-conference-arkansas-state-game",
+   "source": "Troy Athletics",
+   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/20261121-FB_Georgia_Southern__-Chambers-61.jpg\" /><br /><br />",
+   "image": "https://troytrojans.com/images/2026/11/23/20261121-FB_Georgia_Southern__-Chambers-61.jpg?width=800",
+   "sourceLogo": "https://troytrojans.com/favicon.ico",
+   "published": "2026-11-23T20:24:00+00:00"
+  },
   {
    "title": "Trojan Talk TONIGHT at Baumhower\u2019s Tonight; 81 Cent Wings",
    "link": "https://troytrojans.com/news/2026/11/23/football-trojan-talk-tonight-at-baumhowers-tonight-81-cent-wings",
@@ -82,15 +91,6 @@
    "image": "https://troytrojans.com/images/2026/11/14/DSC_8976.JPG?width=800",
    "sourceLogo": "https://troytrojans.com/favicon.ico",
    "published": "2026-11-15T04:50:00+00:00"
-  },
-  {
-   "title": "Troy Travels to Mobile for \u201cBattle for the Belt\u201d",
-   "link": "https://troytrojans.com/news/2026/11/12/football-troy-travels-to-mobile-for-battle-for-the-belt",
-   "source": "Troy Athletics",
-   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/11/Parker_Gerad_BF_1.jpg\" /><br /><br />",
-   "image": "https://troytrojans.com/images/2026/11/11/Parker_Gerad_BF_1.jpg?width=800",
-   "sourceLogo": "https://troytrojans.com/favicon.ico",
-   "published": "2026-11-12T14:04:00+00:00"
   }
  ]
 }
