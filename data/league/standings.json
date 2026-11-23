@@ -12,10 +12,10 @@
      "espnId": "2636",
      "name": "UTSA",
      "conf": {
-      "wins": 5,
+      "wins": 6,
       "losses": 1
      },
-     "overall": "8-2"
+     "overall": "9-2"
     },
     {
      "espnId": "151",
@@ -43,15 +43,6 @@
       "losses": 2
      },
      "overall": "7-4"
-    },
-    {
-     "espnId": "5",
-     "name": "UAB",
-     "conf": {
-      "wins": 4,
-      "losses": 2
-     },
-     "overall": "6-4"
     },
     {
      "espnId": "349",
@@ -88,6 +79,15 @@
       "losses": 3
      },
      "overall": "7-4"
+    },
+    {
+     "espnId": "5",
+     "name": "UAB",
+     "conf": {
+      "wins": 4,
+      "losses": 3
+     },
+     "overall": "6-5"
     },
     {
      "espnId": "2426",
@@ -303,10 +303,10 @@
      "espnId": "254",
      "name": "Utah",
      "conf": {
-      "wins": 7,
+      "wins": 8,
       "losses": 0
      },
-     "overall": "10-0"
+     "overall": "11-0"
     },
     {
      "espnId": "2641",
@@ -345,22 +345,22 @@
      "overall": "8-3"
     },
     {
+     "espnId": "197",
+     "name": "Oklahoma St",
+     "conf": {
+      "wins": 5,
+      "losses": 3
+     },
+     "overall": "7-4"
+    },
+    {
      "espnId": "9",
      "name": "Arizona St",
      "conf": {
       "wins": 4,
-      "losses": 3
+      "losses": 4
      },
-     "overall": "6-4"
-    },
-    {
-     "espnId": "197",
-     "name": "Oklahoma St",
-     "conf": {
-      "wins": 4,
-      "losses": 3
-     },
-     "overall": "6-4"
+     "overall": "6-5"
     },
     {
      "espnId": "239",
@@ -381,15 +381,6 @@
      "overall": "6-5"
     },
     {
-     "espnId": "2628",
-     "name": "TCU",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "5-5"
-    },
-    {
      "espnId": "2132",
      "name": "Cincinnati",
      "conf": {
@@ -401,6 +392,15 @@
     {
      "espnId": "66",
      "name": "Iowa State",
+     "conf": {
+      "wins": 3,
+      "losses": 5
+     },
+     "overall": "5-6"
+    },
+    {
+     "espnId": "2628",
+     "name": "TCU",
      "conf": {
       "wins": 3,
       "losses": 5
@@ -885,10 +885,10 @@
      "espnId": "2440",
      "name": "Nevada",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "4-6"
+     "overall": "5-6"
     },
     {
      "espnId": "23",
@@ -904,9 +904,9 @@
      "name": "Hawai'i",
      "conf": {
       "wins": 2,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "2459",
@@ -937,9 +937,18 @@
      "name": "Boise St",
      "conf": {
       "wins": 6,
-      "losses": 0
+      "losses": 1
      },
-     "overall": "9-1"
+     "overall": "9-2"
+    },
+    {
+     "espnId": "21",
+     "name": "San Diego St",
+     "conf": {
+      "wins": 5,
+      "losses": 2
+     },
+     "overall": "6-5"
     },
     {
      "espnId": "326",
@@ -951,49 +960,40 @@
      "overall": "7-4"
     },
     {
-     "espnId": "21",
-     "name": "San Diego St",
-     "conf": {
-      "wins": 4,
-      "losses": 2
-     },
-     "overall": "5-5"
-    },
-    {
      "espnId": "204",
      "name": "Oregon St",
      "conf": {
-      "wins": 3,
+      "wins": 4,
       "losses": 3
      },
-     "overall": "5-5"
+     "overall": "6-5"
+    },
+    {
+     "espnId": "278",
+     "name": "Fresno St",
+     "conf": {
+      "wins": 3,
+      "losses": 4
+     },
+     "overall": "6-5"
     },
     {
      "espnId": "328",
      "name": "Utah State",
      "conf": {
       "wins": 3,
-      "losses": 3
-     },
-     "overall": "4-6"
-    },
-    {
-     "espnId": "278",
-     "name": "Fresno St",
-     "conf": {
-      "wins": 2,
       "losses": 4
      },
-     "overall": "5-5"
+     "overall": "4-7"
     },
     {
      "espnId": "36",
      "name": "Colorado St",
      "conf": {
       "wins": 1,
-      "losses": 5
+      "losses": 6
      },
-     "overall": "3-7"
+     "overall": "3-8"
     },
     {
      "espnId": "265",
@@ -1303,5 +1303,5 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-22T04:12Z"
+ "fetchedAt": "2026-11-23T00:43Z"
 }
