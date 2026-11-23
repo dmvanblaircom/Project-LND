@@ -1,7 +1,16 @@
 {
  "team": "western-michigan",
- "updated": "2026-11-18T07:08:22.145642+00:00",
+ "updated": "2026-11-23T15:08:04.277900+00:00",
  "items": [
+  {
+   "title": "Broncos Host RedHawks in Regular Season Finale on Tuesday",
+   "link": "https://wmubroncos.com/news/2026/11/23/football-broncos-host-redhawks-in-regular-season-finale-on-tuesday.aspx",
+   "source": "WMU Athletics",
+   "summary": "<img alt=\"WMU vs EMU\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/17/AJ8I0029.jpg\" /><br /><br />Western Michigan wraps up the 2026 regular season on Tuesday night, hosting Miami Ohio at 7 p.m. on ESPN2. The game can be also heard live on the Bronco Media Network.",
+   "image": "https://wmubroncos.com/images/2026/11/17/AJ8I0029.jpg?width=800",
+   "sourceLogo": "https://wmubroncos.com/favicon.ico",
+   "published": "2026-11-23T14:47:00+00:00"
+  },
   {
    "title": "Broncos Outlast Eagles, 34-27",
    "link": "https://wmubroncos.com/news/2026/11/18/football-broncos-outlast-eagles-34-27.aspx",
@@ -82,15 +91,6 @@
    "image": "https://wmubroncos.com/images/2026/10/12/CMoss261010-490A7332.JPG?width=800",
    "sourceLogo": "https://wmubroncos.com/favicon.ico",
    "published": "2026-10-22T15:21:00+00:00"
-  },
-  {
-   "title": "Broncos Keep Victory Cannon After 21-14 Road Win at Central Michigan",
-   "link": "https://wmubroncos.com/news/2026/10/17/football-broncos-keep-victory-cannon-after-21-14-road-win-at-central-michigan.aspx",
-   "source": "WMU Athletics",
-   "summary": "<img alt=\"Western Michigan celebrates retaining the Victory Cannon after a 21-14 win at Central Michigan.\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/17/cannon_2.jpg\" /><br /><br />MOUNT PLEASANT, Mich. -- Western Michigan safety Daeh McCullough picked off Central Michigan quarterback Jadyn Glasser on the final play of the game to secure the Victory Cannon Trophy's safe return to Kalamazoo after a 21-14 win over the Chippewas at Kelly/Shorts Stadium on Saturday afternoon.",
-   "image": "https://wmubroncos.com/images/2026/10/17/cannon_2.jpg?width=800",
-   "sourceLogo": "https://wmubroncos.com/favicon.ico",
-   "published": "2026-10-17T23:13:00+00:00"
   }
  ]
 }
