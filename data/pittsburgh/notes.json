@@ -3,15 +3,15 @@
  "team": "pittsburgh",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://pittsburghpanthers.com/documents/2026/11/16/Week_12_Notes__PITT_at_LOU.pdf",
+ "sourceUrl": "https://pittsburghpanthers.com/documents/2026/11/23/Week_13_Notes__PITT_at_CAL.pdf",
  "sourceLabel": "pittsburghpanthers.com",
- "pdf": "https://pittsburghpanthers.com/documents/download/2026/11/16/Week_12_Notes__PITT_at_LOU.pdf",
+ "pdf": "https://pittsburghpanthers.com/documents/download/2026/11/23/Week_13_Notes__PITT_at_CAL.pdf",
  "parser": "say-1",
  "reads": [
   "pronounce"
  ],
- "fetchedAt": "2026-11-16T21:39:14.308318+00:00",
- "publishedAt": "2026-11-16",
+ "fetchedAt": "2026-11-23T22:08:59.138326+00:00",
+ "publishedAt": "2026-11-23",
  "game": null,
  "pronounce": {
   "Ryan Baer": "Bear",
