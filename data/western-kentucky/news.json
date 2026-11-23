@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-23T06:38:13.941898+00:00",
+ "updated": "2026-11-23T17:38:13.685267+00:00",
  "items": [
+  {
+   "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-23-26",
+   "link": "https://wkusports.com/news/2026/11/23/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-23-26",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"Tyson Presser\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/23/tyson.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/11/23/tyson.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-23T17:17:00+00:00"
+  },
   {
    "title": "Hilltoppers Fall At No. 22 Liberty",
    "link": "https://wkusports.com/news/2026/11/21/football-hilltoppers-fall-at-no-22-liberty",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/11/14/pregame_16x9.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-14T19:42:00+00:00"
-  },
-  {
-   "title": "Gameday Guide: Jax State",
-   "link": "https://wkusports.com/news/2026/11/14/football-gameday-guide-jax-state",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide \u2013 Jax State\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/13/WKU_FB_26___Gameday_Guide___Jax_State.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/11/13/WKU_FB_26___Gameday_Guide___Jax_State.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-14T10:00:00+00:00"
   }
  ]
 }
