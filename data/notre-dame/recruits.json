@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "87",
  "classYear": 2027,
- "listed": 24,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -110,6 +110,19 @@
    "rank": 112,
    "positionRank": 14,
    "stateRank": 12,
+   "status": "Verbal"
+  },
+  {
+   "id": "268392",
+   "name": "Aroson Randle Jr.",
+   "position": "OLB",
+   "highSchool": "Garner Senior High School",
+   "city": "Garner",
+   "state": "NC",
+   "grade": 83,
+   "rank": 115,
+   "positionRank": 9,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -321,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-23T01:12Z"
 }

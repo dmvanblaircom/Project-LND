@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "12",
  "classYear": 2027,
- "listed": 15,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -191,6 +191,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273560",
+   "name": "Seth Sullivan",
+   "position": "OT",
+   "highSchool": "Redondo Union High School",
+   "city": "Redondo Beach",
+   "state": "CA",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 142,
+   "stateRank": 141,
+   "status": "Verbal"
+  },
+  {
    "id": "273076",
    "name": "Dieter Lotulelei",
    "position": "DE",
@@ -204,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-23T01:09Z"
 }

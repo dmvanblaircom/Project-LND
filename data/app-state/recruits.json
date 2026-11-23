@@ -224,11 +224,11 @@
    "city": "Lewisville",
    "state": "TX",
    "grade": 4,
-   "rank": null,
+   "rank": 1,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-23T01:09Z"
 }

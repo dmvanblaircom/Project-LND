@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "59",
  "classYear": 2027,
- "listed": 25,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,19 +71,6 @@
    "rank": 256,
    "positionRank": 17,
    "stateRank": 30,
-   "status": "Verbal"
-  },
-  {
-   "id": "268602",
-   "name": "Maleek Lee",
-   "position": "DT",
-   "highSchool": "Palmetto High School",
-   "city": "Palmetto",
-   "state": "FL",
-   "grade": 80,
-   "rank": 292,
-   "positionRank": 27,
-   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -334,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:10Z"
+ "fetchedAt": "2026-11-23T01:10Z"
 }
