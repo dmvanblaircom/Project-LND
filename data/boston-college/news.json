@@ -1,7 +1,16 @@
 {
  "team": "boston-college",
- "updated": "2026-11-23T19:07:53.732615+00:00",
+ "updated": "2026-11-23T19:37:53.370089+00:00",
  "items": [
+  {
+   "title": "The Replay: Syracuse",
+   "link": "https://bceagles.com/news/2026/11/23/-forboston-files-the-replay-syracuse",
+   "source": "Boston College Athletics",
+   "summary": "<img alt=\"Football: McKenzie/Moore vs. Syracuse 11/21\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/JA109548.jpg\" /><br /><br />BC bludgeoned Syracuse to earn its fifth win towards the 2026 season.",
+   "image": "https://bceagles.com/images/2026/11/23/JA109548.jpg?width=800",
+   "sourceLogo": "https://bceagles.com/favicon.ico",
+   "published": "2026-11-23T19:20:00+00:00"
+  },
   {
    "title": "Bo MacCormack Named ACC Running Back of the Week",
    "link": "https://bceagles.com/news/2026/11/23/football-bo-maccormack-named-acc-running-back-of-the-week",
@@ -235,15 +244,6 @@
    "image": "https://bceagles.com/images/2026/11/10/MK_yav8Y.jpg?width=800",
    "sourceLogo": "https://bceagles.com/favicon.ico",
    "published": "2026-11-10T18:30:00+00:00"
-  },
-  {
-   "title": "Eagles Fall to Florida State",
-   "link": "https://bceagles.com/news/2026/11/7/football-eagles-fall-to-florida-state",
-   "source": "Boston College Athletics",
-   "summary": "<img alt=\"Recap Cover\" src=\"https://bceagles.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/Recap_Cover.png\" /><br /><br />Mason McKenzie throws for two touchdowns",
-   "image": "https://bceagles.com/images/2026/11/7/Recap_Cover.png?width=800",
-   "sourceLogo": "https://bceagles.com/favicon.ico",
-   "published": "2026-11-07T20:42:00+00:00"
   }
  ]
 }
