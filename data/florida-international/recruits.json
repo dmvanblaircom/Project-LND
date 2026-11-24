@@ -29,9 +29,9 @@
    "city": "Philadelphia",
    "state": "MS",
    "grade": 74,
-   "rank": 77,
-   "positionRank": 21,
-   "stateRank": 10,
+   "rank": 76,
+   "positionRank": 19,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2116",
  "classYear": 2027,
- "listed": 17,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": null,
    "positionRank": 27,
    "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
+   "id": "268596",
+   "name": "Kyren Caldwell",
+   "position": "WR",
+   "highSchool": "Columbia High School",
+   "city": "Lake City",
+   "state": "FL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 110,
+   "stateRank": 78,
    "status": "Verbal"
   },
   {
@@ -230,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-24T18:10Z"
 }

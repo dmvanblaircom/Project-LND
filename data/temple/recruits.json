@@ -61,6 +61,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274674",
+   "name": "Card'a Thompson",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Gretna",
+   "state": "LA",
+   "grade": 74,
+   "rank": 113,
+   "positionRank": 9,
+   "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
    "id": "272978",
    "name": "Amara Dolleh",
    "position": "ILB",
@@ -241,20 +254,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274674",
-   "name": "Card'a Thompson",
-   "position": "OT",
-   "highSchool": null,
-   "city": "Gretna",
-   "state": "LA",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-24T18:10Z"
 }

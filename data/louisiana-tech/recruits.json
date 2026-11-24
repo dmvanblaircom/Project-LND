@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2348",
  "classYear": 2027,
- "listed": 11,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,7 +16,7 @@
    "city": "Fresno",
    "state": "TX",
    "grade": 76,
-   "rank": 23,
+   "rank": 22,
    "positionRank": 1,
    "stateRank": 2,
    "status": "Verbal"
@@ -32,6 +32,19 @@
    "rank": null,
    "positionRank": 116,
    "stateRank": 65,
+   "status": "Verbal"
+  },
+  {
+   "id": "274564",
+   "name": "Seth Kidd",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Mobile",
+   "state": "AL",
+   "grade": 72,
+   "rank": 190,
+   "positionRank": 15,
+   "stateRank": 13,
    "status": "Verbal"
   },
   {
@@ -133,24 +146,24 @@
    "city": "New Port Richey",
    "state": "FL",
    "grade": 4,
-   "rank": 101,
+   "rank": 192,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
   },
   {
-   "id": "274564",
-   "name": "Seth Kidd",
-   "position": "DT",
+   "id": "274920",
+   "name": "Jordyn Ashford",
+   "position": "OG",
    "highSchool": null,
-   "city": "Mobile",
-   "state": "AL",
+   "city": "Ackerman",
+   "state": "MS",
    "grade": 4,
-   "rank": 101,
+   "rank": 192,
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

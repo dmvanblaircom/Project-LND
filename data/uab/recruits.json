@@ -48,6 +48,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274489",
+   "name": "Jshawn Jinks",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Albany",
+   "state": "GA",
+   "grade": 73,
+   "rank": 180,
+   "positionRank": 13,
+   "stateRank": 16,
+   "status": "Verbal"
+  },
+  {
    "id": "273436",
    "name": "Israel Prince-Oyakhire",
    "position": "S",
@@ -124,20 +137,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274489",
-   "name": "Jshawn Jinks",
-   "position": "DT",
-   "highSchool": null,
-   "city": "Albany",
-   "state": "GA",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-24T18:10Z"
 }

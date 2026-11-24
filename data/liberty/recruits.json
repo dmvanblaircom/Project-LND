@@ -48,6 +48,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274565",
+   "name": "Russell Davis",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Atlanta",
+   "state": "GA",
+   "grade": 73,
+   "rank": 168,
+   "positionRank": 11,
+   "stateRank": 15,
+   "status": "Verbal"
+  },
+  {
    "id": "271348",
    "name": "Levi Champion",
    "position": "OLB",
@@ -176,20 +189,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274565",
-   "name": "Russell Davis",
-   "position": "DT",
-   "highSchool": null,
-   "city": "Atlanta",
-   "state": "GA",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

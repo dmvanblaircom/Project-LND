@@ -1,7 +1,16 @@
 {
  "team": "bowling-green",
- "updated": "2026-11-24T07:07:58.009221+00:00",
+ "updated": "2026-11-24T18:07:51.704590+00:00",
  "items": [
+  {
+   "title": "BGSU Football Announces Ninth Annual Holidays with Falcon Football",
+   "link": "https://bgsufalcons.com/news/2026/11/24/bgsu-football-announces-ninth-annual-holidays-with-falcon-football",
+   "source": "Bowling Green Athletics",
+   "summary": "<img alt=\"Holidays with the Falcons 2026\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/HOLIDAYS-WITH-FB-760X430.jpg\" /><br /><br />BOWLING GREEN, Ohio \u2013 The Bowling Green State University football program is continuing its tradition of giving back this holiday season through its annual Holidays with Falcon Football program, bringing holiday cheer to local children, families and community organizations throughout Wood County.",
+   "image": "https://bgsufalcons.com/images/2026/11/24/HOLIDAYS-WITH-FB-760X430.jpg?width=800",
+   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
+   "published": "2026-11-24T17:32:00+00:00"
+  },
   {
    "title": "Bradley, Hobson Named BGSU Athletes Of The Week",
    "link": "https://bgsufalcons.com/news/2026/11/23/general-bradley-hobson-named-bgsu-athletes-of-the-week",
@@ -91,15 +100,6 @@
    "image": "https://bgsufalcons.com/images/2026/11/10/Kate_Laney_Photo_Nov_10_2026__8_39_37_AM.jpg?width=800",
    "sourceLogo": "https://bgsufalcons.com/favicon.ico",
    "published": "2026-11-11T04:17:00+00:00"
-  },
-  {
-   "title": "This Week in Falcon Athletics at Home: Nov. 9 - Nov. 15",
-   "link": "https://bgsufalcons.com/news/2026/11/9/general-this-week-in-falcon-athletics-at-home-nov-9-nov-15",
-   "source": "Bowling Green Athletics",
-   "summary": "<img alt=\"Falcons At Home 2026\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/21/FALCONS-AT-HOME-THIS-WEEK.jpg\" /><br /><br />Men's Basketball",
-   "image": "https://bgsufalcons.com/images/2026/9/21/FALCONS-AT-HOME-THIS-WEEK.jpg?width=800",
-   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
-   "published": "2026-11-09T19:01:00+00:00"
   }
  ]
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "9",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,6 +139,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272891",
+   "name": "Neree Castleberry",
+   "position": "ILB",
+   "highSchool": "Winnsboro High School",
+   "city": "Winnsboro",
+   "state": "TX",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 42,
+   "stateRank": 132,
+   "status": "Verbal"
+  },
+  {
    "id": "271623",
    "name": "Caleb Camping",
    "position": "TE-H",
@@ -191,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-24T18:08Z"
 }

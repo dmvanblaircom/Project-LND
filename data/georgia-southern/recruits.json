@@ -87,6 +87,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273033",
+   "name": "Xavier Spikes",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Stockbridge",
+   "state": "GA",
+   "grade": 72,
+   "rank": 189,
+   "positionRank": 6,
+   "stateRank": 18,
+   "status": "Verbal"
+  },
+  {
    "id": "274736",
    "name": "Jamarian Clark",
    "position": "WR",
@@ -176,20 +189,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "273033",
-   "name": "Xavier Spikes",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Stockbridge",
-   "state": "GA",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

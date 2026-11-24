@@ -22,6 +22,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274631",
+   "name": "Chris Carbin",
+   "position": "OLB",
+   "highSchool": null,
+   "city": "Powder Springs",
+   "state": "GA",
+   "grade": 74,
+   "rank": 121,
+   "positionRank": 7,
+   "stateRank": 12,
+   "status": "Verbal"
+  },
+  {
    "id": "273127",
    "name": "Ethan Johnson",
    "position": "CB",
@@ -163,20 +176,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274631",
-   "name": "Chris Carbin",
-   "position": "OLB",
-   "highSchool": null,
-   "city": "Powder Springs",
-   "state": "GA",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

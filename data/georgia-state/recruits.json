@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2247",
  "classYear": 2027,
- "listed": 24,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -308,6 +308,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274919",
+   "name": "Dylan Richardson",
+   "position": "TE-H",
+   "highSchool": "Tampa Catholic High School",
+   "city": "Tampa",
+   "state": "FL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274851",
    "name": "Mason Wright",
    "position": "DE",
@@ -321,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

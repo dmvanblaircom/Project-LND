@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "166",
  "classYear": 2027,
- "listed": 5,
+ "listed": 6,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "274928",
+   "name": "Maximus Howard",
+   "position": "TE-H",
+   "highSchool": null,
+   "city": "Tipp City",
+   "state": "OH",
+   "grade": 74,
+   "rank": 132,
+   "positionRank": 6,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
   {
    "id": "273240",
    "name": "Isaiah Carpenter",
@@ -74,5 +87,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-10-30T10:14Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

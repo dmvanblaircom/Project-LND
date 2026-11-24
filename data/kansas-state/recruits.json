@@ -321,6 +321,19 @@
    "status": "Verbal"
   },
   {
+   "id": "268297",
+   "name": "Jack Clayborne",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Miami",
+   "state": "OK",
+   "grade": 73,
+   "rank": 145,
+   "positionRank": 12,
+   "stateRank": 5,
+   "status": "Verbal"
+  },
+  {
    "id": "268719",
    "name": "Jalen Price",
    "position": "DE",
@@ -332,20 +345,7 @@
    "positionRank": 164,
    "stateRank": 228,
    "status": "Verbal"
-  },
-  {
-   "id": "268297",
-   "name": "Jack Clayborne",
-   "position": "OT",
-   "highSchool": null,
-   "city": "Miami",
-   "state": "OK",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

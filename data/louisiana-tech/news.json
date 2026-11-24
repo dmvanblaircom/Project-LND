@@ -1,7 +1,16 @@
 {
  "team": "louisiana-tech",
- "updated": "2026-11-24T15:07:56.645784+00:00",
+ "updated": "2026-11-24T18:07:56.524253+00:00",
  "items": [
+  {
+   "title": "Finley Named Finalist For 2026 John Mackey Award",
+   "link": "https://latechsports.com/news/2026/11/24/football-finley-named-finalist-for-2026-john-mackey-award",
+   "source": "LA Tech Athletics",
+   "summary": "<img alt=\"Eli Finley vs. Arkansas State\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/story_image_Finley_Mackey_Award_finalist_.png\" /><br /><br />RUSTON \u2013 Louisiana Tech tight end Eli Finley was announced as a finalist for the 2026 John Mackey Award, given to the nation's most outstanding tight end, per the award's selection committee's release Tuesday morning.",
+   "image": "https://latechsports.com/images/2026/11/24/story_image_Finley_Mackey_Award_finalist_.png?width=800",
+   "sourceLogo": "https://latechsports.com/favicon.ico",
+   "published": "2026-11-24T17:46:00+00:00"
+  },
   {
    "title": "Stat Attack - Georgia Southern",
    "link": "https://on3.com/sites/bleed-tech-blue/news/stat-attack-georgia-southern/",
@@ -217,15 +226,6 @@
    "image": "https://latechsports.com/images/2026/11/12/story_image_Finley_John_Mackey_semifinalist.png?width=800",
    "sourceLogo": "https://latechsports.com/favicon.ico",
    "published": "2026-11-12T18:07:00+00:00"
-  },
-  {
-   "title": "Know Before You Go | Southern Miss Game Day Guide",
-   "link": "https://latechsports.com/news/2026/11/11/football-know-before-you-go-southern-miss-game-day-guide",
-   "source": "LA Tech Athletics",
-   "summary": "<img alt=\"Know Before You Go | Southern Miss Red Out\" src=\"https://latechsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/KBYG_16x9.png\" /><br /><br />RUSTON \u2013\u00a0A rivalry renewed. A stadium dressed in red. Another Saturday in Ruston.",
-   "image": "https://latechsports.com/images/2026/11/10/KBYG_16x9.png?width=800",
-   "sourceLogo": "https://latechsports.com/favicon.ico",
-   "published": "2026-11-11T12:00:00+00:00"
   }
  ]
 }

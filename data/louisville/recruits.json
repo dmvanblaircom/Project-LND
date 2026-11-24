@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "97",
  "classYear": 2027,
- "listed": 19,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -230,6 +230,19 @@
    "status": "Verbal"
   },
   {
+   "id": "268416",
+   "name": "Waymond Jenerette Jr.",
+   "position": "WR",
+   "highSchool": null,
+   "city": "Rock Hill",
+   "state": "SC",
+   "grade": 75,
+   "rank": 44,
+   "positionRank": 5,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
    "id": "262676",
    "name": "Darrian Tomlin",
    "position": "OLB",
@@ -256,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T01:11Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

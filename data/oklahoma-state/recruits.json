@@ -133,7 +133,7 @@
    "city": "American Samoa",
    "state": "AS",
    "grade": 76,
-   "rank": 20,
+   "rank": 19,
    "positionRank": 4,
    "stateRank": 1,
    "status": "Verbal"
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-24T18:10Z"
 }

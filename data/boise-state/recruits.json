@@ -81,7 +81,7 @@
    "city": "Loomis",
    "state": "CA",
    "grade": 76,
-   "rank": 18,
+   "rank": 17,
    "positionRank": 3,
    "stateRank": 5,
    "status": "Verbal"
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

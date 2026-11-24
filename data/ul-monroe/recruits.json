@@ -9,6 +9,19 @@
  "committedElsewhere": 0,
  "recruits": [
   {
+   "id": "274637",
+   "name": "Dai'Drien Parker",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Oklahoma City",
+   "state": "OK",
+   "grade": 74,
+   "rank": 115,
+   "positionRank": 5,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
    "id": "273552",
    "name": "Parker Robinson",
    "position": "QB-PP",
@@ -33,20 +46,7 @@
    "positionRank": 99,
    "stateRank": 25,
    "status": "Verbal"
-  },
-  {
-   "id": "274637",
-   "name": "Dai'Drien Parker",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Oklahoma City",
-   "state": "OK",
-   "grade": 4,
-   "rank": 101,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-24T18:10Z"
 }

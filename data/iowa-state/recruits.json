@@ -81,8 +81,8 @@
    "city": "Jonesboro",
    "state": "GA",
    "grade": 76,
-   "rank": 28,
-   "positionRank": 7,
+   "rank": 27,
+   "positionRank": 6,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -295,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }

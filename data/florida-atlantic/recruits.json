@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2226",
  "classYear": 2027,
- "listed": 21,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "265143",
+   "name": "Ethan Kimmie",
+   "position": "WR",
+   "highSchool": "Zachary High School",
+   "city": "Zachary",
+   "state": "LA",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 58,
+   "stateRank": 14,
+   "status": "Verbal"
+  },
   {
    "id": "262551",
    "name": "Sa'Nir Brooks",
@@ -282,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:10Z"
+ "fetchedAt": "2026-11-24T18:09Z"
 }
