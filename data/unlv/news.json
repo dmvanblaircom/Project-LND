@@ -1,7 +1,16 @@
 {
  "team": "unlv",
- "updated": "2026-11-23T23:08:08.767334+00:00",
+ "updated": "2026-11-24T00:38:11.855398+00:00",
  "items": [
+  {
+   "title": "GAME 12: Cannon On The Line Saturday At Allegiant",
+   "link": "https://unlvrebels.com/news/2026/11/23/football-game-12-cannon-on-the-line-saturday-at-allegiant",
+   "source": "UNLV Athletics",
+   "summary": "<img alt=\"Fremont Cannon\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2023/10/9/Fremon_Cannon_2023_by_Josh_Hawkins.JPG\" /><br /><br />UNLV REBELS (7-4/5-2 Mountain West)",
+   "image": "https://unlvrebels.com/images/2023/10/9/Fremon_Cannon_2023_by_Josh_Hawkins.JPG?width=800",
+   "sourceLogo": "https://unlvrebels.com/favicon.ico",
+   "published": "2026-11-24T00:15:00+00:00"
+  },
   {
    "title": "Game Promotions Announced for Football vs. UNR",
    "link": "https://unlvrebels.com/news/2026/11/23/game-promotions-announced-for-football-vs-unr",
@@ -82,15 +91,6 @@
    "image": "https://unlvrebels.com/images/2026/11/8/Alex_Orji_Wyo.jpg?width=800",
    "sourceLogo": "https://unlvrebels.com/favicon.ico",
    "published": "2026-11-08T08:49:00+00:00"
-  },
-  {
-   "title": "GAME 9: Rebels Host Cowboys Saturday Night In Key MW Battle",
-   "link": "https://unlvrebels.com/news/2026/11/2/football-game-9-rebels-host-cowboys-saturday-night-in-key-mw-battle",
-   "source": "UNLV Athletics",
-   "summary": "<img alt=\"Jet Thomas\" src=\"https://unlvrebels.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/2/donoghue_photo__46_of_66___1_.jpg\" /><br /><br />GAME 9:",
-   "image": "https://unlvrebels.com/images/2026/11/2/donoghue_photo__46_of_66___1_.jpg?width=800",
-   "sourceLogo": "https://unlvrebels.com/favicon.ico",
-   "published": "2026-11-03T00:52:00+00:00"
   }
  ]
 }
