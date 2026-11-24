@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-23T21:13:36Z",
+ "builtAt": "2026-11-24T17:30:20Z",
  "ranked": {
   "passOffense": true,
   "turnoverMargin": true
@@ -310,7 +310,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 133.3,
+   "rushAllowed": 132.4,
    "takeaways": 11
   },
   "167": {
@@ -1211,7 +1211,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 128.9,
+   "rushAllowed": 129.4,
    "takeaways": 17
   },
   "249": {
@@ -1812,7 +1812,7 @@
   "324": {
    "games": 11,
    "giveaways": 24,
-   "passAllowed": 216.9,
+   "passAllowed": 217.1,
    "ranks": {
     "passOffense": {
      "rank": 44,
@@ -1823,7 +1823,7 @@
      "tied": true
     }
    },
-   "rushAllowed": 169.8,
+   "rushAllowed": 169.6,
    "takeaways": 22
   },
   "326": {
