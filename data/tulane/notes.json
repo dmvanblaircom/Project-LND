@@ -3,15 +3,15 @@
  "team": "tulane",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://tulanegreenwave.com/documents/2026/11/17/2026_Game_Notes_vs._North_Texas_-_FULL.pdf",
+ "sourceUrl": "https://tulanegreenwave.com/documents/2026/11/24/2026_Game_Notes_at_South_Florida_-_FULL.pdf",
  "sourceLabel": "tulanegreenwave.com",
- "pdf": "https://tulanegreenwave.com/documents/download/2026/11/17/2026_Game_Notes_vs._North_Texas_-_FULL.pdf",
+ "pdf": "https://tulanegreenwave.com/documents/download/2026/11/24/2026_Game_Notes_at_South_Florida_-_FULL.pdf",
  "parser": "say-1",
  "reads": [
   "pronounce"
  ],
- "fetchedAt": "2026-11-17T04:09:45.494739+00:00",
- "publishedAt": "2026-11-17",
+ "fetchedAt": "2026-11-24T15:09:09.953048+00:00",
+ "publishedAt": "2026-11-24",
  "game": null,
  "pronounce": {
   "Jack Tchienchou": "Chen-choo",
