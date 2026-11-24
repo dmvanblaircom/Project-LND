@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-24T18:07:52.698769+00:00",
+ "updated": "2026-11-24T22:37:53.085742+00:00",
  "items": [
+  {
+   "title": "Bears, Panthers To Meet For Regular-Season Finale",
+   "link": "https://calbears.com/news/2026/11/24/football-bears-panthers-to-meet-for-regular-season-finale",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Cal FB vs. Pitt (11.28.2026) Web Preview Graphic\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/GAMEWEEK_WEBPITT.jpg\" /><br /><br />Cal, Pitt To Meet For First Time As ACC Opponents In Berkeley",
+   "image": "https://calbears.com/images/2026/11/24/GAMEWEEK_WEBPITT.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-24T22:00:00+00:00"
+  },
   {
    "title": "Pitt Coach Narduzzi Describes Cal Offense as 'Flavor of the Week'",
    "link": "https://www.si.com/college/cal/football/pitt-coach-narduzzi-describes-cal-offense-as-flavor-of-the-week-01m84x8xx9v8?utm_source=RSS",
@@ -298,15 +307,6 @@
    "image": "https://calbears.com/images/2026/11/15/DSC06210.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-15T18:30:00+00:00"
-  },
-  {
-   "title": "Postgame Notes: Virginia 36, California 7",
-   "link": "https://calbears.com/news/2026/11/14/football-postgame-notes-virginia-36-california-7",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Solomon Williams Forces A Fumble\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/DSC06972.JPG\" /><br /><br />CAL FOOTBALL POSTGAME NOTES",
-   "image": "https://calbears.com/images/2026/11/14/DSC06972.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-15T00:08:00+00:00"
   }
  ]
 }
