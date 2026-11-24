@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T19:01:00.680881+00:00",
+ "fetchedAt": "2026-11-24T03:08:28.174530+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Baylor",
+ "effectiveAt": "2026-11-23",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-26",
+ "game": "TCU",
  "players": [
   {
    "pos": "RB",
@@ -25,7 +25,28 @@
    "pos": "WR",
    "no": "1",
    "name": "Micah Hudson",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "2",
+   "name": "Kenny Johnson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Coy Eakin",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "3",
+   "name": "Peyton Morgan",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -36,6 +57,13 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "14",
+   "name": "Brice Pollock",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "S",
    "no": "21",
    "name": "Miquel Dingle Jr.",
@@ -43,10 +71,31 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "22",
+   "name": "Marcus Ramon-Edwards",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OLB",
    "no": "32",
    "name": "LaDamion Guyton",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "52",
+   "name": "Cash Cleveland",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "92",
+   "name": "Bryce Butler",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,18 +7,25 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T00:39:10.481373+00:00",
+ "fetchedAt": "2026-11-24T03:08:27.616805+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Utah",
+ "effectiveAt": "2026-11-23",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-26",
+ "game": "Texas Tech",
  "players": [
   {
    "pos": "QB",
    "no": "1",
    "name": "Jaden Craig",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "12",
+   "name": "Lafayette Kaiuway",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -32,7 +39,21 @@
    "pos": "LB",
    "no": "23",
    "name": "Keylan Abrams",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "Kari Ashley",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "92",
+   "name": "Ansel Din-Mbuh",
+   "status": "probable",
    "detail": ""
   }
  ],
