@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "kent-state",
- "updated": "2026-11-18T11:09:01.568795+00:00",
+ "updated": "2026-11-24T23:08:44.832781+00:00",
  "reports": [
   {
    "schema": 1,
@@ -724,6 +724,123 @@
      "pos": "K",
      "no": "96",
      "name": "Sean Leonard",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "kent-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-24T23:08:44.832781+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-24",
+   "game": "Eastern Michigan",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "0",
+     "name": "Mason King",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jared Kelley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Angelo Stockstill",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "11",
+     "name": "Zy'aire Fletcher",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Dru DeShields",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "20",
+     "name": "Rafael Terrero Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Brandon White",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Ezekiel Castex",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "24",
+     "name": "Tanner Mintz",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "25",
+     "name": "Donovan Delaney Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "43",
+     "name": "Kendall McNutt",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "44",
+     "name": "Holtz Maine",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "83",
+     "name": "Garrett Long",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "91",
+     "name": "Dion'Dre Taylor",
      "status": "out-game",
      "detail": ""
     }

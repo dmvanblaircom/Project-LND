@@ -7,13 +7,20 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-18T11:09:01.568795+00:00",
+ "fetchedAt": "2026-11-24T23:08:44.832781+00:00",
  "reported": true,
- "effectiveAt": "2026-11-17",
+ "effectiveAt": "2026-11-24",
  "heading": "Game Day",
- "kickoffDate": "2026-11-17",
- "game": "vs. Miami",
+ "kickoffDate": "2026-11-24",
+ "game": "Eastern Michigan",
  "players": [
+  {
+   "pos": "RB",
+   "no": "0",
+   "name": "Mason King",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "4",
@@ -36,10 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "14",
-   "name": "Tyler Bivens",
-   "status": "out-game",
+   "pos": "QB",
+   "no": "12",
+   "name": "Dru DeShields",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -51,29 +58,43 @@
   },
   {
    "pos": "RB",
+   "no": "22",
+   "name": "Brandon White",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "23",
+   "name": "Ezekiel Castex",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "24",
+   "name": "Tanner Mintz",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
    "no": "25",
    "name": "Donovan Delaney Jr.",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "44",
-   "name": "Holtz Maine",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "50",
-   "name": "Ben Midea",
+   "pos": "LB",
+   "no": "43",
+   "name": "Kendall McNutt",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "77",
-   "name": "Rico Steele",
+   "pos": "TE",
+   "no": "44",
+   "name": "Holtz Maine",
    "status": "out-game",
    "detail": ""
   },
@@ -88,13 +109,6 @@
    "pos": "DL",
    "no": "91",
    "name": "Dion'Dre Taylor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "K",
-   "no": "96",
-   "name": "Sean Leonard",
    "status": "out-game",
    "detail": ""
   }

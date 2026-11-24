@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "eastern-michigan",
- "updated": "2026-11-18T11:08:59.262718+00:00",
+ "updated": "2026-11-24T23:08:42.308688+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1571,6 +1571,228 @@
      "pos": "TE",
      "no": "88",
      "name": "Tanner Lemaster",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "eastern-michigan",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://getsomemaction.com/sports/football",
+   "sourceLabel": "GetSomeMACtion.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-24T23:08:42.308688+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-24",
+   "game": "Kent State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Noah Kim",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "3",
+     "name": "Barry Manning",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "8",
+     "name": "Jaivian Norman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "12",
+     "name": "Jace Stuckey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Jason Marshall",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "16",
+     "name": "Caleb Coley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "16",
+     "name": "Jackson Holt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Joey Mattord",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "31",
+     "name": "Antonio Solares-Vitti",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "35",
+     "name": "Jabari Monds",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "43",
+     "name": "Payton Kokaly",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "45",
+     "name": "Kadin Bailey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "46",
+     "name": "Noah Knigga",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "53",
+     "name": "Alijah Lacey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Javon Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Chad Troxler",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Joshua Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Samuel Adjin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Elijha Payne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "76",
+     "name": "Nily Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Cole Powell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "79",
+     "name": "Jackson Higgins",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "80",
+     "name": "Shawn Fishwick",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "83",
+     "name": "Bacori Minner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "85",
+     "name": "Jefferson Adam",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "87",
+     "name": "CJ Miller",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "88",
+     "name": "Tanner Lemaster",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Owen Edlen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "97",
+     "name": "Jahbarri Frost",
      "status": "out-game",
      "detail": ""
     }

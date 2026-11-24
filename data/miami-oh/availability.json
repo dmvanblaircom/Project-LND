@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-18T11:09:02.590337+00:00",
+ "fetchedAt": "2026-11-24T23:08:46.283650+00:00",
  "reported": true,
- "effectiveAt": "2026-11-17",
+ "effectiveAt": "2026-11-24",
  "heading": "Game Day",
- "kickoffDate": "2026-11-17",
- "game": "at Kent State",
+ "kickoffDate": "2026-11-24",
+ "game": "Western Michigan",
  "players": [
   {
    "pos": "WR",
@@ -43,6 +43,13 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "8",
+   "name": "Damarion Witten",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "12",
    "name": "Kaleb Martin",
@@ -57,13 +64,6 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "13",
-   "name": "Desmon Yharbrough",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "QB",
    "no": "16",
    "name": "David McComb",
@@ -71,31 +71,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "19",
-   "name": "Luke Berry",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "20",
    "name": "Cade Yacamelli",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "32",
-   "name": "James Schott",
    "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "33",
-   "name": "Harrison Brewster",
-   "status": "out-game",
    "detail": ""
   },
   {
@@ -137,20 +116,6 @@
    "pos": "TE",
    "no": "83",
    "name": "Eric Karner",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "85",
-   "name": "Trey Zvonar",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "89",
-   "name": "Brayden Boeing",
    "status": "out-game",
    "detail": ""
   }
