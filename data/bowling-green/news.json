@@ -1,7 +1,16 @@
 {
  "team": "bowling-green",
- "updated": "2026-11-23T22:37:55.777946+00:00",
+ "updated": "2026-11-24T02:07:53.224916+00:00",
  "items": [
+  {
+   "title": "Bradley, Hobson Named BGSU Athletes Of The Week",
+   "link": "https://bgsufalcons.com/news/2026/11/23/general-bradley-hobson-named-bgsu-athletes-of-the-week",
+   "source": "Bowling Green Athletics",
+   "summary": "<img alt=\"Athletes of the Week -- Myles Bradley, Avery Hobson\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/28/ATHLETES_OFTHEWEEK_Bradley_Hobson.png\" /><br /><br />Each week, the Bowling Green State University Athletic Department names the Athletes of the Week, as selected by the strategic communications and external relations departments based on their athletic performances from the previous week. This week's winners are men's senior football defensive end Myles Bradley and women's volleyball senior outside hitter, Avery Hob",
+   "image": "https://bgsufalcons.com/images/2026/9/28/ATHLETES_OFTHEWEEK_Bradley_Hobson.png?width=800",
+   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
+   "published": "2026-11-24T01:37:00+00:00"
+  },
   {
    "title": "How DII transfer Jay Kastantin led Falcon football in 2026",
    "link": "https://bgfalconmedia.com/184448/sports/how-dii-transfer-jay-kastantins-led-falcon-football-in-2026/",
@@ -91,15 +100,6 @@
    "image": "https://bgsufalcons.com/images/2026/9/21/FALCONS-AT-HOME-THIS-WEEK.jpg?width=800",
    "sourceLogo": "https://bgsufalcons.com/favicon.ico",
    "published": "2026-11-09T19:01:00+00:00"
-  },
-  {
-   "title": "At the Game: Kent State",
-   "link": "https://bgsufalcons.com/news/2026/11/8/football-at-the-game-kent-state",
-   "source": "Bowling Green Athletics",
-   "summary": "<img alt=\"BGSU Crowd Shot - Ball State\" src=\"https://bgsufalcons.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/8/DSC07760_Cayman_VFX.jpg\" /><br /><br />BOWLING GREEN, Ohio \u2014 Bowling Green continues MAC play on Tuesday night with MACtion against the Kent State Golden Flashes. Kickoff at Doyt Perry Stadium is set for 7 p.m.",
-   "image": "https://bgsufalcons.com/images/2026/11/8/DSC07760_Cayman_VFX.jpg?width=800",
-   "sourceLogo": "https://bgsufalcons.com/favicon.ico",
-   "published": "2026-11-09T03:08:00+00:00"
   }
  ]
 }
