@@ -100,6 +100,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274845",
+   "name": "Sean Oliver",
+   "position": "DE",
+   "highSchool": null,
+   "city": "Lewisville",
+   "state": "TX",
+   "grade": 74,
+   "rank": 192,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "271733",
    "name": "Jok Harris",
    "position": "WR",
@@ -215,20 +228,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274845",
-   "name": "Sean Oliver",
-   "position": "DE",
-   "highSchool": null,
-   "city": "Lewisville",
-   "state": "TX",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:08Z"
+ "fetchedAt": "2026-11-24T18:39Z"
 }
