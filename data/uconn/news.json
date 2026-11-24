@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-23T21:38:03.997796+00:00",
+ "updated": "2026-11-24T01:38:03.222237+00:00",
  "items": [
+  {
+   "title": "WATCH: Game 12 Football Press Conference",
+   "link": "https://uconnhuskies.com/news/2026/11/23/watch-game-12-football-press-conference",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT -\u00a0The UConn Huskies head out to Wyoming for the regular season finale on Saturday in search of their seventh win on the season.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
+   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-24T01:06:00+00:00"
+  },
   {
    "title": "Football: UConn claims Bowl eligibility with 29-21 win over Old Dominion on Senior Day",
    "link": "https://dailycampus.com/2026/11/23/football-uconn-claims-bowl-eligibility-with-29-21-win-over-old-dominion-on-senior-day/",
@@ -127,15 +136,6 @@
    "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-11-10T00:34:00+00:00"
-  },
-  {
-   "title": "Huskies Lose Battle With Tar Heels",
-   "link": "https://uconnhuskies.com/news/2026/11/7/football-huskies-lose-battle-with-tar-heels",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Hayden Pegg\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/7/UNC_H_Pegg_1.jpg\" /><br /><br />EAST HARTFORD, CT \u2013 The North Carolina Tar Heels created three turnovers leading to 21 points on the way to a 38-21 win over the UConn Huskies Saturday afternoon in front of 36,901 at Pratt & Whitney Stadium at Rentschler Field.",
-   "image": "https://uconnhuskies.com/images/2026/11/7/UNC_H_Pegg_1.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-11-07T21:20:00+00:00"
   }
  ]
 }
