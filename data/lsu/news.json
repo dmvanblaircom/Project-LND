@@ -1,6 +1,6 @@
 {
  "team": "lsu",
- "updated": "2026-11-24T21:38:03.087965+00:00",
+ "updated": "2026-11-24T22:08:03.025814+00:00",
  "items": [
   {
    "title": "LSU\u2019s SEC Dispute Raises Questions Far Bigger Than Conference Membership",
@@ -46,6 +46,15 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/27013614/IMG_0197.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-24T17:30:00+00:00"
+  },
+  {
+   "title": "The Bengal Tiger's \"Ask Me Anything\" Chat with Shea Dixon",
+   "link": "https://on3.com/teams/lsu-tigers/news/the-bengal-tigers-ask-me-anything-chat-with-shea-dixon/",
+   "source": "On3",
+   "summary": "The Bengal Tiger's Shea Dixon takes questions from members on Lane Kiffin's 6-5 season, what the future may hold for current LSU starting quarterback Sam Leavitt and much more.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/24110555/images-1-1.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-24T17:00:00+00:00"
   },
   {
    "title": "Lane Kiffin Explains LSU's Diagnosis For The Season",
@@ -363,15 +372,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/14224506/Screenshot-2026-11-14-at-10.31.28-PM.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-22T17:30:00+00:00"
-  },
-  {
-   "title": "Turning the Page: Where Lane Kiffin starts in reconstructing LSU offense",
-   "link": "https://on3.com/teams/lsu-tigers/news/where-lane-kiffin-starts-in-reconstructing-lsu-offense/",
-   "source": "On3",
-   "summary": "Kiffin has a lot of major decisions to make in the weeks ahead. It's hard to not see offense being right at the core of heavy investment.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/21183636/Screenshot-2026-11-21-at-6.36.15-PM.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-22T16:00:00+00:00"
   }
  ]
 }
