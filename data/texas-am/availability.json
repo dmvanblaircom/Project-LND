@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T19:38:35.692120+00:00",
+ "fetchedAt": "2026-11-25T01:32:17.363876+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Oklahoma",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Texas",
  "players": [
-  {
-   "pos": "CB",
-   "no": "2",
-   "name": "Dezz Ricks",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "S",
    "no": "3",
@@ -43,10 +36,24 @@
    "detail": ""
   },
   {
+   "pos": "DE",
+   "no": "10",
+   "name": "Marco Jones",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "11",
    "name": "Kelshaun Johnson",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "15",
+   "name": "Tylan Wilson",
+   "status": "questionable",
    "detail": ""
   },
   {

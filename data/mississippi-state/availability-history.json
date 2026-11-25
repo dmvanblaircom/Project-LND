@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "mississippi-state",
- "updated": "2026-11-14T20:08:50.457195+00:00",
+ "updated": "2026-11-25T01:32:13.538096+00:00",
  "reports": [
   {
    "schema": 1,
@@ -451,6 +451,81 @@
      "no": "11",
      "name": "Ayden Williams",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "23",
+     "name": "Trevion Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Diesel Moye",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "mississippi-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:32:13.538096+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Ole Miss",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "1",
+     "name": "Kamario Taylor",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "2",
+     "name": "Isaac Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Jalen Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "11",
+     "name": "Ayden Williams",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "17",
+     "name": "Kyle Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "17",
+     "name": "AJ Swann",
+     "status": "doubtful",
      "detail": ""
     },
     {

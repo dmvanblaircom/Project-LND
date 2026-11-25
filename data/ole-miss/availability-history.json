@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ole-miss",
- "updated": "2026-11-15T16:38:44.952861+00:00",
+ "updated": "2026-11-25T01:32:15.021556+00:00",
  "reports": [
   {
    "schema": 1,
@@ -827,6 +827,158 @@
      "no": "75",
      "name": "Patrick Kutas",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Brady Prieskorn",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "ole-miss",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:32:15.021556+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Mississippi State",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "0",
+     "name": "Johntay Cook II",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "2",
+     "name": "Deuce Knight",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Caleb Cunningham",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "4",
+     "name": "Caleb Odom",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DE",
+     "no": "5",
+     "name": "Kam Franklin",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "5",
+     "name": "Kewan Lacy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "7",
+     "name": "Sharif Denson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "11",
+     "name": "Keaton Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "12",
+     "name": "Izaiah Hartrup",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "14",
+     "name": "Edwin Joseph",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "19",
+     "name": "MJ Preston",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Ant Davis Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "27",
+     "name": "Kervin Johnson Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "30",
+     "name": "JaMichael Garrett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "33",
+     "name": "Shekai Mills-Knight",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "39",
+     "name": "Gerald Lacy Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "57",
+     "name": "Carius Curne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Patrick Kutas",
+     "status": "doubtful",
      "detail": ""
     },
     {

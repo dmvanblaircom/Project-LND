@@ -7,18 +7,46 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-15T16:38:44.952861+00:00",
+ "fetchedAt": "2026-11-25T01:32:15.021556+00:00",
  "reported": true,
- "effectiveAt": "2026-11-15",
- "heading": "Game Day",
- "kickoffDate": "2026-11-15",
- "game": "at Oklahoma",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Mississippi State",
  "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Johntay Cook II",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "2",
+   "name": "Deuce Knight",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Caleb Cunningham",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "4",
+   "name": "Caleb Odom",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "DE",
    "no": "5",
    "name": "Kam Franklin",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -32,7 +60,7 @@
    "pos": "S",
    "no": "7",
    "name": "Sharif Denson",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,13 +92,6 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "25",
-   "name": "Makhi Frazier",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "26",
    "name": "Ant Davis Jr.",
@@ -92,16 +113,16 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "39",
-   "name": "Gerald Lacy Jr.",
-   "status": "out-game",
+   "pos": "RB",
+   "no": "33",
+   "name": "Shekai Mills-Knight",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "S",
-   "no": "46",
-   "name": "Nascar McCoy",
+   "no": "39",
+   "name": "Gerald Lacy Jr.",
    "status": "out-game",
    "detail": ""
   },
@@ -116,7 +137,7 @@
    "pos": "OL",
    "no": "75",
    "name": "Patrick Kutas",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {

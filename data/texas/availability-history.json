@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas",
- "updated": "2026-11-21T19:08:37.147974+00:00",
+ "updated": "2026-11-25T01:32:17.243085+00:00",
  "reports": [
   {
    "schema": 1,
@@ -402,6 +402,81 @@
      "no": "99",
      "name": "Richard Wesley",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "texas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:32:17.243085+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Texas A&M",
+   "players": [
+    {
+     "pos": "EDG",
+     "no": "1",
+     "name": "Colin Simmons",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "2",
+     "name": "Hollywood Smothers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Kobe Black",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Trevor Goosby",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Andre Cojoe",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Nick Townsend",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Hero Kanu",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "99",
+     "name": "Richard Wesley",
+     "status": "questionable",
      "detail": ""
     }
    ],

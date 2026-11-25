@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T20:08:50.457195+00:00",
+ "fetchedAt": "2026-11-25T01:32:13.538096+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Auburn",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Ole Miss",
  "players": [
   {
    "pos": "QB",
@@ -29,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "EDG",
-   "no": "4",
-   "name": "Amaree Williams",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "10",
    "name": "Jalen Smith",
@@ -47,6 +40,20 @@
    "no": "11",
    "name": "Ayden Williams",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "17",
+   "name": "Kyle Johnson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "17",
+   "name": "AJ Swann",
+   "status": "doubtful",
    "detail": ""
   },
   {
