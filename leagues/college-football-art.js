@@ -44,6 +44,59 @@ var TEAM_ART = (function (W) { return {
              credit: { author: "Unknown author", license: "Public domain", licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-self",
                        url: "https://commons.wikimedia.org/wiki/File:SUMB_Pre-Game_%22Block_S%22.jpg", changes: "cropped, resized" } }
     },
+    // postseason sites (2026-11-25): one photograph each, from the stands so the field shows
+    "lucas-oil-stadium": {
+      label: "Lucas Oil Stadium", names: ["Lucas Oil Stadium"],
+      day: { path: "assets/venues/lucas-oil-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "Missvain", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0",
+                       url: "https://commons.wikimedia.org/wiki/File:New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_02.jpg", changes: "cropped, resized" } }
+    },
+    "caesars-superdome": {
+      label: "Caesars Superdome", names: ["Caesars Superdome", "Mercedes-Benz Superdome", "Louisiana Superdome"],
+      day: { path: "assets/venues/caesars-superdome/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "elisfkc2", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
+                       url: "https://commons.wikimedia.org/wiki/File:Super_Bowl_LIX_(54360870302).jpg", changes: "cropped, resized" } }
+    },
+    "hard-rock-stadium": {
+      label: "Hard Rock Stadium", names: ["Hard Rock Stadium"],
+      day: { path: "assets/venues/hard-rock-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "Elbert Hampton", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                       url: "https://commons.wikimedia.org/wiki/File:Cleveland_Browns_17-39_Miami_Dolphins_(Nov_13,_2022)_-_Hard_Rock_Stadium_-_file_08.jpg", changes: "cropped, resized" } }
+    },
+    "att-stadium": {
+      label: "AT&T Stadium", names: ["AT&T Stadium"],
+      day: { path: "assets/venues/att-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "thatlostdog--", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0",
+                       url: "https://commons.wikimedia.org/wiki/File:2015_Advocare_Classic_Kickoff_(Wisconsin_-_Alabama).jpg", changes: "cropped, resized" } }
+    },
+    "state-farm-stadium": {
+      label: "State Farm Stadium", names: ["State Farm Stadium"],
+      day: { path: "assets/venues/state-farm-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "Gonzo fan2007", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                       url: "https://commons.wikimedia.org/wiki/File:Packers_vs_Cardinals_2021_regular_season_game.jpg", changes: "cropped, resized" } }
+    },
+    "mercedes-benz-stadium": {
+      label: "Mercedes-Benz Stadium", names: ["Mercedes-Benz Stadium"],
+      day: { path: "assets/venues/mercedes-benz-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "elisfkc from Orlando, FL, United States", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
+                       url: "https://commons.wikimedia.org/wiki/File:Peach_Bowl_Pre-game_(38723446434).jpg", changes: "cropped, resized" } }
+    },
+    "allegiant-stadium": {
+      label: "Allegiant Stadium", names: ["Allegiant Stadium"],
+      day: { path: "assets/venues/allegiant-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "Bobak Ha'Eri", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0",
+                       url: "https://commons.wikimedia.org/wiki/File:2024-0901_Vegas_Kickoff_Classic.jpg", changes: "cropped, resized" } }
+    },
+    "rose-bowl": {
+      label: "Rose Bowl", names: ["Rose Bowl", "Rose Bowl Stadium"],
+      // the day source is 2048 wide: cropped to the field it holds 1280
+      day: { path: "assets/venues/rose-bowl/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+             credit: { author: "Itsschneebly", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                       url: "https://commons.wikimedia.org/wiki/File:2020_Rose_Bowl_Game.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/rose-bowl/night-{w}.webp", widths: W, focus: "50% 50%",
+               credit: { author: "Spatms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                         url: "https://commons.wikimedia.org/wiki/File:2017_Rose_Bowl,_USC_vs_Penn_State_-_Game_Play.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
