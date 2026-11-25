@@ -1,7 +1,16 @@
 {
  "team": "michigan-state",
- "updated": "2026-11-25T15:07:59.216744+00:00",
+ "updated": "2026-11-25T15:38:05.484694+00:00",
  "items": [
+  {
+   "title": "Michigan State Film Room: A Duck Hunt Gone Horribly Wrong",
+   "link": "https://www.theonlycolors.com/football/49753/michigan-state-film-room-oregon-ducks-game",
+   "source": "The Only Colors",
+   "summary": "For those of you who spent the weekend playing GTA 6 instead of watching Michigan State football, you didn&#8217;t miss much. If you stripped away the uniforms and logos on Friday night, you might have thought you were watching a MAC team collecting a paycheck against one of college football&#8217;s powerhouses. The talent disparity between [&#8230;]",
+   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/11/gettyimages-2306163383.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "sourceLogo": null,
+   "published": "2026-11-25T13:24:03+00:00"
+  },
   {
    "title": "How Faith, Early Starts Made QB Coffman One of MSU's Brightest Pieces",
    "link": "https://www.si.com/college/michiganstate/spartans-how-faith-early-starts-qb-kayd-coffman-brightest-pieces?utm_source=RSS",
@@ -28,15 +37,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/24200258/2-Fitz-hand.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-25T02:05:08+00:00"
-  },
-  {
-   "title": "Michigan State Film Room: A Duck Hunt Gone Horribly Wrong",
-   "link": "https://www.theonlycolors.com/football/49753/michigan-state-film-room-a-duck-hunt-gone-horribly-wrong",
-   "source": "The Only Colors",
-   "summary": "For those of you who spent the weekend playing GTA 6 instead of watching Michigan State football, you didn&#8217;t miss much. If you stripped away the uniforms and logos on Friday night, you might have thought you were watching a MAC team collecting a paycheck against one of college football&#8217;s powerhouses. The talent disparity between [&#8230;]",
-   "image": "https://platform.theonlycolors.com/wp-content/uploads/sites/163/2026/11/gettyimages-2306163383.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "sourceLogo": null,
-   "published": "2026-11-25T00:38:02+00:00"
   },
   {
    "title": "Spartans Conclude Regular Season With Road Trip to Rutgers Saturday",
@@ -273,6 +273,15 @@
    "published": "2026-11-21T06:27:43+00:00"
   },
   {
+   "title": "Post-Game Notes: Oregon",
+   "link": "https://msuspartans.com/news/2026/11/21/football-post-game-notes-oregon",
+   "source": "Michigan State Athletics",
+   "summary": "<img alt=\"Kenny Soares Jr. sacks Oregon QB\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/MMP36132.JPG\" /><br /><br />GAME NOTES",
+   "image": "https://msuspartans.com/images/2026/11/24/MMP36132.JPG?width=800",
+   "sourceLogo": "https://msuspartans.com/favicon.ico",
+   "published": "2026-11-21T06:10:00+00:00"
+  },
+  {
    "title": "Spartans Fall to No. 13 Oregon on Senior Day",
    "link": "https://msuspartans.com/news/2026/11/20/football-spartans-fall-to-no-13-oregon-on-senior-day",
    "source": "Michigan State Athletics",
@@ -352,15 +361,6 @@
    "image": "https://msuspartans.com/images/2026/11/15/_EY12277.jpg?width=800",
    "sourceLogo": "https://msuspartans.com/favicon.ico",
    "published": "2026-11-15T04:25:00+00:00"
-  },
-  {
-   "title": "Washington Defeats Michigan State, 21-14",
-   "link": "https://msuspartans.com/news/2026/11/14/football-washington-defeats-michigan-state-21-14",
-   "source": "Michigan State Athletics",
-   "summary": "<img alt=\"Fred Moore earns yards after the catch against Washington at Spartan Stadium\" src=\"https://msuspartans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/14/_EY12546.jpg\" /><br /><br />EAST LANSING, Mich. \u2013 Making its return to Spartan Stadium on Saturday night, Michigan State was defeated by Washington, 21-14. Tied at 14-14 late in the fourth quarter, Washington rushed for the game-winning 1-yard touchdown with 2:24 to play.",
-   "image": "https://msuspartans.com/images/2026/11/14/_EY12546.jpg?width=800",
-   "sourceLogo": "https://msuspartans.com/favicon.ico",
-   "published": "2026-11-15T02:44:00+00:00"
   }
  ]
 }
