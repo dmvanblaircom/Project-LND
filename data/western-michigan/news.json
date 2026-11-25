@@ -1,7 +1,16 @@
 {
  "team": "western-michigan",
- "updated": "2026-11-23T15:08:04.277900+00:00",
+ "updated": "2026-11-25T05:38:05.692567+00:00",
  "items": [
+  {
+   "title": "Broncos Fall Short to Redhawks",
+   "link": "https://wmubroncos.com/news/2026/11/25/football-broncos-fall-short-to-redhawks.aspx",
+   "source": "WMU Athletics",
+   "summary": "<img alt=\"WMU vs Miami\" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/AJ8I1724.jpg\" /><br /><br />KALAMAZOO, Mich. -- The Western Michigan University's football team rallied at the end, but couldn't overcome Miami of Ohio in a 28-24 loss on Tuesday night at Stafford-Smith Field at\u00a0Waldo Stadium on Tuesday.",
+   "image": "https://wmubroncos.com/images/2026/11/24/AJ8I1724.jpg?width=800",
+   "sourceLogo": "https://wmubroncos.com/favicon.ico",
+   "published": "2026-11-25T05:24:00+00:00"
+  },
   {
    "title": "Broncos Host RedHawks in Regular Season Finale on Tuesday",
    "link": "https://wmubroncos.com/news/2026/11/23/football-broncos-host-redhawks-in-regular-season-finale-on-tuesday.aspx",
@@ -82,15 +91,6 @@
    "image": "https://wmubroncos.com/images/2026/10/24/1b80ba91-4158-4b7b-88ee-46931b0ada63.jpg?width=800",
    "sourceLogo": "https://wmubroncos.com/favicon.ico",
    "published": "2026-10-24T21:11:00+00:00"
-  },
-  {
-   "title": "Football Faces Tough Road Battle at Toledo",
-   "link": "https://wmubroncos.com/news/2026/10/22/football-faces-tough-road-battle-at-toledo.aspx",
-   "source": "WMU Athletics",
-   "summary": "<img alt=\"The Broncos celebrate a win over Kent State. \" src=\"https://wmubroncos.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/12/CMoss261010-490A7332.JPG\" /><br /><br />Western Michigan heads to Toledo to take on the Rockets on Saturday at 12 p.m. on CBS Sports Network. The game can be also heard live on the Bronco Media Network.",
-   "image": "https://wmubroncos.com/images/2026/10/12/CMoss261010-490A7332.JPG?width=800",
-   "sourceLogo": "https://wmubroncos.com/favicon.ico",
-   "published": "2026-10-22T15:21:00+00:00"
   }
  ]
 }
