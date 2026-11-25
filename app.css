@@ -151,7 +151,10 @@
    screen's bottom edge, and it clips fixed content at that line, so nothing
    the nav paints can reach below it; what shows there is this canvas. With it
    the nav's colour, the strip reads as the nav (David, 2026-10-02, twice). */
-html{background:var(--s-surface);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
+/* the canvas past the page (overscroll, the strip under the installed nav)
+   is the chrome's dark, so neither the dark header nor the dark nav ends in
+   a white edge (Codex, #279); the body keeps the light page */
+html{background:var(--t-abyss);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
 /* Ohio State's type (C19). Ohio State's own fonts are not available for
    independent use; it recommended Nunito Sans (not Nunito) as the closest
    public face, and David approved it for Ohio State's Team Style
