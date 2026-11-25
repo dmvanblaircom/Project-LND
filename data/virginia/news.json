@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-25T00:38:06.563145+00:00",
+ "updated": "2026-11-25T13:38:06.253504+00:00",
  "items": [
+  {
+   "title": "CavsCorner Podcast: Episode 689",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-podcast-episode-689/",
+   "source": "CavsCorner",
+   "summary": "On the latest installment of the\u00a0CavsCorner Podcast, we talk about the Carolina win and then focus on Saturday's rivalry clash in Blacksburg.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T13:16:03+00:00"
+  },
   {
    "title": "Notes and Quotes From Tony Elliott's Media Availability Ahead of Virginia Tech Game",
    "link": "https://www.si.com/college/virginia/football/notes-and-quotes-from-tony-elliott-s-media-availability-ahead-of-virginia-tech-game-01m87tfgzf27?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11064238/2026-09-13T001335Z_943962886_MT1USATODAY29806052_RTRMADP_3_NCAA-FOOTBALL-CALIFORNIA-AT-SYRACUSE-2.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-11T17:30:00+00:00"
-  },
-  {
-   "title": "The 3-2-1: UVa returns from its bye week looking for more",
-   "link": "https://on3.com/sites/cavs-corner/news/the-3-2-1-uva-returns-from-its-bye-week-looking-for-more/",
-   "source": "CavsCorner",
-   "summary": "The 3-2-1 is back to look at three things we know, ask two questions, and make one prediction coming off yesterday's press conference.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/09/17052747/USATSI_27072439-scaled.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-11T11:30:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "uconn",
- "updated": "2026-11-25T13:08:19.188681+00:00",
+ "updated": "2026-11-25T13:38:04.863053+00:00",
  "items": [
+  {
+   "title": "Huskies Set For Regular Season Finale at Wyoming",
+   "link": "https://uconnhuskies.com/news/2026/11/25/football-huskies-set-for-regular-season-finale-at-wyoming",
+   "source": "UConn Athletics",
+   "summary": "<img alt=\"UConn Football\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/UConnFB_vs_ODU_20261121_CM9_8888.jpg\" /><br /><br />Media Coverage",
+   "image": "https://uconnhuskies.com/images/2026/11/25/UConnFB_vs_ODU_20261121_CM9_8888.jpg?width=800",
+   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
+   "published": "2026-11-25T13:34:00+00:00"
+  },
   {
    "title": "WATCH: Game 12 Football Press Conference",
    "link": "https://uconnhuskies.com/news/2026/11/23/watch-game-12-football-press-conference",
@@ -127,15 +136,6 @@
    "image": "https://uconnhuskies.com/images/2026/11/11/JG__6645.jpg?width=800",
    "sourceLogo": "https://uconnhuskies.com/favicon.ico",
    "published": "2026-11-11T23:09:00+00:00"
-  },
-  {
-   "title": "WATCH: Game 10 Football Press Conference",
-   "link": "https://uconnhuskies.com/news/2026/11/9/watch-game-9-football-press-conference",
-   "source": "UConn Athletics",
-   "summary": "<img alt=\"Jason Candle Press Conference Thumbnail\" src=\"https://uconnhuskies.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/9/22/Candle_ThumbnailforPressers.jpg\" /><br /><br />STORRS, CT - The UConn Huskies are back at home this Saturday playing host to the James Madison Dukes.\u00a0Watch Head Coach Jason Candle's press conference previewing this week's match-up.",
-   "image": "https://uconnhuskies.com/images/2026/9/22/Candle_ThumbnailforPressers.jpg?width=800",
-   "sourceLogo": "https://uconnhuskies.com/favicon.ico",
-   "published": "2026-11-10T00:34:00+00:00"
   }
  ]
 }

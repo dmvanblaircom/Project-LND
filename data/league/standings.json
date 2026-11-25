@@ -741,22 +741,31 @@
      "overall": "9-2"
     },
     {
+     "espnId": "193",
+     "name": "Miami OH",
+     "conf": {
+      "wins": 6,
+      "losses": 2
+     },
+     "overall": "8-4"
+    },
+    {
      "espnId": "2711",
      "name": "W Michigan",
      "conf": {
       "wins": 6,
-      "losses": 1
-     },
-     "overall": "8-3"
-    },
-    {
-     "espnId": "193",
-     "name": "Miami OH",
-     "conf": {
-      "wins": 5,
       "losses": 2
      },
-     "overall": "7-4"
+     "overall": "8-4"
+    },
+    {
+     "espnId": "2199",
+     "name": "E Michigan",
+     "conf": {
+      "wins": 4,
+      "losses": 4
+     },
+     "overall": "5-7"
     },
     {
      "espnId": "189",
@@ -777,26 +786,8 @@
      "overall": "5-6"
     },
     {
-     "espnId": "2199",
-     "name": "E Michigan",
-     "conf": {
-      "wins": 3,
-      "losses": 4
-     },
-     "overall": "4-7"
-    },
-    {
      "espnId": "2050",
      "name": "Ball State",
-     "conf": {
-      "wins": 2,
-      "losses": 5
-     },
-     "overall": "3-8"
-    },
-    {
-     "espnId": "2309",
-     "name": "Kent State",
      "conf": {
       "wins": 2,
       "losses": 5
@@ -811,6 +802,15 @@
       "losses": 5
      },
      "overall": "5-6"
+    },
+    {
+     "espnId": "2309",
+     "name": "Kent State",
+     "conf": {
+      "wins": 2,
+      "losses": 6
+     },
+     "overall": "3-9"
     },
     {
      "espnId": "2006",
@@ -1303,5 +1303,5 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-23T00:43Z"
+ "fetchedAt": "2026-11-25T13:41Z"
 }
