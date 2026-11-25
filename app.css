@@ -512,7 +512,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sec-link{display:inline-flex;align-items:center;gap:.15rem;min-height:2.75rem;font-weight:600;font-size:1rem;color:var(--t-surface);text-decoration:none;white-space:nowrap}
 .sec-link .chev{width:1.1rem;height:1.1rem;stroke:currentColor}
 .sec-quiet{margin:.2rem 0 1rem;color:var(--s-muted)}
-.sec-link:hover{text-decoration:underline}
+@media (hover:hover){.sec-link:hover{text-decoration:underline}}
 
 /* Eyebrow: small, tracked, uppercase - "AVAILABLE TEAMS". */
 .eyebrow{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t-surface)}
@@ -612,7 +612,13 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .qa-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"ic chev" "t t" "s s";align-items:start;row-gap:.15rem;
   padding:.85rem .9rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:inherit;text-decoration:none;
   transition:border-color var(--s-dur-fast) var(--s-ease-out)}
-.qa-item:hover{border-color:var(--s-line-strong)}
+/* Hover only where there is a pointer that hovers: on a phone :hover sticks
+   to whatever the finger last touched, so a press slid from one action to
+   the other left the second looking pressed with nothing opened (David,
+   2026-11-25). A press shows while the finger is down, and only then. */
+@media (hover:hover){.qa-item:hover{border-color:var(--s-line-strong)}}
+.qa-item{-webkit-tap-highlight-color:transparent}
+.qa-item:active{border-color:var(--s-line-strong);background:var(--t-accent-tint-soft)}
 .qa-item:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
 .qa-ic{grid-area:ic;display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;margin-bottom:.45rem;border-radius:var(--s-radius-ctl);background:var(--t-accent-tint-soft);color:var(--t-accent-on-light)}
 .qa-ic svg{width:1.55rem;height:1.55rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -1015,7 +1021,9 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .chooser #soonHead{margin-top:1.2rem;color:var(--s-muted)}
 .chooser-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 .pick{display:flex;align-items:center;gap:1rem;width:100%;min-height:4.5rem;padding:.55rem .9rem .55rem 1rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:var(--s-ink);box-shadow:var(--s-shadow-card);font-family:var(--t-font-ui);text-align:left;cursor:pointer}
-.pick:hover{border-color:var(--s-line-strong);box-shadow:var(--s-shadow-raise)}
+@media (hover:hover){.pick:hover{border-color:var(--s-line-strong);box-shadow:var(--s-shadow-raise)}}
+.pick{-webkit-tap-highlight-color:transparent}
+.pick:active{border-color:var(--s-line-strong)}
 .pick:focus-visible{outline:3px solid var(--s-chrome);outline-offset:2px}
 /* Your Teams (David, 2026-10-27): a star in each team you can open,
    between its name and the chevron, in the Suite's bronze - an outline,
@@ -1032,7 +1040,7 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 #yourTeams{margin-bottom:1.25rem}
 /* The switcher's rows: the team being viewed is shown, not offered. */
 .pick.here{cursor:default;box-shadow:none;border-color:var(--s-line-strong)}
-.pick.here:hover{box-shadow:none}
+@media (hover:hover){.pick.here:hover{box-shadow:none}}
 .sw-list{margin:0}
 .sw-edit{margin:1rem 0 .25rem;text-align:center}
 .sw-edit a{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 .75rem;font-weight:600;color:var(--s-chrome)}
@@ -1462,7 +1470,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
      the team's name and a live score need. */
   .app-bar .nav-item{flex-direction:row;gap:.5rem;min-height:var(--s-bar-h);padding:0 .9rem;border-radius:0;color:var(--s-on-dark-2);font-size:.95rem;font-weight:600}
   .app-bar .nav-item svg,.app-bar .navbar.game-raised .nav-game svg{display:none}
-  .app-bar .nav-item:hover{color:var(--s-on-dark)}
+  @media (hover:hover){.app-bar .nav-item:hover{color:var(--s-on-dark)}}
   .app-bar .nav-item[aria-current="page"]{color:var(--s-on-dark)}
   .app-bar .nav-item[aria-current="page"]::after{left:.9rem;right:.9rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--r-signal-select,var(--t-accent))}
   .app-bar .nav-item:focus-visible{outline:3px solid var(--r-signal-focus,var(--t-accent-text));outline-offset:-3px}
