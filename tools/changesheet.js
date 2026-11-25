@@ -81,12 +81,22 @@ function compare(page, a, b) {
     return Promise.all([load(p.a), load(p.b)]).then(function (im) {
       var w = Math.max(im[0].width, im[1].width), h = Math.max(im[0].height, im[1].height);
       function px(img) { var c = document.createElement("canvas"); c.width = w; c.height = h; var x = c.getContext("2d"); x.fillStyle = "#f0f"; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0); return x.getImageData(0, 0, w, h).data; }
-      var A = px(im[0]), B = px(im[1]), n = 0, x0 = w, y0 = h, x1 = -1, y1 = -1;
+      // Counted in 8px blocks, and a block counts only with 6 or more
+      // changed pixels in it: a photo or a provider's mark can decode a few
+      // scattered pixels differently between runs (CI, #283: 1,200 such
+      // pixels across Game's header ringed the whole header for a 9px dot).
+      // A real change - a dot, a word, a border - fills its blocks.
+      var A = px(im[0]), B = px(im[1]), S = 8, bw = Math.ceil(w / S), bh = Math.ceil(h / S), blocks = new Uint16Array(bw * bh);
       for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
         var i = (y * w + x) * 4;
-        if (Math.abs(A[i] - B[i]) > 24 || Math.abs(A[i + 1] - B[i + 1]) > 24 || Math.abs(A[i + 2] - B[i + 2]) > 24) {
-          n++; if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y;
-        }
+        if (Math.abs(A[i] - B[i]) > 24 || Math.abs(A[i + 1] - B[i + 1]) > 24 || Math.abs(A[i + 2] - B[i + 2]) > 24) blocks[((y / S) | 0) * bw + ((x / S) | 0)]++;
+      }
+      var n = 0, x0 = w, y0 = h, x1 = -1, y1 = -1;
+      for (var by = 0; by < bh; by++) for (var bx = 0; bx < bw; bx++) {
+        var c = blocks[by * bw + bx];
+        if (c < 6) continue;
+        n += c;
+        x0 = Math.min(x0, bx * S); y0 = Math.min(y0, by * S); x1 = Math.max(x1, Math.min(w, bx * S + S) - 1); y1 = Math.max(y1, Math.min(h, by * S + S) - 1);
       }
       return { pixels: n, box: n ? [x0, y0, x1, y1] : null, before: [im[0].width, im[0].height], after: [im[1].width, im[1].height] };
     });
@@ -139,7 +149,7 @@ function row(c) {
     }
     var d = await compare(page, dataUrl(path.join(OUT, "base", f)), dataUrl(path.join(OUT, "head", f)));
     // a few stray pixels are noise; a real change moves more than a word's worth
-    if (d.pixels > 40 || d.before[1] !== d.after[1]) changed.push(Object.assign({ file: f }, d, d.box ? {} : { box: [0, 0, 0, Math.min(d.before[1], d.after[1])] }));
+    if (d.pixels > 30 || d.before[1] !== d.after[1]) changed.push(Object.assign({ file: f }, d, d.box ? {} : { box: [0, 0, 0, Math.min(d.before[1], d.after[1])] }));
     else same++;
   }
   // Sheets of eight, drawn as a page and photographed.
