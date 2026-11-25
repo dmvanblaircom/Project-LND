@@ -1,0 +1,50 @@
+{
+  "venue": "rose-bowl",
+  "images": [
+    {
+      "role": "primary-day",
+      "file": "2020_Rose_Bowl_Game.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2020_Rose_Bowl_Game.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/2020_Rose_Bowl_Game.jpg",
+      "width": 2048,
+      "height": 1366,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Itsschneebly",
+      "credit_line": "\"2020 Rose Bowl Game.jpg\" by Itsschneebly, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "Taken on 1 January 2020, 20:36:28",
+      "shot": "day",
+      "note": "Upper-level sideline view of the 2020 Rose Bowl Game (Oregon vs Wisconsin, 1 Jan 2020) in afternoon sun: San Gabriel Mountains and sky in the top ~20% (y 0-280), packed far-side stands y 280-900 across the full width, field y 850-1366 with players and sideline; no faces."
+    },
+    {
+      "role": "runner-up-day",
+      "file": "OregonAtUCLA10232021.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:OregonAtUCLA10232021.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/OregonAtUCLA10232021.jpg",
+      "width": 2048,
+      "height": 1536,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ryanishungry",
+      "credit_line": "\"OregonAtUCLA10232021.jpg\" by Ryanishungry, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2021-10-23 13:33:57",
+      "shot": "day",
+      "note": "Lower-bowl end-zone view of Oregon at UCLA (23 Oct 2021) under overcast sky: press box and far stands y 250-750, field y 700-1150 across full width, near-side crowd y 1150-1536 with spectators' backs of heads along the bottom (unidentifiable, crop needed)."
+    },
+    {
+      "role": "primary-night",
+      "file": "2017_Rose_Bowl,_USC_vs_Penn_State_-_Game_Play.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2017_Rose_Bowl,_USC_vs_Penn_State_-_Game_Play.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/2017_Rose_Bowl%2C_USC_vs_Penn_State_-_Game_Play.jpg",
+      "width": 5312,
+      "height": 2988,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "\"2017 Rose Bowl, USC vs Penn State - Game Play.jpg\" by Spatms, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2017-01-02 16:37:43",
+      "shot": "night",
+      "note": "Corner view at dusk with stadium lights on, 2017 Rose Bowl Game (USC vs Penn State, 2 Jan 2017): overcast twilight sky top ~25% (y 0-750), full crowd wraps the bowl y 700-2988 on both sides, field runs centre from y 1000-1900 toward the Penn State end zone; no faces. Twilight rather than full dark."
+    }
+  ]
+}
