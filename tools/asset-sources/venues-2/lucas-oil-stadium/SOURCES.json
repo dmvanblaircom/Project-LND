@@ -1,0 +1,35 @@
+{
+  "venue": "lucas-oil-stadium",
+  "images": [
+    {
+      "role": "primary",
+      "file": "New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_06.png",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_06.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_06.png",
+      "width": 4032,
+      "height": 3024,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Missvain",
+      "credit_line": "\"New Orleans Saints at Indianapolis - October 29 2023 - Sarah Stierch 06.png\" by Missvain, CC BY 4.0, via Wikimedia Commons",
+      "date_taken": "Taken on 29 October 2023",
+      "shot": "indoor",
+      "note": "End-zone-corner view from the lower bowl, Saints at Colts 29 Oct 2023, roof closed: full crowd wraps the bowl roughly y 1150-2250 across the full width, turf runs centre-left to the far end y 1300-1900, roof trusses and north window fill the top third; spectators' backs of heads in the bottom ~20% (y 2300-3024), unidentifiable."
+    },
+    {
+      "role": "runner-up",
+      "file": "New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_02.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_02.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/New_Orleans_Saints_at_Indianapolis_-_October_29_2023_-_Sarah_Stierch_02.jpg",
+      "width": 4032,
+      "height": 3024,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Missvain",
+      "credit_line": "\"New Orleans Saints at Indianapolis - October 29 2023 - Sarah Stierch 02.jpg\" by Missvain, CC BY 4.0, via Wikimedia Commons",
+      "date_taken": "Taken on 29 October 2023",
+      "shot": "indoor",
+      "note": "Sideline view across the field to the far-side stands, Saints at Colts 29 Oct 2023: crowd fills the top ~30% (y 0-900), players on the field mid-frame, painted end zone bottom-left; no roof visible."
+    }
+  ]
+}
