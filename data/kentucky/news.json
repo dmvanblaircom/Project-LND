@@ -1,7 +1,16 @@
 {
  "team": "kentucky",
- "updated": "2026-11-25T19:37:56.305562+00:00",
+ "updated": "2026-11-25T20:05:30.347204+00:00",
  "items": [
+  {
+   "title": "Another Wednesday, another reason to hate Kentucky Football's losing streak",
+   "link": "https://on3.com/teams/kentucky-wildcats/news/another-wednesday-another-reason-to-hate-uk-footballs-losing-streak/",
+   "source": "On3",
+   "summary": "Kentucky Football's three-game losing streak has robbed fans of a favorite Wednesday tradition.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25072529/uk-unkut.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T20:00:00+00:00"
+  },
   {
    "title": "Tristin Hughes flips to Louisville from Kentucky",
    "link": "https://www.aseaofblue.com/kentucky-wildcats-football/189086/tristin-hughes-flips-to-louisville-from-kentucky",
@@ -352,15 +361,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1064,h_598,x_0,y_61/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/wildcats_today/01m5xqas6bcyeheccsxa.png",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-10-27T13:00:01+00:00"
-  },
-  {
-   "title": "Kentucky football is now a top 10 team in the country",
-   "link": "https://www.si.com/college/kentucky/football/kentucky-football-is-now-a-top-10-team-in-the-country?utm_source=RSS",
-   "source": "Kentucky On SI",
-   "summary": "Believe it or not, but Kentucky football is now a top 10 team after their 7-1 start to the season.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2724,h_1532,x_0,y_90/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/wildcats_today/01m5syvyhvaj0hhpbtf7.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-10-25T18:01:41+00:00"
   }
  ]
 }
