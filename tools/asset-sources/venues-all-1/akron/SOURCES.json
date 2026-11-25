@@ -1,0 +1,21 @@
+{
+  "slug": "akron",
+  "venue": "InfoCision Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AInfoCision_opening_day1.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/InfoCision_opening_day1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "JEN9841",
+      "credit_line": "JEN9841 / Wikimedia Commons / CC BY-SA 3.0",
+      "year": 2009,
+      "day_or_night": "day",
+      "note": "Upper corner of the west stands looking diagonally across the south end zone to the east stands and video board; opening-day crowd 2009. Field rows ~35-100% (about 630-1800 of 1800), strongest band 40-75%."
+    }
+  ],
+  "closest_misses": []
+}
