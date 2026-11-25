@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "western-michigan",
- "updated": "2026-11-24T23:08:54.291319+00:00",
+ "updated": "2026-11-25T11:39:07.761537+00:00",
  "reports": [
   {
    "schema": 1,
@@ -956,12 +956,12 @@
    "sourceLabel": "GetSomeMACtion.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-24T23:08:54.291319+00:00",
+   "fetchedAt": "2026-11-25T11:39:07.761537+00:00",
    "reported": true,
    "effectiveAt": "2026-11-24",
    "heading": "Game Day",
    "kickoffDate": "2026-11-24",
-   "game": "Miami",
+   "game": "vs. Miami",
    "players": [
     {
      "pos": "WR",
