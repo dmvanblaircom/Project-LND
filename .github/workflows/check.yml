@@ -142,10 +142,13 @@ jobs:
           path: artifacts/visual
 
   # The one result: every job that ran passed, and a job the change did not
-  # need was skipped, not failed.
+  # need was skipped, not failed. A run cancelled because a newer push
+  # replaced it is not judged at all: it shows cancelled, not failed, and the
+  # newer run's gate is the one to read (David, 2026-11-25: superseded runs
+  # were reporting red).
   gate:
     needs: [plan, unit, browser, visual]
-    if: always()
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - env:
