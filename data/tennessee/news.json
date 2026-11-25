@@ -1,12 +1,21 @@
 {
  "team": "tennessee",
- "updated": "2026-11-25T17:38:07.102093+00:00",
+ "updated": "2026-11-25T18:08:06.048114+00:00",
  "items": [
   {
-   "title": "Tennessee defense can do something it hasn't done since 1999",
-   "link": "https://www.si.com/college/tennessee/football/tennessee-defense-can-do-something-it-hasn-t-done-since-1999-01m89qabff5k?utm_source=RSS",
+   "title": "Xavier Gilliam Named Finalist for Lott Trophy",
+   "link": "https://utsports.com/news/2026/11/25/football-xavier-gilliam-named-finalist-for-lott-trophy",
+   "source": "Tennessee Athletics",
+   "summary": "<img alt=\"11.25.26 Gilliam Lott Trophy Finalist\" src=\"https://utsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/20261017_FB_Alabama_KL_131.jpg\" /><br /><br />KNOXVILLE, Tenn. \u2013 Tennessee defensive lineman Xavier Gilliam has been named a finalist for the 2026 Lott IMPACT Trophy, becoming just the second player in program history to earn finalist recognition, joining Eric Berry, who did so in 2009.",
+   "image": "https://utsports.com/images/2026/11/25/20261017_FB_Alabama_KL_131.jpg?width=800",
+   "sourceLogo": "https://utsports.com/favicon.ico",
+   "published": "2026-11-25T18:00:00+00:00"
+  },
+  {
+   "title": "Tennessee football can do something it hasn't done since 1999",
+   "link": "https://www.si.com/college/tennessee/football/tennessee-can-do-something-it-hasn-t-done-since-1999-01m89qabff5k?utm_source=RSS",
    "source": "Tennessee On SI",
-   "summary": "Jim Knowles' Tennessee defense is one game away from a feat the Vols haven't accomplished in a long time. Here's what's on the line against Vanderbilt.",
+   "summary": "Tennessee is one game away from a feat the Vols haven't accomplished in a long time. Here's what's on the line against Vanderbilt.",
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_5616,h_3159,x_0,y_25/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/volunteer_country/01m89qv2crjn47z2x2q1.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-25T17:00:25+00:00"
@@ -201,15 +210,6 @@
    "published": "2026-11-24T17:31:33+00:00"
   },
   {
-   "title": "Tennessee DL coach Rodney Garner -- \"I'm blessed\"",
-   "link": "https://on3.com/teams/tennessee-volunteers/news/tennessee-football-rodney-garner-defensive-line-xavier-gilliam-jim-knowles/",
-   "source": "On3",
-   "summary": "Tennessee veteran defensive line coach. Rodney Garner met the media on Tuesday and explained why this year has been a blessing for him with not only a productive room but a selfless room.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2024/03/18201638/USATSI_19639324-1.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-24T17:14:49+00:00"
-  },
-  {
    "title": "Bishop & Gilliam Named Finalists for National Awards",
    "link": "https://utsports.com/news/2026/11/24/football-bishop-gilliam-named-finalists-for-national-awards",
    "source": "Tennessee Athletics",
@@ -361,15 +361,6 @@
    "image": "https://utsports.com/images/2026/11/18/20261107_FB_Kentucky_EW_081.jpg?width=800",
    "sourceLogo": "https://utsports.com/favicon.ico",
    "published": "2026-11-19T01:00:00+00:00"
-  },
-  {
-   "title": "Vols in the NFL \u2013 Week 10",
-   "link": "https://utsports.com/news/2026/11/18/football-vols-in-the-nfl-week-10",
-   "source": "Tennessee Athletics",
-   "summary": "<img alt=\"Vols in the NFL\" src=\"https://utsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2021/2/3/Vols_In_The_NFL_Web_Header_2021(2).jpg\" /><br /><br />KNOXVILLE, Tenn. \u2013 Former Tennessee running back Alvin Kamara found the end zone twice, while Byron Young and Alontae Taylor delivered strong defensive performances to headline Week 10 action for former Vols in the NFL.",
-   "image": "https://utsports.com/images/2021/2/3/Vols_In_The_NFL_Web_Header_2021(2).jpg?width=800",
-   "sourceLogo": "https://utsports.com/favicon.ico",
-   "published": "2026-11-18T22:01:00+00:00"
   }
  ]
 }
