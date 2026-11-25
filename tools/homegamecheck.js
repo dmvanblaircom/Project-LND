@@ -25,7 +25,7 @@ fs.mkdirSync(shots,{recursive:true});
       await page.goto(base+"/tools/fixtures/espn-news.json");
       await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1">'+
         '<link rel="stylesheet" href="'+base+'/app.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap"></head>'+
-        '<body><main class="page-main"><div id="home"></div><div id="around"></div><div id="game"></div><div id="news"></div></main></body></html>');
+        '<body><main class="page-main"><div id="screenHome"></div><div id="around"></div><div id="screenGame"></div><div id="news"></div></main></body></html>');
       for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "leagues/college-football-art.js","teamos/art.js","suite/scoreboard.js","suite/home.js","suite/top25.js","suite/game.js","suite/more.js"])
         await page.addScriptTag({url:base+"/"+f});
       for(var style of ["team","suite"])for(var width of [320,375,390,768,1280]){
@@ -39,7 +39,7 @@ fs.mkdirSync(shots,{recursive:true});
         for(var scale of [1,2]){
           await page.evaluate(function(scale){
             document.documentElement.style.fontSize=(16*scale)+"px";
-            document.getElementById("game").hidden=true;document.getElementById("news").hidden=true;document.getElementById("home").hidden=true;
+            document.getElementById("screenGame").hidden=true;document.getElementById("news").hidden=true;document.getElementById("screenHome").hidden=true;
             // Season Outlook's card is Around's (David, 2026-11-05)
             var around=document.getElementById("around");around.hidden=false;
             Suite.top25.paint(around,{view:"games",games:null,polls:null,outlook:[
@@ -61,24 +61,45 @@ fs.mkdirSync(shots,{recursive:true});
         }
         await page.evaluate(function(){
           document.documentElement.style.fontSize="16px";
-          document.getElementById("home").hidden=true;document.getElementById("game").hidden=false;
+          document.getElementById("screenHome").hidden=true;document.getElementById("around").hidden=true;document.getElementById("screenGame").hidden=false;
           var keys=["pointsFor","pointsAllowed","totalOffense","rushOffense","passOffense","rushDefense","passDefense","sacks","turnoverMargin"],labels=["Points per game","Points allowed","Total offense","Rushing offense","Passing offense","Rushing defense","Passing defense","Sacks","Turnover margin"];
           function ordinal(n){var last=n%100;return n+((last>=11&&last<=13)?"th":n%10===1?"st":n%10===2?"nd":n%10===3?"rd":"th");}
           function rows(values,ranks){return keys.map(function(k,i){return{key:k,label:labels[i],value:i<7?values[i].toFixed(1):String(values[i]),rank:ranks[i],rankText:ranks[i]?(i>6?"Tied-":"")+ordinal(ranks[i]):null};});}
           var g={id:"review",status:"scheduled",state:"pre",home:true,date:"2026-10-03T19:30:00Z",oppName:"North Carolina",oppAbbr:"UNC"};
-          Suite.game.paint(document.getElementById("game"),{team:reviewTeam,oppMark:function(){return "";},game:g,detail:null,lifecycle:TeamOS.game.lifecycle(g),view:"details",preview:{us:rows([42.3,8.3,416.8,141.8,275,53.8,145.5,13,7],[17,null,62,98,48,null,null,10,10]),them:rows([23.3,13.7,366,155,211,123,189.3,10,0],[102,null,93,80,145,null,null,33,41])},side:"us",open:{},weather:null,now:new Date("2026-10-02T12:00:00Z")});
+          Suite.game.paint(document.getElementById("screenGame"),{team:reviewTeam,oppMark:function(){return "";},game:g,detail:null,lifecycle:TeamOS.game.lifecycle(g),view:"details",preview:{us:rows([42.3,8.3,416.8,141.8,275,53.8,145.5,13,7],[17,null,62,98,48,null,null,10,10]),them:rows([23.3,13.7,366,155,211,123,189.3,10,0],[102,null,93,80,145,null,null,33,41])},side:"us",open:{},weather:null,now:new Date("2026-10-02T12:00:00Z")});
         });
         var edges=await page.evaluate(function(){return [].map.call(document.querySelectorAll(".mu-row"),function(r){return{side:r.querySelector(".mu-v.better").classList.contains("us")?"us":"them",arrow:r.querySelector(".mu-arrow").classList.contains("l")?"us":"them"};});});
         assert.deepStrictEqual(edges.map(function(x){return x.side;}),["us","us","us","them","us","us","us","us","us"]);
         assert(edges.every(function(x){return x.side===x.arrow;}),"Arrow disagrees with highlight");
-        assert(await page.evaluate(function(){return getComputedStyle(document.querySelector(".mu-v.better")).backgroundColor!==getComputedStyle(document.querySelector(".mu-v:not(.better)")).backgroundColor;}),"The better stat has no visible tint");
+        // The better side must stand out MORE than the other, not merely
+        // differ (David, 2026-11-25: on the dark screen a faint gold tint read
+        // duller than the neutral navy inset, so the loser looked highlighted).
+        // Salience: how far a cell's ground or edge stands from the card's
+        // ground, as a contrast ratio, composited the way the eye sees it.
+        var salience=await page.evaluate(function(){
+          function rgba(c){var m=String(c).match(/rgba?\(([^)]+)\)/);if(!m)return null;var p=m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);return{r:p[0],g:p[1],b:p[2],a:p.length>3?p[3]:1};}
+          function over(f,b){return f?{r:f.r*f.a+b.r*(1-f.a),g:f.g*f.a+b.g*(1-f.a),b:f.b*f.a+b.b*(1-f.a),a:1}:b;}
+          function lum(c){return[c.r,c.g,c.b].map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);}).reduce(function(s,v,i){return s+v*[0.2126,0.7152,0.0722][i];},0);}
+          function ratio(a,b){var x=lum(a),y=lum(b);return(Math.max(x,y)+0.05)/(Math.min(x,y)+0.05);}
+          function ground(e){var stack=[],n=e;while(n&&n.nodeType===1){var c=rgba(getComputedStyle(n).backgroundColor);if(c&&c.a>0)stack.unshift(c);if(c&&c.a===1)break;n=n.parentElement;}
+            var base={r:255,g:255,b:255,a:1};stack.forEach(function(c){base=over(c,base);});return base;}
+          function edge(e,bg){var sh=getComputedStyle(e).boxShadow;if(!sh||sh==="none")return 1;var c=rgba(sh);return c&&c.a>0?ratio(over(c,bg),bg):1;}
+          var card=ground(document.querySelector(".mu-list"));
+          return [].map.call(document.querySelectorAll(".mu-row"),function(row){
+            var b=row.querySelector(".mu-v.better"),o=row.querySelector(".mu-v:not(.better)");if(!b||!o)return null;
+            function sal(e){var g=ground(e);return Math.max(ratio(g,card),edge(e,g));}
+            return{label:row.querySelector(".mu-l").textContent.trim(),better:sal(b),other:sal(o)};
+          }).filter(Boolean);
+        });
+        var backwards=salience.filter(function(r){return!(r.better>r.other+0.15);});
+        assert(salience.length&&!backwards.length,"The better stat does not stand out more than the other ("+team+" "+style+" "+width+"): "+JSON.stringify(backwards));
         assert(await page.evaluate(function(){return document.documentElement.scrollWidth<=innerWidth+1;}),"Matchup overflows");
         var contrast=await audit.auditText(page,"matchup "+team+style+width);assert.deepStrictEqual(contrast.failures,[]);
         if(style==="team"&&(width===320||width===390))await page.locator(".game-body .gcard").first().screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
         passed.push("PASS "+[team,style,width,"nine highlighted comparisons and arrows"].join(" | "));
         await page.evaluate(function(){
-          document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;document.getElementById("around").hidden=true;
-          Suite.home.paint(document.getElementById("home"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},schedule:[],outlook:[],fresh:null,news:[0,1,2].map(function(i){return{title:"A full article headline remains readable",link:"https://publisher.test/story/"+i,source:"Land-Grant Holy Land",image:"",sourceLogo:""};})});
+          document.getElementById("screenGame").hidden=true;document.getElementById("screenHome").hidden=false;document.getElementById("around").hidden=true;
+          Suite.home.paint(document.getElementById("screenHome"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},schedule:[],outlook:[],fresh:null,news:[0,1,2].map(function(i){return{title:"A full article headline remains readable",link:"https://publisher.test/story/"+i,source:"Land-Grant Holy Land",image:"",sourceLogo:""};})});
         });
         var railText=await audit.auditText(page,"news rail "+team+style+width);assert.deepStrictEqual(railText.failures,[]);
         // Explicit keyboard mode, then focus the clipped last card.
@@ -92,9 +113,9 @@ fs.mkdirSync(shots,{recursive:true});
       for(var surface of ["home","news"]){
         for(var kind of ["article","logo","failed-photo","failed-both","none"]){
           await page.evaluate(function(arg){
-            ["home","game","news"].forEach(function(k){document.getElementById(k).hidden=k!==arg.surface;});
+            document.getElementById("around").hidden=true;[["home","screenHome"],["game","screenGame"],["news","news"]].forEach(function(k){document.getElementById(k[1]).hidden=k[0]!==arg.surface;});
             var a={title:"A full article headline remains readable",link:"https://publisher.test/story",source:"Land-Grant Holy Land",publishedAt:Date.now(),image:arg.kind==="article"?"https://images.test/article.png":/^failed/.test(arg.kind)?"https://images.test/broken-photo.png":"",sourceLogo:arg.kind==="none"?"":arg.kind==="failed-both"?"https://images.test/broken-logo.png":"https://images.test/logo.png"};
-            if(arg.surface==="home")Suite.home.paint(document.getElementById("home"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},news:[a],schedule:[],outlook:[],fresh:null});
+            if(arg.surface==="home")Suite.home.paint(document.getElementById("screenHome"),{team:reviewTeam,oppMark:function(){return "";},art:{},hero:{},news:[a],schedule:[],outlook:[],fresh:null});
             else Suite.more.news(document.getElementById("news"),{team:reviewTeam,items:[a],fresh:null});
           },{surface:surface,kind:kind});
           var prefix=surface==="home"?"news":"nw";

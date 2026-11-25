@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-24T19:08:01.479750+00:00",
+ "updated": "2026-11-25T19:08:05.897618+00:00",
  "items": [
+  {
+   "title": "Navy vs Memphis - Game Photo Gallery Part 3",
+   "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-game-photo-gallery-part-3/",
+   "source": "The Mid Report",
+   "summary": "Photos from before halftime of Navy\u2019s 38-34 win over the Memphis Tigers on November 21, 2026, as seen through the lens of staff photographer Alison Althouse.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/23193146/DSC_2156.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T19:00:00+00:00"
+  },
   {
    "title": "Navy vs Memphis - Game Photo Gallery Part 2",
    "link": "https://on3.com/sites/the-mid-report/news/navy-vs-memphis-game-photo-gallery-part-2/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19082720/Temple-afi-hookly-3.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-06T01:02:34+00:00"
-  },
-  {
-   "title": "The Notre Dame Debrief",
-   "link": "https://on3.com/sites/the-mid-report/news/the-notre-dame-debrief-3/",
-   "source": "The Mid Report",
-   "summary": "Notre Dame was too good for the Mids to give them a helping hand.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/02150145/DSC_0813.jpeg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-04T22:01:05+00:00"
   }
  ]
 }
