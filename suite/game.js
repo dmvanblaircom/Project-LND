@@ -129,7 +129,7 @@ Suite.game = (function () {
       var when = st === "postponed" ? Suite.home.newDate(g) : st === "canceled" ? ko.day : ko.full;
       center = '<div class="gh-center">' +
         (st === "upcoming" ? '<p class="gh-where">' + esc(where) + "</p>"
-                           : '<span class="state-pill ' + st + '">' + esc(st) + "</span>") +
+                           : (Suite.scoreboard && Suite.scoreboard.badge ? Suite.scoreboard.badge(g, m.now) : "")) +  // Home's badge: Delayed, Postponed, Canceled (Codex, #280)
         // Never an ellipsis: fit() shrinks it, then takes the abbreviation.
         // A one- or two-letter word stays with its neighbour - never "E" over
         // "MICHIGAN" (sweep, 2026-10-29).
@@ -185,6 +185,9 @@ Suite.game = (function () {
       var line = m.team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0);
       if (st === "final") return "Final. " + line + ".";
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line + ".";
+      // 0:00 in the 4th before the source says final: the badge says End of
+      // game, and so does what a screen reader hears (Codex, #280)
+      if (TeamOS.game.endOfGame && TeamOS.game.endOfGame(g)) return "End of game, not yet final. " + line + ".";
       if (TeamOS.game.halftime(g)) return "Halftime. " + line + "." +
         (g.situation && g.situation.receives ? " " + (g.situation.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the second half." : "");
       return "Live, " + ordinal(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " + line + "." +

@@ -373,10 +373,15 @@ function stageHtml(game) {
 }
 function pillOf(html) { var m = /<p class="stage-pill[^"]*"><span>[^<]*<\/span><\/p>/.exec(html); return m ? m[0] : null; }
 [["live", liveG], ["halftime", Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime" })],
- ["final", Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" })]].forEach(function (c) {
+ ["final", Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" })],
+ ["delayed before kickoff", Object.assign({}, WG, { state: "pre", status: "delayed", hasStarted: false })],
+ ["end of game", Object.assign({}, liveG, { period: 4, clock: "0:00", us: "24", them: "17" })]].forEach(function (c) {
   var home = pillOf(stageHtml(c[1])), game = pillOf(headHtml(c[1]));
   ok(home && home === game, "Home and Game wear the same " + c[0] + " badge (" + game + ")");
 });
+// what a screen reader hears says End of game too (Codex, #280)
+ok(/aria-label="End of game, not yet final\. /.test(headHtml(Object.assign({}, liveG, { period: 4, clock: "0:00", us: "24", them: "17" }))),
+   "at 0:00 in the 4th before final, Game's header is heard as End of game, as it is shown");
 ok(/class="stage-pill pill-final"><span>Final</.test(finalHead) && !/class="gh-final"/.test(finalHead),
    "the FINAL badge is its own element, Home's badge, so its tracking stays on it (records read 4-0, not 4 - 0)");
 
