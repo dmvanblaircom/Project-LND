@@ -376,8 +376,10 @@ function watchUpdate(reg){
 function launchUp(){ var l=document.getElementById("launch"); return !!l && !l.classList.contains("done"); }
 if("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", function(e){
   if(!e.data || e.data.type!=="reload") return;
-  if(e.data.at && e.data.within && Date.now()-e.data.at > e.data.within-300) return;
+  // A page the fan can see says so however late the word came (Codex review,
+  // #284): the worker keeps listening, and leaves it alone.
   if(!launchUp()){ if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:false, seen:true }); return; }
+  if(e.data.at && e.data.within && Date.now()-e.data.at > e.data.within-300) return;
   if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:true });
   var w=e.source;
   function go(){ var u=new URL(location.href); u.searchParams.set("swap", String(Date.now())); location.replace(u.href); }

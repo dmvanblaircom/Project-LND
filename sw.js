@@ -217,7 +217,9 @@ function askToReload(c) {
     var ch = new MessageChannel(), t = setTimeout(function () { done(false); }, ASK_MS);
     // { ok:false, seen:true }: the fan is already looking at that page; it is
     // left as it is and takes this version on its next open
-    ch.port1.onmessage = function (m) { clearTimeout(t); done(m.data && m.data.seen ? "seen" : true); };
+    // A "seen" that comes after the wait has timed out still counts, until the
+    // reload is driven: a busy page answers late and must not be reloaded.
+    ch.port1.onmessage = function (m) { clearTimeout(t); if (m.data && m.data.seen) LEFT_ALONE[c.id] = true; done(m.data && m.data.seen ? "seen" : true); };
     try { c.postMessage({ type: "reload", at: Date.now(), within: ASK_MS }, [ch.port2]); } catch (e) { clearTimeout(t); done(false); }
   });
 }
