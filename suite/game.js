@@ -142,11 +142,12 @@ Suite.game = (function () {
         (g.series ? '<p class="gh-series">' + esc(g.series) + "</p>" : "") +
         "</div>";
     } else {
-      var top = st === "live" ? '<span class="live-pill">Live</span>'
-        : st === "paused" ? '<span class="state-pill paused">' + (g.status === "suspended" ? "Suspended" : "Delayed") + "</span>"
-        : '<span class="gh-final-label">Final</span>';
+      // the same badge as Home's stage: Live, Halftime, Overtime, Delayed,
+      // Suspended, End of game, Final (David, 2026-11-25)
+      var top = Suite.scoreboard && Suite.scoreboard.badge ? Suite.scoreboard.badge(g, m.now) : "";
       var half = TeamOS.game.halftime(g);
-      var clock = st === "final" ? "" : '<p class="gh-clock">' + esc(half ? "Halftime" : [ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
+      // the badge says Halftime; the clock line does not repeat it
+      var clock = st === "final" || half ? "" : '<p class="gh-clock">' + esc([ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
       var sit = (st === "live" || st === "paused") && !half && g.situation && g.situation.short
         ? '<p class="gc-situation"><span>' + esc(g.situation.short) + "</span>" + (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
         : half && g.situation && g.situation.receives

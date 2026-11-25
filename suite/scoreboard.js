@@ -280,7 +280,7 @@ Suite.scoreboard = (function () {
     return '<div class="stage stage-' + v + " st-" + st + (near ? " cd-" + near : "") + ' on-dark art-' + (atm || "none") + (ph ? " has-photo venue-" + esc(ph.key) : " no-photo") + '">' +
              img + '<div class="stage-art" aria-hidden="true"></div>' +
              '<div class="stage-inner">' +
-               (p ? '<p class="stage-pill pill-' + p.k + '"><span>' + esc(p.t) + "</span></p>" : "") +
+               (g ? badge(g, m.now) : "") +
                (g ? board(m, opts) : (opts.body || "")) +
                (g && m.line ? '<p class="stage-line">' + esc(m.line) + "</p>" : "") +
                (g && v === "home" ? facts(m, st) : "") + cta + "</div></div>";
@@ -290,5 +290,12 @@ Suite.scoreboard = (function () {
   // ellipsis) - the hosts call this after drawing.
   function fit(host) { ui.fitNames(host, ".sb-board", ".sb-name"); }
 
-  return { board: board, stage: stage, backdrop: backdrop, state: state, fit: fit, nearness: nearness };
+  // The game's state as one badge, the same on Home's stage and Game's header
+  // (David, 2026-11-25: the two LIVE badges looked different).
+  function badge(g, now) {
+    var p = g ? pill(g, state(g), now) : null;
+    return p ? '<p class="stage-pill pill-' + p.k + '"><span>' + esc(p.t) + "</span></p>" : "";
+  }
+
+  return { board: board, stage: stage, backdrop: backdrop, badge: badge, state: state, fit: fit, nearness: nearness };
 })();
