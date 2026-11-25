@@ -1,7 +1,16 @@
 {
  "team": "army",
- "updated": "2026-11-25T18:37:52.909699+00:00",
+ "updated": "2026-11-25T19:07:53.405319+00:00",
  "items": [
+  {
+   "title": "Behind Enemy Lines: Army vs. Rice \u2013 Game 11 Preview",
+   "link": "https://on3.com/sites/go-black-knights/news/army-vs-rice-2026-game-preview/",
+   "source": "GoBlackKnights",
+   "summary": "This is premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25124939/2026-09-12T200948Z_639541430_MT1USATODAY29802494_RTRMADP_3_NCAA-FOOTBALL-RICE-AT-NOTRE-DAME-e1795632716108.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T18:52:55+00:00"
+  },
   {
    "title": "ICYMI: Monday Morning QB - East Carolina",
    "link": "https://on3.com/sites/go-black-knights/news/icymi-monday-morning-qb-east-carolina/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25125517/Army-Tulsa-102326-467984-copy-2-1.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-10-25T17:55:53+00:00"
-  },
-  {
-   "title": "Black Knights Survive Tulsa\u2019s Comeback as Dawson Jones Drills Another 50-Yard Kick in 38-35 Win",
-   "link": "https://on3.com/sites/go-black-knights/news/army-football-tulsa-dawson-jones-walk-off-field-goal/",
-   "source": "GoBlackKnights",
-   "summary": "This is premium content.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/25121911/92412748007-boot-inter.webp",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-10-25T16:57:10+00:00"
   }
  ]
 }
