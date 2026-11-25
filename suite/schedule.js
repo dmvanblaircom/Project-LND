@@ -100,7 +100,8 @@ Suite.schedule = (function () {
       : g.status === "final" ? g.venue : [g.timeSet === false ? "Time TBA" : ko.time, g.venue].filter(Boolean).join(" · ");
     var hero = g.id === o.heroId;
     var mark = o.full ? ui.mark(g.oppProviderId && o.oppMark ? o.oppMark(g.oppProviderId) : null, g.oppName, g.oppAbbr, "plain") : "";
-    return '<li><a class="sched-row' + (o.full ? " full" : "") + (hero ? " is-hero" : "") + '" href="' +
+    // the next game stands out most of the rows (Home review, 2026-11-11)
+    return '<li><a class="sched-row' + (o.full ? " full" : "") + (hero ? " is-hero" : "") + (g.id === o.nextId ? " is-next" : "") + '" href="' +
              (hero ? "#game" : "#schedule/" + esc(g.id)) + '">' +
            '<span class="sr-only">' + esc(spoken(g)) + (hero ? " Opens Game." : "") + "</span>" +
            '<span class="sched-vis" aria-hidden="true">' +

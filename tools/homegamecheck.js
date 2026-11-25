@@ -26,7 +26,7 @@ fs.mkdirSync(shots,{recursive:true});
       await page.setContent('<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1">'+
         '<link rel="stylesheet" href="'+base+'/app.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap"></head>'+
         '<body><main class="page-main"><div id="home"></div><div id="around"></div><div id="game"></div><div id="news"></div></main></body></html>');
-      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "suite/home.js","suite/top25.js","suite/game.js","suite/more.js"])
+      for(var f of ["teams/"+team+".js","teamos/team.js","teamos/identity.js","teamos/espn.js","teamos/game.js","suite/ui.js","suite/schedule.js","suite/prospects.js", "leagues/college-football-art.js","teamos/art.js","suite/scoreboard.js","suite/home.js","suite/top25.js","suite/game.js","suite/more.js"])
         await page.addScriptTag({url:base+"/"+f});
       for(var style of ["team","suite"])for(var width of [320,375,390,768,1280]){
         await page.setViewportSize({width:width,height:844});
@@ -74,7 +74,7 @@ fs.mkdirSync(shots,{recursive:true});
         assert(await page.evaluate(function(){return getComputedStyle(document.querySelector(".mu-v.better")).backgroundColor!==getComputedStyle(document.querySelector(".mu-v:not(.better)")).backgroundColor;}),"The better stat has no visible tint");
         assert(await page.evaluate(function(){return document.documentElement.scrollWidth<=innerWidth+1;}),"Matchup overflows");
         var contrast=await audit.auditText(page,"matchup "+team+style+width);assert.deepStrictEqual(contrast.failures,[]);
-        if(style==="team"&&(width===320||width===390))await page.locator(".gcard").screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
+        if(style==="team"&&(width===320||width===390))await page.locator(".game-body .gcard").first().screenshot({path:path.join(shots,team+"-"+width+"-matchup.png")});
         passed.push("PASS "+[team,style,width,"nine highlighted comparisons and arrows"].join(" | "));
         await page.evaluate(function(){
           document.getElementById("game").hidden=true;document.getElementById("home").hidden=false;document.getElementById("around").hidden=true;

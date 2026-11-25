@@ -385,18 +385,20 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
    edge: the safe-area inset is padding, plus a floor for devices with none. */
 .navbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
   padding:.3rem max(.4rem,env(safe-area-inset-right,0px)) max(.55rem,env(safe-area-inset-bottom,0px)) max(.4rem,env(safe-area-inset-left,0px));
-  background:var(--s-surface);border-top:1px solid var(--s-line);box-shadow:0 -6px 20px rgba(15,27,45,.06)}
+  background:var(--t-abyss);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 28px rgba(0,0,0,.35)}
 /* The nav's surface carries on below it, off-screen, for a bar lifted
    inside the viewport. Below the viewport's own edge it is clipped, and the
    canvas (html, above) is what fills the strip. */
 .navbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:12rem;background:inherit;pointer-events:none}
-.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:var(--s-muted);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1.15;-webkit-tap-highlight-color:transparent}
+.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;min-height:3.5rem;padding:.35rem .1rem .3rem;border-radius:var(--s-radius-ctl);color:rgba(255,255,255,.72);text-decoration:none;font-family:var(--t-font-ui);font-weight:600;font-size:.8rem;line-height:1.15;-webkit-tap-highlight-color:transparent}
 .nav-item svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-item svg .solid{fill:currentColor;stroke:none}
-.nav-item[aria-current="page"]{color:var(--t-surface);font-weight:700}
+.nav-item[aria-current="page"]{color:#fff;font-weight:700}
 .nav-item[aria-current="page"]::after{content:"";position:absolute;left:22%;right:22%;bottom:-.1rem;height:3px;border-radius:3px;background:var(--t-accent)}
-.nav-item:focus-visible{outline-offset:-3px}
+.nav-item:focus-visible{outline-offset:-3px;outline-color:var(--t-focus)}
 .nav-live{display:none}
+/* The desktop header's Live chip and score (decision 0042): drawn only there. */
+.nav-state,.nav-score{display:none}
 
 /* While the team's game is under way, Game becomes the raised circle - even
    when another destination is selected. Raised is not selected (decision 0024
@@ -572,51 +574,19 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .champ-s{margin:.1rem 0 0;font-size:.88rem;line-height:1.3;color:rgba(255,255,255,.88)}
 
 .home-hero{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
-.hh-inner{position:relative;z-index:1;padding:1rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
-.hh-id p{margin:0}
-.hh-school{font-family:var(--t-font-display);font-weight:700;font-size:1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-accent-text)}
-.hh-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.2rem,10.5vw,3rem);line-height:.95;letter-spacing:.005em;text-transform:uppercase}
+.home-hero .stage-inner{padding-left:calc(var(--gutter) + env(safe-area-inset-left,0px));padding-right:calc(var(--gutter) + env(safe-area-inset-right,0px))}
 
-.gamecard{margin-top:.85rem;padding:.95rem 1rem 1rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--s-radius-card);background:rgba(var(--t-abyss-rgb),.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.gamecard p{margin:0}
-.gc-top{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:.75rem;row-gap:.15rem}
-.gc-top > :first-child{justify-self:start}
-.gc-label{font-family:var(--t-font-ui);font-weight:700;font-size:1.3rem;line-height:1.2}
 /* FINAL: the state, once, centred over the scores - team-neutral. */
-.gc-top > .gc-final{grid-column:1 / -1;justify-self:center;font-family:var(--t-font-display);font-weight:700;font-size:1.25rem;letter-spacing:.24em;text-transform:uppercase}
-.gc-when{grid-column:1;font-size:1.05rem;color:var(--s-on-dark-2)}
-.gc-when .nb{white-space:nowrap}
-.gc-net{grid-column:2;grid-row:1 / span 2;padding:.25rem .55rem;border:1px solid rgba(255,255,255,.32);border-radius:6px;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em}
-.gc-matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.4rem;margin-top:.85rem}
-.gc-side{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
-.gc-line{display:flex;align-items:center;gap:.55rem}
-.gc-side.them .gc-line{flex-direction:row-reverse}
-.gc-side .mark{--mark:3.5rem}
-.gc-score{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
-.gc-name{max-width:calc(100% - .5rem);margin-top:.45rem !important;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
 .gc-rank{color:var(--t-accent-text);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 /* Never an ellipsis: ui.fitNames tightens both names, then swaps both to
    the abbreviation, exactly as the Game header does. */
-.gc-abbr,.fit-abbr .gc-full{display:none}
-.fit-abbr .gc-abbr{display:inline}
-.fit-tight .gc-name{font-size:.92rem;letter-spacing:0}
-.gc-side.is-loser .gc-score,.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
-.gc-record{font-size:.95rem;color:var(--s-on-dark-2);font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums}
-.gc-mid{display:flex;flex-direction:column;align-items:center;gap:.1rem;font-family:var(--t-font-display);text-transform:uppercase}
-.gc-vs{font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--s-on-dark-2)}
-.gc-period{font-weight:var(--s-num-primary);font-size:1.1rem;letter-spacing:.04em;font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
-.gc-clock{font-weight:var(--s-num-primary);font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums;font-family:var(--s-font-score)}
-.gc-mid.is-held .gc-clock{color:var(--s-on-dark-2)}     /* stopped where play stopped */
-.gc-rule{width:1px;height:2.6rem;background:rgba(255,255,255,.32)}
+.gh-team.is-loser .gh-score{font-weight:500;color:var(--s-on-dark-2)}
 /* Score and football share a measured group; an absolutely positioned
    ball used to intrude into HALFTIME at 320px in Ohio State's wider type. */
 .gh-ball{flex:none;width:1.1rem;height:1.1rem}
 .gh-team.them .gh-ball{order:-1}
 .gh-ball ellipse{fill:var(--s-football)}
 .gh-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
-.gc-ball{width:1.3rem;height:1.3rem;flex:none;align-self:flex-end;margin-bottom:.35rem}
-.gc-ball ellipse{fill:var(--s-football)}
-.gc-ball path{fill:none;stroke:var(--s-on-dark);stroke-width:1.2;stroke-linecap:round}
 /* Top 25: the football leads the score of the side with the ball. */
 .tg-ball{width:1.1rem;height:1.1rem;margin-right:.35rem;vertical-align:-.1em}
 .tg-ball ellipse{fill:var(--s-football)}
@@ -625,15 +595,6 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .gc-situation span + span{margin-left:.75rem;padding-left:.75rem;border-left:1px solid rgba(255,255,255,.35)}
 /* "2nd & 10" and "PUR 28" each stay whole (live scan #8). */
 .gc-situation span{white-space:nowrap}
-.gc-series{margin-top:.55rem !important;text-align:center;font-size:.95rem;color:var(--t-accent-text)}
-.gc-milestone{margin-top:.6rem !important;text-align:center;font-family:var(--t-font-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;color:var(--t-accent-text)}
-.gc-extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:.75rem;align-items:start;margin-top:.8rem !important;font-size:.92rem;color:var(--s-on-dark-2);text-align:center}
-.gc-extra .dot{display:none}
-.gc-extra .gc-wx ~ .gc-odds{border-left:1px solid rgba(255,255,255,.3);padding-left:.75rem}
-.gc-extra > :only-child{grid-column:1 / -1}
-.gc-cta{width:100%;margin-top:.9rem;background:var(--t-action,var(--t-accent));color:var(--t-action-ink,var(--t-accent-ink))}
-.gc-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
-.gc-cta:focus-visible{outline-color:var(--t-focus)}
 
 /* Exceptional states say what they are (decision 0022 #5). */
 .state-pill{display:inline-flex;align-items:center;padding:.25rem .7rem;border-radius:var(--s-radius-pill);background:#F5B400;color:#221A00;font-family:var(--t-font-display);font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.1}
@@ -642,6 +603,51 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .home-sec{padding-top:.2rem}
 .home-sec .sec-head{margin:1.4rem 0 .6rem}
 .home-schedule .sec-head{flex-wrap:wrap;column-gap:.75rem;row-gap:0}
+
+/* Quick Actions: the two core actions, compact, side by side */
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:var(--s-space-3);margin-top:var(--s-space-4)}
+.qa-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"ic chev" "t t" "s s";align-items:start;row-gap:.15rem;
+  padding:.85rem .9rem .9rem;border:1px solid var(--s-line);border-radius:var(--s-radius-card);background:var(--s-surface);color:inherit;text-decoration:none;
+  transition:border-color var(--s-dur-fast) var(--s-ease-out)}
+.qa-item:hover{border-color:var(--s-line-strong)}
+.qa-item:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px}
+.qa-ic{grid-area:ic;display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;margin-bottom:.45rem;border-radius:var(--s-radius-ctl);background:var(--t-accent-tint-soft);color:var(--t-accent-on-light)}
+.qa-ic svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.qa-t{grid-area:t;font-weight:700;font-size:1.02rem;line-height:1.2}
+.qa-s{grid-area:s;font-size:.84rem;line-height:1.3;color:var(--s-muted)}
+.qa-item .chev,.qa-item .ext{grid-area:chev;width:1.1rem;height:1.1rem;color:var(--s-muted)}
+
+/* The Wire: status changes, each with its kind beside the outlet's headline */
+.wire{list-style:none;margin:0;padding:0;overflow:hidden}
+.wire li + li{border-top:1px solid var(--s-line)}
+.wire-row{display:grid;grid-template-columns:minmax(0,1fr);row-gap:.3rem;padding:.75rem .9rem;color:inherit;text-decoration:none}
+.wire-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
+.wire-kind{justify-self:start;padding:.12rem .5rem;border-radius:var(--s-radius-pill);background:var(--s-ink);color:#FFFFFF;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.wire-kind.wk-injury,.wire-kind.wk-availability,.wire-kind.wk-suspension{background:#7A1F12}
+.wire-hl{font-family:var(--s-font-heading);font-weight:700;font-size:1.02rem;line-height:1.3;color:var(--s-ink)}
+.wire-meta{display:flex;align-items:center;gap:.35rem;font-size:.85rem;color:var(--s-muted)}
+
+/* The supporting column: drawn on a desktop only (spec §5.1) */
+.home-side{display:none}
+.side-panel{padding:1rem 1.1rem 1.05rem;box-shadow:none;border:1px solid var(--s-line)}
+.side-panel + .side-panel{margin-top:var(--s-space-4)}
+.side-title{margin:0;font-family:var(--s-font-heading);font-weight:700;font-size:1.05rem;color:var(--s-ink)}
+.side-sub{margin:.15rem 0 0;font-size:.85rem;color:var(--s-muted)}
+.side-dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem 1rem;margin:.85rem 0 0}
+.side-dl div{min-width:0}
+.side-dl dt{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s-muted)}
+.side-dl dd{margin:.1rem 0 0;font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--s-ink)}
+.side-note{margin:.8rem 0 0;font-size:.8rem;color:var(--s-muted)}
+.side-table{width:100%;margin-top:.7rem;border-collapse:collapse;font-size:.92rem}
+.side-table th{padding:.3rem .25rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--s-muted);border-bottom:1px solid var(--s-line)}
+.side-table td{padding:.42rem .25rem;border-bottom:1px solid var(--s-line);color:var(--s-ink)}
+.side-table .num{text-align:right;font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums}
+.side-table td.num:first-child,.side-table th:first-child{text-align:left;width:1.6rem;color:var(--s-muted)}
+.side-table tr.is-us td{font-weight:700;background:var(--t-accent-tint-soft)}
+.side-table tr[data-gap] td{border-top:2px dashed var(--s-line-strong)}
+.side-div{display:block;font-size:.74rem;color:var(--s-muted)}
+.side-link{display:inline-flex;align-items:center;gap:.25rem;margin-top:.75rem;font-weight:600;font-size:.92rem;color:var(--r-everyday-accent);text-decoration:none}
+.side-link .chev{width:1rem;height:1rem;stroke:currentColor}
 
 .news-row{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:72%;gap:.75rem;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));padding:0 calc(var(--gutter) + env(safe-area-inset-left,0px)) .35rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter);scrollbar-width:none}
 .news-row::-webkit-scrollbar{display:none}
@@ -670,6 +676,10 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .sched-vis{display:grid;grid-template-columns:2.9rem minmax(0,1fr) auto auto;align-items:center;gap:.65rem;min-height:2.6rem}
 .sched-row:focus-visible{outline:3px solid var(--t-surface);outline-offset:-3px}
 .sched-row.is-hero{box-shadow:inset 4px 0 0 var(--t-accent)}
+/* the next game stands out of the three (Home review, 2026-11-11) */
+.sched-row.is-next{background:var(--t-accent-tint-soft)}
+.sched-row.is-next .sched-opp{font-size:1.18rem}
+.sched-row.is-next .sched-date .d{color:var(--t-accent-on-light)}
 .sched-date{display:flex;flex-direction:column;align-items:center;line-height:1}
 .sched-date .m{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
 .sched-date .d{font-family:var(--t-font-display);font-weight:700;font-size:1.65rem;color:var(--s-ink)}
@@ -742,6 +752,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
    Game Details alone; live and final get the view strip (decision 0024 §7). */
 .game-head{position:relative;isolation:isolate;overflow:hidden;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));color:var(--s-on-dark)}
 .game-head p{margin:0}
+/* Game's header in front of the venue's photograph (as Home's stage) */
+.game-head.has-photo{--photo-h:100%;background:var(--r-stage-3)}
+/* Game's words stand across the whole photograph, so it sits under an even
+   veil of the team's abyss rather than Home's glow (decision 0041) */
+.game-head.has-photo .stage-art{background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.62),rgba(var(--t-abyss-rgb),.8))}
 .gh-inner{position:relative;z-index:1;padding:.9rem calc(var(--gutter) + env(safe-area-inset-right,0px)) 1.2rem calc(var(--gutter) + env(safe-area-inset-left,0px))}
 /* The weather and the line: one centred row under the game, two equal
    halves either side of a rule (David, 2026-10-01). */
@@ -1412,13 +1427,73 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   /* Home on a wide screen: the hero is a framed panel in the column, and
      news keeps two readable stories with a visible preview of the third. */
   .home-hero{margin:1rem 0 0;border-radius:var(--s-radius-card)}
-  .hh-inner{padding:1.4rem 1.5rem}
   .fresh-banner{margin:0;border-radius:0 0 var(--s-radius-ctl) var(--s-radius-ctl)}
   .news-row{grid-auto-columns:46%;margin:0;padding:0 0 .5rem;scroll-padding-left:0;scrollbar-width:thin}
   .news-row::-webkit-scrollbar{display:block;height:6px}
   .game-head,.game-tabs{margin:1rem 0 0;border-radius:var(--s-radius-card)}
   .game-tabs{margin-top:.6rem;border:1px solid var(--s-line)}
   .gh-inner{padding:1.1rem 1.5rem 1.4rem}
+}
+/* Desktop navigation (decision 0042): the five destinations in the branded
+   SUITE header - the wordmark and the team on the left, the destinations,
+   then Settings on the right - laid out on the wide desktop grid. suite/nav.js
+   moves the nav element into the header at this width, so this is ordinary
+   flow, and the keyboard meets it where it is seen. Phones and tablets keep
+   the bar at the foot of the screen, unchanged. Lands with Stage 2's wide
+   Home and Game (the grid is --s-content-wide). */
+@media (min-width:64rem){
+  html{scroll-padding-bottom:2.5rem}
+  .app-bar{padding-left:max(var(--gutter),calc((100% - var(--s-content-wide)) / 2 + var(--gutter)),env(safe-area-inset-left,0px));
+    padding-right:max(var(--gutter),calc((100% - var(--s-content-wide)) / 2 + var(--gutter)),env(safe-area-inset-right,0px))}
+  .bar-context:not([hidden]){flex:0 1 auto}
+  .app-bar .navbar{position:static;z-index:auto;display:flex;align-items:stretch;gap:.15rem;width:auto;height:var(--s-bar-h);margin:0 .5rem 0 auto;
+    padding:0;transform:none;border:0;border-radius:0;box-shadow:none;background:none}
+  .app-bar .navbar::after{display:none}
+  /* Words only: an editorial header, not an app toolbar - and the room
+     the team's name and a live score need. */
+  .app-bar .nav-item{flex-direction:row;gap:.5rem;min-height:var(--s-bar-h);padding:0 .9rem;border-radius:0;color:var(--s-on-dark-2);font-size:.95rem;font-weight:600}
+  .app-bar .nav-item svg,.app-bar .navbar.game-raised .nav-game svg{display:none}
+  .app-bar .nav-item:hover{color:var(--s-on-dark)}
+  .app-bar .nav-item[aria-current="page"]{color:var(--s-on-dark)}
+  .app-bar .nav-item[aria-current="page"]::after{left:.9rem;right:.9rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--r-signal-select,var(--t-accent))}
+  .app-bar .nav-item:focus-visible{outline:3px solid var(--r-signal-focus,var(--t-accent-text));outline-offset:-3px}
+  .page-main{padding-bottom:calc(3rem + env(safe-area-inset-bottom,0px))}
+  /* Home, wide (spec §5.1; brief §5.2): two columns on the desktop grid - the
+     hero and the team's own sections, and beside them the supporting column,
+     Season Context and Conference Standing, held in view while the page
+     scrolls. Every other screen keeps its reading column. */
+  .page-main:has(#screenHome:not([hidden])){max-width:var(--s-content-wide)}
+  #screenHome:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr) 20.5rem;column-gap:var(--s-space-6);align-items:start}
+  #screenHome > *{grid-column:1;min-width:0}
+  #screenHome > .home-side{display:block;grid-column:2;grid-row:1 / span 30;position:sticky;top:calc(var(--s-bar-h) + var(--s-space-5));margin-top:var(--s-space-5)}
+  #screenHome .home-hero{margin:var(--s-space-5) 0 0;border-radius:20px;box-shadow:var(--s-elev-3)}
+  #screenHome .champ{margin:var(--s-space-5) 0 0;padding:.7rem 1rem;border-radius:var(--s-radius-card)}
+  #screenHome .home-hero .stage-inner{padding:var(--s-space-6)}
+  /* Game: the header across the top, the views on the left, Game Info on the
+     right (the boards of 2026-11-20) */
+  .page-main:has(#screenGame:not([hidden])){max-width:var(--s-content-wide)}
+  #screenGame:not([hidden]):has(> [data-game]){display:grid;grid-template-columns:minmax(0,1fr) 20.5rem;column-gap:var(--s-space-6);align-items:start}
+  #screenGame > *{grid-column:1;min-width:0}
+  #screenGame > [data-game="head"]{grid-column:1 / -1}
+  #screenGame > .game-side:not(:empty){display:block;grid-column:2;grid-row:2 / span 30;position:sticky;top:calc(var(--s-bar-h) + var(--s-space-5));margin-top:var(--s-space-4)}
+  #screenGame .game-head{margin:var(--s-space-5) 0 0;border-radius:20px}
+  /* Game, while the team's game is under way: no raised circle here; the
+     control carries the state in words - a red Live chip with its light, or
+     a quiet Delayed / Suspended - and, from 80rem, the score. */
+  .app-bar .navbar.game-raised .nav-game{align-self:stretch;width:auto;height:auto;min-height:var(--s-bar-h);margin:0;padding:0 .9rem;border-radius:0;
+    background:none;box-shadow:none;color:var(--s-on-dark);font-family:var(--t-font-ui);font-size:.95rem;letter-spacing:0;text-transform:none}
+  .app-bar .navbar.game-raised .nav-game .nav-live{display:none}
+  .app-bar .navbar.game-raised .nav-game[aria-current="page"]::after{left:.9rem;right:.9rem;bottom:0;height:3px}
+  .app-bar .navbar.game-raised .nav-state{display:inline-flex;align-items:center;gap:.35rem;padding:.2rem .55rem;border-radius:999px;
+    border:1px solid rgba(255,255,255,.45);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;color:var(--s-on-dark)}
+  .app-bar .navbar.game-live .nav-state{border-color:transparent;background:var(--s-live);color:#fff}
+  .app-bar .navbar.game-live .nav-state::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:#fff;animation:live-pulse 1.6s ease-in-out infinite}
+  .app-bar .navbar.game-raised .nav-score{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1rem;letter-spacing:.02em;font-variant-numeric:tabular-nums;color:var(--s-on-dark);white-space:nowrap}
+}
+/* The score joins the Live chip from 80rem; below it the chip alone, so the
+   header holds every team's name (tools/headerfitcheck.js). */
+@media (min-width:80rem){
+  .app-bar .navbar.game-raised .nav-score:not(:empty){display:inline}
 }
 /* Phones: the rankings table keeps every column, set tighter to fit. */
 @media (max-width:30rem){
@@ -1478,8 +1553,6 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .rk-teamcell .mark{--mark:1.35rem}
   .chooser h1{font-size:1.7rem}
   .nav-item{font-size:.74rem}
-  .gc-side .mark{--mark:2.9rem}
-  .gc-score{font-size:2.5rem}
 }
 /* Tertiary information is the first to go on a small phone (0024 §2). */
 @media (max-width:22.5rem){
@@ -1489,7 +1562,7 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .sched-row.full .mark{display:none}
   .sched-row.full .sched-vis{grid-template-columns:2.3rem minmax(0,1fr) auto auto;
     grid-template-areas:"date site side chev" "date opp side chev" "date meta meta chev" "date series series chev"}
-  .gc-extra,.gh-extra{display:none}
+.gh-extra{display:none}
   .tg-row{padding:.65rem .7rem}
   .tg-status{min-width:0;padding-left:0;border-left:0;flex-direction:row;align-items:center;gap:.4rem;text-align:left}
   /* At 320px the status uses a second row, leaving whole team names and
@@ -1503,24 +1576,16 @@ a.ab-name:focus-visible{outline:3px solid var(--t-surface);outline-offset:2px;bo
   .gh-team .mark{--mark:2.6rem}
   .gh-score{font-size:2.4rem}
   .game-tabs a{font-size:.95rem}
-  .gc-name{font-size:.92rem}
   /* the header's centre column is narrow: down & distance over the spot */
   .game-head .gc-situation{flex-direction:column;align-items:center;padding:.25rem .7rem;font-size:1rem}
   .game-head .gc-situation span + span{margin:.15rem 0 0;padding:.15rem 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.35)}
-  .gamecard{padding:.85rem .7rem .9rem}
-  .gc-matchup{gap:.25rem}
-  .gc-line{gap:.35rem}
-  .gc-side .mark{--mark:2.3rem}
-  .gc-score{font-size:2.1rem}
-  .gc-clock{font-size:1.4rem}
-  .gc-ball{width:1.05rem;height:1.05rem}
 }
 
 /* ====================================================================
    8. PREFERENCES - last, so they override everything above
    ==================================================================== */
 @media (prefers-reduced-motion:reduce){
-  .navbar.game-live .nav-game .nav-live,.live-pill::before{animation:none}
+  .navbar.game-live .nav-game .nav-live,.live-pill::before,.app-bar .navbar.game-live .nav-state::before{animation:none}
 }
 /* Swiping between a screen's peer views (suite/nav.js): the new view slides
    in from the side the fan swiped toward. David approved the gentler
@@ -1709,160 +1774,201 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @media(max-width:340px){.os-hero h2{font-size:1.7rem}.os-totals dd{font-size:2.625rem}.os-result{grid-template-columns:minmax(4.9rem,max-content) minmax(0,1fr);gap:.625rem}.os-result-score{font-size:1.35rem}}
 
 /* ====================================================================
-   PHASE 2 COMPONENTS (Stage 1b): the stage and the scoreboard
-   suite/scoreboard.js. They read roles (--r-*), lay themselves out from
-   their own width (container queries), and use the Suite numeric face for
-   every figure. Home and Game adopt them in Stages 2 and 3.
+   PHASE 2: THE STAGE (Stage 2; brief 2026-11-19, imagery 2026-11-20)
+   suite/scoreboard.js puts the matchup in front of a photograph of the
+   stadium the game is played in (TeamOS.art): the venue's own when Suite
+   has it, a defocused stand-in otherwise; by day or under the lights as
+   the kickoff is (0022 #11). The team arrives through light - a glow of its
+   colour rising from the field - and through its official mark. Every
+   colour reads roles (--r-*), so Team Style and Suite Style light it
+   differently with no conditional. Layout follows the stage's own width.
+
+   The text floor (decision 0041): the photograph fades into the team's
+   abyss before the first line of text, and the pill on
+   the photo carries its own solid ground. Measured from the pixels for
+   every team in both styles by tools/herocontrastcheck.js.
    ==================================================================== */
-/* Suite Style's own detail: champagne, never the action colour (spec §3.1). */
-/* Suite Style keeps its cobalt for actions, selection and feedback (David,
-   2026-11-07: "don't overuse it as a decorative color"); whose stage it is
-   and the colour in its light are champagne. */
+/* Suite Style's own detail: champagne, never the action colour (0041). */
 [data-style="suite"]{--r-stage-detail:rgba(212,184,150,.5);--r-stage-mark:#D4B896;--r-stage-glow-rgb:212,184,150}
 
-.stage{position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);
-  background:var(--r-stage-2)}
-/* The stage's atmosphere, and its text floor (Stage 1b; David, 2026-11-07:
-   keep the accessible floor, give everything outside the text "much more
-   visual depth, illumination, and energy", and make day and night
-   meaningfully different).
+.stage{--photo-h:19rem;position:relative;isolation:isolate;overflow:hidden;container:stage / inline-size;color:var(--r-stage-ink);
+  background:var(--r-stage-3)}
+.stage.no-photo{background:radial-gradient(120% 70% at 50% 0%,rgba(var(--r-stage-glow-rgb),.22),transparent 60%),linear-gradient(180deg,var(--r-stage-1),var(--r-stage-3) 70%)}
+.stage-photo{position:absolute;top:0;left:0;right:0;height:min(100%,var(--photo-h));z-index:-2;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.35) 82%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.35) 82%,transparent 100%)}
+.stage-img{display:block;width:100%;height:100%;object-fit:cover}
+.art-night .stage-img{filter:brightness(.92) saturate(1.05)}
+.art-day .stage-img{filter:brightness(.86) saturate(1.04)}
+/* the team's light, rising from the field into the stands, and a veil at
+   the top so the header and the pill sit clean */
+.stage-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--t-abyss-rgb),.55) 0,rgba(var(--t-abyss-rgb),0) 5.5rem),
+             /* the floor the words stand on: the photograph darkens into the
+                team's abyss from a third of the way down, so the names, scores
+                and status below the stands always read (0041) */
+             linear-gradient(180deg,rgba(var(--t-abyss-rgb),0) calc(var(--photo-h) * .26),rgba(var(--t-abyss-rgb),.62) calc(var(--photo-h) * .5),rgba(var(--t-abyss-rgb),.86) calc(var(--photo-h) * .78)),
+             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.22),transparent 72%)}
 
-   The identity gate proves a team's accent text on its DEEPEST surface
-   (teamos/identity.js), so that is the floor under every word. The floor is
-   local: each block of text carries its own feathered pool of the team's
-   abyss, so the light, the team's brighter surfaces and the field can live
-   everywhere around and between them. Measured from the pixels for every
-   team, both lights and every state by tools/herocontrastcheck.js.
-
-   Light only - no drawn stands, crowd or stadium. Those are the approved
-   art's (--s-art-env, under the light), which this composition frames.
-
-     night  a dark sky; the banks of floodlights blazing at both upper
-            corners, their beams falling across the bowl, the light over the
-            upper stands, the lit field below
-     day    an open sky, the team's colour bright and warm, a high sun, the
-            field bright under it; the banks barely needed
-     none   (kickoff time not set) the team's colour, quietly lit */
-.stage .art-slot{background:
-             radial-gradient(70% 45% at 50% 108%,rgba(var(--t-raise-rgb),.55),transparent 70%),
-             var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(172deg,var(--t-surface) 0%,var(--t-deep) 55%,var(--t-abyss) 100%)}
-.stage.art-night .art-slot{background:
-             linear-gradient(180deg,transparent 0%,rgba(255,244,226,.07) 7%,rgba(var(--r-stage-glow-rgb),.16) 13%,transparent 26%),
-             radial-gradient(80% 42% at 50% 104%,rgba(var(--t-raise-rgb),.8),rgba(var(--t-surface-rgb),.35) 45%,transparent 75%),
-             radial-gradient(60% 50% at 0% 55%,rgba(var(--t-surface-rgb),.45),transparent 70%),
-             radial-gradient(60% 50% at 100% 55%,rgba(var(--t-surface-rgb),.45),transparent 70%),
-             var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(180deg,var(--t-abyss) 0%,var(--t-deep) 30%,var(--t-deep) 62%,var(--t-abyss) 100%)}
-.stage.art-day .art-slot{background:
-             radial-gradient(50% 38% at 86% -6%,rgba(255,246,228,.5),rgba(255,236,200,.18) 45%,transparent 75%),
-             linear-gradient(180deg,rgba(236,242,255,.24) 0%,rgba(236,242,255,.08) 18%,transparent 34%),
-             radial-gradient(90% 45% at 50% 106%,rgba(255,255,255,.16),transparent 70%),
-             var(--s-art-env,none) center/cover no-repeat,
-             linear-gradient(170deg,var(--t-raise) 0%,var(--t-surface) 38%,var(--t-surface) 70%,var(--t-deep) 100%)}
-/* The banks: two, high in the corners, white-hot cores in the colour's
-   halo, beams fanning down across the bowl. By day the sun does the work. */
-.stage .art-lights{
-  background:radial-gradient(9% 7% at 12% -1%,rgba(255,255,255,.95),rgba(255,255,255,.4) 45%,transparent 75%),
-             radial-gradient(9% 7% at 88% -1%,rgba(255,255,255,.95),rgba(255,255,255,.4) 45%,transparent 75%),
-             radial-gradient(38% 34% at 12% 0%,rgba(var(--r-stage-glow-rgb),.45),transparent 72%),
-             radial-gradient(38% 34% at 88% 0%,rgba(var(--r-stage-glow-rgb),.45),transparent 72%),
-             conic-gradient(from 150deg at 12% -4%,transparent 0deg,rgba(255,255,255,.09) 5deg,transparent 11deg,transparent 17deg,rgba(255,255,255,.07) 22deg,transparent 29deg,transparent 36deg,rgba(255,255,255,.05) 41deg,transparent 48deg,transparent 360deg),
-             conic-gradient(from 162deg at 88% -4%,transparent 0deg,rgba(255,255,255,.05) 7deg,transparent 14deg,transparent 19deg,rgba(255,255,255,.07) 26deg,transparent 32deg,transparent 38deg,rgba(255,255,255,.09) 43deg,transparent 49deg,transparent 360deg);
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 95%);mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 95%)}
-.stage.art-day .art-lights{opacity:.3}
-.stage:not(.art-day):not(.art-night) .art-lights{opacity:.5}
-.stage .art-field{opacity:.32;height:42%}
-.stage.art-day .art-field{opacity:.4}
-.stage .art-slot::after{background:linear-gradient(180deg,transparent 0%,transparent 60%,rgba(var(--t-abyss-rgb),.35) 100%)}
-/* The grain is texture, not light: blended as an overlay it shows in the
-   mid-tones and leaves a black floor black (Cincinnati's red is 4.56:1 on
-   pure black - plain white noise took it to 4.46). */
-.stage .art-slot::before{mix-blend-mode:overlay}
-/* The local floor: a feathered pool of the team's abyss under each block of
-   words, so they read on the surface the gate proves whatever the light is
-   doing around them. */
-.stage .stage-id{align-self:flex-start}
-.stage .stage-id,.stage .sb-status,.stage .sb-board,.stage .sb-sit,.stage .sb-cd{position:relative}
-.stage .stage-id::before,.stage .sb-status::before,.stage .sb-board::before,.stage .sb-sit::before,.stage .sb-cd::before{
-  content:"";position:absolute;inset:-1.4rem -2.6rem;z-index:-1;pointer-events:none;background:rgba(var(--t-abyss-rgb),.78);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 2.4rem,#000 calc(100% - 2.4rem),transparent),linear-gradient(180deg,transparent,#000 1.3rem,#000 calc(100% - 1.3rem),transparent);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(90deg,transparent,#000 2.4rem,#000 calc(100% - 2.4rem),transparent),linear-gradient(180deg,transparent,#000 1.3rem,#000 calc(100% - 1.3rem),transparent);
-  mask-composite:intersect}
-/* The board is one pool, not a patch per column. */
-.stage .sb-board::before{inset:-1rem -1.6rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 1.6rem,#000 calc(100% - 1.6rem),transparent),linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 1.6rem,#000 calc(100% - 1.6rem),transparent),linear-gradient(180deg,transparent,#000 1rem,#000 calc(100% - 1rem),transparent);background:rgba(var(--t-abyss-rgb),.62)}
-/* The school line sits nearest the banks: its pool is the deepest. */
-.stage .stage-id::before{background:var(--t-abyss)}
-.stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--s-space-4);
-  padding:var(--s-space-5) var(--gutter) var(--s-space-5)}
-.stage-id p{margin:0}
-.stage-school{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.22em;text-transform:uppercase;color:var(--r-stage-mark)}
-.stage-nick{font-family:var(--t-font-display);font-weight:800;font-size:clamp(2.1rem,11cqi,3.6rem);line-height:.95;text-transform:uppercase}
-.stage-cta{width:100%;background:var(--r-signal-action);color:var(--r-signal-action-ink)}
+.stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3);
+  padding:var(--s-space-4) var(--gutter) var(--s-space-5);text-align:center}
+.stage-pill{align-self:center;margin:0}
+.stage-pill span{display:inline-flex;align-items:center;gap:.45rem;padding:.32rem .85rem;border-radius:var(--s-radius-pill);
+  font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(var(--t-abyss-rgb),.88);color:var(--r-stage-ink);border:1px solid var(--r-stage-line)}
+.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-mark)}
+.pill-live span{background:var(--s-live);border-color:var(--s-live);color:#fff}
+.pill-live span::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:#fff}
+.pill-half span{background:#1D3B8F;border-color:#1D3B8F;color:#fff}
+.pill-ot span{background:#5A3DAA;border-color:#5A3DAA;color:#fff}
+.pill-paused span{background:#C98A1B;border-color:#C98A1B;color:#1A1206}
+.pill-end span{background:#E8ECF1;border-color:#E8ECF1;color:#111D35}
+.pill-final span{background:#177245;border-color:#177245;color:#fff}
+.pill-off span{background:#56606E;border-color:#56606E;color:#fff}
+.stage-cta{align-self:center;width:100%;max-width:22rem;background:var(--r-signal-action);color:var(--r-signal-action-ink)}
 .stage-cta .chev{width:1.2rem;height:1.2rem;stroke:currentColor}
 .stage-cta:focus-visible{outline-color:var(--r-signal-focus)}
-@container stage (min-width:40rem){
-  .stage-inner{padding:var(--s-space-6) var(--s-space-6) var(--s-space-6)}
-  .stage-cta{align-self:center;width:auto;min-width:16rem}
-}
+.stage-line{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);letter-spacing:.03em;color:var(--r-stage-mark)}
+.stage-empty{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-xl);text-transform:uppercase}
+.stage-when,.stage-where{margin:0}
+.stage-when{font-weight:600;font-size:var(--s-type-md)}
+.stage-where{font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.stage-when .dot,.stage-where .dot{color:inherit}
+.stage-when .nb{white-space:nowrap}
+/* the season's own composition (S2/S4): the photograph stays short */
+.home-hero.is-season .stage{--photo-h:12rem}
+.stage .os-hero{margin:0;padding:0;background:none;text-align:left}
 
-/* The board. Narrow: each side a column - mark, score, name - with the
-   game's state between them. Wide: one broadcast row. */
-.sb{container:sb / inline-size;display:flex;flex-direction:column;gap:var(--s-space-3);border-top:1px solid var(--r-stage-detail);padding-top:var(--s-space-3)}
-.sb-top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-space-3);min-height:2rem}
-.sb-status{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--s-space-3);row-gap:var(--s-space-1)}
-.sb-label{font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-lg);text-transform:uppercase;letter-spacing:.04em}
-.sb-when{color:var(--r-stage-ink-2);font-size:var(--s-type-md)}
-.sb-when .nb{white-space:nowrap}
-.sb-net{flex:none;padding:.2rem .55rem;border:1px solid var(--r-stage-line);border-radius:6px;background:rgba(var(--t-abyss-rgb),.6);font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.04em}
-.sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them" "uss mid thems";align-items:center;column-gap:var(--s-space-3);row-gap:var(--s-space-1)}
-.sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid}
-.sb-team{display:flex;flex-direction:column;align-items:center;gap:var(--s-space-1);min-width:0;text-align:center}
+/* ---- the board ---- */
+.sb{container:sb / inline-size;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3)}
+.sb-board{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"us mid them";align-items:start;column-gap:var(--s-space-2)}
+.sb.is-scoring .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";align-items:center;column-gap:var(--s-space-2)}
+.sb-us{grid-area:us}.sb-them{grid-area:them}.sb-score-us{grid-area:uss}.sb-score-them{grid-area:thems}.sb-mid{grid-area:mid;align-self:center}
+.sb-team{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:0;text-align:center}
 .sb-team p{margin:0}
-.sb .sb-mark{--mark:3.25rem}
-.sb-name{max-width:100%;overflow:hidden;white-space:nowrap;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
+.sb-mark{--mark:5.25rem;margin-top:var(--s-space-4);filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.sb.is-scoring .sb-mark{--mark:3.6rem}
+.sb-name{max-width:100%;overflow:hidden;white-space:nowrap;line-height:1.5rem;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
+.sb-us .sb-name{font-size:var(--s-type-lg)}
 .sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .sb-abbr,.fit-abbr .sb-full{display:none}
 .fit-abbr .sb-abbr{display:inline}
-.sb-rec{font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+/* while there are scores, the phone's columns carry the short name */
+.sb.is-scoring .sb-full{display:none}
+.sb.is-scoring .sb-abbr{display:inline}
+.sb.is-scoring .sb-us .sb-name,.sb.is-scoring .sb-name{font-size:var(--s-type-sm)}
+.sb-rec{min-height:1lh;font-family:var(--s-font-score);font-weight:var(--s-num-secondary);font-variant-numeric:tabular-nums;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
+.sb.is-scoring .sb-rec{display:none}
 .sb-score{position:relative;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--s-font-score);font-weight:var(--s-num-primary);
-  font-size:clamp(2.75rem,17cqi,5.5rem);line-height:.95;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  font-size:clamp(2.6rem,17cqi,4.75rem);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sb-score .sb-n{min-width:1.1ch;text-align:center}
-/* Who has the ball: a light rule under that side's score, the words in the
-   situation bar saying the rest. */
-.sb-score.has-ball::after{content:"";position:absolute;left:50%;bottom:-.35rem;width:1.6rem;height:3px;margin-left:-.8rem;border-radius:2px;background:var(--r-signal-accent)}
-/* The side that lost reads quieter through the stage's secondary ink, never
-   opacity: a faded block takes its rank and record below AA under day light
-   (tools/herocontrastcheck.js). */
+/* the side with the ball: one quiet bar under its score, said in words below */
+.sb-score.has-ball::after{content:"";position:absolute;left:50%;bottom:-.45rem;width:1.8rem;height:3px;margin-left:-.9rem;border-radius:2px;background:var(--r-signal-accent)}
+/* a final: the higher score stands forward, the other steps back - the same
+   for a win and a loss (0041) */
 .sb-team.is-loser .sb-name,.sb-score.is-loser{color:var(--r-stage-ink-2)}
-.sb-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;min-width:3.5rem;text-align:center}
-.sb-period{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
-.sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums}
-.sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);letter-spacing:.2em;text-transform:uppercase}
-.sb-vs{font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
-/* The situation: who has the ball, down and distance, the spot - one bar. */
-.sb-sit{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--s-space-2) var(--s-space-3);align-self:center;margin:0;
-  padding:.4rem .9rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.55);
-  font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-lg);font-variant-numeric:tabular-nums;letter-spacing:.02em}
-.sb-poss{display:inline-flex;align-items:center;gap:.35rem}
+.sb-score.is-loser{font-weight:var(--s-num-secondary)}
+/* a score the refresh just brought: a brief lift of the figure, once */
+.sb-score.is-new .sb-n{animation:sb-new var(--s-dur-slow) var(--s-ease-out) 2}
+@keyframes sb-new{0%{color:var(--r-stage-ink)}40%{color:var(--r-stage-mark);transform:translateY(-.06em) scale(1.06)}100%{color:inherit;transform:none}}
+.sb-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:3.2rem;text-align:center}
+.sb-period{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.08em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-mid.is-half .sb-period{font-size:var(--s-type-sm);letter-spacing:.14em;color:var(--r-stage-mark)}
+.sb-clock{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-xl);line-height:1;font-variant-numeric:tabular-nums}
+.sb-final{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);letter-spacing:.2em;text-transform:uppercase}
+/* on the stage the pill already says Final or Halftime; the space between the scores stays */
+.stage .sb-final,.stage .sb-mid.is-half .sb-period{visibility:hidden}
+.sb-vs{display:block;margin-top:var(--s-space-7);font-family:var(--t-font-display);font-weight:800;font-size:var(--s-type-xl);text-transform:uppercase;color:var(--r-stage-ink-2)}
+.sb-series{margin:0;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-sm);letter-spacing:.14em;text-transform:uppercase;color:var(--r-stage-mark)}
+.sb-sit{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45rem;align-self:center;margin:var(--s-space-2) 0 0;
+  padding:.45rem 1rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.88);
+  font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-md);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .sb-sit-ball{width:1.15rem;height:1.15rem}
 .sb-sit-ball ellipse{fill:#B07A47;stroke:rgba(255,255,255,.85);stroke-width:1}
 .sb-sit-ball path{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round}
-.sb-sep{width:1px;height:1.1em;background:var(--r-stage-line)}
-.sb-cd{margin:0;align-self:center}
-.sb-cd > span{display:flex;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-ctl);background:rgba(var(--t-abyss-rgb),.45)}
-.sb-cd-cell{display:flex;flex-direction:column;align-items:center;min-width:4.5rem;padding:.35rem .6rem}
-.sb-cd-cell + .sb-cd-cell{border-left:1px solid var(--r-stage-line)}
-.sb-cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;font-variant-numeric:tabular-nums;color:var(--r-stage-mark)}
-.sb-cd-l{font-size:var(--s-type-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--r-stage-ink-2)}
-@container sb (min-width:34rem){
-  .sb-board{grid-template-columns:minmax(0,1fr) auto auto auto minmax(0,1fr);grid-template-areas:"us uss mid thems them";column-gap:var(--s-space-5)}
-  .sb .sb-mark{--mark:4.5rem}
-  .sb-name{font-size:var(--s-type-lg)}
-  .sb-score{font-size:clamp(4rem,12cqi,6.5rem)}
-}
-.sb-game .sb-score{font-size:clamp(3rem,19cqi,6rem)}
-@container sb (min-width:34rem){.sb-game .sb-score{font-size:clamp(4.5rem,13cqi,7rem)}}
+.sb-dd,.sb-spot,.sb-poss-t{white-space:nowrap}
+/* whose ball, in words, between two hairlines */
+.sb-poss{display:flex;align-items:center;justify-content:center;gap:var(--s-space-3);margin:0;font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--r-stage-ink)}
+.sb-poss::before,.sb-poss::after{content:"";width:2rem;height:2px;border-radius:1px;background:var(--r-stage-mark)}
+.sb-note{margin:0;font-size:var(--s-type-sm);color:var(--r-stage-ink-2)}
 
+/* ---- the countdown: KICKOFF IN / 4 DAYS, louder as the kickoff nears ---- */
+.sb-cd{display:flex;flex-direction:column;align-items:center;gap:.15rem;margin:var(--s-space-2) 0 0}
+.sb-cd-k{font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--r-stage-ink)}
+.sb-cd-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:var(--s-type-2xl);line-height:1;letter-spacing:.02em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:var(--s-type-3xl)}
+.sb-cd-near .sb-cd-n{text-shadow:0 0 22px rgba(var(--r-stage-glow-rgb),.6)}
+
+/* ---- the facts a fan plans around: quiet chips ---- */
+.stage-facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s-space-2);margin:0;padding:0}
+.sf{display:inline-flex;align-items:baseline;gap:.4rem;padding:.25rem .7rem;border:1px solid var(--r-stage-line);border-radius:var(--s-radius-pill);background:rgba(var(--t-abyss-rgb),.6)}
+.sf-k{font-size:var(--s-type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--r-stage-ink-2)}
+.sf-v{font-weight:600;font-size:var(--s-type-sm)}
+.sf-odds .sf-v,.sf-net .sf-v{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-variant-numeric:tabular-nums}
+
+/* ---- wider: the same composition with room to breathe ---- */
+@container stage (min-width:40rem){
+  .stage{--photo-h:26rem}
+  .stage-inner{padding:var(--s-space-5) var(--s-space-6) var(--s-space-6);gap:var(--s-space-3)}
+  .stage-cta{width:auto;min-width:16rem}
+}
+@container sb (min-width:34rem){
+  .sb-name,.sb.is-scoring .sb-name,.sb.is-scoring .sb-us .sb-name{font-size:var(--s-type-lg)}
+  .sb-us .sb-name{font-size:var(--s-type-xl)}
+  .sb.is-scoring .sb-full{display:inline}
+  .sb.is-scoring .sb-abbr{display:none}
+  .sb.is-scoring .fit-abbr .sb-full,.sb.is-scoring.fit-abbr .sb-full{display:none}
+  .sb.is-scoring .sb-rec{display:block}
+  .sb-score{font-size:clamp(4rem,11cqi,6rem)}
+  .sb-clock{font-size:var(--s-type-2xl)}
+  .sb-cd-n{font-size:var(--s-type-3xl)}
+  .sb-cd-day .sb-cd-n,.sb-cd-near .sb-cd-n{font-size:3.5rem}
+}
+@media (prefers-reduced-motion:reduce){.sb-score.is-new .sb-n{animation:none;color:var(--r-stage-mark)}}
+
+/* ====================================================================
+   HOME AND GAME, AFTER DARK (Stage 2; the boards of 2026-11-20)
+   The two game screens are one dark experience, the stadium carrying on
+   down the page: the same components, re-toned by their tokens in this
+   scope, so nothing here restyles a component. Around, Roster and More keep
+   the everyday light page. The bottom nav is dark everywhere, one bar under
+   every screen, matching the header.
+   ==================================================================== */
+#screenHome,#screenGame{
+  --s-page:var(--t-abyss);--s-surface:var(--t-deep);--s-inset:var(--t-raise);
+  --s-ink:#F3F5F9;--s-ink-2:#CBD3DE;--s-muted:#B3BDCA;
+  --s-line:rgba(255,255,255,.1);--s-line-strong:rgba(255,255,255,.2);
+  --s-win:#5BD39A;--s-loss:#FF968F;
+  --s-shadow-card:0 0 0 1px rgba(255,255,255,.07);--s-shadow-raise:0 0 0 1px rgba(255,255,255,.1),0 10px 28px rgba(0,0,0,.35);
+  --t-accent-on-light:var(--t-accent-text);
+  --t-accent-tint:rgba(var(--t-accent-rgb),.28);--t-accent-tint-soft:rgba(var(--t-accent-rgb),.18);
+  --r-everyday-page:var(--s-page);--r-everyday-surface:var(--s-surface);--r-everyday-ink:var(--s-ink);--r-everyday-ink-2:var(--s-ink-2);
+  --r-everyday-accent:var(--t-accent-text);
+  /* the team's dark colour is "strong ink" across the everyday components
+     (titles, active tabs, focus rings); after dark that ink is light. The
+     stage keeps the real colour through its roles, resolved at the root. */
+  --t-surface:#F3F5F9;--t-surface-rgb:243,245,249;
+  color:var(--s-ink)}
+/* the few components that paint the team's colour as a ground keep it */
+#screenHome .site-home,#screenGame .site-home{background:rgba(255,255,255,.16);color:#fff}
+#screenHome .champ{background:var(--r-stage-1)}
+#screenHome .news-img.none,#screenGame .news-img.none{background:linear-gradient(150deg,var(--r-stage-1),var(--t-abyss))}
+#screenGame .seg-mini button[aria-pressed="true"]{background:var(--t-accent);color:var(--t-accent-ink)}
+#screenGame .f-ez.mine{fill:var(--r-stage-1)}
+/* the team's own art (when Suite has no photograph) keeps the team's real colour */
+#screenHome .art-slot,#screenGame .art-slot{background:radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.7),transparent 62%),var(--s-art-env,none) center/cover no-repeat,linear-gradient(170deg,var(--r-stage-1) 0%,var(--t-deep) 48%,var(--t-abyss) 100%)}
+html:has(#screenHome:not([hidden])),html:has(#screenGame:not([hidden])),
+html:has(#screenHome:not([hidden])) body,html:has(#screenGame:not([hidden])) body{background:var(--t-abyss)}
+
+/* section heads on the dark page: the ink, and the team's accent for the way on */
+#screenHome .sec-title,#screenGame .sec-title{color:var(--s-ink)}
+#screenHome .sec-link,#screenGame .sec-link{color:var(--t-accent-text)}
+
+/* Game Info (desktop only; the header carries it on a phone) */
+.game-side{display:none}
+.gi-list{margin:0;display:flex;flex-direction:column}
+.gi-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:var(--s-space-3);padding:.6rem 0;border-top:1px solid var(--s-line)}
+.gi-row:first-child{border-top:0}
+.gi-row dt{font-size:var(--s-type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--s-muted);padding-top:.15rem}
+.gi-row dd{margin:0;font-weight:600}
+.gi-sub{display:block;font-weight:500;font-size:var(--s-type-sm);color:var(--s-muted)}

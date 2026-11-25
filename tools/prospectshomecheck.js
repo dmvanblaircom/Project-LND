@@ -265,7 +265,7 @@ function rankings() {
     var s2 = await open({ team: "notre-dame", now: "2025-12-01T17:00:00Z", unset: true, recruits: SNAP.nd, draft: SNAP.board });
     h = await home(s2.page);
     ok(h.recruiting.hidden && h.draft.hidden && !s2.asked.recruits && !s2.asked.draft, "S2: no recruiting or draft section, and neither file is read");
-    ok(/^fresh,champion,hero,milestone,numbers,news,/.test(h.order), "S2: the in-season order");
+    ok(/^fresh,champion,hero,milestone,actions,wire,news,/.test(h.order), "S2: the in-season order");
     await s2.ctx.close();
     // A draft board that will not load: the section is left out, the class
     // still shows.

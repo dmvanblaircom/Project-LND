@@ -24,7 +24,8 @@
                                         config (boot, registry, chooser,
                                         worker, adapter, identity, pipeline,
                                         recruiting refresh), the team-font
-                                        check and the stage contrast check
+                                        check, the stage contrast check and
+                                        the desktop header fit
      a producer (tools/producers/)      the Python checks that import it, and
                                         the pipeline check; teamconfig.py,
                                         which every producer imports, all of
@@ -56,7 +57,7 @@ var EVERYTHING = [
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
                    "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js",
-                   "herocontrastcheck.js"];
+                   "herocontrastcheck.js", "headerfitcheck.js"];
 var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py", "healthcheck.py"];
 
 // The Python checks that import a producer, read from the checks themselves.

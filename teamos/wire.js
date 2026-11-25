@@ -1,11 +1,10 @@
 /* TeamOS - the wire: a team's status-change news, read from the stories
    Suite already has (docs/product/wire-brief.md, Phase 1; decision 0043).
 
-   GROUNDWORK, NOT YET CONSUMED. Nothing in the page loads this file (it is
-   not in index.html or sw.js), so it changes nothing a fan sees. It exists so
-   the rule can be measured on the headlines Suite has kept
-   (tools/wiremeasure.js) and checked (tools/wirecheck.js) before David and
-   the Creative Director decide how the wire is shown.
+   On Home since Stage 2 (decision 0043): the rule cleared its gate on fresh
+   headlines, 92.1% precision (docs/engineering/wire-measurement-2026-11-19.md).
+   It is measured on the headlines Suite has kept (tools/wiremeasure.js) and
+   checked (tools/wirecheck.js).
 
    The taxonomy (David, 2026-11-09), one kind per headline:
 

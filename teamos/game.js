@@ -19,6 +19,8 @@
                                the next three, never without the hero
      halftime(game)            live, and between the halves: no clock, and
                                no one has the ball
+     endOfGame(game)           live, the 4th quarter's clock at 0:00 and the
+                               score not tied: over, but not yet final
      feedState(g, detail, was) whether the play-by-play is behind the
                                game clock, and the latest play it has logged
      boardOrder(a, b)          the order of a day's games on a board: live,
@@ -242,6 +244,20 @@ TeamOS.game = (function () {
     return !!g && g.status === "live" && /\bhalf/i.test(g.detail || "");
   }
 
+  // The end of the game, before the result is confirmed (Phase 2 brief
+  // §4.2, 2026-11-19): the 4th quarter's clock has run out but the source
+  // still calls the game live. ESPN's own "End of 4th quarter" with the
+  // score not tied is already final (quarterBreak in teamos/espn.js;
+  // David, 2026-10-09), so this is only the gap before that: 0:00 in the
+  // 4th, no word yet. A tie at 0:00 is overtime coming, not an end; and
+  // overtime has no game clock, so its 0:00 means nothing here.
+  function endOfGame(g) {
+    if (!g || g.status !== "live" || +g.period !== 4 || halftime(g)) return false;
+    if (!/^0?0:00(\.0)?$/.test(String(g.clock || "").trim())) return false;
+    var a = Number(g.us), b = Number(g.them);
+    return g.us != null && g.them != null && isFinite(a) && isFinite(b) && a !== b;
+  }
+
   // ---- play-by-play freshness ----
   // The game going on normally while its play-by-play record runs behind
   // (creative direction, 2026-11-08; ND-Miami 2026-11-07: the clock ran from
@@ -300,6 +316,6 @@ TeamOS.game = (function () {
   return { navState: navState, underWay: underWay, lifecycle: lifecycle, hero: hero,
            recentFinal: recentFinal, atmosphere: atmosphere, venueZone: venueZone,
            localDay: localDay, schedulePreview: schedulePreview, results: results, scored: scored, season: season,
-           halftime: halftime, boardOrder: boardOrder, feedState: feedState,
+           halftime: halftime, endOfGame: endOfGame, boardOrder: boardOrder, feedState: feedState,
            NIGHT_FROM: NIGHT_FROM };
 })();

@@ -699,9 +699,9 @@ function loadStandings(){
     var d=r && r.data;
     AROUND.standings=(d && d.source==="standings" && Array.isArray(d.conferences) ? d.conferences : []).map(function(c){
       return { name:c.name, teams:(c.teams||[]).map(function(t){
-        return { providerId:String(t.espnId), wins:(t.conf||{}).wins||0, losses:(t.conf||{}).losses||0, division:t.division||null }; }) };
+        return { providerId:String(t.espnId), name:t.name||"", wins:(t.conf||{}).wins||0, losses:(t.conf||{}).losses||0, division:t.division||null }; }) };
     });
-  }).catch(function(){ AROUND.standings=[]; }).then(function(){ AROUND.standingsP=null; paintTop25(); });
+  }).catch(function(){ AROUND.standings=[]; }).then(function(){ AROUND.standingsP=null; paintTop25(); paintHome(); });
 }
 function aroundLayers(now){
   if(!AROUND.conferences){
@@ -1505,6 +1505,87 @@ function offseasonModel(now){
   }
   return model;
 }
+// The Wire on Home (decision 0043; measured at 92.1% on fresh headlines,
+// 2026-11-19): the team's stories whose headline reports a status change
+// (TeamOS.wire.classify), at most three from the last 72 hours, newest first;
+// the rest are Latest News, never the same story in both. Only the team's own
+// feed: the opponent's stories in game week are not loaded on Home today.
+var WIRE_SHOWN=3, WIRE_HOURS=72;
+function splitWire(now){
+  var all=NEWS.items, out={ items:[], news:HOME.news };
+  if(!all || !TeamOS.wire) return out;
+  var since=now.getTime()-WIRE_HOURS*HOUR, keys={};
+  all.forEach(function(a){
+    if(out.items.length>=WIRE_SHOWN || !a || !a.title || !a.link) return;
+    // Undated stories are not current updates: the wire needs to know a story is recent (Codex, #273)
+    if(a.publishedAt==null || a.publishedAt<since) return;
+    var w=TeamOS.wire.item(a, TeamOS.wire.classify(a.title), "team");
+    if(w){ out.items.push(w); keys[w.key]=1; }
+  });
+  out.news=all.filter(function(a){ return !keys[TeamOS.wire.key(a.link)]; }).slice(0,3);
+  return out;
+}
+// Home's two quick actions (Home review, 2026-11-11): Matchup opens Game,
+// where the comparison is; Availability opens the team's report when Suite
+// reads one, or the program's published page when it only links one.
+function homeActions(){
+  var a={ matchup:"#game" };
+  if(rosterSnap("availability")) a.availability={ href:"#roster/availability" };
+  else { var l=TeamOS.roster.availabilityLink(TEAM_CONFIG); if(l) a.availability={ href:l.url, external:true, sub:l.label }; }
+  return a;
+}
+// The next game on the schedule: the one Home's schedule shows first.
+function nextGameId(games, now){
+  var t=now.getTime(), next=(games||[]).filter(function(x){ return x && (x.status==="scheduled" || x.status==="delayed") && Date.parse(x.date)>=t-4*HOUR; })
+    .sort(function(a,b){ return Date.parse(a.date)-Date.parse(b.date); })[0];
+  return next ? next.id : null;
+}
+// Season Context (desktop): the record and rank Suite already shows, with
+// ESPN's projected odds (decision 0045).
+function homeSeason(g){
+  var st=HOME.status||{}, rec=st.record || (g && g.usRecord) || null, rank=st.rank || (g && g.usRank) || null;
+  var metrics=TeamOS.outlook.metrics(HOME.markets) || [];
+  if(!rec && !rank && !metrics.length) return null;
+  return { record:rec, rank:rank, rankLabel:"Rank", metrics:metrics };
+}
+// Conference Standing (desktop): the team's conference from the league's
+// standings snapshot - the top five, and the team's own row when it is lower.
+function homeStanding(){
+  var list=AROUND.standings, me=String(TEAM_CONFIG.sources.espn.teamId);
+  if(!list || !list.length) return null;
+  var conf=list.filter(function(c){ return c.teams.some(function(t){ return t.providerId===me; }); })[0];
+  if(!conf) return null;
+  var rows=conf.teams.map(function(t,i){ return { place:i+1, name:t.name||"", wins:t.wins, losses:t.losses, division:t.division, us:t.providerId===me }; });
+  var top=rows.slice(0,5), mine=rows.filter(function(r){ return r.us; })[0];
+  if(mine && top.indexOf(mine)<0){ mine.gap=true; top.push(mine); }
+  return { conference:conf.name.replace(/ Conference$/,""), rows:top };
+}
+// A score the refresh just brought, on Home's stage (brief §4.2; spec §3.5,
+// §7): a brief lift of the figure that rose, once, and the new score said
+// through the live region. Only for the same live game, seen rising between
+// two looks while the page was visible, no more than two polls apart
+// (TeamOS.moments.allow) - never on the first look, a return from the
+// background, or a repaint of the same score.
+var HOME_SEEN=null, HOME_HIDDEN=null;
+document.addEventListener("visibilitychange", function(){ if(document.visibilityState!=="visible") HOME_HIDDEN=Date.now(); });
+function homeScoreMoment(host, g){
+  var now=Date.now(), was=HOME_SEEN, live=g && g.status==="live";
+  HOME_SEEN=g ? { id:String(g.id), us:Number(g.us)||0, them:Number(g.them)||0, at:now } : null;
+  if(!live || !was || was.id!==String(g.id)) return;
+  var up={ us:(Number(g.us)||0)>was.us, them:(Number(g.them)||0)>was.them };
+  if(!up.us && !up.them) return;
+  // a scoreboard the worker served from its store after a network failure is
+  // not a new moment, however the score moved (Codex, #273)
+  if(!TeamOS.moments.allow({ first:false, fromNetwork:outcomeOf("scoreboard")==="network", visible:document.visibilityState==="visible",
+                             hiddenSince:HOME_HIDDEN, lastLookAt:was.at, now:now })) return;
+  ["us","them"].forEach(function(k){
+    var el=up[k] && host.querySelector(".sb-score-"+k);
+    if(!el) return;
+    el.classList.remove("is-new"); void el.offsetWidth; el.classList.add("is-new");
+    setTimeout(function(){ el.classList.remove("is-new"); }, 1400);
+  });
+  say("Score update. "+TEAM.name+" "+(g.us||0)+", "+g.oppName+" "+(g.them||0)+".");
+}
 function paintHome(){
   var host=$("screenHome"), now=new Date();
   // The season decides the nav on every screen, not only Home: a fan who
@@ -1530,16 +1611,18 @@ function paintHome(){
   var milestone=TeamOS.milestones.wins(TEAM_CONFIG, S.games, seasonYear(), now);
   tellWorkerMilestone(milestone);
   loadChampion();
+  loadStandings();
+  var homeWire=splitWire(now);
   Suite.home.paint(host, {
-    team:{ name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation,
+    team:{ id:TEAM.id, name:TEAM.name, nick:TEAM_NICK, abbr:TEAM.abbreviation, timeZone:TEAM.timeZone, venueName:TEAM.venue && TEAM.venue.name,
            markUrl:TeamOS.espn.mark(espnId, true) },
+    now: now,
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     art:{ photo:ID.art, name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true, true),
-          atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null },
+          atmosphere: g ? TeamOS.game.atmosphere(g, zone) : null, zone: zone },
     hero:{ game:g, reason:h.reason, weather:wx },
     offseason: offseason,
     heroId: g ? g.id : null,
-    news: HOME.news,
     recruits: complete ? PROSPECTS.recruits : null,
     draft: complete ? PROSPECTS.draft : null,
     schedule: TeamOS.game.schedulePreview(S.games, now, TEAM.timeZone),
@@ -1548,11 +1631,17 @@ function paintHome(){
     milestone: milestone,
     // a banner for the defending national champions, whoever they are
     champion: TeamOS.champions.defending(CHAMP.snap, TEAM_CONFIG, seasonYear()),
-    // By the Numbers, while the notes are this week's game's
-    numbers: (TeamOS.notes.forGame(NOTES.model, g) || {}).numbers || null,
+    // The Wire and Latest News: the wire's stories are not repeated in the news
+    wire: homeWire.items,
+    news: homeWire.news,
+    actions: homeActions(),
+    nextId: nextGameId(S.games, now),
+    season: homeSeason(g),
+    standing: homeStanding(),
     fresh: TeamOS.freshness.summary(homeSources(TeamOS.game.underWay(g)),
                                     { now:now, online: navigator.onLine!==false })
   });
+  homeScoreMoment(host, g);
 }
 // The recruiting class and the draft board (offseason proposal §7, rows 4
 // and 6), read for Home once the season is complete and for Roster's
@@ -1700,7 +1789,7 @@ function gameModel(V, g, lc, view, base){
   var espnId=TEAM_CONFIG.sources.espn.teamId;
   return {
     feed: feedOf(V, g),
-    team:{ name:TEAM.name, abbr:TEAM.abbreviation, markUrl:TeamOS.espn.mark(espnId, true) },
+    team:{ id:TEAM.id, name:TEAM.name, abbr:TEAM.abbreviation, timeZone:TEAM.timeZone, venueName:TEAM.venue && TEAM.venue.name, markUrl:TeamOS.espn.mark(espnId, true) },
     oppMark:function(id){ return TeamOS.espn.mark(id, true); },
     photo:ID.art, game:g, detail:V.gd, lifecycle:lc, base:base,
     view: view || lc.defaultView, preview:V.preview, side:V.side, open:V.open,
@@ -2034,9 +2123,16 @@ function somethingLive(){
 // lifecycle, so a Drive Tracker route that stops existing at the final moves
 // to Box Score in place.
 var GAME_PHASE=null;
+// The hero game's score in the desktop header's Game control (decision
+// 0042): our abbreviation and score first, as Home's scoreboard reads, from
+// the normalized game alone - nothing until there is a score to show.
+function navScore(g){
+  if(!g || !TeamOS.game.scored(g)) return "";
+  return TEAM.abbreviation+" "+g.us+"\u2013"+g.them+" "+(g.oppAbbr||g.oppName||"");
+}
 function applyGameRules(){
   var h=TeamOS.game.hero(S.games||[], new Date(), TEAM.timeZone);
-  Suite.nav.setGameState(TeamOS.game.navState(h.game));
+  Suite.nav.setGameState(TeamOS.game.navState(h.game), navScore(h.game));
   var lc=TeamOS.game.lifecycle(h.game);
   if(lc.phase!==GAME_PHASE){
     var was=GAME_PHASE; GAME_PHASE=lc.phase;
@@ -2378,7 +2474,7 @@ function paintMore(){
     updatedAt: lastUpdated(), refreshing: MORE.refreshing, online: navigator.onLine!==false, result: MORE.result,
     alerts: alertsModel() });
   if(r.screen==="feedback") Suite.more.feedback(host, { href: feedbackHref(), address: FEEDBACK_TO });
-  if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG) });
+  if(r.screen==="about") Suite.more.about(host, { version: MORE.version, sources: TeamOS.sources.list(TEAM_CONFIG), photos: TeamOS.art ? TeamOS.art.credits() : [] });
 }
 function paintNews(){
   var host=$("screenNews");

@@ -90,9 +90,9 @@ Suite.nav = (function () {
   // under way; only an actually active one pulses. A delay before kickoff,
   // a postponement or a cancellation is not one of these: Game stays normal.
   var GAME_STATES = {
-    live:      { raised: true, pulse: true,  say: ", live now"  },
-    delayed:   { raised: true, pulse: false, say: ", delayed"   },
-    suspended: { raised: true, pulse: false, say: ", suspended" }
+    live:      { raised: true, pulse: true,  say: ", live now",  chip: "Live" },
+    delayed:   { raised: true, pulse: false, say: ", delayed",   chip: "Delayed" },
+    suspended: { raised: true, pulse: false, say: ", suspended", chip: "Suspended" }
   };
 
   var listeners = [];
@@ -456,22 +456,48 @@ Suite.nav = (function () {
 
   // The Game control's state: null for a normal Game item, or one of
   // GAME_STATES. TeamOS decides which from the game's normalized status and
-  // whether play has begun; this only draws and announces it.
-  function setGameState(state) {
+  // whether play has begun; this only draws and announces it. `score` is the
+  // game's score as the app words it ("ND 17-10 MSU"), drawn beside the Live
+  // chip in the desktop header only (decision 0042); never read aloud there -
+  // navLive carries the state, and the score is the hero's to say.
+  function setGameState(state, score) {
     gameState = state;
     var s = hasPrimary("game") && GAME_STATES[state] || null;
-    var nav = $("navbar"), note = $("navLive");
+    var nav = $("navbar"), note = $("navLive"), chip = $("navState"), sc = $("navScore");
     if (nav) {
       nav.classList.toggle("game-raised", !!(s && s.raised));
       nav.classList.toggle("game-live", !!(s && s.pulse));
       nav.setAttribute("data-game-state", s ? state : "");
     }
     if (note) note.textContent = s ? s.say : "";
+    if (chip) chip.textContent = s ? s.chip : "";
+    if (sc) sc.textContent = s && score ? score : "";
+  }
+
+  // Where the nav sits in the page (decision 0042). On a phone or tablet it is
+  // the bar at the foot of the screen, after the content, as it always was.
+  // On a desktop screen it is in the header, between the team and Settings -
+  // and it moves there in the document too, not only on screen, so the
+  // keyboard and a screen reader meet it where a sighted fan sees it.
+  var DESK = "(min-width:64rem)";
+  function dock() {
+    var nav = $("navbar"), bar = $("appBar"), gear = $("barGear");
+    if (!nav || !bar || !window.matchMedia) return;
+    var home = document.createComment(" the nav's place below 64rem ");
+    nav.parentNode.insertBefore(home, nav);
+    var mq = window.matchMedia(DESK);
+    function place() {
+      if (mq.matches) { if (nav.parentNode !== bar) bar.insertBefore(nav, gear && gear.parentNode === bar ? gear : null); }
+      else if (nav.previousSibling !== home) home.parentNode.insertBefore(nav, home.nextSibling);
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener("change", place); else if (mq.addListener) mq.addListener(place);
   }
 
   function on(fn) { listeners.push(fn); }
 
   function start() {
+    dock();
     window.addEventListener("hashchange", function () { apply(false); });
     swipe();
     apply(true);

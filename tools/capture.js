@@ -18,6 +18,9 @@
      CAPTURE_LIST    comma-separated shot names to keep (e.g.
                      nd-live-team-390-home,specimen); everything else skipped
      CAPTURE_ONLY    a substring a shot's name must contain
+     CAPTURE_CSS     a stylesheet file injected into every app page after it
+                     loads - for evaluating a design concept on the real app
+                     without changing it (tools/specimen/nav-concepts/)
      PW_CHROMIUM     a browser for Playwright, locally
    Names: <team>-<state>-<team|suite>-<width>-<screen>-{top,full}.jpg.
    Provider-hosted marks and story images load only where the network
@@ -37,6 +40,7 @@ fs.mkdirSync(out, { recursive: true });
 function fx(n) { return fs.readFileSync(path.join(root, "tools/fixtures", n), "utf8"); }
 function st(team, n) { return fs.readFileSync(path.join(FX[team], n), "utf8"); }
 var ONLY = process.env.CAPTURE_ONLY || "";
+var EXTRA_CSS = process.env.CAPTURE_CSS ? fs.readFileSync(path.resolve(process.env.CAPTURE_CSS), "utf8") : "";
 var LIST = process.env.CAPTURE_LIST ? process.env.CAPTURE_LIST.split(",") : null;
 
 // Notre Dame's full 2026 regular season, with the Michigan State game in the
@@ -200,6 +204,7 @@ var JOBS = [];
     });
     await page.goto(base + "/?team=" + sc.team + job.shots[0][0], { waitUntil: "domcontentloaded" });
     await page.waitForFunction(function () { return !document.getElementById("launch"); }, null, { timeout: 15000 }).catch(function () {});
+    if (EXTRA_CSS) await page.addStyleTag({ content: EXTRA_CSS });
     await page.waitForTimeout(1800);
     for (var i = 0; i < job.shots.length; i++) {
       var s = job.shots[i], name = names[i];

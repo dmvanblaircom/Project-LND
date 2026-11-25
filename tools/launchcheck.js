@@ -146,7 +146,7 @@ function fixture(url) {
         var r = i.getBoundingClientRect();
         return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
       });
-      return { card: !!(hero && hero.querySelector(".gamecard")), stories: stories,
+      return { card: !!(hero && hero.querySelector(".sb")), stories: stories,
                images: imgs.length, loaded: imgs.every(function (i) { return i.complete; }) };
     });
   }

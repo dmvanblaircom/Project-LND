@@ -24,7 +24,7 @@ var ctx = vm.createContext({ console: console, Intl: Intl, Date: Date });
 ["teams/notre-dame.js", "teamos/team.js", "teamos/identity.js", "teamos/espn.js", "teamos/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 ctx.document = { addEventListener: function () {}, fonts: null };
 ctx.window = { addEventListener: function () {} };
-["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
+["suite/ui.js", "suite/schedule.js", "suite/prospects.js", "leagues/college-football-art.js", "teamos/art.js", "suite/scoreboard.js", "suite/home.js", "suite/game.js"].forEach(function (f) { vm.runInContext(read(f), ctx, { filename: f }); });
 var TeamOS = ctx.TeamOS, Suite = ctx.Suite, CFG = ctx.TEAM_CONFIG, TEAM = TeamOS.createTeam(CFG.team);
 var G = TeamOS.game;
 

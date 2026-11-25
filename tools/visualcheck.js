@@ -166,7 +166,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
 
   // Where a team's, player's or figure's name is drawn.
   var NAME_SELECTORS = ".sched-opp, .ro-name, .rk-team, .rk-name, .tg-name, .sp-team, .series-name, .ld-name, " +
-                       ".gh-name, .gh-opp, .gc-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title";
+                       ".gh-name, .gh-opp, .sb-name, .ab-name, .mu-l, .ss-l, .ts-l, .out-label, .gcard-title, .sec-title";
   var wordsUnjudged = 0;
   async function checkState(page, label) {
     await launchGone(page);
@@ -223,6 +223,10 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
 
     for (var wi = 0; wi < WIDTHS.length; wi++) {
       var width = WIDTHS[wi];
+      // From 64rem the nav is in the SUITE header (decision 0042): the bar at
+      // the foot of the screen, and its raised Game circle, are phone and
+      // tablet only.
+      var desk = width >= 1024;
 
       // 2. The chooser: a first visit, no team, nothing stored.
       var c = await openContext(width);
@@ -285,7 +289,9 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         var nav = await page.evaluate(function () {
           var n = document.querySelector(".navbar");
           var cs = getComputedStyle(n);
-          return { labels: [].slice.call(n.querySelectorAll(".nav-item")).map(function (a) { return a.textContent.trim(); }),
+          return { labels: [].slice.call(n.querySelectorAll(".nav-item")).map(function (a) { return a.querySelector("span:not(.nav-live):not(.nav-state):not(.nav-score):not(.sr-only)").textContent.trim(); }),
+                   inHeader: n.parentNode === document.getElementById("appBar"),
+                   top: n.getBoundingClientRect().top, barBottom: document.getElementById("appBar").getBoundingClientRect().bottom,
                    pad: parseFloat(cs.paddingBottom),
                    below: (function () { var a = getComputedStyle(n, "::after");
                      return a.position === "absolute" && parseFloat(a.top) >= n.getBoundingClientRect().height - 2 &&
@@ -297,11 +303,16 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         });
         if (nav.labels.join("|") !== "Home|Around|Game|Roster|More")
           fail(who, "behaviour", ".navbar", "nav reads " + nav.labels.join(" / ") + ", not Home / Around / Game / Roster / More");
+        if (desk) {
+          if (!nav.inHeader || nav.top < 0 || nav.top >= nav.barBottom) fail(who, "layout", ".navbar", "on a desktop screen the nav is not in the header (" + JSON.stringify(nav) + ")");
+        } else {
+        if (nav.inHeader) fail(who, "layout", ".navbar", "below 64rem the nav moved into the header");
         if (nav.pad < 8) fail(who, "layout", ".navbar", "nav sits on the bottom edge (" + nav.pad + "px padding)");
         // iOS can stop a fixed bar short of the bottom edge; the nav's own
         // surface must fill what is left under it, not the page (David, 2026-10-02).
         if (!nav.below) fail(who, "layout", ".navbar", "nothing of the nav's colour fills below it, so a gap under it shows the page");
         if (!nav.canvas) fail(who, "layout", "html", "the canvas under the nav is not the nav's colour, or the body does not fill the viewport (David's iPhone, 2026-10-02)");
+        }
 
         for (var k = 0; k < SCREENS.length; k++) {
           var screen = SCREENS[k];
@@ -485,7 +496,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                 .map(function (s) { return s.getAttribute("data-home"); });
               var links = [].slice.call(host.querySelectorAll(".news-card"));
               var rows = [].slice.call(host.querySelectorAll(".sched-row"));
-              var cta = host.querySelector(".gc-cta");
+              var cta = host.querySelector(".stage-cta");
               return { shown: !host.hidden, legacy: !!document.getElementById("legacy"), order: order,
                        news: links.length, rows: rows.length,
                        safe: links.every(function (a) { return a.target === "_blank" && /noopener/.test(a.rel) && /noreferrer/.test(a.rel)
@@ -493,7 +504,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                        labels: rows.every(function (r) { var s = r.querySelector(".site"); return s && /^(home|away|neutral)$/i.test(s.textContent.trim()); }),
                        current: /current game/i.test(host.textContent),
                        cta: cta ? cta.getAttribute("href") : null,
-                       card: !!host.querySelector(".gamecard"), summary: (host.querySelector("#gcSummary") || {}).textContent || "" };
+                       card: !!host.querySelector(".sb"), summary: (host.querySelector(".sb") || { getAttribute: function () { return ""; } }).getAttribute("aria-label") || "" };
             });
             if (!hm.shown || hm.legacy) fail(label, "behaviour", "#screenHome", "Home is not the canonical screen (legacy showing: " + hm.legacy + ")");
             var want = ["hero", "news", "schedule", "outlook"];
@@ -506,8 +517,8 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
             if (!hm.safe) fail(label, "behaviour", ".news-card", "a story does not open its source in a new tab with rel protections and a disclosure");
             if (!hm.labels) fail(label, "behaviour", ".site", "a schedule row relies on colour: its HOME/AWAY/NEUTRAL text is missing");
             if (hm.current) fail(label, "behaviour", "#screenHome", "Home shows a Current Game card, which decision 0023 removed");
-            if (!hm.card || !hm.summary) fail(label, "behaviour", ".gamecard", "the hero has no game card or no spoken summary");
-            if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".gc-cta", "the hero's action goes to " + hm.cta + ", not Game");
+            if (!hm.card || !hm.summary) fail(label, "behaviour", ".sb", "the hero has no game card or no spoken summary");
+            if (hm.cta && hm.cta !== "#game") fail(label, "behaviour", ".stage-cta", "the hero's action goes to " + hm.cta + ", not Game");
           }
           if (screen === "top25") {
             // Top 25 (0024 §5, §6): the canonical screen, a Games | Rankings
@@ -849,6 +860,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           var h = document.querySelector('.nav-item[data-screen="home"]'), hr = h.getBoundingClientRect();
           var n = document.querySelector(".navbar").getBoundingClientRect();
           var d = document.querySelector(".nav-game .nav-live"), dr = d.getBoundingClientRect();
+          var chip = document.getElementById("navState"), cr = chip.getBoundingClientRect();
           function bar(el) {
             var a = getComputedStyle(el, "::after");
             return a.content !== "none" && a.display !== "none" && parseFloat(a.width) > 8 && parseFloat(a.height) >= 3
@@ -859,15 +871,28 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
                    dot: d.checkVisibility(), anim: getComputedStyle(d).animationName, edge: window.innerHeight - gr.bottom,
                    sr: document.getElementById("navLive").textContent,
                    homeCur: h.getAttribute("aria-current"), gameCur: g.getAttribute("aria-current"),
-                   homeBar: bar(h), gameBar: bar(g) };
+                   homeBar: bar(h), gameBar: bar(g),
+                   chip: chip.checkVisibility() ? chip.textContent : null,
+                   chipIn: cr.left >= gr.left && cr.right <= gr.right,
+                   chipAnim: getComputedStyle(chip, "::before").content !== "none" ? getComputedStyle(chip, "::before").animationName : "none",
+                   chipBg: getComputedStyle(chip).backgroundColor };
         }
         await page.evaluate(function () { location.hash = "#home"; Suite.nav.setGameState("live"); });
         await page.waitForTimeout(250);
         var live = await page.evaluate(navState);
+        if (desk) {
+          // In the header: Game says Live in a red chip with its pulsing light.
+          if (live.chip !== "Live" || !live.chipIn) fail(who, "behaviour", "#navState", "live Game in the desktop header has no Live chip (" + JSON.stringify(live) + ")");
+          if (live.chipAnim === "none") fail(who, "behaviour", "#navState", "the Live chip's light does not pulse");
+          if (live.chipBg === "rgba(0, 0, 0, 0)") fail(who, "behaviour", "#navState", "the Live chip has no fill");
+          if (live.dot) fail(who, "behaviour", ".nav-live", "the bar's live light shows in the desktop header");
+        } else {
+        if (live.chip) fail(who, "behaviour", "#navState", "the desktop Live chip shows below 64rem");
         if (!live.round || !live.raised || !live.aboveBar) fail(who, "behaviour", ".nav-game", "live Game is not the raised circle (" + JSON.stringify(live) + ")");
         if (!live.inside) fail(who, "behaviour", ".nav-live", "the live light is not inside the Game circle");
         if (live.anim === "none") fail(who, "behaviour", ".nav-live", "the live light does not pulse");
         if (live.edge < 8) fail(who, "layout", ".nav-game", "the live Game circle touches the bottom edge");
+        }
         if (live.sr !== ", live now") fail(who, "behaviour", "#navLive", "the live state is not announced as 'live now'");
         if (live.homeCur !== "page" || !live.homeBar) fail(who, "behaviour", ".nav-item", "on Home during a live game, Home has lost its selected state");
         if (live.gameCur) fail(who, "behaviour", ".nav-game", "on Home, the live Game control claims to be the current page");
@@ -880,7 +905,7 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         if (onGame.gameCur !== "page" || !onGame.gameBar)
           fail(who, "behaviour", ".nav-game", "on Game during a live game, the raised circle is the only selected cue (" + JSON.stringify(onGame) + ")");
         if (onGame.homeCur || onGame.homeBar) fail(who, "behaviour", ".nav-item", "Home still reads as selected on Game");
-        if (onGame.anim === "none" || onGame.sr !== ", live now") fail(who, "behaviour", ".nav-live", "selected Game lost its live state");
+        if ((desk ? onGame.chipAnim === "none" || onGame.chip !== "Live" : onGame.anim === "none") || onGame.sr !== ", live now") fail(who, "behaviour", ".nav-live", "selected Game lost its live state");
         await fullShot(page, path.join(shots, team + "-" + width + "-game-livenav.png"));
         await checkState(page, team + " live-nav game " + width + "px");
 
@@ -889,10 +914,16 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
           await page.evaluate(function (x) { location.hash = "#home"; Suite.nav.setGameState(x); }, ps);
           await page.waitForTimeout(200);
           var paused = await page.evaluate(navState);
+          var word = ps.charAt(0).toUpperCase() + ps.slice(1);
+          if (desk) {
+            if (paused.chip !== word) fail(who, "behaviour", "#navState", ps + " Game in the desktop header does not say " + word + " (" + JSON.stringify(paused) + ")");
+            if (paused.chipAnim !== "none") fail(who, "behaviour", "#navState", ps + " must not pulse: play is not happening");
+          } else {
           if (!paused.raised) fail(who, "behaviour", ".nav-game", ps + " after kickoff should keep Game raised");
           if (paused.anim !== "none") fail(who, "behaviour", ".nav-live", ps + " must not pulse: play is not happening");
-          if (paused.sr !== ", " + ps) fail(who, "behaviour", "#navLive", "the " + ps + " state is announced as '" + paused.sr + "'");
           if (!paused.dot || !paused.inside) fail(who, "behaviour", ".nav-live", ps + " shows no still pause mark in the circle");
+          }
+          if (paused.sr !== ", " + ps) fail(who, "behaviour", "#navLive", "the " + ps + " state is announced as '" + paused.sr + "'");
           if (ps === "suspended") {
             await fullShot(page, path.join(shots, team + "-" + width + "-home-suspendednav.png"));
             await checkState(page, team + " suspended-nav " + width + "px");
@@ -902,14 +933,15 @@ var WIDTHS = (process.env.VISUAL_WIDTHS || "375,1280").split(",").map(Number).fi
         await page.evaluate(function () { Suite.nav.setGameState(null); });
         await page.waitForTimeout(150);
         var calm = await page.evaluate(navState);
-        if (calm.raised || calm.dot || calm.sr) fail(who, "behaviour", ".nav-game", "with no game under way Game should be a normal item (" + JSON.stringify(calm) + ")");
+        if ((!desk && calm.raised) || calm.dot || calm.sr || calm.chip) fail(who, "behaviour", ".nav-game", "with no game under way Game should be a normal item (" + JSON.stringify(calm) + ")");
 
         await page.evaluate(function () { Suite.nav.setGameState("live"); });
         await page.emulateMedia({ reducedMotion: "reduce" });
-        var still = await page.evaluate(function () {
-          var d = document.querySelector(".nav-game .nav-live");
-          return { anim: getComputedStyle(d).animationName, shown: d.checkVisibility() };
-        });
+        var still = await page.evaluate(function (desk) {
+          var d = desk ? document.getElementById("navState") : document.querySelector(".nav-game .nav-live");
+          var st = desk ? getComputedStyle(d, "::before") : getComputedStyle(d);
+          return { anim: st.animationName, shown: d.checkVisibility() };
+        }, desk);
         if (still.anim !== "none" || !still.shown) fail(who, "behaviour", ".nav-live", "with reduced motion the live light should stay, without pulsing");
         await page.emulateMedia({ reducedMotion: "no-preference" });
         await page.evaluate(function () { Suite.nav.setGameState(null); });
