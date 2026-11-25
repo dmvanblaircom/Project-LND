@@ -151,7 +151,10 @@
    screen's bottom edge, and it clips fixed content at that line, so nothing
    the nav paints can reach below it; what shows there is this canvas. With it
    the nav's colour, the strip reads as the nav (David, 2026-10-02, twice). */
-html{background:var(--s-surface);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
+/* the canvas past the page (overscroll, the strip under the installed nav)
+   is the chrome's dark, so neither the dark header nor the dark nav ends in
+   a white edge (Codex, #279); the body keeps the light page */
+html{background:var(--t-abyss);scroll-padding-top:calc(var(--s-bar-h) + env(safe-area-inset-top,0px) + .75rem);scroll-padding-bottom:calc(var(--s-nav-h) + env(safe-area-inset-bottom,0px) + 2.5rem)}
 /* Ohio State's type (C19). Ohio State's own fonts are not available for
    independent use; it recommended Nunito Sans (not Nunito) as the closest
    public face, and David approved it for Ohio State's Team Style
@@ -823,8 +826,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .mu-list,.ld-list,.ts-list,.sp-list,.dr-list,.pl-list{list-style:none;margin:0;padding:0}
 .mu-row{display:grid;grid-template-columns:5.2rem 1fr 5.2rem;align-items:center;gap:.4rem;padding:.2rem 0}
 .mu-row + .mu-row{border-top:1px solid var(--s-line)}
-.mu-v{display:flex;flex-direction:column;align-items:center;padding:.3rem .2rem;border-radius:6px;background:var(--s-inset)}
-.mu-v.better{background:rgba(var(--t-accent-rgb),.16)}
+/* the better side carries the team's accent as border and tint, the other a
+   quiet outline, so the highlight never inverts (David, 2026-11-25: a faint
+   tint read duller than the neutral inset) */
+.mu-v{display:flex;flex-direction:column;align-items:center;padding:.3rem .2rem;border-radius:6px;background:transparent;box-shadow:inset 0 0 0 1px var(--s-line-strong)}
+.mu-v.better{background:var(--t-accent-tint-soft);box-shadow:inset 0 0 0 2px var(--t-accent-on-light)}
 .mu-n{font-family:var(--s-font-score);font-weight:var(--s-num-primary);font-size:1.1rem;color:var(--s-ink);font-variant-numeric:tabular-nums}
 .mu-rk{font-size:.75rem;color:var(--s-muted)}
 /* On the better side's team tint the muted grey falls below 4.5:1 (Ohio State's scarlet tint, 4.11:1); the rank reads in the darker ink there. */
@@ -1927,50 +1933,12 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 @media (prefers-reduced-motion:reduce){.sb-score.is-new .sb-n{animation:none;color:var(--r-stage-mark)}}
 
 /* ====================================================================
-   HOME AND GAME, AFTER DARK (Stage 2; the boards of 2026-11-20)
-   The two game screens are one dark experience, the stadium carrying on
-   down the page: the same components, re-toned by their tokens in this
-   scope, so nothing here restyles a component. Around, Roster and More keep
-   the everyday light page. The bottom nav is dark everywhere, one bar under
-   every screen, matching the header.
+   HOME AND GAME: DARK TOP, LIGHT BODY (David, 2026-11-25; decision 0047)
+   The header, the photo stage (and Game's photo header) and the bottom nav
+   are dark; the cards below read on the everyday light page, as Around,
+   Roster and More do. The stage and the Game header carry their own dark
+   ground and roles, so nothing here re-tones them.
    ==================================================================== */
-#screenHome,#screenGame{
-  --s-page:var(--t-abyss);--s-surface:var(--t-deep);--s-inset:var(--t-raise);
-  --s-ink:#F3F5F9;--s-ink-2:#CBD3DE;--s-muted:#B3BDCA;
-  --s-line:rgba(255,255,255,.1);--s-line-strong:rgba(255,255,255,.2);
-  --s-win:#5BD39A;--s-loss:#FF968F;
-  --s-shadow-card:0 0 0 1px rgba(255,255,255,.07);--s-shadow-raise:0 0 0 1px rgba(255,255,255,.1),0 10px 28px rgba(0,0,0,.35);
-  --t-accent-on-light:var(--t-accent-text);
-  --t-accent-tint:rgba(var(--t-accent-rgb),.28);--t-accent-tint-soft:rgba(var(--t-accent-rgb),.18);
-  --r-everyday-page:var(--s-page);--r-everyday-surface:var(--s-surface);--r-everyday-ink:var(--s-ink);--r-everyday-ink-2:var(--s-ink-2);
-  --r-everyday-accent:var(--t-accent-text);
-  /* the team's dark colour is "strong ink" across the everyday components
-     (titles, active tabs, focus rings); after dark that ink is light. The
-     stage keeps the real colour through its roles, resolved at the root. */
-  --t-surface:#F3F5F9;--t-surface-rgb:243,245,249;
-  color:var(--s-ink)}
-/* the few components that paint the team's colour as a ground keep it */
-#screenHome .site-home,#screenGame .site-home{background:rgba(255,255,255,.16);color:#fff}
-#screenHome .champ{background:var(--r-stage-1)}
-#screenHome .news-img.none,#screenGame .news-img.none{background:linear-gradient(150deg,var(--r-stage-1),var(--t-abyss))}
-#screenGame .seg-mini button[aria-pressed="true"]{background:var(--t-accent);color:var(--t-accent-ink)}
-#screenGame .f-ez.mine{fill:var(--r-stage-1)}
-/* Matchup on dark (David, 2026-11-25): the light screens' neutral inset is
-   brighter than a faint gold tint on navy, so the better side read as the
-   duller one. On dark the neutral recedes to an outline, and the better side
-   takes the team's readable accent as border and tint, for every team. */
-#screenGame .mu-v{background:transparent;box-shadow:inset 0 0 0 1px var(--s-line-strong)}
-#screenGame .mu-v.better{background:color-mix(in srgb,var(--t-accent-text) 20%,transparent);box-shadow:inset 0 0 0 2px var(--t-accent-text)}
-#screenGame .mu-arrow.l{border-right-color:var(--t-accent-text)}
-#screenGame .mu-arrow.r{border-left-color:var(--t-accent-text)}
-/* the team's own art (when Suite has no photograph) keeps the team's real colour */
-#screenHome .art-slot,#screenGame .art-slot{background:radial-gradient(90% 70% at 8% 100%,rgba(var(--t-raise-rgb),.7),transparent 62%),var(--s-art-env,none) center/cover no-repeat,linear-gradient(170deg,var(--r-stage-1) 0%,var(--t-deep) 48%,var(--t-abyss) 100%)}
-html:has(#screenHome:not([hidden])),html:has(#screenGame:not([hidden])),
-html:has(#screenHome:not([hidden])) body,html:has(#screenGame:not([hidden])) body{background:var(--t-abyss)}
-
-/* section heads on the dark page: the ink, and the team's accent for the way on */
-#screenHome .sec-title,#screenGame .sec-title{color:var(--s-ink)}
-#screenHome .sec-link,#screenGame .sec-link{color:var(--t-accent-text)}
 
 /* Game Info (desktop only; the header carries it on a phone) */
 .game-side{display:none}
