@@ -40,6 +40,13 @@ var only = process.argv.slice(2);
 var TEAMS = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
   .map(function (f) { return f.slice(0, -3); }).filter(function (id) { return !only.length || only.indexOf(id) !== -1; }).sort();
 var BATCH = 12;
+// One row holds the fixed cases (7600 px) and a 390 px stage per venue photo.
+var VENUES = (function () {
+  var c = require("vm").createContext({});
+  require("vm").runInContext(fs.readFileSync(path.join(root, "leagues", "college-football-art.js"), "utf8"), c);
+  return Object.keys((c.TEAM_ART || {}).venues || {}).filter(function (k) { return k !== "neutral"; }).length;
+})();
+var WIDE = 7600 + VENUES * 410;
 
 // What the page draws for one team. Runs in the browser.
 function drawBatch(arg) {
@@ -68,7 +75,6 @@ function drawBatch(arg) {
     ["home-live-nds-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
     ["home-live-nds-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }],
     ["home-pre-os-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, venue: "Ohio Stadium" }, "2026-10-01T12:00:00Z"],
-    ["home-live-jma", "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "JMA Wireless Dome", home: false, period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "them", short: "3rd & 4", spot: "US 41" } }],
     ["game-live-nds-night", "game", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 3, clock: "9:35", us: 14, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],
@@ -77,6 +83,14 @@ function drawBatch(arg) {
     ["game-final-loss-day", "game", 390, { status: "final", hasStarted: true, date: DAY, period: 4, us: 19, them: 42 }],
     ["home-live-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, period: 4, clock: "0:48", us: 31, them: 28, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }]
   ];
+  // every venue Suite has a photograph of, under the live board: the photo
+  // set grows by data, so the gate follows it rather than a hand-kept list
+  Object.keys((window.TEAM_ART || {}).venues || {}).forEach(function (k) {
+    if (k === "neutral") return;
+    var v = TEAM_ART.venues[k], name = (v.names || [v.label])[0];
+    CASES.push(["venue-" + k, "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: name, home: false, period: 4, clock: "2:15", us: 27, them: 24,
+                                             situation: { possession: "them", short: "3rd & 4", spot: "US 41" } }]);
+  });
   var out = [];
   return Promise.all(ids.map(function (id) {
     return fetch("/teams/" + id + ".js").then(function (r) { return r.text(); }).then(function (src) {
@@ -122,7 +136,7 @@ function drawBatch(arg) {
   if (shots) fs.mkdirSync(shots, { recursive: true });
   var failures = [], checked = 0, unassessed = 0, cells = 0, skipped = [];
   try {
-    var context = await browser.newContext({ viewport: { width: 7600, height: 1000 }, timezoneId: "America/New_York" });
+    var context = await browser.newContext({ viewport: { width: WIDE, height: 1000 }, timezoneId: "America/New_York" });
     var page = await context.newPage();
     // Logos refused: every mark is its initials (see the header).
     await page.route("**/*", function (route) { return route.request().url().startsWith(base) ? route.continue() : route.abort(); });
@@ -132,7 +146,7 @@ function drawBatch(arg) {
     runs.push({ style: "suite", ids: [TEAMS.indexOf("notre-dame") !== -1 ? "notre-dame" : TEAMS[0]] });
     for (var n = 0; n < runs.length; n++) {
       var run = runs[n];
-      await page.setViewportSize({ width: 7600, height: 1000 }); // a row of sixteen stages, two desktop ones included
+      await page.setViewportSize({ width: WIDE, height: 1000 }); // a row of sixteen stages, two desktop ones included, and one per venue photo
       await page.setContent('<!doctype html><html lang="en" data-style="' + run.style + '"><head><meta name="viewport" content="width=device-width,initial-scale=1">' +
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
         '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
