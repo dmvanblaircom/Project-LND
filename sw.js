@@ -28,7 +28,7 @@
    reloaded page draws from cache with no network wait. A first install
    reloads nothing: that page is already this version. */
 
-var VERSION = "suite-2026-11-25i1";
+var VERSION = "suite-2026-11-25n1";
 var SHELL   = VERSION + "-shell";
 var DATA    = VERSION + "-data";
 
@@ -204,18 +204,20 @@ function reloadWhenActive() {
 // A page that answers reloads itself once this worker is active; one that
 // does not - from before this, or the chooser - is reloaded from here, as
 // before, the moment it is.
-var SELF_RELOADING = {};
+var SELF_RELOADING = {}, LEFT_ALONE = {};
 function askWindows() {
   return self.clients.matchAll({ type: "window" }).then(function (list) {
     return Promise.all(list.map(function (c) {
-      return askToReload(c).then(function (yes) { if (yes) SELF_RELOADING[c.id] = true; });
+      return askToReload(c).then(function (yes) { if (yes === "seen") LEFT_ALONE[c.id] = true; else if (yes) SELF_RELOADING[c.id] = true; });
     }));
   }).catch(function () {});
 }
 function askToReload(c) {
   return new Promise(function (done) {
     var ch = new MessageChannel(), t = setTimeout(function () { done(false); }, ASK_MS);
-    ch.port1.onmessage = function () { clearTimeout(t); done(true); };
+    // { ok:false, seen:true }: the fan is already looking at that page; it is
+    // left as it is and takes this version on its next open
+    ch.port1.onmessage = function (m) { clearTimeout(t); done(m.data && m.data.seen ? "seen" : true); };
     try { c.postMessage({ type: "reload", at: Date.now(), within: ASK_MS }, [ch.port2]); } catch (e) { clearTimeout(t); done(false); }
   });
 }
@@ -223,7 +225,7 @@ var ASK_MS = 1500;
 function reloadWindows() {
   return self.clients.matchAll({ type: "window" }).then(function (list) {
     return Promise.all(list.map(function (c) {
-      if (SELF_RELOADING[c.id] || !c.navigate) return null;
+      if (SELF_RELOADING[c.id] || LEFT_ALONE[c.id] || !c.navigate) return null;
       return c.navigate(c.url).catch(function () {});
     }));
   }).catch(function () {});

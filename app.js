@@ -370,9 +370,14 @@ function watchUpdate(reg){
 // the answer is left alone - the worker reloads this page itself. To this
 // same address it would only move to the #screen, so it carries a one-time
 // "swap" mark, which index.html takes off.
+// Never under a page the fan can already see (David, 2026-11-25: the launch
+// "flashes"): once the launch has lifted, the page says no, and the new
+// version is used from the next open instead of reloading what is on screen.
+function launchUp(){ var l=document.getElementById("launch"); return !!l && !l.classList.contains("done"); }
 if("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", function(e){
   if(!e.data || e.data.type!=="reload") return;
   if(e.data.at && e.data.within && Date.now()-e.data.at > e.data.within-300) return;
+  if(!launchUp()){ if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:false, seen:true }); return; }
   if(e.ports && e.ports[0]) e.ports[0].postMessage({ ok:true });
   var w=e.source;
   function go(){ var u=new URL(location.href); u.searchParams.set("swap", String(Date.now())); location.replace(u.href); }
@@ -2893,7 +2898,10 @@ liftLaunchWhenReady();
 // has no animation to wait for, so its minimum is short; so does a later
 // open the same day, whose wordmark is drawn from the start (index.html). While an update is
 // installing it holds too (UPDATING), up to UPD_MAX - an update comes once a
-// release, and lifting before its reload shows the page and then reloads it -
+// release, and its reload is only ever done under the launch: an install
+// slower than that lifts the launch and the page is not reloaded under the
+// fan, the new version coming on the next open (David, 2026-11-25: the
+// launch "flashes or hangs"; this wait was 10 seconds) -
 // and keeps its start time, so the reloaded page carries on this launch
 // rather than playing a second one; a page reloaded late in the launch still
 // gets OWN ms to finish its screen.
@@ -2909,7 +2917,7 @@ function liftLaunchWhenReady(){
   el.style.animation="none";
   var reduce=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var short=document.documentElement.getAttribute("data-launch")==="short";
-  var start=Date.now(), at=Math.min(window.SUITE_LAUNCH_AT||start, start), MIN=reduce?600:short?800:2600, MAX=6000, UPD_MAX=10000, OWN=3000, QUIET=300;
+  var start=Date.now(), at=Math.min(window.SUITE_LAUNCH_AT||start, start), MIN=reduce?600:short?800:2600, MAX=6000, UPD_MAX=5000, OWN=3000, QUIET=300;
   var cap=Math.max(at+MAX, start+OWN);
   function screen(){ return document.querySelector("#main > div:not([hidden])"); }
   function inView(img){

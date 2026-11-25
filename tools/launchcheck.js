@@ -14,9 +14,10 @@
    - an update's reload carries the animation on from where it was
    - a new version found on this open: the launch holds until the worker's
      reload, so the page never shows between two launches (David,
-     2026-10-01: the nav flashed up before the launch faded), up to 10
-     seconds; an install slower than that lifts it once and the reload does
-     not play it again
+     2026-10-01: the nav flashed up before the launch faded), up to 5
+     seconds; an install slower than that lifts it once, and the page the
+     fan now sees is never reloaded under them: the new version comes on the
+     next open (David, 2026-11-25: the launch "flashes or hangs")
    - never on the chooser; hidden from assistive technology
 
    Usage: node tools/launchcheck.js     (exit 1 on failure) */
@@ -404,9 +405,9 @@ function fixture(url) {
   await fut.ctx.close();
 
   console.log("a new version found on this open");
-  // Its install takes 4 seconds: longer than the launch's own 2.6, inside
-  // its 10-second wait for an update.
-  var u1 = await updateOpen(4000);
+  // Its install takes 3 seconds: longer than the launch's own 2.6, inside
+  // its 5-second wait for an update.
+  var u1 = await updateOpen(3000);
   var first = u1.of(u1.docs[0]), last = u1.of(u1.docs[u1.docs.length - 1]);
   ok(u1.docs.length === 2, "the worker reloads the page once (" + u1.docs.length + " documents)");
   if (u1.docs.length !== 2) u1.trace();
@@ -422,15 +423,17 @@ function fixture(url) {
   ok(u4.docs.length === 2 && u4last[u4last.length - 1] === "0.00",
      "a page that does not answer is still reloaded, once, by the worker (" + u4.docs.length + " documents)");
   if (u4.docs.length !== 2) u4.trace();
-  // An install of 11 seconds outlasts that wait.
-  var u2 = await updateOpen(11000);
-  var slowLast = u2.of(u2.docs[u2.docs.length - 1]);
-  ok(u2.docs.length === 2 && slowLast.every(function (c) { return c === "0.00"; }),
-     "an install slower than its 10-second wait: it lifts once, and the reload does not play it again (" + u2.docs.length + " documents; " + slowLast.join(",") + ")");
+  // An install of 8 seconds outlasts that wait. The launch lifts once, and
+  // the page the fan is now looking at stays: no reload under them.
+  var u2 = await updateOpen(8000);
+  var slowOnly = u2.of(u2.docs[0]);
+  ok(u2.docs.length === 1 && slowOnly[0] === "1.00" && slowOnly[slowOnly.length - 1] === "0.00",
+     "an install slower than its 5-second wait: it lifts once, and the page is never reloaded under the fan (" + u2.docs.length + " document(s); " + slowOnly.join(",") + ")");
+  if (u2.docs.length !== 1) u2.trace();
 
-  // The update check alone is slow: sw.js takes 4 seconds to answer, longer
+  // The update check alone is slow: sw.js takes 3 seconds to answer, longer
   // than the launch's own 2.6 (Codex review, #80). The check holds it.
-  var u3 = await updateOpen(0, 4000);
+  var u3 = await updateOpen(0, 3000);
   var u3first = u3.of(u3.docs[0]);
   ok(u3.docs.length === 2 && u3first.every(function (c) { return c === "1.00"; }),
      "a slow update check holds the launch too: no lift before the reload (" + u3.docs.length + " documents; " + u3first.join(",") + ")");
