@@ -1,0 +1,35 @@
+{
+  "venue": "caesars-superdome",
+  "images": [
+    {
+      "role": "primary",
+      "file": "Super_Bowl_LIX_(54360870302).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Super_Bowl_LIX_(54360870302).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Super_Bowl_LIX_%2854360870302%29.jpg",
+      "width": 4080,
+      "height": 3072,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "elisfkc2",
+      "credit_line": "\"Super Bowl LIX (54360870302).jpg\" by elisfkc2, CC BY-SA 2.0, via Wikimedia Commons",
+      "date_taken": "2025-02-09 17:40",
+      "shot": "indoor",
+      "note": "Upper-level sideline view at the opening kickoff of Super Bowl LIX (9 Feb 2025), after the 2021-25 renovation: packed far-side stands fill roughly y 0-1100, field y 1000-2300 across the full width, near-side crowd y 2300-3072 including spectators' backs of heads in the bottom ~15% (unidentifiable)."
+    },
+    {
+      "role": "runner-up",
+      "file": "Super_Bowl_LIX_(54361947329).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Super_Bowl_LIX_(54361947329).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Super_Bowl_LIX_%2854361947329%29.jpg",
+      "width": 6020,
+      "height": 2952,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "elisfkc2",
+      "credit_line": "\"Super Bowl LIX (54361947329).jpg\" by elisfkc2, CC BY-SA 2.0, via Wikimedia Commons",
+      "date_taken": "2025-02-09 14:15",
+      "shot": "indoor",
+      "note": "Wide-angle photo-sphere crop of the whole bowl before Super Bowl LIX (9 Feb 2025): roof and ribbon boards top ~35%, field centre y 1150-1750, stands wrap the frame (partly filled pregame); strong fisheye curvature at the edges."
+    }
+  ]
+}

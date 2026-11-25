@@ -1,0 +1,35 @@
+{
+  "venue": "allegiant-stadium",
+  "images": [
+    {
+      "role": "primary",
+      "file": "2024-0901_Vegas_Kickoff_Classic.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2024-0901_Vegas_Kickoff_Classic.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/2024-0901_Vegas_Kickoff_Classic.jpg",
+      "width": 3934,
+      "height": 2213,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Bobak Ha'Eri",
+      "credit_line": "\"2024-0901 Vegas Kickoff Classic.jpg\" by Bobak Ha'Eri, CC BY 3.0, via Wikimedia Commons",
+      "date_taken": "Taken on 1 September 2024",
+      "shot": "indoor",
+      "note": "Upper-deck sideline view at the 2024 Vegas Kickoff Classic (LSU vs USC, 1 Sep 2024): packed crowd fills the full frame around the field, field centre-left roughly x 400-2600, y 600-1500; video boards along the top edge; no faces."
+    },
+    {
+      "role": "runner-up",
+      "file": "Thunderbirds_kick_off_Super_Bowl_LVIII_(8245718).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Thunderbirds_kick_off_Super_Bowl_LVIII_(8245718).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Thunderbirds_kick_off_Super_Bowl_LVIII_%288245718%29.jpg",
+      "width": 7899,
+      "height": 4635,
+      "license_short_name": "Public domain",
+      "license_url": null,
+      "author": "Staff Sgt. Dakota Carter",
+      "credit_line": "\"Thunderbirds kick off Super Bowl LVIII (8245718).jpg\" by Staff Sgt. Dakota Carter, Public domain, via Wikimedia Commons",
+      "date_taken": "2024-02-11 04:32:01",
+      "shot": "indoor",
+      "note": "Field-level end-zone view during Super Bowl LVIII pregame (11 Feb 2024): translucent ETFE roof top ~25%, full crowd ring y 1200-2500 across full width, goalpost right, turf and painted end zone bottom ~45%; no faces."
+    }
+  ]
+}
