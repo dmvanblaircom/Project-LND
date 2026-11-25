@@ -38,9 +38,11 @@ var TEAM_ART = (function (W) { return {
     // a dome: one photograph serves day and night
     "jma-wireless-dome": {
       label: "JMA Wireless Dome", names: ["JMA Wireless Dome", "Carrier Dome"],
+      // from the stands, so the field fills the part of the stage that stays
+      // clear above the text (the field-level shots showed only roof and board)
       day: { path: "assets/venues/jma-wireless-dome/day-{w}.webp", widths: W, focus: "50% 50%",
-             credit: { author: "Kiran891", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
-                       url: "https://commons.wikimedia.org/wiki/File:Scoreboard_in_JMA_Wireless_Dome_01.jpg", changes: "cropped, resized" } }
+             credit: { author: "Unknown author", license: "Public domain", licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-self",
+                       url: "https://commons.wikimedia.org/wiki/File:SUMB_Pre-Game_%22Block_S%22.jpg", changes: "cropped, resized" } }
     },
     neutral: {
       label: "Stadium (softened)",
