@@ -1,0 +1,73 @@
+{
+  "summary": "Elevated interior views of the Carrier Dome / JMA Wireless Dome, football layout. No qualifying post-2022 (new roof, centre-hung board) elevated photo exists on Commons as of 2026-11-25, so all three are pre-renovation (old fabric roof). In all three the field sits in the middle-lower part of the frame (roughly 48-86% of height), not the top 40%; use a top crop/offset (e.g. start the visible frame around 25-30% of height) so field and stands land in the visible band.",
+  "download_note": "upload.wikimedia.org returned HTTP 429, so files were fetched via commons.wikimedia.org/w/thumb.php at the original pixel width. Pixel dimensions match the originals; the JPEG is re-encoded by Wikimedia's thumbnailer, so byte size is smaller than the original upload.",
+  "files": [
+    {
+      "rank": 1,
+      "file": "sumb-block-s-2010.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SUMB_Pre-Game_%22Block_S%22.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/SUMB_Pre-Game_%22Block_S%22.jpg",
+      "width": 3888,
+      "height": 2592,
+      "license_short_name": "Public domain (PD-self)",
+      "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+      "author": "Anonymous (unknown author, self-published)",
+      "credit_line": "Photo: unknown author, public domain, via Wikimedia Commons",
+      "year": 2010,
+      "field_region": "Field (marching band 'Block S' pregame formation) spans full width, y ~1250-2510 (48-97%); stands y ~210-1250 (8-48%); roof only a thin strip y 0-210 (0-8%). Most field-and-stands, least roof of the three. Crowd sparse (pregame).",
+      "faces": "None identifiable; blurred heads at bottom edge only."
+    },
+    {
+      "rank": 2,
+      "file": "boston-college-2019.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Syracuse_Football_vs._Boston_College_(November_2,_2019).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Syracuse_Football_vs._Boston_College_%28November_2%2C_2019%29.jpg",
+      "width": 4032,
+      "height": 3024,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "author": "MattCC716 (Flickr)",
+      "credit_line": "Photo: MattCC716, CC BY-SA 2.0, via Wikimedia Commons",
+      "year": 2019,
+      "field_region": "Elevated sideline view during a game; field y ~1450-2600 (48-86%), full width, 'SYRACUSE' end zone at right x ~2500-4032; stands with fuller crowd y ~600-1450 (20-48%); old roof y 0-600 (0-20%).",
+      "faces": "One identifiable spectator (woman) in foreground at x ~1500-2050, y ~2150-3024 (bottom 30%). Falls under the dark fade; crop or keep it out of the visible band."
+    },
+    {
+      "rank": 3,
+      "file": "clemson-2013-panorama.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Syracuse_Orange_vs_Clemson_Tigers_football_game_(October_5,_2013)_01.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Syracuse_Orange_vs_Clemson_Tigers_football_game_%28October_5%2C_2013%29_01.jpg",
+      "width": 5120,
+      "height": 2464,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "author": "Kai Brinker (Flickr, Brooklyn, United States)",
+      "credit_line": "Photo: Kai Brinker, CC BY-SA 2.0, via Wikimedia Commons",
+      "year": 2013,
+      "field_region": "Panorama from low in the lower deck, end-zone angle; field is a band y ~1330-1680 (54-68%), x ~700-3700, with a packed orange crowd around it y ~800-1330; roof y 0-800 (0-33%). Weakest elevation of the three.",
+      "faces": "Backs/sides of heads of spectators fill the bottom ~30% (y ~1700-2464); a few partial profiles, none as subject. Falls under the fade."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:JMA_Dome_loud_house.jpg",
+      "reason": "Only post-renovation elevated-ish football view (new roof, centre-hung board, full crowd), but 1296x599, under the 1600 px minimum."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Syracuse_Orange_vs_Clemson_Tigers_football_game_(October_5,_2013)_02.jpg",
+      "reason": "3264x2448, but low end-zone angle with roof filling the top ~40%."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Wake_Forest_at_Syracuse,_2011.jpg",
+      "reason": "2048x1536, near field level; roof fills the top ~40%."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SUMB_performs_at_the_halftime_of_Syracuse-Stanford_game_05.jpg",
+      "reason": "2024, post-renovation, but field level under purple lighting; roof and centre-hung board fill the frame."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Syracuse_Stadium_Interior.jpg",
+      "reason": "Post-renovation, but roof and board dominate; field is a thin strip at the bottom."
+    }
+  ]
+}
