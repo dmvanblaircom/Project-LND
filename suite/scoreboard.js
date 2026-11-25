@@ -32,7 +32,7 @@
                  line; the day before; game day; the last two hours)
      live        LIVE, the score, the provider's period and clock, and the
                  situation: who has the ball, down and distance, the spot
-     halftime    LIVE, HALFTIME, and who receives to start the second half
+     halftime    LIVE, HALFTIME, and who gets the ball to start the second half
                  when the source says
      overtime    the period named (OT, 2OT); no clock, as college overtime
      end         END OF GAME: the 4th's clock at 0:00, not yet final
@@ -110,9 +110,9 @@ Suite.scoreboard = (function () {
     var g = m.game, s = g.situation;
     if (!live(st) || !s || ended(g, st)) return "";
     if (TeamOS.game.halftime(g))
-      // The brief's explicit wording (§4.2, 2026-11-20), which supersedes the
-      // short "ND gets the ball" pill of 2026-10-14 on Home.
-      return s.receives ? '<p class="sb-sit"><span>' + esc(s.receives === "us" ? m.team.name : g.oppName) + " receives to start the 2nd half</span></p>" : "";
+      // David's wording, the same on Game's header (2026-11-25): "Notre Dame
+      // gets the ball to start the 2nd half".
+      return s.receives ? '<p class="sb-sit"><span>' + esc(s.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the 2nd half</span></p>" : "";
     var bits = [];
     if (s.short) bits.push('<span class="sb-dd">' + esc(s.short) + "</span>");
     if (s.spot) bits.push('<span class="sb-spot">' + (s.short ? "at " : "") + esc(s.spot) + "</span>");
@@ -188,7 +188,7 @@ Suite.scoreboard = (function () {
         : p >= 5 ? (p === 5 ? "Overtime" : "Overtime " + (p - 4)) + ". "
         : p ? ui.period(p) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " : "";
       var sit = "";
-      if (s && TeamOS.game.halftime(g) && s.receives) sit = " " + (s.receives === "us" ? t.name : g.oppName) + " receives to start the second half.";
+      if (s && TeamOS.game.halftime(g) && s.receives) sit = " " + (s.receives === "us" ? t.name : g.oppName) + " gets the ball to start the second half.";
       else if (s && !TeamOS.game.halftime(g) && s.possession)
         sit = " " + (s.possession === "us" ? t.name : g.oppName) + " has the ball" + (s.short ? ", " + s.short : "") + (s.spot ? " at " + s.spot : "") + ".";
       return (st === "paused" ? (g.status === "suspended" ? "Suspended. " : "Delayed. ") : "Live. ") + when + line + sit;

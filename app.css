@@ -801,6 +801,9 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
    records read "4 - 0" (live scan #9). */
 .gh-final-label{font-family:var(--t-font-display);font-weight:700;font-size:1.3rem;letter-spacing:.24em;text-transform:uppercase}
 .game-head .gc-situation{margin-top:.3rem !important}
+/* the halftime line: a sentence, under the score at full width, wrapping */
+.game-head .gc-situation.gh-half{width:auto;max-width:calc(100% - 1.5rem);margin:.6rem auto 0 !important;text-align:center;justify-content:center}
+.game-head .gc-situation.gh-half span{white-space:normal}
 
 .game-tabs{display:flex;margin:0 calc(-1 * (var(--gutter) + env(safe-area-inset-left,0px)));background:var(--s-surface);border-bottom:1px solid var(--s-line)}
 .game-tabs a{position:relative;display:flex;flex:1;align-items:center;justify-content:center;min-height:3rem;padding:0 .3rem;color:var(--s-muted);font-family:var(--t-font-display);font-weight:700;font-size:1.05rem;text-decoration:none;white-space:nowrap}

@@ -124,7 +124,7 @@ Suite.game = (function () {
   function header(m) {
     var g = m.game, st = state(g), ko = ui.kickoff(g.date, g.timeSet);
     var where = g.neutral ? "Neutral site" : g.home ? "Home vs" : "Away at";
-    var center = "";
+    var center = "", halfLine = "";
     if (st === "upcoming" || st === "delayed" || st === "postponed" || st === "canceled") {
       var when = st === "postponed" ? Suite.home.newDate(g) : st === "canceled" ? ko.day : ko.full;
       center = '<div class="gh-center">' +
@@ -150,8 +150,11 @@ Suite.game = (function () {
       var clock = st === "final" || half ? "" : '<p class="gh-clock">' + esc([ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
       var sit = (st === "live" || st === "paused") && !half && g.situation && g.situation.short
         ? '<p class="gc-situation"><span>' + esc(g.situation.short) + "</span>" + (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
-        : half && g.situation && g.situation.receives
-        ? '<p class="gc-situation"><span>' + esc(g.situation.receives === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " gets the ball</span></p>"
+        : "";
+      // at halftime, who gets the ball: Home's words (David, 2026-11-25), on
+      // a full-width line under the score, where the sentence has room
+      halfLine = half && g.situation && g.situation.receives
+        ? '<p class="gc-situation gh-half"><span>' + esc(g.situation.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the 2nd half</span></p>"
         : "";
       center = '<div class="gh-center">' + top + clock + sit + "</div>";
     }
@@ -162,6 +165,7 @@ Suite.game = (function () {
              (bd ? bd.html : ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl })) +
              '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
+               (halfLine ? '<div aria-hidden="true">' + halfLine + "</div>" : "") +
                // The countdown under the matchup, the hero's full width: in
                // the middle column its labels ran together in a wider face
                // ("HOURSMINUTES", David 2026-10-07).
