@@ -45,47 +45,9 @@ var STILL = !!process.env.STAGE_STILL;
 var out = path.resolve(process.argv[2] || path.join(root, "artifacts", "stage2"));
 fs.mkdirSync(out, { recursive: true });
 
-// The fixtures' week: Tuesday, Oct 27 2026; the hero is the next game.
-var FIXTURE_NOW = "2026-10-27T16:00:00Z";
-function fx(name) { return fs.readFileSync(path.join(root, "tools", "fixtures", name)); }
-function responseFor(url) {
-  if (/\/data\/league\/rankings-\d+\.json/.test(url)) return fx("rankings-2026-sample.json");
-  if (/\/data\/league\/fpi-history-\d+\.json/.test(url)) return fx("fpi-history-2026-sample.json");
-  if (/\/schedule\?seasontype=3/.test(url)) return fx("espn-schedule-nd-2025-post.json");
-  if (/\/schedule(?:\?|$)/.test(url)) return fx("espn-schedule.json");
-  if (/\/scoreboard\?/.test(url)) return fx("espn-scoreboard-sep26.json");
-  if (/\/rankings(?:\?|$)/.test(url)) return fx("espn-rankings-sep20.json");
-  if (/\/roster(?:\?|$)/.test(url)) return fx("espn-roster.json");
-  if (/\/news\?/.test(url)) return fx("espn-news.json");
-  if (/\/summary\?/.test(url)) return fx("espn-summary-pre.json");
-  if (/\/statistics(?:\?|$)/.test(url)) return fx("espn-season-stats.json");
-  if (/\/teams\/\d+(?:\?|$)/.test(url)) return fx("espn-team.json");
-  return null;
-}
+var stage = require("./lib/stage");
+var STATES = stage.STATES;
 
-// Each state as the normalized Game's own fields. Times are relative to the
-// fixture's now, so the countdown tiers read true.
-var H = 36e5, D = 24 * H;
-var STATES = {
-  "pre-far":   { now: 0, date: 4 * D + 3 * H, status: "scheduled" },
-  "pre-eve":   { now: 0, date: 1 * D + 2 * H, status: "scheduled" },
-  "pre-day":   { now: 0, date: 6 * H, status: "scheduled" },
-  "pre-near":  { now: 0, date: 75 * 6e4, status: "scheduled" },
-  "pre-night": { now: 0, at: "2026-10-31T23:30:00Z", status: "scheduled" },
-  "live-night":{ at: "2026-10-31T23:30:00Z", status: "live", hasStarted: true, period: 4, clock: "2:15", us: 27, them: 24,
-                 situation: { possession: "them", short: "3rd & 4", spot: "ND 41" } },
-  "live":      { status: "live", hasStarted: true, period: 3, clock: "8:42", us: 24, them: 17,
-                 situation: { possession: "us", short: "2nd & 7", spot: "OPP 34" } },
-  "halftime":  { status: "live", hasStarted: true, period: 2, clock: "0:00", detail: "Halftime", us: 14, them: 10,
-                 situation: { receives: "us" } },
-  "overtime":  { status: "live", hasStarted: true, period: 6, clock: "0:00", us: 31, them: 31,
-                 situation: { possession: "them", short: "1st & 10", spot: "US 25" } },
-  "delayed":   { status: "delayed", hasStarted: true, period: 2, clock: "6:15", us: 7, them: 3 },
-  "suspended": { status: "suspended", hasStarted: true, period: 3, clock: "11:02", us: 13, them: 20 },
-  "end":       { status: "live", hasStarted: true, period: 4, clock: "0:00", us: 34, them: 27 },
-  "final-win": { status: "final", hasStarted: true, period: 4, clock: "0:00", us: 34, them: 27 },
-  "final-loss":{ status: "final", hasStarted: true, period: 4, clock: "0:00", us: 20, them: 28 }
-};
 var TEAMS = (process.env.STAGE_TEAMS || "notre-dame,ohio-state,texas-tech,oregon,ucla,navy").split(",");
 var WIDTHS = (process.env.STAGE_WIDTHS || "320,375,390,768,1280,1440").split(",").map(Number);
 var PICK = process.env.STAGE_STATES ? process.env.STAGE_STATES.split(",") : Object.keys(STATES);
@@ -93,13 +55,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
 
 // STAGE_STILL: every image settled (loaded or failed) and every font in,
 // so a screen that did not change draws the same pixels on both sides
-function settle(page) {
-  if (!STILL) return Promise.resolve();
-  return page.waitForFunction(function () {
-    return document.fonts.status === "loaded" &&
-      Array.prototype.every.call(document.images, function (i) { return i.complete; });
-  }, null, { timeout: 8000 }).catch(function () {});
-}
+function settle(page) { return STILL ? stage.settle(page) : Promise.resolve(); }
 
 (async function () {
   var server = serve(appRoot);
@@ -108,98 +64,15 @@ function settle(page) {
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   var shots = 0, probeHits = [];
   for (var team of TEAMS) for (var style of STYLES) for (var width of WIDTHS) {
-    var ctx = await browser.newContext({ viewport: { width: width, height: width >= 1024 ? 900 : 860 }, serviceWorkers: "block",
-                                         timezoneId: "America/New_York", locale: "en-US", deviceScaleFactor: 1,
-                                         reducedMotion: STILL ? "reduce" : "no-preference" });
-    var page = await ctx.newPage();
-    await page.clock.setSystemTime(new Date(FIXTURE_NOW));
-    await page.addInitScript(function (st) {
-      try { localStorage.setItem("suite-style", st); } catch (e) {}
-      // and Game's model, to repaint Game in each state (STAGE_SCREEN=game)
-      var gameHook = setInterval(function () {
-        if (window.Suite && Suite.game && Suite.game.paint && !Suite.game.__wrapped) {
-          var gp = Suite.game.paint;
-          Suite.game.paint = function (host, m) { if (host && host.id === "screenGame" && m && m.game) { window.__gameModel = m; window.__gameHost = host; } return gp.apply(this, arguments); };
-          Suite.game.__wrapped = gp;
-          clearInterval(gameHook);
-        }
-      }, 5);
-      // keep the app's own Home model as it paints, to repaint it in each state
-      var hook = setInterval(function () {
-        if (window.Suite && Suite.home && Suite.home.paint && !Suite.home.__wrapped) {
-          var paint = Suite.home.paint;
-          Suite.home.paint = function (host, m) { window.__homeModel = m; window.__homeHost = host; return paint.apply(this, arguments); };
-          Suite.home.__wrapped = paint;
-          clearInterval(hook);
-        }
-      }, 5);
-    }, style);
-    await page.route("**/*", async function (route) {
-      var url = route.request().url(), body = responseFor(url);
-      if (body) return route.fulfill({ status: 200, contentType: "application/json", body: body });
-      if (url.startsWith(base)) return route.continue();
-      if (/^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(url)) return route.continue();
-      if (process.env.ALLOW_PROVIDER_IMAGES && /^https:\/\/a\.espncdn\.com\//.test(url)) return route.continue();
-      return route.abort();
-    });
     var GAME = process.env.STAGE_SCREEN === "game";
     var OPP = process.env.STAGE_OPP ? process.env.STAGE_OPP.split(":") : null;
     var VENUE = process.env.STAGE_VENUE ? process.env.STAGE_VENUE.split(":") : null;
-    await page.goto(base + "/?team=" + team + (GAME ? "#game" : "#home"));
-    if (GAME) {
-      await page.waitForFunction(function () { return !document.getElementById("launch") && window.__gameModel; }, null, { timeout: 20000 }).catch(function () {});
-      // a real play-by-play for the live and final states (Purdue, from the fixtures)
-      await page.evaluate(function () {
-        var T = TeamOS.createTeam(TEAM_CONFIG.team);
-        return Promise.all(["espn-summary-pur-live.json", "espn-summary-pur-final.json"].map(function (f) {
-          return fetch("/tools/fixtures/" + f).then(function (r) { return r.json(); }).then(function (j) { return TeamOS.espn.gameDetail(j, T, TEAM_CONFIG); });
-        })).then(function (d) { window.__liveDetail = d[0]; window.__finalDetail = d[1]; });
-      }).catch(function (e) { console.log("  detail fixtures: " + e.message); });
-    }
-    if (!GAME) await page.waitForFunction(function () { return !document.getElementById("launch") && window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game; },
-                                          null, { timeout: 20000 }).catch(function () {});
-    var ready = await page.evaluate(function (G) { return G ? !!window.__gameModel : !!(window.__homeModel && window.__homeModel.hero && window.__homeModel.hero.game); }, GAME);
-    if (!ready) { console.log("  " + team + " " + style + " " + width + ": no hero game; skipped"); await ctx.close(); continue; }
+    var opened = await stage.open(browser, base, { team: team, style: style, width: width, screen: GAME ? "game" : "home",
+                                                   still: STILL, allowImages: !!process.env.ALLOW_PROVIDER_IMAGES });
+    var ctx = opened.ctx, page = opened.page;
+    if (!opened.ready) { console.log("  " + team + " " + style + " " + width + ": no hero game; skipped"); await ctx.close(); continue; }
     for (var name of PICK) {
-      var spec = STATES[name];
-      if (GAME) await page.evaluate(function (a) {
-        var m = window.__gameModel, base = new Date(a.fixtureNow).getTime();
-        var g = Object.assign({}, m.game, { situation: null, detail: "" });
-        if (a.opp) Object.assign(g, { oppProviderId: a.opp[0], oppName: a.opp[1], oppAbbr: a.opp[2], series: null });
-        if (a.venue) Object.assign(g, { venue: a.venue[0], home: a.venue[1] === "home", neutral: a.venue[1] === "neutral",
-                                        city: a.venue[2] || g.city, venueState: a.venue[3] || g.venueState });
-        Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
-        if (a.spec.date != null) g.date = new Date(base + a.spec.date).toISOString();
-        if (a.spec.at) g.date = a.spec.at;
-        if (a.spec.status !== "scheduled") g.odds = null;
-        if (!g.usRank && a.name.indexOf("pre") === 0) g.usRank = 9;
-        if (/live|halftime|overtime|end|delayed|suspended/.test(a.name)) g.state = "in";
-        if (/final/.test(a.name)) g.state = "post";
-        var lc = TeamOS.game.lifecycle(g);
-        var detail = lc.phase === "pregame" ? m.detail : /final/.test(a.name) ? window.__finalDetail : window.__liveDetail;
-        if (window.Suite.nav && Suite.nav.setGameState) Suite.nav.setGameState(/live|halftime|overtime|end/.test(a.name) ? "live" : a.name === "delayed" ? "delayed" : a.name === "suspended" ? "suspended" : null);
-        window.__gameHost.__gameLast = {};
-        Suite.game.__wrapped(window.__gameHost, Object.assign({}, m, { game: g, lifecycle: lc, view: lc.defaultView, detail: detail, now: new Date(base) }));
-        window.scrollTo(0, 0);
-      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
-      else await page.evaluate(function (a) {
-        var m = window.__homeModel, base = new Date(a.fixtureNow).getTime();
-        var g = Object.assign({}, m.hero.game, { situation: null, detail: "" });
-        if (a.opp) Object.assign(g, { oppProviderId: a.opp[0], oppName: a.opp[1], oppAbbr: a.opp[2], series: null });
-        if (a.venue) Object.assign(g, { venue: a.venue[0], home: a.venue[1] === "home", neutral: a.venue[1] === "neutral",
-                                        city: a.venue[2] || g.city, venueState: a.venue[3] || g.venueState });
-        Object.keys(a.spec).forEach(function (k) { if (k !== "now" && k !== "date" && k !== "at") g[k] = a.spec[k]; });
-        if (a.spec.date != null) g.date = new Date(base + a.spec.date).toISOString();
-        if (a.spec.at) g.date = a.spec.at;
-        if (a.spec.status !== "scheduled") g.odds = null;
-        if (!g.usRank && a.name.indexOf("pre") === 0) g.usRank = 9;
-        var m2 = Object.assign({}, m, { now: new Date(base), hero: Object.assign({}, m.hero, { game: g }) });
-        // the same hero for the live nav: what the header shows while the game is on
-        if (window.Suite.nav && Suite.nav.setGameState) Suite.nav.setGameState(/live|halftime|overtime|end/.test(a.name) ? "live" : a.name === "delayed" ? "delayed" : a.name === "suspended" ? "suspended" : null);
-        Suite.home.__wrapped(window.__homeHost, m2);
-        window.scrollTo(0, 0);
-      }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
-      await page.waitForTimeout(150);
+      await stage.paint(page, name, { screen: GAME ? "game" : "home", opp: OPP, venue: VENUE });
       await settle(page);
       if (process.env.STAGE_PROBE) {
         // Home and Game are dark and redefine --t-surface as their ink; a

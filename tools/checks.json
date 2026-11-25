@@ -73,6 +73,7 @@
   { "id": "togglecheck.js", "kind": "browser", "secs": 8, "run": "node tools/togglecheck.js" },
   { "id": "launchcheck.js", "kind": "browser", "secs": 78, "run": "node tools/launchcheck.js" },
   { "id": "tapcheck.js", "kind": "browser", "secs": 8, "run": "node tools/tapcheck.js" },
+  { "id": "teamcheck.js", "kind": "browser", "secs": 240, "run": "ALLOW_PROVIDER_IMAGES=1 node tools/teamcheck.js" },
   { "id": "swipecheck.js", "kind": "browser", "secs": 20, "run": "node tools/swipecheck.js" },
   { "id": "pullcheck.js", "kind": "browser", "secs": 32, "run": "node tools/pullcheck.js" },
   { "id": "teamfontcheck.js", "kind": "browser", "secs": 19, "run": "node tools/teamfontcheck.js" },

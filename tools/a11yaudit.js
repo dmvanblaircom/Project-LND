@@ -238,11 +238,17 @@ function collectTextInPage() {
     for (var a = el; a && a.nodeType === 1; a = a.parentElement) alpha *= +getComputedStyle(a).opacity;
     if (alpha < 0.05) continue;
 
-    var fg = rgba(st.webkitTextFillColor) || rgba(st.color);
+    // SVG text is painted by its fill, not its color (2026-11-25: the drive
+    // field's white yard numbers read as navy - false failures), and its
+    // size is in the drawing's units, scaled to the screen
+    var svgText = typeof SVGElement !== "undefined" && el instanceof SVGElement;
+    var fg = svgText ? rgba(st.fill) : rgba(st.webkitTextFillColor) || rgba(st.color);
     if (!fg) continue;
+    if (svgText) fg[3] *= +st.fillOpacity;
+    var scale = svgText && el.getScreenCTM ? Math.abs((el.getScreenCTM() || { a: 1 }).a) || 1 : 1;
     out.push({ text: text.trim().replace(/\s+/g, " ").slice(0, 40), sel: describe(el),
                x: L + scrollX, y: T + scrollY, w: R - L, h: B - T,
-               fg: fg, alpha: fg[3] * alpha, px: parseFloat(st.fontSize),
+               fg: fg, alpha: fg[3] * alpha, px: parseFloat(st.fontSize) * scale,
                weight: parseInt(st.fontWeight, 10) || (st.fontWeight === "bold" ? 700 : 400) });
   }
   return out;
@@ -302,6 +308,7 @@ async function auditText(page, label, opts) {
 
   var items = await page.evaluate(collectTextInPage);
   var style = await page.addStyleTag({ content:
+    "svg text,svg tspan{fill:transparent!important;stroke:transparent!important}" +
     "*,*::before,*::after{color:transparent!important;-webkit-text-fill-color:transparent!important;" +
     "text-shadow:none!important;caret-color:transparent!important;text-decoration-color:transparent!important}" +
     "::placeholder{color:transparent!important;-webkit-text-fill-color:transparent!important}" });
