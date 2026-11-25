@@ -68,6 +68,7 @@ function drawBatch(arg) {
     ["home-live-nds-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "them", short: "3rd & 4", spot: "OPP 41" } }],
     ["home-live-nds-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }],
     ["home-pre-os-day", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, venue: "Ohio Stadium" }, "2026-10-01T12:00:00Z"],
+    ["home-live-jma", "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "JMA Wireless Dome", home: false, period: 4, clock: "2:15", us: 27, them: 24, situation: { possession: "them", short: "3rd & 4", spot: "US 41" } }],
     ["game-live-nds-night", "game", 390, { status: "live", hasStarted: true, date: NIGHT, venue: "Notre Dame Stadium", period: 3, clock: "9:35", us: 14, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 45" } }],
     ["home-pre-tba", "home", 390, { status: "scheduled", hasStarted: false, date: DAY, timeSet: false }, "2026-10-01T12:00:00Z"],
     ["home-live-night", "home", 390, { status: "live", hasStarted: true, date: NIGHT, period: 3, clock: "2:43", us: 17, them: 10, situation: { possession: "us", short: "1st & 10", spot: "OPP 20" } }],

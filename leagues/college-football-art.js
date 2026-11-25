@@ -35,6 +35,13 @@ var TEAM_ART = (function (W) { return {
                        url: "https://commons.wikimedia.org/wiki/File:Ohio_Stadium_(37516165921).jpg", changes: "cropped, resized" } }
     },
     // the stand-in: blurred and darkened into the file, so no fan could place it
+    // a dome: one photograph serves day and night
+    "jma-wireless-dome": {
+      label: "JMA Wireless Dome", names: ["JMA Wireless Dome", "Carrier Dome"],
+      day: { path: "assets/venues/jma-wireless-dome/day-{w}.webp", widths: W, focus: "50% 50%",
+             credit: { author: "Kiran891", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                       url: "https://commons.wikimedia.org/wiki/File:Scoreboard_in_JMA_Wireless_Dome_01.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
