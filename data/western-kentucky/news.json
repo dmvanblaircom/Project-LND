@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-24T07:08:31.596304+00:00",
+ "updated": "2026-11-25T20:38:15.231859+00:00",
  "items": [
+  {
+   "title": "Hilltoppers Close Regular Season On Saturday Against Kennesaw State",
+   "link": "https://wkusports.com/news/2026/11/25/football-hilltoppers-close-regular-season-on-saturday-against-kennesaw-state",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Game Week \u2013 Kennesaw State\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/25/WKU_FB_26___Game_Week___Kennesaw_State.png\" /><br /><br />BOWLING GREEN, Ky. \u2013 WKU Football will close the regular season at home on Saturday, Nov. 28, against Kennesaw State. Kickoff at Houchens-Smith Stadium is scheduled for noon CT and the game will be streamed on ESPN+.",
+   "image": "https://wkusports.com/images/2026/11/25/WKU_FB_26___Game_Week___Kennesaw_State.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-25T20:00:00+00:00"
+  },
   {
    "title": "WKU FB: Head Coach Tyson Helton | Weekly Media Availability | 11-23-26",
    "link": "https://wkusports.com/news/2026/11/23/football-wku-fb-head-coach-tyson-helton-weekly-media-availability-11-23-26",
@@ -100,15 +109,6 @@
    "image": "https://wkusports.com/images/2026/11/14/rockwell_post.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-15T01:25:00+00:00"
-  },
-  {
-   "title": "Football Pregame Show: Jax State",
-   "link": "https://wkusports.com/news/2026/11/14/football-pregame-show-jax-state",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Pregame Interview 16x9\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/14/pregame_16x9.png\" /><br /><br />",
-   "image": "https://wkusports.com/images/2026/11/14/pregame_16x9.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-14T19:42:00+00:00"
   }
  ]
 }
