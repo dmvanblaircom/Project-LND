@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-21T17:38:25.842387+00:00",
+ "updated": "2026-11-25T01:08:30.703542+00:00",
  "reports": [
   {
    "schema": 1,
@@ -479,6 +479,81 @@
      "no": "18",
      "name": "Xavier Styles",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "19",
+     "name": "Kyler Gerardy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Kamari Moulton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Cannon Leonard",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "iowa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:08:30.703542+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Nebraska",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "KJ Parker",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "2",
+     "name": "Tyler Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "11",
+     "name": "Jacob Wallace",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "14",
+     "name": "Tony Diaz",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "18",
+     "name": "Xavier Styles",
+     "status": "questionable",
      "detail": ""
     },
     {

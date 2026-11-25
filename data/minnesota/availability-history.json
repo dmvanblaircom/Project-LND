@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "minnesota",
- "updated": "2026-11-21T15:08:49.837162+00:00",
+ "updated": "2026-11-25T01:08:33.071466+00:00",
  "reports": [
   {
    "schema": 1,
@@ -584,6 +584,116 @@
      "no": "46",
      "name": "Mason Carrier",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Jaylin Hicks",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Brett Carroll",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "78",
+     "name": "Ashton Beers",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "84",
+     "name": "Hayden Moore",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "93",
+     "name": "Riley Sunram",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Theorin Randle",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "minnesota",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:08:33.071466+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Wisconsin",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "9",
+     "name": "Garrison Monroe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "17",
+     "name": "John Nestor",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "18",
+     "name": "Donielle Hayes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "19",
+     "name": "Pierce Walsh",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "Ryan Estrada",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "22",
+     "name": "Mekhai Smith",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "46",
+     "name": "Mason Carrier",
+     "status": "questionable",
      "detail": ""
     },
     {

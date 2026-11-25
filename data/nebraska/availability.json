@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:08:50.514694+00:00",
+ "fetchedAt": "2026-11-25T01:08:33.745705+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Ohio State",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Iowa",
  "players": [
   {
    "pos": "LB",
@@ -32,7 +32,7 @@
    "pos": "DL",
    "no": "5",
    "name": "Anthony Jones Jr.",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -40,6 +40,13 @@
    "no": "7",
    "name": "Andrew Marshall",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "11",
+   "name": "Larry Tarver Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -81,7 +88,14 @@
    "pos": "OL",
    "no": "65",
    "name": "Paul Mubenga",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "77",
+   "name": "Gunnar Gottula",
+   "status": "probable",
    "detail": ""
   },
   {

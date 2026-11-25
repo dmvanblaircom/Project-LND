@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:45.033757+00:00",
+ "fetchedAt": "2026-11-25T01:08:36.313230+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Southern Miss",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "vs. App State",
  "players": [
   {
    "pos": "DB",
@@ -22,10 +22,24 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "",
+   "name": "Gibbs, Rod",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "",
    "name": "Moson, Jaylen",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Hubbard, Ethan",
+   "status": "probable",
    "detail": ""
   },
   {

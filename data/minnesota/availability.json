@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:08:49.837162+00:00",
+ "fetchedAt": "2026-11-25T01:08:33.071466+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Northwestern",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Wisconsin",
  "players": [
   {
    "pos": "DB",
    "no": "9",
    "name": "Garrison Monroe",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "17",
+   "name": "John Nestor",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,6 +36,13 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "19",
+   "name": "Pierce Walsh",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "20",
    "name": "Ryan Estrada",
@@ -36,10 +50,17 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "22",
+   "name": "Mekhai Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "46",
    "name": "Mason Carrier",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

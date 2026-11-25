@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-21T15:08:57.224817+00:00",
+ "updated": "2026-11-25T01:08:40.524854+00:00",
  "reports": [
   {
    "schema": 1,
@@ -416,6 +416,81 @@
      "no": "70",
      "name": "Barrett Nelson",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "82",
+     "name": "Emmett Bork",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "wisconsin",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-25T01:08:40.524854+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-24",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-27",
+   "game": "Minnesota",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "2",
+     "name": "Javan Robinson",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "3",
+     "name": "Cai Bates",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "8",
+     "name": "Deuce Adams",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "11",
+     "name": "Carson Van Dinter",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "29",
+     "name": "Matthew Jung",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Kevin Heywood",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Barrett Nelson",
+     "status": "questionable",
      "detail": ""
     },
     {

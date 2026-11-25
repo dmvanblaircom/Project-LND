@@ -7,18 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T17:38:25.842387+00:00",
+ "fetchedAt": "2026-11-25T01:08:30.703542+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Illinois",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "Nebraska",
  "players": [
   {
-   "pos": "DB",
-   "no": "0",
-   "name": "Cody Haddad",
-   "status": "out-game",
+   "pos": "WR",
+   "no": "1",
+   "name": "KJ Parker",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -29,31 +29,24 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "10",
-   "name": "Burke Gautcher",
-   "status": "out-game",
+   "pos": "DB",
+   "no": "11",
+   "name": "Jacob Wallace",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
-   "no": "11",
-   "name": "Brody Schaffer",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "15",
-   "name": "Carson Cooney",
-   "status": "out-game",
+   "no": "14",
+   "name": "Tony Diaz",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "18",
    "name": "Xavier Styles",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
