@@ -87,6 +87,16 @@ var TEAM_ART = (function (W) { return {
              credit: { author: "Bobak Ha'Eri", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0",
                        url: "https://commons.wikimedia.org/wiki/File:2024-0901_Vegas_Kickoff_Classic.jpg", changes: "cropped, resized" } }
     },
+    "rose-bowl": {
+      label: "Rose Bowl", names: ["Rose Bowl", "Rose Bowl Stadium"],
+      // the day source is 2048 wide: cropped to the field it holds 1280
+      day: { path: "assets/venues/rose-bowl/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+             credit: { author: "Itsschneebly", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                       url: "https://commons.wikimedia.org/wiki/File:2020_Rose_Bowl_Game.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/rose-bowl/night-{w}.webp", widths: W, focus: "50% 50%",
+               credit: { author: "Spatms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+                         url: "https://commons.wikimedia.org/wiki/File:2017_Rose_Bowl,_USC_vs_Penn_State_-_Game_Play.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
