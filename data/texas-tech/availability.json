@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-24T11:38:42.177814+00:00",
+ "fetchedAt": "2026-11-25T03:08:48.648221+00:00",
  "reported": true,
- "effectiveAt": "2026-11-23",
- "heading": "Initial",
+ "effectiveAt": "2026-11-24",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-26",
  "game": "vs. TCU",
  "players": [
@@ -74,7 +74,7 @@
    "pos": "S",
    "no": "22",
    "name": "Marcus Ramon-Edwards",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

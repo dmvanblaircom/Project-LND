@@ -7,25 +7,53 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T00:39:12.531797+00:00",
+ "fetchedAt": "2026-11-25T03:08:49.718386+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at TCU",
+ "effectiveAt": "2026-11-24",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-27",
+ "game": "West Virginia",
  "players": [
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "Wayshawn Parker",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "7",
+   "name": "Braden Pegan",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "S",
    "no": "24",
    "name": "Marcus Wimberly",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "62",
+   "name": "Solatoa Moea'i",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LS",
    "no": "65",
    "name": "Logan Castor",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "94",
+   "name": "Mike Tauteoli",
+   "status": "questionable",
    "detail": ""
   }
  ],
