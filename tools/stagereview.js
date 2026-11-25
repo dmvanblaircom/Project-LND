@@ -28,6 +28,11 @@
      STAGE_VENUE    "Venue name:home|away|neutral[:City:ST]" - play at this venue
      STAGE_PROBE=1  fail when a component paints the dark screens' ink as a ground
      STAGE_NOSHOT=1 with STAGE_PROBE, probe only (no screenshots)
+     STAGE_ROOT     serve the app from this checkout instead (the fixtures and
+                    this harness stay this one's): tools/changesheet.js draws
+                    the base branch with the same hands as the head
+     STAGE_STILL=1  reduced motion, and wait for images and fonts before each
+                    shot, so the same page draws the same pixels twice
      PW_CHROMIUM    a Chromium to use */
 "use strict";
 
@@ -35,6 +40,8 @@ var fs = require("fs"), path = require("path");
 var chromium = require("playwright").chromium;
 var root = path.join(__dirname, "..");
 var serve = require("./lib/serve");
+var appRoot = process.env.STAGE_ROOT ? path.resolve(process.env.STAGE_ROOT) : root;
+var STILL = !!process.env.STAGE_STILL;
 var out = path.resolve(process.argv[2] || path.join(root, "artifacts", "stage2"));
 fs.mkdirSync(out, { recursive: true });
 
@@ -84,15 +91,26 @@ var WIDTHS = (process.env.STAGE_WIDTHS || "320,375,390,768,1280,1440").split(","
 var PICK = process.env.STAGE_STATES ? process.env.STAGE_STATES.split(",") : Object.keys(STATES);
 var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
 
+// STAGE_STILL: every image settled (loaded or failed) and every font in,
+// so a screen that did not change draws the same pixels on both sides
+function settle(page) {
+  if (!STILL) return Promise.resolve();
+  return page.waitForFunction(function () {
+    return document.fonts.status === "loaded" &&
+      Array.prototype.every.call(document.images, function (i) { return i.complete; });
+  }, null, { timeout: 8000 }).catch(function () {});
+}
+
 (async function () {
-  var server = serve(root);
+  var server = serve(appRoot);
   await new Promise(function (r) { server.listen(0, "127.0.0.1", r); });
   var base = "http://127.0.0.1:" + server.address().port;
   var browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   var shots = 0, probeHits = [];
   for (var team of TEAMS) for (var style of STYLES) for (var width of WIDTHS) {
     var ctx = await browser.newContext({ viewport: { width: width, height: width >= 1024 ? 900 : 860 }, serviceWorkers: "block",
-                                         timezoneId: "America/New_York", locale: "en-US", deviceScaleFactor: 1 });
+                                         timezoneId: "America/New_York", locale: "en-US", deviceScaleFactor: 1,
+                                         reducedMotion: STILL ? "reduce" : "no-preference" });
     var page = await ctx.newPage();
     await page.clock.setSystemTime(new Date(FIXTURE_NOW));
     await page.addInitScript(function (st) {
@@ -182,6 +200,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         window.scrollTo(0, 0);
       }, { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: OPP, venue: VENUE });
       await page.waitForTimeout(150);
+      await settle(page);
       if (process.env.STAGE_PROBE) {
         // Home and Game are dark and redefine --t-surface as their ink; a
         // component that paints that token as a ground there has lost the
@@ -215,6 +234,7 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         var tall = await page.evaluate(function () { return Math.ceil(document.documentElement.scrollHeight); });
         await page.setViewportSize({ width: width, height: Math.min(9000, tall) });
         await page.waitForTimeout(200);
+        await settle(page);
         await page.screenshot({ path: file });
         await page.setViewportSize({ width: width, height: width >= 1024 ? 900 : 860 });
       }

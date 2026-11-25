@@ -141,6 +141,50 @@ jobs:
           name: suite-visual-${{ matrix.width }}
           path: artifacts/visual
 
+  # What changed on screen (decision 0048): the colour-extreme teams drawn on
+  # the base and on the pull request, and a sheet of the screens whose pixels
+  # changed, posted to the pull request. For a person to look at, so it gates
+  # nothing: not in `gate`, and a failure here does not fail the run.
+  changes:
+    needs: plan
+    if: github.event_name == 'pull_request' && needs.plan.outputs.visual != '[]' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 25
+    permissions:
+      contents: write          # the sheets go on the review-sheets branch
+      pull-requests: write     # and the comment on the pull request
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .base
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Draw the base and this pull request
+        env:
+          ALLOW_PROVIDER_IMAGES: "1"
+        run: node tools/changesheet.js --base .base --out artifacts/changes
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: changes
+          path: |
+            artifacts/changes/*.jpg
+            artifacts/changes/summary.*
+      - name: Post the sheet
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: node tools/postsheet.js artifacts/changes
+
   # The one result: every job that ran passed, and a job the change did not
   # need was skipped, not failed. A run cancelled because a newer push
   # replaced it is not judged at all: it shows cancelled, not failed, and the

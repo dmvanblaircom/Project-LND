@@ -1,0 +1,18 @@
+# The colour-extreme set (David, 2026-11-25: the checks must work for all
+# 138 teams). Team-colour bugs show at the extremes, so every pull request
+# that changes the page renders these twelve; all 138 run after a merge that
+# changes the look, and on Thursdays in season (decision 0048).
+# Picked from the configs' colours (identity.colors), not by hand. Re-pick
+# when a team's palette changes enough to leave its extreme.
+notre-dame        # the proof of concept: gold on navy
+ohio-state        # the second proof: scarlet on charcoal, the darkest accent
+memphis           # a grey accent (#8E908F): silver on blue
+app-state         # yellow on pure black
+alabama           # a white accent on a crimson ground: red under every light text
+maryland          # yellow on red: a saturated warm ground
+texas             # white on burnt orange: the lightest team surface
+coastal-carolina  # bronze on teal: the lowest accent-to-surface contrast (1.5:1)
+clemson           # orange on purple
+bowling-green     # orange on brown: accent and ground of one hue
+penn-state        # light blue on navy: a pale accent on the most saturated ground
+marshall          # green on black
