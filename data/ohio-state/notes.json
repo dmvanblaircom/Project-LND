@@ -3,13 +3,13 @@
  "team": "ohio-state",
  "capability": "notes",
  "tier": "official",
- "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/11/15/11_Nebraska.pdf",
+ "sourceUrl": "https://ohiostatebuckeyes.com/documents/2026/11/25/12_TUN.pdf",
  "sourceLabel": "ohiostatebuckeyes.com",
- "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/11/15/11_Nebraska.pdf",
+ "pdf": "https://ohiostatebuckeyes.com/documents/download/2026/11/25/12_TUN.pdf",
  "parser": 2,
- "fetchedAt": "2026-11-15T23:39:04.475120+00:00",
- "publishedAt": "2026-11-15",
- "game": "Nebraska",
+ "fetchedAt": "2026-11-25T00:38:56.453370+00:00",
+ "publishedAt": "2026-11-25",
+ "game": "TUN",
  "pronounce": {
   "Jeremiah Smith": "leads all players in",
   "Bennett Christian": "TE",
@@ -156,22 +156,19 @@
    "Fourth-team All-American (Phil Steele)"
   ]
  },
- "glance": [
-  "This marks just the fifth time that Ohio State has played Nebraska in the Day era, holding a 4-0 record.",
-  "The Buckeyes are 10-1-0 all-time against Nebraska, winning the last eight games in the series."
- ],
+ "glance": [],
  "numbers": [
   {
    "n": "100",
-   "text": "Ryan Day has coached 104 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
+   "text": "Ryan Day has coached 105 games at Ohio State and in 100 of them his team has been nationally ranked in the AP Top 10 poll and has been ranked in the Top 5 in 89 of those games."
   },
   {
-   "n": "30",
-   "text": " Under Day’s direction since the start of the 2019 season, Ohio State has 30 road wins which ranks second nationally."
+   "n": "49",
+   "text": " Under Day’s direction since the start of the 2019 season, Ohio State has 49 home wins which leads the country."
   },
   {
-   "n": ".856",
-   "text": "Coach Ryan Day’s win percentage of .856 (89-15) is No. 1 nationally among all Division I head coaches and it is currently No. 3 all-time."
+   "n": ".848",
+   "text": "Coach Ryan Day’s win percentage of .848 (89-16) is No. 2 nationally among all Division I head coaches and it is currently No. 5 all-time."
   }
  ]
 }
