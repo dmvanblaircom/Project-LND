@@ -21,6 +21,8 @@
      TEAMS=notre-dame,ohio-state    these
      TEAMS=all                      all 138 (the full run, decision 0048)
      default                        the colour extremes, tools/teamsets/extremes.txt
+     TEAM_EXTRA=indiana             and these (a pull request's edited teams,
+                                    from tools/select-checks.js)
      TEAM_SHARD=2/4                 the second quarter of them
 
    Usage: node tools/teamcheck.js     (exit 1 on failure) */
@@ -34,6 +36,9 @@ function teams() {
     .map(function (f) { return f.replace(/\.js$/, ""); }).sort();
   var list = process.env.TEAMS === "all" ? all : process.env.TEAMS ? process.env.TEAMS.split(",")
     : fs.readFileSync(path.join(root, "tools", "teamsets", "extremes.txt"), "utf8").replace(/#.*/g, "").split(/\s+/).filter(Boolean);
+  if (!process.env.TEAMS && process.env.TEAM_EXTRA) process.env.TEAM_EXTRA.split(",").forEach(function (t) {
+    t = t.trim(); if (t && all.indexOf(t) !== -1 && list.indexOf(t) === -1) list.push(t);
+  });
   if (process.env.TEAM_SHARD) {
     var sh = process.env.TEAM_SHARD.split("/").map(Number);
     list = list.filter(function (t, i) { return i % sh[1] === sh[0] - 1; });

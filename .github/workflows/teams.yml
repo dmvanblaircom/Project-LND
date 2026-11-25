@@ -14,7 +14,7 @@ name: All teams
 on:
   push:
     branches: [main]
-    paths: ["app.css", "index.html", "suite/**", "teamos/**", "leagues/**", "assets/**", "teams/**", "tools/teamcheck.js", "tools/lib/stage.js", "tools/a11yaudit.js"]
+    paths: ["app.css", "app.js", "index.html", "suite/**", "teamos/**", "leagues/**", "assets/**", "teams/**", "tools/teamcheck.js", "tools/lib/stage.js", "tools/a11yaudit.js"]
   schedule:
     - cron: "37 13 * 8-12,1 4"     # Thursdays 8:37 a.m. Eastern (EST), August to January
   workflow_dispatch:
