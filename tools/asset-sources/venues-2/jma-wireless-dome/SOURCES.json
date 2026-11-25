@@ -1,0 +1,35 @@
+{
+  "venue": "jma-wireless-dome",
+  "images": [
+    {
+      "role": "primary",
+      "file": "Scoreboard_in_JMA_Wireless_Dome_02.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scoreboard_in_JMA_Wireless_Dome_02.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Scoreboard_in_JMA_Wireless_Dome_02.jpg",
+      "width": 8160,
+      "height": 4592,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kiran891",
+      "credit_line": "\"Scoreboard in JMA Wireless Dome 02.jpg\" by Kiran891, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2024-09-20 19:14:38",
+      "shot": "indoor",
+      "note": "Sideline view across the field to the far-side stands under the 2022 fixed roof and centre-hung JMA board, Syracuse vs Stanford 2024; packed crowd in roughly y 2900-4000 across full width, turf y 3900-4592, roof and board fill the top ~60%; a few spectators' heads (backs, unidentifiable) bottom-left."
+    },
+    {
+      "role": "runner-up",
+      "file": "Scoreboard_in_JMA_Wireless_Dome_01.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scoreboard_in_JMA_Wireless_Dome_01.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Scoreboard_in_JMA_Wireless_Dome_01.jpg",
+      "width": 5332,
+      "height": 3000,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kiran891",
+      "credit_line": "\"Scoreboard in JMA Wireless Dome 01.jpg\" by Kiran891, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2024-09-20 19:14:32",
+      "shot": "indoor",
+      "note": "Wider sideline view under the new roof with red SYRACUSE centre-hung board, Syracuse vs Stanford 2024; crowd band roughly y 1800-2500 across full width, field y 2450-3000, roof top ~55%."
+    }
+  ]
+}
