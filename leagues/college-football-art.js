@@ -36,15 +36,15 @@ var TEAM_ART = (function (W) { return {
     },
     // the stand-in: blurred and darkened into the file, so no fan could place it
     neutral: {
-      label: "Stadium (blurred)",
+      label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
              credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
                        url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045855126).jpg",
-                       changes: "cropped, blurred, darkened, resized" } },
+                       changes: "cropped, softened, darkened, resized" } },
       night: { path: "assets/venues/neutral/night-{w}.webp", widths: W,
                credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
                          url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045985644).jpg",
-                         changes: "cropped, blurred, darkened, resized" } }
+                         changes: "cropped, softened, darkened, resized" } }
     }
   }
 }; })([800, 1280, 1920]);
