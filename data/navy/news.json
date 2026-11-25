@@ -1,7 +1,16 @@
 {
  "team": "navy",
- "updated": "2026-11-25T20:05:32.776373+00:00",
+ "updated": "2026-11-25T22:08:01.782957+00:00",
  "items": [
+  {
+   "title": "The Memphis Debrief",
+   "link": "https://on3.com/sites/the-mid-report/news/the-memphis-debrief-2/",
+   "source": "The Mid Report",
+   "summary": "I\u2019m pretty sure most of you who read these debriefs know that I don\u2019t live in Annapolis. In case you aren\u2019t already aware, I live in Florida. So when I come up for football Saturdays, I\u2019m not just there for the game. I also want to see all my friends. The problem is that I [&#8230;]",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/23154354/DSC_2134-e1795644226423.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T22:04:51+00:00"
+  },
   {
    "title": "Jackson Gutierrez and Hunter Gennicks Named NAAA Co-Athletes of the Week Presented by USAA",
    "link": "https://navysports.com/news/2026/11/25/football-jackson-gutierrez-and-hunter-gennicks-named-naaa-co-athletes-of-the-week-presented-by-usaa.aspx",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07205539/DSC_1029.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T03:24:35+00:00"
-  },
-  {
-   "title": "The Temple Preview",
-   "link": "https://on3.com/sites/the-mid-report/news/the-temple-preview-3/",
-   "source": "The Mid Report",
-   "summary": "Last week, Navy lost to Notre Dame, 35-13. How you view that game depends on what you\u2019re looking for. Are you encouraged by how the Mids controlled the first half? Or do you see it as another Notre Dame blowout loss in a long history of such losses? Do you like how the offense ran [&#8230;]",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/19082720/Temple-afi-hookly-3.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-06T01:02:34+00:00"
   }
  ]
 }

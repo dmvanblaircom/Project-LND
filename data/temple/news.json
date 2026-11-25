@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-24T13:38:01.341942+00:00",
+ "updated": "2026-11-25T22:08:06.566504+00:00",
  "items": [
+  {
+   "title": "The Scoop: S12, E17 - Stuffed with questions, starved for answers",
+   "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e17-stuffed-with-questions-starved-for-answers/",
+   "source": "OwlScoop",
+   "summary": "After football's loss to Rice and men's basketball's two ugly losses at the Paradise Jam, we responded with a mailbag-heavy podcast to answer fans' questions about what lies ahead for both programs.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/01/14154822/Adam-Fisher.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-25T21:56:22+00:00"
+  },
   {
    "title": "Owls in the NFL - Week 11",
    "link": "https://owlsports.com/news/2026/11/24/football-owls-in-the-nfl-week-11",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07202510/Untitled-Design-3-4.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T02:29:15+00:00"
-  },
-  {
-   "title": "Gameday preview: Temple at Navy",
-   "link": "https://on3.com/sites/owl-scoop/news/gameday-preview-temple-at-navy/",
-   "source": "OwlScoop",
-   "summary": "The Owls are looking to snap a three-game losing streak Saturday in Annapolis.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/06202246/JoJo-Bermudez.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-07T05:00:00+00:00"
   }
  ]
 }
