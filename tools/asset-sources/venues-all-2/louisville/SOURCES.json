@@ -1,0 +1,33 @@
+{
+  "team_slug": "louisville",
+  "venue": "L&N Federal Credit Union Stadium",
+  "summary": "Night bowl view of the current stadium (2018). No qualifying daytime elevated photo.",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:CardinalStadiumUL7.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/CardinalStadiumUL7.jpg",
+      "width": 2400,
+      "height": 1186,
+      "original_width": 7342,
+      "original_height": 3628,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Nolanwebb",
+      "credit_line": "Photo: Nolanwebb, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2018,
+      "day_or_night": "night",
+      "note": "Night game 2018 (after the north end zone enclosure), from the upper rows of the lower bowl behind the south end zone looking down the length of the field; field rows ~450-1030 of 1186 (38-87%), full stands wrap both sides rows ~100-450, dark sky and lights top ~10%; fans' heads along the bottom edge"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:2013_Louisville_-_Eastern_Kentucky_-_Stadium_entrance.jpg (CC BY 2.0, 3000px)",
+      "why": "2013 field-level shot of flag runners: field fills the bottom, stands the top; not elevated"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Ladd%E2%80%93Peebles_Stadium,_2003_GMAC_Bowl,_Louisville_Cardinals_vs_Miami_RedHawks.jpg (CC BY-SA 3.0, 1600px)",
+      "why": "2003 low sideline night view of the pre-expansion stadium, 1600x1200"
+    }
+  ]
+}

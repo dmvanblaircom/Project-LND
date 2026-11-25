@@ -1,0 +1,33 @@
+{
+  "team_slug": "kent-state",
+  "venue": "Zoeller Field at Dix Stadium",
+  "summary": "Elevated 2008 game-day sideline view; no qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:DixStadium084.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/DixStadium084.JPG",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 2576,
+      "original_height": 1932,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "JonRidinger",
+      "credit_line": "Photo: JonRidinger, CC BY 3.0, via Wikimedia Commons",
+      "year": 2008,
+      "day_or_night": "day",
+      "note": "Elevated west-stands sideline view across to the east stands during a 2008 game; field rows ~530-1180 of 1800 (30-65%), east stands rows ~200-530, sky/trees in the top ~11%; spectators (one woman with raised arm) fill the bottom third, under the fade. Stadium structure unchanged since; turf and branding have been updated"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Dix_Stadium_East_Stands.JPG (CC BY 3.0, 2292px)",
+      "why": "2006 night from the west stands: field only in rows ~62-95%, top 45% is black sky with two light towers"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:DixStadium086.JPG (CC BY 3.0, 2576px)",
+      "why": "2008 elevated corner view, but large foreground heads in the lower half and field to the right"
+    }
+  ]
+}

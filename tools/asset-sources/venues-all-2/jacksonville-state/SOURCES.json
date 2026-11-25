@@ -1,0 +1,29 @@
+{
+  "team_slug": "jacksonville-state",
+  "venue": "AmFirst Stadium (Burgess-Snow Field)",
+  "summary": "Only two interior photos exist (2015, empty). Using the elevated midfield one; no game-day or night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Burgess%E2%80%93Snow_Field_at_AmFirst_Stadium_-_panoramio.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Burgess%E2%80%93Snow_Field_at_AmFirst_Stadium_-_panoramio.jpg",
+      "width": 2400,
+      "height": 1600,
+      "original_width": 3456,
+      "original_height": 2304,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Thomson M",
+      "credit_line": "Photo: Thomson M, CC BY 3.0, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "day",
+      "note": "Elevated view from the east stands straight across the 50-yard line to the west grandstand and press box, empty stadium (no crowd), overcast 2015; field rows ~800-1250 of 1600 (50-78%), west stands rows ~240-800, sky top ~15%, empty red seats in the bottom ~20%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Burgess%E2%80%93Snow_Field_at_AmFirst_Stadium,_September_2015.jpg (CC0, 3456px)",
+      "why": "Same day, from the southeast corner at ground level; tree and landscaping fill the left and bottom"
+    }
+  ]
+}

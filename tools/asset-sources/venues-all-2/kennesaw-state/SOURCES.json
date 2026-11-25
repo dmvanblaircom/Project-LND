@@ -1,0 +1,33 @@
+{
+  "team_slug": "kennesaw-state",
+  "venue": "Fifth Third Stadium (Walens Family Field)",
+  "summary": "Only low lower-stands views exist; best is a 2024 dusk game-day shot with the field in the lower-middle. No elevated upper-deck view on Commons.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Fifth_Third_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Fifth_Third_Stadium.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "BullDawg2021",
+      "credit_line": "Photo: BullDawg2021, CC BY 4.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "Low elevation, lower-stands sideline view across to the far (press box) side at dusk, 2024 game day; field rows ~1000-1600 of 1800 (55-88%), far stands rows ~650-1000, sky in the top ~35%; spectators in the bottom ~12%. Low viewpoint: field sits low in the frame"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Fifth_Third_Stadium_at_Night.jpg (CC BY 4.0, 4032px)",
+      "why": "2024 night, same low lower-stands viewpoint after a field rush: field covered by people, strong light glare in the top 40%, a fan in the foreground"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Fifth_Third_Bank_Stadium,_Kennesaw_State_University.JPG (CC0, 3456px)",
+      "why": "2015 empty stadium from a concourse at field level behind a railing; railing fills the bottom, sky the top"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "team_slug": "liberty",
+  "venue": "Williams Stadium (Lynchburg, VA)",
+  "summary": "Elevated corner view of the current stadium (2018), not a full game-day crowd. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Williams_Stadium_Field.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Williams_Stadium_Field.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Gregory Koch",
+      "credit_line": "Photo: Gregory Koch, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "Elevated corner view from the south end-zone berm/stands toward the west grandstand and press box, pre-game warmups, stadium nearly empty, overcast 2018; field rows ~720-1400 of 1800 (40-78%), west stands and video board rows ~150-720, sky top ~10%, grass berm in the bottom ~20%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Williams_Stadium_(Liberty_University).jpg (CC BY 4.0, 5128px)",
+      "why": "2026 drone high oblique aerial; field rows ~40-65%, mostly exterior and campus"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Williams_Stadium.JPG (CC BY-SA 3.0, 2048px)",
+      "why": "2010 field-level sideline: stands fill the top, field is the bottom strip; 2048px, pre-expansion"
+    }
+  ]
+}

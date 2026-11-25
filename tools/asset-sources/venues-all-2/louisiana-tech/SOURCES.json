@@ -1,0 +1,33 @@
+{
+  "team_slug": "louisiana-tech",
+  "venue": "Joe Aillet Stadium",
+  "summary": "Only elevated game-day image is a 2015 wide panorama, 612 px tall (low vertical resolution). Alternative: 2026 drone aerial. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Bulldogs,_Ruston,_Louisiana.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Joe_Aillet_Stadium%2C_Louisiana_Tech_Bulldogs%2C_Ruston%2C_Louisiana.jpg",
+      "width": 1775,
+      "height": 612,
+      "original_width": 1775,
+      "original_height": 612,
+      "license_short_name": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "author": "AllisonFoley",
+      "credit_line": "Photo: AllisonFoley, Public domain, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "day",
+      "note": "Wide panorama (1775x612, short height: will need upscaling for a tall crop) from the upper rows of the west stands during a 2015 game, full crowd; field rows ~170-400 of 612 (28-65%), east stands and trees rows ~20-170, fans' heads and some faces in the bottom ~35%, under the fade"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Football.jpg (CC BY 4.0, 10534px)",
+      "why": "2026 drone high oblique aerial of the current stadium (west-side work under way), field rows ~35-60%; aerial, so kept as fallback only"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_End_Zone.jpg (CC BY-SA 4.0, 3989px)",
+      "why": "2022 field-level end-zone view of the empty stadium; field is a strip at the bottom, sky fills the top half"
+    }
+  ]
+}

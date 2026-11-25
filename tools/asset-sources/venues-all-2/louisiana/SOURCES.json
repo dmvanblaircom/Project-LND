@@ -1,0 +1,33 @@
+{
+  "team_slug": "louisiana",
+  "venue": "Our Lady of Lourdes Stadium (Cajun Field)",
+  "summary": "Best elevated game-day view is from 2009, taken from the west side looking at the unchanged east stands; no post-renovation (2025) interior photo exists. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UL_set.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/UL_set.JPG",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 3648,
+      "original_height": 2736,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Jcarriere (talk)",
+      "credit_line": "Photo: Jcarriere (talk), CC BY 3.0, via Wikimedia Commons",
+      "year": 2009,
+      "day_or_night": "day",
+      "note": "Elevated west-side (press box level) view straight across the 50 to the east stands, 2009 game with full crowd and the band on the field; field rows ~520-1530 of 1800 (29-85%), crowded east stands rows 0-520, home fans' backs in the bottom ~15%. Pre-2024/25 renovation photo: the renovation rebuilt the west side (behind the camera) and north end; the east stands shown are unchanged, field graphics have changed"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Cajun_Field_at_Our_Lady_of_Lourdes_Stadium_Panorama.jpg (CC BY-SA 4.0, 3676px)",
+      "why": "Current-era (Sept 2024) elevated corner panorama, empty stadium, field rows ~55-80%, sky fills the top 45%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Cajun_Field_at_Our_Lady_of_Lourdes_Stadium_Away_Stands.jpg (CC BY-SA 4.0, 3775px)",
+      "why": "Sept 2024 view of the away (east) stands from a low corner, empty; sky top 40%"
+    }
+  ]
+}

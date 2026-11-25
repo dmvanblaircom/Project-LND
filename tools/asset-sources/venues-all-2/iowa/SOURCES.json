@@ -1,0 +1,37 @@
+{
+  "team_slug": "iowa",
+  "venue": "Kinnick Stadium",
+  "summary": "Day photo is a tight elevated sideline game view (field fills frame). No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Iowa_vs._Western_Michigan_2007.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Iowa_vs._Western_Michigan_2007.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 3072,
+      "original_height": 2304,
+      "license_short_name": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "author": "CrdHwk",
+      "credit_line": "Photo: CrdHwk, Public domain, via Wikimedia Commons",
+      "year": 2007,
+      "day_or_night": "day",
+      "note": "Elevated lower-deck sideline view (telephoto) during a game; field fills rows ~350-1800 of 1800 (from ~20% down to the bottom), crowd and team bench in rows 0-350; no bowl visible. Pre-2019 north end zone rebuild, but this sideline is unchanged"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Flyover_at_the_Crossover_at_Kinnick_(8075453).jpg (Public domain, 6000px)",
+      "why": "Best elevated bowl view of current (post-2019) Kinnick, crowd, but a basketball court sits on the field (2023 Crossover at Kinnick) and the field is in the lower half (rows ~50-90%)"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Kinnick_Night.jpg (CC BY-SA 3.0, 3072px)",
+      "why": "Night 2007 from lower-deck stands; field only in rows ~55-85%, top dominated by a light flare and sky; does not meet the upper-middle field rule"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Mezzanine,_North_End_Zone..jpg (CC BY-SA 4.0, 4928px)",
+      "why": "2019 view from under the north end zone overhang: top 40% is dark ceiling, foreground silhouettes"
+    }
+  ]
+}

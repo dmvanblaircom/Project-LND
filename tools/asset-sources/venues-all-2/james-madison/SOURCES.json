@@ -1,0 +1,37 @@
+{
+  "team_slug": "james-madison",
+  "venue": "Bridgeforth Stadium",
+  "summary": "Upper-deck sideline photo of the post-2011 (current) stadium at twilight. No separate qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Marching_Royal_Dukes_on_the_Field.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Marching_Royal_Dukes_on_the_Field.jpg",
+      "width": 2400,
+      "height": 1167,
+      "original_width": 4032,
+      "original_height": 1960,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Datalore47",
+      "credit_line": "Photo: Datalore47, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2017,
+      "day_or_night": "day",
+      "note": "Upper-deck west sideline looking across at the east stands, twilight with lights on, band on field; field rows ~470-1050 of 1167 (40-90%), far stands rows ~90-470, dark sky above; foreground spectators in the bottom ~10%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Bridgeforth_Stadium_-_James_Madison_University.jpg (CC BY 4.0, 12800px)",
+      "why": "2026 drone high oblique aerial of the current bowl; field in lower-middle (rows ~45-85%), aerial so used only as fallback"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:JMU_RVA_2019.jpg (CC BY-SA 4.0, 4032px)",
+      "why": "2019 field-level sideline; field is a thin strip at the bottom, sky fills the top"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Bridgeforth_Panorama.JPEG (CC BY-SA 3.0, 5120px)",
+      "why": "2012 panorama from upper deck but very wide 5120x1440 strip, foreground fans fill the left half"
+    }
+  ]
+}

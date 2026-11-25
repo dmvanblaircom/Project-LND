@@ -1,0 +1,33 @@
+{
+  "team_slug": "kansas",
+  "venue": "David Booth Kansas Memorial Stadium",
+  "summary": "The stadium was rebuilt in 2024-25; no elevated interior photo of the renovated stadium is on Commons yet. The only current-form image is a high oblique drone aerial (marked last resort).",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:David_Booth_Memorial_Stadium_-_August_2025.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/David_Booth_Memorial_Stadium_-_August_2025.jpg",
+      "width": 2400,
+      "height": 1350,
+      "original_width": 4032,
+      "original_height": 2268,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kuwxman",
+      "credit_line": "Photo: Kuwxman, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2025,
+      "day_or_night": "day",
+      "note": "LAST RESORT - high oblique drone aerial (not a stands view) of the renovated stadium, Aug 2025, empty, no crowd: new north end zone and west stands with field in rows ~160-830 of 1350 (12-60%), lawn, exterior and practice field fill the lower half"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:David_Booth_Kansas_Memorial_Stadium_a_week_before_demolition_2023.jpg (CC BY 4.0, 5191px)",
+      "why": "Elevated interior from the press box, but taken Nov 2023 a week before demolition: pre-renovation stadium, no longer its current form"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Inside_%22Booth%22_Kansas_Memorial_Stadium_a_week_before_demolition_2023.jpg (CC BY 4.0, 7910px)",
+      "why": "Same Nov 2023 pre-demolition upper-deck view; old stadium"
+    }
+  ]
+}

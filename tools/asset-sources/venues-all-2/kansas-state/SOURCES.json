@@ -1,0 +1,33 @@
+{
+  "team_slug": "kansas-state",
+  "venue": "Bill Snyder Family Stadium",
+  "summary": "",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:BSFS_from_Vanier_to_the_Shamrock_zone.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/BSFS_from_Vanier_to_the_Shamrock_zone.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 5462,
+      "original_height": 4096,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ksuwildkat",
+      "credit_line": "Photo: Ksuwildkat, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2025,
+      "day_or_night": "day",
+      "note": "Elevated lower-bowl corner view from the north end (Vanier complex side) toward the south end zone, 2025 game with full crowd; field rows ~1200-1720 of 1800 (67-96%), full stands and press box rows ~600-1200, sky in the top ~33%; railing and a fan in the lower-left foreground. Field sits low: needs a downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Stripe_out_Game_at_Bill_Snyder_Family_Stadium_01.jpg (CC BY 4.0, 2048px)",
+      "why": "2025 night drone aerial over the stadium under lights (field rows ~35-80%); aerial, so not used as the night photo"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Bill_Snyder_Stadium.JPG (Public domain, 2256px)",
+      "why": "Press-box/upper view of an empty stadium before the 2013 west-side rebuild; field only in rows ~70-95%"
+    }
+  ]
+}
