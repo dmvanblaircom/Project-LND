@@ -359,7 +359,12 @@ function fixture(url) {
       }
       (function f() {
         var l = document.getElementById("launch"), cs = l && getComputedStyle(l);
-        if (!l && !document.body) { requestAnimationFrame(f); return; }
+        // while the document is still being parsed, a launch not yet parsed is
+        // not a launch gone: on a slow runner a frame can land after <body>
+        // opens and before the launch element arrives, and read as uncovered
+        // (CI on #279, 2026-11-25: "the reloaded page carries the same launch
+        // on" saw 0.00 first)
+        if (!l && (!document.body || document.readyState === "loading")) { requestAnimationFrame(f); return; }
         var cover = l && cs.display !== "none" && cs.visibility === "visible" ? (+cs.opacity).toFixed(2) : "0.00";
         if (cover !== prev) { console.log("LF|" + doc + "|" + cover); prev = cover; }
         if (Date.now() - t0 < 20000) requestAnimationFrame(f);
