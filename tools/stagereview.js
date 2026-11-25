@@ -188,6 +188,9 @@ var STYLES = (process.env.STAGE_STYLES || "team,suite").split(",");
         // team's colour (2026-11-21: the drive field's own end zone went white)
         var hits = await page.evaluate(function () {
           var ink = getComputedStyle(document.querySelector("#screenHome:not([hidden]),#screenGame:not([hidden])") || document.body).getPropertyValue("--t-surface").trim();
+          // only a screen that redefines --t-surface as its ink can paint it
+          // as a ground by mistake (decision 0047 took the dark body away)
+          if (ink === getComputedStyle(document.documentElement).getPropertyValue("--t-surface").trim()) return [];
           var probe = document.createElement("i"); probe.style.color = ink; document.body.appendChild(probe);
           var rgb = getComputedStyle(probe).color; probe.remove();
           var out = [];

@@ -5,7 +5,9 @@
    field's own end zone went white and its "ND" disappeared, and no check saw
    it. This renders the real screens (tools/stagereview.js with STAGE_PROBE)
    across the lifecycle and fails on any element that paints the ink as a
-   background or an SVG fill. */
+   background or an SVG fill. Since decision 0047 (dark top, light body) no
+   screen redefines the token, so this passes trivially; it stays to catch
+   a dark body if one returns. */
 "use strict";
 var spawnSync = require("child_process").spawnSync, path = require("path");
 var root = path.join(__dirname, ".."), out = path.join(root, "artifacts", "darkground"), failed = false;
