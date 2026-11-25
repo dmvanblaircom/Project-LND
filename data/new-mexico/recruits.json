@@ -61,6 +61,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274840",
+   "name": "Landon Harris",
+   "position": "S",
+   "highSchool": "Woodville High School",
+   "city": "Woodville",
+   "state": "TX",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 145,
+   "stateRank": 170,
+   "status": "Verbal"
+  },
+  {
    "id": "262473",
    "name": "Bradley Cassier",
    "position": "QB-PP",
@@ -95,8 +108,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 159,
-   "stateRank": 181,
+   "positionRank": 160,
+   "stateRank": 184,
    "status": "Verbal"
   },
   {
@@ -122,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 133,
-   "stateRank": 245,
+   "stateRank": 247,
    "status": "Verbal"
   },
   {
@@ -134,7 +147,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 175,
+   "positionRank": 176,
    "stateRank": 169,
    "status": "Verbal"
   },
@@ -148,7 +161,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 120,
-   "stateRank": 184,
+   "stateRank": 187,
    "status": "Verbal"
   },
   {
@@ -160,8 +173,8 @@
    "state": "TX",
    "grade": 72,
    "rank": null,
-   "positionRank": 189,
-   "stateRank": 262,
+   "positionRank": 190,
+   "stateRank": 264,
    "status": "Verbal"
   },
   {
@@ -186,7 +199,7 @@
    "state": "NM",
    "grade": 72,
    "rank": null,
-   "positionRank": 126,
+   "positionRank": 127,
    "stateRank": 4,
    "status": "Verbal"
   },
@@ -199,8 +212,8 @@
    "state": "TX",
    "grade": 72,
    "rank": null,
-   "positionRank": 31,
-   "stateRank": 267,
+   "positionRank": 32,
+   "stateRank": 270,
    "status": "Verbal"
   },
   {
@@ -212,7 +225,7 @@
    "state": "AZ",
    "grade": 72,
    "rank": null,
-   "positionRank": 187,
+   "positionRank": 188,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -227,19 +240,6 @@
    "rank": null,
    "positionRank": 87,
    "stateRank": 16,
-   "status": "Verbal"
-  },
-  {
-   "id": "274840",
-   "name": "Landon Harris",
-   "position": "S",
-   "highSchool": "Woodville High School",
-   "city": "Woodville",
-   "state": "TX",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-25T15:13Z"
 }

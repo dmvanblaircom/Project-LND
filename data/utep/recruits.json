@@ -18,7 +18,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 28,
-   "stateRank": 227,
+   "stateRank": 229,
    "status": "Verbal"
   },
   {
@@ -30,8 +30,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 164,
-   "stateRank": 231,
+   "positionRank": 165,
+   "stateRank": 233,
    "status": "Verbal"
   },
   {
@@ -43,8 +43,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 112,
-   "stateRank": 237,
+   "positionRank": 113,
+   "stateRank": 239,
    "status": "Verbal"
   },
   {
@@ -54,10 +54,10 @@
    "highSchool": "Duncanville High School",
    "city": "Duncanville",
    "state": "TX",
-   "grade": 44,
+   "grade": 73,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 101,
+   "stateRank": 219,
    "status": "Verbal"
   },
   {
@@ -67,10 +67,10 @@
    "highSchool": "John H. Guyer High School",
    "city": "Denton",
    "state": "TX",
-   "grade": 43,
+   "grade": 72,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 38,
+   "stateRank": 272,
    "status": "Verbal"
   },
   {
@@ -139,5 +139,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

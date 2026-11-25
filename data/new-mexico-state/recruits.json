@@ -16,7 +16,7 @@
    "city": "Tipp City",
    "state": "OH",
    "grade": 74,
-   "rank": 132,
+   "rank": 140,
    "positionRank": 6,
    "stateRank": 2,
    "status": "Verbal"
@@ -87,5 +87,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:13Z"
 }

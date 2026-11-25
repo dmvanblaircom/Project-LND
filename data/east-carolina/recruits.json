@@ -95,7 +95,7 @@
    "state": "NJ",
    "grade": 75,
    "rank": null,
-   "positionRank": 148,
+   "positionRank": 150,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "SC",
    "grade": 74,
    "rank": null,
-   "positionRank": 216,
+   "positionRank": 217,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -173,8 +173,8 @@
    "state": "NC",
    "grade": 73,
    "rank": null,
-   "positionRank": 192,
-   "stateRank": 52,
+   "positionRank": 195,
+   "stateRank": 53,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "NY",
    "grade": 73,
    "rank": null,
-   "positionRank": 118,
+   "positionRank": 119,
    "stateRank": 14,
    "status": "Verbal"
   },
@@ -199,8 +199,8 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 169,
-   "stateRank": 79,
+   "positionRank": 170,
+   "stateRank": 80,
    "status": "Verbal"
   },
   {
@@ -213,7 +213,20 @@
    "grade": 73,
    "rank": null,
    "positionRank": 70,
-   "stateRank": 50,
+   "stateRank": 51,
+   "status": "Verbal"
+  },
+  {
+   "id": "274487",
+   "name": "Ben LaDue",
+   "position": "K",
+   "highSchool": "Middle Creek High School",
+   "city": "Apex",
+   "state": "NC",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 36,
+   "stateRank": 59,
    "status": "Verbal"
   },
   {
@@ -226,7 +239,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 142,
-   "stateRank": 56,
+   "stateRank": 57,
    "status": "Verbal"
   },
   {
@@ -252,7 +265,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 136,
-   "stateRank": 55,
+   "stateRank": 56,
    "status": "Verbal"
   },
   {
@@ -265,20 +278,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 177,
-   "stateRank": 59,
-   "status": "Verbal"
-  },
-  {
-   "id": "274487",
-   "name": "Ben LaDue",
-   "position": "K",
-   "highSchool": "Middle Creek High School",
-   "city": "Apex",
-   "state": "NC",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "stateRank": 61,
    "status": "Verbal"
   },
   {
@@ -308,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:10Z"
+ "fetchedAt": "2026-11-25T15:10Z"
 }

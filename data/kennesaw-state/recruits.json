@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "338",
  "classYear": 2027,
- "listed": 13,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -22,6 +22,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274560",
+   "name": "Tyran Mosley",
+   "position": "WR",
+   "highSchool": null,
+   "city": "Kosciusko",
+   "state": "MS",
+   "grade": 75,
+   "rank": 43,
+   "positionRank": 4,
+   "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
    "id": "274631",
    "name": "Chris Carbin",
    "position": "DE",
@@ -29,8 +42,8 @@
    "city": "Powder Springs",
    "state": "GA",
    "grade": 74,
-   "rank": 121,
-   "positionRank": 7,
+   "rank": 129,
+   "positionRank": 9,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -43,7 +56,7 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 152,
+   "positionRank": 153,
    "stateRank": 69,
    "status": "Verbal"
   },
@@ -57,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 82,
-   "stateRank": 193,
+   "stateRank": 196,
    "status": "Verbal"
   },
   {
@@ -70,7 +83,20 @@
    "grade": 73,
    "rank": null,
    "positionRank": 77,
-   "stateRank": 192,
+   "stateRank": 195,
+   "status": "Verbal"
+  },
+  {
+   "id": "274564",
+   "name": "Seth Kidd",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Mobile",
+   "state": "AL",
+   "grade": 72,
+   "rank": 206,
+   "positionRank": 17,
+   "stateRank": 14,
    "status": "Verbal"
   },
   {
@@ -82,8 +108,8 @@
    "state": "GA",
    "grade": 72,
    "rank": null,
-   "positionRank": 184,
-   "stateRank": 214,
+   "positionRank": 185,
+   "stateRank": 217,
    "status": "Verbal"
   },
   {
@@ -95,7 +121,7 @@
    "state": "MS",
    "grade": 72,
    "rank": null,
-   "positionRank": 248,
+   "positionRank": 249,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -109,7 +135,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 140,
-   "stateRank": 215,
+   "stateRank": 218,
    "status": "Verbal"
   },
   {
@@ -178,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:40Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

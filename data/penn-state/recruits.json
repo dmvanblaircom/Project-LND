@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "213",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -282,6 +282,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274981",
+   "name": "Nyzier Matthews",
+   "position": "WR",
+   "highSchool": null,
+   "city": "Brick",
+   "state": "NJ",
+   "grade": 74,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "272645",
    "name": "Clayton Powell",
    "position": "LS",
@@ -290,10 +303,10 @@
    "state": "LA",
    "grade": 68,
    "rank": null,
-   "positionRank": 7,
+   "positionRank": 8,
    "stateRank": 63,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

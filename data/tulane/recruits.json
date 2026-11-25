@@ -69,8 +69,8 @@
    "state": "AL",
    "grade": 77,
    "rank": null,
-   "positionRank": 53,
-   "stateRank": 43,
+   "positionRank": 54,
+   "stateRank": 44,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 137,
-   "stateRank": 58,
+   "stateRank": 59,
    "status": "Verbal"
   },
   {
@@ -147,8 +147,8 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 77,
-   "stateRank": 55,
+   "positionRank": 78,
+   "stateRank": 56,
    "status": "Verbal"
   },
   {
@@ -161,7 +161,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 78,
-   "stateRank": 182,
+   "stateRank": 183,
    "status": "Verbal"
   },
   {
@@ -251,7 +251,7 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 151,
+   "positionRank": 153,
    "stateRank": 150,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 105,
+   "positionRank": 106,
    "stateRank": 72,
    "status": "Verbal"
   },
@@ -278,7 +278,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 120,
-   "stateRank": 238,
+   "stateRank": 240,
    "status": "Verbal"
   },
   {
@@ -290,8 +290,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 232,
-   "stateRank": 192,
+   "positionRank": 233,
+   "stateRank": 193,
    "status": "Verbal"
   },
   {
@@ -303,8 +303,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 235,
-   "stateRank": 196,
+   "positionRank": 236,
+   "stateRank": 197,
    "status": "Verbal"
   },
   {
@@ -316,7 +316,7 @@
    "state": "MS",
    "grade": 72,
    "rank": null,
-   "positionRank": 191,
+   "positionRank": 192,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -330,7 +330,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 84,
-   "stateRank": 75,
+   "stateRank": 76,
    "status": "Verbal"
   },
   {
@@ -347,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

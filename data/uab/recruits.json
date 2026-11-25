@@ -30,7 +30,7 @@
    "state": "SC",
    "grade": 75,
    "rank": null,
-   "positionRank": 70,
+   "positionRank": 71,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -43,8 +43,8 @@
    "state": "GA",
    "grade": 74,
    "rank": null,
-   "positionRank": 219,
-   "stateRank": 174,
+   "positionRank": 220,
+   "stateRank": 177,
    "status": "Verbal"
   },
   {
@@ -55,8 +55,8 @@
    "city": "Albany",
    "state": "GA",
    "grade": 73,
-   "rank": 180,
-   "positionRank": 13,
+   "rank": 193,
+   "positionRank": 15,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -69,8 +69,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 179,
-   "stateRank": 183,
+   "positionRank": 181,
+   "stateRank": 186,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 134,
-   "stateRank": 209,
+   "stateRank": 212,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 36,
-   "stateRank": 85,
+   "stateRank": 86,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 70,
    "rank": null,
    "positionRank": 11,
-   "stateRank": 244,
+   "stateRank": 245,
    "status": "Verbal"
   },
   {
@@ -139,5 +139,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

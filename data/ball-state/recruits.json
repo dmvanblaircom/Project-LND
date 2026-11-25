@@ -30,7 +30,7 @@
    "state": "KY",
    "grade": 73,
    "rank": null,
-   "positionRank": 165,
+   "positionRank": 166,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "OH",
    "grade": 72,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 178,
    "stateRank": 82,
    "status": "Verbal"
   },
@@ -165,5 +165,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

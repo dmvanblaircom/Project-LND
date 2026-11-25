@@ -199,7 +199,7 @@
    "state": "IA",
    "grade": 76,
    "rank": null,
-   "positionRank": 56,
+   "positionRank": 57,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -373,5 +373,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

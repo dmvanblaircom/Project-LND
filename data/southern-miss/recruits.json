@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2572",
  "classYear": 2027,
- "listed": 14,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -31,7 +31,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 40,
-   "stateRank": 44,
+   "stateRank": 45,
    "status": "Verbal"
   },
   {
@@ -42,7 +42,7 @@
    "city": "Starkville",
    "state": "MS",
    "grade": 74,
-   "rank": 104,
+   "rank": 110,
    "positionRank": 2,
    "stateRank": 12,
    "status": "Verbal"
@@ -55,9 +55,61 @@
    "city": "Carriere",
    "state": "MS",
    "grade": 74,
-   "rank": 114,
+   "rank": 121,
    "positionRank": 10,
    "stateRank": 14,
+   "status": "Verbal"
+  },
+  {
+   "id": "274986",
+   "name": "Narco Dunn",
+   "position": "ILB",
+   "highSchool": null,
+   "city": "New Orleans",
+   "state": "LA",
+   "grade": 74,
+   "rank": 124,
+   "positionRank": 7,
+   "stateRank": 6,
+   "status": "Verbal"
+  },
+  {
+   "id": "274822",
+   "name": "Jayden O'Hara",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Pearl",
+   "state": "MS",
+   "grade": 73,
+   "rank": 174,
+   "positionRank": 7,
+   "stateRank": 26,
+   "status": "Verbal"
+  },
+  {
+   "id": "274969",
+   "name": "Andrew Cotton",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Philadelphia",
+   "state": "MS",
+   "grade": 73,
+   "rank": 201,
+   "positionRank": 8,
+   "stateRank": 31,
+   "status": "Verbal"
+  },
+  {
+   "id": "274776",
+   "name": "Antonio Ross",
+   "position": "OG",
+   "highSchool": null,
+   "city": "Summit",
+   "state": "MS",
+   "grade": 73,
+   "rank": 203,
+   "positionRank": 9,
+   "stateRank": 32,
    "status": "Verbal"
   },
   {
@@ -69,7 +121,7 @@
    "state": "LA",
    "grade": 72,
    "rank": null,
-   "positionRank": 182,
+   "positionRank": 183,
    "stateRank": 57,
    "status": "Verbal"
   },
@@ -82,7 +134,7 @@
    "state": "MS",
    "grade": 72,
    "rank": null,
-   "positionRank": 197,
+   "positionRank": 198,
    "stateRank": 48,
    "status": "Verbal"
   },
@@ -108,7 +160,7 @@
    "state": "MS",
    "grade": 71,
    "rank": null,
-   "positionRank": 151,
+   "positionRank": 152,
    "stateRank": 49,
    "status": "Verbal"
   },
@@ -122,7 +174,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 105,
-   "stateRank": 272,
+   "stateRank": 276,
    "status": "Verbal"
   },
   {
@@ -150,46 +202,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274776",
-   "name": "Antonio Ross",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Summit",
-   "state": "MS",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "274822",
-   "name": "Jayden O'Hara",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Pearl",
-   "state": "MS",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "274969",
-   "name": "Andrew Cotton",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Philadelphia",
-   "state": "MS",
-   "grade": 4,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:42Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

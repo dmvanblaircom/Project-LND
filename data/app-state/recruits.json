@@ -70,7 +70,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 128,
-   "stateRank": 150,
+   "stateRank": 151,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 196,
-   "stateRank": 60,
+   "stateRank": 61,
    "status": "Verbal"
   },
   {
@@ -107,9 +107,9 @@
    "city": "Lewisville",
    "state": "TX",
    "grade": 74,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
+   "rank": 142,
+   "positionRank": 10,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -121,8 +121,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 221,
-   "stateRank": 179,
+   "positionRank": 222,
+   "stateRank": 180,
    "status": "Verbal"
   },
   {
@@ -134,8 +134,8 @@
    "state": "GA",
    "grade": 74,
    "rank": null,
-   "positionRank": 150,
-   "stateRank": 176,
+   "positionRank": 151,
+   "stateRank": 179,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 133,
-   "stateRank": 203,
+   "stateRank": 206,
    "status": "Verbal"
   },
   {
@@ -160,7 +160,7 @@
    "state": "PA",
    "grade": 73,
    "rank": null,
-   "positionRank": 124,
+   "positionRank": 125,
    "stateRank": 44,
    "status": "Verbal"
   },
@@ -187,7 +187,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 78,
-   "stateRank": 78,
+   "stateRank": 79,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "SC",
    "grade": 72,
    "rank": null,
-   "positionRank": 203,
+   "positionRank": 206,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -213,7 +213,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 144,
-   "stateRank": 57,
+   "stateRank": 58,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:39Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

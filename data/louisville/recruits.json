@@ -237,8 +237,8 @@
    "city": "Rock Hill",
    "state": "SC",
    "grade": 75,
-   "rank": 44,
-   "positionRank": 5,
+   "rank": 49,
+   "positionRank": 6,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "KY",
    "grade": 73,
    "rank": null,
-   "positionRank": 103,
+   "positionRank": 104,
    "stateRank": 23,
    "status": "Verbal"
   },
@@ -264,10 +264,10 @@
    "state": "KY",
    "grade": 73,
    "rank": null,
-   "positionRank": 122,
+   "positionRank": 123,
    "stateRank": 28,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

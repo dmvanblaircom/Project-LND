@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "6",
  "classYear": 2027,
- "listed": 26,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -22,6 +22,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274985",
+   "name": "Brandon White",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Hattiesburg",
+   "state": "MS",
+   "grade": 74,
+   "rank": 151,
+   "positionRank": 12,
+   "stateRank": 22,
+   "status": "Verbal"
+  },
+  {
    "id": "274562",
    "name": "Tyler Jenkins",
    "position": "DE",
@@ -29,9 +42,9 @@
    "city": "Pearl",
    "state": "MS",
    "grade": 73,
-   "rank": 176,
-   "positionRank": 9,
-   "stateRank": 25,
+   "rank": 189,
+   "positionRank": 13,
+   "stateRank": 28,
    "status": "Verbal"
   },
   {
@@ -43,8 +56,8 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 244,
-   "stateRank": 83,
+   "positionRank": 245,
+   "stateRank": 84,
    "status": "Verbal"
   },
   {
@@ -57,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 130,
-   "stateRank": 202,
+   "stateRank": 203,
    "status": "Verbal"
   },
   {
@@ -69,7 +82,7 @@
    "state": "LA",
    "grade": 73,
    "rank": null,
-   "positionRank": 242,
+   "positionRank": 243,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -82,8 +95,8 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 121,
-   "stateRank": 81,
+   "positionRank": 122,
+   "stateRank": 82,
    "status": "Verbal"
   },
   {
@@ -95,8 +108,8 @@
    "state": "AL",
    "grade": 72,
    "rank": null,
-   "positionRank": 246,
-   "stateRank": 84,
+   "positionRank": 247,
+   "stateRank": 85,
    "status": "Verbal"
   },
   {
@@ -109,7 +122,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 95,
-   "stateRank": 87,
+   "stateRank": 88,
    "status": "Verbal"
   },
   {
@@ -121,7 +134,7 @@
    "state": "LA",
    "grade": 72,
    "rank": null,
-   "positionRank": 128,
+   "positionRank": 129,
    "stateRank": 59,
    "status": "Verbal"
   },
@@ -135,7 +148,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 141,
-   "stateRank": 222,
+   "stateRank": 223,
    "status": "Verbal"
   },
   {
@@ -147,7 +160,7 @@
    "state": "LA",
    "grade": 71,
    "rank": null,
-   "positionRank": 181,
+   "positionRank": 182,
    "stateRank": 61,
    "status": "Verbal"
   },
@@ -160,8 +173,8 @@
    "state": "GA",
    "grade": 71,
    "rank": null,
-   "positionRank": 198,
-   "stateRank": 233,
+   "positionRank": 199,
+   "stateRank": 237,
    "status": "Verbal"
   },
   {
@@ -347,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

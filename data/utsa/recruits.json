@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2636",
  "classYear": 2027,
- "listed": 17,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -57,7 +57,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 131,
-   "stateRank": 172,
+   "stateRank": 173,
    "status": "Verbal"
   },
   {
@@ -70,7 +70,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 98,
-   "stateRank": 213,
+   "stateRank": 214,
    "status": "Verbal"
   },
   {
@@ -82,8 +82,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 26,
-   "stateRank": 242,
+   "positionRank": 27,
+   "stateRank": 244,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 124,
-   "stateRank": 226,
+   "stateRank": 228,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 127,
-   "stateRank": 235,
+   "stateRank": 237,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 120,
-   "stateRank": 216,
+   "stateRank": 217,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 127,
-   "stateRank": 247,
+   "stateRank": 249,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 76,
-   "stateRank": 217,
+   "stateRank": 218,
    "status": "Verbal"
   },
   {
@@ -161,20 +161,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 33,
-   "stateRank": 255,
-   "status": "Verbal"
-  },
-  {
-   "id": "273402",
-   "name": "Nolan Carpenter",
-   "position": "DE",
-   "highSchool": "Montgomery High School",
-   "city": "Montgomery",
-   "state": "TX",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 161,
-   "stateRank": 223,
+   "stateRank": 257,
    "status": "Verbal"
   },
   {
@@ -186,8 +173,8 @@
    "state": "TX",
    "grade": 73,
    "rank": null,
-   "positionRank": 180,
-   "stateRank": 230,
+   "positionRank": 182,
+   "stateRank": 232,
    "status": "Verbal"
   },
   {
@@ -200,7 +187,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 169,
-   "stateRank": 260,
+   "stateRank": 262,
    "status": "Verbal"
   },
   {
@@ -230,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

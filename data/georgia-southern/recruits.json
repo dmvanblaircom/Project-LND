@@ -31,7 +31,20 @@
    "grade": 75,
    "rank": null,
    "positionRank": 192,
-   "stateRank": 156,
+   "stateRank": 157,
+   "status": "Verbal"
+  },
+  {
+   "id": "274736",
+   "name": "Jamarian Clark",
+   "position": "WR",
+   "highSchool": "The Villages Charter High School",
+   "city": "The Villages",
+   "state": "FL",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 208,
+   "stateRank": 159,
    "status": "Verbal"
   },
   {
@@ -44,7 +57,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 111,
-   "stateRank": 169,
+   "stateRank": 170,
    "status": "Verbal"
   },
   {
@@ -57,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 74,
-   "stateRank": 201,
+   "stateRank": 204,
    "status": "Verbal"
   },
   {
@@ -69,8 +82,21 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 183,
-   "stateRank": 188,
+   "positionRank": 186,
+   "stateRank": 191,
+   "status": "Verbal"
+  },
+  {
+   "id": "272894",
+   "name": "Qualteau Hawkins",
+   "position": "TE-Y",
+   "highSchool": "Stuart W. Cramer High School",
+   "city": "Cramerton",
+   "state": "NC",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 23,
+   "stateRank": 48,
    "status": "Verbal"
   },
   {
@@ -83,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 32,
-   "stateRank": 205,
+   "stateRank": 206,
    "status": "Verbal"
   },
   {
@@ -94,35 +120,9 @@
    "city": "Stockbridge",
    "state": "GA",
    "grade": 72,
-   "rank": 189,
-   "positionRank": 6,
+   "rank": 204,
+   "positionRank": 10,
    "stateRank": 18,
-   "status": "Verbal"
-  },
-  {
-   "id": "274736",
-   "name": "Jamarian Clark",
-   "position": "WR",
-   "highSchool": "The Villages Charter High School",
-   "city": "The Villages",
-   "state": "FL",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "272894",
-   "name": "Qualteau Hawkins",
-   "position": "TE-Y",
-   "highSchool": "Stuart W. Cramer High School",
-   "city": "Cramerton",
-   "state": "NC",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

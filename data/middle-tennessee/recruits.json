@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2393",
  "classYear": 2027,
- "listed": 9,
+ "listed": 10,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -17,8 +17,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 29,
-   "stateRank": 211,
+   "positionRank": 30,
+   "stateRank": 214,
    "status": "Verbal"
   },
   {
@@ -30,8 +30,21 @@
    "state": "TN",
    "grade": 73,
    "rank": null,
-   "positionRank": 226,
+   "positionRank": 227,
    "stateRank": 63,
+   "status": "Verbal"
+  },
+  {
+   "id": "274827",
+   "name": "Xavier Teague",
+   "position": "S",
+   "highSchool": "Mae C. Jemison High School",
+   "city": "Jemison",
+   "state": "AL",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 185,
+   "stateRank": 77,
    "status": "Verbal"
   },
   {
@@ -56,8 +69,8 @@
    "state": "FL",
    "grade": 72,
    "rank": null,
-   "positionRank": 202,
-   "stateRank": 227,
+   "positionRank": 205,
+   "stateRank": 228,
    "status": "Verbal"
   },
   {
@@ -69,21 +82,8 @@
    "state": "FL",
    "grade": 71,
    "rank": null,
-   "positionRank": 206,
-   "stateRank": 243,
-   "status": "Verbal"
-  },
-  {
-   "id": "274827",
-   "name": "Xavier Teague",
-   "position": "S",
-   "highSchool": "Mae C. Jemison High School",
-   "city": "Jemison",
-   "state": "AL",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 209,
+   "stateRank": 244,
    "status": "Verbal"
   },
   {
@@ -124,7 +124,20 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
+  },
+  {
+   "id": "272970",
+   "name": "Zy'Aire Conaway",
+   "position": "ATH",
+   "highSchool": "Brookwood High School",
+   "city": "Snellville",
+   "state": "GA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

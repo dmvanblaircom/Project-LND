@@ -290,7 +290,7 @@
    "state": "MS",
    "grade": 76,
    "rank": null,
-   "positionRank": 58,
+   "positionRank": 59,
    "stateRank": 26,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:43Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

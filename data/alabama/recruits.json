@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "333",
  "classYear": 2027,
- "listed": 16,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -126,6 +126,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273055",
+   "name": "Bryson Sanderson",
+   "position": "OG",
+   "highSchool": "Oxford High School",
+   "city": "Oxford",
+   "state": "AL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 52,
+   "stateRank": 43,
+   "status": "Verbal"
+  },
+  {
    "id": "272560",
    "name": "Darrius White",
    "position": "CB",
@@ -148,7 +161,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 110,
-   "stateRank": 51,
+   "stateRank": 52,
    "status": "Verbal"
   },
   {
@@ -173,8 +186,8 @@
    "state": "AL",
    "grade": 76,
    "rank": null,
-   "positionRank": 63,
-   "stateRank": 50,
+   "positionRank": 64,
+   "stateRank": 51,
    "status": "Verbal"
   },
   {
@@ -186,8 +199,8 @@
    "state": "AL",
    "grade": 75,
    "rank": null,
-   "positionRank": 81,
-   "stateRank": 57,
+   "positionRank": 82,
+   "stateRank": 58,
    "status": "Verbal"
   },
   {
@@ -199,8 +212,8 @@
    "state": "TX",
    "grade": 74,
    "rank": null,
-   "positionRank": 11,
-   "stateRank": 214,
+   "positionRank": 12,
+   "stateRank": 215,
    "status": "Verbal"
   },
   {
@@ -217,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:39Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

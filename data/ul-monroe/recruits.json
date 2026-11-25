@@ -16,8 +16,8 @@
    "city": "Oklahoma City",
    "state": "OK",
    "grade": 74,
-   "rank": 115,
-   "positionRank": 5,
+   "rank": 122,
+   "positionRank": 6,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -48,5 +48,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

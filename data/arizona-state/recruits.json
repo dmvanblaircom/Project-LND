@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "9",
  "classYear": 2027,
- "listed": 15,
+ "listed": 16,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -202,7 +202,20 @@
    "positionRank": 143,
    "stateRank": 121,
    "status": "Verbal"
+  },
+  {
+   "id": "273402",
+   "name": "Nolan Carpenter",
+   "position": "DE",
+   "highSchool": "Montgomery High School",
+   "city": "Montgomery",
+   "state": "TX",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 161,
+   "stateRank": 225,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:08Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

@@ -199,7 +199,7 @@
    "state": "MS",
    "grade": 75,
    "rank": null,
-   "positionRank": 84,
+   "positionRank": 85,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -226,7 +226,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 69,
-   "stateRank": 178,
+   "stateRank": 181,
    "status": "Verbal"
   },
   {
@@ -238,8 +238,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 172,
-   "stateRank": 204,
+   "positionRank": 173,
+   "stateRank": 207,
    "status": "Verbal"
   },
   {
@@ -249,12 +249,12 @@
    "highSchool": "Christian Hertage High School",
    "city": "Dalton",
    "state": "GA",
-   "grade": 44,
+   "grade": 68,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 11,
+   "stateRank": 243,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-25T15:13Z"
 }

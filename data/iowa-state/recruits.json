@@ -81,8 +81,8 @@
    "city": "Jonesboro",
    "state": "GA",
    "grade": 76,
-   "rank": 27,
-   "positionRank": 6,
+   "rank": 30,
+   "positionRank": 7,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "TN",
    "grade": 74,
    "rank": null,
-   "positionRank": 9,
+   "positionRank": 10,
    "stateRank": 59,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "MO",
    "grade": 73,
    "rank": null,
-   "positionRank": 177,
+   "positionRank": 179,
    "stateRank": 17,
    "status": "Verbal"
   },
@@ -290,10 +290,10 @@
    "state": "MN",
    "grade": 72,
    "rank": null,
-   "positionRank": 190,
+   "positionRank": 191,
    "stateRank": 15,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

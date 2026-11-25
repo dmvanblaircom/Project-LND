@@ -83,7 +83,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 145,
-   "stateRank": 165,
+   "stateRank": 166,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "IL",
    "grade": 74,
    "rank": null,
-   "positionRank": 167,
+   "positionRank": 169,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "NJ",
    "grade": 74,
    "rank": null,
-   "positionRank": 154,
+   "positionRank": 156,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "CO",
    "grade": 73,
    "rank": null,
-   "positionRank": 27,
+   "positionRank": 28,
    "stateRank": 11,
    "status": "Verbal"
   },
@@ -204,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

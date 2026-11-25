@@ -68,9 +68,9 @@
    "city": "Gretna",
    "state": "LA",
    "grade": 74,
-   "rank": 113,
+   "rank": 120,
    "positionRank": 9,
-   "stateRank": 4,
+   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -95,7 +95,7 @@
    "state": "KY",
    "grade": 73,
    "rank": null,
-   "positionRank": 19,
+   "positionRank": 20,
    "stateRank": 29,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "NJ",
    "grade": 72,
    "rank": null,
-   "positionRank": 30,
+   "positionRank": 31,
    "stateRank": 46,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "NY",
    "grade": 72,
    "rank": null,
-   "positionRank": 127,
+   "positionRank": 128,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -256,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

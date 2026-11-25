@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2653",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -29,9 +29,9 @@
    "city": "Pensacola",
    "state": "FL",
    "grade": 75,
-   "rank": 65,
-   "positionRank": 5,
-   "stateRank": 6,
+   "rank": 71,
+   "positionRank": 7,
+   "stateRank": 8,
    "status": "Verbal"
   },
   {
@@ -42,8 +42,8 @@
    "city": "Belleville",
    "state": "IL",
    "grade": 74,
-   "rank": 71,
-   "positionRank": 10,
+   "rank": 77,
+   "positionRank": 11,
    "stateRank": 2,
    "status": "Verbal"
   },
@@ -55,8 +55,8 @@
    "city": "Decatur",
    "state": "GA",
    "grade": 74,
-   "rank": 83,
-   "positionRank": 4,
+   "rank": 89,
+   "positionRank": 5,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -68,7 +68,7 @@
    "city": "Greenwood",
    "state": "MS",
    "grade": 74,
-   "rank": 108,
+   "rank": 115,
    "positionRank": 2,
    "stateRank": 13,
    "status": "Verbal"
@@ -81,7 +81,7 @@
    "city": "Ellisville",
    "state": "MS",
    "grade": 74,
-   "rank": 116,
+   "rank": 123,
    "positionRank": 6,
    "stateRank": 15,
    "status": "Verbal"
@@ -109,7 +109,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 60,
-   "stateRank": 164,
+   "stateRank": 165,
    "status": "Verbal"
   },
   {
@@ -121,8 +121,21 @@
    "state": "MS",
    "grade": 74,
    "rank": null,
-   "positionRank": 152,
+   "positionRank": 154,
    "stateRank": 38,
+   "status": "Verbal"
+  },
+  {
+   "id": "274983",
+   "name": "AaMarii Lofton",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Mobile",
+   "state": "AL",
+   "grade": 73,
+   "rank": 177,
+   "positionRank": 12,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -133,9 +146,9 @@
    "city": "Tuscaloosa",
    "state": "AL",
    "grade": 73,
-   "rank": 182,
-   "positionRank": 14,
-   "stateRank": 11,
+   "rank": 195,
+   "positionRank": 16,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -160,8 +173,8 @@
    "state": "GA",
    "grade": 72,
    "rank": null,
-   "positionRank": 29,
-   "stateRank": 221,
+   "positionRank": 30,
+   "stateRank": 224,
    "status": "Verbal"
   },
   {
@@ -173,8 +186,8 @@
    "state": "AL",
    "grade": 71,
    "rank": null,
-   "positionRank": 199,
-   "stateRank": 88,
+   "positionRank": 200,
+   "stateRank": 89,
    "status": "Verbal"
   },
   {
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

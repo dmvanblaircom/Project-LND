@@ -96,7 +96,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 88,
-   "stateRank": 176,
+   "stateRank": 177,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "LA",
    "grade": 75,
    "rank": null,
-   "positionRank": 140,
+   "positionRank": 141,
    "stateRank": 39,
    "status": "Verbal"
   },
@@ -134,8 +134,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 176,
-   "stateRank": 175,
+   "positionRank": 178,
+   "stateRank": 176,
    "status": "Verbal"
   },
   {
@@ -199,7 +199,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 163,
+   "positionRank": 164,
    "stateRank": 155,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "WA",
    "grade": 73,
    "rank": null,
-   "positionRank": 174,
+   "positionRank": 175,
    "stateRank": 19,
    "status": "Verbal"
   },
@@ -251,7 +251,7 @@
    "state": "NV",
    "grade": 73,
    "rank": null,
-   "positionRank": 244,
+   "positionRank": 245,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -265,7 +265,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 136,
-   "stateRank": 252,
+   "stateRank": 254,
    "status": "Verbal"
   },
   {
@@ -342,7 +342,7 @@
    "state": "CA",
    "grade": 72,
    "rank": null,
-   "positionRank": 192,
+   "positionRank": 193,
    "stateRank": 182,
    "status": "Verbal"
   },
@@ -360,6 +360,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273710",
+   "name": "Ryder Scarlett",
+   "position": "K",
+   "highSchool": "Bishop Manogue High School",
+   "city": "Reno",
+   "state": "NV",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 40,
+   "stateRank": 17,
+   "status": "Verbal"
+  },
+  {
    "id": "272997",
    "name": "Hudson Ploog",
    "position": "TE-H",
@@ -369,7 +382,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 82,
-   "stateRank": 189,
+   "stateRank": 190,
    "status": "Verbal"
   },
   {
@@ -384,20 +397,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "273710",
-   "name": "Ryder Scarlett",
-   "position": "K",
-   "highSchool": "Bishop Manogue High School",
-   "city": "Reno",
-   "state": "NV",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

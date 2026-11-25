@@ -134,7 +134,7 @@
    "state": "WI",
    "grade": 75,
    "rank": null,
-   "positionRank": 73,
+   "positionRank": 74,
    "stateRank": 12,
    "status": "Verbal"
   },
@@ -174,7 +174,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 81,
-   "stateRank": 148,
+   "stateRank": 149,
    "status": "Verbal"
   },
   {
@@ -252,7 +252,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 130,
-   "stateRank": 151,
+   "stateRank": 152,
    "status": "Verbal"
   },
   {
@@ -277,7 +277,7 @@
    "state": "FL",
    "grade": 75,
    "rank": null,
-   "positionRank": 143,
+   "positionRank": 144,
    "stateRank": 133,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 112,
-   "stateRank": 166,
+   "stateRank": 167,
    "status": "Verbal"
   },
   {
@@ -342,7 +342,7 @@
    "state": "NC",
    "grade": 74,
    "rank": null,
-   "positionRank": 218,
+   "positionRank": 219,
    "stateRank": 47,
    "status": "Verbal"
   },
@@ -369,7 +369,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 119,
-   "stateRank": 229,
+   "stateRank": 231,
    "status": "Verbal"
   },
   {
@@ -382,7 +382,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 155,
-   "stateRank": 49,
+   "stateRank": 50,
    "status": "Verbal"
   },
   {
@@ -394,7 +394,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 71,
    "status": "Verbal"
   },
@@ -412,6 +412,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274685",
+   "name": "Tyler Baradel",
+   "position": "K",
+   "highSchool": "Marist School",
+   "city": "Atlanta",
+   "state": "GA",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 39,
+   "stateRank": 230,
+   "status": "Verbal"
+  },
+  {
    "id": "274417",
    "name": "Jarvis Underwood",
    "position": "LS",
@@ -423,20 +436,7 @@
    "positionRank": 4,
    "stateRank": 12,
    "status": "Verbal"
-  },
-  {
-   "id": "274685",
-   "name": "Tyler Baradel",
-   "position": "K",
-   "highSchool": "Marist School",
-   "city": "Atlanta",
-   "state": "GA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

@@ -29,8 +29,8 @@
    "city": "Philadelphia",
    "state": "MS",
    "grade": 74,
-   "rank": 76,
-   "positionRank": 19,
+   "rank": 82,
+   "positionRank": 20,
    "stateRank": 9,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 138,
-   "stateRank": 165,
+   "stateRank": 166,
    "status": "Verbal"
   },
   {
@@ -56,8 +56,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 215,
-   "stateRank": 167,
+   "positionRank": 216,
+   "stateRank": 168,
    "status": "Verbal"
   },
   {
@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 149,
-   "stateRank": 175,
+   "positionRank": 150,
+   "stateRank": 176,
    "status": "Verbal"
   },
   {
@@ -82,8 +82,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 195,
-   "stateRank": 214,
+   "positionRank": 198,
+   "stateRank": 215,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 139,
-   "stateRank": 217,
+   "stateRank": 218,
    "status": "Verbal"
   },
   {
@@ -122,7 +122,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 160,
-   "stateRank": 206,
+   "stateRank": 207,
    "status": "Verbal"
   },
   {
@@ -135,7 +135,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 79,
-   "stateRank": 185,
+   "stateRank": 186,
    "status": "Verbal"
   },
   {
@@ -230,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

@@ -277,8 +277,21 @@
    "state": "MI",
    "grade": 74,
    "rank": null,
-   "positionRank": 102,
+   "positionRank": 103,
    "stateRank": 21,
+   "status": "Verbal"
+  },
+  {
+   "id": "274834",
+   "name": "Ryan Jung",
+   "position": "K",
+   "highSchool": "Milton High School",
+   "city": "Milton",
+   "state": "GA",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 8,
+   "stateRank": 174,
    "status": "Verbal"
   },
   {
@@ -290,23 +303,10 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 237,
-   "stateRank": 201,
-   "status": "Verbal"
-  },
-  {
-   "id": "274834",
-   "name": "Ryan Jung",
-   "position": "K",
-   "highSchool": "Milton High School",
-   "city": "Milton",
-   "state": "GA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 238,
+   "stateRank": 202,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:12Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

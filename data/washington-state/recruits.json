@@ -56,7 +56,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 210,
+   "positionRank": 211,
    "stateRank": 134,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 169,
+   "positionRank": 171,
    "stateRank": 140,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 94,
+   "positionRank": 95,
    "stateRank": 126,
    "status": "Verbal"
   },
@@ -134,7 +134,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 125,
+   "positionRank": 126,
    "stateRank": 175,
    "status": "Verbal"
   },
@@ -147,7 +147,7 @@
    "state": "WA",
    "grade": 73,
    "rank": null,
-   "positionRank": 109,
+   "positionRank": 110,
    "stateRank": 16,
    "status": "Verbal"
   },
@@ -160,7 +160,7 @@
    "state": "CA",
    "grade": 73,
    "rank": null,
-   "positionRank": 166,
+   "positionRank": 167,
    "stateRank": 160,
    "status": "Verbal"
   },
@@ -225,7 +225,7 @@
    "state": "AZ",
    "grade": 72,
    "rank": null,
-   "positionRank": 186,
+   "positionRank": 187,
    "stateRank": 44,
    "status": "Verbal"
   },
@@ -239,7 +239,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 175,
-   "stateRank": 226,
+   "stateRank": 229,
    "status": "Verbal"
   },
   {
@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273782",
+   "name": "Riggs Holland",
+   "position": "LS",
+   "highSchool": "Gig Harbor High School",
+   "city": "Gig Harbor",
+   "state": "WA",
+   "grade": 68,
+   "rank": null,
+   "positionRank": 12,
+   "stateRank": 21,
+   "status": "Verbal"
+  },
+  {
    "id": "273186",
    "name": "Michael Bryant",
    "position": "RB",
@@ -267,20 +280,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "273782",
-   "name": "Riggs Holland",
-   "position": "LS",
-   "highSchool": "Gig Harbor High School",
-   "city": "Gig Harbor",
-   "state": "WA",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

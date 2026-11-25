@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "235",
  "classYear": 2027,
- "listed": 8,
+ "listed": 7,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -30,21 +30,8 @@
    "state": "TN",
    "grade": 75,
    "rank": null,
-   "positionRank": 78,
+   "positionRank": 79,
    "stateRank": 44,
-   "status": "Verbal"
-  },
-  {
-   "id": "273055",
-   "name": "Bryson Sanderson",
-   "position": "OG",
-   "highSchool": "Oxford High School",
-   "city": "Oxford",
-   "state": "AL",
-   "grade": 74,
-   "rank": null,
-   "positionRank": 104,
-   "stateRank": 65,
    "status": "Verbal"
   },
   {
@@ -57,7 +44,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 75,
-   "stateRank": 177,
+   "stateRank": 180,
    "status": "Verbal"
   },
   {
@@ -70,7 +57,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 206,
-   "stateRank": 197,
+   "stateRank": 198,
    "status": "Verbal"
   },
   {
@@ -83,7 +70,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 163,
-   "stateRank": 198,
+   "stateRank": 201,
    "status": "Verbal"
   },
   {
@@ -95,7 +82,7 @@
    "state": "MS",
    "grade": 71,
    "rank": null,
-   "positionRank": 155,
+   "positionRank": 156,
    "stateRank": 51,
    "status": "Verbal"
   },
@@ -113,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

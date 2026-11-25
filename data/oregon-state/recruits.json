@@ -61,6 +61,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274825",
+   "name": "Godspower Otuonye",
+   "position": "OT",
+   "highSchool": null,
+   "city": "Fullerton",
+   "state": "CA",
+   "grade": 75,
+   "rank": 51,
+   "positionRank": 5,
+   "stateRank": 9,
+   "status": "Verbal"
+  },
+  {
    "id": "273176",
    "name": "Juan Garcia-Okoi",
    "position": "CB",
@@ -70,7 +83,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 139,
-   "stateRank": 187,
+   "stateRank": 188,
    "status": "Verbal"
   },
   {
@@ -95,7 +108,7 @@
    "state": "CA",
    "grade": 74,
    "rank": null,
-   "positionRank": 168,
+   "positionRank": 170,
    "stateRank": 138,
    "status": "Verbal"
   },
@@ -173,8 +186,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 154,
-   "stateRank": 181,
+   "positionRank": 155,
+   "stateRank": 182,
    "status": "Verbal"
   },
   {
@@ -186,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 111,
+   "positionRank": 112,
    "stateRank": 33,
    "status": "Verbal"
   },
@@ -200,7 +213,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 130,
-   "stateRank": 189,
+   "stateRank": 192,
    "status": "Verbal"
   },
   {
@@ -212,7 +225,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 115,
+   "positionRank": 116,
    "stateRank": 34,
    "status": "Verbal"
   },
@@ -239,7 +252,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 147,
-   "stateRank": 268,
+   "stateRank": 271,
    "status": "Verbal"
   },
   {
@@ -249,10 +262,10 @@
    "highSchool": "Banks High School",
    "city": "Banks",
    "state": "OR",
-   "grade": 44,
+   "grade": 71,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 151,
+   "stateRank": 9,
    "status": "Verbal"
   },
   {
@@ -280,20 +293,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274825",
-   "name": "Godspower Otuonye",
-   "position": "OT",
-   "highSchool": null,
-   "city": "Fullerton",
-   "state": "CA",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:10Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

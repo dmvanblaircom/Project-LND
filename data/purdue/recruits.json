@@ -82,7 +82,7 @@
    "state": "IN",
    "grade": 77,
    "rank": null,
-   "positionRank": 52,
+   "positionRank": 53,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -122,7 +122,7 @@
    "grade": 76,
    "rank": null,
    "positionRank": 85,
-   "stateRank": 52,
+   "stateRank": 53,
    "status": "Verbal"
   },
   {
@@ -186,7 +186,7 @@
    "state": "IL",
    "grade": 74,
    "rank": null,
-   "positionRank": 99,
+   "positionRank": 100,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

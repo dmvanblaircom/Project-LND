@@ -17,7 +17,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 61,
+   "positionRank": 62,
    "stateRank": 24,
    "status": "Verbal"
   },
@@ -30,8 +30,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 196,
-   "stateRank": 215,
+   "positionRank": 199,
+   "stateRank": 216,
    "status": "Verbal"
   },
   {
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-25T15:13Z"
 }

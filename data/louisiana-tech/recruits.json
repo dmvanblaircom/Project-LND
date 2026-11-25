@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2348",
  "classYear": 2027,
- "listed": 12,
+ "listed": 11,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -16,9 +16,22 @@
    "city": "Fresno",
    "state": "TX",
    "grade": 76,
-   "rank": 22,
+   "rank": 23,
    "positionRank": 1,
    "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "274833",
+   "name": "Jaydn Wood",
+   "position": "WR",
+   "highSchool": null,
+   "city": "New Port Richey",
+   "state": "FL",
+   "grade": 75,
+   "rank": 39,
+   "positionRank": 3,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -35,16 +48,29 @@
    "status": "Verbal"
   },
   {
-   "id": "274564",
-   "name": "Seth Kidd",
-   "position": "DT",
+   "id": "274920",
+   "name": "Jordyn Ashford",
+   "position": "OG",
    "highSchool": null,
-   "city": "Mobile",
-   "state": "AL",
+   "city": "Ackerman",
+   "state": "MS",
    "grade": 72,
-   "rank": 190,
-   "positionRank": 15,
-   "stateRank": 13,
+   "rank": 205,
+   "positionRank": 11,
+   "stateRank": 33,
+   "status": "Verbal"
+  },
+  {
+   "id": "268479",
+   "name": "Braylon Fisher",
+   "position": "WR",
+   "highSchool": "Barbers Hill High",
+   "city": "Mont Belvieu",
+   "state": "TX",
+   "grade": 72,
+   "rank": null,
+   "positionRank": 256,
+   "stateRank": 268,
    "status": "Verbal"
   },
   {
@@ -58,19 +84,6 @@
    "rank": null,
    "positionRank": 39,
    "stateRank": 62,
-   "status": "Verbal"
-  },
-  {
-   "id": "268479",
-   "name": "Braylon Fisher",
-   "position": "WR",
-   "highSchool": "Barbers Hill High",
-   "city": "Mont Belvieu",
-   "state": "TX",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -137,33 +150,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "274833",
-   "name": "Jaydn Wood",
-   "position": "WR",
-   "highSchool": null,
-   "city": "New Port Richey",
-   "state": "FL",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "274920",
-   "name": "Jordyn Ashford",
-   "position": "OG",
-   "highSchool": null,
-   "city": "Ackerman",
-   "state": "MS",
-   "grade": 4,
-   "rank": 192,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

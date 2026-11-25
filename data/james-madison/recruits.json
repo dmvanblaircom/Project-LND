@@ -69,7 +69,7 @@
    "state": "VA",
    "grade": 75,
    "rank": null,
-   "positionRank": 144,
+   "positionRank": 146,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "NC",
    "grade": 75,
    "rank": null,
-   "positionRank": 136,
+   "positionRank": 137,
    "stateRank": 38,
    "status": "Verbal"
   },
@@ -121,7 +121,7 @@
    "state": "CT",
    "grade": 75,
    "rank": null,
-   "positionRank": 149,
+   "positionRank": 151,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -225,8 +225,8 @@
    "state": "NC",
    "grade": 73,
    "rank": null,
-   "positionRank": 24,
-   "stateRank": 48,
+   "positionRank": 25,
+   "stateRank": 49,
    "status": "Verbal"
   },
   {
@@ -303,10 +303,10 @@
    "state": "NJ",
    "grade": 71,
    "rank": null,
-   "positionRank": 154,
+   "positionRank": 155,
    "stateRank": 49,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

@@ -225,7 +225,7 @@
    "state": "SC",
    "grade": 76,
    "rank": null,
-   "positionRank": 62,
+   "positionRank": 63,
    "stateRank": 23,
    "status": "Verbal"
   },
@@ -238,10 +238,10 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 59,
+   "positionRank": 60,
    "stateRank": 131,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-20T10:44Z"
+ "fetchedAt": "2026-11-25T15:14Z"
 }

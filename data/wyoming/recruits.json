@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2751",
  "classYear": 2027,
- "listed": 17,
+ "listed": 19,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -17,7 +17,7 @@
    "state": "CO",
    "grade": 74,
    "rank": null,
-   "positionRank": 221,
+   "positionRank": 222,
    "stateRank": 8,
    "status": "Verbal"
   },
@@ -44,7 +44,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 127,
-   "stateRank": 248,
+   "stateRank": 250,
    "status": "Verbal"
   },
   {
@@ -118,6 +118,19 @@
    "position": "CB",
    "highSchool": "Independence High School",
    "city": "Bakersfield",
+   "state": "CA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "274984",
+   "name": "Diego Taylor",
+   "position": "OG",
+   "highSchool": "Christian Brothers High School",
+   "city": "Sacramento",
    "state": "CA",
    "grade": 43,
    "rank": null,
@@ -204,6 +217,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274974",
+   "name": "Mark Cadena",
+   "position": "DE",
+   "highSchool": "M. L. King High School",
+   "city": "Riverside",
+   "state": "CA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274848",
    "name": "Moise Toure",
    "position": "ATH",
@@ -230,5 +256,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:41Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

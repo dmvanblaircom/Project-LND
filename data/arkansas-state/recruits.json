@@ -18,7 +18,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 93,
-   "stateRank": 160,
+   "stateRank": 161,
    "status": "Verbal"
   },
   {
@@ -31,7 +31,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 152,
-   "stateRank": 171,
+   "stateRank": 173,
    "status": "Verbal"
   },
   {
@@ -43,7 +43,7 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 160,
+   "positionRank": 161,
    "stateRank": 73,
    "status": "Verbal"
   },
@@ -69,7 +69,7 @@
    "state": "LA",
    "grade": 73,
    "rank": null,
-   "positionRank": 184,
+   "positionRank": 187,
    "stateRank": 53,
    "status": "Verbal"
   },
@@ -82,8 +82,8 @@
    "state": "AL",
    "grade": 73,
    "rank": null,
-   "positionRank": 123,
-   "stateRank": 82,
+   "positionRank": 124,
+   "stateRank": 83,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 128,
-   "stateRank": 195,
+   "stateRank": 198,
    "status": "Verbal"
   },
   {
@@ -217,12 +217,12 @@
    "status": "Verbal"
   },
   {
-   "id": "272970",
-   "name": "Zy'Aire Conaway",
-   "position": "ATH",
-   "highSchool": "Brookwood High School",
-   "city": "Snellville",
-   "state": "GA",
+   "id": "274982",
+   "name": "Xavier Bonner",
+   "position": "OLB",
+   "highSchool": "Plano East Sr. High School",
+   "city": "Plano",
+   "state": "TX",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -243,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

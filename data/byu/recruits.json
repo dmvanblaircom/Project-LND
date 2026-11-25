@@ -199,7 +199,7 @@
    "state": "UT",
    "grade": 73,
    "rank": null,
-   "positionRank": 229,
+   "positionRank": 230,
    "stateRank": 30,
    "status": "Verbal"
   },
@@ -212,10 +212,10 @@
    "state": "VA",
    "grade": 72,
    "rank": null,
-   "positionRank": 26,
-   "stateRank": 48,
+   "positionRank": 27,
+   "stateRank": 49,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-25T15:10Z"
 }

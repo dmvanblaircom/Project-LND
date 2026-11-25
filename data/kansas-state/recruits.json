@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2306",
  "classYear": 2027,
- "listed": 26,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -225,7 +225,7 @@
    "state": "TX",
    "grade": 76,
    "rank": null,
-   "positionRank": 67,
+   "positionRank": 68,
    "stateRank": 147,
    "status": "Verbal"
   },
@@ -264,7 +264,7 @@
    "state": "TX",
    "grade": 75,
    "rank": null,
-   "positionRank": 76,
+   "positionRank": 77,
    "stateRank": 166,
    "status": "Verbal"
   },
@@ -291,7 +291,20 @@
    "grade": 75,
    "rank": null,
    "positionRank": 131,
-   "stateRank": 173,
+   "stateRank": 174,
+   "status": "Verbal"
+  },
+  {
+   "id": "274980",
+   "name": "Kyrece Robinson",
+   "position": "DT",
+   "highSchool": null,
+   "city": "Topeka",
+   "state": "KS",
+   "grade": 74,
+   "rank": 112,
+   "positionRank": 6,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -304,7 +317,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 140,
-   "stateRank": 158,
+   "stateRank": 159,
    "status": "Verbal"
   },
   {
@@ -317,7 +330,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 154,
-   "stateRank": 210,
+   "stateRank": 211,
    "status": "Verbal"
   },
   {
@@ -328,8 +341,8 @@
    "city": "Miami",
    "state": "OK",
    "grade": 73,
-   "rank": 145,
-   "positionRank": 12,
+   "rank": 156,
+   "positionRank": 13,
    "stateRank": 5,
    "status": "Verbal"
   },
@@ -343,9 +356,9 @@
    "grade": 73,
    "rank": null,
    "positionRank": 164,
-   "stateRank": 228,
+   "stateRank": 230,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

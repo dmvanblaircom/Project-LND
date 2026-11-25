@@ -265,7 +265,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 110,
-   "stateRank": 62,
+   "stateRank": 63,
    "status": "Verbal"
   },
   {
@@ -275,10 +275,10 @@
    "highSchool": "Fayette Academy",
    "city": "Somerville",
    "state": "TN",
-   "grade": 44,
+   "grade": 72,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 35,
+   "stateRank": 73,
    "status": "Verbal"
   },
   {
@@ -288,12 +288,12 @@
    "highSchool": "North Oconee High School",
    "city": "Bogart",
    "state": "GA",
-   "grade": 44,
+   "grade": 68,
    "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "positionRank": 5,
+   "stateRank": 242,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:15Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

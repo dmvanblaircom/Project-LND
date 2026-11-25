@@ -30,7 +30,7 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 102,
    "stateRank": 60,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "OH",
    "grade": 73,
    "rank": null,
-   "positionRank": 193,
+   "positionRank": 196,
    "stateRank": 79,
    "status": "Verbal"
   },
@@ -82,7 +82,7 @@
    "state": "PA",
    "grade": 73,
    "rank": null,
-   "positionRank": 101,
+   "positionRank": 102,
    "stateRank": 40,
    "status": "Verbal"
   },
@@ -108,7 +108,7 @@
    "state": "PA",
    "grade": 72,
    "rank": null,
-   "positionRank": 130,
+   "positionRank": 131,
    "stateRank": 49,
    "status": "Verbal"
   },
@@ -321,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

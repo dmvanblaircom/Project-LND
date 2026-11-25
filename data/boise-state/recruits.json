@@ -139,16 +139,16 @@
    "status": "Verbal"
   },
   {
-   "id": "273257",
-   "name": "Parker Bagley",
-   "position": "DE",
-   "highSchool": "Lewiston High School",
-   "city": "Lewiston",
-   "state": "ID",
-   "grade": 75,
+   "id": "272765",
+   "name": "Bryson Ford",
+   "position": "CB",
+   "highSchool": "North Gwinnett High School",
+   "city": "Suwanee",
+   "state": "GA",
+   "grade": 74,
    "rank": null,
-   "positionRank": 125,
-   "stateRank": 2,
+   "positionRank": 147,
+   "stateRank": 171,
    "status": "Verbal"
   },
   {
@@ -173,7 +173,7 @@
    "state": "CO",
    "grade": 73,
    "rank": null,
-   "positionRank": 182,
+   "positionRank": 184,
    "stateRank": 10,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "WA",
    "grade": 73,
    "rank": null,
-   "positionRank": 20,
+   "positionRank": 21,
    "stateRank": 18,
    "status": "Verbal"
   },
@@ -204,12 +204,12 @@
    "status": "Verbal"
   },
   {
-   "id": "272765",
-   "name": "Bryson Ford",
-   "position": "CB",
-   "highSchool": "North Gwinnett High School",
-   "city": "Suwanee",
-   "state": "GA",
+   "id": "273532",
+   "name": "Vuk Strbac",
+   "position": "OT",
+   "highSchool": "Maine Township South High School",
+   "city": "Park Ridge",
+   "state": "IL",
    "grade": 44,
    "rank": null,
    "positionRank": null,
@@ -217,5 +217,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:09Z"
 }

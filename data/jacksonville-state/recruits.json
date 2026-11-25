@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "55",
  "classYear": 2027,
- "listed": 27,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -57,7 +57,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 106,
-   "stateRank": 171,
+   "stateRank": 172,
    "status": "Verbal"
   },
   {
@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 74,
    "rank": null,
-   "positionRank": 165,
-   "stateRank": 168,
+   "positionRank": 167,
+   "stateRank": 169,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 73,
-   "stateRank": 65,
+   "stateRank": 66,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 53,
-   "stateRank": 61,
+   "stateRank": 62,
    "status": "Verbal"
   },
   {
@@ -108,7 +108,7 @@
    "state": "AL",
    "grade": 74,
    "rank": null,
-   "positionRank": 217,
+   "positionRank": 218,
    "stateRank": 67,
    "status": "Verbal"
   },
@@ -121,8 +121,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 241,
-   "stateRank": 205,
+   "positionRank": 242,
+   "stateRank": 208,
    "status": "Verbal"
   },
   {
@@ -134,8 +134,8 @@
    "state": "TN",
    "grade": 71,
    "rank": null,
-   "positionRank": 256,
-   "stateRank": 77,
+   "positionRank": 258,
+   "stateRank": 78,
    "status": "Verbal"
   },
   {
@@ -148,7 +148,7 @@
    "grade": 71,
    "rank": null,
    "positionRank": 38,
-   "stateRank": 76,
+   "stateRank": 77,
    "status": "Verbal"
   },
   {
@@ -171,19 +171,6 @@
    "highSchool": "Putnam Science Academy",
    "city": "Putnam",
    "state": "CT",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "272626",
-   "name": "Chozen Owens",
-   "position": "DT",
-   "highSchool": "Brunswick High School",
-   "city": "Brunswick",
-   "state": "GA",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -249,19 +236,6 @@
    "highSchool": "Clay-Chalkville High School",
    "city": "Pinson",
    "state": "AL",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
-   "id": "273229",
-   "name": "Isaiah Calixte",
-   "position": "CB",
-   "highSchool": "Coconut Creek High School",
-   "city": "Coconut Creek",
-   "state": "FL",
    "grade": 43,
    "rank": null,
    "positionRank": null,
@@ -360,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-25T15:11Z"
 }

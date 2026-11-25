@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273067",
+   "name": "Josh Alford",
+   "position": "S",
+   "highSchool": "Colquitt County High School",
+   "city": "Moultrie",
+   "state": "GA",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 136,
+   "stateRank": 147,
+   "status": "Verbal"
+  },
+  {
    "id": "272605",
    "name": "Lovell Neal",
    "position": "WR",
@@ -83,7 +96,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 203,
-   "stateRank": 196,
+   "stateRank": 197,
    "status": "Verbal"
   },
   {
@@ -134,8 +147,8 @@
    "state": "GA",
    "grade": 73,
    "rank": null,
-   "positionRank": 173,
-   "stateRank": 201,
+   "positionRank": 174,
+   "stateRank": 204,
    "status": "Verbal"
   },
   {
@@ -148,20 +161,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 218,
-   "status": "Verbal"
-  },
-  {
-   "id": "273067",
-   "name": "Josh Alford",
-   "position": "S",
-   "highSchool": "Colquitt County High School",
-   "city": "Moultrie",
-   "state": "GA",
-   "grade": 44,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
+   "stateRank": 221,
    "status": "Verbal"
   },
   {
@@ -282,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:09Z"
+ "fetchedAt": "2026-11-25T15:10Z"
 }

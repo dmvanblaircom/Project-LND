@@ -278,7 +278,7 @@
    "grade": 75,
    "rank": null,
    "positionRank": 6,
-   "stateRank": 190,
+   "stateRank": 191,
    "status": "Verbal"
   },
   {
@@ -290,7 +290,7 @@
    "state": "OH",
    "grade": 74,
    "rank": null,
-   "positionRank": 214,
+   "positionRank": 215,
    "stateRank": 59,
    "status": "Verbal"
   },
@@ -303,10 +303,10 @@
    "state": "AUS",
    "grade": 72,
    "rank": null,
-   "positionRank": 31,
+   "positionRank": 32,
    "stateRank": 1,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:14Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }

@@ -55,8 +55,8 @@
    "city": "Atlanta",
    "state": "GA",
    "grade": 73,
-   "rank": 168,
-   "positionRank": 11,
+   "rank": 181,
+   "positionRank": 13,
    "stateRank": 15,
    "status": "Verbal"
   },
@@ -69,8 +69,8 @@
    "state": "FL",
    "grade": 73,
    "rank": null,
-   "positionRank": 113,
-   "stateRank": 199,
+   "positionRank": 114,
+   "stateRank": 200,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,7 @@
    "grade": 73,
    "rank": null,
    "positionRank": 159,
-   "stateRank": 181,
+   "stateRank": 182,
    "status": "Verbal"
   },
   {
@@ -109,7 +109,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 143,
-   "stateRank": 231,
+   "stateRank": 232,
    "status": "Verbal"
   },
   {
@@ -191,5 +191,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:09Z"
+ "fetchedAt": "2026-11-25T15:12Z"
 }

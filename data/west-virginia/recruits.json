@@ -159,8 +159,8 @@
    "city": "Orlando",
    "state": "FL",
    "grade": 76,
-   "rank": 25,
-   "positionRank": 4,
+   "rank": 27,
+   "positionRank": 5,
    "stateRank": 3,
    "status": "Verbal"
   },
@@ -186,7 +186,7 @@
    "state": "VA",
    "grade": 76,
    "rank": null,
-   "positionRank": 64,
+   "positionRank": 65,
    "stateRank": 25,
    "status": "Verbal"
   },
@@ -199,7 +199,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 69,
+   "positionRank": 70,
    "stateRank": 139,
    "status": "Verbal"
   },
@@ -238,7 +238,7 @@
    "state": "GA",
    "grade": 76,
    "rank": null,
-   "positionRank": 60,
+   "positionRank": 61,
    "stateRank": 127,
    "status": "Verbal"
   },
@@ -291,7 +291,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 22,
-   "stateRank": 206,
+   "stateRank": 207,
    "status": "Verbal"
   },
   {
@@ -304,7 +304,7 @@
    "grade": 74,
    "rank": null,
    "positionRank": 55,
-   "stateRank": 166,
+   "stateRank": 167,
    "status": "Verbal"
   },
   {
@@ -329,10 +329,10 @@
    "state": "IL",
    "grade": 68,
    "rank": null,
-   "positionRank": 8,
+   "positionRank": 9,
    "stateRank": 60,
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-24T18:11Z"
+ "fetchedAt": "2026-11-25T15:16Z"
 }

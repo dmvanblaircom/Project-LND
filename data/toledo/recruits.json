@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2649",
  "classYear": 2027,
- "listed": 19,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -30,7 +30,7 @@
    "state": "TN",
    "grade": 74,
    "rank": null,
-   "positionRank": 211,
+   "positionRank": 212,
    "stateRank": 56,
    "status": "Verbal"
   },
@@ -56,7 +56,7 @@
    "state": "VA",
    "grade": 73,
    "rank": null,
-   "positionRank": 188,
+   "positionRank": 191,
    "stateRank": 45,
    "status": "Verbal"
   },
@@ -70,7 +70,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 142,
-   "stateRank": 225,
+   "stateRank": 226,
    "status": "Verbal"
   },
   {
@@ -83,7 +83,7 @@
    "grade": 72,
    "rank": null,
    "positionRank": 93,
-   "stateRank": 73,
+   "stateRank": 74,
    "status": "Verbal"
   },
   {
@@ -96,7 +96,33 @@
    "grade": 72,
    "rank": null,
    "positionRank": 144,
-   "stateRank": 233,
+   "stateRank": 234,
+   "status": "Verbal"
+  },
+  {
+   "id": "274971",
+   "name": "Jason Armbruster",
+   "position": "DE",
+   "highSchool": "Mount Si High School",
+   "city": "Snoqualmie",
+   "state": "WA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
+   "id": "266524",
+   "name": "Sebastian Waddell",
+   "position": "OT",
+   "highSchool": "Roman Catholic High School",
+   "city": "Philadelphia",
+   "state": "PA",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
    "status": "Verbal"
   },
   {
@@ -178,6 +204,19 @@
    "status": "Verbal"
   },
   {
+   "id": "273458",
+   "name": "De'von Dallas",
+   "position": "S",
+   "highSchool": "Westerville North High School",
+   "city": "Westerville",
+   "state": "OH",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "272822",
    "name": "Jake Sneed",
    "position": "TE-Y",
@@ -217,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274973",
+   "name": "Landon Dean",
+   "position": "TE-H",
+   "highSchool": "Cardinal Gibbons High School",
+   "city": "Sarasota",
+   "state": "FL",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "274797",
    "name": "Luke McGovern",
    "position": "WR",
@@ -241,20 +293,7 @@
    "positionRank": null,
    "stateRank": null,
    "status": "Verbal"
-  },
-  {
-   "id": "273532",
-   "name": "Vuk Strbac",
-   "position": "OT",
-   "highSchool": "Maine Township South High School",
-   "city": "Park Ridge",
-   "state": "IL",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-25T15:15Z"
 }
