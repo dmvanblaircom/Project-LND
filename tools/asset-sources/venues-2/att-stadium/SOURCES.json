@@ -1,0 +1,35 @@
+{
+  "venue": "att-stadium",
+  "images": [
+    {
+      "role": "primary",
+      "file": "2015_Advocare_Classic_Kickoff_(Wisconsin_-_Alabama).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2015_Advocare_Classic_Kickoff_(Wisconsin_-_Alabama).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/2015_Advocare_Classic_Kickoff_%28Wisconsin_-_Alabama%29.jpg",
+      "width": 4821,
+      "height": 2712,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "thatlostdog--",
+      "credit_line": "\"2015 Advocare Classic Kickoff (Wisconsin - Alabama).jpg\" by thatlostdog--, CC BY 2.0, via Wikimedia Commons",
+      "date_taken": "2015-09-05 21:44:05",
+      "shot": "indoor",
+      "note": "Elevated end-zone view down the length of the field at kickoff, Wisconsin vs Alabama (AdvoCare Classic, 5 Sep 2015), roof closed: full red-and-white crowd wraps the bowl roughly y 350-2400 on both sides, field centre y 700-2712, centre-hung video board top-centre; no faces."
+    },
+    {
+      "role": "runner-up",
+      "file": "ATT_Stadium_Interior.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:ATT_Stadium_Interior.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/ATT_Stadium_Interior.jpg",
+      "width": 4984,
+      "height": 2480,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Drew Tarvin from New York, United States",
+      "credit_line": "\"ATT Stadium Interior.jpg\" by Drew Tarvin from New York, United States, CC BY 2.0, via Wikimedia Commons",
+      "date_taken": "Taken on 9 October 2016, 15:12",
+      "shot": "indoor",
+      "note": "Wide upper-level corner view across the bowl with the centre-hung board and roof, full crowd: stands fill roughly y 300-2480 across the width, field centre y 1000-2000; spectators' backs of heads along the bottom-left (unidentifiable)."
+    }
+  ]
+}
