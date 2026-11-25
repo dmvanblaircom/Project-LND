@@ -1828,6 +1828,9 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-mark)}
 .pill-live span{background:var(--s-live);border-color:var(--s-live);color:#fff}
 .pill-live span::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:#fff;animation:live-pulse 1.6s ease-in-out infinite}
+/* after the rule it stills: section 8's reduced-motion rule comes earlier in
+   the file, so on its own it lost to this one and the dot kept pulsing */
+@media (prefers-reduced-motion:reduce){.pill-live span::before{animation:none}}
 .pill-half span{background:#1D3B8F;border-color:#1D3B8F;color:#fff}
 .pill-ot span{background:#5A3DAA;border-color:#5A3DAA;color:#fff}
 .pill-paused span{background:#C98A1B;border-color:#C98A1B;color:#1A1206}
