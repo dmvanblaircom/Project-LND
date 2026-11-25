@@ -353,19 +353,37 @@ ok(!/gh-extra/.test(headWith(Object.assign({}, preG, { odds: null }), null)), "a
 console.log("Game header at halftime and at the final");
 var halfHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: null } }));
-ok(/class="gh-clock">Halftime</.test(halfHead) && !/0:00/.test(halfHead), "halftime says Halftime, not 2ND · 0:00 - as Home says HALF");
+ok(/class="stage-pill pill-half"><span>Halftime</.test(halfHead) && !/0:00/.test(halfHead) && !/gh-clock/.test(halfHead),
+   "halftime says Halftime once, in the same badge as Home - not 2ND · 0:00 (David, 2026-11-25)");
 ok(!/gc-situation/.test(halfHead), "and no down & distance: no one has the ball");
 ok(/Halftime\. Notre Dame/.test(halfHead), "and a screen reader hears Halftime");
 var recvHead = headHtml(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: null, receives: "us" } }));
-ok(/class="gc-situation"><span>ND gets the ball<\/span>/.test(recvHead), "at halftime the pill says who gets the ball to start the second half");
+ok(/class="gc-situation gh-half"><span>Notre Dame gets the ball to start the 2nd half<\/span>/.test(recvHead), "at halftime a full-width line says who gets the ball to start the 2nd half, in Home's words (David, 2026-11-25)");
 ok(!/gh-ball/.test(recvHead), "and no football: no one has the ball at halftime (David, 2026-10-14)");
 ok(/Notre Dame gets the ball to start the second half\./.test(recvHead), "and a screen reader hears it");
 var liveHead = headHtml(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }));
 ok(/gc-situation"><span>2nd &amp; 10<\/span><span>PUR 28<\/span>/.test(liveHead), "a running game keeps its down & distance");
 var finalHead = headHtml(Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" }));
-ok(/class="gh-final-label">Final</.test(finalHead) && !/class="gh-final"/.test(finalHead),
-   "the FINAL label has its own class, so its wide tracking stays on the label (records read 4-0, not 4 - 0)");
+// One badge for a game's state, the same on Home's stage and Game's header
+// (David, 2026-11-25: the two LIVE badges looked different)
+function stageHtml(game) {
+  return sctx.Suite.scoreboard.stage({ team: { id: "notre-dame", name: TEAM.name, abbr: TEAM.abbreviation, markUrl: "" }, game: game,
+    oppMark: function () { return null; }, art: {}, now: new Date("2026-09-26T18:32:00Z") }, { variant: "home" });
+}
+function pillOf(html) { var m = /<p class="stage-pill[^"]*"><span>[^<]*<\/span><\/p>/.exec(html); return m ? m[0] : null; }
+[["live", liveG], ["halftime", Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime" })],
+ ["final", Object.assign({}, liveG, { state: "post", status: "final", usRecord: "4-0", oppRecord: "1-3" })],
+ ["delayed before kickoff", Object.assign({}, WG, { state: "pre", status: "delayed", hasStarted: false })],
+ ["end of game", Object.assign({}, liveG, { period: 4, clock: "0:00", us: "24", them: "17" })]].forEach(function (c) {
+  var home = pillOf(stageHtml(c[1])), game = pillOf(headHtml(c[1]));
+  ok(home && home === game, "Home and Game wear the same " + c[0] + " badge (" + game + ")");
+});
+// what a screen reader hears says End of game too (Codex, #280)
+ok(/aria-label="End of game, not yet final\. /.test(headHtml(Object.assign({}, liveG, { period: 4, clock: "0:00", us: "24", them: "17" }))),
+   "at 0:00 in the 4th before final, Game's header is heard as End of game, as it is shown");
+ok(/class="stage-pill pill-final"><span>Final</.test(finalHead) && !/class="gh-final"/.test(finalHead),
+   "the FINAL badge is its own element, Home's badge, so its tracking stays on it (records read 4-0, not 4 - 0)");
 
 // ---- a final the source reports without a score (B7) ----
 console.log("A final with no score: Final, never an invented 0-0");
@@ -395,9 +413,9 @@ ok(!/is-winner|is-loser/.test(homeHero(liveG)+headHtml(liveG)),"live scores get 
 var homeHalf = homeHero(Object.assign({}, liveG, { period: 2, clock: "0:00", detail: "Halftime",
   situation: { short: "2nd & 10", spot: "PUR 28", possession: "us", receives: "them" } }));
 ok(!/sb-sit-ball/.test(homeHalf), "Home at halftime: no football, even with a possession left over from the 2nd quarter");
-// The redesign brief's wording on Home (§4.2): "Notre Dame receives to start the 2nd half."
-ok(/class="sb-sit"><span>Purdue receives to start the 2nd half<\/span>/.test(homeHalf) && /Purdue receives to start the second half\./.test(homeHalf),
-   "Home at halftime: the line and a screen reader say who receives to start the second half, by name");
+// David's wording on Home and Game alike (2026-11-25): "Notre Dame gets the ball to start the 2nd half."
+ok(/class="sb-sit"><span>Purdue gets the ball to start the 2nd half<\/span>/.test(homeHalf) && /Purdue gets the ball to start the second half\./.test(homeHalf),
+   "Home at halftime: the line and a screen reader say who gets the ball to start the second half, by name");
 ok(/sb-sit-ball/.test(homeHero(Object.assign({}, liveG, { situation: { short: "2nd & 10", spot: "PUR 28", possession: "us" } }))),
    "Home in play: the football is still there");
 [["Home", homeHero(noScoreFinal), "sb-score"], ["Game", headHtml(noScoreFinal), "gh-score"]].forEach(function (c) {

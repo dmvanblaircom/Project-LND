@@ -124,12 +124,12 @@ Suite.game = (function () {
   function header(m) {
     var g = m.game, st = state(g), ko = ui.kickoff(g.date, g.timeSet);
     var where = g.neutral ? "Neutral site" : g.home ? "Home vs" : "Away at";
-    var center = "";
+    var center = "", halfLine = "";
     if (st === "upcoming" || st === "delayed" || st === "postponed" || st === "canceled") {
       var when = st === "postponed" ? Suite.home.newDate(g) : st === "canceled" ? ko.day : ko.full;
       center = '<div class="gh-center">' +
         (st === "upcoming" ? '<p class="gh-where">' + esc(where) + "</p>"
-                           : '<span class="state-pill ' + st + '">' + esc(st) + "</span>") +
+                           : (Suite.scoreboard && Suite.scoreboard.badge ? Suite.scoreboard.badge(g, m.now) : "")) +  // Home's badge: Delayed, Postponed, Canceled (Codex, #280)
         // Never an ellipsis: fit() shrinks it, then takes the abbreviation.
         // A one- or two-letter word stays with its neighbour - never "E" over
         // "MICHIGAN" (sweep, 2026-10-29).
@@ -142,15 +142,19 @@ Suite.game = (function () {
         (g.series ? '<p class="gh-series">' + esc(g.series) + "</p>" : "") +
         "</div>";
     } else {
-      var top = st === "live" ? '<span class="live-pill">Live</span>'
-        : st === "paused" ? '<span class="state-pill paused">' + (g.status === "suspended" ? "Suspended" : "Delayed") + "</span>"
-        : '<span class="gh-final-label">Final</span>';
+      // the same badge as Home's stage: Live, Halftime, Overtime, Delayed,
+      // Suspended, End of game, Final (David, 2026-11-25)
+      var top = Suite.scoreboard && Suite.scoreboard.badge ? Suite.scoreboard.badge(g, m.now) : "";
       var half = TeamOS.game.halftime(g);
-      var clock = st === "final" ? "" : '<p class="gh-clock">' + esc(half ? "Halftime" : [ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
+      // the badge says Halftime; the clock line does not repeat it
+      var clock = st === "final" || half ? "" : '<p class="gh-clock">' + esc([ordinal(g.period), g.clock].filter(Boolean).join(" · ")) + "</p>";
       var sit = (st === "live" || st === "paused") && !half && g.situation && g.situation.short
         ? '<p class="gc-situation"><span>' + esc(g.situation.short) + "</span>" + (g.situation.spot ? "<span>" + esc(g.situation.spot) + "</span>" : "") + "</p>"
-        : half && g.situation && g.situation.receives
-        ? '<p class="gc-situation"><span>' + esc(g.situation.receives === "us" ? m.team.abbr : (g.oppAbbr || g.oppName)) + " gets the ball</span></p>"
+        : "";
+      // at halftime, who gets the ball: Home's words (David, 2026-11-25), on
+      // a full-width line under the score, where the sentence has room
+      halfLine = half && g.situation && g.situation.receives
+        ? '<p class="gc-situation gh-half"><span>' + esc(g.situation.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the 2nd half</span></p>"
         : "";
       center = '<div class="gh-center">' + top + clock + sit + "</div>";
     }
@@ -161,6 +165,7 @@ Suite.game = (function () {
              (bd ? bd.html : ui.art({ photo: m.photo, name: m.team.name, abbr: m.team.abbr, markUrl: m.team.markUrl })) +
              '<div class="gh-inner">' +
                '<div class="gh-row" aria-hidden="true">' + teamBlock(m, true, st) + center + teamBlock(m, false, st) + "</div>" +
+               (halfLine ? '<div aria-hidden="true">' + halfLine + "</div>" : "") +
                // The countdown under the matchup, the hero's full width: in
                // the middle column its labels ran together in a wider face
                // ("HOURSMINUTES", David 2026-10-07).
@@ -180,6 +185,9 @@ Suite.game = (function () {
       var line = m.team.name + " " + (g.us || 0) + ", " + opp + " " + (g.them || 0);
       if (st === "final") return "Final. " + line + ".";
       if (st === "paused") return (g.status === "suspended" ? "Suspended" : "Delayed") + ", " + ordinal(g.period) + " quarter. " + line + ".";
+      // 0:00 in the 4th before the source says final: the badge says End of
+      // game, and so does what a screen reader hears (Codex, #280)
+      if (TeamOS.game.endOfGame && TeamOS.game.endOfGame(g)) return "End of game, not yet final. " + line + ".";
       if (TeamOS.game.halftime(g)) return "Halftime. " + line + "." +
         (g.situation && g.situation.receives ? " " + (g.situation.receives === "us" ? m.team.name : g.oppName) + " gets the ball to start the second half." : "");
       return "Live, " + ordinal(g.period) + " quarter" + (g.clock ? ", " + g.clock : "") + ". " + line + "." +
