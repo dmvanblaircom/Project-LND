@@ -1,0 +1,65 @@
+{
+  "venue": "hard-rock-stadium",
+  "images": [
+    {
+      "role": "primary-day",
+      "file": "Cleveland_Browns_17-39_Miami_Dolphins_(Nov_13,_2022)_-_Hard_Rock_Stadium_-_file_08.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Cleveland_Browns_17-39_Miami_Dolphins_(Nov_13,_2022)_-_Hard_Rock_Stadium_-_file_08.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Cleveland_Browns_17-39_Miami_Dolphins_%28Nov_13%2C_2022%29_-_Hard_Rock_Stadium_-_file_08.jpg",
+      "width": 5760,
+      "height": 2592,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Elbert Hampton",
+      "credit_line": "\"Cleveland Browns 17-39 Miami Dolphins (Nov 13, 2022) - Hard Rock Stadium - file 08.jpg\" by Elbert Hampton, CC0, via Wikimedia Commons",
+      "date_taken": "2022-11-13 12:55:10",
+      "shot": "day",
+      "note": "Elevated end-zone-corner view across the full bowl during pregame, Browns at Dolphins 13 Nov 2022, under the 2016 canopy: packed teal-and-orange crowd fills roughly y 0-1500 across full width, field y 1300-2450 with a band performing midfield; no faces."
+    },
+    {
+      "role": "runner-up-day",
+      "file": "Cleveland_Browns_17-39_Miami_Dolphins_(Nov_13,_2022)_-_Hard_Rock_Stadium_-_file_12.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Cleveland_Browns_17-39_Miami_Dolphins_(Nov_13,_2022)_-_Hard_Rock_Stadium_-_file_12.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cleveland_Browns_17-39_Miami_Dolphins_%28Nov_13%2C_2022%29_-_Hard_Rock_Stadium_-_file_12.jpg",
+      "width": 5760,
+      "height": 2592,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Elbert Hampton",
+      "credit_line": "\"Cleveland Browns 17-39 Miami Dolphins (Nov 13, 2022) - Hard Rock Stadium - file 12.jpg\" by Elbert Hampton, CC0, via Wikimedia Commons",
+      "date_taken": "2022-11-13 12:56:56",
+      "shot": "day",
+      "note": "Similar elevated view during the anthem with a field-sized flag unfurled, Browns at Dolphins 13 Nov 2022: crowd y 0-1300, field y 1200-2300; a fan's back (jersey) bottom-right corner."
+    },
+    {
+      "role": "primary-night",
+      "file": "Hard_Rock_Stadium_-_El_Clásico_Miami.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hard_Rock_Stadium_-_El_Cl%C3%A1sico_Miami.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Hard_Rock_Stadium_-_El_Cl%C3%A1sico_Miami.jpg",
+      "width": 5568,
+      "height": 3712,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "VJPannozzo",
+      "credit_line": "\"Hard Rock Stadium - El Clásico Miami.jpg\" by VJPannozzo, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2017-07-29",
+      "shot": "night",
+      "note": "Upper-deck view under lights at El Clásico Miami (29 Jul 2017, after the canopy renovation), fireworks bursting along the canopy edge: full crowd wraps the bowl roughly y 1500-3712, pitch centre y 1900-2600, canopy and fireworks in the top ~35%. Soccer lines on the field."
+    },
+    {
+      "role": "runner-up-night",
+      "file": "Hard_Rock_Stadium.png",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hard_Rock_Stadium.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hard_Rock_Stadium.png",
+      "width": 4888,
+      "height": 2513,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Phasornc",
+      "credit_line": "\"Hard Rock Stadium.png\" by Phasornc, CC BY-SA 4.0, via Wikimedia Commons",
+      "date_taken": "2017-11-11",
+      "shot": "night",
+      "note": "Upper-level end-zone view at night of a Miami Hurricanes game (Nov 2017) with the canopy and video boards; crowd fills y 400-1900, football field centre-right; two spectators' backs of heads large in the foreground bottom-centre (crop needed)."
+    }
+  ]
+}
