@@ -1,7 +1,16 @@
 {
  "team": "boise-state",
- "updated": "2026-11-25T21:08:03.652613+00:00",
+ "updated": "2026-11-25T21:37:55.323507+00:00",
  "items": [
+  {
+   "title": "The Green Dot",
+   "link": "https://broncosports.com/news/2026/11/25/b-1-features-the-green-dot",
+   "source": "Boise State Athletics",
+   "summary": "<img alt=\"Boen Phelps B1 Feature webslider\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/23/BSU26_B1_Feature_Template_WEB.jpg\" /><br /><br />Boen Phelps' journey from preferred walk-on to the communicator for the Bronco defense is a testament to what hard work and a blue-collar mentality can accomplish.",
+   "image": "https://broncosports.com/images/2026/11/23/BSU26_B1_Feature_Template_WEB.jpg?width=800",
+   "sourceLogo": "https://broncosports.com/favicon.ico",
+   "published": "2026-11-25T21:00:00+00:00"
+  },
   {
    "title": "Spencer Danielson addresses growing concern with Boise State's rushing attack",
    "link": "https://www.si.com/college/boise-state/football/boise-state-s-vaunted-rushing-attack-has-vanished-in-recent-games?utm_source=RSS",
@@ -235,15 +244,6 @@
    "image": "https://broncosports.com/images/2026/11/18/BSU26_B1_Feature_Template_WEB__2_.jpg?width=800",
    "sourceLogo": "https://broncosports.com/favicon.ico",
    "published": "2026-11-19T21:00:00+00:00"
-  },
-  {
-   "title": "Week 12 Availability Report",
-   "link": "https://broncosports.com/news/2026/11/18/football-week-12-availability-report",
-   "source": "Boise State Athletics",
-   "summary": "<img alt=\"SDSU Availability Report\" src=\"https://broncosports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/18/FB25_Availability_Report_WEB.png\" /><br /><br />All Pac-12 availability reports can be found at Pac-12.com.",
-   "image": "https://broncosports.com/images/2026/11/18/FB25_Availability_Report_WEB.png?width=800",
-   "sourceLogo": "https://broncosports.com/favicon.ico",
-   "published": "2026-11-19T03:00:00+00:00"
   },
   {
    "title": "Broncos secure championship home field advantage in 46-41 win over Oregon State",
