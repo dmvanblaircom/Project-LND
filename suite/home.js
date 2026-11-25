@@ -228,9 +228,15 @@ Suite.home = (function () {
   // hero is the way into Game. A contextual shortcut joins only when the data
   // behind it exists; none is invented to fill a row.
 
+  // David, 2026-11-25: the bar chart did not say "these two teams", and the
+  // plus read as a cross. Matchup is VS in the team's display face;
+  // Availability is a player with a check (Lucide "user-round-check", ISC:
+  // Copyright (c) Lucide Contributors 2022; portions (c) Cole Bemis 2013-2022,
+  // Feather, MIT). A player with an injury mark was tried and rejected: at
+  // tile size the bandage read as a dot and the crutch as a cross.
   var ICON = {
-    matchup: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 18h4V9H4zM10 18h4V5h-4zM16 18h4v-6h-4z"/></svg>',
-    availability: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4h6v4h4v6h-4v6H9v-6H5V8h4z"/></svg>'
+    matchup: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><text x="12" y="16.6" text-anchor="middle" font-size="12.5" font-weight="800" fill="currentColor" stroke="none" style="font-family:var(--t-font-display);letter-spacing:.02em">VS</text></svg>',
+    availability: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="8" r="5"/><path d="M2 21a8 8 0 0 1 13.292-6"/><path d="m16 19 2 2 4-4"/></svg>'
   };
   function actionsHtml(a) {
     if (!a) return "";
