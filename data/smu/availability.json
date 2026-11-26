@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T15:08:52.203257+00:00",
+ "fetchedAt": "2026-11-26T04:08:44.652752+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "vs. Wake Forest",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Stanford",
  "players": [
   {
    "pos": "DE",
@@ -36,20 +36,6 @@
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "11",
-   "name": "Jaden Milliner-Jones",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "12",
-   "name": "Caden Marshall",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "13",
    "name": "Jaelyn Davis-Robinson",
@@ -60,6 +46,13 @@
    "pos": "DE",
    "no": "14",
    "name": "Trey Wilson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "21",
+   "name": "Jimmy Wyrick",
    "status": "out-game",
    "detail": ""
   },
@@ -78,17 +71,10 @@
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "52",
-   "name": "Jahkai Lang",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "58",
-   "name": "Abel Hoopii",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "29",
+   "name": "Brandon Miyazono",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -96,6 +82,13 @@
    "no": "60",
    "name": "Evan Goodwin",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "63",
+   "name": "Addison Nichols",
+   "status": "questionable",
    "detail": ""
   }
  ],

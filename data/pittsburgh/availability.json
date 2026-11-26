@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T22:38:39.321567+00:00",
+ "fetchedAt": "2026-11-26T04:08:43.945297+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Louisville",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "California",
  "players": [
   {
    "pos": "QB",
@@ -22,24 +22,17 @@
    "detail": ""
   },
   {
-   "pos": "RB",
-   "no": "11",
-   "name": "La’Vell Wright",
-   "status": "out-game",
+   "pos": "DB",
+   "no": "6",
+   "name": "Raion Strader",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "15",
-   "name": "Holden Geriner",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "16",
-   "name": "Eliyt Nairne",
-   "status": "out-game",
+   "pos": "TE",
+   "no": "17",
+   "name": "Elijah Lagg",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +46,7 @@
    "pos": "DB",
    "no": "21",
    "name": "Shadarian Harrison",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -78,6 +71,13 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "26",
+   "name": "Damon Ferguson Jr.",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "41",
    "name": "Isaac Patterson",
@@ -88,7 +88,7 @@
    "pos": "TE",
    "no": "49",
    "name": "Jordan Fields",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {

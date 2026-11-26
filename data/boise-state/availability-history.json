@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-11-26T03:08:25.837748+00:00",
+ "updated": "2026-11-26T04:08:34.955364+00:00",
  "reports": [
   {
    "schema": 1,
@@ -144,6 +144,20 @@
    "kickoffDate": "2026-11-28",
    "game": "at Colorado State",
    "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Syncere Brackett-Lambey",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Markell Bowens",
+     "status": "out-game",
+     "detail": ""
+    },
     {
      "pos": "OL",
      "no": "",
