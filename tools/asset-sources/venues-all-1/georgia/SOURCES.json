@@ -1,0 +1,35 @@
+{
+  "slug": "georgia",
+  "venue": "Sanford Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AUGA_vs._Marshall_at_Sanford_Stadium%2C_2025.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/UGA_vs._Marshall_at_Sanford_Stadium%2C_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "TarheelBornBred",
+      "credit_line": "TarheelBornBred / Wikimedia Commons / CC0",
+      "year": 2025,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AUGA_vs._Notre_Dame_2019.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/UGA_vs._Notre_Dame_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ugadawgs12",
+      "credit_line": "Ugadawgs12 / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2019,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}
