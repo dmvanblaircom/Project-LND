@@ -1,0 +1,33 @@
+{
+  "team_slug": "kentucky",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Commonwealth_Stadium_of_Kentucky_-_Kentucky_Wildcats_v.s._Georgia_Bulldogs_-_SEC_football,_October_2012_(2012-10-20_by_Navin75).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Commonwealth_Stadium_of_Kentucky_-_Kentucky_Wildcats_v.s._Georgia_Bulldogs_-_SEC_football%2C_October_2012_%282012-10-20_by_Navin75%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Navin75",
+      "credit_line": "Navin75 / Wikimedia Commons / CC BY-SA 2.0",
+      "year": 2012,
+      "time_of_day": "night",
+      "note": "Elevated night game view from high behind the south end zone looking down the length of the field, Oct 2012 (before the 2015 renovation that rebuilt the west side and press box); field fills the centre at rows ~45-82%, stands wrap both sides, crowd (distant, not identifiable) at the bottom 82-100%, dark sky top 18%."
+    },
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:KentuckyCommonwealthStadium-EZInterior.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/KentuckyCommonwealthStadium-EZInterior.jpg",
+      "width": 1472,
+      "height": 685,
+      "license_short_name": "CC BY 3.0 us",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+      "author": "JGlover",
+      "credit_line": "JGlover / Wikimedia Commons / CC BY 3.0 us",
+      "year": 2005,
+      "time_of_day": "day",
+      "note": "Elevated wide view from the upper end-zone stands down the length of the field during a Nov 2005 game (pre-2015 renovation); field fills rows ~30-60%, stands on both sides, crowd (small, not identifiable) at the bottom 55-100%, sky top 15%. Only 1472x685."
+    }
+  ]
+}
