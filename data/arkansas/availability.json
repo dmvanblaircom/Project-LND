@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T19:08:27.342078+00:00",
+ "fetchedAt": "2026-11-26T01:38:26.629386+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Texas",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "LSU",
  "players": [
   {
    "pos": "DB",
@@ -22,10 +22,17 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "8",
+   "name": "Phoenix Jackson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "34",
    "name": "Brylan Green",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -37,9 +44,9 @@
   },
   {
    "pos": "OL",
-   "no": "64",
-   "name": "Bryant Williams",
-   "status": "out-game",
+   "no": "75",
+   "name": "Kavion Broussard",
+   "status": "probable",
    "detail": ""
   },
   {

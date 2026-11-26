@@ -7,31 +7,38 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T19:38:32.466497+00:00",
+ "fetchedAt": "2026-11-26T01:38:33.906439+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Texas A&M",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Missouri",
  "players": [
+  {
+   "pos": "DB",
+   "no": "3",
+   "name": "Reggie Powers III",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Parker Livingstone",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "6",
    "name": "Tory Blaylock",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "7",
    "name": "Taylor Heim",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "9",
-   "name": "Dakoda Fields",
    "status": "out-game",
    "detail": ""
   },
@@ -60,7 +67,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Ryan Fodje",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -68,6 +75,27 @@
    "no": "72",
    "name": "Fred Hinton",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "76",
+   "name": "E'Marion Harris",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "82",
+   "name": "Ivan Carreon",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "94",
+   "name": "Kenny Ozowalu",
+   "status": "questionable",
    "detail": ""
   }
  ],

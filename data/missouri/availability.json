@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T23:08:43.614624+00:00",
+ "fetchedAt": "2026-11-26T01:38:32.972906+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Kentucky",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Oklahoma",
  "players": [
   {
    "pos": "EDG",
@@ -33,6 +33,13 @@
    "no": "21",
    "name": "Malae Fonoti",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LS",
+   "no": "49",
+   "name": "Brett Le Blanc",
+   "status": "questionable",
    "detail": ""
   },
   {

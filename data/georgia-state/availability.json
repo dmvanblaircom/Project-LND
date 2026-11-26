@@ -7,39 +7,67 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:38.383240+00:00",
+ "fetchedAt": "2026-11-26T01:38:30.199461+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Marshall",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Louisiana",
  "players": [
   {
    "pos": "",
    "no": "",
    "name": "Dennis Murray Jr",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "",
    "no": "",
-   "name": "Isaiah Stone",
-   "status": "out-game",
+   "name": "Grant Hollier",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "Avion McBride",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "Marcus Mascoll",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "",
    "no": "",
    "name": "Cameran Brown",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "",
    "no": "",
    "name": "Malique Harrell",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "Owen Dupree",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "",
+   "no": "",
+   "name": "Lanear McCrary",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -60,13 +88,6 @@
    "pos": "",
    "no": "",
    "name": "Ryan Green",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "",
-   "no": "",
-   "name": "Owen Dupree",
    "status": "out-game",
    "detail": ""
   },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "georgia-state",
- "updated": "2026-11-21T15:38:38.383240+00:00",
+ "updated": "2026-11-26T01:38:30.199461+00:00",
  "reports": [
   {
    "schema": 1,
@@ -332,6 +332,109 @@
      "pos": "",
      "no": "",
      "name": "Owen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Jordan Brown",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "georgia-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:30.199461+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "vs. Louisiana",
+   "players": [
+    {
+     "pos": "",
+     "no": "",
+     "name": "Dennis Murray Jr",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Grant Hollier",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Avion McBride",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Marcus Mascoll",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Cameran Brown",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Malique Harrell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Owen Dupree",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Lanear McCrary",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Matt Buron",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Curtis Walker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "",
+     "no": "",
+     "name": "Ryan Green",
      "status": "out-game",
      "detail": ""
     },

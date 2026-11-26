@@ -7,18 +7,18 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T20:08:40.897791+00:00",
+ "fetchedAt": "2026-11-26T01:38:27.295923+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Mississippi State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Alabama",
  "players": [
   {
    "pos": "LB",
    "no": "6",
    "name": "De'marcus Riddick",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,9 +29,16 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "56",
-   "name": "Cole Skinner",
+   "pos": "QB",
+   "no": "17",
+   "name": "Byrum Brown",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "21",
+   "name": "Gavin Jenkins",
    "status": "out-game",
    "detail": ""
   }

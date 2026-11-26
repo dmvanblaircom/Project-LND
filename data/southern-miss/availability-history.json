@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "southern-miss",
- "updated": "2026-11-21T15:38:45.423584+00:00",
+ "updated": "2026-11-26T01:38:35.587431+00:00",
  "reports": [
   {
    "schema": 1,
@@ -270,6 +270,109 @@
      "no": "",
      "name": "Dante Devine",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jahmir Davis",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jordan Pride",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Ricky Harding",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jeffery Rush",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Robert Briggs",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jeremiah Dillon",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "southern-miss",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:35.587431+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at Old Dominion",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Jaylen Himes",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "MaLik Caswell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Preston Kilgore",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Michael Robinson III",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Malakai Murphy",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Joe Rounds",
+     "status": "probable",
      "detail": ""
     },
     {

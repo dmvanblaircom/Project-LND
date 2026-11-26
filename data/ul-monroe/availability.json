@@ -7,31 +7,73 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:47.655938+00:00",
+ "fetchedAt": "2026-11-26T01:38:37.310840+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at App State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Marshall",
  "players": [
   {
-   "pos": "WR",
+   "pos": "DB",
    "no": "",
-   "name": "Javon Campbell",
-   "status": "out-game",
+   "name": "David Jester",
+   "status": "out-season",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Korian Wilson",
-   "status": "out-game",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Javon Campbell",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
+   "no": "",
+   "name": "Jackson Parker",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Makin Lenard",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "RJ Hall",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Roscoe Tucker",
+   "status": "out-season",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
    "name": "Taijh Overton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Lazavier Amos",
    "status": "out-game",
    "detail": ""
   },
@@ -43,20 +85,6 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "",
-   "name": "Van Martinez",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Darrian Gilliam",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "",
    "name": "Jayden Lewis",
@@ -64,24 +92,31 @@
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "WR",
    "no": "",
-   "name": "David Jester",
-   "status": "out-game",
+   "name": "Darrian Gilliam",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
-   "name": "Roscoe Tucker",
-   "status": "out-season",
+   "name": "Nate Green",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "RB",
+   "pos": "DL",
    "no": "",
-   "name": "Makin Lenard",
-   "status": "out-season",
+   "name": "Moses Madambuke",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Sean Duggery",
+   "status": "probable",
    "detail": ""
   },
   {

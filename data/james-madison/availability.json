@@ -7,32 +7,39 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-05T15:38:42.833187+00:00",
+ "fetchedAt": "2026-11-26T01:38:31.050333+00:00",
  "reported": true,
- "effectiveAt": "2026-11-05",
- "heading": "Game Day",
- "kickoffDate": "2026-11-05",
- "game": "at Southern Miss",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Coastal Carolina",
  "players": [
   {
-   "pos": "WR",
+   "pos": "OL",
    "no": "",
-   "name": "Kylan Billiot",
-   "status": "gtd",
+   "name": "DJ Fox",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Jack Harris",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "",
-   "name": "Jayon Harvey",
-   "status": "out-game",
+   "name": "DJ Kelly",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "",
    "name": "KD Mosley",
-   "status": "out-game",
+   "status": "out-season",
    "detail": ""
   },
   {
@@ -43,10 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
+   "pos": "OL",
    "no": "",
-   "name": "Tanner Vibabul",
-   "status": "out-game",
+   "name": "Frankie Tinilau",
+   "status": "questionable",
    "detail": ""
   }
  ],

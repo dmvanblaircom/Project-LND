@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arkansas",
- "updated": "2026-11-21T19:08:27.342078+00:00",
+ "updated": "2026-11-26T01:38:26.629386+00:00",
  "reports": [
   {
    "schema": 1,
@@ -346,6 +346,67 @@
      "no": "64",
      "name": "Bryant Williams",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "89",
+     "name": "Gavin Garretson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arkansas",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:26.629386+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "LSU",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "3",
+     "name": "Braydon Lee",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "8",
+     "name": "Phoenix Jackson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "34",
+     "name": "Brylan Green",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "47",
+     "name": "Maddox Lassiter",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Kavion Broussard",
+     "status": "probable",
      "detail": ""
     },
     {

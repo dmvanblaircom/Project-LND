@@ -7,24 +7,17 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:38.267909+00:00",
+ "fetchedAt": "2026-11-26T01:38:30.110253+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Troy",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. LA Tech",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "DL",
    "no": "",
-   "name": "Jacob Hammonds",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Kru Casey",
+   "name": "Caleb Ellis",
    "status": "out-game",
    "detail": ""
   },
@@ -39,20 +32,20 @@
    "pos": "WR",
    "no": "",
    "name": "Taylor Bradshaw",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jeremiah Ware",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "ILB",
    "no": "",
-   "name": "Carlo Thompson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Caleb Ellis",
+   "name": "CJ Allen",
    "status": "out-game",
    "detail": ""
   },

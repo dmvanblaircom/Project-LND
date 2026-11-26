@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:45.423584+00:00",
+ "fetchedAt": "2026-11-26T01:38:35.587431+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. South Alabama",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Old Dominion",
  "players": [
   {
    "pos": "WR",
@@ -22,10 +22,38 @@
    "detail": ""
   },
   {
+   "pos": "DB",
+   "no": "",
+   "name": "MaLik Caswell",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Preston Kilgore",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Michael Robinson III",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Malakai Murphy",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "",
-   "name": "Dante Devine",
-   "status": "gtd",
+   "name": "Joe Rounds",
+   "status": "probable",
    "detail": ""
   },
   {

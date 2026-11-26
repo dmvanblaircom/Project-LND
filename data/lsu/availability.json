@@ -7,12 +7,12 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T19:08:32.803782+00:00",
+ "fetchedAt": "2026-11-26T01:38:31.855509+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Tennessee",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Arkansas",
  "players": [
   {
    "pos": "WR",
@@ -25,14 +25,14 @@
    "pos": "WR",
    "no": "4",
    "name": "Jackson Harris",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "6",
    "name": "Winston Watkins Jr.",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,10 +50,24 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "12",
+   "name": "Malachi Thomas",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "15",
    "name": "Phillip Wright III",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "23",
+   "name": "Aidan Anding",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,16 +78,16 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "88",
-   "name": "Richard Anderson",
-   "status": "out-game",
+   "pos": "S",
+   "no": "28",
+   "name": "Jhase Thomas",
+   "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "DE",
-   "no": "91",
-   "name": "Trenton Henderson",
+   "pos": "DT",
+   "no": "88",
+   "name": "Richard Anderson",
    "status": "out-game",
    "detail": ""
   }

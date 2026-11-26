@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "lsu",
- "updated": "2026-11-21T19:08:32.803782+00:00",
+ "updated": "2026-11-26T01:38:31.855509+00:00",
  "reports": [
   {
    "schema": 1,
@@ -450,6 +450,102 @@
      "pos": "DE",
      "no": "91",
      "name": "Trenton Henderson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "lsu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:31.855509+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Arkansas",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "1",
+     "name": "Jayce Brown",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "4",
+     "name": "Jackson Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "6",
+     "name": "Winston Watkins Jr.",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "7",
+     "name": "Whit Weeks",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "10",
+     "name": "Dashawn Spears",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "12",
+     "name": "Malachi Thomas",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "Phillip Wright III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "23",
+     "name": "Aidan Anding",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "26",
+     "name": "Charles Ross II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "28",
+     "name": "Jhase Thomas",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DT",
+     "no": "88",
+     "name": "Richard Anderson",
      "status": "out-game",
      "detail": ""
     }

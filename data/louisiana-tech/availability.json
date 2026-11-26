@@ -7,12 +7,12 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:40.337823+00:00",
+ "fetchedAt": "2026-11-26T01:38:31.630434+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Arkansas State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Georgia Southern",
  "players": [
   {
    "pos": "WR",
@@ -26,6 +26,13 @@
    "no": "",
    "name": "Za'Qwaun Nunn",
    "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Taeden Rogers",
+   "status": "questionable",
    "detail": ""
   }
  ],

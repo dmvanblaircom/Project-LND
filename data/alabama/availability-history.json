@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-11-14T16:38:30.301770+00:00",
+ "updated": "2026-11-26T01:38:25.928104+00:00",
  "reports": [
   {
    "schema": 1,
@@ -584,6 +584,102 @@
      "no": "19",
      "name": "Chuck McDonald III",
      "status": "gtd",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "23",
+     "name": "Cayden Jones",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "26",
+     "name": "Mhari Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "29",
+     "name": "Nick Sherman",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "40",
+     "name": "Josh Ford",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "50",
+     "name": "Casey Poe",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "92",
+     "name": "Jeremiah Beaman",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "alabama",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://www.secsports.com/fbreports",
+   "sourceLabel": "SECsports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:25.928104+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Auburn",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "4",
+     "name": "Luke Metz",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "7",
+     "name": "Caleb Woodson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "9",
+     "name": "Desmond Umeozulu",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "10",
+     "name": "Jireh Edwards",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "14",
+     "name": "Fatutoa Henry",
+     "status": "probable",
      "detail": ""
     },
     {

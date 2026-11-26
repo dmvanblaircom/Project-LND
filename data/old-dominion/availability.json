@@ -7,18 +7,67 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-07T15:38:56.820332+00:00",
+ "fetchedAt": "2026-11-26T01:38:34.091755+00:00",
  "reported": true,
- "effectiveAt": "2026-11-07",
- "heading": "Game Day",
- "kickoffDate": "2026-11-07",
- "game": "at Coastal Carolina",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Southern Miss",
  "players": [
   {
-   "pos": "WR",
+   "pos": "QB",
    "no": "",
-   "name": "JJ Harrell",
-   "status": "out-game",
+   "name": "Quinn Henicle",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Trey Hall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "DeMorrsion Brown",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Connor Drake",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Jamez Drummer",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "JoJo Haynes",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Greg Johnson",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "LeDerrion Menter",
+   "status": "out-season",
    "detail": ""
   },
   {

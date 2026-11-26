@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "coastal-carolina",
- "updated": "2026-11-21T15:38:36.825136+00:00",
+ "updated": "2026-11-26T01:38:29.006402+00:00",
  "reports": [
   {
    "schema": 1,
@@ -263,6 +263,95 @@
      "no": "",
      "name": "Jordan Stevens",
      "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "coastal-carolina",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:29.006402+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at James Madison",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Gavin McLaughlin",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jordan Stevens",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Mason Barton",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Travis Roman",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Azarel Juste",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Mitch Toney",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Ibe Diawara",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Tre Guerra",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jesse Powell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Deuce Bailey",
+     "status": "probable",
      "detail": ""
     }
    ],

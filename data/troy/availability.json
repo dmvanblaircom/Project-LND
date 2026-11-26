@@ -7,18 +7,25 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:46.885994+00:00",
+ "fetchedAt": "2026-11-26T01:38:36.721137+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Georgia Southern",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Arkansas State",
  "players": [
   {
-   "pos": "WR",
+   "pos": "ILB",
    "no": "",
-   "name": "Kristian Tate",
-   "status": "out-season",
+   "name": "Keyshawn Campbell",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Tyler Cappi",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -46,6 +53,13 @@
    "pos": "DB",
    "no": "",
    "name": "Tai Terrell",
+   "status": "out-season",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Kristian Tate",
    "status": "out-season",
    "detail": ""
   }

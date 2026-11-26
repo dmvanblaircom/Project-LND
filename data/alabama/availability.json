@@ -7,39 +7,46 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-14T16:38:30.301770+00:00",
+ "fetchedAt": "2026-11-26T01:38:25.928104+00:00",
  "reported": true,
- "effectiveAt": "2026-11-14",
- "heading": "Game Day",
- "kickoffDate": "2026-11-14",
- "game": "at Vanderbilt",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Auburn",
  "players": [
   {
-   "pos": "RB",
-   "no": "0",
-   "name": "AK Dear",
-   "status": "out-game",
+   "pos": "LB",
+   "no": "4",
+   "name": "Luke Metz",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "7",
+   "name": "Caleb Woodson",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "9",
    "name": "Desmond Umeozulu",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "12",
-   "name": "Keelon Russell",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "DB",
-   "no": "19",
-   "name": "Chuck McDonald III",
-   "status": "gtd",
+   "no": "10",
+   "name": "Jireh Edwards",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "14",
+   "name": "Fatutoa Henry",
+   "status": "probable",
    "detail": ""
   },
   {

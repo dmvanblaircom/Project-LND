@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "troy",
- "updated": "2026-11-21T15:38:46.885994+00:00",
+ "updated": "2026-11-26T01:38:36.721137+00:00",
  "reports": [
   {
    "schema": 1,
@@ -241,6 +241,74 @@
      "pos": "DB",
      "no": "",
      "name": "Tai Terrell",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "troy",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://sunbeltsports.org/news/2025/8/11/football-availability-report-new.aspx",
+   "sourceLabel": "SunBeltSports.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:38:36.721137+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at Arkansas State",
+   "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Keyshawn Campbell",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Tyler Cappi",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "",
+     "name": "Jackson Worley",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Joe Lott",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "",
+     "name": "Jermaine Paramore",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Tai Terrell",
+     "status": "out-season",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Kristian Tate",
      "status": "out-season",
      "detail": ""
     }

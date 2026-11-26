@@ -7,13 +7,20 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:34.039259+00:00",
+ "fetchedAt": "2026-11-26T01:38:26.719401+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at LA Tech",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Troy",
  "players": [
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Sterling Wiggins",
+   "status": "out-season",
+   "detail": ""
+  },
   {
    "pos": "RB",
    "no": "",
@@ -29,10 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "DL",
    "no": "",
-   "name": "Sterling Wiggins",
-   "status": "out-season",
+   "name": "Terrance Grant",
+   "status": "questionable",
    "detail": ""
   }
  ],
