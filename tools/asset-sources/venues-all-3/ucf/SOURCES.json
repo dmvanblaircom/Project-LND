@@ -1,0 +1,35 @@
+{
+  "venue": "Acrisure Bounce House (FBC Mortgage / Spectrum Stadium)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memphis_at_UCF_(37407654886).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Memphis_at_UCF_%2837407654886%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "elisfkc from Orlando, FL, United States",
+      "credit_line": "elisfkc from Orlando, FL, United States / Wikimedia Commons, CC BY-SA 2.0",
+      "year": 2017,
+      "day_or_night": "day",
+      "note": "student section behind the south end zone (2017 Memphis game, late afternoon); field rows ~0-1150 of 1800 fills the top two-thirds, far stands at the very top, crowd in the bottom third"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:ECU_at_UCF_(37704993842).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/ECU_at_UCF_%2837704993842%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "elisfkc from Orlando, FL, United States",
+      "credit_line": "elisfkc from Orlando, FL, United States / Wikimedia Commons, CC BY-SA 2.0",
+      "year": 2017,
+      "day_or_night": "night",
+      "note": "end-zone stands at the 2017 ECU night game; field rows ~700-1350 of 1800 (centre), lit far stands and video board above, crowd at the bottom"
+    }
+  ],
+  "closest_misses": [],
+  "remark": "Low single-tier bowl; end-zone stand views are the highest available. 2017 photos; boards and the 2023 club additions on the west side are not prominent."
+}
