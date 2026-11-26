@@ -1,7 +1,16 @@
 {
  "team": "arkansas",
- "updated": "2026-11-26T01:37:55.629043+00:00",
+ "updated": "2026-11-26T05:07:51.744623+00:00",
  "items": [
+  {
+   "title": "HawgBeat 75% off Black Friday flash sale",
+   "link": "https://on3.com/sites/hawg-beat/news/hawgbeat-75-off-black-friday-flash-sale/",
+   "source": "HawgBeat",
+   "summary": "Get access to the top Arkansas Razorbacks sports coverage through the HawgBeat Black Friday 75% off sale that also includes access to On3 and Rivals national premium content.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25135943/75.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-26T05:01:00+00:00"
+  },
   {
    "title": "Arkansas Has One Last Chance to Give Razorback Fans Something to Celebrate Against LSU",
    "link": "https://www.si.com/college/arkansas/football/arkansas-has-one-last-chance-to-give-razorback-fans-something-to-celebrate-against-lsu?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/09/14093732/Silverfield.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-21T21:26:32+00:00"
-  },
-  {
-   "title": "Arkansas Football Availability Report: Texas week (Gameday)",
-   "link": "https://on3.com/sites/hawg-beat/news/arkansas-football-availability-report-texas-week-gameday/",
-   "source": "HawgBeat",
-   "summary": "The final SEC Availability Report for Arkansas versus Texas was released on Saturday.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/10/15164852/Sil-Thurs.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-21T19:01:22+00:00"
   }
  ]
 }

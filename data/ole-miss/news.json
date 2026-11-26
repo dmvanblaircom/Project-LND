@@ -1,6 +1,6 @@
 {
  "team": "ole-miss",
- "updated": "2026-11-26T04:08:07.849681+00:00",
+ "updated": "2026-11-26T05:08:03.135134+00:00",
  "items": [
   {
    "title": "Power rankings: Top 15 Egg Bowls",
@@ -55,15 +55,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25093517/HW96PRkXEAAm9SD.jpg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-25T20:00:54+00:00"
-  },
-  {
-   "title": "Football vs. Mississippi State: First Look",
-   "link": "https://olemisssports.com/news/2026/11/25/football-vs-mississippi-state-first-look",
-   "source": "Ole Miss Athletics",
-   "summary": "<img alt=\"FB First Look\" src=\"https://olemisssports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/first_look.png\" /><br /><br />OXFORD, Miss. \u2013 No. 22 Ole Miss football (7-4, 4-4 SEC) returns to action Friday for its regular-season finale as head coach Pete Golding and the Rebels take on the Mississippi State Bulldogs inside Vaught-Hemingway Stadium in the 123rd edition of the Egg Bowl.",
-   "image": "https://olemisssports.com/images/2026/11/25/first_look.png?width=800",
-   "sourceLogo": "https://olemisssports.com/favicon.ico",
-   "published": "2026-11-25T19:44:00+00:00"
   },
   {
    "title": "Football vs. Mississippi State: Practice Report",
@@ -271,6 +262,15 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_4032,h_2268,x_0,y_616/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/the_grove_report/01m852f7yfv414nhb27y.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-23T21:32:25+00:00"
+  },
+  {
+   "title": "Football vs. Mississippi State: First Look",
+   "link": "https://olemisssports.com/news/2026/11/23/football-vs-mississippi-state-first-look",
+   "source": "Ole Miss Athletics",
+   "summary": "<img alt=\"FB First Look\" src=\"https://olemisssports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/first_look.png\" /><br /><br />OXFORD, Miss. \u2013 No. 22 Ole Miss football (7-4, 4-4 SEC) returns to action Friday for its regular-season finale as head coach Pete Golding and the Rebels take on the Mississippi State Bulldogs inside Vaught-Hemingway Stadium in the 123rd edition of the Egg Bowl.",
+   "image": "https://olemisssports.com/images/2026/11/25/first_look.png?width=800",
+   "sourceLogo": "https://olemisssports.com/favicon.ico",
+   "published": "2026-11-23T19:44:00+00:00"
   },
   {
    "title": "Mississippi State Has Everything to Lose Against Ole Miss in the Egg Bowl",
