@@ -1,0 +1,19 @@
+{
+  "slug": "florida-state",
+  "venue": "Doak Campbell Stadium",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ADoak_Campbell_Stadium_in_2026.jpg",
+      "why": "Current form (Sept 2026 night game), but taken at field level from the front row: field rows ~65-100%, stands and sky fill the top; heads in the foreground."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ARenovated_North_End_zone_of_Doak_Campbell_Stadium.jpg",
+      "why": "Elevated and clean (Aug 2017), but predates the 2024-2026 stadium renovation; field sits right of center, empty."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ADoak_Campbell_Stadium_fireworks.jpg",
+      "why": "Elevated night game with fireworks (Oct 2017), pre-renovation; 2048 px."
+    }
+  ]
+}

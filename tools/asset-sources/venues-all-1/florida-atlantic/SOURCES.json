@@ -1,0 +1,30 @@
+{
+  "slug": "florida-atlantic",
+  "venue": "Flagler Credit Union Stadium (formerly FAU Stadium)",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AFAU_Stadium_%28Boca_Raton%2C_FL%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/FAU_Stadium_%28Boca_Raton%2C_FL%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1280,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons / CC BY 4.0",
+      "year": 2026,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AFAU_Stadium_North_Endzone.jpg",
+      "why": "2011 game day from the north end zone club, but identifiable spectators fill the bottom 40% of the frame."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AFAU_Stadium_from_main_stand_2014.jpg",
+      "why": "Elevated and clean, but a soccer layout (2014 NCAA Women's College Cup)."
+    }
+  ]
+}
