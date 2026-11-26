@@ -1,0 +1,26 @@
+{
+  "slug": "app-state",
+  "venue": "Kidd Brewer Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AKiddBrewerStadium%28ViewFromSE%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/KiddBrewerStadium%28ViewFromSE%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1081,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Porsche997SBS",
+      "credit_line": "Porsche997SBS / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2017,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AKiddBrewer2009-1.jpg",
+      "why": "High distant view from the hillside; field is a small strip, parking lot dominates."
+    }
+  ]
+}
