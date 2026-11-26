@@ -580,6 +580,43 @@ var TEAM_ART = (function (W) { return {
       day: { path: "assets/venues/maverik-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
         credit: { author: "Phanatic10", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Utah_State_Univ_Stadium_Color_Corrected.jpg", changes: "cropped, resized" } }
     },
+    // drone views (David, 2026-11-26: why reject them? On the stage, cropped
+    // to the field, they read as the stadium well)
+    "david-booth-kansas-memorial-stadium": {
+      label: "David Booth Kansas Memorial Stadium", names: ["David Booth Kansas Memorial Stadium"],
+      day: { path: "assets/venues/david-booth-kansas-memorial-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Kuwxman", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:David_Booth_Memorial_Stadium_-_August_2025.jpg", changes: "cropped, resized" } }
+    },
+    "simmons-bank-liberty-stadium": {
+      label: "Simmons Bank Liberty Stadium", names: ["Simmons Bank Liberty Stadium"],
+      day: { path: "assets/venues/simmons-bank-liberty-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Liberty_Bowl_Memorial_Stadium_-_Memphis.jpg", changes: "cropped, resized" } }
+    },
+    "hornet-stadium": {
+      label: "Hornet Stadium", names: ["Hornet Stadium"],
+      day: { path: "assets/venues/hornet-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Hornet_Stadium_(Sacramento).jpg", changes: "cropped, resized" } }
+    },
+    "hancock-whitney-stadium": {
+      label: "Hancock Whitney Stadium", names: ["Hancock Whitney Stadium"],
+      day: { path: "assets/venues/hancock-whitney-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:South_Alabama_Hancock_Whitney_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "rynearson-stadium": {
+      label: "Rynearson Stadium", names: ["Rynearson Stadium"],
+      day: { path: "assets/venues/rynearson-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Eastern sid", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:WaltDrone4_081524.jpg", changes: "cropped, resized" } }
+    },
+    "pratt-and-whitney-stadium": {
+      label: "Pratt & Whitney Stadium", names: ["Pratt & Whitney Stadium"],
+      day: { path: "assets/venues/pratt-and-whitney-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Pratt_&_Whitney_Stadium_at_Rentschler_Field_(UCONN).jpg", changes: "cropped, resized" } }
+    },
+    "malone-stadium": {
+      label: "Malone Stadium", names: ["Malone Stadium"],
+      day: { path: "assets/venues/malone-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:ULM_Warhawks_Malone_Stadium.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
