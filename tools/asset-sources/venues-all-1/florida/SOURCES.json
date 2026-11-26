@@ -1,0 +1,30 @@
+{
+  "slug": "florida",
+  "venue": "Ben Hill Griffin Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABen_Hill_Griffin_Stadium_during_a_Florida_Gators_football_game_against_the_Tennessee_Volunteers_in_November_2025.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Ben_Hill_Griffin_Stadium_during_a_Florida_Gators_football_game_against_the_Tennessee_Volunteers_in_November_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Gatorfan252525",
+      "credit_line": "Gatorfan252525 / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2025,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABen_Hill_Griffin_Stadium.jpg",
+      "why": "Fine upper-deck game view, but from 2006 and only 2304 px; the 2025 photo is current."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABen_Hill_Griffin_Stadium_prior_to_a_Florida_Gators_football_game_against_the_Tennessee_Volunteers_in_November_2025.jpg",
+      "why": "Nov 2025 night panorama, but from the lower bowl: field small (rows ~55-75%), heads in the foreground."
+    }
+  ]
+}
