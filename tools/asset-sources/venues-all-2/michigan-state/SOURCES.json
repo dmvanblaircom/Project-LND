@@ -1,0 +1,49 @@
+{
+  "team_slug": "michigan-state",
+  "venue": "Spartan Stadium (East Lansing)",
+  "summary": "Day: 2011 elevated end-zone game view (field upper-middle). Night: 2015 elevated sideline under lights.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Michigan_State_University_-_Spartan_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Michigan_State_University_-_Spartan_Stadium.jpg",
+      "width": 2400,
+      "height": 1808,
+      "original_width": 2528,
+      "original_height": 1904,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Tony Faiola",
+      "credit_line": "Photo: Tony Faiola, CC BY 2.0, via Wikimedia Commons",
+      "year": 2011,
+      "day_or_night": "day",
+      "note": "Elevated end-zone corner view from the south-west lower bowl during the 2011 Indiana game, full crowd; field rows ~420-1150 of 1708 (25-67%) running away from camera, stands wrap both sides, sky top ~5%; crowd fills the bottom third. Classic framing, field in the upper-middle"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2015_Michigan_State_vs_Penn_State_Football_Game_East_Lansing_11-28-15_(23088941130).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/2015_Michigan_State_vs_Penn_State_Football_Game_East_Lansing_11-28-15_%2823088941130%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 3264,
+      "original_height": 2448,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Steven Depolo from Grand Rapids, MI, USA",
+      "credit_line": "Photo: Steven Depolo from Grand Rapids, MI, USA, CC BY 2.0, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "night",
+      "note": "Night 2015 Penn State game from high in the west stands toward the north end; field rows ~1150-1800 of 1800 (from ~38% down to the bottom, diagonal), packed far stands rows ~550-1150, black sky with a light flare top-centre ~30%; fans' heads in the lower right"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Western_Michigan_at_Michigan_State_football_game_2025.jpg (CC BY-SA 4.0, 4032px)",
+      "why": "2025 night from the upper lower-bowl, field rows ~45-80%, but identifiable fans fill the bottom-left third"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Spartan_Stadium_in_2025_During_a_game_against_Western_Michigan.jpg (CC0, 2292px)",
+      "why": "2025 sunset, field only in the bottom 35% below a huge press box"
+    }
+  ]
+}

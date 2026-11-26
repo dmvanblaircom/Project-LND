@@ -1,0 +1,37 @@
+{
+  "team_slug": "massachusetts",
+  "venue": "Warren McGuirk Alumni Stadium",
+  "summary": "Current-era (2026) elevated game-day corner view. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Eastern_Michigan_vs._UMass_football_2026_(EMU_on_offense).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Eastern_Michigan_vs._UMass_football_2026_%28EMU_on_offense%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Yeahimaboss413",
+      "credit_line": "Photo: Yeahimaboss413, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "Elevated corner view from the upper rows of the stands during an Oct 2026 game, crowd, late-afternoon sun; field rows ~930-1440 of 1800 (52-80%), far stands rows ~690-930, clear sky in the top ~38%; fans in the bottom ~20%. Field sits low: needs a downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Band_Day_at_the_University_of_Massachusetts_Amherst,_2009.jpg (CC BY 2.0, 3008px)",
+      "why": "2009 Band Day at night: field covered by massed bands (not a football layout), pre-renovation, crowd heads in the bottom third"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Warren_McGuirk_Alumni_Stadium_-_UMass_Football.jpg (CC BY 4.0, 5280px)",
+      "why": "Nov 2025 drone high oblique aerial of the current stadium; field rows ~35-70%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Stadium2-3.jpg (CC BY-SA 3.0, 2000px)",
+      "why": "2008 view straight across from the press-box side, empty, pre-renovation; field rows ~60-100%"
+    }
+  ]
+}

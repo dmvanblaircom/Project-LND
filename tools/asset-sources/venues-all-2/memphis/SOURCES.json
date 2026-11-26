@@ -1,0 +1,37 @@
+{
+  "team_slug": "memphis",
+  "venue": "Simmons Bank Liberty Stadium",
+  "summary": "Only current-form image is a 2026 drone aerial (last resort). All elevated game-day photos predate the 2024-26 renovation.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Liberty_Bowl_Memorial_Stadium_-_Memphis.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Liberty_Bowl_Memorial_Stadium_-_Memphis.jpg",
+      "width": 2400,
+      "height": 1763,
+      "original_width": 12328,
+      "original_height": 9054,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "LAST RESORT - high oblique drone aerial (not a stands view), Feb 2026, empty, renovation finishing (new west-side tower at left, construction around the edge); field rows ~560-1050 of 1763 (32-60%) in the centre-left, bowl seating around it, city skyline in the top ~12%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Liberty_Bowl_Stadium_(16169392412).jpg (CC BY-SA 2.0, 4000px)",
+      "why": "Best elevated game photo (2011 Liberty Bowl at night, east lower stands looking at the press-box side, field rows ~55-75%), but it predates the 2024-26 renovation that rebuilt the west side, so it does not show the current form"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Panorama_of_Liberty_Bowl_Memorial_Stadium,_Memphis,_TN,_Oct_2015.jpg (CC BY-SA 4.0, 9544px)",
+      "why": "2015 game-day panorama, 9544x3090, but fans' heads fill the bottom half and it predates the renovation"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:2022_Liberty_Bowl_team_entrance.jpg (CC BY-SA 4.0, 3520px)",
+      "why": "2022 Liberty Bowl from field-level stands; field is the bottom strip, pre-renovation"
+    }
+  ]
+}

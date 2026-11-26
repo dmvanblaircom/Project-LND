@@ -1,0 +1,37 @@
+{
+  "team_slug": "michigan",
+  "venue": "Michigan Stadium",
+  "summary": "Current-era (2026) elevated lower-bowl game view. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Western_Michigan_Broncos_at_Michigan_Wolverines_football_2026_01.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Western_Michigan_Broncos_at_Michigan_Wolverines_football_2026_01.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 3352,
+      "original_height": 2514,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "BenjaminSmithChef",
+      "credit_line": "Photo: BenjaminSmithChef, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "Elevated lower-bowl sideline view across the 50 to the packed far stands, Sept 2026 game; field rows ~810-1310 of 1800 (45-73%), packed far stands and press box above, no sky; crowd (backs, one jersey) fills the bottom ~27%. Field sits mid-frame: needs a slight downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:MichStadium_Renovation1.jpg (Public domain, 3648px)",
+      "why": "Post-2010 renovation, empty stadium from a premium box; field rows ~48-75%, dark overhang and seats frame the top and bottom"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Ohio_State_Buckeyes_at_Michigan_Wolverines_(22746662033).jpg (CC BY 2.0, 2048px)",
+      "why": "2015 Ohio State game, pre-game empty view, has a 'Maize & Blue Nation' watermark; 2048px"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Northwestern_vs._Michigan_football_2012_03_(Northwestern_band).jpg (CC BY-SA 4.0, 3072px)",
+      "why": "2012 band pre-game from the lower bowl, field rows ~50-80%, heads in the bottom 25%"
+    }
+  ]
+}

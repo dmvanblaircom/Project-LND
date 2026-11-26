@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 13 venues; day+night 2, day only 10, night only 1, none 0.
+**Counts:** 18 venues; day+night 3, day only 13, night only 1, none 1.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -21,3 +21,8 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | louisville | L&N Federal Credit Union Stadium | night | CC BY-SA 4.0 | Night bowl view of the current stadium (2018). No qualifying daytime elevated photo. |
 | marshall | Joan C. Edwards Stadium | day+night | CC BY-SA 3.0; CC BY-SA 4.0 | Day: elevated corner panorama (post-game, partly empty). Night: elevated 2016 game-day crowd shot. |
 | maryland | SECU Stadium | day+night | CC BY-SA 4.0 | Day: top-of-upper-deck game-day panorama (2018). Night: 2023 upper-deck portrait shot. |
+| massachusetts | Warren McGuirk Alumni Stadium | day | CC BY 4.0 | Current-era (2026) elevated game-day corner view. No qualifying night photo. |
+| memphis | Simmons Bank Liberty Stadium | day | CC BY 4.0 | Only current-form image is a 2026 drone aerial (last resort). All elevated game-day photos predate the 2024-26 renovation. |
+| miami-oh | Yager Stadium | none | - | Nothing qualifies: Commons has only a 2003 low student-section night shot and 1600px field-level/exterior views. |
+| michigan-state | Spartan Stadium (East Lansing) | day+night | CC BY 2.0 | Day: 2011 elevated end-zone game view (field upper-middle). Night: 2015 elevated sideline under lights. |
+| michigan | Michigan Stadium | day | CC BY-SA 4.0 | Current-era (2026) elevated lower-bowl game view. No qualifying night photo. |
