@@ -1,0 +1,30 @@
+{
+  "slug": "auburn",
+  "venue": "Jordan-Hare Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAuburn%2C_AL%2C_USA_-_panoramio_-_Tom_Key_%286%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Auburn%2C_AL%2C_USA_-_panoramio_-_Tom_Key_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Tom Key",
+      "credit_line": "Tom Key / Wikimedia Commons / CC BY-SA 3.0",
+      "year": 2016,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAuburn%2C_AL%2C_USA_-_panoramio_-_Tom_Key_%2810%29.jpg",
+      "why": "2016 day game seen from the lower west stands; field sits in the bottom 40% (lower left) with heads in the foreground, so it would vanish under the fade."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AJordan-Hare_Stadium_flyover.png",
+      "why": "2021 upper-deck view, but helicopters and sky fill the frame and the field is a thin strip at the bottom."
+    }
+  ]
+}

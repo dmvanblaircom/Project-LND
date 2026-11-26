@@ -1,0 +1,35 @@
+{
+  "slug": "baylor",
+  "venue": "McLane Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AMcLane_Stadium_facingsouth7.16.14.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/McLane_Stadium_facingsouth7.16.14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Djyueng",
+      "credit_line": "Djyueng / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2014,
+      "day_or_night": "night",
+      "note": "x"
+    },
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ATheline.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Theline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1080,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Cardinalfan24",
+      "credit_line": "Cardinalfan24 / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2016,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}
