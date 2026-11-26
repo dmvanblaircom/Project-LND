@@ -1,0 +1,16 @@
+{
+  "team_slug": "kentucky",
+  "venue": "Kroger Field",
+  "summary": "",
+  "files": [],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Kroger_Field,_Kentucky_vs._Arkansas,_October_2019.jpg (CC BY-SA 4.0, 4032px)",
+      "why": "Current form (2019 Arkansas night game) but taken from low lower-bowl seats: identifiable fans fill the bottom 40% and the field is a strip at rows ~55-75%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:UTUK07.JPG (CC BY 3.0, 3648px)",
+      "why": "Field-level game action, no stadium"
+    }
+  ]
+}

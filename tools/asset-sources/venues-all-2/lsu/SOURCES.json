@@ -1,0 +1,53 @@
+{
+  "team_slug": "lsu",
+  "venue": "Tiger Stadium (Baton Rouge, LA)",
+  "summary": "Day: 2024 upper-deck sideline game view. Night: 2023 end-zone view at dusk under lights.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LSU_Tigers_vs_Nicholls_Colonels_at_Tiger_Stadium_09-07-2024_(31).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LSU_Tigers_vs_Nicholls_Colonels_at_Tiger_Stadium_09-07-2024_%2831%29.jpg",
+      "width": 2400,
+      "height": 1801,
+      "original_width": 3900,
+      "original_height": 2926,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "Photo: Spatms, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "Elevated upper-deck sideline view across the 50 to the packed far stands, Sept 2024 Nicholls game; field rows ~760-1580 of 1801 (42-88%), packed far stands fill the top ~42% (no sky), team bench along the bottom ~12%"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LSU_vs_Army_at_Tiger_Stadium_10-21-2023_(2).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/LSU_vs_Army_at_Tiger_Stadium_10-21-2023_%282%29.jpg",
+      "width": 1920,
+      "height": 1066,
+      "original_width": 1920,
+      "original_height": 1066,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "Photo: Spatms, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "night",
+      "note": "Dusk/night, Oct 2023 Army game, lights on, from the upper rows of the north end zone stands down the length of the field to the south end zone upper deck; 1920 px original; field rows ~460-820 of 1066 (43-77%), packed bowl ~20-43%, dusk sky and video boards top ~20%; fans' heads and phones along the bottom ~15%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:LSU_football_game.jpg (CC BY-SA 4.0, 3264px)",
+      "why": "2012 Alabama night game, strong framing, but before the 2014 south end zone upper-deck expansion"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:2022-LSU-Bama.jpg (CC BY-SA 4.0, 2784px)",
+      "why": "2022 field rush after the Alabama win: field covered by fans, heavy glare"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Pregame-lsu.jpg (CC BY 2.5, 2288px)",
+      "why": "2006 pregame from field-level stands, pre-expansion"
+    }
+  ]
+}
