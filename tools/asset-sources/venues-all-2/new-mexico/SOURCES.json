@@ -1,0 +1,33 @@
+{
+  "team_slug": "new-mexico",
+  "venue": "University Stadium (Albuquerque)",
+  "summary": "Elevated game-day corner view (2022), light crowd. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Stadium_During_Football_Game.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Stadium_During_Football_Game.jpg",
+      "width": 2048,
+      "height": 1536,
+      "original_width": 2048,
+      "original_height": 1536,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Nrtvxc",
+      "credit_line": "Photo: Nrtvxc, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2022,
+      "day_or_night": "day",
+      "note": "Elevated corner view from the upper rows of the west stands during a game, Sandia Mountains behind, small crowd; field rows ~690-1310 of 1536 (45-85%, diagonal), east stands and scoreboard ~32-45%, cloudy sky and mountains in the top ~32%; empty bleachers and railing in the bottom-left"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:UNM_-_Dreamstyle_Stadium_field.jpg (CC BY-SA 4.0, 4032px)",
+      "why": "2019 empty stadium from the upper west stands; field rows ~55-85%, empty bleachers fill the bottom"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:New_Mexico_Lobos_University_Stadium_at_sunset.jpg (CC BY 4.0, 3600px)",
+      "why": "2024 sunset game from the low south end zone; field rows ~65-90%, stormy sky fills the top half"
+    }
+  ]
+}

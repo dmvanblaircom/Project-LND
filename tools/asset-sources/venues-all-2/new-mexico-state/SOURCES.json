@@ -1,0 +1,33 @@
+{
+  "team_slug": "new-mexico-state",
+  "venue": "Aggie Memorial Stadium",
+  "summary": "Current (2026) elevated end-zone view, empty stadium. No game-day or night photo qualifies.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Aggie_Memorial_Stadium_field.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Aggie_Memorial_Stadium_field.jpg",
+      "width": 2400,
+      "height": 1600,
+      "original_width": 13600,
+      "original_height": 9067,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "Elevated view from the north end (above the end-zone grass) down the length of the field to the south scoreboard, empty stadium, March 2026; field rows ~610-990 of 1600 (38-62%), stands both sides, cloudy blue sky top ~30%; grass berm with the NM State zia logo in the bottom 35%. No crowd"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:NMSU_Aggie_Memorial_Stadium.jpg (CC BY 4.0, 9916px)",
+      "why": "2026 drone high oblique aerial; field ~35-90%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Aggie_Memorial_Stadium_-_West_Side_Stands_%26_Press_Box_01.JPG (CC BY-SA 4.0, 4864px)",
+      "why": "2015 empty, low corner of the east stands; sky fills the top 45%"
+    }
+  ]
+}

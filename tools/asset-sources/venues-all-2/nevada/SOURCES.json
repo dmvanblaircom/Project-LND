@@ -1,0 +1,33 @@
+{
+  "team_slug": "nevada",
+  "venue": "Mackay Stadium",
+  "summary": "Only elevated game photo is a 2015 upper-corner dusk shot; field sits low. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Mackay_10oct2015.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Mackay_10oct2015.jpg",
+      "width": 2400,
+      "height": 1350,
+      "original_width": 3264,
+      "original_height": 1836,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lanski",
+      "credit_line": "Photo: Lanski, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "day",
+      "note": "Upper south-east corner during an Oct 2015 game at dusk, looking across to the west stands and press box with the mountains behind; field rows ~880-1350 of 1350 (65-100%), west stands rows ~470-880, dramatic sky top ~35%. Field sits low: needs a strong downward offset. Taken just before the 2016 seating/premium renovation"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:University_of_Nevada_Wolf_Pack_31,_Purdue_University_Boilermakers_31,_Mackay_Stadium,_Reno,_Nevada_-_48656625803.jpg (CC BY-SA 2.0, 5021px)",
+      "why": "2019 Purdue game panorama from field level; field is the bottom strip"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:University_of_Nevada_Wolf_Pack_31,_Purdue_University_Boilermakers_31,_Mackay_Stadium,_Reno,_Nevada_-_48656610083.jpg (CC BY-SA 2.0, 5184px)",
+      "why": "2019 field-level sideline; railing and people in the foreground"
+    }
+  ]
+}

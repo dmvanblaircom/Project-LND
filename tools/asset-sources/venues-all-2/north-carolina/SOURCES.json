@@ -1,0 +1,49 @@
+{
+  "team_slug": "north-carolina",
+  "venue": "Kenan Memorial Stadium",
+  "summary": "Day: elevated 2013 game-day corner view. Night: 2014 upper-stands view.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Kenan_Memorial_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Kenan_Memorial_Stadium.jpg",
+      "width": 2400,
+      "height": 1402,
+      "original_width": 6016,
+      "original_height": 3515,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Yeungb",
+      "credit_line": "Photo: Yeungb, CC BY 3.0, via Wikimedia Commons",
+      "year": 2013,
+      "day_or_night": "day",
+      "note": "Elevated corner view from the south-east upper stands during the Nov 2013 UVA game, full crowd; field rows ~490-1050 of 1402 (35-75%, diagonal), packed far stands and press box ~15-35%, sky top ~5%; fans in the bottom ~15%"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Kenan_Stadium_-_UNC_vs._Liberty_(cropped).JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Kenan_Stadium_-_UNC_vs._Liberty_%28cropped%29.JPG",
+      "width": 2400,
+      "height": 1157,
+      "original_width": 6016,
+      "original_height": 2900,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Whitneybarker",
+      "credit_line": "Photo: Whitneybarker, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2014,
+      "day_or_night": "night",
+      "note": "Night 2014 Liberty game (cropped version), from the north-east upper stands toward the west and south stands; field rows ~600-980 of 1157 (52-85%), packed stands and lit press box ~25-52%, black sky top ~25%. Field sits a little low"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Kenan_Stadium_-_UNC_vs._Liberty.JPG (CC BY-SA 4.0, 6016px)",
+      "why": "Uncropped version of the night photo with two identifiable spectators in the foreground"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Kenan_Stadium_Blue_Zone_2011.jpg (CC BY-SA 3.0, 4288px)",
+      "why": "2011 Blue Zone view from the west end; good, but pre-game sparse crowd"
+    }
+  ]
+}

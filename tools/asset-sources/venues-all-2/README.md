@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 24 venues; day+night 6, day only 16, night only 1, none 1.
+**Counts:** 30 venues; day+night 7, day only 20, night only 1, none 2.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -29,6 +29,12 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | middle-tennessee | Johnny "Red" Floyd Stadium | day | CC BY-SA 3.0 | Only two elevated photos exist, both 1600 px panoramio uploads from one game at dusk. Using the corner view. |
 | minnesota | Huntington Bank Stadium | day+night | CC BY 3.0; CC BY-SA 4.0 | Day: elevated corner shot of a sold-out 2023 game at sunset. Night: 2023 corner view under lights. Field sits mid-frame in both. |
 | mississippi-state | Davis Wade Stadium | day | CC BY-SA 4.0 | Current-form upper-deck game view (2024). No night photo. |
+| missouri-state | Robert W. Plaster Stadium | none | - | Nothing qualifies: every interior photo of Plaster Stadium on Commons is under 1100 px wide. |
 | missouri | Memorial Stadium / Faurot Field (Columbia, MO) | day+night | CC BY-SA 4.0 | Day: elevated 2023 sold-out view (field low in frame). Night: 2023 hill shot with the field in the upper-middle. |
 | navy | Navy-Marine Corps Memorial Stadium | day+night | Public domain | Night: excellent elevated 2005 game view. Day: 2014 Military Bowl view from the top row, field low in frame. |
 | nc-state | Carter-Finley Stadium | day | CC BY-SA 3.0 | Portrait end-zone game view (2013) with the field in the upper-middle. No qualifying night photo. |
+| nebraska | Memorial Stadium (Lincoln, NE) | day | CC0 | Current-form 2026 game-day corner view; field sits low. No qualifying night photo. |
+| nevada | Mackay Stadium | day | CC BY-SA 4.0 | Only elevated game photo is a 2015 upper-corner dusk shot; field sits low. No night photo. |
+| new-mexico-state | Aggie Memorial Stadium | day | CC BY 4.0 | Current (2026) elevated end-zone view, empty stadium. No game-day or night photo qualifies. |
+| new-mexico | University Stadium (Albuquerque) | day | CC BY-SA 4.0 | Elevated game-day corner view (2022), light crowd. No night photo. |
+| north-carolina | Kenan Memorial Stadium | day+night | CC BY 3.0; CC BY-SA 4.0 | Day: elevated 2013 game-day corner view. Night: 2014 upper-stands view. |

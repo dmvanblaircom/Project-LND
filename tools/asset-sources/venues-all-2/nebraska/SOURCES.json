@@ -1,0 +1,37 @@
+{
+  "team_slug": "nebraska",
+  "venue": "Memorial Stadium (Lincoln, NE)",
+  "summary": "Current-form 2026 game-day corner view; field sits low. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:MemorialStadium_260912.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/MemorialStadium_260912.jpg",
+      "width": 2400,
+      "height": 1627,
+      "original_width": 4000,
+      "original_height": 2712,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "HuskerPower",
+      "credit_line": "Photo: HuskerPower, CC0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "Elevated north-end corner view from the lower bowl, Sept 2026 game, sellout crowd; field rows ~1060-1620 of 1627 (65-99%, lower third, diagonal), packed east stands and West Stadium tower rows ~330-1060, sunlit sky in the top ~20%. Field sits low: needs a strong downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:091507-USCNeb-MemorialStadium.jpg (CC BY 3.0, 3072px)",
+      "why": "Best framing (2007 USC game, field rows ~45-80%, crowd), but taken before the 2013 East Stadium expansion"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Memorialstadium1.jpg (CC BY-SA 4.0, 8488px)",
+      "why": "2014 post-expansion panorama from the south end zone; field rows ~70-100%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Nebraska_Football_-_Memorial_Stadium_(258064673).jpg (CC BY 2.0, 2931px)",
+      "why": "2006 night panorama, field rows ~55-90%, pre-expansion, 966 px tall"
+    }
+  ]
+}
