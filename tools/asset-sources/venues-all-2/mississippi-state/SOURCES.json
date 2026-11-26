@@ -1,0 +1,37 @@
+{
+  "team_slug": "mississippi-state",
+  "venue": "Davis Wade Stadium",
+  "summary": "Current-form upper-deck game view (2024). No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Davis_Wade_Stadium,_Arkansas_vs._Mississippi_State,_10-26-2024.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Davis_Wade_Stadium%2C_Arkansas_vs._Mississippi_State%2C_10-26-2024.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 5712,
+      "original_height": 4284,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "PCN02WPS",
+      "credit_line": "Photo: PCN02WPS, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "Upper-deck corner view from the south-west toward the north end zone and the expanded east side, Oct 2024 Arkansas game with crowd; field rows ~990-1710 of 1800 (55-95% (diagonal, 'MISSISSIPPI STATE' end zone lower right), stands and video board ~25-55%, clear sky in the top ~25%. Field sits low: needs a downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Halftime,_Egg_Bowl_2009.jpg (CC BY-SA 4.0, 3072px)",
+      "why": "2009 Egg Bowl halftime from the west-side club level: field rows ~45-75%, but pre-2014 expansion and heads/railing in the bottom 20%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Egg_Bowl_2009.jpg (CC BY-SA 4.0, 3072px)",
+      "why": "2009 Egg Bowl from the press-box side; pre-expansion north end"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:DavisWadeStadiumExpansion.jpg (CC BY-SA 3.0, 3264px)",
+      "why": "Aug 2014 upper view of the new north end; field rows ~60-100%, empty"
+    }
+  ]
+}

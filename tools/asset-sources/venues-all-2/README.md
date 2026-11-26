@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 18 venues; day+night 3, day only 13, night only 1, none 1.
+**Counts:** 24 venues; day+night 6, day only 16, night only 1, none 1.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -26,3 +26,9 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | miami-oh | Yager Stadium | none | - | Nothing qualifies: Commons has only a 2003 low student-section night shot and 1600px field-level/exterior views. |
 | michigan-state | Spartan Stadium (East Lansing) | day+night | CC BY 2.0 | Day: 2011 elevated end-zone game view (field upper-middle). Night: 2015 elevated sideline under lights. |
 | michigan | Michigan Stadium | day | CC BY-SA 4.0 | Current-era (2026) elevated lower-bowl game view. No qualifying night photo. |
+| middle-tennessee | Johnny "Red" Floyd Stadium | day | CC BY-SA 3.0 | Only two elevated photos exist, both 1600 px panoramio uploads from one game at dusk. Using the corner view. |
+| minnesota | Huntington Bank Stadium | day+night | CC BY 3.0; CC BY-SA 4.0 | Day: elevated corner shot of a sold-out 2023 game at sunset. Night: 2023 corner view under lights. Field sits mid-frame in both. |
+| mississippi-state | Davis Wade Stadium | day | CC BY-SA 4.0 | Current-form upper-deck game view (2024). No night photo. |
+| missouri | Memorial Stadium / Faurot Field (Columbia, MO) | day+night | CC BY-SA 4.0 | Day: elevated 2023 sold-out view (field low in frame). Night: 2023 hill shot with the field in the upper-middle. |
+| navy | Navy-Marine Corps Memorial Stadium | day+night | Public domain | Night: excellent elevated 2005 game view. Day: 2014 Military Bowl view from the top row, field low in frame. |
+| nc-state | Carter-Finley Stadium | day | CC BY-SA 3.0 | Portrait end-zone game view (2013) with the field in the upper-middle. No qualifying night photo. |

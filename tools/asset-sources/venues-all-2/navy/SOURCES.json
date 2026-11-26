@@ -1,0 +1,49 @@
+{
+  "team_slug": "navy",
+  "venue": "Navy-Marine Corps Memorial Stadium",
+  "summary": "Night: excellent elevated 2005 game view. Day: 2014 Military Bowl view from the top row, field low in frame.",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2005_Stanford-Navy_Game_at_Navy-Marine_Corps_Memorial_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/2005_Stanford-Navy_Game_at_Navy-Marine_Corps_Memorial_Stadium.jpg",
+      "width": 2400,
+      "height": 1559,
+      "original_width": 2428,
+      "original_height": 1577,
+      "license_short_name": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "author": "Damon J. Moritz",
+      "credit_line": "Photo: Damon J. Moritz, Public domain, via Wikimedia Commons",
+      "year": 2005,
+      "day_or_night": "night",
+      "note": "Night 2005 Stanford game, from high in the west stands (press-box level) looking across the 50 to the east stands; field rows ~480-900 of 1559 (31-58%, upper-middle), packed east stands and lights above, Brigade of Midshipmen in white and fans in the bottom ~40%. Post-2004 renovation layout"
+    },
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2014_Military_Bowl.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2014_Military_Bowl.jpg",
+      "width": 1800,
+      "height": 1200,
+      "original_width": 1800,
+      "original_height": 1200,
+      "license_short_name": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "author": "US Department of Defense",
+      "credit_line": "Photo: US Department of Defense, Public domain, via Wikimedia Commons",
+      "year": 2014,
+      "day_or_night": "day",
+      "note": "2014 Military Bowl pre-game from the top of the west stands, giant flag on the field, Coast Guard helicopters in the sky; 1800 px original; field rows ~780-1020 of 1200 (65-85%), far stands ~48-65%, blue sky in the top ~45%. Field sits low: needs a strong downward offset; bowl-game layout, not a Navy home game"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Tailgate_Bayhawks_Game_Navy_Marine_Corps_Memorial_Stadium_(43022473501).jpg (CC BY 2.0, 5568px)",
+      "why": "Elevated corner view but a lacrosse layout (Bayhawks), not football"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:191005-D-BN624-1310_(48853783972).jpg (CC BY 2.0, 5877px)",
+      "why": "2019 field-level sideline with a referee in the foreground"
+    }
+  ]
+}

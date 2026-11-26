@@ -1,0 +1,49 @@
+{
+  "team_slug": "missouri",
+  "venue": "Memorial Stadium / Faurot Field (Columbia, MO)",
+  "summary": "Day: elevated 2023 sold-out view (field low in frame). Night: 2023 hill shot with the field in the upper-middle.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LSU_Tigers_vs_Mizzou_Tigers_2023-10-07_(5).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/LSU_Tigers_vs_Mizzou_Tigers_2023-10-07_%285%29.jpg",
+      "width": 2400,
+      "height": 1453,
+      "original_width": 4006,
+      "original_height": 2426,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "Photo: Spatms, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "day",
+      "note": "Upper rows of the east stands looking south-west across the field to the west stands, Oct 2023 LSU game, sold out; field rows ~960-1440 of 1453 (66-99%), packed west stands ~38-66%, blue sky in the top ~38%; a yellow cap and heads at the bottom-left edge. Field sits low: needs a strong downward offset"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_Faurot_Field.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Memorial_Stadium_Faurot_Field.jpg",
+      "width": 2400,
+      "height": 3200,
+      "original_width": 3024,
+      "original_height": 4032,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Burkouri",
+      "credit_line": "Photo: Burkouri, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "night",
+      "note": "Portrait night shot from the north-end grass hill during a Nov 2023 game; field rows ~1180-1760 of 3200 (37-55%), stands and video board ~22-37%, night sky and lights in the top ~22%; fans sitting on the hill fill the lower 45% (backs, under the fade)"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:LSU_Tigers_vs_Mizzou_Tigers_2023-10-07_(8).jpg (CC BY-SA 4.0, 3804px)",
+      "why": "2023 view toward the new south end zone stands; field rows ~75-100%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Miz_vs_Neb_2007_(546)_(1565606655).jpg (CC BY 2.0, 2048px)",
+      "why": "2007 night series from low east stands; field 45-80% but the sideline crowd and heads fill the bottom, pre-2019 south end rebuild, 2007 Nebraska game"
+    }
+  ]
+}

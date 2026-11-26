@@ -1,0 +1,49 @@
+{
+  "team_slug": "minnesota",
+  "venue": "Huntington Bank Stadium",
+  "summary": "Day: elevated corner shot of a sold-out 2023 game at sunset. Night: 2023 corner view under lights. Field sits mid-frame in both.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2023-0831-NEBvsUMN.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/2023-0831-NEBvsUMN.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Bobak Ha'Eri",
+      "credit_line": "Photo: Bobak Ha'Eri, CC BY 3.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "day",
+      "note": "Sunset, sold-out 2023 Nebraska opener, from high in the north-west corner of the upper bowl looking down the length of the field toward the scoreboard and downtown skyline; field rows ~900-1260 of 1800 (50-70%, centre-right), packed crowd wraps around and fills the bottom ~30%, sunset sky in the top ~35%"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Michigan_vs_Minnesota_at_Huntington_Bank_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Michigan_vs_Minnesota_at_Huntington_Bank_Stadium.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "GoBlue9",
+      "credit_line": "Photo: GoBlue9, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "night",
+      "note": "Night 2023 Michigan game from under the upper-deck overhang (dark band in the top ~8%), corner view; field rows ~810-1440 of 1800 (45-80%), packed far stands and scoreboard ~25-45%, crowd in the bottom ~20%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:2013-0427-GopherSGpanorama.JPG (CC BY 3.0, 9766px)",
+      "why": "2013 spring game panorama, field rows ~40-75%, wide 9766px strip, sparse crowd"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Green_Bay_Packers_at_Minnesota_Vikings_22_Nov_2015.jpg (CC0, 3264px)",
+      "why": "Vikings 2015 game (NFL layout and Vikings end-zone paint), lower bowl"
+    }
+  ]
+}

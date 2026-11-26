@@ -1,0 +1,29 @@
+{
+  "team_slug": "middle-tennessee",
+  "venue": "Johnny \"Red\" Floyd Stadium",
+  "summary": "Only two elevated photos exist, both 1600 px panoramio uploads from one game at dusk. Using the corner view.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Murfreesboro,_TN,_USA_-_panoramio.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Murfreesboro%2C_TN%2C_USA_-_panoramio.jpg",
+      "width": 1600,
+      "height": 1067,
+      "original_width": 1600,
+      "original_height": 1067,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Chrstservt",
+      "credit_line": "Photo: Chrstservt, CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2009,
+      "day_or_night": "day",
+      "note": "Dusk game day (lights on), from the upper corner of the stands looking across the end zone to the far sideline stands; 1600 px original (minimum size); field rows ~520-870 of 1067 (49-82%), full far stands rows ~300-520, dusk sky top ~28%; fans and a railing in the lower-left corner"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Murfreesboro,_TN,_USA_-_panoramio_(1).jpg (CC BY-SA 3.0, 1600px)",
+      "why": "Same evening from higher, straight across the field; field only from row ~63% down, stands fill the middle; 1600 px"
+    }
+  ]
+}
