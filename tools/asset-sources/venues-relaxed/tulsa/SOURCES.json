@@ -1,0 +1,19 @@
+{
+  "team_slug": "tulsa",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:HA-Chapman-Stadium-Tulsa.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/HA-Chapman-Stadium-Tulsa.JPG",
+      "width": 1600,
+      "height": 1200,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Chippothenut",
+      "credit_line": "Chippothenut / Wikimedia Commons / CC BY 3.0",
+      "year": 2009,
+      "time_of_day": "day",
+      "note": "Game-day view from the upper rows of the side stands toward the end zone and new west building, Sep 2009 dusk; field runs diagonally at rows ~40-80%, far stands 25-50%, sky top 25%; back of one fan's cap and heads in the bottom-left foreground (not identifiable). Only 1600x1200."
+    }
+  ]
+}

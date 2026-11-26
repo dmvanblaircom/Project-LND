@@ -1,0 +1,19 @@
+{
+  "team_slug": "pittsburgh",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SteelersWarmUp.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/SteelersWarmUp.JPG",
+      "width": 1600,
+      "height": 998,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Gilliganfanatic",
+      "credit_line": "Gilliganfanatic / Wikimedia Commons / CC BY-SA 3.0",
+      "year": 2008,
+      "time_of_day": "day",
+      "note": "Elevated upper-deck sideline view at Heinz Field (now Acrisure Stadium) during pre-game warm-ups, Dec 2008; far upper and lower decks fill rows 0-55%, field fills rows ~55-100% across the full width; no sky. Steelers (NFL) game, Pitt's shared home venue. Only 1600x998."
+    }
+  ]
+}

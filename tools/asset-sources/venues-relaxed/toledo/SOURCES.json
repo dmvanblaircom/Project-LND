@@ -1,0 +1,19 @@
+{
+  "team_slug": "toledo",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Glass_bowl_stadium_utoledo.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Glass_bowl_stadium_utoledo.jpg",
+      "width": 1600,
+      "height": 1200,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "The original uploader was Mactropy at English Wikipedia.",
+      "credit_line": "The original uploader was Mactropy at English Wikipedia. / Wikimedia Commons / CC BY-SA 3.0",
+      "year": 2005,
+      "time_of_day": "night",
+      "note": "Night game view from the upper rows of the corner stands, c. 2005; field sits in the upper-left quadrant at rows ~40-65%, fans in the stands fill the right and bottom (small, not the subject), floodlit night sky top 25%. Only 1600x1200, wide-angle."
+    }
+  ]
+}
