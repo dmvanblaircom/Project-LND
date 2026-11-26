@@ -1,0 +1,30 @@
+{
+  "slug": "eastern-michigan",
+  "venue": "Rynearson Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AWaltDrone4_081524.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/WaltDrone4_081524.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1080,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Eastern sid",
+      "credit_line": "Eastern sid / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AEMU_20181110_%2819%29.jpg",
+      "why": "2018 view from the grass berm behind the end zone; track and sky dominate, field is a thin strip, and the track has since been removed."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ARynearson_Stadium_2006_1.jpg",
+      "why": "2006, pre-renovation, low viewpoint, under 1800 px."
+    }
+  ]
+}
