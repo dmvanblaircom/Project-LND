@@ -1,0 +1,33 @@
+{
+  "team_slug": "oregon-state",
+  "venue": "Reser Stadium",
+  "summary": "Current-form (2023) end-zone game view. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Reser_Stadium_viewed_from_the_South_Endzone,_September_16,_2023.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Reser_Stadium_viewed_from_the_South_Endzone%2C_September_16%2C_2023.jpg",
+      "width": 2400,
+      "height": 1198,
+      "original_width": 3864,
+      "original_height": 1928,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Thomasg86",
+      "credit_line": "Photo: Thomasg86, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "day",
+      "note": "From the south end zone stands down the length of the field, Sept 2023 game, after the 2023 west-side rebuild (left) with the east grandstand (right), full crowd; field rows ~660-960 of 1198 (55-80%), stands both sides and north end ~25-55%, blue sky in the top ~25%; crowd fills the bottom ~20%. Moderately elevated; field sits a little low"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Oregonstatebeavers-reserstadium.jpg (CC BY-SA 3.0, 2048px)",
+      "why": "Excellent 2005 dusk/night view from the upper east stands (field rows ~45-95%), but before the 2007 east-side and 2023 west-side rebuilds"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Reser_Stadium_-_September_30_2017.jpg (CC BY-SA 4.0, 4096px)",
+      "why": "2017 sunset from field level in the south end zone; pre-2023 west side"
+    }
+  ]
+}
