@@ -1,0 +1,26 @@
+{
+  "slug": "duke",
+  "venue": "Wallace Wade Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AWallace_Wade_Stadium_2018_panoramic.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Wallace_Wade_Stadium_2018_panoramic.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1039,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "User:B",
+      "credit_line": "User:B / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3A2018_Virginia_Tech_%40_Duke_opening_kickoff.jpg",
+      "why": "Dusk with lights on, current form, but the field sits low (rows ~72-97%) under a tall band of stands and sky."
+    }
+  ]
+}

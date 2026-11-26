@@ -1,0 +1,26 @@
+{
+  "slug": "delaware",
+  "venue": "Delaware Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAerial_view_of_Delaware_Stadium_in_2023.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Aerial_view_of_Delaware_Stadium_in_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1570,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons / CC BY 4.0",
+      "year": 2023,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ADelaware_Stadium_-_Home_Side.JPG",
+      "why": "2013 field-level view of the west stands; field is the foreground, not elevated."
+    }
+  ]
+}
