@@ -312,14 +312,17 @@ Suite.more = (function () {
       "Suite is for information and entertainment; projected odds are not betting advice.</p></section>";
     // The photographs' credits: each is freely licensed and carries its
     // author and licence (David, 2026-11-20), listed where a fan can find them.
+    // Folded (2026-11-26): with a stadium for nearly every team the list ran
+    // About past 12,000 px on a phone; each credit stays one tap away.
     var photos = (m.photos || []).length ? '<section class="ab-sources" aria-labelledby="abPhotos"><h2 class="sec-title" id="abPhotos">Photo Credits</h2>' +
-      '<ul class="card ab-list">' + m.photos.map(function (p) {
+      '<details class="card ab-fold"><summary>Stadium photographs (' + m.photos.length + ')<span class="ro-chev" aria-hidden="true"></span></summary>' +
+      '<ul class="ab-list">' + m.photos.map(function (p) {
         var c = p.credit || {}, what = p.name + (p.time ? " (" + p.time + ")" : "");
         var by = [c.author, c.license].filter(Boolean).join(" · ");
         return "<li>" + (c.url ? '<a class="ab-name" href="' + esc(c.url) + '" target="_blank" rel="noopener noreferrer">' + esc(what) + EXTERNAL + NEW_TAB + "</a>"
                                : '<span class="ab-name">' + esc(what) + "</span>") +
                '<span class="ab-what">' + esc(by) + (c.changes ? " · " + esc(c.changes) : "") + "</span></li>";
-      }).join("") + "</ul></section>" : "";
+      }).join("") + "</ul></details></section>" : "";
     put(host, "about", product + sources + photos + legal);
   }
 

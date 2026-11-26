@@ -67,6 +67,14 @@ ok(!missing.length, "every file it names exists (" + files.length + " files" + (
 var uncredited = [];
 Object.keys(real.venues).forEach(function (k) { ["day", "night"].forEach(function (t) { var s = real.venues[k][t]; if (s && !s.credit) uncredited.push(k + " " + t); }); });
 ok(!uncredited.length, "every real photograph carries its credit" + (uncredited.length ? " (missing: " + uncredited.join(", ") + ")" : ""));
+// A venue is matched by the schedule's exact spelling: a name cut short
+// ("Memorial Stadium (Lincoln", a team config's prefix) matches no game, and
+// the stadium shows the stand-in (Codex review, #287)
+var cut = [];
+Object.keys(real.venues).forEach(function (k) { (real.venues[k].names || []).forEach(function (n) {
+  if ((n.match(/\(/g) || []).length !== (n.match(/\)/g) || []).length) cut.push(n);
+}); });
+ok(!cut.length, "no venue name is cut short" + (cut.length ? " (" + cut.join("; ") + ")" : ""));
 
 console.log("\n" + checks + " checks" + (failures ? ", " + failures + " FAILED" : ": a game wears the photographs of where it is played"));
 process.exit(failures ? 1 : 0);
