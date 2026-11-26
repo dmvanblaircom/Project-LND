@@ -97,6 +97,84 @@ var TEAM_ART = (function (W) { return {
                credit: { author: "Spatms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
                          url: "https://commons.wikimedia.org/wiki/File:2017_Rose_Bowl,_USC_vs_Penn_State_-_Game_Play.jpg", changes: "cropped, resized" } }
     },
+    // home stadiums (2026-11-26, David: every team the same experience): from the
+    // stands, cropped so the field fills the part of the stage that stays clear
+    "falcon-stadium": {
+      label: "Falcon Stadium", names: ["Falcon Stadium"],
+      day: { path: "assets/venues/falcon-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "David Shankbone", license: "CC BY-SA 3.0", licenseUrl: "http://creativecommons.org/licenses/by-sa/3.0/", url: "https://commons.wikimedia.org/wiki/File:Air_Force_Academy_Falcon_Stadium_by_David_Shankbone.jpg", changes: "cropped, resized" } }
+    },
+    "infocision-stadium": {
+      label: "InfoCision Stadium", names: ["InfoCision Stadium"],
+      day: { path: "assets/venues/infocision-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "JEN9841", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:InfoCision_opening_day1.JPG", changes: "cropped, resized" } }
+    },
+    "bryant-denny-stadium": {
+      label: "Bryant-Denny Stadium", names: ["Bryant-Denny Stadium"],
+      day: { path: "assets/venues/bryant-denny-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "TylerDurdenXXX", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Alabama_Crimson_Tide_Game.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/bryant-denny-stadium/night-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Matthew Tosh", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", url: "https://commons.wikimedia.org/wiki/File:Bryant-Denny_10-22-11.jpg", changes: "cropped, resized" } }
+    },
+    "kidd-brewer-stadium": {
+      label: "Kidd Brewer Stadium", names: ["Kidd Brewer Stadium"],
+      day: { path: "assets/venues/kidd-brewer-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Porsche997SBS", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:KiddBrewerStadium(ViewFromSE).jpg", changes: "cropped, resized" } }
+    },
+    "kinnick-stadium": {
+      label: "Kinnick Stadium", names: ["Kinnick Stadium"],
+      day: { path: "assets/venues/kinnick-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "CrdHwk", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Iowa_vs._Western_Michigan_2007.jpg", changes: "cropped, resized" } }
+    },
+    "amfirst-stadium": {
+      label: "AmFirst Stadium", names: ["AmFirst Stadium"],
+      day: { path: "assets/venues/amfirst-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Thomson M", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0", url: "https://commons.wikimedia.org/wiki/File:Burgess\u2013Snow_Field_at_AmFirst_Stadium_-_panoramio.jpg", changes: "cropped, resized" } }
+    },
+    "bridgeforth-stadium": {
+      label: "Bridgeforth Stadium", names: ["Bridgeforth Stadium"],
+      day: { path: "assets/venues/bridgeforth-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Datalore47", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Marching_Royal_Dukes_on_the_Field.jpg", changes: "cropped, resized" } }
+    },
+    "walens-family-field-at-fifth-third-stadium": {
+      label: "Walens Family Field at Fifth Third Stadium", names: ["Walens Family Field at Fifth Third Stadium"],
+      day: { path: "assets/venues/walens-family-field-at-fifth-third-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "BullDawg2021", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Fifth_Third_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "williams-stadium-va": {
+      label: "Williams Stadium (VA)", names: ["Williams Stadium (VA)"],
+      day: { path: "assets/venues/williams-stadium-va/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Gregory Koch", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Williams_Stadium_Field.jpg", changes: "cropped, resized" } }
+    },
+    "joe-aillet-stadium": {
+      label: "Joe Aillet Stadium", names: ["Joe Aillet Stadium"],
+      day: { path: "assets/venues/joe-aillet-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "AllisonFoley", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Bulldogs,_Ruston,_Louisiana.jpg", changes: "cropped, resized" } }
+    },
+    "our-lady-of-lourdes-stadium": {
+      label: "Our Lady of Lourdes Stadium", names: ["Our Lady of Lourdes Stadium"],
+      day: { path: "assets/venues/our-lady-of-lourdes-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Jcarriere (talk)", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0", url: "https://commons.wikimedia.org/wiki/File:UL_set.JPG", changes: "cropped, resized" } }
+    },
+    "landn-federal-credit-union-stadium": {
+      label: "L&N Federal Credit Union Stadium", names: ["L&N Federal Credit Union Stadium"],
+      night: { path: "assets/venues/landn-federal-credit-union-stadium/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Nolanwebb", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:CardinalStadiumUL7.jpg", changes: "cropped, resized" } }
+    },
+    "joan-c-edwards-stadium": {
+      label: "Joan C. Edwards Stadium", names: ["Joan C. Edwards Stadium"],
+      day: { path: "assets/venues/joan-c-edwards-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Davebanner12", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:Panoramic_of_Joan_C._Edwards_Stadium.JPG", changes: "cropped, resized" } },
+      night: { path: "assets/venues/joan-c-edwards-stadium/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Wv funnyman", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Striping_the_Joan_C._Edwards_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "secu-stadium": {
+      label: "SECU Stadium", names: ["SECU Stadium"],
+      // the day panorama curves the field away from the stage's clear band:
+      // the night photograph serves day games too
+      night: { path: "assets/venues/secu-stadium/night-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Crazycat8590", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:View_from_the_upper_deck_of_SECU_stadium_at_night_2023.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
