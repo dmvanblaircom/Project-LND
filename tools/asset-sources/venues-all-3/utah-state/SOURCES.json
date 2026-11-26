@@ -1,0 +1,30 @@
+{
+  "venue": "Maverik Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Utah_State_Univ_Stadium_Color_Corrected.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Utah_State_Univ_Stadium_Color_Corrected.jpg",
+      "width": 1920,
+      "height": 1280,
+      "license_short_name": "Public domain",
+      "license_url": null,
+      "author": "Phanatic10",
+      "credit_line": "Phanatic10 / Wikimedia Commons, Public domain",
+      "year": 2009,
+      "day_or_night": "day",
+      "note": "upper west stands looking east at a 2009 game, Wasatch range behind; field rows ~640-1280 of 1280 (lower half), packed east stands rows ~380-640, mountains above. West side (behind camera) rebuilt 2016. Weak fit"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Merlin_Olsen_Field_at_Maverik_Stadium.jpg",
+      "why": "current stadium from east stands; sky fills the top 40%, field rows ~45-75%, crowd foreground"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Maverik_Stadium.png",
+      "why": "2017 dusk panorama 7677x3427; field strip"
+    }
+  ],
+  "remark": "Weak fit: field sits in the lower half in every elevated photo."
+}

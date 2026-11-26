@@ -1,0 +1,26 @@
+{
+  "venue": "Los Angeles Memorial Coliseum",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LA_Coliseum_11_2018.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/LA_Coliseum_11_2018.jpg",
+      "width": 1920,
+      "height": 960,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "SaltyWalt",
+      "credit_line": "SaltyWalt / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "upper rows behind the west end zone at a Nov 2018 Rams game, looking east to the peristyle; field rows ~300-740 of 960 (centre), stands and the south-side tower (then nearly complete) around it; 2:1 frame"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:090107-USCIdaho12.jpg",
+      "why": "good 2007 USC night view but pre-renovation (old press box, boards)"
+    }
+  ],
+  "remark": "Nov 2018 photo, during the 2017-19 renovation; the bowl seen is essentially current."
+}
