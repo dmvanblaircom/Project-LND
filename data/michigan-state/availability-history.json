@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "michigan-state",
- "updated": "2026-11-26T01:08:32.074588+00:00",
+ "updated": "2026-11-26T11:38:42.544600+00:00",
  "reports": [
   {
    "schema": 1,
@@ -843,12 +843,12 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T01:08:32.074588+00:00",
+   "fetchedAt": "2026-11-26T11:38:42.544600+00:00",
    "reported": true,
    "effectiveAt": "2026-11-25",
    "heading": "Initial",
    "kickoffDate": "2026-11-28",
-   "game": "Rutgers",
+   "game": "at Rutgers",
    "players": [
     {
      "pos": "RB",

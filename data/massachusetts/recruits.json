@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "113",
  "classYear": 2027,
- "listed": 6,
+ "listed": 7,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -74,6 +74,19 @@
    "status": "Verbal"
   },
   {
+   "id": "274992",
+   "name": "Luke Richardson",
+   "position": "WR",
+   "highSchool": "Marshfield High School",
+   "city": "Marshfield",
+   "state": "MA",
+   "grade": 43,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
+  },
+  {
    "id": "273776",
    "name": "Nate Ellis",
    "position": "RB",
@@ -87,5 +100,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:11Z"
+ "fetchedAt": "2026-11-26T11:39Z"
 }

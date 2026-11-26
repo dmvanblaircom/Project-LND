@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2623",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,19 @@
    "rank": null,
    "positionRank": 135,
    "stateRank": 252,
+   "status": "Verbal"
+  },
+  {
+   "id": "272817",
+   "name": "Jameson Honey",
+   "position": "DE",
+   "highSchool": "Lindbergh High School",
+   "city": "Saint Louis",
+   "state": "MO",
+   "grade": 73,
+   "rank": null,
+   "positionRank": 178,
+   "stateRank": 20,
    "status": "Verbal"
   },
   {
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:13Z"
+ "fetchedAt": "2026-11-26T11:39Z"
 }

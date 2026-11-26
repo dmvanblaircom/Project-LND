@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "97",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -97,6 +97,19 @@
    "rank": null,
    "positionRank": 43,
    "stateRank": 24,
+   "status": "Verbal"
+  },
+  {
+   "id": "268147",
+   "name": "Tristin Hughes",
+   "position": "ATH",
+   "highSchool": "Rocky River High School",
+   "city": "Rocky River",
+   "state": "OH",
+   "grade": 79,
+   "rank": null,
+   "positionRank": 21,
+   "stateRank": 12,
    "status": "Verbal"
   },
   {
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:12Z"
+ "fetchedAt": "2026-11-26T11:39Z"
 }

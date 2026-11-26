@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "pittsburgh",
- "updated": "2026-11-26T04:08:43.945297+00:00",
+ "updated": "2026-11-26T11:38:44.400754+00:00",
  "reports": [
   {
    "schema": 1,
@@ -815,12 +815,12 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T04:08:43.945297+00:00",
+   "fetchedAt": "2026-11-26T11:38:44.400754+00:00",
    "reported": true,
    "effectiveAt": "2026-11-25",
    "heading": "Initial",
    "kickoffDate": "2026-11-28",
-   "game": "California",
+   "game": "at California",
    "players": [
     {
      "pos": "QB",
