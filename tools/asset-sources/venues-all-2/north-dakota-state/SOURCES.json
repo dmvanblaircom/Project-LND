@@ -1,0 +1,29 @@
+{
+  "team_slug": "north-dakota-state",
+  "venue": "Fargodome",
+  "summary": "Current (2026) game-day interior of the dome.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2026-1017_Fargodome.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/2026-1017_Fargodome.JPG",
+      "width": 2400,
+      "height": 1350,
+      "original_width": 3843,
+      "original_height": 2162,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Bobak Ha'Eri",
+      "credit_line": "Photo: Bobak Ha'Eri, CC BY 3.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "Dome interior (one photo suffices), Oct 2026 game, from the lower-bowl stands across the 50 to the far sideline; field rows ~610-1010 of 1350 (45-75%), packed far stands, video boards and roof trusses in the top ~45%; crowd fills the bottom ~25%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:The_Fargodome_(NDSU_vs_UND).jpg (CC BY-SA 4.0, 3682px)",
+      "why": "2019 UND game from a corner with empty seats and a railing filling the lower half"
+    }
+  ]
+}

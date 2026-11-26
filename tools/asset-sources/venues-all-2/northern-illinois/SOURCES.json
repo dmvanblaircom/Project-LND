@@ -1,0 +1,29 @@
+{
+  "team_slug": "northern-illinois",
+  "venue": "Huskie Stadium",
+  "summary": "Only interior photo is a 2024 empty-stadium end-zone view. No game-day or night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:NIU_Huskie_Stadium_76881w.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/NIU_Huskie_Stadium_76881w.jpg",
+      "width": 2048,
+      "height": 1121,
+      "original_width": 2048,
+      "original_height": 1121,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kingfish60559",
+      "credit_line": "Photo: Kingfish60559, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "Elevated view from the north end-zone stands down the length of the field to the south end and practice facility, empty stadium (no crowd), overcast April 2024; field rows ~480-1121 of 1121 (43-100%, HUSKIES end zone in the lower third), stands both sides ~40-65%, overcast sky top ~40%. 2048 px original"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Northern_Illinois_Huskie_Stadium.jpg (Public domain, 1600px)",
+      "why": "Exterior of the west grandstand, 1600 px"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 30 venues; day+night 7, day only 20, night only 1, none 2.
+**Counts:** 34 venues; day+night 8, day only 23, night only 1, none 2.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -38,3 +38,7 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | new-mexico-state | Aggie Memorial Stadium | day | CC BY 4.0 | Current (2026) elevated end-zone view, empty stadium. No game-day or night photo qualifies. |
 | new-mexico | University Stadium (Albuquerque) | day | CC BY-SA 4.0 | Elevated game-day corner view (2022), light crowd. No night photo. |
 | north-carolina | Kenan Memorial Stadium | day+night | CC BY 3.0; CC BY-SA 4.0 | Day: elevated 2013 game-day corner view. Night: 2014 upper-stands view. |
+| north-dakota-state | Fargodome | day | CC BY 3.0 | Current (2026) game-day interior of the dome. |
+| north-texas | DATCU Stadium | day+night | CC BY-SA 4.0 | Day and dusk/night views from the 2018 SMU game, both from the east lower bowl. |
+| northern-illinois | Huskie Stadium | day | CC BY-SA 4.0 | Only interior photo is a 2024 empty-stadium end-zone view. No game-day or night photo. |
+| northwestern | Ryan Field (new, opened 2026) | day | CC0 | Current venue is the new Ryan Field (opened 2026). Best photo is a lower-bowl game-day sideline view; no upper-deck or night photo yet. |

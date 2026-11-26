@@ -1,0 +1,33 @@
+{
+  "team_slug": "northwestern",
+  "venue": "Ryan Field (new, opened 2026)",
+  "summary": "Current venue is the new Ryan Field (opened 2026). Best photo is a lower-bowl game-day sideline view; no upper-deck or night photo yet.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ball_State_Cardinals_at_Northwestern_Wildcats_football_view_from_west_sideline_main_concourse_(2026-10-10).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Ball_State_Cardinals_at_Northwestern_Wildcats_football_view_from_west_sideline_main_concourse_%282026-10-10%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Candycaneman",
+      "credit_line": "Photo: Candycaneman, CC0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "CURRENT HOME VENUE: the new Ryan Field (opened Sept 2026; Northwestern played 2024-25 at Martin Stadium). Lower-bowl west sideline view across the field to the east stands, Oct 2026 homecoming game; field rows ~990-1620 of 1800 (55-90%), three tiers of stands ~0-55% (no sky), team bench and fans in the bottom ~10%. Low viewpoint: field sits low"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Ball_State_Cardinals_at_Northwestern_Wildcats_football_view_from_north_endzone_main_concourse_(2026-10-10).jpg (CC0, 4032px)",
+      "why": "Same game from the north end zone, low; field rows ~55-100%, goalpost cuts the right side"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:New_Ryan_Field_(2026).jpg (CC0, 4032px)",
+      "why": "Sept 2026 exterior/plaza view, days before opening"
+    }
+  ]
+}

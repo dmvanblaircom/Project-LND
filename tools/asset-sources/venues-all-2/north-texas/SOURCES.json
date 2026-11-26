@@ -1,0 +1,45 @@
+{
+  "team_slug": "north-texas",
+  "venue": "DATCU Stadium",
+  "summary": "Day and dusk/night views from the 2018 SMU game, both from the east lower bowl.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Southern_Methodist_vs._North_Texas_football_2018_01_(North_Texas_warming_up).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Southern_Methodist_vs._North_Texas_football_2018_01_%28North_Texas_warming_up%29.jpg",
+      "width": 2400,
+      "height": 1600,
+      "original_width": 6000,
+      "original_height": 4000,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Michael Barera",
+      "credit_line": "Photo: Michael Barera, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "Elevated lower-bowl corner view across to the west stands and press box tower, pregame warmups at the Sept 2018 SMU game; field rows ~800-1520 of 1600 (50-95%), stands and press box ~0-50%, small sky patch top right; a few spectators along the bottom edge"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Southern_Methodist_vs._North_Texas_football_2018_24_(Green_Brigade_Marching_Band).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Southern_Methodist_vs._North_Texas_football_2018_24_%28Green_Brigade_Marching_Band%29.jpg",
+      "width": 2400,
+      "height": 1600,
+      "original_width": 6000,
+      "original_height": 4000,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Michael Barera",
+      "credit_line": "Photo: Michael Barera, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2018,
+      "day_or_night": "night",
+      "note": "Halftime at dusk/night, Sept 2018 SMU game, band on field, from the east stands toward the south end and west tower; field rows ~880-1360 of 1600 (55-85%), stands and lit press box ~28-55%, deep-blue night sky top ~28%; spectators in the bottom ~15%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Southern_Methodist_vs._North_Texas_football_2018_05_(North_Texas_entrance).jpg (CC BY-SA 4.0, 6000px)",
+      "why": "Same game, team entrance with smoke over the end zone and fans in the bottom 15%"
+    }
+  ]
+}
