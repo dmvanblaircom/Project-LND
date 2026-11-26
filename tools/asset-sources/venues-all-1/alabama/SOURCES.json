@@ -1,0 +1,35 @@
+{
+  "slug": "alabama",
+  "venue": "Bryant-Denny Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAlabama_Crimson_Tide_Game.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Alabama_Crimson_Tide_Game.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "TylerDurdenXXX",
+      "credit_line": "TylerDurdenXXX / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2010,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABryant-Denny_10-22-11.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Bryant-Denny_10-22-11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 804,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Matthew Tosh",
+      "credit_line": "Matthew Tosh / Wikimedia Commons / CC BY-SA 2.0",
+      "year": 2011,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}
