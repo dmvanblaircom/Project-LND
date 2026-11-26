@@ -1,0 +1,19 @@
+{
+  "team_slug": "missouri-state",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2020_Homecoming_Game.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/2020_Homecoming_Game.png",
+      "width": 966,
+      "height": 512,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Thebigorei",
+      "credit_line": "Thebigorei / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2020,
+      "time_of_day": "night",
+      "note": "Elevated night game view from the upper stands across to the opposite grandstand, Oct 2020 homecoming; field fills the lower third at rows ~63-100%, far stands 30-63%, dark sky and lights top 30%. Only 966x512 (PNG source, saved as JPEG)."
+    }
+  ]
+}
