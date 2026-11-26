@@ -1,0 +1,26 @@
+{
+  "slug": "colorado-state",
+  "venue": "Canvas Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ACanvas_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Canvas_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1014,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "FarGah1",
+      "credit_line": "FarGah1 / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ACanvas_Stadium_2021.jpg",
+      "why": "Dusk game 2021 from the front of the student section; identifiable student faces fill the bottom third."
+    }
+  ]
+}

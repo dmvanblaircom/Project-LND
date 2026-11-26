@@ -1,0 +1,35 @@
+{
+  "slug": "colorado",
+  "venue": "Folsom Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AFolsom_Field_North_Endzone.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Folsom_Field_North_Endzone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Thelastcanadian",
+      "credit_line": "Thelastcanadian / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2016,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AFolsom_Field_vs._Utah_2016.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Folsom_Field_vs._Utah_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Thelastcanadian",
+      "credit_line": "Thelastcanadian / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2016,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}
