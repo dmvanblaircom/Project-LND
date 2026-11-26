@@ -40,6 +40,14 @@ All four items, in this order (David: "All 4 but we don't need a nightly sweep. 
 - **`tools/postsheet.js`:** commits the sheets to the `review-sheets` branch, which holds only pictures and is never merged, and keeps one comment per pull request up to date.
 - **The `changes` job in `check.yml`:** gates nothing. A failure there does not fail the run.
 - **The first sheet found a real bug.** The badge's LIVE dot kept pulsing under reduced motion, because the earlier "preferences last" rule lost to the badge rule added after it in the file. Fixed in the same change.
-- **Still to land:**
-  - items 2 and 3 (the real-app checks and the twelve-team and 138-team runs);
-  - each check moved off a stand-in page is listed in its pull request.
+- **Item 3, `tools/teamcheck.js`:**
+  - **Screens:** Home before the game, live and final; Game before the game and live, at 390; and Home live at 1280. All are drawn in the real app by the shared harness `tools/lib/stage.js`, which `stagereview.js` uses too.
+  - **What it checks on each screen:**
+    - nothing scrolls sideways;
+    - no "undefined" or "NaN" reaches the fan;
+    - every word meets WCAG AA against the pixels behind it (the photo stage stays `herocontrastcheck`'s job);
+    - nothing animates without end under reduced motion;
+    - Matchup's better side stands out more than the other.
+  - **When it runs:** on every pull request that changes the page, for the twelve colour-extreme teams. `.github/workflows/teams.yml` runs it for all 138, in six shards, after a merge that changes the look and on Thursdays from August to January. That run reports and gates nothing.
+- **The auditor now reads SVG text by its fill.** It had read the CSS colour, so the drive field's white yard numbers counted as navy: a false failure on every team.
+- **Still to land:** item 2, moving the remaining stand-in-page checks (such as `homegamecheck`) onto the shared harness. Each one moved will be listed in its pull request.

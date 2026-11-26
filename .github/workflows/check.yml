@@ -38,6 +38,7 @@ jobs:
       browser: ${{ steps.pick.outputs.browser }}
       visual: ${{ steps.pick.outputs.visual }}
       shards: ${{ steps.pick.outputs.shards }}
+      teams: ${{ steps.pick.outputs.teams }}
       base: ${{ steps.pick.outputs.base }}
     steps:
       - uses: actions/checkout@v4
@@ -108,6 +109,8 @@ jobs:
       - name: Browser checks
         env:
           IDS: ${{ toJSON(fromJSON(needs.plan.outputs.browser)[matrix.shard]) }}
+          # the teams whose config this change edits: teamcheck adds them
+          TEAM_EXTRA: ${{ needs.plan.outputs.teams }}
         run: node tools/run-checks.js --ids "$IDS"
 
   visual:

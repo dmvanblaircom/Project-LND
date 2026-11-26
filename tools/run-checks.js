@@ -24,6 +24,7 @@ else {
   var files = cp.execFileSync("git", ["diff", "--name-only", arg("--base") + "...HEAD"], { cwd: ROOT, encoding: "utf8" })
     .split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
   var s = sel.select(files);
+  if (s.teams.length && !process.env.TEAM_EXTRA) process.env.TEAM_EXTRA = s.teams.join(",");
   s.why.forEach(function (w) { console.log("  " + w.file + ": " + w.rule); });
   ids = s.ids;
 }

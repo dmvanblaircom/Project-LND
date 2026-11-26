@@ -57,7 +57,7 @@ var EVERYTHING = [
 ];
 var TEAM_CHECKS = ["bootcheck.js", "registrycheck.js", "choosercheck.js", "swcheck.js", "adaptercheck.js",
                    "identitycheck.js", "teamidentitycheck.js", "pipelinecheck.py", "prospectsrefreshcheck.py", "teamfontcheck.js",
-                   "herocontrastcheck.js", "headerfitcheck.js"];
+                   "herocontrastcheck.js", "headerfitcheck.js", "teamcheck.js"];
 var REFRESH_CHECKS = ["pipelinecheck.py", "cadencecheck.py", "prospectsrefreshcheck.py", "freshnesscheck.py", "healthcheck.py"];
 
 // The Python checks that import a producer, read from the checks themselves.
@@ -105,7 +105,10 @@ function select(files) {
     if (r.checks === null) all = true; else r.checks.forEach(function (id) { want[id] = true; });
   });
   CHECKS.forEach(function (c) { if (c.always || all) want[c.id] = true; });
-  return { all: all, ids: CHECKS.map(function (c) { return c.id; }).filter(function (id) { return want[id]; }), why: why };
+  // the teams whose own config changed: teamcheck draws them as well as its
+  // colour extremes (Codex review, #285: an edited team got no screen check)
+  var teams = files.map(function (f) { var m = /^teams\/([a-z0-9-]+)\.js$/.exec(f); return m && m[1] !== "index" ? m[1] : null; }).filter(Boolean);
+  return { all: all, ids: CHECKS.map(function (c) { return c.id; }).filter(function (id) { return want[id]; }), why: why, teams: teams };
 }
 
 // The browser checks in up to `max` shards of about `target` seconds each,
@@ -155,7 +158,8 @@ if (require.main === module) {
       // each browser shard's number: the matrix runs over these, so the job
       // is named "browser (0)" by GitHub itself, and a skipped one shows a
       // plain "browser", never an unexpanded expression
-      "shards=" + JSON.stringify(browser.map(function (x, i) { return i; })) + "\n");
+      "shards=" + JSON.stringify(browser.map(function (x, i) { return i; })) + "\n" +
+      "teams=" + (sel.teams || []).join(",") + "\n");
   }
   if (args.indexOf("--ids") !== -1) process.stdout.write(sel.ids.join("\n") + "\n");
 }
