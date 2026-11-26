@@ -1,0 +1,26 @@
+{
+  "venue": "Rice Stadium (now First Community Stadium)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Wide-angle_of_Rice_Stadium_in_Houston,_Texas_2024.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Wide-angle_of_Rice_Stadium_in_Houston%2C_Texas_2024.jpg",
+      "width": 2400,
+      "height": 1621,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons, CC BY 4.0",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "elevated centre view from the top of the south end-zone stands (camera just above seat level, likely a pole or low drone), empty stadium, field rows ~560-1300 of 1630 with stands either side; 2024"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Rice_Stadium_2006.jpg",
+      "why": "2006 game-day sideline view from mid-deck, but only 2048 px and field is the lower half of the frame"
+    }
+  ],
+  "remark": "Empty-stadium 2024 photo; no qualifying game-day elevated shot at 1920+ found."
+}

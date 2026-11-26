@@ -1,0 +1,26 @@
+{
+  "venue": "CEFCU Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SJSU_Marching_Band_performs_at_2015_homecoming.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/SJSU_Marching_Band_performs_at_2015_homecoming.jpg",
+      "width": 2400,
+      "height": 1526,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Arbor to SJ",
+      "credit_line": "Arbor to SJ / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2015,
+      "day_or_night": "night",
+      "note": "lower/mid west stands near midfield at the 2015 homecoming night game, band on the field; field rows ~690-1300 of 1526, lights and east stands above. Predates the 2019 south end-zone athletics center (not in view)."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:San_Jose_State_v_Utah_State_2010.jpg",
+      "why": "front-row sideline action shot, stands fill the top half"
+    }
+  ],
+  "remark": "Night only; no qualifying elevated daytime football photo."
+}

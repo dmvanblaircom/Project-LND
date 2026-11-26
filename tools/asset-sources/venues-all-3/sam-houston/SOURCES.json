@@ -1,0 +1,15 @@
+{
+  "venue": "Elliott T. Bowers Stadium",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bowers_stadium_huntsville_tx_2014.jpg",
+      "why": "field-level end-zone corner, 1793 px (below 1920, no usable thumbnail), sky fills the top"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Sam_Houston_State's_Bowers_Stadium_Away_Side.JPG",
+      "why": "field-level, 1824 px, stands and sky fill the top"
+    }
+  ],
+  "remark": "Nothing elevated in the first pass; see second pass."
+}

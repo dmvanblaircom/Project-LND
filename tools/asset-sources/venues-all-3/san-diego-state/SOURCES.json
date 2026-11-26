@@ -1,0 +1,30 @@
+{
+  "venue": "Snapdragon Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Snapdragon_Stadium_interior-Night_end_zone_2.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Snapdragon_Stadium_interior-Night_end_zone_2.jpg",
+      "width": 2400,
+      "height": 1704,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "Spatms / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2022,
+      "day_or_night": "night",
+      "note": "lower-deck corner above the north end zone at a 2022 Aztecs night game, field rows ~480-1700 of 1700 (fills the centre and bottom); stands and video board above"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Snapdragon_Stadium_interior-home_stands_1.jpg",
+      "why": "night, field is a strip in the middle; mostly stands"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:CaptureOfSnapdragonStadium.jpg",
+      "why": "soccer layout at dusk"
+    }
+  ],
+  "remark": "No elevated daytime football photo found; only night game photos (2022)."
+}

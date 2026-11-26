@@ -1,0 +1,35 @@
+{
+  "venue": "Autzen Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Autzen_Stadium,_Eugene,_Oregon_-_13_(2012).JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Autzen_Stadium%2C_Eugene%2C_Oregon_-_13_%282012%29.JPG",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Another Believer",
+      "credit_line": "Another Believer / Wikimedia Commons, CC BY-SA 3.0",
+      "year": 2012,
+      "day_or_night": "day",
+      "note": "lower/mid deck behind south end zone corner, field rows ~690-1450 of 1800 with upper stands and video board above"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Autzen_Stadium,_Eugene,_Oregon_-_25_(2012).JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Autzen_Stadium%2C_Eugene%2C_Oregon_-_25_%282012%29.JPG",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Another Believer",
+      "credit_line": "Another Believer / Wikimedia Commons, CC BY-SA 3.0",
+      "year": 2012,
+      "day_or_night": "night",
+      "note": "under lights from mid-level corner, field rows ~830-1430 of 1800; stands and lights fill the top"
+    }
+  ],
+  "closest_misses": [],
+  "remark": "2012 photos; bowl unchanged since, video boards later replaced."
+}

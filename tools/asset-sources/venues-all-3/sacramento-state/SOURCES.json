@@ -1,0 +1,31 @@
+{
+  "venue": "Hornet Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hornet_Stadium_(Sacramento).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Hornet_Stadium_%28Sacramento%29.jpg",
+      "width": 2400,
+      "height": 1714,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons, CC BY 4.0",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "LAST RESORT high oblique aerial (drone) over the west stand toward the east, empty stadium; field rows ~550-1300 of 1800 in the centre, track around it",
+      "aerial_last_resort": true
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hornet_Stadium_(Sacramento_St.).jpg",
+      "why": "field-level from the track; sky fills the top half"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hornet_Stadium_(Sacramento,_California).jpg",
+      "why": "field-level corner view; field is a thin strip at the bottom"
+    }
+  ],
+  "remark": "Only a drone aerial qualifies; all other interior photos are field-level from the track."
+}
