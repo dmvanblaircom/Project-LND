@@ -1,0 +1,30 @@
+{
+  "slug": "charlotte",
+  "venue": "Jerry Richardson Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AJerry_Richardson_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Jerry_Richardson_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1594,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Alex G. from Charlotte, NC, USA",
+      "credit_line": "Alex G. from Charlotte, NC, USA / Wikimedia Commons / CC BY 2.0",
+      "year": 2012,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AMcColl-Richardson_Field.JPG",
+      "why": "Nov 2012 game day, but sparse crowd and the field sits lower (rows ~58-95%); alternate."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AJRS_uncc.jpg",
+      "why": "2019 night game seen from a distant building; field small in the center, closer to a high oblique aerial."
+    }
+  ]
+}
