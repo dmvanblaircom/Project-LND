@@ -7,18 +7,46 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T21:38:45.322558+00:00",
+ "fetchedAt": "2026-11-26T01:08:31.301359+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at USC",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Penn State",
  "players": [
   {
-   "pos": "RB",
-   "no": "0",
-   "name": "DeJuan Williams",
-   "status": "gtd",
+   "pos": "LB",
+   "no": "1",
+   "name": "Daniel Wingate",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "2",
+   "name": "Lavain Scruggs",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "5",
+   "name": "Darrell Carey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "6",
+   "name": "Cardell Williams",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "6",
+   "name": "Jordan Scruggs",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -26,6 +54,13 @@
    "no": "9",
    "name": "Zahir Mathis",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "13",
+   "name": "Chris Durr Jr.",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -50,10 +85,24 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "26",
+   "name": "Terrez Worthy",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "29",
    "name": "Dontay Joyner",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "40",
+   "name": "Nahsir Taylor",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -65,16 +114,9 @@
   },
   {
    "pos": "OL",
-   "no": "71",
-   "name": "Ryan Howerton",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "81",
-   "name": "Javonte Williams",
-   "status": "out-game",
+   "no": "77",
+   "name": "Amory Hills",
+   "status": "questionable",
    "detail": ""
   }
  ],

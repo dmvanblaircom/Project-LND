@@ -7,18 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:42.605376+00:00",
+ "fetchedAt": "2026-11-26T01:08:33.023473+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Virginia",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "NC State",
  "players": [
   {
    "pos": "DB",
    "no": "1",
    "name": "Greg Smith",
-   "status": "out-half",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,10 +50,10 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "9",
-   "name": "Billy Edwards Jr.",
-   "status": "gtd",
+   "pos": "DL",
+   "no": "14",
+   "name": "Tarvorise Brown",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -64,10 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "DL",
-   "no": "47",
-   "name": "Henry Martello",
-   "status": "out-game",
+   "pos": "TE",
+   "no": "45",
+   "name": "Jelani Thurman",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -79,8 +79,15 @@
   },
   {
    "pos": "OL",
-   "no": "68",
-   "name": "Aidan Banfield",
+   "no": "66",
+   "name": "Jordan Hall",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "67",
+   "name": "Dujuan Davis",
    "status": "out-game",
    "detail": ""
   },
@@ -89,6 +96,13 @@
    "no": "82",
    "name": "Keeyun Chapman",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "87",
+   "name": "Carson Sneed",
+   "status": "questionable",
    "detail": ""
   },
   {

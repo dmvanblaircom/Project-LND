@@ -7,31 +7,31 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:08:56.621646+00:00",
+ "fetchedAt": "2026-11-26T01:08:39.032108+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Georgia Tech",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Duke",
  "players": [
+  {
+   "pos": "RB",
+   "no": "4",
+   "name": "Ty Clark III",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "11",
+   "name": "Langston Hardy",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "15",
    "name": "Devin Cook",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "20",
-   "name": "Elijah Otieno",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "37",
-   "name": "Trey Warren III",
    "status": "out-game",
    "detail": ""
   },
@@ -51,6 +51,13 @@
   },
   {
    "pos": "OL",
+   "no": "74",
+   "name": "John Ohnegian",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "77",
    "name": "Dylan Durbin",
    "status": "out-game",
@@ -61,6 +68,13 @@
    "no": "81",
    "name": "Landon Morris",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "95",
+   "name": "Brandon Smiley",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:08:50.909870+00:00",
+ "fetchedAt": "2026-11-26T01:08:33.282287+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Minnesota",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Illinois",
  "players": [
   {
    "pos": "QB",
@@ -23,23 +23,23 @@
   },
   {
    "pos": "DB",
-   "no": "7",
-   "name": "Ore Adeyi",
-   "status": "gtd",
+   "no": "6",
+   "name": "Robert Fitzgerald",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "13",
    "name": "Josh Fussell",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "16",
    "name": "Brennan Saxe",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -58,6 +58,13 @@
   },
   {
    "pos": "LB",
+   "no": "45",
+   "name": "Jack Sadowsky V",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
    "no": "50",
    "name": "Qayvier Johnson",
    "status": "out-game",
@@ -68,6 +75,13 @@
    "no": "62",
    "name": "Ezomo Oratokhai",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "73",
+   "name": "Deuce McGuire",
+   "status": "probable",
    "detail": ""
   },
   {

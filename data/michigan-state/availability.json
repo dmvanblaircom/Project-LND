@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T23:08:27.099325+00:00",
+ "fetchedAt": "2026-11-26T01:08:32.074588+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "vs. Oregon",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Rutgers",
  "players": [
   {
    "pos": "RB",
@@ -25,7 +25,7 @@
    "pos": "QB",
    "no": "2",
    "name": "Cam Fancher",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "WR",
    "no": "3",
    "name": "Rodney Bullard Jr.",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +53,7 @@
    "pos": "S",
    "no": "7",
    "name": "Michael Richard",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -92,10 +92,17 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "45",
+   "name": "Brady Pretzlaff",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DL",
    "no": "55",
    "name": "Ben Roberts",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -116,7 +123,7 @@
    "pos": "TE",
    "no": "82",
    "name": "Brennan Parachek",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -124,6 +131,13 @@
    "no": "87",
    "name": "Joe Caudill",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "96",
+   "name": "Eli Coenen",
+   "status": "questionable",
    "detail": ""
   }
  ],

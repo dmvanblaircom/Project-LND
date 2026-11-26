@@ -7,18 +7,32 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:35.740286+00:00",
+ "fetchedAt": "2026-11-26T01:08:34.948026+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Penn State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Michigan State",
  "players": [
+  {
+   "pos": "WR",
+   "no": "0",
+   "name": "Dyzier Carter",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "DB",
    "no": "1",
    "name": "Kaj Sanders",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "3",
+   "name": "Antwan Raymond",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,6 +43,13 @@
    "detail": ""
   },
   {
+   "pos": "LB",
+   "no": "6",
+   "name": "Abram Wright",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "8",
    "name": "KJ Duff",
@@ -36,10 +57,24 @@
    "detail": ""
   },
   {
+   "pos": "QB",
+   "no": "10",
+   "name": "AJ Surace",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "12",
    "name": "Zahmir Dawud",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "12",
+   "name": "Dylan Lonergan",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -53,21 +88,14 @@
    "pos": "DB",
    "no": "27",
    "name": "Sage Clawges",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "38",
    "name": "Joey Kopec",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "44",
-   "name": "Tariq Hayer",
-   "status": "out-half",
+   "status": "questionable",
    "detail": ""
   },
   {

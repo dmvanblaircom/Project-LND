@@ -7,18 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:33.591716+00:00",
+ "fetchedAt": "2026-11-26T01:08:31.948114+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. UCLA",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Ohio State",
  "players": [
+  {
+   "pos": "S",
+   "no": "1",
+   "name": "Rod Moore",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "WR",
    "no": "3",
    "name": "Andrew Marsh",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -29,17 +36,24 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "17",
-   "name": "Enow Etta",
-   "status": "gtd",
+   "pos": "LB",
+   "no": "12",
+   "name": "Nathaniel Owusu-Boateng",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "19",
+   "name": "Bryce Underwood",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "20",
    "name": "Jaylen Pile",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +67,7 @@
    "pos": "RB",
    "no": "23",
    "name": "Jordan Marshall",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -68,6 +82,13 @@
    "no": "37",
    "name": "Julius Holly",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "42",
+   "name": "Jalen Hoffman",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -86,16 +107,23 @@
   },
   {
    "pos": "OL",
+   "no": "70",
+   "name": "Brady Norton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "77",
    "name": "Blake Frazier",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DE",
-   "no": "94",
-   "name": "Nate Marshall",
-   "status": "out-game",
+   "no": "90",
+   "name": "John Henry Daley",
+   "status": "questionable",
    "detail": ""
   }
  ],

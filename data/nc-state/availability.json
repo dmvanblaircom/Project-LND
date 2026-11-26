@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:34.169636+00:00",
+ "fetchedAt": "2026-11-26T01:08:32.753825+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Florida State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "North Carolina",
  "players": [
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "Jayden \"Duke\" Scott",
+   "status": "questionable",
+   "detail": ""
+  },
   {
    "pos": "S",
    "no": "2",
@@ -50,13 +57,6 @@
    "detail": ""
   },
   {
-   "pos": "QB",
-   "no": "10",
-   "name": "Will Wilson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "ILB",
    "no": "15",
    "name": "AJ Richardson",
@@ -67,7 +67,7 @@
    "pos": "OL",
    "no": "64",
    "name": "Rico Jackson",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -81,13 +81,6 @@
    "pos": "OL",
    "no": "72",
    "name": "Spike Sowells Jr.",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "86",
-   "name": "Hunter Provience",
    "status": "out-game",
    "detail": ""
   },

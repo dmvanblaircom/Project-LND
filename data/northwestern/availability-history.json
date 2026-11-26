@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "northwestern",
- "updated": "2026-11-21T15:08:50.909870+00:00",
+ "updated": "2026-11-26T01:08:33.282287+00:00",
  "reports": [
   {
    "schema": 1,
@@ -885,6 +885,109 @@
      "no": "62",
      "name": "Ezomo Oratokhai",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Chris Petrucci",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "88",
+     "name": "Migo Jackson",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "northwestern",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:08:33.282287+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Illinois",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "0",
+     "name": "Aidan Chiles",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Robert Fitzgerald",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "13",
+     "name": "Josh Fussell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "16",
+     "name": "Brennan Saxe",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Daniel Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "37",
+     "name": "Max Mohring",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "45",
+     "name": "Jack Sadowsky V",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "50",
+     "name": "Qayvier Johnson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "62",
+     "name": "Ezomo Oratokhai",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "73",
+     "name": "Deuce McGuire",
+     "status": "probable",
      "detail": ""
     },
     {

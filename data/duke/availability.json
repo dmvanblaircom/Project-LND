@@ -7,18 +7,25 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T22:35:42.187415+00:00",
+ "fetchedAt": "2026-11-26T01:08:27.751738+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "vs. Clemson",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Wake Forest",
  "players": [
   {
    "pos": "WR",
    "no": "1",
    "name": "Jamien Little",
-   "status": "out-game",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "1",
+   "name": "Kyon Loud",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,6 +50,13 @@
    "detail": ""
   },
   {
+   "pos": "DE",
+   "no": "18",
+   "name": "Kobe Smith",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "21",
    "name": "Qeanu Johnson",
@@ -53,6 +67,13 @@
    "pos": "LB",
    "no": "31",
    "name": "Elliott Schaper",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "34",
+   "name": "Luke Mergott",
    "status": "out-game",
    "detail": ""
   },
@@ -89,6 +110,13 @@
    "no": "79",
    "name": "Roman Fina",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "81",
+   "name": "Brett Elliott",
+   "status": "questionable",
    "detail": ""
   }
  ],

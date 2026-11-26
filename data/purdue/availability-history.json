@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "purdue",
- "updated": "2026-11-21T15:08:52.296108+00:00",
+ "updated": "2026-11-26T01:08:34.690025+00:00",
  "reports": [
   {
    "schema": 1,
@@ -387,6 +387,46 @@
      "pos": "TE",
      "no": "81",
      "name": "George Burhenn",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "Rodney Lora",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "purdue",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:08:34.690025+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Indiana",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "16",
+     "name": "Kylan Fox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "24",
+     "name": "Raderrion Daniels",
      "status": "out-game",
      "detail": ""
     },

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-21T18:38:38.840598+00:00",
+ "updated": "2026-11-26T01:08:39.158168+00:00",
  "reports": [
   {
    "schema": 1,
@@ -556,6 +556,116 @@
      "no": "66",
      "name": "Landen Hatchett",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "",
+     "name": "CJ Christian",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "washington",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:08:39.158168+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Oregon",
+   "players": [
+    {
+     "pos": "WR",
+     "no": "2",
+     "name": "Dezmen Roebuck",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Jordan Washington",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "5",
+     "name": "Christian Moss",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "8",
+     "name": "Chris Lawson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "12",
+     "name": "Logan George",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Quaid Carr",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Trey Cooley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "33",
+     "name": "Darin Conley",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "38",
+     "name": "Hunter McKee",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "EDG",
+     "no": "52",
+     "name": "Devin Hyde",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "66",
+     "name": "Landen Hatchett",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "John Mills",
+     "status": "probable",
      "detail": ""
     },
     {

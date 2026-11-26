@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-25T11:09:01.194368+00:00",
+ "fetchedAt": "2026-11-26T01:08:32.884166+00:00",
  "reported": true,
- "effectiveAt": "2026-11-24",
- "heading": "Initial",
+ "effectiveAt": "2026-11-25",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-27",
  "game": "at Iowa",
  "players": [
@@ -40,6 +40,13 @@
    "no": "7",
    "name": "Andrew Marshall",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "10",
+   "name": "Vincent Shavers Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -88,7 +95,7 @@
    "pos": "OL",
    "no": "65",
    "name": "Paul Mubenga",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

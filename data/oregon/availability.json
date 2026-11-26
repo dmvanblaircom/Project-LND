@@ -7,32 +7,18 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T23:08:28.625970+00:00",
+ "fetchedAt": "2026-11-26T01:08:34.182953+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "at Michigan State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Washington",
  "players": [
   {
    "pos": "RB",
    "no": "0",
    "name": "Jordon Davison",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "1",
-   "name": "Bear Alexander",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "2",
-   "name": "Iverson Hooks",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,10 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "RB",
    "no": "6",
-   "name": "Jerry Mixon",
-   "status": "out-game",
+   "name": "Dierre Hill Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {

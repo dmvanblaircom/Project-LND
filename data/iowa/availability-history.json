@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-25T11:08:58.077766+00:00",
+ "updated": "2026-11-26T01:08:29.822951+00:00",
  "reports": [
   {
    "schema": 1,
@@ -514,10 +514,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-25T11:08:58.077766+00:00",
+   "fetchedAt": "2026-11-26T01:08:29.822951+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-24",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-25",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-27",
    "game": "vs. Nebraska",
    "players": [
@@ -533,6 +533,13 @@
      "no": "2",
      "name": "Tyler Brown",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "7",
+     "name": "Dayton Howard",
+     "status": "questionable",
      "detail": ""
     },
     {

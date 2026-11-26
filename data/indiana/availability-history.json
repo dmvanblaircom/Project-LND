@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-11-21T18:38:31.951800+00:00",
+ "updated": "2026-11-26T01:08:29.696316+00:00",
  "reports": [
   {
    "schema": 1,
@@ -340,6 +340,88 @@
      "pos": "OL",
      "no": "56",
      "name": "Joe Brunner",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "indiana",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://bigten.org/sports/2026/9/10/FB_Availability_Reports.aspx",
+   "sourceLabel": "BigTen.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:08:29.696316+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Purdue",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "4",
+     "name": "A.J. Harris",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Rolijah Hardy",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "18",
+     "name": "Kellan Wyatt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Khobie Martin",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LS",
+     "no": "49",
+     "name": "Drew Clausen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "56",
+     "name": "Joe Brunner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "70",
+     "name": "Austin Leibfried",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "72",
+     "name": "Adedamola Ajani",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Bray Lynch",
      "status": "out-game",
      "detail": ""
     }

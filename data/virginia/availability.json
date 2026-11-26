@@ -7,25 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:48.446938+00:00",
+ "fetchedAt": "2026-11-26T01:08:38.753119+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. North Carolina",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Virginia Tech",
  "players": [
   {
    "pos": "S",
    "no": "4",
    "name": "Corey Costner",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "8",
-   "name": "Christian Ellis",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -40,6 +33,13 @@
    "no": "11",
    "name": "Rico Flores Jr.",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DE",
+   "no": "16",
+   "name": "Matthew Fobbs-White",
+   "status": "probable",
    "detail": ""
   },
   {

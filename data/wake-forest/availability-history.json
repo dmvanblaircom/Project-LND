@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-11-21T15:08:56.621646+00:00",
+ "updated": "2026-11-26T01:08:39.032108+00:00",
  "reports": [
   {
    "schema": 1,
@@ -388,6 +388,88 @@
      "no": "81",
      "name": "Landon Morris",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "wake-forest",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T01:08:39.032108+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Duke",
+   "players": [
+    {
+     "pos": "RB",
+     "no": "4",
+     "name": "Ty Clark III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "11",
+     "name": "Langston Hardy",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "15",
+     "name": "Devin Cook",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "55",
+     "name": "Tolu Olajide",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "69",
+     "name": "Dalton DeBoer",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "John Ohnegian",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "77",
+     "name": "Dylan Durbin",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "81",
+     "name": "Landon Morris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "95",
+     "name": "Brandon Smiley",
+     "status": "questionable",
      "detail": ""
     }
    ],

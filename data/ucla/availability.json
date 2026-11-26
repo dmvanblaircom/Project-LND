@@ -7,12 +7,12 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:37.871924+00:00",
+ "fetchedAt": "2026-11-26T01:08:37.869700+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Michigan",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "USC",
  "players": [
   {
    "pos": "WR",
@@ -32,7 +32,14 @@
    "pos": "LB",
    "no": "9",
    "name": "Jalen Woods",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "14",
+   "name": "Ty Dieffenbach",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -67,14 +74,14 @@
    "pos": "OL",
    "no": "51",
    "name": "Riley Robell",
-   "status": "gtd",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "64",
    "name": "Sam Yoon",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

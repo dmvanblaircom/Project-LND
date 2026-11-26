@@ -7,25 +7,32 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:35.366707+00:00",
+ "fetchedAt": "2026-11-26T01:08:34.423847+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Rutgers",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Maryland",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Jahmir Joseph",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "1",
+   "name": "James Peoples",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "S",
-   "no": "3",
-   "name": "Jamison Patton",
-   "status": "gtd",
+   "pos": "WR",
+   "no": "4",
+   "name": "Brett Eskildsen",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -36,10 +43,17 @@
    "detail": ""
   },
   {
+   "pos": "CB",
+   "no": "7",
+   "name": "Zion Tracy",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DE",
    "no": "10",
    "name": "Caleb Bacon",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -53,7 +67,7 @@
    "pos": "RB",
    "no": "21",
    "name": "Carson Hansen",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -64,6 +78,41 @@
    "detail": ""
   },
   {
+   "pos": "RB",
+   "no": "26",
+   "name": "Cam Wallace",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "CB",
+   "no": "35",
+   "name": "Tyler Armstead",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DT",
+   "no": "39",
+   "name": "Ty Blanding",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "51",
+   "name": "Brock Riker",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "70",
+   "name": "Trevor Buhr",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "79",
    "name": "Donnie Harbour",
@@ -71,10 +120,17 @@
    "detail": ""
   },
   {
+   "pos": "TE",
+   "no": "87",
+   "name": "Andrew Rappleyea",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "P",
    "no": "96",
    "name": "Lucas Tenbrock",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

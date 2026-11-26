@@ -7,32 +7,25 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T18:38:31.951800+00:00",
+ "fetchedAt": "2026-11-26T01:08:29.696316+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Washington",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Purdue",
  "players": [
-  {
-   "pos": "RB",
-   "no": "1",
-   "name": "Turbo Richard",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "4",
    "name": "A.J. Harris",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "5",
    "name": "Rolijah Hardy",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -43,10 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "33",
-   "name": "Garrett Reese",
-   "status": "out-game",
+   "pos": "RB",
+   "no": "28",
+   "name": "Khobie Martin",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -57,16 +50,30 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "52",
-   "name": "Clayton Allen",
+   "pos": "OL",
+   "no": "56",
+   "name": "Joe Brunner",
    "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "56",
-   "name": "Joe Brunner",
+   "no": "70",
+   "name": "Austin Leibfried",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "72",
+   "name": "Adedamola Ajani",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "74",
+   "name": "Bray Lynch",
    "status": "out-game",
    "detail": ""
   }
