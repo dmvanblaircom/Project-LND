@@ -1,0 +1,35 @@
+{
+  "slug": "byu",
+  "venue": "LaVell Edwards Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ATexas_Offensive_Play%2C_BYU_Cougars_40%2C_University_of_Texas_Longhorns_21%2C_Lavell_Edwards_Stadium%2C_Provo%2C_Utah_%2852%29_%289697084131%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Texas_Offensive_Play%2C_BYU_Cougars_40%2C_University_of_Texas_Longhorns_21%2C_Lavell_Edwards_Stadium%2C_Provo%2C_Utah_%2852%29_%289697084131%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Ken Lund from Reno, Nevada, USA",
+      "credit_line": "Ken Lund from Reno, Nevada, USA / Wikimedia Commons / CC BY-SA 2.0",
+      "year": 2013,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABYU_Cougars_40%2C_University_of_Texas_Longhorns_21%2C_Lavell_Edwards_Stadium%2C_Provo%2C_Utah_%2834%29_%289697042789%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/BYU_Cougars_40%2C_University_of_Texas_Longhorns_21%2C_Lavell_Edwards_Stadium%2C_Provo%2C_Utah_%2834%29_%289697042789%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Ken Lund from Reno, Nevada, USA",
+      "credit_line": "Ken Lund from Reno, Nevada, USA / Wikimedia Commons / CC BY-SA 2.0",
+      "year": 2013,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}
