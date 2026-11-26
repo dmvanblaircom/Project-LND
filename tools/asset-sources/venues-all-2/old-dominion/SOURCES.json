@@ -1,0 +1,33 @@
+{
+  "team_slug": "old-dominion",
+  "venue": "S.B. Ballard Stadium",
+  "summary": "Current stadium (rebuilt 2019): elevated 2023 game-day sideline view. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Old_Dominion_Monarchs_versus_Louisiana_Ragin_Cajuns_football_game_at_SB_Ballard_Stadium_9-9-2023.jpeg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Old_Dominion_Monarchs_versus_Louisiana_Ragin_Cajuns_football_game_at_SB_Ballard_Stadium_9-9-2023.jpeg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 4032,
+      "original_height": 3024,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Dough4872",
+      "credit_line": "Photo: Dough4872, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "day",
+      "note": "Elevated sideline view from the upper rows of the east stands across to the west grandstand and press box (rebuilt 2019), Sept 2023 Louisiana game, overcast with lights on; field rows ~860-1710 of 1800 (48-95%), west stands and press box ~25-48%, grey sky in the top ~25%; railing and cheerleaders along the bottom"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Kornblau_Field_at_S.B._Ballard_Stadium_-_Old_Dominion.jpg (CC BY 4.0, 8064px)",
+      "why": "Aug 2025 drone high oblique aerial; field ~40-70%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Foreman_Field.jpg (CC BY-SA 4.0, 3264px)",
+      "why": "2015 night at the old Foreman Field, demolished 2018"
+    }
+  ]
+}

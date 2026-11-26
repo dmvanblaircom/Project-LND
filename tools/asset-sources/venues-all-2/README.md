@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 38 venues; day+night 10, day only 23, night only 1, none 4.
+**Counts:** 40 venues; day+night 10, day only 25, night only 1, none 4.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -46,3 +46,5 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | northwestern | Ryan Field (new, opened 2026) | day | CC0 | Current venue is the new Ryan Field (opened 2026). Best photo is a lower-bowl game-day sideline view; no upper-deck or night photo yet. |
 | ohio | Peden Stadium | day+night | CC BY-SA 3.0; CC BY-SA 4.0 | Day: elevated 2011 game-day view with the field filling most of the frame. Night: 2025 upper-stands pregame view. |
 | oklahoma-state | Boone Pickens Stadium | none | - | Nothing qualifies: Commons has only low stands views, a construction-era shot and a 1001 px tall night panorama. |
+| oklahoma | Gaylord Family Oklahoma Memorial Stadium | day | CC BY-SA 4.0 | Current-form (2025) elevated end-zone game view. No qualifying night photo. |
+| old-dominion | S.B. Ballard Stadium | day | CC BY-SA 4.0 | Current stadium (rebuilt 2019): elevated 2023 game-day sideline view. No night photo. |

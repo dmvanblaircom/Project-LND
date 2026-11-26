@@ -1,0 +1,33 @@
+{
+  "team_slug": "oklahoma",
+  "venue": "Gaylord Family Oklahoma Memorial Stadium",
+  "summary": "Current-form (2025) elevated end-zone game view. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LSU_with_the_football,_LSU_vs_Oklahoma,_2025_(1).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/LSU_with_the_football%2C_LSU_vs_Oklahoma%2C_2025_%281%29.jpg",
+      "width": 2400,
+      "height": 1677,
+      "original_width": 3830,
+      "original_height": 2676,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Spatms",
+      "credit_line": "Photo: Spatms, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2025,
+      "day_or_night": "day",
+      "note": "Elevated south-end-zone corner view down the length of the field to the north end and video board, Nov 2025 LSU game, sellout; field rows ~840-1310 of 1677 (50-78%, 'OKLAHOMA' end zone at the near end), packed stands both sides and north end ~25-50%, blue sky, light tower and board in the top ~25%; crowd in the bottom ~20%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:The_Pride_of_Oklahoma_Marching_Band,_Gaylord_Family_Oklahoma_Memorial_Stadium,_LSU_vs_Oklahoma,_2025_(2).jpg (CC BY-SA 4.0, 4000px)",
+      "why": "Same game, band pregame from a similar spot; LSU fans' heads larger in the bottom-left"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Oklahoma_Baylor_20071110.jpg (CC BY-SA 3.0, 3072px)",
+      "why": "2007 elevated corner view, before the 2025 south end zone rebuild"
+    }
+  ]
+}
