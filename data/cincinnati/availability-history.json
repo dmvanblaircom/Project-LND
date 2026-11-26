@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "cincinnati",
- "updated": "2026-11-21T15:38:36.564571+00:00",
+ "updated": "2026-11-26T03:08:27.132901+00:00",
  "reports": [
   {
    "schema": 1,
@@ -352,6 +352,60 @@
      "pos": "ILB",
      "no": "12",
      "name": "Filip Maciorowski",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "cincinnati",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:27.132901+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "BYU",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Jacob Finley",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "5",
+     "name": "Marqavious Saboor",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "6",
+     "name": "Gi'Bran Payne",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "12",
+     "name": "Filip Maciorowski",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "20",
+     "name": "CJ Crite",
      "status": "out-game",
      "detail": ""
     }

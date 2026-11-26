@@ -7,18 +7,32 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:36.950765+00:00",
+ "fetchedAt": "2026-11-26T03:08:27.514012+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Cincinnati",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "UCF",
  "players": [
   {
    "pos": "DB",
    "no": "4",
    "name": "Naeten Mitchell",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "7",
+   "name": "Randon Fontenette",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "17",
+   "name": "Liona Lefau",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,17 +57,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "51",
-   "name": "Carson Crawford",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "TE",
-   "no": "88",
-   "name": "Corbin Laisure",
-   "status": "out-game",
+   "no": "86",
+   "name": "Brady Kopetz",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -61,13 +68,6 @@
    "no": "92",
    "name": "Sam Gadie",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "Dylan Manuel",
-   "status": "gtd",
    "detail": ""
   }
  ],

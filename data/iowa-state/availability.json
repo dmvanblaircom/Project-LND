@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T21:38:29.447804+00:00",
+ "fetchedAt": "2026-11-26T03:08:29.865725+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "at UCF",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Kansas State",
  "players": [
   {
    "pos": "WR",
@@ -25,20 +25,6 @@
    "pos": "QB",
    "no": "5",
    "name": "Connor Moberly",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "10",
-   "name": "Carson Willich",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "80",
-   "name": "Malcolm Watkins",
    "status": "out-game",
    "detail": ""
   },

@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T02:08:35.324870+00:00",
+ "fetchedAt": "2026-11-26T03:08:24.005341+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Oklahoma State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Arizona",
  "players": [
   {
    "pos": "WR",
@@ -22,10 +22,31 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "14",
+   "name": "Xavier Skowron",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "16",
+   "name": "Jaren Hamilton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "31",
+   "name": "Zeth Thues",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "64",
    "name": "Wade Helton",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {

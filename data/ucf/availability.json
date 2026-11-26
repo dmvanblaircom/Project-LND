@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T21:38:35.871742+00:00",
+ "fetchedAt": "2026-11-26T03:08:37.773957+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
- "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "vs. Iowa State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Colorado",
  "players": [
-  {
-   "pos": "DT",
-   "no": "0",
-   "name": "Horace Lockett",
-   "status": "gtd",
-   "detail": ""
-  },
   {
    "pos": "DB",
    "no": "8",
@@ -29,10 +22,45 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "9",
+   "name": "Waden Charles",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "16",
+   "name": "Antonio Branch Jr.",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "24",
+   "name": "Tackett Curtis",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "LB",
    "no": "38",
    "name": "Jayden Jennings",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "73",
+   "name": "Henry Tabansi",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "84",
+   "name": "Thomas Wadsworth",
+   "status": "out-game",
    "detail": ""
   }
  ],

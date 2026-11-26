@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-11-22T00:38:59.464281+00:00",
+ "updated": "2026-11-26T03:08:25.837748+00:00",
  "reports": [
   {
    "schema": 1,
@@ -117,6 +117,32 @@
    "heading": "Game Day",
    "kickoffDate": "2026-11-21",
    "game": "vs. San Diego State",
+   "players": [
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Carson Rasmussen",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "boise-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:25.837748+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at Colorado State",
    "players": [
     {
      "pos": "OL",

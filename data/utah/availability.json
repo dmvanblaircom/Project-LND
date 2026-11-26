@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-25T11:09:06.539998+00:00",
+ "fetchedAt": "2026-11-26T03:08:38.272931+00:00",
  "reported": true,
- "effectiveAt": "2026-11-24",
- "heading": "Initial",
+ "effectiveAt": "2026-11-25",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-27",
  "game": "vs. West Virginia",
  "players": [
@@ -25,20 +25,13 @@
    "pos": "WR",
    "no": "7",
    "name": "Braden Pegan",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "S",
    "no": "24",
    "name": "Marcus Wimberly",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "62",
-   "name": "Solatoa Moea'i",
    "status": "probable",
    "detail": ""
   },
@@ -46,13 +39,6 @@
    "pos": "LS",
    "no": "65",
    "name": "Logan Castor",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DT",
-   "no": "94",
-   "name": "Mike Tauteoli",
    "status": "questionable",
    "detail": ""
   }

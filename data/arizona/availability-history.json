@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona",
- "updated": "2026-11-21T22:38:31.153011+00:00",
+ "updated": "2026-11-26T03:08:23.877409+00:00",
  "reports": [
   {
    "schema": 1,
@@ -528,6 +528,60 @@
      "no": "21",
      "name": "Ismail Mahdi",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "27",
+     "name": "Keytrin Harris",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "arizona",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:23.877409+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Arizona State",
+   "players": [
+    {
+     "pos": "LB",
+     "no": "5",
+     "name": "Max Harris",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "12",
+     "name": "Dwight Bootle II",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "21",
+     "name": "Ismail Mahdi",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "24",
+     "name": "Quincy Craig",
+     "status": "questionable",
      "detail": ""
     },
     {

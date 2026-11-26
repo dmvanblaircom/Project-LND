@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oregon-state",
- "updated": "2026-11-22T01:38:42.966411+00:00",
+ "updated": "2026-11-26T03:08:34.218073+00:00",
  "reports": [
   {
    "schema": 1,
@@ -269,6 +269,123 @@
      "pos": "DB",
      "no": "",
      "name": "Kai Wheaton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Kord Shaw",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "oregon-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:34.218073+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at Fresno State",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "",
+     "name": "Braden Atkinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "",
+     "name": "Jacob Anderson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "",
+     "name": "Cornell Hatcher",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Malachi Durant",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Aaron Butler",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "",
+     "name": "Eddie Freauff",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Sailasa Vadrawale",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Ryan RJ Whitten",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Dylan Layne",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Tyree Blake",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OLB",
+     "no": "",
+     "name": "Will Haverland",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Kai Wheaton",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Harlem Howard",
      "status": "out-game",
      "detail": ""
     },

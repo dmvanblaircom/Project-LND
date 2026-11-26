@@ -7,18 +7,32 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T16:38:53.992871+00:00",
+ "fetchedAt": "2026-11-26T03:08:29.178932+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at West Virginia",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Baylor",
  "players": [
   {
    "pos": "QB",
    "no": "1",
    "name": "Conner Weigman",
-   "status": "gtd",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "3",
+   "name": "Harvey Broussard III",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "3",
+   "name": "JD Rhym",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -32,7 +46,14 @@
    "pos": "OL",
    "no": "50",
    "name": "Aaron Wolford",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "90",
+   "name": "De'Marion Thomas",
+   "status": "probable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "west-virginia",
- "updated": "2026-11-25T11:09:07.690135+00:00",
+ "updated": "2026-11-26T03:08:39.449317+00:00",
  "reports": [
   {
    "schema": 1,
@@ -479,32 +479,18 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-25T11:09:07.690135+00:00",
+   "fetchedAt": "2026-11-26T03:08:39.449317+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-24",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-25",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-27",
    "game": "at Utah",
    "players": [
-    {
-     "pos": "S",
-     "no": "0",
-     "name": "Andrew Powdrell",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "QB",
      "no": "3",
      "name": "Michael Hawkins Jr.",
      "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "3",
-     "name": "Matt Sieg",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -519,13 +505,6 @@
      "no": "10",
      "name": "Cam Ball",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "16",
-     "name": "Isaiah Patterson",
-     "status": "probable",
      "detail": ""
     },
     {

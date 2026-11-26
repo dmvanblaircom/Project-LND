@@ -7,12 +7,12 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T01:38:42.966411+00:00",
+ "fetchedAt": "2026-11-26T03:08:34.218073+00:00",
  "reported": true,
- "effectiveAt": "2026-11-22",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Utah State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Fresno State",
  "players": [
   {
    "pos": "QB",
@@ -32,14 +32,21 @@
    "pos": "RB",
    "no": "",
    "name": "Cornell Hatcher",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Malachi Durant",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Aaron Butler",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -52,14 +59,7 @@
   {
    "pos": "DB",
    "no": "",
-   "name": "Harlem Howard",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Sai Vadrawale",
+   "name": "Sailasa Vadrawale",
    "status": "out-game",
    "detail": ""
   },
@@ -68,6 +68,20 @@
    "no": "",
    "name": "Ryan RJ Whitten",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Dylan Layne",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Tyree Blake",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -81,6 +95,13 @@
    "pos": "DB",
    "no": "",
    "name": "Kai Wheaton",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Harlem Howard",
    "status": "out-game",
    "detail": ""
   },

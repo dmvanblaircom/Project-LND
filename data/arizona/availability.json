@@ -7,12 +7,12 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T22:38:31.153011+00:00",
+ "fetchedAt": "2026-11-26T03:08:23.877409+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Kansas State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Arizona State",
  "players": [
   {
    "pos": "LB",
@@ -25,14 +25,7 @@
    "pos": "CB",
    "no": "12",
    "name": "Dwight Bootle II",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "20",
-   "name": "Dajon Hinton",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -40,6 +33,13 @@
    "no": "21",
    "name": "Ismail Mahdi",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "24",
+   "name": "Quincy Craig",
+   "status": "questionable",
    "detail": ""
   },
   {

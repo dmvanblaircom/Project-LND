@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "byu",
- "updated": "2026-11-21T15:38:36.036187+00:00",
+ "updated": "2026-11-26T03:08:26.613517+00:00",
  "reports": [
   {
    "schema": 1,
@@ -458,6 +458,67 @@
      "no": "57",
      "name": "Keanu Tanuvasa",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "83",
+     "name": "Will Zundel",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "byu",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:26.613517+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Cincinnati",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "0",
+     "name": "Evan Johnson",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "2",
+     "name": "Roger Saleapaga II",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "16",
+     "name": "Isaiah Glasker",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "30",
+     "name": "Sione Moa",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "75",
+     "name": "Andrew Gentry",
+     "status": "probable",
      "detail": ""
     },
     {

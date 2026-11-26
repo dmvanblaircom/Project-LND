@@ -7,18 +7,39 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:39.709763+00:00",
+ "fetchedAt": "2026-11-26T03:08:30.105366+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. BYU",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Oklahoma State",
  "players": [
   {
    "pos": "RB",
    "no": "4",
    "name": "Jalen Dupree",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "7",
+   "name": "Bam Crouch",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "9",
+   "name": "Jailen Butler",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "23",
+   "name": "Mason Ellis",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -32,14 +53,7 @@
    "pos": "OL",
    "no": "51",
    "name": "Kasen Carpenter",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "53",
-   "name": "Kaden Moody",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,17 +64,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "81",
-   "name": "Quinton Conley",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DT",
    "no": "92",
    "name": "Nakwaine Carter",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

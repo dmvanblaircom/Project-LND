@@ -7,20 +7,13 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T22:38:34.766688+00:00",
+ "fetchedAt": "2026-11-26T03:08:28.548432+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Colorado State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Oregon State",
  "players": [
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Niko Baumgartner",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "RB",
    "no": "",
@@ -29,10 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "DB",
    "no": "",
-   "name": "Jahzon Jacks",
-   "status": "gtd",
+   "name": "Loyall Mouzon",
+   "status": "out-game",
    "detail": ""
   },
   {

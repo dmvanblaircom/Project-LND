@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-tech",
- "updated": "2026-11-25T03:08:48.648221+00:00",
+ "updated": "2026-11-26T03:08:37.016359+00:00",
  "reports": [
   {
    "schema": 1,
@@ -437,10 +437,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-25T03:08:48.648221+00:00",
+   "fetchedAt": "2026-11-26T03:08:37.016359+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-24",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-25",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-26",
    "game": "vs. TCU",
    "players": [
@@ -455,27 +455,13 @@
      "pos": "WR",
      "no": "1",
      "name": "Micah Hudson",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "2",
      "name": "Kenny Johnson",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "3",
-     "name": "Coy Eakin",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "3",
-     "name": "Peyton Morgan",
      "status": "probable",
      "detail": ""
     },
@@ -504,28 +490,28 @@
      "pos": "S",
      "no": "22",
      "name": "Marcus Ramon-Edwards",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OLB",
      "no": "32",
      "name": "LaDamion Guyton",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "OL",
      "no": "52",
      "name": "Cash Cleveland",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "92",
      "name": "Bryce Butler",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

@@ -7,32 +7,32 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T15:38:36.036187+00:00",
+ "fetchedAt": "2026-11-26T03:08:26.613517+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Kansas",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Cincinnati",
  "players": [
   {
    "pos": "CB",
    "no": "0",
    "name": "Evan Johnson",
-   "status": "out-game",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "2",
    "name": "Roger Saleapaga II",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "16",
    "name": "Isaiah Glasker",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -43,10 +43,10 @@
    "detail": ""
   },
   {
-   "pos": "DT",
-   "no": "57",
-   "name": "Keanu Tanuvasa",
-   "status": "out-game",
+   "pos": "OL",
+   "no": "75",
+   "name": "Andrew Gentry",
+   "status": "probable",
    "detail": ""
   },
   {

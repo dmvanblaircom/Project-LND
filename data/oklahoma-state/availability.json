@@ -7,32 +7,25 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T02:08:43.309351+00:00",
+ "fetchedAt": "2026-11-26T03:08:33.722694+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Arizona State",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "Kansas",
  "players": [
+  {
+   "pos": "WR",
+   "no": "1",
+   "name": "Miles Coleman",
+   "status": "probable",
+   "detail": ""
+  },
   {
    "pos": "LB",
    "no": "3",
    "name": "Tate Romney",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "17",
-   "name": "Drew Mestemaker",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "19",
-   "name": "Dayvon Standard",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -43,24 +36,10 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "45",
-   "name": "Morgan McPhaul",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "76",
-   "name": "Desmond Magiya",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DT",
    "no": "88",
    "name": "Landon Dean",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   }
  ],

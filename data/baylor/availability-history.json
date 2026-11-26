@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "baylor",
- "updated": "2026-11-21T19:00:52.109633+00:00",
+ "updated": "2026-11-26T03:08:25.565921+00:00",
  "reports": [
   {
    "schema": 1,
@@ -457,6 +457,88 @@
      "pos": "OL",
      "no": "64",
      "name": "Jaydon Mendiola",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "87",
+     "name": "Ashton Jones",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "baylor",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://big12sports.com/sports/football",
+   "sourceLabel": "Big12Sports.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:08:25.565921+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "Houston",
+   "players": [
+    {
+     "pos": "S",
+     "no": "8",
+     "name": "Jacob Redding",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "10",
+     "name": "Kyland Reed",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "QB",
+     "no": "13",
+     "name": "Quinn Murphy",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "14",
+     "name": "Daniel Cobbs",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "26",
+     "name": "Colin Peacock",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "38",
+     "name": "Jamarion Richardson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "59",
+     "name": "Devonte Tezino",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "61",
+     "name": "Cayden Tone",
      "status": "out-game",
      "detail": ""
     },
