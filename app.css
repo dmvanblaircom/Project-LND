@@ -1825,15 +1825,23 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
                 team's abyss from a third of the way down, so the names, scores
                 and status below the stands always read (0041) */
              linear-gradient(180deg,rgba(var(--t-abyss-rgb),0) calc(var(--photo-h) * .26),rgba(var(--t-abyss-rgb),.62) calc(var(--photo-h) * .5),rgba(var(--t-abyss-rgb),.86) calc(var(--photo-h) * .78)),
-             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.22),transparent 72%)}
+             radial-gradient(70% 34% at 50% calc(var(--photo-h) * .72),rgba(var(--r-stage-glow-rgb),.22),transparent 72%),
+             /* a soft plate under the scoreboard: the board sits in the band
+                where the photograph stays clear, and over a bright stand or
+                sky its words fell under AA (2026-11-26, measured over the
+                photos at last); the field stays in view around it */
+             radial-gradient(68% 28% at 50% calc(var(--photo-h) * .40),rgba(var(--t-abyss-rgb),.76),rgba(var(--t-abyss-rgb),.5) 55%,transparent 100%)}
 
 .stage-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:var(--s-space-3);
   padding:var(--s-space-4) var(--gutter) var(--s-space-5);text-align:center}
 .stage-pill{align-self:center;margin:0}
 .stage-pill span{display:inline-flex;align-items:center;gap:.45rem;padding:.32rem .85rem;border-radius:var(--s-radius-pill);
   font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;
-  background:rgba(var(--t-abyss-rgb),.88);color:var(--r-stage-ink);border:1px solid var(--r-stage-line)}
-.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-mark)}
+  background:rgba(var(--t-abyss-rgb),.96);color:var(--r-stage-ink);border:1px solid var(--r-stage-line)}
+/* the words in the board's ink, the team's mark as the ring: a mark colour as
+   12px text on the near-black ground misses AA for some teams (Cincinnati's
+   red reads 4.48:1) */
+.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-ink)}
 .pill-live span{background:var(--s-live);border-color:var(--s-live);color:#fff}
 .pill-live span::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:#fff;animation:live-pulse 1.6s ease-in-out infinite}
 /* after the rule it stills: section 8's reduced-motion rule comes earlier in
@@ -1870,7 +1878,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .sb.is-scoring .sb-mark{--mark:3.6rem}
 .sb-name{max-width:100%;overflow:hidden;white-space:nowrap;line-height:1.5rem;font-family:var(--t-font-display);font-weight:700;font-size:var(--s-type-md);text-transform:uppercase;letter-spacing:.02em}
 .sb-us .sb-name{font-size:var(--s-type-lg)}
-.sb-rank{color:var(--r-stage-mark);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
+/* the rank in the board's own ink: in the team's mark colour it sat at 14px
+   over the photograph, and mid-tone marks (grey, light blue, gold) fell under
+   AA there for 28 teams (2026-11-26) */
+.sb-rank{color:var(--r-stage-ink);font-family:var(--s-font-score);font-variant-numeric:tabular-nums}
 .sb-abbr,.fit-abbr .sb-full{display:none}
 .fit-abbr .sb-abbr{display:inline}
 /* while there are scores, the phone's columns carry the short name */

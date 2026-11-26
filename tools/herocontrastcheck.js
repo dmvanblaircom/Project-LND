@@ -39,14 +39,24 @@ var server = require("./lib/serve")(root);
 var only = process.argv.slice(2);
 var TEAMS = fs.readdirSync(path.join(root, "teams")).filter(function (f) { return /\.js$/.test(f) && f !== "index.js"; })
   .map(function (f) { return f.slice(0, -3); }).filter(function (id) { return !only.length || only.indexOf(id) !== -1; }).sort();
-var BATCH = 12;
-// One row holds the fixed cases (7600 px) and a 390 px stage per venue photo.
+// The venue photographs, by day and night. Every one is drawn under the
+// colour-extreme teams (tools/teamsets/extremes.txt) and Suite Style; every
+// other team under its own home stadium's. All 138 under all of them grew as
+// teams x venues, and one row per team grew past the widest screenshot
+// Chromium takes (16,384 px): the capture came back white (2026-11-26).
 var VENUES = (function () {
   var c = require("vm").createContext({});
   require("vm").runInContext(fs.readFileSync(path.join(root, "leagues", "college-football-art.js"), "utf8"), c);
   return Object.keys((c.TEAM_ART || {}).venues || {}).filter(function (k) { return k !== "neutral"; }).length;
 })();
-var WIDE = 7600 + VENUES * 410;
+var EXTREMES = fs.readFileSync(path.join(root, "tools", "teamsets", "extremes.txt"), "utf8").replace(/#.*/g, "").split(/\s+/).filter(Boolean);
+// A row wraps at WIDE; a batch holds as many teams as fit the auditor's
+// 12,000 px capture, at about 760 px a line.
+var WIDE = 8000, LINE = 760;
+function linesFor(id, style) {
+  var venueCells = style === "suite" || EXTREMES.indexOf(id) !== -1 ? VENUES * 2 : 2;
+  return Math.ceil((7600 + venueCells * 410) / (WIDE - 40));
+}
 
 // What the page draws for one team. Runs in the browser.
 function drawBatch(arg) {
@@ -83,27 +93,35 @@ function drawBatch(arg) {
     ["game-final-loss-day", "game", 390, { status: "final", hasStarted: true, date: DAY, period: 4, us: 19, them: 42 }],
     ["home-live-desktop", "home", 860, { status: "live", hasStarted: true, date: NIGHT, period: 4, clock: "0:48", us: 31, them: 28, situation: { possession: "us", short: "2nd & 7", spot: "OPP 33" } }]
   ];
-  // every venue Suite has a photograph of, under the live board: the photo
-  // set grows by data, so the gate follows it rather than a hand-kept list
+  // every venue Suite has a photograph of, under the live board, by day and
+  // under the lights: the photo set grows by data, so the gate follows it
+  // rather than a hand-kept list. Each case says which venue it is, so a
+  // team draws only the venues it is given (arg.venuesFor).
   Object.keys((window.TEAM_ART || {}).venues || {}).forEach(function (k) {
     if (k === "neutral") return;
     var v = TEAM_ART.venues[k], name = (v.names || [v.label])[0];
-    CASES.push(["venue-" + k, "home", 390, { status: "live", hasStarted: true, date: NIGHT, venue: name, home: false, period: 4, clock: "2:15", us: 27, them: 24,
-                                             situation: { possession: "them", short: "3rd & 4", spot: "US 41" } }]);
+    [["day", DAY], ["night", NIGHT]].forEach(function (L) {
+      var C = ["venue-" + k + "-" + L[0], "home", 390, { status: "live", hasStarted: true, date: L[1], venue: name, home: false, period: 4, clock: "2:15", us: 27, them: 24,
+                                                    situation: { possession: "them", short: "3rd & 4", spot: "US 41" } }];
+      C.venueNames = (v.names || [v.label]).map(function (n) { return n.toLowerCase(); });
+      CASES.push(C);
+    });
   });
   var out = [];
   return Promise.all(ids.map(function (id) {
     return fetch("/teams/" + id + ".js").then(function (r) { return r.text(); }).then(function (src) {
       var cfg = new Function(src + "\n;return TEAM_CONFIG;")(), team = TeamOS.createTeam(cfg.team);
       var look = TeamOS.identity.create(style === "suite" ? { identity: Suite.ui.STYLE } : cfg, team);
-      return { id: id, team: team, look: look };
+      return { id: id, team: team, look: look, cfg: cfg };
     });
   })).then(function (teams) {
     var html = "";
     teams.forEach(function (T) {
       var t = { name: T.team.name, abbr: T.team.abbreviation, nick: (reg[T.id] || {}).nick || "", markUrl: null };
       html += '<div class="hc-row" data-team="' + esc(T.id) + '" data-style="' + style + '" style="' + esc(tokens(T.look)) + ';font-family:var(--t-font-ui)">';
-      CASES.forEach(function (C) {
+      var every = arg.allVenues.indexOf(T.id) !== -1 || style === "suite";
+      var own = ((T.cfg && T.cfg.team && T.cfg.team.venue && T.cfg.team.venue.name) || "").toLowerCase();
+      CASES.filter(function (C) { return !C.venueNames || every || C.venueNames.indexOf(own) !== -1; }).forEach(function (C) {
         var g = Object.assign({ id: "1", oppName: "Opponent", oppAbbr: "OPP", oppProviderId: null, usRank: 12, usRecord: "4-1", oppRecord: "3-2", home: true, net: "ESPN", timeSet: true }, C[3]);
         var m = { team: t, game: g, oppMark: function () { return null; }, art: { name: t.name, abbr: t.abbr, markUrl: null },
                   now: new Date(C[4] || g.date) };
@@ -142,21 +160,36 @@ function drawBatch(arg) {
     await page.route("**/*", function (route) { return route.request().url().startsWith(base) ? route.continue() : route.abort(); });
     await page.goto(base + "/tools/fixtures/espn-news.json");
     var runs = [];
-    for (var i = 0; i < TEAMS.length; i += BATCH) runs.push({ style: "team", ids: TEAMS.slice(i, i + BATCH) });
+    // batches as tall as the capture allows: a team drawn under every venue
+    // takes more lines than one drawn under its own
+    for (var i = 0, cur = [], h = 0; i < TEAMS.length; i++) {
+      var need = linesFor(TEAMS[i], "team") * LINE;
+      if (cur.length && h + need > 11000) { runs.push({ style: "team", ids: cur }); cur = []; h = 0; }
+      cur.push(TEAMS[i]); h += need;
+      if (i === TEAMS.length - 1) runs.push({ style: "team", ids: cur });
+    }
     runs.push({ style: "suite", ids: [TEAMS.indexOf("notre-dame") !== -1 ? "notre-dame" : TEAMS[0]] });
     for (var n = 0; n < runs.length; n++) {
       var run = runs[n];
       await page.setViewportSize({ width: WIDE, height: 1000 }); // a row of sixteen stages, two desktop ones included, and one per venue photo
       await page.setContent('<!doctype html><html lang="en" data-style="' + run.style + '"><head><meta name="viewport" content="width=device-width,initial-scale=1">' +
+        // the photographs' paths are relative to the app's root: without this
+        // they resolved under /tools/fixtures/, failed, and every venue case
+        // was read over the bare scrim, never the photo (2026-11-26)
+        '<base href="' + base + '/">' +
         '<link rel="stylesheet" href="' + base + '/app.css"><style>body{margin:0;background:#fff}' +
-        '.hc-row{display:flex;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
+        '.hc-row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:12px 16px}.hc-cell{flex:none}</style></head>' +
         '<body><main id="hc"></main></body></html>');
       for (var f of ["teams/index.js", "teamos/team.js", "teamos/identity.js", "teamos/game.js", "teamos/espn.js", "suite/ui.js", "leagues/college-football-art.js", "teamos/art.js", "suite/home.js", "suite/scoreboard.js"])
         await page.addScriptTag({ url: base + "/" + f });
-      var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style });
+      var boxes = await page.evaluate(drawBatch, { ids: run.ids, style: run.style, allVenues: EXTREMES });
       // Measured once the faces have loaded and the frame has settled: under
       // load (the parallel suite, a busy runner) a fallback face mid-swap
       // moves text off its floor and the reading is of a page no fan sees.
+      // and every venue photograph loaded: the words are read over the photo
+      await page.waitForFunction(function () {
+        return Array.prototype.every.call(document.querySelectorAll("img.stage-img"), function (i) { return i.complete && i.naturalWidth > 0; });
+      }, null, { timeout: 30000 });
       await page.evaluate(function () {
         return document.fonts.ready.then(function () {
           return new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
