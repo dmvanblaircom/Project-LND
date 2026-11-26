@@ -1,7 +1,7 @@
 {
   "team_slug": "kentucky",
   "venue": "Kroger Field",
-  "summary": "",
+  "summary": "Nothing qualifies: the only elevated game photo predates the 2015 renovation; the only current-form game photo is a low seat view with identifiable fans in the foreground.",
   "files": [],
   "closest_misses": [
     {
@@ -11,6 +11,10 @@
     {
       "file": "https://commons.wikimedia.org/wiki/File:UTUK07.JPG (CC BY 3.0, 3648px)",
       "why": "Field-level game action, no stadium"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Commonwealth_Stadium_of_Kentucky_-_Kentucky_Wildcats_v.s._Georgia_Bulldogs_-_SEC_football,_October_2012_(2012-10-20_by_Navin75).jpg (CC BY-SA 2.0, 4519px)",
+      "why": "Excellent elevated 2012 night game view down the length of the field (field rows ~45-75%), but taken before the 2015 renovation that rebuilt the west side and press box, so not the current form"
     }
   ]
 }

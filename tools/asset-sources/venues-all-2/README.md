@@ -15,7 +15,7 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | kansas | David Booth Kansas Memorial Stadium | day | CC BY-SA 4.0 | The stadium was rebuilt in 2024-25; no elevated interior photo of the renovated stadium is on Commons yet. The only current-form image is a high oblique drone aerial (marked last resort). |
 | kennesaw-state | Fifth Third Stadium (Walens Family Field) | day | CC BY 4.0 | Only low lower-stands views exist; best is a 2024 dusk game-day shot with the field in the lower-middle. No elevated upper-deck view on Commons. |
 | kent-state | Zoeller Field at Dix Stadium | day | CC BY 3.0 | Elevated 2008 game-day sideline view; no qualifying night photo. |
-| kentucky | Kroger Field | none | - |  |
+| kentucky | Kroger Field | none | - | Nothing qualifies: the only elevated game photo predates the 2015 renovation; the only current-form game photo is a low seat view with identifiable fans in the foreground. |
 | liberty | Williams Stadium (Lynchburg, VA) | day | CC BY-SA 4.0 | Elevated corner view of the current stadium (2018), not a full game-day crowd. No qualifying night photo. |
 | louisiana-tech | Joe Aillet Stadium | day | Public domain | Only elevated game-day image is a 2015 wide panorama, 612 px tall (low vertical resolution). Alternative: 2026 drone aerial. No night photo. |
 | louisiana | Our Lady of Lourdes Stadium (Cajun Field) | day | CC BY 3.0 | Best elevated game-day view is from 2009, taken from the west side looking at the unchanged east stands; no post-renovation (2025) interior photo exists. No night photo. |
