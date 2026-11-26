@@ -1838,7 +1838,10 @@ html:not([data-choosing]),html:not([data-choosing]) body{overscroll-behavior-y:c
 .stage-pill span{display:inline-flex;align-items:center;gap:.45rem;padding:.32rem .85rem;border-radius:var(--s-radius-pill);
   font-family:var(--t-font-ui);font-weight:800;font-size:var(--s-type-xs);letter-spacing:.16em;text-transform:uppercase;
   background:rgba(var(--t-abyss-rgb),.96);color:var(--r-stage-ink);border:1px solid var(--r-stage-line)}
-.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-mark)}
+/* the words in the board's ink, the team's mark as the ring: a mark colour as
+   12px text on the near-black ground misses AA for some teams (Cincinnati's
+   red reads 4.48:1) */
+.pill-next span{border-color:var(--r-stage-mark);color:var(--r-stage-ink)}
 .pill-live span{background:var(--s-live);border-color:var(--s-live);color:#fff}
 .pill-live span::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:#fff;animation:live-pulse 1.6s ease-in-out infinite}
 /* after the rule it stills: section 8's reduced-motion rule comes earlier in
