@@ -1,0 +1,26 @@
+{
+  "slug": "arizona-state",
+  "venue": "Mountain America Stadium (Sun Devil Stadium)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3A2021_Sun_Devil_Stadium_2.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/2021_Sun_Devil_Stadium_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1641,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Beyond My Ken",
+      "credit_line": "Beyond My Ken / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ASun_Devil_Stadium_at_night.jpg",
+      "why": "Night view from Feb 2016, during the 2014-2019 renovation, so it is not the current form."
+    }
+  ]
+}

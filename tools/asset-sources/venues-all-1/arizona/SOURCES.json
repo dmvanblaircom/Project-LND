@@ -1,0 +1,19 @@
+{
+  "slug": "arizona",
+  "venue": "Casino Del Sol Stadium (Arizona Stadium)",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AArizona_Stadium_Wide_Angle.jpg",
+      "why": "Elevated game-day view, but from Oct 2011, before the 2013 north end zone (Lowell-Stevens) rebuild, so it is not the current form."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAzwildcatsfb101808.jpg",
+      "why": "2008 night game, pre-renovation, low viewpoint, only 2048 px."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AUniversity_of_Arizona_May_2019_20_%28Arizona_Stadium%29.jpg",
+      "why": "Current form but exterior street views only (the whole May 2019 series)."
+    }
+  ]
+}

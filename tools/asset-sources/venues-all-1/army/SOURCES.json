@@ -1,0 +1,26 @@
+{
+  "slug": "army",
+  "venue": "Michie Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AConnecticut_Huskies_at_Army_Black_Knights_football_%28November_19%2C_2022%29_%28Flickr_52515372988%29.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Connecticut_Huskies_at_Army_Black_Knights_football_%28November_19%2C_2022%29_%28Flickr_52515372988%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "Public domain",
+      "license_url": "",
+      "author": "United States Military Academy",
+      "credit_line": "United States Military Academy / Wikimedia Commons / Public domain",
+      "year": 2022,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AUnited_States_Military_Academy_Michie_Stadium.jpg",
+      "why": "Elevated and clean, but empty and of unknown date; the 2022 game-day frame was preferred."
+    }
+  ]
+}

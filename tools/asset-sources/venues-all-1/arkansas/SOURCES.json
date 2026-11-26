@@ -1,0 +1,30 @@
+{
+  "slug": "arkansas",
+  "venue": "Donald W. Reynolds Razorback Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AEmpty_Razorback_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Empty_Razorback_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Brandonrush",
+      "credit_line": "Brandonrush / Wikimedia Commons / CC0",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ATennessee_at_Arkansas_2026.jpg",
+      "why": "Current form and game day, but shot from low in the west stands: field is a thin strip and the far stands fill the frame."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAlabama_at_Arkansas_2014%2C_001.jpg",
+      "why": "Lower-deck game view from 2014, before the 2018 north end zone renovation."
+    }
+  ]
+}
