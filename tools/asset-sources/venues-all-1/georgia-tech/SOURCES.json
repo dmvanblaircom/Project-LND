@@ -1,0 +1,40 @@
+{
+  "slug": "georgia-tech",
+  "venue": "Bobby Dodd Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABobby_Dodd_Stadium%2C_GT.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Bobby_Dodd_Stadium%2C_GT.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1350,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "JJonahJackalope",
+      "credit_line": "JJonahJackalope / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2019,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABobbyDoddStadiumGTMiami2008.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/BobbyDoddStadiumGTMiami2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1177,
+      "license_short_name": "Public domain",
+      "license_url": "",
+      "author": "Bkporter12",
+      "credit_line": "Bkporter12 / Wikimedia Commons / Public domain",
+      "year": 2008,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABobby_Dodd_Stadium_at_night.jpg",
+      "why": "Nov 2019 night (current), but empty seats fill the left half and the field sits bottom right."
+    }
+  ]
+}
