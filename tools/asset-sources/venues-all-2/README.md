@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 40 venues; day+night 10, day only 25, night only 1, none 4.
+**Counts:** 41 venues; day+night 10, day only 26, night only 1, none 4.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -48,3 +48,4 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | oklahoma-state | Boone Pickens Stadium | none | - | Nothing qualifies: Commons has only low stands views, a construction-era shot and a 1001 px tall night panorama. |
 | oklahoma | Gaylord Family Oklahoma Memorial Stadium | day | CC BY-SA 4.0 | Current-form (2025) elevated end-zone game view. No qualifying night photo. |
 | old-dominion | S.B. Ballard Stadium | day | CC BY-SA 4.0 | Current stadium (rebuilt 2019): elevated 2023 game-day sideline view. No night photo. |
+| ole-miss | Vaught-Hemingway Stadium | day | CC BY-SA 4.0 | Current-form 2021 game-day corner view; field sits low. No qualifying night photo. |

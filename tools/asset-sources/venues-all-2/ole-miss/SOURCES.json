@@ -1,0 +1,41 @@
+{
+  "team_slug": "ole-miss",
+  "venue": "Vaught-Hemingway Stadium",
+  "summary": "Current-form 2021 game-day corner view; field sits low. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Vaught_Hemingway_Stadium,_Arkansas_at_Ole_Miss_2021.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Vaught_Hemingway_Stadium%2C_Arkansas_at_Ole_Miss_2021.jpg",
+      "width": 2400,
+      "height": 2224,
+      "original_width": 3024,
+      "original_height": 2802,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Jaggerhornik",
+      "credit_line": "Photo: Jaggerhornik, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "Elevated lower-bowl corner view (north end zone) across the field to the west stands and enclosed north end, Oct 2021 Arkansas game, full crowd; field rows ~1380-1890 of 2224 (62-85%), packed stands ~40-62%, blue sky in the top ~40%; crowd fills the bottom ~15%. Field sits low: needs a downward offset"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:2023_Ole_Miss_v_LSU_football_game.jpg (CC0, 3024px)",
+      "why": "2023 LSU night game from low seats; identifiable students fill the bottom half"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Sunset_at_Ole_Miss_Football_Stadium.jpg (CC BY 4.0, 3024px)",
+      "why": "2024 sunset portrait, field ~70-85%, hands and phone in the foreground"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Vaught-Hemingway_Stadium.jpg (CC BY 2.0, 3238px)",
+      "why": "2019 night drone aerial over the stadium"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:VaughtHemingway1.JPG (Public domain, 2048px)",
+      "why": "2005 empty stadium from the south end zone, before the 2016 north end zone enclosure"
+    }
+  ]
+}
