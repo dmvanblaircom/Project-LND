@@ -1,0 +1,19 @@
+{
+  "slug": "georgia-southern",
+  "venue": "Allen E. Paulson Stadium",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AExpanded_Paulson_Stadium.jpg",
+      "why": "Only 960 px wide (below the 1600 px minimum)."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3APaulson_stadium.jpg",
+      "why": "Only 960 px wide (below the 1600 px minimum)."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3A2018_Camellia_Bowl_31_%28opening_kickoff%29.jpg",
+      "why": "Georgia Southern game, but played at Cramton Bowl in Montgomery, not Paulson Stadium."
+    }
+  ]
+}
