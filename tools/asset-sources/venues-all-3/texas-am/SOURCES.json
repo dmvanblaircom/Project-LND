@@ -1,0 +1,30 @@
+{
+  "venue": "Kyle Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Kyle_Field_Panorama.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Kyle_Field_Panorama.jpg",
+      "width": 2400,
+      "height": 968,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Janreagan at English Wikipedia",
+      "credit_line": "Janreagan at English Wikipedia / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2015,
+      "day_or_night": "day",
+      "note": "upper deck south-east corner panorama of the rebuilt stadium at dusk, full crowd; wide 2.5:1 frame, field rows ~420-880 of 968 (centre-lower), upper decks across the top"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Lss-ingame.jpg",
+      "why": "good elevated sideline view, but 2007 (pre-2014 rebuild) and 1600 px"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Kyle_Field-empty_2006.jpg",
+      "why": "pre-rebuild, empty"
+    }
+  ],
+  "remark": "Weak fit: only post-2015 interior photo at 1920+ is a wide panorama with the field in the lower half. All elevated game photos found (2006-2007) show the pre-redevelopment stadium and are excluded."
+}
