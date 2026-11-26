@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 11 venues; day+night 0, day only 10, night only 1, none 0.
+**Counts:** 13 venues; day+night 2, day only 10, night only 1, none 0.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -19,3 +19,5 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | louisiana-tech | Joe Aillet Stadium | day | Public domain | Only elevated game-day image is a 2015 wide panorama, 612 px tall (low vertical resolution). Alternative: 2026 drone aerial. No night photo. |
 | louisiana | Our Lady of Lourdes Stadium (Cajun Field) | day | CC BY 3.0 | Best elevated game-day view is from 2009, taken from the west side looking at the unchanged east stands; no post-renovation (2025) interior photo exists. No night photo. |
 | louisville | L&N Federal Credit Union Stadium | night | CC BY-SA 4.0 | Night bowl view of the current stadium (2018). No qualifying daytime elevated photo. |
+| marshall | Joan C. Edwards Stadium | day+night | CC BY-SA 3.0; CC BY-SA 4.0 | Day: elevated corner panorama (post-game, partly empty). Night: elevated 2016 game-day crowd shot. |
+| maryland | SECU Stadium | day+night | CC BY-SA 4.0 | Day: top-of-upper-deck game-day panorama (2018). Night: 2023 upper-deck portrait shot. |

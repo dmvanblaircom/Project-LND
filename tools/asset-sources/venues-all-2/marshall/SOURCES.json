@@ -1,0 +1,45 @@
+{
+  "team_slug": "marshall",
+  "venue": "Joan C. Edwards Stadium",
+  "summary": "Day: elevated corner panorama (post-game, partly empty). Night: elevated 2016 game-day crowd shot.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Panoramic_of_Joan_C._Edwards_Stadium.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Panoramic_of_Joan_C._Edwards_Stadium.JPG",
+      "width": 2400,
+      "height": 1005,
+      "original_width": 5868,
+      "original_height": 2457,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Davebanner12",
+      "credit_line": "Photo: Davebanner12, CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2013,
+      "day_or_night": "day",
+      "note": "Wide panorama from the top rows of the north-east corner after a 2013 game (crowd leaving, many empty seats); field rows ~420-760 of 1005 (42-76%), stands and press box rows ~200-420, cloudy sky top ~20%; railing and empty bleachers in the lower-left foreground"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Striping_the_Joan_C._Edwards_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Striping_the_Joan_C._Edwards_Stadium.jpg",
+      "width": 2400,
+      "height": 1477,
+      "original_width": 3384,
+      "original_height": 2083,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Wv funnyman",
+      "credit_line": "Photo: Wv funnyman, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2016,
+      "day_or_night": "night",
+      "note": "Night game 2016 ('stripe out' crowd), from high in the south-west stands looking across to the press-box side; field rows ~620-1250 of 1477 (42-85%), striped crowd rows ~250-620, lights and black sky in the top ~17%; raised hands of fans along the bottom"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:UH_at_Marshall_CIMG0316.JPG (Public domain, 1600px)",
+      "why": "2008 night, lower-stands sideline, 1600x1200; field only in the bottom 40%"
+    }
+  ]
+}

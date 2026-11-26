@@ -1,0 +1,49 @@
+{
+  "team_slug": "maryland",
+  "venue": "SECU Stadium",
+  "summary": "Day: top-of-upper-deck game-day panorama (2018). Night: 2023 upper-deck portrait shot.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Pano_of_Maryland_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pano_of_Maryland_Stadium.jpg",
+      "width": 2400,
+      "height": 1042,
+      "original_width": 5818,
+      "original_height": 2526,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Bluesnote",
+      "credit_line": "Photo: Bluesnote, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2018,
+      "day_or_night": "day",
+      "note": "Wide panorama from the top row of the upper deck during the 2018 Michigan game, full crowd; field rows ~560-960 of 1042 (54-92%), stands and Tyser Tower press box rows ~380-560, campus skyline and cloudy sky in the top ~35%; railing and fans in the lower corners. Field sits low: needs a downward offset"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:View_from_the_upper_deck_of_SECU_stadium_at_night_2023.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/View_from_the_upper_deck_of_SECU_stadium_at_night_2023.jpg",
+      "width": 2400,
+      "height": 3200,
+      "original_width": 3024,
+      "original_height": 4032,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Crazycat8590",
+      "credit_line": "Photo: Crazycat8590, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "night",
+      "note": "Portrait night shot from the upper deck at a 2023 game, across the 50 to the press-box side; field rows ~1750-2550 of 3200 (55-80%), stands and press box rows ~950-1750, lit sky and light towers in the top ~30%, upper-deck fans in the bottom ~20%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Byrd_2007.jpg (CC BY-SA 3.0, 1678px)",
+      "why": "2005-07 panorama from the lower corner, 1678x561 (too small), crowd fills the bottom half"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Mighty_Sound_of_Maryland,_Block_M.jpg (CC BY-SA 2.0, 2816px)",
+      "why": "2007 dusk, band Block M, elevated lower deck, field rows ~40-75%; good framing but old (pre-Byrd rename, field signage changed); 2816px"
+    }
+  ]
+}
