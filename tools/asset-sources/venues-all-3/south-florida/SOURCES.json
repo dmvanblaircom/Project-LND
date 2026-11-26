@@ -1,0 +1,34 @@
+{
+  "venue": "Raymond James Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Raymond_James_Stadium02.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Raymond_James_Stadium02.JPG",
+      "width": 1920,
+      "height": 1437,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Bernard Gagnon",
+      "credit_line": "Bernard Gagnon / Wikimedia Commons, CC BY-SA 3.0",
+      "year": 2007,
+      "day_or_night": "day",
+      "note": "upper-level corner over the south end zone at a 2007 Buccaneers game; field rows ~650-1437 of 1437 with packed stands above. Shows the pre-2016 video boards (bowl otherwise unchanged)"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:USF_Bulls_Miami_Hurricanes_September_2024.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/USF_Bulls_Miami_Hurricanes_September_2024.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Trevorrrrvalent",
+      "credit_line": "Trevorrrrvalent / Wikimedia Commons, CC BY 4.0",
+      "year": 2024,
+      "day_or_night": "night",
+      "note": "lower-level seats near the end zone at a September 2024 USF night game (current boards); field rows ~900-1700 of 1800, video board and stands above"
+    }
+  ],
+  "closest_misses": []
+}

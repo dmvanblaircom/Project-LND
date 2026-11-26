@@ -1,0 +1,29 @@
+{
+  "venue": "Stanford Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Stanford_vs_UCLA_football_2013.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Stanford_vs_UCLA_football_2013.jpg",
+      "width": 2400,
+      "height": 1596,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Daniel Hartwig",
+      "credit_line": "Daniel Hartwig / Wikimedia Commons, CC BY 2.0",
+      "year": 2013,
+      "day_or_night": "day",
+      "note": "upper west stands, telephoto across the field at a 2013 Stanford-UCLA game; field rows ~480-1600 of 1600 (from the upper third down), packed east stands across the top"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2008-1115-006-USC-Stanford-PAN.jpg",
+      "why": "night panorama 7110x2462; field is a thin strip"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Stanford_Stadium_field_6.JPG",
+      "why": "2010 elevated open-house view, no game"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "venue": "Hancock Whitney Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:South_Alabama_Hancock_Whitney_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/South_Alabama_Hancock_Whitney_Stadium.jpg",
+      "width": 2400,
+      "height": 1500,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons, CC BY 4.0",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "LAST RESORT high oblique aerial from the southeast, empty stadium; field rows ~400-1050 of 1500 (upper-middle), stands around it",
+      "aerial_last_resort": true
+    }
+  ],
+  "closest_misses": [],
+  "remark": "Only interior-capable photo is a 2026 high oblique aerial; no in-stand photo on Commons."
+}

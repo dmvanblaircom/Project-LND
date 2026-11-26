@@ -1,0 +1,19 @@
+{
+  "venue": "Acrisure Stadium (formerly Heinz Field)",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SteelersWarmUp.JPG",
+      "why": "good elevated upper-deck sideline view (field rows ~55-100%), but original is 1600 px and Commons now serves nothing between 1280 and the original"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Steelers_vs_Chiefs_December_2014.jpg",
+      "why": "mid-deck sideline; field is a band at rows ~60-85%, upper deck fills the top"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Heinz_Field_Panorama.JPG",
+      "why": "7280x2111 panorama; field is a thin strip"
+    }
+  ],
+  "remark": "No qualifying photo at 1920+ px."
+}

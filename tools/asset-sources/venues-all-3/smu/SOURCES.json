@@ -1,0 +1,35 @@
+{
+  "venue": "Gerald J. Ford Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Tulsa_vs._Southern_Methodist_football_2021_03_(Southern_Methodist_University_Mustang_Band).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Tulsa_vs._Southern_Methodist_football_2021_03_%28Southern_Methodist_University_Mustang_Band%29.jpg",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Michael Barera",
+      "credit_line": "Michael Barera / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "mid-level west stands at midfield looking across at the east stands, band on the field (2021); field rows ~640-1450 of 1600, east stands above"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:View_of_Gerald_J_Ford_Stadium_after_renovations,_20224.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/View_of_Gerald_J_Ford_Stadium_after_renovations%2C_20224.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "HavanaHeat",
+      "credit_line": "HavanaHeat / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2024,
+      "day_or_night": "night",
+      "note": "lower deck corner behind the north end zone at a 2024 night game after renovation; field rows ~620-1250 of 1800, lights and video board above"
+    }
+  ],
+  "closest_misses": [],
+  "remark": "Day photo is 2021 (sideline view across to the unchanged east stands); the new south end-zone complex (2025) is not in view. Night photo is 2024."
+}

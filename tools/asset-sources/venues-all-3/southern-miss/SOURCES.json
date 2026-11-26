@@ -1,0 +1,26 @@
+{
+  "venue": "M. M. Roberts Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:USM_Roberts_stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/USM_Roberts_stadium.jpg",
+      "width": 1920,
+      "height": 1181,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Flacourtophile",
+      "credit_line": "Flacourtophile / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2014,
+      "day_or_night": "day",
+      "note": "upper west stands looking across midfield at a 2014 game, band and cheer on the field; field rows ~330-1180 of 1180 (fills from the upper third down), east stands across the top"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Southern_Miss_M._M._Roberts_Stadium.jpg",
+      "why": "2026 high oblique aerial (fallback if a newer look is needed)"
+    }
+  ],
+  "remark": "Original is 1958 px, so the file is the 1920 px thumbnail."
+}

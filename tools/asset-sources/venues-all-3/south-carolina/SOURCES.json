@@ -1,0 +1,34 @@
+{
+  "venue": "Williams-Brice Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Richland_County,_SC,_USA_-_panoramio_-_Tom_Key_(2).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Richland_County%2C_SC%2C_USA_-_panoramio_-_Tom_Key_%282%29.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Tom Key",
+      "credit_line": "Tom Key / Wikimedia Commons, CC BY-SA 3.0",
+      "year": 2016,
+      "day_or_night": "day",
+      "note": "lower-deck seats near the north end-zone corner, band in formation on the field (2016); field rows ~700-1800 of 1800 with packed east stands above. Field sits mid/lower; best available"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Williams-Brice_Stadium.jpg",
+      "why": "2006 night, lower stands, crowd foreground, field rows ~55-90%"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Williams-BriceStadium-1998.JPEG",
+      "why": "good elevated end-zone view but 1998 and 1800 px"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:USCvsUFOctober2023.jpg",
+      "why": "2023 elevated end-zone action shot; field fills the frame but no stands, players dominate"
+    }
+  ],
+  "remark": "Weak fit: no high elevated football view on Commons at 1920+; chosen photo is lower-deck with the field in the middle-lower part."
+}
