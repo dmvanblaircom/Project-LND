@@ -1,0 +1,30 @@
+{
+  "venue": "Neyland Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2012_Alabama_at_Tennessee_NCAA_Football_Game.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/2012_Alabama_at_Tennessee_NCAA_Football_Game.jpg",
+      "width": 1920,
+      "height": 1434,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Bama in ATL",
+      "credit_line": "Bama in ATL / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2012,
+      "day_or_night": "night",
+      "note": "mid-level seats behind the south end zone at the 2012 Alabama night game, checkerboard end zone in the foreground; field rows ~520-1200 of 1434, packed bowl above, fans' heads at the bottom"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:ThePride.jpg",
+      "why": "field-level band shot; field strip at the bottom"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Game_Action.jpg",
+      "why": "sideline at field level; stands fill the top"
+    }
+  ],
+  "remark": "Night only; no elevated daytime game photo at 1920+. Photo predates the 2020s renovations of the south/north end zones (bowl shape the same)."
+}

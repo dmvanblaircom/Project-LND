@@ -1,0 +1,35 @@
+{
+  "venue": "Lincoln Financial Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Lincoln_Financial_Field,_Philadelphia,_2024.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Lincoln_Financial_Field%2C_Philadelphia%2C_2024.jpg",
+      "width": 2400,
+      "height": 1119,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "JJonahJackalope",
+      "credit_line": "JJonahJackalope / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2024,
+      "day_or_night": "day",
+      "note": "upper deck behind the north end zone, empty stadium (Sept 2024, current boards); field rows ~380-760 of 1119 in the centre, wide frame; seats fill the bottom third"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2017-18_NFC_championship_game.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/2017-18_NFC_championship_game.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Quintin3265",
+      "credit_line": "Quintin3265 / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2018,
+      "day_or_night": "night",
+      "note": "mid/upper deck corner at the January 2018 NFC Championship (Eagles), pyrotechnics in the far end zone; field rows ~520-1250 of 1800, lit stands above, crowd at the bottom"
+    }
+  ],
+  "closest_misses": [],
+  "remark": "Day photo is an empty stadium; night photo is an Eagles playoff game (NFL photo acceptable per brief)."
+}
