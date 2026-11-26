@@ -1,0 +1,30 @@
+{
+  "venue": "Veterans Memorial Stadium (Troy, AL)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:The_Vet_7.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Vet_7.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Kreeder13",
+      "credit_line": "Kreeder13 / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2020,
+      "day_or_night": "day",
+      "note": "club seats in the south end-zone building corner, empty stadium (2020) looking at the north end zone and video board; field rows ~700-1800 of 1800 (middle-lower), sky and board above. Weak fit"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Movie_Gallery_Stadium.JPG",
+      "why": "2006 game, lower stands, field lower half, older look"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Veterans_Memorial_Stadium_Aerial_view.jpeg",
+      "why": "aerial, 1753 px"
+    }
+  ],
+  "remark": "Weak fit: no game-day elevated photo at 1920+; chosen photo has the field in the middle-lower part of the frame."
+}

@@ -1,0 +1,20 @@
+{
+  "venue": "Yulman Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Yulman_Stadium_opening_day_(top_corner).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Yulman_Stadium_opening_day_%28top_corner%29.jpg",
+      "width": 2400,
+      "height": 1594,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Vegasjon",
+      "credit_line": "Vegasjon / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2014,
+      "day_or_night": "day",
+      "note": "top of the west stands, north corner, at the 2014 opening game; field fills rows ~180-1150 of 1594 diagonally (upper-middle), crowd in the lower-left foreground"
+    }
+  ],
+  "closest_misses": []
+}

@@ -1,0 +1,15 @@
+{
+  "venue": "Glass Bowl",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Glass_bowl_stadium_utoledo.jpg",
+      "why": "night game, lower-stand corner view; 1600 px original, not downloadable here; field fills the middle"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:GlassBowl2.jpg",
+      "why": "empty, field-level end zone, 1600 px"
+    }
+  ],
+  "remark": "Nothing qualifies: every Glass Bowl interior photo on Commons is 1600 px wide, and Commons refuses original downloads from this environment (only fixed thumbnail widths, max usable 1280 below 1920)."
+}
