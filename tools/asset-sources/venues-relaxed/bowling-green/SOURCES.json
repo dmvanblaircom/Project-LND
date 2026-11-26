@@ -1,0 +1,19 @@
+{
+  "team_slug": "bowling-green",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Falcon_Marching_Band.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Falcon_Marching_Band.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Mbrickn",
+      "credit_line": "Mbrickn / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2019,
+      "time_of_day": "day",
+      "note": "Elevated view from the east stands toward the west grandstand and press box, Oct 2019 game day with the marching band on the field; field rows ~42-88%, west stands 12-42%, backs of fans' heads (small, not identifiable) along the bottom 88-100%."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "team_slug": "arizona",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Arizona_Stadium_Wide_Angle.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Arizona_Stadium_Wide_Angle.jpg",
+      "width": 2400,
+      "height": 1348,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Wcarlisle4",
+      "credit_line": "Wcarlisle4 / Wikimedia Commons / CC BY-SA 3.0",
+      "year": 2011,
+      "time_of_day": "day",
+      "note": "Elevated wide-angle view from high in the side stands, Oct 2011 pre-game (before the 2013 north end zone rebuild); field sits centre-left at rows ~50-70%, sparse distant fans, empty stands in the foreground rows 70-100%, sky top 30%."
+    }
+  ]
+}
