@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "alabama",
- "updated": "2026-11-26T01:38:25.928104+00:00",
+ "updated": "2026-11-26T11:38:34.703476+00:00",
  "reports": [
   {
    "schema": 1,
@@ -640,12 +640,12 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T01:38:25.928104+00:00",
+   "fetchedAt": "2026-11-26T11:38:34.703476+00:00",
    "reported": true,
    "effectiveAt": "2026-11-25",
    "heading": "Initial",
    "kickoffDate": "2026-11-28",
-   "game": "Auburn",
+   "game": "vs. Auburn",
    "players": [
     {
      "pos": "LB",

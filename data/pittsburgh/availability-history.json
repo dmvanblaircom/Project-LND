@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "pittsburgh",
- "updated": "2026-11-21T22:38:39.321567+00:00",
+ "updated": "2026-11-26T11:38:44.400754+00:00",
  "reports": [
   {
    "schema": 1,
@@ -787,6 +787,116 @@
      "no": "49",
      "name": "Jordan Fields",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "55",
+     "name": "Sean FitzSimmons",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "81",
+     "name": "Rodney Dunbar",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "pittsburgh",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T11:38:44.400754+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "at California",
+   "players": [
+    {
+     "pos": "QB",
+     "no": "6",
+     "name": "Mason Heintschel",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "6",
+     "name": "Raion Strader",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "17",
+     "name": "Elijah Lagg",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "18",
+     "name": "Max Hunt",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "21",
+     "name": "Shadarian Harrison",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "24",
+     "name": "Cameron Lindsey",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "24",
+     "name": "Tyreek Robinson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "26",
+     "name": "Allen Bryant",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "26",
+     "name": "Damon Ferguson Jr.",
+     "status": "doubtful",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "41",
+     "name": "Isaac Patterson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "49",
+     "name": "Jordan Fields",
+     "status": "doubtful",
      "detail": ""
     },
     {

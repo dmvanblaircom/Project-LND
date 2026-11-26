@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2567",
  "classYear": 2027,
- "listed": 11,
+ "listed": 12,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -150,7 +150,20 @@
    "positionRank": 62,
    "stateRank": 193,
    "status": "Verbal"
+  },
+  {
+   "id": "274990",
+   "name": "Willie Alusa",
+   "position": "OG",
+   "highSchool": "L. D. Bell High School",
+   "city": "Hurst",
+   "state": "TX",
+   "grade": 44,
+   "rank": null,
+   "positionRank": null,
+   "stateRank": null,
+   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:14Z"
+ "fetchedAt": "2026-11-26T11:40Z"
 }

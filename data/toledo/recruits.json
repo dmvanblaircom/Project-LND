@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2649",
  "classYear": 2027,
- "listed": 22,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "268347",
+   "name": "Keyon Standifer",
+   "position": "WR",
+   "highSchool": "Newton High School",
+   "city": "Covington",
+   "state": "GA",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 77,
+   "stateRank": 80,
+   "status": "Verbal"
+  },
   {
    "id": "273162",
    "name": "KeeShun Jackson",
@@ -295,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:15Z"
+ "fetchedAt": "2026-11-26T11:40Z"
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "california",
- "updated": "2026-11-21T22:38:33.459176+00:00",
+ "updated": "2026-11-26T11:38:37.782413+00:00",
  "reports": [
   {
    "schema": 1,
@@ -563,6 +563,144 @@
      "no": "99",
      "name": "Ashun Shepphard",
      "status": "gtd",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "california",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theacc.com/sports/2025/8/28/availability-reporting-football.aspx",
+   "sourceLabel": "TheACC.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T11:38:37.782413+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-25",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "vs. Pittsburgh",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Dorian Thomas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "1",
+     "name": "Carter Vargas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "7",
+     "name": "Daniel Harris",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "8",
+     "name": "Rico Walker",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "9",
+     "name": "Ian Strong",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "ILB",
+     "no": "9",
+     "name": "AJ Tuitele",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "14",
+     "name": "Aiden Manutai",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "19",
+     "name": "Trevor Rogers",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "20",
+     "name": "Ashten Emory",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "20",
+     "name": "Cam Sidney",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "22",
+     "name": "Taimane Purcell",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "23",
+     "name": "Isaiah Crosby",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DB",
+     "no": "25",
+     "name": "Khamani Hudson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "51",
+     "name": "Kahlee Tafai",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "51",
+     "name": "Jayden Williams",
+     "status": "probable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "98",
+     "name": "Nate Burrell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "99",
+     "name": "Ashun Shepphard",
+     "status": "questionable",
      "detail": ""
     }
    ],

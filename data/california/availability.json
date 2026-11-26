@@ -7,12 +7,12 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T22:38:33.459176+00:00",
+ "fetchedAt": "2026-11-26T11:38:37.782413+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Stanford",
+ "effectiveAt": "2026-11-25",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Pittsburgh",
  "players": [
   {
    "pos": "TE",
@@ -29,24 +29,10 @@
    "detail": ""
   },
   {
-   "pos": "OLB",
-   "no": "4",
-   "name": "Justin Beadles",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "4",
-   "name": "Jordan King",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "7",
    "name": "Daniel Harris",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -57,24 +43,66 @@
    "detail": ""
   },
   {
+   "pos": "WR",
+   "no": "9",
+   "name": "Ian Strong",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "9",
+   "name": "AJ Tuitele",
+   "status": "probable",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "14",
    "name": "Aiden Manutai",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "19",
+   "name": "Trevor Rogers",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "20",
    "name": "Ashten Emory",
-   "status": "gtd",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "20",
+   "name": "Cam Sidney",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "22",
+   "name": "Taimane Purcell",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "23",
    "name": "Isaiah Crosby",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "25",
+   "name": "Khamani Hudson",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -82,6 +110,13 @@
    "no": "51",
    "name": "Kahlee Tafai",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "51",
+   "name": "Jayden Williams",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -95,7 +130,7 @@
    "pos": "DL",
    "no": "99",
    "name": "Ashun Shepphard",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   }
  ],

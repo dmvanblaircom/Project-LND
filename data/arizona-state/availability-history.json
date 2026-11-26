@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-11-26T03:08:24.005341+00:00",
+ "updated": "2026-11-26T11:38:35.595597+00:00",
  "reports": [
   {
    "schema": 1,
@@ -451,12 +451,12 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T03:08:24.005341+00:00",
+   "fetchedAt": "2026-11-26T11:38:35.595597+00:00",
    "reported": true,
    "effectiveAt": "2026-11-25",
    "heading": "Initial",
    "kickoffDate": "2026-11-28",
-   "game": "Arizona",
+   "game": "at Arizona",
    "players": [
     {
      "pos": "WR",
