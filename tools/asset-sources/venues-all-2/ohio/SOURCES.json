@@ -1,0 +1,49 @@
+{
+  "team_slug": "ohio",
+  "venue": "Peden Stadium",
+  "summary": "Day: elevated 2011 game-day view with the field filling most of the frame. Night: 2025 upper-stands pregame view.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2011_DiamondOhio.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/2011_DiamondOhio.JPG",
+      "width": 2400,
+      "height": 1596,
+      "original_width": 3008,
+      "original_height": 2000,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Marching110",
+      "credit_line": "Photo: Marching110, CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2011,
+      "day_or_night": "day",
+      "note": "Elevated press-box-side view straight down onto the field during the Oct 2011 game, Marching 110 'Diamond Ohio' formation, full crowd; field fills rows ~240-1310 of 1596 (15-82%, from just below the far stands to the near sideline), far stands in the top ~15%, near-side crowd in the bottom ~18%"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Peden_Stadium_at_Night.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Peden_Stadium_at_Night.jpg",
+      "width": 2400,
+      "height": 1800,
+      "original_width": 5712,
+      "original_height": 4284,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "NotJamestack",
+      "credit_line": "Photo: NotJamestack, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2025,
+      "day_or_night": "night",
+      "note": "Night, Nov 2025 pregame, from the upper rows of the west stands across the field to the east side, band on field; field rows ~850-1120 of 1800 (47-62%), east stands and lights ~38-47%, night sky with the moon top ~38%; fans and empty green seats in the bottom ~38%"
+    }
+  ],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Peden_Stadium_2018.jpg (CC0, 4032px)",
+      "why": "2018 Howard game from the low south-west corner; sky fills the top 35%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Ohio_Bobcats_at_EMU_Eagles_IMG_6536.jpg (CC BY 4.0, 4032px)",
+      "why": "Night series filed under Peden searches is actually Rynearson Stadium (Eastern Michigan), not Peden"
+    }
+  ]
+}

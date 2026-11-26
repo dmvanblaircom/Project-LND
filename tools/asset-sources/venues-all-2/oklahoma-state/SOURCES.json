@@ -1,0 +1,24 @@
+{
+  "team_slug": "oklahoma-state",
+  "venue": "Boone Pickens Stadium",
+  "summary": "Nothing qualifies: Commons has only low stands views, a construction-era shot and a 1001 px tall night panorama.",
+  "files": [],
+  "closest_misses": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Boone_Pickens_Stadium_Panoramic_Photo.jpg (CC BY-SA 2.0, 4327px)",
+      "why": "Best candidate: 2014 night game panorama (4327x1001, CC BY-SA 2.0) but shot from the low east stands; field only rows ~60-75%, fans' heads fill the bottom quarter, 1001 px tall"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Texas_at_OSU_2007.jpg (CC BY-SA 2.0, 2272px)",
+      "why": "2007 Texas game from field-level stands; field is the bottom strip, sky fills the top 40%"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Boone_Pickens_Stadium_3.JPG (Public domain, 2048px)",
+      "why": "Empty pre-2009 view of the west end zone during construction; no longer current form"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/File:Boone_Pickens_Stadium_Graduation_2006.jpg (Public domain, 2048px)",
+      "why": "2006 graduation ceremony, heads in the bottom half"
+    }
+  ]
+}

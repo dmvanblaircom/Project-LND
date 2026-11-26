@@ -4,7 +4,7 @@ Elevated interior stadium photos for scoreboard backgrounds, one folder per team
 
 Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-SA.
 
-**Counts:** 34 venues; day+night 8, day only 23, night only 1, none 2.
+**Counts:** 36 venues; day+night 9, day only 23, night only 1, none 3.
 
 | team-slug | venue | found | license | note |
 |---|---|---|---|---|
@@ -42,3 +42,5 @@ Researched 2026-11-25. Licenses limited to CC0, public domain, CC BY and CC BY-S
 | north-texas | DATCU Stadium | day+night | CC BY-SA 4.0 | Day and dusk/night views from the 2018 SMU game, both from the east lower bowl. |
 | northern-illinois | Huskie Stadium | day | CC BY-SA 4.0 | Only interior photo is a 2024 empty-stadium end-zone view. No game-day or night photo. |
 | northwestern | Ryan Field (new, opened 2026) | day | CC0 | Current venue is the new Ryan Field (opened 2026). Best photo is a lower-bowl game-day sideline view; no upper-deck or night photo yet. |
+| ohio | Peden Stadium | day+night | CC BY-SA 3.0; CC BY-SA 4.0 | Day: elevated 2011 game-day view with the field filling most of the frame. Night: 2025 upper-stands pregame view. |
+| oklahoma-state | Boone Pickens Stadium | none | - | Nothing qualifies: Commons has only low stands views, a construction-era shot and a 1001 px tall night panorama. |
