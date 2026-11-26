@@ -1,0 +1,15 @@
+{
+  "slug": "georgia-state",
+  "venue": "Center Parc Stadium (formerly Georgia State Stadium / Turner Field)",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AGeorgia_State_Stadium_field.jpg",
+      "why": "Football layout (Dec 2017), but shot at field level: sky fills the top half and the field is a strip at rows ~72-95%."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ATurner_Field_Panorama_%283894388352%29.jpg",
+      "why": "Same structure but the baseball configuration (pre-2017 conversion), so it is not the current form."
+    }
+  ]
+}
