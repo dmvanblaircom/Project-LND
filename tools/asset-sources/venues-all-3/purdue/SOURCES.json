@@ -1,0 +1,29 @@
+{
+  "venue": "Ross-Ade Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:RossAde.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/RossAde.JPG",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "Public domain",
+      "license_url": null,
+      "author": "Tstuddud at English Wikipedia",
+      "credit_line": "Tstuddud at English Wikipedia / Wikimedia Commons, Public domain",
+      "year": 2006,
+      "day_or_night": "day",
+      "note": "mid-level seats in the south-west corner at a 2006 game, looking north-east; field rows ~620-1250 of 1440 (centre), packed east stands and press tower above, fans' heads at the bottom. Press tower (2003) current; video boards since replaced"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ross-Ade_Stadium.jpg",
+      "why": "drone aerial (no game)"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:NightBlockP.JPG",
+      "why": "portrait, overhead band formation"
+    }
+  ]
+}
