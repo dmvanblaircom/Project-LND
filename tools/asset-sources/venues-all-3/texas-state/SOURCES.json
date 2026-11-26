@@ -1,0 +1,26 @@
+{
+  "venue": "UFCU Stadium (formerly Bobcat Stadium)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Texas_State%27_Bobcat_Stadium_Wide_View.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Texas_State%27_Bobcat_Stadium_Wide_View.JPG",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Greenstrat",
+      "credit_line": "Greenstrat / Wikimedia Commons, CC BY-SA 4.0",
+      "year": 2016,
+      "day_or_night": "day",
+      "note": "upper rows of the west stands near the south end zone, empty stadium, looking north; field rows ~300-1000 of 1440 on the right two-thirds, empty bleachers foreground-left"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:BobcatStadium_TXSTvNAVY_2014.jpg",
+      "why": "2014 game-day panorama from the press level, 7758x2402; field a strip in the lower half"
+    }
+  ],
+  "remark": "Empty stadium; the one game-day photo is a wide 2014 panorama."
+}

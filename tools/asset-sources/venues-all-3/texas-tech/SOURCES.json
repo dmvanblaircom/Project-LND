@@ -1,0 +1,30 @@
+{
+  "venue": "Jones AT&T Stadium (Galaxy Stadium)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Jones_AT%26T_Stadium_wide_shot.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Jones_AT%26T_Stadium_wide_shot.jpg",
+      "width": 2400,
+      "height": 1274,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "John McStravick",
+      "credit_line": "John McStravick / Wikimedia Commons, CC BY 2.0",
+      "year": 2010,
+      "day_or_night": "day",
+      "note": "very high over the south end zone looking north, pre-game 2010 with stands filling; field rows ~330-900 of 1274 (centre), north end and Lubbock skyline above, south seats below"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Jones_AT&T_Stadium_North_End_Zone_and_video_board.JPG",
+      "why": "elevated corner, field only bottom-right"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:TTU_First_Game_2008.jpg",
+      "why": "1680 px, below 1920"
+    }
+  ],
+  "remark": "Viewpoint is the south end; the stadium's 2025 south end-zone addition is behind the camera, so the visible bowl is current apart from boards."
+}
