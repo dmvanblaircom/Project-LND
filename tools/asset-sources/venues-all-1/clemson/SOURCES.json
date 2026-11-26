@@ -1,0 +1,35 @@
+{
+  "slug": "clemson",
+  "venue": "Memorial Stadium (Clemson, SC)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AClemson_Memorial_Stadium%2C_football_game_vs._U_of_Louisville.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Clemson_Memorial_Stadium%2C_football_game_vs._U_of_Louisville.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1027,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Jason A G",
+      "credit_line": "Jason A G / Wikimedia Commons / CC BY 2.0",
+      "year": 2014,
+      "day_or_night": "day",
+      "note": "x"
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AClemson_Memorial_Stadium_-_Clemson_University_-_DSC07484.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Clemson_Memorial_Stadium_-_Clemson_University_-_DSC07484.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Daderot",
+      "credit_line": "Daderot / Wikimedia Commons / CC0",
+      "year": 2013,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": []
+}

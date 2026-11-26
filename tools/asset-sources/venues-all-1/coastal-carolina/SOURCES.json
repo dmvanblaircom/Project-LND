@@ -1,0 +1,26 @@
+{
+  "slug": "coastal-carolina",
+  "venue": "Brooks Stadium (Conway, SC)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3A2021_Myrtle_Beach_Bowl_opening_kickoff.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/2021_Myrtle_Beach_Bowl_opening_kickoff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 884,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "PCN02WPS",
+      "credit_line": "PCN02WPS / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABrooks_stadium_june2022.jpg",
+      "why": "Exterior gate/ticket building."
+    }
+  ]
+}
