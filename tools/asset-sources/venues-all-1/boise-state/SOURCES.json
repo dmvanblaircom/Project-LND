@@ -1,0 +1,30 @@
+{
+  "slug": "boise-state",
+  "venue": "Albertsons Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABSUvsFresnoSt.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/BSUvsFresnoSt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Iamneven",
+      "credit_line": "Iamneven / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2018,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABoise_State_vs_UConn_9_8_18.jpg",
+      "why": "2018 night game shot from just above field level behind the end zone; people and ad boards in the foreground."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABronco_Stadium_November_14_2009.jpg",
+      "why": "Day view from 2009, before the 2012 north end zone expansion; field is a strip at the bottom."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "bowling-green",
+  "venue": "Doyt L. Perry Stadium",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABGSUStadium2.jpg",
+      "why": "Field-level view of the end zone and the north building; only 1600 px; not elevated."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABGSUStadium1.jpg",
+      "why": "Close view of empty east stands from the stands; field barely visible."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABGSU_Vs._Kent_State_Football_Fall_2020.jpg",
+      "why": "2020 night photo at field level behind the end zone; goalposts and a truck, no field view."
+    }
+  ]
+}
