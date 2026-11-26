@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-26T17:08:11.190606+00:00",
+ "updated": "2026-11-26T17:38:02.006108+00:00",
  "items": [
+  {
+   "title": "CavsCorner 4-3-4 Breakdown: The Potential For What's Ahead",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-the-potential-for-whats-ahead/",
+   "source": "CavsCorner",
+   "summary": "In his latest feature for CavsCorner, Deuce Prince breaks down how UVa's \"second season\" impacts not just this year but potentially far beyond.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09193132/Deuce-Prince-blue.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-26T17:30:00+00:00"
+  },
   {
    "title": "Three burning questions as Virginia visits Virginia Tech",
    "link": "https://www.si.com/college/virginia/three-burning-questions-as-virginia-visits-virginia-tech-01m89ev8gzc5?utm_source=RSS",
@@ -280,15 +289,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2025/12/17102959/CC-Pod-scaled.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-12T11:48:34+00:00"
-  },
-  {
-   "title": "Five to Watch for the Hoos: Cal Edition",
-   "link": "https://on3.com/sites/cavs-corner/news/five-to-watch-for-the-hoos-cal-edition/",
-   "source": "CavsCorner",
-   "summary": "We get you ready for UVa's matchup against Cal on Saturday (3:30 p.m., ACC Network) by breaking down five Bears to watch.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/11064238/2026-09-13T001335Z_943962886_MT1USATODAY29806052_RTRMADP_3_NCAA-FOOTBALL-CALIFORNIA-AT-SYRACUSE-2.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-11T17:30:00+00:00"
   }
  ]
 }
