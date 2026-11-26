@@ -1,0 +1,30 @@
+{
+  "slug": "central-michigan",
+  "venue": "Kelly/Shorts Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AKellyShorts_Night.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/KellyShorts_Night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1440,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "PureMichiganChip",
+      "credit_line": "PureMichiganChip / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2016,
+      "day_or_night": "night",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AKelly_Shorts_Stadium.jpg",
+      "why": "2012 day game from low in the student section; close heads and partial faces fill the bottom third, field rows ~55-85%."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AKelly_Shorts_Stadium_during_snowfall_10.31.2023.jpg",
+      "why": "Elevated but heavy snowfall obscures the field; only 1920 px."
+    }
+  ]
+}

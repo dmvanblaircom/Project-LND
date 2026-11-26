@@ -1,0 +1,26 @@
+{
+  "slug": "california",
+  "venue": "California Memorial Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AGameday_at_California_Memorial_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Gameday_at_California_Memorial_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1351,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Stephen Kaus",
+      "credit_line": "Stephen Kaus / Wikimedia Commons / CC BY 2.0",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ACalifornia_Memorial_Stadium_in_2024.jpg",
+      "why": "Excellent clean press-box-level view (2024, CC BY 4.0), but empty and the field sits lower (rows ~48-78%); alternate if an empty bowl is preferred."
+    }
+  ]
+}
