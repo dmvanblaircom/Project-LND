@@ -344,7 +344,7 @@ var TEAM_ART = (function (W) { return {
         credit: { author: "Jbrubins", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:Carter-Finley_Stadium_during_NCSU_Game.JPG", changes: "cropped, resized" } }
     },
     "memorial-stadium-lincoln": {
-      label: "Memorial Stadium (Lincoln", names: ["Memorial Stadium (Lincoln"],
+      label: "Memorial Stadium (Lincoln, NE)", names: ["Memorial Stadium (Lincoln, NE)"],
       day: { path: "assets/venues/memorial-stadium-lincoln/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
         credit: { author: "HuskerPower", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en", url: "https://commons.wikimedia.org/wiki/File:MemorialStadium_260912.jpg", changes: "cropped, resized" } }
     },
