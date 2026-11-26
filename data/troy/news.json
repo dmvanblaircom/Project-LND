@@ -1,7 +1,16 @@
 {
  "team": "troy",
- "updated": "2026-11-25T15:08:06.103344+00:00",
+ "updated": "2026-11-26T16:38:07.521872+00:00",
  "items": [
+  {
+   "title": "Football Closes Season at Arkansas State",
+   "link": "https://troytrojans.com/news/2026/11/26/football-closes-season-at-arkansas-state",
+   "source": "Troy Athletics",
+   "summary": "<img alt=\"Jones\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/20261121-FB_Georgia_Southern__-Chambers-99.jpg\" /><br /><br />TROY, Ala. \u2013\u00a0Troy concludes its 2026 season on Saturday with a Sun Belt West Division matchup at Arkansas State. Kickoff from Centennial Bank Stadium is set for 2 p.m., and the game will be broadcast on ESPN+.",
+   "image": "https://troytrojans.com/images/2026/11/25/20261121-FB_Georgia_Southern__-Chambers-99.jpg?width=800",
+   "sourceLogo": "https://troytrojans.com/favicon.ico",
+   "published": "2026-11-26T16:23:00+00:00"
+  },
   {
    "title": "Gerad Parker Press Conference - Arkansas State Game",
    "link": "https://troytrojans.com/news/2026/11/23/football-gerad-parker-press-conference-arkansas-state-game",
@@ -73,15 +82,6 @@
    "image": "https://troytrojans.com/images/2026/11/18/Steele_Bryce_AC_2.jpg?width=800",
    "sourceLogo": "https://troytrojans.com/favicon.ico",
    "published": "2026-11-18T16:59:00+00:00"
-  },
-  {
-   "title": "Gerad Parker Press Conference - Georgia Southern Game",
-   "link": "https://troytrojans.com/news/2026/11/16/football-gerad-parker-press-confernece-georgia-southern-game",
-   "source": "Troy Athletics",
-   "summary": "<img alt=\"Parker\" src=\"https://troytrojans.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/20261114_TroyFB_vs_SouthAL__66_JGT_2441_Thurston.jpg\" /><br /><br />",
-   "image": "https://troytrojans.com/images/2026/11/16/20261114_TroyFB_vs_SouthAL__66_JGT_2441_Thurston.jpg?width=800",
-   "sourceLogo": "https://troytrojans.com/favicon.ico",
-   "published": "2026-11-16T19:26:00+00:00"
   }
  ]
 }
