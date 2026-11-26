@@ -7,27 +7,13 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T21:08:36.215183+00:00",
+ "fetchedAt": "2026-11-26T03:38:49.293254+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Washington State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Utah State",
  "players": [
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Rasheed Jackson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Javante Mackey",
-   "status": "out-game",
-   "detail": ""
-  },
   {
    "pos": "DL",
    "no": "",
@@ -43,6 +29,13 @@
    "detail": ""
   },
   {
+   "pos": "ILB",
+   "no": "",
+   "name": "Javante Mackey",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "DB",
    "no": "",
    "name": "Jayden Lawton",
@@ -54,6 +47,27 @@
    "no": "",
    "name": "Amarion Atwood",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Rasheed Jackson",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Justin Deleon",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Craig Royal",
+   "status": "probable",
    "detail": ""
   },
   {

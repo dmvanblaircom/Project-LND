@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington-state",
- "updated": "2026-11-21T21:08:38.668616+00:00",
+ "updated": "2026-11-26T03:38:51.312710+00:00",
  "reports": [
   {
    "schema": 1,
@@ -85,6 +85,39 @@
    "kickoffDate": "2026-11-21",
    "game": "at Texas State",
    "players": [
+    {
+     "pos": "ILB",
+     "no": "",
+     "name": "Nylan Brown",
+     "status": "out-season",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "washington-state",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://pac-12.com/news/2026/9/11/2026-football-reports.aspx",
+   "sourceLabel": "Pac-12.com",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-26T03:38:51.312710+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-26",
+   "heading": "Initial",
+   "kickoffDate": "2026-11-28",
+   "game": "vs. San Diego State",
+   "players": [
+    {
+     "pos": "DB",
+     "no": "",
+     "name": "Jalil Tucker",
+     "status": "questionable",
+     "detail": ""
+    },
     {
      "pos": "ILB",
      "no": "",

@@ -7,15 +7,36 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T00:39:09.407132+00:00",
+ "fetchedAt": "2026-11-26T03:38:47.850936+00:00",
  "reported": true,
- "effectiveAt": "2026-11-22",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Boise State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "at Washington State",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "OLB",
+   "no": "",
+   "name": "Coelho, Dominic",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Gavriel Lightfoot",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Roman Paseka",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OLB",
    "no": "",
    "name": "Charlie Stewart",
    "status": "out-game",
@@ -25,14 +46,7 @@
    "pos": "ILB",
    "no": "",
    "name": "Tano Letuli",
-   "status": "gtd",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jelani McLaughlin",
-   "status": "gtd",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -43,30 +57,58 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "",
-   "name": "Cammeron Purnell",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Jacob Bostick",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "WR",
    "no": "",
    "name": "Bert Emanuel Jr",
-   "status": "out-game",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jaylon Hawkins",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "",
+   "name": "Javion Kinnard",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "",
    "name": "DJ Overstreet",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Kime Fangupo",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "TE",
+   "no": "",
+   "name": "Jackson Ford",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
+   "no": "",
+   "name": "Dennis Jones",
+   "status": "doubtful",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Jacob Bostick",
    "status": "out-game",
    "detail": ""
   },
@@ -92,16 +134,16 @@
    "detail": ""
   },
   {
-   "pos": "SP",
+   "pos": "WR",
    "no": "",
-   "name": "Luke Williams",
+   "name": "Craig Walker",
    "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "DB",
+   "pos": "SP",
    "no": "",
-   "name": "Jalen Thomeson",
+   "name": "Luke Williams",
    "status": "out-game",
    "detail": ""
   }

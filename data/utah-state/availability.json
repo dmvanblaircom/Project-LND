@@ -7,52 +7,38 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T01:38:46.046602+00:00",
+ "fetchedAt": "2026-11-26T03:38:50.528864+00:00",
  "reported": true,
- "effectiveAt": "2026-11-22",
- "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Oregon State",
+ "effectiveAt": "2026-11-26",
+ "heading": "Initial",
+ "kickoffDate": "2026-11-28",
+ "game": "vs. Texas State",
  "players": [
   {
-   "pos": "ILB",
+   "pos": "DB",
    "no": "",
-   "name": "Harrison Taggart",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Jimmy Liston",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "George Maile",
-   "status": "out-game",
+   "name": "Brevin Hamblin",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "ILB",
    "no": "",
-   "name": "John McClellan",
-   "status": "out-game",
+   "name": "Bronson Olevao",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "",
    "name": "Eli Wood",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
-   "pos": "DL",
+   "pos": "OL",
    "no": "",
-   "name": "Tevita Tuha",
+   "name": "Jimmy Liston",
    "status": "out-game",
    "detail": ""
   },
@@ -64,10 +50,31 @@
    "detail": ""
   },
   {
+   "pos": "ILB",
+   "no": "",
+   "name": "Harrison Taggart",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "",
+   "name": "Tevita Tuha",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
    "pos": "OL",
    "no": "",
-   "name": "Jackson Nelson",
-   "status": "gtd",
+   "name": "George Maile",
+   "status": "probable",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
+   "no": "",
+   "name": "Anthony Garcia",
+   "status": "probable",
    "detail": ""
   },
   {
