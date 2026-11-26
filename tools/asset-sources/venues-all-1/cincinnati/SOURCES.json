@@ -1,0 +1,30 @@
+{
+  "slug": "cincinnati",
+  "venue": "Nippert Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ANippert_Stadium%2C_September_2015.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Nippert_Stadium%2C_September_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 877,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Ben Levin",
+      "credit_line": "Ben Levin / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2015,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ANippert_Stadium_%2816155110276%29.jpg",
+      "why": "Dec 2013 night game from low in the stands, before the 2014-15 renovation."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ACINvLOU_2018-05-26_-_Nippert_Stadium_panorama_%2828502538548%29.jpg",
+      "why": "Current form but a soccer layout (FC Cincinnati)."
+    }
+  ]
+}
