@@ -1,0 +1,31 @@
+{
+  "venue": "Pratt & Whitney Stadium at Rentschler Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Pratt_%26_Whitney_Stadium_at_Rentschler_Field_(UCONN).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pratt_%26_Whitney_Stadium_at_Rentschler_Field_%28UCONN%29.jpg",
+      "width": 2400,
+      "height": 1714,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons, CC BY 4.0",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "LAST RESORT high oblique drone aerial over the south-east corner (April 2026, empty, soccer/football lines); field rows ~470-1180 of 1714 (upper-middle), stands around it, Hartford skyline at top",
+      "aerial_last_resort": true
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Pratt_&_Whitney_Stadium_in_2025.jpg",
+      "why": "empty stadium from upper east stands; sky fills the top 45%, field rows ~45-75%"
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UConn_pregame.jpg",
+      "why": "2048 px, low stands, crowd heads foreground"
+    }
+  ],
+  "remark": "No elevated game-day football photo at 1920+; aerial is the only frame with the field in the upper-middle."
+}

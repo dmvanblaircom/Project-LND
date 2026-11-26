@@ -1,0 +1,27 @@
+{
+  "venue": "Malone Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:ULM_Warhawks_Malone_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/ULM_Warhawks_Malone_Stadium.jpg",
+      "width": 2400,
+      "height": 1609,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Quintin Soloviev / Wikimedia Commons, CC BY 4.0",
+      "year": 2026,
+      "day_or_night": "day",
+      "note": "LAST RESORT high oblique drone aerial from the north-west, empty stadium; field rows ~400-1450 of 1609 diagonally (upper-middle), home stands upper-left",
+      "aerial_last_resort": true
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Malone_Stadium,_Monroe,_Louisiana_-_Home_Stands_interior_and_JPS_Field.jpg",
+      "why": "field-level end-zone corner, sky fills the top half"
+    }
+  ],
+  "remark": "All in-stadium photos are field-level (sky fills the top); only the drone aerial puts the field in the upper-middle."
+}
