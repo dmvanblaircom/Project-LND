@@ -509,6 +509,77 @@ var TEAM_ART = (function (W) { return {
       day: { path: "assets/venues/galaxy-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
         credit: { author: "John McStravick", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0", url: "https://commons.wikimedia.org/wiki/File:Jones_AT&T_Stadium_wide_shot.jpg", changes: "cropped, resized" } }
     },
+    "flagler-credit-union-stadium": {
+      label: "Flagler Credit Union Stadium", names: ["Flagler Credit Union Stadium"],
+      night: { path: "assets/venues/flagler-credit-union-stadium/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:FAU_Stadium_(Boca_Raton,_FL).jpg", changes: "cropped, resized" } }
+    },
+    "pitbull-stadium": {
+      label: "Pitbull Stadium", names: ["Pitbull Stadium"],
+      day: { path: "assets/venues/pitbull-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Evill72", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:FIU_Stadium,_October_13,_2012.jpg", changes: "cropped, resized" } }
+    },
+    "ben-hill-griffin-stadium": {
+      label: "Ben Hill Griffin Stadium", names: ["Ben Hill Griffin Stadium"],
+      day: { path: "assets/venues/ben-hill-griffin-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Gatorfan252525", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Ben_Hill_Griffin_Stadium_during_a_Florida_Gators_football_game_against_the_Tennessee_Volunteers_in_November_2025.jpg", changes: "cropped, resized" } }
+    },
+    "bobby-dodd-stadium": {
+      label: "Bobby Dodd Stadium", names: ["Bobby Dodd Stadium"],
+      day: { path: "assets/venues/bobby-dodd-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "JJonahJackalope", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Bobby_Dodd_Stadium,_GT.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/bobby-dodd-stadium/night-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Bkporter12", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:BobbyDoddStadiumGTMiami2008.jpg", changes: "cropped, resized" } }
+    },
+    "sanford-stadium": {
+      label: "Sanford Stadium", names: ["Sanford Stadium"],
+      day: { path: "assets/venues/sanford-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "TarheelBornBred", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en", url: "https://commons.wikimedia.org/wiki/File:UGA_vs._Marshall_at_Sanford_Stadium,_2025.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/sanford-stadium/night-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Ugadawgs12", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:UGA_vs._Notre_Dame_2019.jpg", changes: "cropped, resized" } }
+    },
+    "clarence-t-c-ching-athletics-complex": {
+      label: "Clarence T.C. Ching Athletics Complex", names: ["Clarence T.C. Ching Athletics Complex"],
+      day: { path: "assets/venues/clarence-t-c-ching-athletics-complex/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "LuckyJ008", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Clarence_T.C._Ching_Athletics_Complex.jpg", changes: "cropped, resized" } }
+    },
+    "ross-ade-stadium": {
+      label: "Ross-Ade Stadium", names: ["Ross-Ade Stadium"],
+      day: { path: "assets/venues/ross-ade-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Tstuddud at English Wikipedia", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:RossAde.JPG", changes: "cropped, resized" } }
+    },
+    "veterans-memorial-stadium-al": {
+      label: "Veterans Memorial Stadium (AL)", names: ["Veterans Memorial Stadium (AL)"],
+      day: { path: "assets/venues/veterans-memorial-stadium-al/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Kreeder13", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:The_Vet_7.jpg", changes: "cropped, resized" } }
+    },
+    "yulman-stadium": {
+      label: "Yulman Stadium", names: ["Yulman Stadium"],
+      day: { path: "assets/venues/yulman-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Vegasjon", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Yulman_Stadium_opening_day_(top_corner).jpg", changes: "cropped, resized" } }
+    },
+    "protective-stadium": {
+      label: "Protective Stadium", names: ["Protective Stadium"],
+      day: { path: "assets/venues/protective-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Quidster4040", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Protective_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "acrisure-bounce-house": {
+      label: "Acrisure Bounce House", names: ["Acrisure Bounce House"],
+      day: { path: "assets/venues/acrisure-bounce-house/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "elisfkc from Orlando, FL, United States", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", url: "https://commons.wikimedia.org/wiki/File:Memphis_at_UCF_(37407654886).jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/acrisure-bounce-house/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "elisfkc from Orlando, FL, United States", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", url: "https://commons.wikimedia.org/wiki/File:ECU_at_UCF_(37704993842).jpg", changes: "cropped, resized" } }
+    },
+    "los-angeles-memorial-coliseum": {
+      label: "Los Angeles Memorial Coliseum", names: ["Los Angeles Memorial Coliseum"],
+      day: { path: "assets/venues/los-angeles-memorial-coliseum/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "SaltyWalt", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:LA_Coliseum_11_2018.jpg", changes: "cropped, resized" } }
+    },
+    "maverik-stadium": {
+      label: "Maverik Stadium", names: ["Maverik Stadium"],
+      day: { path: "assets/venues/maverik-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
+        credit: { author: "Phanatic10", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Utah_State_Univ_Stadium_Color_Corrected.jpg", changes: "cropped, resized" } }
+    },
     neutral: {
       label: "Stadium (softened)",
       day: { path: "assets/venues/neutral/day-{w}.webp", widths: W,
