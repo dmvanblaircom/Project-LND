@@ -1,0 +1,19 @@
+{
+  "team_slug": "georgia-southern",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Expanded_Paulson_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Expanded_Paulson_Stadium.jpg",
+      "width": 960,
+      "height": 572,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Gsuengineer",
+      "credit_line": "Gsuengineer / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2014,
+      "time_of_day": "night",
+      "note": "Elevated wide-angle night view from high in the stands behind one end zone, Nov 2014 (after the 2014 expansion); field runs away from the camera at rows ~15-50%, packed crowd (distant, not identifiable) fills rows 50-100%, dark sky top 10%. Only 960x572."
+    }
+  ]
+}

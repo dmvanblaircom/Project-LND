@@ -1,0 +1,33 @@
+{
+  "team_slug": "florida-state",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Renovated_North_End_zone_of_Doak_Campbell_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Renovated_North_End_zone_of_Doak_Campbell_Stadium.jpg",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "SeminoleNation",
+      "credit_line": "SeminoleNation / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2017,
+      "time_of_day": "day",
+      "note": "Empty stadium from the upper west-side stands toward the north end zone, Aug 2017 (before the 2024-2026 renovation); field fills the right half at rows ~60-90%, empty stands on the left and foreground, sky top 40%."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Doak_Campbell_Stadium_fireworks.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Doak_Campbell_Stadium_fireworks.jpg",
+      "width": 2048,
+      "height": 1217,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "SeminoleNation",
+      "credit_line": "SeminoleNation / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2017,
+      "time_of_day": "night",
+      "note": "Elevated night game view from high in the south end, Oct 2017 with pregame fireworks (pre-2024 renovation); field runs diagonally across rows ~55-95% on the right, crowd (distant, not identifiable) fills the left and middle, fireworks and dark sky top 45%."
+    }
+  ]
+}
