@@ -1,0 +1,26 @@
+{
+  "slug": "hawaii",
+  "venue": "Clarence T.C. Ching Athletics Complex",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AClarence_T.C._Ching_Athletics_Complex.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Clarence_T.C._Ching_Athletics_Complex.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1333,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "LuckyJ008",
+      "credit_line": "LuckyJ008 / Wikimedia Commons / CC BY-SA 4.0",
+      "year": 2021,
+      "day_or_night": "day",
+      "note": "x"
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AAloha_Stadium_former_scoreboard_now_installed_at_Clarence_T.C._Ching_Athletics_Complex.jpg",
+      "why": "Shows the old Aloha Stadium interior, not the Ching Complex."
+    }
+  ]
+}
