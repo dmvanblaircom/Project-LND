@@ -1,7 +1,16 @@
 {
  "team": "virginia",
- "updated": "2026-11-27T19:08:10.261351+00:00",
+ "updated": "2026-11-27T19:38:04.655226+00:00",
  "items": [
+  {
+   "title": "CavsCorner 4-3-4 Breakdown: The Commonwealth Clash 2026",
+   "link": "https://on3.com/sites/cavs-corner/news/cavscorner-4-3-4-breakdown-the-commonwealth-clash-2026/",
+   "source": "CavsCorner",
+   "summary": "In his latest feature for CavsCorner, Deuce Prince looks at how both programs being successful this year makes for the most intriguing Commonwealth Clash since 2019.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09192934/Deuce-Prince-orange.jpeg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-27T19:25:25+00:00"
+  },
   {
    "title": "Previewing UVA football\u2019s rivalry clash with Virginia Tech",
    "link": "https://www.streakingthelawn.com/football/55142/previewing-uva-footballs-rivalry-clash-with-virginia-tech",
@@ -289,15 +298,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/04/09192934/Deuce-Prince-orange.jpeg",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-13T17:30:00+00:00"
-  },
-  {
-   "title": "Preview: Cavaliers set to host Cal in must-win game",
-   "link": "https://on3.com/sites/cavs-corner/news/preview-cavaliers-set-to-host-cal-in-must-win-game/",
-   "source": "CavsCorner",
-   "summary": "We break down the matchup between Cal and UVa on Saturday afternoon in Charlottesville (3:30 p.m., ACC Network).",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/12160322/2026-10-24T165939Z_392047244_MT1USATODAY30173669_RTRMADP_3_NCAA-FOOTBALL-CALIFORNIA-AT-SOUTHERN-METHODIST.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-13T11:30:00+00:00"
   }
  ]
 }
