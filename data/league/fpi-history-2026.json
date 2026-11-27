@@ -15975,22 +15975,22 @@
     "seasonType": 2,
     "week": 13,
     "weekText": "Week 13",
-    "sourceUpdated": "2026-11-27T09:00Z",
+    "sourceUpdated": "2026-11-26T09:00Z",
     "teams": [
      {
       "espnId": "61",
       "name": "Georgia",
       "abbr": "UGA",
       "rank": 1,
-      "rating": 28.6,
+      "rating": 28.7,
       "rankChange": 0,
       "record": "10-1",
       "odds": {
        "playoff": 99.7,
-       "title": 26.0,
+       "title": 26.5,
        "titleGame": 42.5,
-       "conference": 62.1,
-       "winOut": 61.0
+       "conference": 63.0,
+       "winOut": 62.0
       },
       "projected": {
        "wins": 11.6,
@@ -15998,7 +15998,7 @@
       },
       "prev": {
        "playoff": 99.7,
-       "title": 26.5
+       "title": 26.0
       }
      },
      {
@@ -16010,19 +16010,19 @@
       "rankChange": 0,
       "record": "10-1",
       "odds": {
-       "playoff": 99.3,
-       "title": 21.0,
-       "titleGame": 36.5,
+       "playoff": 99.5,
+       "title": 20.6,
+       "titleGame": 36.4,
        "conference": 0.0,
-       "winOut": 94.8
+       "winOut": 95.1
       },
       "projected": {
-       "wins": 10.9,
-       "losses": 1.1
+       "wins": 11.0,
+       "losses": 1.0
       },
       "prev": {
-       "playoff": 99.5,
-       "title": 20.6
+       "playoff": 99.3,
+       "title": 21.0
       }
      },
      {
@@ -16034,19 +16034,19 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 98.2,
-       "title": 15.0,
-       "titleGame": 29.8,
-       "conference": 31.4,
-       "winOut": 38.4
+       "playoff": 98.5,
+       "title": 14.8,
+       "titleGame": 29.5,
+       "conference": 30.4,
+       "winOut": 37.4
       },
       "projected": {
-       "wins": 10.2,
+       "wins": 10.1,
        "losses": 2.6
       },
       "prev": {
-       "playoff": 98.5,
-       "title": 14.8
+       "playoff": 98.2,
+       "title": 15.0
       }
      },
      {
@@ -16054,14 +16054,14 @@
       "name": "Miami",
       "abbr": "MIA",
       "rank": 4,
-      "rating": 24.2,
+      "rating": 24.3,
       "rankChange": 0,
       "record": "10-1",
       "odds": {
-       "playoff": 97.2,
-       "title": 9.7,
-       "titleGame": 20.0,
-       "conference": 62.0,
+       "playoff": 97.4,
+       "title": 9.8,
+       "titleGame": 20.2,
+       "conference": 62.1,
        "winOut": 60.7
       },
       "projected": {
@@ -16069,8 +16069,8 @@
        "losses": 1.4
       },
       "prev": {
-       "playoff": 97.4,
-       "title": 9.8
+       "playoff": 97.2,
+       "title": 9.7
       }
      },
      {
@@ -16082,10 +16082,10 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 91.3,
-       "title": 8.7,
+       "playoff": 92.0,
+       "title": 8.8,
        "titleGame": 18.1,
-       "conference": 3.2,
+       "conference": 3.3,
        "winOut": 82.5
       },
       "projected": {
@@ -16093,8 +16093,8 @@
        "losses": 2.2
       },
       "prev": {
-       "playoff": 92.0,
-       "title": 8.8
+       "playoff": 91.3,
+       "title": 8.7
       }
      },
      {
@@ -16110,7 +16110,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 89.5
+       "winOut": 88.9
       },
       "projected": {
        "wins": 7.9,
@@ -16130,19 +16130,19 @@
       "rankChange": 0,
       "record": "8-3",
       "odds": {
-       "playoff": 65.1,
-       "title": 2.6,
-       "titleGame": 6.1,
-       "conference": 57.7,
-       "winOut": 59.0
+       "playoff": 66.0,
+       "title": 2.7,
+       "titleGame": 6.3,
+       "conference": 57.5,
+       "winOut": 58.6
       },
       "projected": {
        "wins": 9.4,
        "losses": 3.4
       },
       "prev": {
-       "playoff": 66.0,
-       "title": 2.7
+       "playoff": 65.1,
+       "title": 2.6
       }
      },
      {
@@ -16154,18 +16154,18 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 40.4,
+       "playoff": 44.0,
        "title": 1.4,
        "titleGame": 3.4,
-       "conference": 16.3,
-       "winOut": 81.3
+       "conference": 16.8,
+       "winOut": 81.0
       },
       "projected": {
        "wins": 10.1,
        "losses": 2.2
       },
       "prev": {
-       "playoff": 44.0,
+       "playoff": 40.4,
        "title": 1.4
       }
      },
@@ -16174,7 +16174,7 @@
       "name": "LSU",
       "abbr": "LSU",
       "rank": 9,
-      "rating": 20.5,
+      "rating": 20.6,
       "rankChange": 0,
       "record": "6-5",
       "odds": {
@@ -16182,7 +16182,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 87.8
+       "winOut": 87.6
       },
       "projected": {
        "wins": 6.9,
@@ -16202,19 +16202,19 @@
       "rankChange": 0,
       "record": "10-1",
       "odds": {
-       "playoff": 85.8,
-       "title": 3.9,
-       "titleGame": 9.7,
-       "conference": 38.0,
-       "winOut": 29.6
+       "playoff": 86.3,
+       "title": 3.8,
+       "titleGame": 9.8,
+       "conference": 37.9,
+       "winOut": 29.3
       },
       "projected": {
        "wins": 11.2,
        "losses": 1.8
       },
       "prev": {
-       "playoff": 86.3,
-       "title": 3.8
+       "playoff": 85.8,
+       "title": 3.9
       }
      },
      {
@@ -16222,23 +16222,23 @@
       "name": "Utah",
       "abbr": "UTAH",
       "rank": 11,
-      "rating": 19.3,
+      "rating": 19.4,
       "rankChange": 0,
       "record": "11-0",
       "odds": {
-       "playoff": 98.4,
-       "title": 5.4,
-       "titleGame": 15.1,
-       "conference": 55.2,
-       "winOut": 51.8
+       "playoff": 98.6,
+       "title": 5.5,
+       "titleGame": 15.5,
+       "conference": 58.0,
+       "winOut": 54.3
       },
       "projected": {
        "wins": 12.5,
        "losses": 0.5
       },
       "prev": {
-       "playoff": 98.6,
-       "title": 5.5
+       "playoff": 98.4,
+       "title": 5.4
       }
      },
      {
@@ -16250,18 +16250,18 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 91.7,
+       "playoff": 92.1,
        "title": 3.6,
-       "titleGame": 9.7,
-       "conference": 3.4,
-       "winOut": 76.1
+       "titleGame": 9.5,
+       "conference": 3.2,
+       "winOut": 76.3
       },
       "projected": {
        "wins": 9.9,
        "losses": 2.2
       },
       "prev": {
-       "playoff": 92.1,
+       "playoff": 91.7,
        "title": 3.6
       }
      },
@@ -16278,7 +16278,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 87.2
+       "winOut": 87.4
       },
       "projected": {
        "wins": 7.9,
@@ -16294,23 +16294,23 @@
       "name": "Texas Tech",
       "abbr": "TTU",
       "rank": 14,
-      "rating": 17.6,
+      "rating": 17.1,
       "rankChange": 0,
-      "record": "11-1",
+      "record": "10-1",
       "odds": {
-       "playoff": 65.3,
-       "title": 1.1,
-       "titleGame": 3.2,
-       "conference": 44.8,
-       "winOut": 44.8
+       "playoff": 54.0,
+       "title": 0.8,
+       "titleGame": 2.6,
+       "conference": 36.2,
+       "winOut": 35.2
       },
       "projected": {
-       "wins": 11.4,
-       "losses": 1.6
+       "wins": 11.2,
+       "losses": 1.7
       },
       "prev": {
-       "playoff": 54.0,
-       "title": 0.8
+       "playoff": 65.3,
+       "title": 1.1
       }
      },
      {
@@ -16326,7 +16326,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 63.7
+       "winOut": 64.4
       },
       "projected": {
        "wins": 8.6,
@@ -16346,19 +16346,19 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 31.2,
-       "title": 0.3,
-       "titleGame": 1.1,
-       "conference": 9.7,
-       "winOut": 43.4
+       "playoff": 33.2,
+       "title": 0.4,
+       "titleGame": 1.2,
+       "conference": 9.9,
+       "winOut": 43.6
       },
       "projected": {
        "wins": 9.7,
        "losses": 2.6
       },
       "prev": {
-       "playoff": 33.2,
-       "title": 0.4
+       "playoff": 31.2,
+       "title": 0.3
       }
      },
      {
@@ -16370,18 +16370,18 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 75.0,
+       "playoff": 74.7,
        "title": 0.7,
-       "titleGame": 2.4,
-       "conference": 0.0,
-       "winOut": 87.9
+       "titleGame": 2.5,
+       "conference": 5.8,
+       "winOut": 78.3
       },
       "projected": {
        "wins": 9.9,
-       "losses": 2.1
+       "losses": 2.2
       },
       "prev": {
-       "playoff": 74.7,
+       "playoff": 75.0,
        "title": 0.7
       }
      },
@@ -16394,18 +16394,18 @@
       "rankChange": 0,
       "record": "7-4",
       "odds": {
-       "playoff": 0.1,
+       "playoff": 0.3,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 41.4
+       "winOut": 42.0
       },
       "projected": {
        "wins": 7.4,
        "losses": 4.6
       },
       "prev": {
-       "playoff": 0.3,
+       "playoff": 0.1,
        "title": 0.0
       }
      },
@@ -16422,7 +16422,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 49.4
+       "winOut": 49.6
       },
       "projected": {
        "wins": 7.5,
@@ -16442,19 +16442,19 @@
       "rankChange": 0,
       "record": "8-3",
       "odds": {
-       "playoff": 4.9,
-       "title": 0.1,
-       "titleGame": 0.1,
-       "conference": 0.0,
-       "winOut": 48.7
+       "playoff": 6.3,
+       "title": 0.0,
+       "titleGame": 0.2,
+       "conference": 0.1,
+       "winOut": 49.1
       },
       "projected": {
        "wins": 8.5,
        "losses": 3.5
       },
       "prev": {
-       "playoff": 6.3,
-       "title": 0.0
+       "playoff": 4.9,
+       "title": 0.1
       }
      },
      {
@@ -16462,7 +16462,7 @@
       "name": "Missouri",
       "abbr": "MIZ",
       "rank": 21,
-      "rating": 12.4,
+      "rating": 12.5,
       "rankChange": 2,
       "record": "7-4",
       "odds": {
@@ -16470,7 +16470,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 50.6
+       "winOut": 50.4
       },
       "projected": {
        "wins": 7.5,
@@ -16486,7 +16486,7 @@
       "name": "Florida",
       "abbr": "FLA",
       "rank": 22,
-      "rating": 12.4,
+      "rating": 12.5,
       "rankChange": -1,
       "record": "7-4",
       "odds": {
@@ -16494,7 +16494,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 65.0
+       "winOut": 65.3
       },
       "projected": {
        "wins": 7.7,
@@ -16514,19 +16514,19 @@
       "rankChange": -1,
       "record": "10-1",
       "odds": {
-       "playoff": 56.4,
-       "title": 0.5,
-       "titleGame": 1.9,
-       "conference": 16.3,
-       "winOut": 13.7
+       "playoff": 57.2,
+       "title": 0.4,
+       "titleGame": 1.7,
+       "conference": 15.7,
+       "winOut": 13.4
       },
       "projected": {
        "wins": 10.7,
        "losses": 1.9
       },
       "prev": {
-       "playoff": 57.2,
-       "title": 0.4
+       "playoff": 56.4,
+       "title": 0.5
       }
      },
      {
@@ -16542,7 +16542,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 77.8
+       "winOut": 77.7
       },
       "projected": {
        "wins": 8.8,
@@ -16566,7 +16566,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 22.2
+       "winOut": 22.6
       },
       "projected": {
        "wins": 7.2,
@@ -16590,7 +16590,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 70.2
+       "winOut": 70.6
       },
       "projected": {
        "wins": 7.7,
@@ -16614,7 +16614,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 81.3
+       "winOut": 80.9
       },
       "projected": {
        "wins": 6.8,
@@ -16638,7 +16638,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 70.0
+       "winOut": 70.3
       },
       "projected": {
        "wins": 6.7,
@@ -16662,7 +16662,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 59.6
+       "winOut": 59.0
       },
       "projected": {
        "wins": 8.6,
@@ -16686,7 +16686,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 40.4
+       "winOut": 41.0
       },
       "projected": {
        "wins": 6.4,
@@ -16710,7 +16710,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 16.3
+       "winOut": 16.2
       },
       "projected": {
        "wins": 4.2,
@@ -16734,7 +16734,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 79.4
+       "winOut": 79.3
       },
       "projected": {
        "wins": 7.8,
@@ -16754,18 +16754,18 @@
       "rankChange": 1,
       "record": "7-4",
       "odds": {
-       "playoff": 0.0,
+       "playoff": 0.1,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 12.0
+       "winOut": 11.8
       },
       "projected": {
        "wins": 7.1,
        "losses": 4.9
       },
       "prev": {
-       "playoff": 0.1,
+       "playoff": 0.0,
        "title": 0.0
       }
      },
@@ -16778,18 +16778,18 @@
       "rankChange": -1,
       "record": "9-2",
       "odds": {
-       "playoff": 50.6,
+       "playoff": 50.4,
        "title": 0.1,
-       "titleGame": 0.4,
-       "conference": 87.6,
-       "winOut": 82.7
+       "titleGame": 0.5,
+       "conference": 87.2,
+       "winOut": 82.4
       },
       "projected": {
        "wins": 10.8,
        "losses": 2.2
       },
       "prev": {
-       "playoff": 50.4,
+       "playoff": 50.6,
        "title": 0.1
       }
      },
@@ -16830,7 +16830,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 36.3
+       "winOut": 35.6
       },
       "projected": {
        "wins": 7.4,
@@ -16846,7 +16846,7 @@
       "name": "SMU",
       "abbr": "SMU",
       "rank": 37,
-      "rating": 8.4,
+      "rating": 8.5,
       "rankChange": 0,
       "record": "7-4",
       "odds": {
@@ -16854,7 +16854,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 79.1
+       "winOut": 78.8
       },
       "projected": {
        "wins": 7.8,
@@ -16878,7 +16878,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 10.5
+       "winOut": 11.1
       },
       "projected": {
        "wins": 6.1,
@@ -16898,18 +16898,18 @@
       "rankChange": 0,
       "record": "7-4",
       "odds": {
-       "playoff": 0.1,
+       "playoff": 0.2,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 12.9
+       "winOut": 12.8
       },
       "projected": {
        "wins": 7.1,
        "losses": 4.9
       },
       "prev": {
-       "playoff": 0.2,
+       "playoff": 0.1,
        "title": 0.0
       }
      },
@@ -16918,7 +16918,7 @@
       "name": "North Carolina",
       "abbr": "UNC",
       "rank": 40,
-      "rating": 7.2,
+      "rating": 7.3,
       "rankChange": 0,
       "record": "5-6",
       "odds": {
@@ -16926,7 +16926,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 72.5
+       "winOut": 72.2
       },
       "projected": {
        "wins": 5.7,
@@ -16938,19 +16938,43 @@
       }
      },
      {
+      "espnId": "2628",
+      "name": "TCU",
+      "abbr": "TCU",
+      "rank": 41,
+      "rating": 6.7,
+      "rankChange": 1,
+      "record": "5-6",
+      "odds": {
+       "playoff": 0.0,
+       "title": 0.0,
+       "titleGame": 0.0,
+       "conference": 0.0,
+       "winOut": 17.5
+      },
+      "projected": {
+       "wins": 5.2,
+       "losses": 6.8
+      },
+      "prev": {
+       "playoff": 0.0,
+       "title": 0.0
+      }
+     },
+     {
       "espnId": "356",
       "name": "Illinois",
       "abbr": "ILL",
-      "rank": 41,
-      "rating": 6.6,
-      "rankChange": 2,
+      "rank": 42,
+      "rating": 6.7,
+      "rankChange": 1,
       "record": "6-5",
       "odds": {
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 30.0
+       "winOut": 29.7
       },
       "projected": {
        "wins": 6.3,
@@ -16965,16 +16989,16 @@
       "espnId": "2305",
       "name": "Kansas",
       "abbr": "KU",
-      "rank": 42,
+      "rank": 43,
       "rating": 6.6,
-      "rankChange": -1,
+      "rankChange": -2,
       "record": "4-7",
       "odds": {
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 29.8
+       "winOut": 29.4
       },
       "projected": {
        "wins": 4.3,
@@ -16986,23 +17010,23 @@
       }
      },
      {
-      "espnId": "2628",
-      "name": "TCU",
-      "abbr": "TCU",
-      "rank": 43,
-      "rating": 6.2,
-      "rankChange": -1,
-      "record": "5-7",
+      "espnId": "52",
+      "name": "Florida St",
+      "abbr": "FSU",
+      "rank": 44,
+      "rating": 5.6,
+      "rankChange": 0,
+      "record": "5-6",
       "odds": {
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 0.0
+       "winOut": 34.7
       },
       "projected": {
-       "wins": 5.0,
-       "losses": 7.0
+       "wins": 5.3,
+       "losses": 6.7
       },
       "prev": {
        "playoff": 0.0,
@@ -17013,47 +17037,23 @@
       "espnId": "167",
       "name": "New Mexico",
       "abbr": "UNM",
-      "rank": 44,
+      "rank": 45,
       "rating": 5.6,
-      "rankChange": 1,
+      "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 1.2,
+       "playoff": 1.3,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 58.5,
-       "winOut": 49.0
+       "conference": 57.6,
+       "winOut": 48.7
       },
       "projected": {
        "wins": 10.3,
        "losses": 2.6
       },
       "prev": {
-       "playoff": 1.3,
-       "title": 0.0
-      }
-     },
-     {
-      "espnId": "52",
-      "name": "Florida St",
-      "abbr": "FSU",
-      "rank": 45,
-      "rating": 5.6,
-      "rankChange": -1,
-      "record": "5-6",
-      "odds": {
-       "playoff": 0.0,
-       "title": 0.0,
-       "titleGame": 0.0,
-       "conference": 0.0,
-       "winOut": 35.0
-      },
-      "projected": {
-       "wins": 5.3,
-       "losses": 6.7
-      },
-      "prev": {
-       "playoff": 0.0,
+       "playoff": 1.2,
        "title": 0.0
       }
      },
@@ -17094,7 +17094,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 51.9
+       "winOut": 52.1
       },
       "projected": {
        "wins": 6.5,
@@ -17118,7 +17118,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 76.5
+       "winOut": 77.3
       },
       "projected": {
        "wins": 6.8,
@@ -17134,7 +17134,7 @@
       "name": "Texas St",
       "abbr": "TXST",
       "rank": 49,
-      "rating": 4.3,
+      "rating": 4.4,
       "rankChange": 0,
       "record": "7-4",
       "odds": {
@@ -17142,7 +17142,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 70.5
+       "winOut": 70.2
       },
       "projected": {
        "wins": 7.7,
@@ -17158,7 +17158,7 @@
       "name": "UCF",
       "abbr": "UCF",
       "rank": 50,
-      "rating": 4.0,
+      "rating": 4.1,
       "rankChange": 0,
       "record": "6-5",
       "odds": {
@@ -17186,10 +17186,10 @@
       "rankChange": 0,
       "record": "10-1",
       "odds": {
-       "playoff": 22.3,
+       "playoff": 22.5,
        "title": 0.0,
        "titleGame": 0.1,
-       "conference": 77.6,
+       "conference": 77.4,
        "winOut": 69.2
       },
       "projected": {
@@ -17197,7 +17197,7 @@
        "losses": 1.3
       },
       "prev": {
-       "playoff": 22.5,
+       "playoff": 22.3,
        "title": 0.0
       }
      },
@@ -17214,7 +17214,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 22.2
+       "winOut": 22.3
       },
       "projected": {
        "wins": 6.2,
@@ -17238,7 +17238,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 12.8
+       "winOut": 12.6
       },
       "projected": {
        "wins": 5.1,
@@ -17254,7 +17254,7 @@
       "name": "Virginia Tech",
       "abbr": "VT",
       "rank": 54,
-      "rating": 2.9,
+      "rating": 3.0,
       "rankChange": 0,
       "record": "6-5",
       "odds": {
@@ -17262,7 +17262,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 48.1
+       "winOut": 47.9
       },
       "projected": {
        "wins": 6.5,
@@ -17278,15 +17278,15 @@
       "name": "Memphis",
       "abbr": "MEM",
       "rank": 55,
-      "rating": 2.6,
+      "rating": 2.7,
       "rankChange": 0,
       "record": "8-3",
       "odds": {
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 58.4,
-       "winOut": 58.5
+       "conference": 57.9,
+       "winOut": 57.9
       },
       "projected": {
        "wins": 9.5,
@@ -17330,18 +17330,18 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 13.4,
+       "playoff": 13.7,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 53.1,
-       "winOut": 24.7
+       "conference": 53.7,
+       "winOut": 25.1
       },
       "projected": {
        "wins": 10.0,
        "losses": 3.0
       },
       "prev": {
-       "playoff": 13.7,
+       "playoff": 13.4,
        "title": 0.0
       }
      },
@@ -17357,8 +17357,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 21.4,
-       "winOut": 67.9
+       "conference": 21.6,
+       "winOut": 67.5
       },
       "projected": {
        "wins": 9.1,
@@ -17382,7 +17382,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 12.2
+       "winOut": 12.4
       },
       "projected": {
        "wins": 4.1,
@@ -17398,7 +17398,7 @@
       "name": "Iowa State",
       "abbr": "ISU",
       "rank": 60,
-      "rating": 2.2,
+      "rating": 2.3,
       "rankChange": 0,
       "record": "5-6",
       "odds": {
@@ -17406,7 +17406,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 57.9
+       "winOut": 57.7
       },
       "projected": {
        "wins": 5.6,
@@ -17430,7 +17430,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 42.1
+       "winOut": 42.3
       },
       "projected": {
        "wins": 4.4,
@@ -17446,7 +17446,7 @@
       "name": "Oregon St",
       "abbr": "ORST",
       "rank": 62,
-      "rating": 1.9,
+      "rating": 1.8,
       "rankChange": 0,
       "record": "6-5",
       "odds": {
@@ -17454,7 +17454,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 49.2
+       "winOut": 48.9
       },
       "projected": {
        "wins": 6.5,
@@ -17478,7 +17478,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 12.8
+       "winOut": 12.9
       },
       "projected": {
        "wins": 4.1,
@@ -17501,8 +17501,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 4.8,
-       "winOut": 83.3
+       "conference": 5.0,
+       "winOut": 83.0
       },
       "projected": {
        "wins": 7.9,
@@ -17526,7 +17526,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 6.4
+       "winOut": 6.5
       },
       "projected": {
        "wins": 5.1,
@@ -17550,7 +17550,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 27.5
+       "winOut": 27.8
       },
       "projected": {
        "wins": 5.3,
@@ -17574,7 +17574,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 20.6
+       "winOut": 20.7
       },
       "projected": {
        "wins": 6.2,
@@ -17598,11 +17598,11 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 5.2
+       "winOut": 4.9
       },
       "projected": {
-       "wins": 5.1,
-       "losses": 6.9
+       "wins": 5.0,
+       "losses": 7.0
       },
       "prev": {
        "playoff": 0.0,
@@ -17669,8 +17669,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 25.4,
-       "winOut": 23.4
+       "conference": 24.6,
+       "winOut": 22.4
       },
       "projected": {
        "wins": 7.8,
@@ -17686,7 +17686,7 @@
       "name": "Colorado",
       "abbr": "COLO",
       "rank": 72,
-      "rating": 0.0,
+      "rating": -0.0,
       "rankChange": 0,
       "record": "4-7",
       "odds": {
@@ -17718,7 +17718,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 9.1,
-       "winOut": 18.3
+       "winOut": 17.7
       },
       "projected": {
        "wins": 9.4,
@@ -17742,7 +17742,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 50.8
+       "winOut": 51.1
       },
       "projected": {
        "wins": 6.5,
@@ -17765,8 +17765,8 @@
        "playoff": 0.2,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 32.4,
-       "winOut": 26.2
+       "conference": 33.3,
+       "winOut": 26.6
       },
       "projected": {
        "wins": 10.1,
@@ -17790,7 +17790,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 5.3
+       "winOut": 5.6
       },
       "projected": {
        "wins": 3.1,
@@ -17810,18 +17810,18 @@
       "rankChange": 0,
       "record": "9-2",
       "odds": {
-       "playoff": 12.2,
+       "playoff": 12.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 36.3,
-       "winOut": 18.1
+       "conference": 36.6,
+       "winOut": 17.8
       },
       "projected": {
        "wins": 9.9,
        "losses": 3.1
       },
       "prev": {
-       "playoff": 12.0,
+       "playoff": 12.2,
        "title": 0.0
       }
      },
@@ -17830,7 +17830,7 @@
       "name": "Maryland",
       "abbr": "MD",
       "rank": 78,
-      "rating": -2.3,
+      "rating": -2.2,
       "rankChange": 0,
       "record": "4-7",
       "odds": {
@@ -17838,7 +17838,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 18.7
+       "winOut": 19.1
       },
       "projected": {
        "wins": 4.2,
@@ -17862,7 +17862,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 1.8
+       "winOut": 1.7
       },
       "projected": {
        "wins": 3.0,
@@ -17886,7 +17886,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 61.3
+       "winOut": 61.4
       },
       "projected": {
        "wins": 8.6,
@@ -17910,7 +17910,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 36.5
+       "winOut": 36.9
       },
       "projected": {
        "wins": 6.2,
@@ -17933,8 +17933,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 43.9,
-       "winOut": 42.0
+       "conference": 44.0,
+       "winOut": 42.1
       },
       "projected": {
        "wins": 10.1,
@@ -17958,7 +17958,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 43.3
+       "winOut": 42.6
       },
       "projected": {
        "wins": 5.4,
@@ -18006,7 +18006,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 68.0
+       "winOut": 68.2
       },
       "projected": {
        "wins": 7.7,
@@ -18030,7 +18030,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 58.2
+       "winOut": 58.0
       },
       "projected": {
        "wins": 6.6,
@@ -18053,8 +18053,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 8.2,
-       "winOut": 51.1
+       "conference": 7.8,
+       "winOut": 49.7
       },
       "projected": {
        "wins": 8.1,
@@ -18077,8 +18077,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 0.3,
-       "winOut": 61.9
+       "conference": 0.4,
+       "winOut": 62.4
       },
       "projected": {
        "wins": 7.6,
@@ -18126,7 +18126,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 68.2
+       "winOut": 68.0
       },
       "projected": {
        "wins": 6.7,
@@ -18150,7 +18150,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 29.5
+       "winOut": 29.9
       },
       "projected": {
        "wins": 4.3,
@@ -18174,7 +18174,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 20.9
+       "winOut": 21.2
       },
       "projected": {
        "wins": 6.2,
@@ -18197,8 +18197,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 22.4,
-       "winOut": 10.9
+       "conference": 22.6,
+       "winOut": 11.0
       },
       "projected": {
        "wins": 8.7,
@@ -18222,7 +18222,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.2,
-       "winOut": 37.2
+       "winOut": 36.8
       },
       "projected": {
        "wins": 7.4,
@@ -18245,8 +18245,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 12.4,
-       "winOut": 5.2
+       "conference": 12.8,
+       "winOut": 5.4
       },
       "projected": {
        "wins": 6.5,
@@ -18262,7 +18262,7 @@
       "name": "Washington St",
       "abbr": "WSU",
       "rank": 96,
-      "rating": -6.4,
+      "rating": -6.3,
       "rankChange": 0,
       "record": "2-9",
       "odds": {
@@ -18270,7 +18270,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 58.6
+       "winOut": 59.1
       },
       "projected": {
        "wins": 2.6,
@@ -18293,8 +18293,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 1.5,
-       "winOut": 60.0
+       "conference": 1.3,
+       "winOut": 56.1
       },
       "projected": {
        "wins": 8.0,
@@ -18318,7 +18318,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 32.0
+       "winOut": 31.8
       },
       "projected": {
        "wins": 5.3,
@@ -18342,7 +18342,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 51.7
+       "winOut": 52.0
       },
       "projected": {
        "wins": 6.5,
@@ -18366,7 +18366,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 23.6
+       "winOut": 22.7
       },
       "projected": {
        "wins": 3.2,
@@ -18390,7 +18390,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 31.8
+       "winOut": 32.0
       },
       "projected": {
        "wins": 6.3,
@@ -18414,7 +18414,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 38.7
+       "winOut": 38.6
       },
       "projected": {
        "wins": 5.4,
@@ -18438,7 +18438,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 62.1
+       "winOut": 62.5
       },
       "projected": {
        "wins": 6.6,
@@ -18461,11 +18461,11 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 17.5,
-       "winOut": 17.5
+       "conference": 17.7,
+       "winOut": 17.7
       },
       "projected": {
-       "wins": 8.5,
+       "wins": 8.6,
        "losses": 3.8
       },
       "prev": {
@@ -18485,8 +18485,8 @@
        "playoff": 0.0,
        "title": 0.0,
        "titleGame": 0.0,
-       "conference": 29.0,
-       "winOut": 29.0
+       "conference": 29.2,
+       "winOut": 29.2
       },
       "projected": {
        "wins": 9.1,
@@ -18510,7 +18510,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 58.1
+       "winOut": 57.8
       },
       "projected": {
        "wins": 5.6,
@@ -18534,7 +18534,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 93.8
+       "winOut": 93.5
       },
       "projected": {
        "wins": 3.9,
@@ -18558,7 +18558,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 41.8
+       "winOut": 42.0
       },
       "projected": {
        "wins": 7.4,
@@ -18574,7 +18574,7 @@
       "name": "App State",
       "abbr": "APP",
       "rank": 109,
-      "rating": -11.2,
+      "rating": -11.1,
       "rankChange": 0,
       "record": "7-4",
       "odds": {
@@ -18582,7 +18582,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 37.9
+       "winOut": 37.6
       },
       "projected": {
        "wins": 7.4,
@@ -18606,7 +18606,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 13.5
+       "winOut": 13.8
       },
       "projected": {
        "wins": 6.1,
@@ -18630,7 +18630,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 10.2
+       "winOut": 10.1
       },
       "projected": {
        "wins": 4.1,
@@ -18654,11 +18654,11 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 24.7
+       "winOut": 25.2
       },
       "projected": {
-       "wins": 5.2,
-       "losses": 7.8
+       "wins": 5.3,
+       "losses": 7.7
       },
       "prev": {
        "playoff": 0.0,
@@ -18678,7 +18678,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 61.2
+       "winOut": 61.7
       },
       "projected": {
        "wins": 4.6,
@@ -18694,7 +18694,7 @@
       "name": "Temple",
       "abbr": "TEM",
       "rank": 114,
-      "rating": -13.3,
+      "rating": -13.2,
       "rankChange": 0,
       "record": "2-9",
       "odds": {
@@ -18702,7 +18702,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 9.3
+       "winOut": 9.6
       },
       "projected": {
        "wins": 2.1,
@@ -18726,7 +18726,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 80.4
+       "winOut": 79.8
       },
       "projected": {
        "wins": 4.8,
@@ -18750,7 +18750,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 66.0
+       "winOut": 66.6
       },
       "projected": {
        "wins": 5.7,
@@ -18774,7 +18774,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 38.8
+       "winOut": 38.3
       },
       "projected": {
        "wins": 4.4,
@@ -18798,7 +18798,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 28.5
+       "winOut": 28.6
       },
       "projected": {
        "wins": 2.3,
@@ -18822,7 +18822,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 63.5
+       "winOut": 62.8
       },
       "projected": {
        "wins": 3.6,
@@ -18846,7 +18846,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 62.8
+       "winOut": 63.1
       },
       "projected": {
        "wins": 6.6,
@@ -18870,7 +18870,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 41.9
+       "winOut": 42.2
       },
       "projected": {
        "wins": 4.4,
@@ -18894,7 +18894,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 65.6
+       "winOut": 65.9
       },
       "projected": {
        "wins": 6.7,
@@ -18918,7 +18918,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 5.5
+       "winOut": 5.6
       },
       "projected": {
        "wins": 3.1,
@@ -18942,7 +18942,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 10.8
+       "winOut": 10.7
       },
       "projected": {
        "wins": 4.1,
@@ -18958,7 +18958,7 @@
       "name": "Southern Miss",
       "abbr": "USM",
       "rank": 125,
-      "rating": -16.3,
+      "rating": -16.2,
       "rankChange": 0,
       "record": "3-8",
       "odds": {
@@ -18966,7 +18966,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 36.5
+       "winOut": 37.2
       },
       "projected": {
        "wins": 3.4,
@@ -18990,7 +18990,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 37.2
+       "winOut": 36.9
       },
       "projected": {
        "wins": 3.4,
@@ -19014,7 +19014,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 47.4
+       "winOut": 47.1
       },
       "projected": {
        "wins": 5.5,
@@ -19038,7 +19038,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 52.6
+       "winOut": 52.9
       },
       "projected": {
        "wins": 3.5,
@@ -19086,7 +19086,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 73.7
+       "winOut": 73.8
       },
       "projected": {
        "wins": 0.7,
@@ -19110,7 +19110,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 34.0
+       "winOut": 33.4
       },
       "projected": {
        "wins": 3.3,
@@ -19134,7 +19134,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 13.0
+       "winOut": 12.7
       },
       "projected": {
        "wins": 1.1,
@@ -19158,7 +19158,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 19.6
+       "winOut": 20.2
       },
       "projected": {
        "wins": 1.2,
@@ -19182,7 +19182,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 34.4
+       "winOut": 34.1
       },
       "projected": {
        "wins": 2.3,
@@ -19206,7 +19206,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 21.1
+       "winOut": 20.7
       },
       "projected": {
        "wins": 2.2,
@@ -19254,7 +19254,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 26.3
+       "winOut": 26.2
       },
       "projected": {
        "wins": 1.3,
@@ -19278,7 +19278,7 @@
        "title": 0.0,
        "titleGame": 0.0,
        "conference": 0.0,
-       "winOut": 6.2
+       "winOut": 6.5
       },
       "projected": {
        "wins": 2.1,
@@ -19290,7 +19290,7 @@
       }
      }
     ],
-    "fetchedAt": "2026-11-27T10:07Z"
+    "fetchedAt": "2026-11-27T10:37Z"
    }
   }
  ]
