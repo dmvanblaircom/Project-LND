@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-27T22:36:41.741411+00:00",
+ "updated": "2026-11-27T23:08:01.545160+00:00",
  "items": [
+  {
+   "title": "Game Center: Gophers-Badgers",
+   "link": "https://gophersports.com/news/2026/11/27/football-gameday-central-gophers-badgers",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"team\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2025/11/29/DK1_0015.JPG\" /><br /><br />The Golden Gophers look for their fifth win in six tries against Wisconsin as the two teams meet tonight at 6:30PM. Watch LIVE on NBC.",
+   "image": "https://gophersports.com/images/2025/11/29/DK1_0015.JPG?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-27T23:00:00+00:00"
+  },
   {
    "title": "Game Trailer: Gophers-Badgers",
    "link": "https://gophersports.com/news/2026/11/26/football-game-trailer-gophers-badgers",
@@ -172,15 +181,6 @@
    "image": "https://gophersports.com/images/2026/11/21/sights-112126.png?width=800",
    "sourceLogo": "https://gophersports.com/favicon.ico",
    "published": "2026-11-21T20:29:00+00:00"
-  },
-  {
-   "title": "Game Trailer: Gophers-Wildcats",
-   "link": "https://gophersports.com/news/2026/11/20/football-game-trailer-gophers-wildcats",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Taylor Darius Game Trailer\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2025/11/20/cinematic-Northwestern-112125.jpg\" /><br /><br />The Golden Gophers host the Northwestern Wildcats in the final home game of the season. Kickoff is set for 11AM on FS1.",
-   "image": "https://gophersports.com/images/2025/11/20/cinematic-Northwestern-112125.jpg?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-21T01:00:00+00:00"
   },
   {
    "title": "Gophers host Northwestern in final home game of the season",

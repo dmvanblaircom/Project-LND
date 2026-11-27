@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:38:34.145851+00:00",
+ "fetchedAt": "2026-11-27T23:08:47.573619+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "vs. Texas",
  "players": [
@@ -39,14 +39,7 @@
    "pos": "DE",
    "no": "10",
    "name": "Marco Jones",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "11",
-   "name": "Kelshaun Johnson",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

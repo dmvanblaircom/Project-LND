@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:38:34.050230+00:00",
+ "fetchedAt": "2026-11-27T23:08:47.449951+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "at Texas A&M",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "EDG",
    "no": "1",
    "name": "Colin Simmons",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +46,7 @@
    "pos": "OL",
    "no": "77",
    "name": "Andre Cojoe",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -61,13 +61,6 @@
    "no": "93",
    "name": "Hero Kanu",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "EDG",
-   "no": "99",
-   "name": "Richard Wesley",
-   "status": "probable",
    "detail": ""
   }
  ],
