@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-27T05:08:00.019977+00:00",
+ "updated": "2026-11-27T13:08:12.701995+00:00",
  "items": [
+  {
+   "title": "Gameday Preview: Temple at Memphis",
+   "link": "https://on3.com/sites/owl-scoop/news/gameday-preview-temple-at-memphis/",
+   "source": "OwlScoop",
+   "summary": "Temple's disappointing season will come to an end today against an 8-3 Memphis team. Find out the key matchups, players and stats here.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25081155/Temple-afi-hookly-2.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-27T13:00:00+00:00"
+  },
   {
    "title": "Temple Owls Black Friday Special: 75% off OwlScoop",
    "link": "https://on3.com/sites/owl-scoop/news/get-75-off-an-annual-owlscoop-membership-now/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/09142312/Untitled-Design-3-6.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-09T20:28:33+00:00"
-  },
-  {
-   "title": "Snap Counts: Temple vs. Navy",
-   "link": "https://on3.com/sites/owl-scoop/news/snap-counts-temple-vs-navy-2/",
-   "source": "OwlScoop",
-   "summary": "Find out which Owls logged the most snaps in Temple's 42-35 loss to Navy here.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07193552/Temple-afi-hookly.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T14:00:00+00:00"
   }
  ]
 }
