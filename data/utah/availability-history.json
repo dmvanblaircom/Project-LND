@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah",
- "updated": "2026-11-26T03:08:38.272931+00:00",
+ "updated": "2026-11-27T03:08:33.230154+00:00",
  "reports": [
   {
    "schema": 1,
@@ -276,10 +276,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T03:08:38.272931+00:00",
+   "fetchedAt": "2026-11-27T03:08:33.230154+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-27",
    "game": "vs. West Virginia",
    "players": [
@@ -287,20 +287,6 @@
      "pos": "RB",
      "no": "1",
      "name": "Wayshawn Parker",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "7",
-     "name": "Braden Pegan",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "24",
-     "name": "Marcus Wimberly",
      "status": "probable",
      "detail": ""
     },

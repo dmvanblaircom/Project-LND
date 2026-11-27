@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma-state",
- "updated": "2026-11-26T11:38:43.825166+00:00",
+ "updated": "2026-11-27T03:08:29.504312+00:00",
  "reports": [
   {
    "schema": 1,
@@ -416,20 +416,13 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:43.825166+00:00",
+   "fetchedAt": "2026-11-27T03:08:29.504312+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. Kansas",
    "players": [
-    {
-     "pos": "WR",
-     "no": "1",
-     "name": "Miles Coleman",
-     "status": "probable",
-     "detail": ""
-    },
     {
      "pos": "LB",
      "no": "3",
@@ -442,6 +435,13 @@
      "no": "44",
      "name": "Carson Kolb",
      "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "47",
+     "name": "Harrison Dempsey",
+     "status": "questionable",
      "detail": ""
     },
     {
