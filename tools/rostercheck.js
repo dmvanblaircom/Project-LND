@@ -313,6 +313,11 @@ eq(reg.byProvider("999999"), null, "an opponent the registry does not know: none
 var unstamped = fs.readdirSync(path.join(root, "data")).filter(function (d) { return fs.existsSync(path.join(root, "data", d, "availability.json")); })
   .filter(function (d) { return JSON.parse(read("data/" + d + "/availability.json")).team !== d; });
 eq(unstamped, [], "every team's availability report on file is stamped with its team, so an opponent's can be read");
+eq(osu.TeamOS.roster.views(bare, { opponent: true }).map(function (v) { return v.id + (v.link ? "(link)" : ""); }), ["roster", "availability"],
+   "no report of our own, but the opponent's: the view is there for theirs (Codex, #292)");
+eq(osu.TeamOS.roster.views(bare, { opponent: false }).map(function (v) { return v.id; }), ["roster"], "neither: no empty view");
+eq(osu.TeamOS.roster.views(osu.TEAM_CONFIG, { opponent: true }).map(function (v) { return v.id; }), ["roster", "availability", "prospects"],
+   "our own report: the same single view");
 function availBody(m) {
   var parts = {}, h = { innerHTML: "", querySelector: function (q) { var k = (/data-ro="(\w+)"/.exec(q) || [])[1];
     if (!k) return q === "[data-ro]" && this.innerHTML ? {} : null; return parts[k] || (parts[k] = { innerHTML: "" }); } };
@@ -333,6 +338,9 @@ ok(/doesn’t read an official availability report for Michigan State/.test(avai
    "drawn: no report Suite reads, said plainly");
 ok(/didn’t load/.test(availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "failed" }, side: "them" })), "drawn: a failed load says so");
 ok(!/ro-sides/.test(availBody({ opp: null })), "drawn: no game-week opponent, no switch");
+ok(/doesn’t read an official availability report for UConn/.test(availBody({ avail: null, ownAvail: false, usName: "UConn", opp: { name: "Michigan State", abbr: "MSU", state: "ok", avail: msu }, side: "us" })) &&
+   !/Loading/.test(availBody({ avail: null, ownAvail: false, usName: "UConn", opp: { name: "Michigan State", abbr: "MSU", state: "ok", avail: msu }, side: "us" })),
+   "drawn: no report of our own says so, never an endless Loading");
 
 console.log("spot names");
 eq([R.spotName("QB"), R.spotName("dt"), R.spotName("WILL"), R.spotName("NICKEL")],

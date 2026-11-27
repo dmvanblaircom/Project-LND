@@ -965,6 +965,9 @@ function paintOutlook(){
 var RO={ chart:null, avail:null, hist:null, histRaw:null, roster:null, q:"", s:{}, histAt:0, histLoading:false };
 var RO_AGAIN=30*60e3;
 function rosterSnap(kind){ return TeamOS.snapshots.get(TEAM_CONFIG, kind); }
+// Roster's views: the team's own, plus Availability when only this week's
+// opponent has a report Suite reads (decision 0049).
+function rosterViews(){ return TeamOS.roster.views(TEAM_CONFIG, { opponent: RO_OPP.state==="ok" && !!oppAvailGame() }); }
 function roOurs(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
 // What Roster loads, by key: where from, and how a payload becomes state.
 function rosterSources(){
@@ -1000,7 +1003,7 @@ function rosterFreshSources(view){
 function paintRoster(){
   var host=$("screenRoster");
   if(!host || host.hidden) return;
-  var route=Suite.nav.current(), views=TeamOS.roster.views(TEAM_CONFIG);
+  var route=Suite.nav.current(), views=rosterViews();
   var m=rosterModel(route, views);
   if(m.view==="prospects") loadProspects();
   if(m.view==="availability") loadOppAvail();
@@ -1019,6 +1022,7 @@ function rosterModel(route, views){
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     // no report Suite reads: the conference's own page instead
     availLink: rosterSnap("availability") ? null : TeamOS.roster.availabilityLink(TEAM_CONFIG),
+    ownAvail: !!rosterSnap("availability") || !!TeamOS.roster.availabilityLink(TEAM_CONFIG),
     // both teams in the next game: #roster/availability/them is theirs
     opp: view==="availability" ? oppAvailModel() : null,
     side: route.path[1]==="them" ? "them" : "us",
@@ -1043,8 +1047,11 @@ function loadOppAvail(){
   if(!o) return;
   var key=o.game.id+":"+(o.team ? o.team.id : "");
   if(RO_OPP.key===key && (RO_OPP.state==="loading" || (RO_OPP.state!=="failed" && Date.now()-RO_OPP.at<RO_AGAIN))) return;
+  // another game or opponent: nothing of the last one carries over, so a
+  // failed request reads as failed, never as that program's "no report"
+  // (Codex, #292)
+  if(RO_OPP.key!==key){ RO_OPP.report=null; RO_OPP.state=null; }
   RO_OPP.key=key; RO_OPP.team=o.team; RO_OPP.at=Date.now();
-  if(RO_OPP.state!=="ok") RO_OPP.report=null;
   var snap=o.team && TeamOS.snapshots.of(o.team.id, "availability");
   if(!snap){ RO_OPP.state="none"; RO_OPP.report=null; return; }
   RO_OPP.state=RO_OPP.report ? "ok" : "loading";
@@ -1056,6 +1063,7 @@ function loadOppAvail(){
     if(RO_OPP.key!==key) return;
     d=d && TeamOS.snapshots.stampedFor(o.team.id, d) ? d : null;
     RO_OPP.report=d; RO_OPP.state=d ? "ok" : "none";
+    Suite.nav.setViews("roster", rosterViews());
     paintRoster(); paintHome();
   }, function(){
     if(RO_OPP.key!==key) return;
@@ -1140,7 +1148,7 @@ window.addEventListener("online", function(){ if(!$("screenRoster").hidden) load
 document.addEventListener("input", function(e){
   if(!e.target || e.target.id!=="rosterQ") return;
   RO.q=e.target.value;
-  Suite.roster.list($("screenRoster"), rosterModel(Suite.nav.current(), TeamOS.roster.views(TEAM_CONFIG)));
+  Suite.roster.list($("screenRoster"), rosterModel(Suite.nav.current(), rosterViews()));
 });
 
 
@@ -1594,7 +1602,7 @@ function homeActions(){
   var a={ matchup:"#game" };
   loadOppAvail();
   var theirs=RO_OPP.state==="ok" && !!oppAvailGame();
-  if(rosterSnap("availability") || (theirs && TeamOS.roster.availabilityLink(TEAM_CONFIG))) a.availability={ href:"#roster/availability" };
+  if(rosterSnap("availability") || theirs) a.availability={ href:"#roster/availability" };
   else { var l=TeamOS.roster.availabilityLink(TEAM_CONFIG); if(l) a.availability={ href:l.url, external:true, sub:l.label }; }
   return a;
 }
@@ -2941,7 +2949,7 @@ setInterval(function(){
 
 // Roster's views follow what this team has (TeamOS.roster.views): a team
 // without a depth chart or an availability report has no empty tabs.
-Suite.nav.setViews("roster", TeamOS.roster.views(TEAM_CONFIG));
+Suite.nav.setViews("roster", rosterViews());
 Suite.nav.start();
 load();
 liftLaunchWhenReady();

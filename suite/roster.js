@@ -259,6 +259,9 @@ Suite.roster = (function () {
       '<p class="ro-meta">' + esc((l.conference || "The conference") + " posts") +
       " each conference game's availability report on its own site.</p>" +
       '<p class="ro-meta">' + external(l.url, l.label) + "</p></section>";
+    // no report of our own anywhere: the view is here for the opponent's
+    if (!a && m.ownAvail === false) return '<section class="card ro-head"><h2 class="ro-title">' + esc(title) + "</h2>" +
+      '<p class="ro-meta">Suite doesn’t read an official availability report for ' + esc(m.usName || "this team") + ". No status is inferred from that.</p></section>";
     if (!a) return quiet(m.failed && m.failed.avail ? "The availability report didn’t load. No status is inferred from that." : "Loading the availability report…");
     return report(a, title);
   }

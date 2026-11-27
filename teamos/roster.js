@@ -28,7 +28,7 @@ TeamOS.roster = (function () {
   // Which views the Roster screen has, from what the team actually has
   // (a capability, not a team branch): the depth chart and the availability
   // report only where a source is declared; the roster always.
-  function views(config) {
+  function views(config, opts) {
     var get = TeamOS.snapshots && TeamOS.snapshots.get;
     var out = [];
     if (get && get(config, "depth")) out.push({ id: "depth", label: "Depth Chart" });
@@ -38,6 +38,10 @@ TeamOS.roster = (function () {
     // view still has its place, and links the conference's own page (David,
     // 2026-10-30).
     else if (availabilityLink(config)) out.push({ id: "availability", label: "Availability", link: true });
+    // A team with no report of its own still has the view when this week's
+    // opponent publishes one Suite reads: Availability covers both teams in
+    // the next game (brief §4.5; decision 0049).
+    else if (opts && opts.opponent) out.push({ id: "availability", label: "Availability" });
     // Who is coming and who may leave: the team's recruiting class and its
     // players on the NFL draft board, all year (David, 2026-10-24).
     if (get && get(config, "recruits")) out.push({ id: "prospects", label: "Prospects" });
