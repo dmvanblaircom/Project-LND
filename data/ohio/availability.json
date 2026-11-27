@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-18T11:09:03.709400+00:00",
+ "fetchedAt": "2026-11-27T16:08:32.176466+00:00",
  "reported": true,
- "effectiveAt": "2026-11-17",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-17",
- "game": "vs. Ball State",
+ "kickoffDate": "2026-11-27",
+ "game": "Toledo",
  "players": [
   {
    "pos": "S",
@@ -57,9 +57,9 @@
    "detail": ""
   },
   {
-   "pos": "K",
-   "no": "47",
-   "name": "Will Hryszko",
+   "pos": "LB",
+   "no": "25",
+   "name": "Michael Molnar",
    "status": "out-game",
    "detail": ""
   },
@@ -88,13 +88,6 @@
    "pos": "WR",
    "no": "80",
    "name": "Kaden Page",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "87",
-   "name": "Tim Boals",
    "status": "out-game",
    "detail": ""
   }

@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-21T11:39:25.480393+00:00",
+ "fetchedAt": "2026-11-27T16:08:35.922405+00:00",
  "reported": true,
- "effectiveAt": "2026-11-20",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-20",
- "game": "vs. Bowling Green",
+ "kickoffDate": "2026-11-27",
+ "game": "Ohio",
  "players": [
   {
    "pos": "WR",
@@ -29,13 +29,6 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "13",
-   "name": "Kari Jackson",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
    "pos": "RB",
    "no": "20",
    "name": "Corey Smith",
@@ -46,13 +39,6 @@
    "pos": "RB",
    "no": "27",
    "name": "Dane Nauman",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "30",
-   "name": "Hayden Roy",
    "status": "out-game",
    "detail": ""
   },
@@ -93,23 +79,16 @@
   },
   {
    "pos": "OL",
+   "no": "70",
+   "name": "Nick Thomas",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "OL",
    "no": "78",
    "name": "Dylan Senda",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "87",
-   "name": "Tucker Kelleher",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "88",
-   "name": "Jacob Newell",
-   "status": "questionable",
    "detail": ""
   },
   {

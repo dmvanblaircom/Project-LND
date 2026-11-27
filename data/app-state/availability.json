@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-25T01:08:24.932576+00:00",
+ "fetchedAt": "2026-11-27T16:08:22.220088+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "at South Alabama",
  "players": [
@@ -43,66 +43,45 @@
    "detail": ""
   },
   {
-   "pos": "TE",
-   "no": "",
-   "name": "Jamel Howse",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Brooks Yurachek",
-   "status": "doubtful",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Kamron Burris",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "",
    "name": "Tre Glover",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "OL",
+   "pos": "TE",
    "no": "",
-   "name": "Ben Jones",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Jaquari Lewis",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Chris Lofton",
-   "status": "questionable",
+   "name": "Jamel Howse",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
    "no": "",
    "name": "Tyriq Poindexter",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
-   "pos": "TE",
+   "pos": "ILB",
    "no": "",
-   "name": "Darrin Fugitt",
-   "status": "probable",
+   "name": "Brooks Yurachek",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "",
+   "name": "Joe Reddish",
+   "status": "gtd",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Carson Sloan",
+   "status": "gtd",
    "detail": ""
   }
  ],

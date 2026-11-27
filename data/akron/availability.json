@@ -7,12 +7,12 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:55:47.748318+00:00",
+ "fetchedAt": "2026-11-27T16:08:21.567628+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-18",
- "game": "at Massachusetts",
+ "kickoffDate": "2026-11-27",
+ "game": "Buffalo",
  "players": [
   {
    "pos": "S",
@@ -85,9 +85,9 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "57",
-   "name": "Ian Falkner",
+   "pos": "DE",
+   "no": "56",
+   "name": "Omari Abor",
    "status": "out-game",
    "detail": ""
   },
@@ -102,13 +102,6 @@
    "pos": "DL",
    "no": "94",
    "name": "Malakai Ross-Graves",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "99",
-   "name": "Jaiden Brown-Demery",
    "status": "out-game",
    "detail": ""
   }

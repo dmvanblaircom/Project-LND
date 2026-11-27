@@ -7,10 +7,10 @@
  "sourceLabel": "SunBeltSports.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-25T01:08:36.313230+00:00",
+ "fetchedAt": "2026-11-27T16:08:34.221179+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "vs. App State",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "OL",
    "no": "",
    "name": "Hubbard, Ethan",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {

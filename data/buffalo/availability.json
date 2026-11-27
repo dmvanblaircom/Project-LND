@@ -7,38 +7,17 @@
  "sourceLabel": "GetSomeMACtion.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-19T11:55:52.385683+00:00",
+ "fetchedAt": "2026-11-27T16:08:25.296284+00:00",
  "reported": true,
- "effectiveAt": "2026-11-18",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-18",
- "game": "vs. Central Michigan",
+ "kickoffDate": "2026-11-27",
+ "game": "Akron",
  "players": [
   {
    "pos": "CB",
    "no": "8",
    "name": "Ramari Taylor",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "QB",
-   "no": "16",
-   "name": "Elijah Holmes",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "17",
-   "name": "Jeremiah Watkins",
-   "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "20",
-   "name": "DJ Mangan",
    "status": "out-game",
    "detail": ""
   },
@@ -72,15 +51,15 @@
   },
   {
    "pos": "OL",
-   "no": "69",
-   "name": "Jackson Bellamy",
-   "status": "questionable",
+   "no": "74",
+   "name": "Nino Francavilla",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "OL",
-   "no": "74",
-   "name": "Nino Francavilla",
+   "no": "75",
+   "name": "Ahmaan Thomas",
    "status": "out-game",
    "detail": ""
   },
