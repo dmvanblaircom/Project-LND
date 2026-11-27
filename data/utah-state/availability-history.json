@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utah-state",
- "updated": "2026-11-26T03:38:50.528864+00:00",
+ "updated": "2026-11-27T03:38:41.422889+00:00",
  "reports": [
   {
    "schema": 1,
@@ -424,32 +424,32 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T03:38:50.528864+00:00",
+   "fetchedAt": "2026-11-27T03:38:41.422889+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. Texas State",
    "players": [
     {
+     "pos": "WR",
+     "no": "",
+     "name": "Eli Wood",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
      "pos": "DB",
      "no": "",
      "name": "Brevin Hamblin",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "ILB",
      "no": "",
      "name": "Bronson Olevao",
-     "status": "doubtful",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "",
-     "name": "Eli Wood",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {

@@ -1,7 +1,16 @@
 {
  "team": "minnesota",
- "updated": "2026-11-27T02:08:01.529390+00:00",
+ "updated": "2026-11-27T03:38:03.525313+00:00",
  "items": [
+  {
+   "title": "Game Trailer: Gophers-Badgers",
+   "link": "https://gophersports.com/news/2026/11/26/football-game-trailer-gophers-badgers",
+   "source": "Minnesota Athletics",
+   "summary": "<img alt=\"Taylor\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2025/11/28/Taylor_Darius_0371.jpg\" /><br /><br />The Golden Gophers travel to Madison to face the Badgers. Kickoff is set for 6:30PM on NBC.",
+   "image": "https://gophersports.com/images/2025/11/28/Taylor_Darius_0371.jpg?width=800",
+   "sourceLogo": "https://gophersports.com/favicon.ico",
+   "published": "2026-11-26T21:15:00+00:00"
+  },
   {
    "title": "Gophers prepare for the border battle for Paul Bunyan\u2019s Axe",
    "link": "https://mndaily.com/top-story/gophers-prepare-for-the-border-battle-for-paul-bunyans-axe/11/26/2026/",
@@ -181,15 +190,6 @@
    "image": "https://mndaily.com/wp-content/uploads/2026/11/spFBUCLA_Creel22.jpg",
    "sourceLogo": null,
    "published": "2026-11-19T04:54:06+00:00"
-  },
-  {
-   "title": "Johnson Named Outland Trophy Semifinalist",
-   "link": "https://gophersports.com/news/2026/11/18/football-johnson-named-outland-trophy-semifinalist",
-   "source": "Minnesota Athletics",
-   "summary": "<img alt=\"Greg Johnson is an offensive lineman for Minnesota\" src=\"https://gophersports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/10/15/Johnson_Greg_10756.jpg\" /><br /><br />Minnesota has had three individuals win the Outland Trophy",
-   "image": "https://gophersports.com/images/2026/10/15/Johnson_Greg_10756.jpg?width=800",
-   "sourceLogo": "https://gophersports.com/favicon.ico",
-   "published": "2026-11-19T01:00:00+00:00"
   },
   {
    "title": "Gophers refuse to name new offensive coordinator ahead of Northwestern matchup",
