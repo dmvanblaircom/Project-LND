@@ -1,7 +1,16 @@
 {
  "team": "middle-tennessee",
- "updated": "2026-11-27T00:38:02.688723+00:00",
+ "updated": "2026-11-27T17:08:04.294708+00:00",
  "items": [
+  {
+   "title": "Blue Raiders face Aggies on Senior Day",
+   "link": "https://goblueraiders.com/news/2026/11/27/football-blue-raiders-face-aggies-on-senior-day",
+   "source": "Middle Tennessee Athletics",
+   "summary": "<img alt=\"NMSU Preview\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/24/NMSU_Preview.png\" /><br /><br />",
+   "image": "https://goblueraiders.com/images/2026/11/24/NMSU_Preview.png?width=800",
+   "sourceLogo": "https://goblueraiders.com/favicon.ico",
+   "published": "2026-11-27T17:00:00+00:00"
+  },
   {
    "title": "Conference USA Week 12 Roundup: Stats, scores and standouts from around the league",
    "link": "https://mtsusidelines.com/2026/11/23/conference-usa-week-12-roundup-stats-scores-and-standouts-from-around-the-league-2/",
@@ -127,15 +136,6 @@
    "image": "https://goblueraiders.com/images/2026/11/7/wku_recap.png?width=800",
    "sourceLogo": "https://goblueraiders.com/favicon.ico",
    "published": "2026-11-08T01:19:00+00:00"
-  },
-  {
-   "title": "Blue Raiders face WKU for Homecoming Saturday",
-   "link": "https://goblueraiders.com/news/2026/11/6/football-blue-raiders-face-wku-for-homecoming-saturday",
-   "source": "Middle Tennessee Athletics",
-   "summary": "<img alt=\"WKU preview\" src=\"https://goblueraiders.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/5/WKU_Preview.png\" /><br /><br />",
-   "image": "https://goblueraiders.com/images/2026/11/5/WKU_Preview.png?width=800",
-   "sourceLogo": "https://goblueraiders.com/favicon.ico",
-   "published": "2026-11-06T17:00:00+00:00"
   }
  ]
 }
