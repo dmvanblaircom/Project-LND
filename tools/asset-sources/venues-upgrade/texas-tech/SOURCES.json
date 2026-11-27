@@ -1,0 +1,25 @@
+{
+  "slug": "texas-tech",
+  "venue": "Jones AT&T Stadium (Galaxy Stadium in the app)",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Aerial_Drone_Jones_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Aerial_Drone_Jones_Stadium.jpg",
+      "width": 2048,
+      "height": 1150,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Oruiz1213",
+      "credit_line": "\"Aerial Drone Jones Stadium\" by Oruiz1213, CC0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from above the new south end-zone building looking north into the empty bowl, late-afternoon light (Nov 2024), with the completed south end zone facade in the foreground. Native size (already 16:9, 2048 px). Field centred horizontally (x ~650-1400) and in rows ~405-585 of 1150 (35-51%), so it sits at the top-40% line; the building facade fills the bottom half. Shows the stadium's current shape including the south end-zone enclosure."
+    }
+  ],
+  "closest_misses": [
+    {"file": "Jones AT&T Stadium wide shot.jpg", "why": "5288x2807 CC BY 2.0, 2010 day, before the east-side, north-video-board and south end-zone rebuilds."},
+    {"file": "Jones Stadium North End Zone and video board.JPG", "why": "3264x2448, 2013, toward the north end zone only, pre-south-end-zone."}
+  ]
+}
