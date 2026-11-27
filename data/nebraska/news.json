@@ -1,7 +1,16 @@
 {
  "team": "nebraska",
- "updated": "2026-11-27T00:07:57.769189+00:00",
+ "updated": "2026-11-27T05:07:56.055846+00:00",
  "items": [
+  {
+   "title": "Black Friday Special: Get 75% OFF an annual HuskerOnline membership",
+   "link": "https://on3.com/teams/nebraska-cornhuskers/news/black-friday-special-get-75-off-an-annual-huskeronline-membership/",
+   "source": "On3",
+   "summary": "Don't miss HuskerOnline's Black Friday sale! Get 75% off an annual membership and enjoy 12 months of premium Nebraska coverage for just $30.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/26112813/on3-promo-1b45357799328f57.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-27T05:01:00+00:00"
+  },
   {
    "title": "Tunnel Talk: The latest intel on Nebraska football, recruiting, and more",
    "link": "https://on3.com/teams/nebraska-cornhuskers/news/tunnel-talk-the-latest-intel-on-nebraska-football-recruiting-and-more-23/",
@@ -253,15 +262,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_2418,h_1360,x_995,y_187/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_huskers/01m85dhsfn5jjpvxe45t.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-24T11:30:00+00:00"
-  },
-  {
-   "title": "Steven Sipple: We see you, Glenn Thomas, and Nebraska fans surely like what they see",
-   "link": "https://on3.com/teams/nebraska-cornhuskers/news/steven-sipple-we-see-you-glenn-thomas-and-nebraska-fans-surely-like-what-they-see/",
-   "source": "On3",
-   "summary": "Glenn Thomas has strengthened his case for Nebraska\u2019s full-time offensive coordinator role, guiding a balanced, physical offense to impressive victories over Rutgers and Ohio State.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/17125740/Nebraska-Glenn-Thomas-4.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-24T06:08:00+00:00"
   }
  ]
 }

@@ -1,7 +1,16 @@
 {
  "team": "temple",
- "updated": "2026-11-25T22:08:06.566504+00:00",
+ "updated": "2026-11-27T05:08:00.019977+00:00",
  "items": [
+  {
+   "title": "Temple Owls Black Friday Special: 75% off OwlScoop",
+   "link": "https://on3.com/sites/owl-scoop/news/get-75-off-an-annual-owlscoop-membership-now/",
+   "source": "OwlScoop",
+   "summary": "With so much taking place, OwlScoop.com is ensuring fans keep up on all the latest scoop by offering\u00a075% OFF annual memberships.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/25184101/on3-promo-69e63157c1b2a5fb.png",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-27T05:01:00+00:00"
+  },
   {
    "title": "The Scoop: S12, E17 - Stuffed with questions, starved for answers",
    "link": "https://on3.com/sites/owl-scoop/news/the-scoop-s12-e17-stuffed-with-questions-starved-for-answers/",
@@ -217,15 +226,6 @@
    "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07193552/Temple-afi-hookly.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-08T14:00:00+00:00"
-  },
-  {
-   "title": "Temple's stunning comeback falls short in 42-35 loss at Navy",
-   "link": "https://on3.com/sites/owl-scoop/news/temples-stunning-comeback-falls-short-in-42-35-loss-at-navy/",
-   "source": "OwlScoop",
-   "summary": "The Owls erased a 28-0 deficit and tied the game at 35, only to fall inside the game's final two minutes.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/07202510/Untitled-Design-3-4.png",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-08T02:29:15+00:00"
   }
  ]
 }
