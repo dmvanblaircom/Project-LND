@@ -1,0 +1,47 @@
+{
+  "team_slug": "houston",
+  "venue": "TDECU Stadium",
+  "summary": "No usable aerial (the only 'aerial' is an airliner-window shot where the stadium is a speck). Day: upper-deck corner view with the downtown skyline; night: wide upper-level panorama under the lights.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:TDECU_Stadium_skyline_view.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/TDECU_Stadium_skyline_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1793,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Brian Reading",
+      "credit_line": "Photo: Brian Reading / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2014,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Elevated upper-deck corner view of the current stadium (opened 2014), empty; field fills the lower-right, roughly rows 1000-1793, skyline and stands above. A few people stand on the stairs in the lower-left."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Night_panorama_of_TDECU_Stadium.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Night_panorama_of_TDECU_Stadium.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1025,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Brian Reading",
+      "credit_line": "Photo: Brian Reading / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2014,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Upper-level panorama of a full stadium under lights; field in the middle, roughly rows 530-935. Fans at the right edge are small and not the subject."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:TDECU_Stadium_aerial.png",
+      "why": "2024 photo taken from an airliner window; the stadium is a tiny spot in the frame (the cropped version is 965 px and still far away)."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Houston_Downtown(TDECU_Stadium).jpg",
+      "why": "Good 2016 elevated end-zone view with skyline, but exactly 1600 px and the field sits lower; kept as the alternate day photo."
+    }
+  ]
+}

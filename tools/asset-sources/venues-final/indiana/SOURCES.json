@@ -1,0 +1,32 @@
+{
+  "team_slug": "indiana",
+  "venue": "Memorial Stadium (Bloomington, IN)",
+  "summary": "Day: 2024 upper-deck view of a sold-out game in the current (post-2018 south end zone) stadium. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:GEU_0429.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/GEU_0429.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "JYDecker",
+      "credit_line": "Photo: JYDecker / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "From the top of the west upper deck over a full crowd; field in the lower-middle, roughly rows 970-1460, sky fills the top third."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_Bloomington,_Indiana_November_5,_2022.jpg",
+      "why": "Dusk 2022 game shot from the lower stands; field is a band across the bottom, not elevated enough for the night slot."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:MemorialStadium-IUB.jpg",
+      "why": "Elevated empty view at 1333 px, older than the 2018 south end zone completion."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "team_slug": "illinois",
+  "venue": "Gies Memorial Stadium (Memorial Stadium, Champaign)",
+  "summary": "Day: 2021 high oblique drone view into the bowl from behind the south end zone. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium,_Smith_Football_Performance_Center_and_State_Farm_Center,_University_of_Illinois.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Memorial_Stadium%2C_Smith_Football_Performance_Center_and_State_Farm_Center%2C_University_of_Illinois.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1350,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lectrician2",
+      "credit_line": "Photo: Lectrician2 / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2021,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from the south looking north into the empty bowl, State Farm Center behind; field centered horizontally, roughly rows 690-1100."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_Champaign_Panorama.jpg",
+      "why": "2014 elevated empty panorama, but 6576x1664 so the field is a thin band once cropped to phone width."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_(Champaign)_2.jpg",
+      "why": "Field-level game-day view from the lower stands; sky and stands fill the top half."
+    }
+  ]
+}
