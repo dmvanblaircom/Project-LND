@@ -1,0 +1,23 @@
+{
+  "slug": "boise-state",
+  "venue": "Albertsons Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bronco_Stadium_November_14_2009.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Bronco_Stadium_November_14_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "original_width": 3072,
+      "original_height": 2304,
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "Public domain",
+      "license_url": null,
+      "author": "Bsuorangecrush (talk)",
+      "credit_line": "\"Bronco Stadium November 14 2009.jpg\" by Bsuorangecrush (talk), Public domain, via Wikimedia Commons",
+      "year": 2009,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Daytime, elevated view from the east stands across the blue field to the full west stands and the Stueckle Sky Center (opened 2008); field fills the lower third (rows ~1150-1800 of 1800), stadium filled. Not aerial; no daytime aerial on Commons. The west side looks the same today."
+    }
+  ]
+}
