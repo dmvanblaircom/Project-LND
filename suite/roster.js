@@ -238,16 +238,52 @@ Suite.roster = (function () {
 
   // ---- Availability ------------------------------------------------------------
 
+  // Both teams in the next game (brief §4.5): ours, and this week's
+  // opponent's at #roster/availability/them. The switch shows whenever there
+  // is a game-week opponent; each side says plainly when it has no report.
   function availView(m) {
+    if (!m.opp) return usAvail(m);
+    var sides = [["us", m.usAbbr, "#roster/availability"], ["them", m.opp.abbr || m.opp.name, "#roster/availability/them"]];
+    var sw = '<nav class="seg-light seg-mini ro-sides" aria-label="Whose availability">' + sides.map(function (x) {
+      return '<a href="' + x[2] + '"' + (m.side === x[0] ? ' aria-current="page"' : "") + ">" + esc(x[1]) + "</a>";
+    }).join("") + "</nav>";
+    return sw + (m.side === "them" ? themAvail(m.opp) : usAvail(m, m.usName ? m.usName + " Availability" : null));
+  }
+
+  function usAvail(m, title) {
     var a = m.avail, l = m.availLink;
+    title = title || "Availability Report";
     // The conference publishes its reports where Suite cannot read them: say
     // where they are, and nothing about who is out (0019: never inferred).
-    if (!a && l) return '<section class="card ro-head"><h2 class="ro-title">Availability Report</h2>' +
+    if (!a && l) return '<section class="card ro-head"><h2 class="ro-title">' + esc(title) + "</h2>" +
       '<p class="ro-meta">' + esc((l.conference || "The conference") + " posts") +
       " each conference game's availability report on its own site.</p>" +
       '<p class="ro-meta">' + external(l.url, l.label) + "</p></section>";
+    // no report of our own anywhere: the view is here for the opponent's
+    if (!a && m.ownAvail === false) return '<section class="card ro-head"><h2 class="ro-title">' + esc(title) + "</h2>" +
+      '<p class="ro-meta">Suite doesn’t read an official availability report for ' + esc(m.usName || "this team") + ". No status is inferred from that.</p></section>";
     if (!a) return quiet(m.failed && m.failed.avail ? "The availability report didn’t load. No status is inferred from that." : "Loading the availability report…");
-    var head = '<section class="card ro-head"><h2 class="ro-title">Availability Report</h2>';
+    return report(a, title);
+  }
+
+  // The opponent's: its own official report, never inferred (0019). No
+  // report Suite reads, one for another week, and one that did not load
+  // each say so.
+  function themAvail(o) {
+    var title = esc(o.name) + " Availability";
+    if (o.state === "loading") return quiet("Loading " + o.name + "’s availability report…");
+    if (o.state === "failed") return quiet(o.name + "’s availability report didn’t load. No status is inferred from that.");
+    if (o.state === "none") return '<section class="card ro-head"><h2 class="ro-title">' + title + "</h2>" +
+      '<p class="ro-meta">Suite doesn’t read an official availability report for ' + esc(o.name) + ". No status is inferred from that.</p></section>";
+    if (!o.avail) return '<section class="card ro-head"><h2 class="ro-title">' + title + "</h2>" +
+      '<p class="ro-meta">' + esc(o.name) + " hasn’t published its official availability report for this game yet. No status is inferred from that.</p></section>";
+    return report(o.avail, title, true);
+  }
+
+  // One official report: who it lists, by status. `safe` marks a title
+  // that is already escaped.
+  function report(a, title, safe) {
+    var head = '<section class="card ro-head"><h2 class="ro-title">' + (safe ? title : esc(title)) + "</h2>";
     // Never inferred from silence (0019): no report says so; a report that
     // lists nobody says everyone is available.
     if (!a.reported) return head + '<p class="ro-meta">No official availability report is out for ' + esc(a.game || "the next game") +

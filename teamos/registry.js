@@ -82,6 +82,11 @@ TeamOS.registry = (function () {
       },
 
       get: function (id) { return byId[id] || null; },
+      // The program the data provider calls by this id (a game's opponent).
+      byProvider: function (pid) {
+        pid = pid == null ? "" : String(pid);
+        return all.filter(function (t) { return t.providerId && t.providerId === pid; })[0] || null;
+      },
       isAvailable: function (id) { return !!(byId[id] && byId[id].available); },
       configFor: function (id) { return byId[id] ? byId[id].config : null; },
       isId: function (id) { return typeof id === "string" && ID.test(id); }

@@ -965,6 +965,9 @@ function paintOutlook(){
 var RO={ chart:null, avail:null, hist:null, histRaw:null, roster:null, q:"", s:{}, histAt:0, histLoading:false };
 var RO_AGAIN=30*60e3;
 function rosterSnap(kind){ return TeamOS.snapshots.get(TEAM_CONFIG, kind); }
+// Roster's views: the team's own, plus Availability when only this week's
+// opponent has a report Suite reads (decision 0049).
+function rosterViews(){ return TeamOS.roster.views(TEAM_CONFIG, { opponent: RO_OPP.state==="ok" && !!oppAvailGame() }); }
 function roOurs(d){ return d && TeamOS.snapshots.owned(TEAM, d) ? d : null; }
 // What Roster loads, by key: where from, and how a payload becomes state.
 function rosterSources(){
@@ -1000,9 +1003,10 @@ function rosterFreshSources(view){
 function paintRoster(){
   var host=$("screenRoster");
   if(!host || host.hidden) return;
-  var route=Suite.nav.current(), views=TeamOS.roster.views(TEAM_CONFIG);
+  var route=Suite.nav.current(), views=rosterViews();
   var m=rosterModel(route, views);
   if(m.view==="prospects") loadProspects();
+  if(m.view==="availability") loadOppAvail();
   Suite.roster.paint(host, m);
 }
 function rosterModel(route, views){
@@ -1010,7 +1014,7 @@ function rosterModel(route, views){
   function failed(k){ return !roHas(k) && !!roState(k).failed; }
   var today=TeamOS.game.localDay(new Date(), TEAM.timeZone);   // a report's game day past: it marks nobody out
   return {
-    views: views, view: view, unit: route.path[1] || null,
+    views: views, view: view, unit: route.path[1] || null, usAbbr: TEAM.abbreviation || TEAM.name, usName: TEAM.name,
     hasDepth: !!rosterSnap("depth"),
     depth: RO.chart ? TeamOS.roster.depth(RO.chart, RO.roster, RO.avail, RO.histRaw, today) : null,
     history: RO.hist, roster: RO.roster ? TeamOS.roster.withStatus(RO.roster, RO.avail, RO.chart, today) : null, query: RO.q,
@@ -1018,10 +1022,66 @@ function rosterModel(route, views){
     avail: RO.avail ? TeamOS.roster.availability(RO.avail, RO.roster) : null,
     // no report Suite reads: the conference's own page instead
     availLink: rosterSnap("availability") ? null : TeamOS.roster.availabilityLink(TEAM_CONFIG),
+    ownAvail: !!rosterSnap("availability") || !!TeamOS.roster.availabilityLink(TEAM_CONFIG),
+    // both teams in the next game: #roster/availability/them is theirs
+    opp: view==="availability" ? oppAvailModel() : null,
+    side: route.path[1]==="them" ? "them" : "us",
     prospects: { recruits:PROSPECTS.recruits, draft:PROSPECTS.draft, loaded:PROSPECTS.loaded },
     failed: { depth: failed("depth"), roster: failed("roster"), avail: failed("availability") },
     fresh: TeamOS.freshness.summary(rosterFreshSources(view), { now:new Date(), online: navigator.onLine!==false })
   };
+}
+// This week's opponent's availability report (brief §4.5: "Availability,
+// covering both teams in the next game"). The opponent's own snapshot,
+// read where every team's is (TeamOS.snapshots.of), and taken only when the
+// file is stamped with that program's id. A program whose conference
+// publishes no report Suite reads has no file: that is "none", not a
+// failure. Asked again after RO_AGAIN, or when the game week changes.
+var RO_OPP={ key:null, team:null, report:null, state:null, at:0 };
+function oppAvailGame(){
+  var g=gameWeekGame();
+  return g ? { game:g, team:registry().byProvider(g.oppProviderId) } : null;
+}
+function loadOppAvail(){
+  var o=oppAvailGame();
+  if(!o) return;
+  var key=o.game.id+":"+(o.team ? o.team.id : "");
+  if(RO_OPP.key===key && (RO_OPP.state==="loading" || (RO_OPP.state!=="failed" && Date.now()-RO_OPP.at<RO_AGAIN))) return;
+  // another game or opponent: nothing of the last one carries over, so a
+  // failed request reads as failed, never as that program's "no report"
+  // (Codex, #292)
+  if(RO_OPP.key!==key){ RO_OPP.report=null; RO_OPP.state=null; }
+  RO_OPP.key=key; RO_OPP.team=o.team; RO_OPP.at=Date.now();
+  var snap=o.team && TeamOS.snapshots.of(o.team.id, "availability");
+  if(!snap){ RO_OPP.state="none"; RO_OPP.report=null; return; }
+  RO_OPP.state=RO_OPP.report ? "ok" : "loading";
+  fetch(snap.file+"?t="+Date.now(), { cache:"no-store" }).then(function(r){
+    if(r.status===404) return null;
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r.json();
+  }).then(function(d){
+    if(RO_OPP.key!==key) return;
+    d=d && TeamOS.snapshots.stampedFor(o.team.id, d) ? d : null;
+    RO_OPP.report=d; RO_OPP.state=d ? "ok" : "none";
+    Suite.nav.setViews("roster", rosterViews());
+    paintRoster(); paintHome();
+  }, function(){
+    if(RO_OPP.key!==key) return;
+    if(!RO_OPP.report) RO_OPP.state="failed";
+    paintRoster();
+  });
+}
+// The opponent's side of Availability, as the Roster screen shows it. A
+// report for another week is not this game's (TeamOS.roster.forGame).
+function oppAvailModel(){
+  var o=oppAvailGame();
+  if(!o) return null;
+  var key=o.game.id+":"+(o.team ? o.team.id : ""), rep=RO_OPP.key===key ? RO_OPP.report : null;
+  var thisGame=!!rep && TeamOS.roster.forGame(rep, o.game.date);
+  return { name: (o.team && o.team.name) || o.game.oppName || "", abbr: o.game.oppAbbr || (o.team && o.team.abbr) || o.game.oppName || "",
+           state: RO_OPP.key===key ? RO_OPP.state : "loading",
+           avail: thisGame ? TeamOS.roster.availability(rep, null) : null,
+           otherGame: !!rep && !thisGame };
 }
 // The last good copy the worker kept, with when it was fetched.
 // A copy kept before the address gained its `limit` (the roster, 2026-10-11)
@@ -1088,7 +1148,7 @@ window.addEventListener("online", function(){ if(!$("screenRoster").hidden) load
 document.addEventListener("input", function(e){
   if(!e.target || e.target.id!=="rosterQ") return;
   RO.q=e.target.value;
-  Suite.roster.list($("screenRoster"), rosterModel(Suite.nav.current(), TeamOS.roster.views(TEAM_CONFIG)));
+  Suite.roster.list($("screenRoster"), rosterModel(Suite.nav.current(), rosterViews()));
 });
 
 
@@ -1535,9 +1595,14 @@ function splitWire(now){
 // Home's two quick actions (Home review, 2026-11-11): Matchup opens Game,
 // where the comparison is; Availability opens the team's report when Suite
 // reads one, or the program's published page when it only links one.
+// Availability covers both teams in the next game (brief §4.5): it opens
+// Roster's Availability, ours and the opponent's, whenever Suite reads either
+// report; a team with neither keeps the conference's own page.
 function homeActions(){
   var a={ matchup:"#game" };
-  if(rosterSnap("availability")) a.availability={ href:"#roster/availability" };
+  loadOppAvail();
+  var theirs=RO_OPP.state==="ok" && !!oppAvailGame();
+  if(rosterSnap("availability") || theirs) a.availability={ href:"#roster/availability" };
   else { var l=TeamOS.roster.availabilityLink(TEAM_CONFIG); if(l) a.availability={ href:l.url, external:true, sub:l.label }; }
   return a;
 }
@@ -2884,7 +2949,7 @@ setInterval(function(){
 
 // Roster's views follow what this team has (TeamOS.roster.views): a team
 // without a depth chart or an availability report has no empty tabs.
-Suite.nav.setViews("roster", TeamOS.roster.views(TEAM_CONFIG));
+Suite.nav.setViews("roster", rosterViews());
 Suite.nav.start();
 load();
 liftLaunchWhenReady();

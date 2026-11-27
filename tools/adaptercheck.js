@@ -843,7 +843,7 @@ ok(!/\bfetch\s*\(/.test(snapSrc),                                        "does n
 ok(!/\b(document|window|navigator|localStorage|caches)\b/.test(snapSrc),   "does not touch the DOM or browser storage");
 ok(!/\bTEAM_ID\b|\bS\.\w|\bTEAM\b(?!_CONFIG)/.test(snapSrc), "does not read application globals (TEAM, TEAM_ID, S)");
 ok(!/notre|irish|ohio|buckeye/i.test(snapSrc.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "")), "names no team in code");
-eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","owned"], "exactly the documented functions");
+eq(Object.keys(TeamOS.snapshots).sort(), ["files","get","of","owned","stampedFor"], "exactly the documented functions");
 
 console.log(" every file a team declares, for the worker to cache");
 eq(TeamOS.snapshots.files(TEAM_CONFIG),
