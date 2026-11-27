@@ -1,0 +1,47 @@
+{
+  "team_slug": "iowa-state",
+  "venue": "Jack Trice Stadium",
+  "summary": "No aerial on Commons (the only overhead-ish photo is a 2010 FEMA flood shot of the exterior). Day: 2007 elevated sideline view at halftime; night: 2015 upper corner view of a full stadium.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Jack_Trice_Stadium,_daytime.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Jack_Trice_Stadium%2C_daytime.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1800,
+      "height": 1200,
+      "license_short_name": "Public domain",
+      "license_url": "",
+      "author": "User:K.a.zenz",
+      "credit_line": "Photo: User:K.a.zenz / Public domain, via Wikimedia Commons",
+      "year": 2007,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Elevated east-side view across to the west stands and press box during a band show; field fills the lower 40 percent, roughly rows 700-1200. Predates the 2015 south end zone enclosure, but the west side shown is essentially unchanged."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:American_football_at_jack_trice_stadium.jpeg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/American_football_at_jack_trice_stadium.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Judd Furlong (Commons user Jfurlong)",
+      "credit_line": "Photo: Judd Furlong (Commons user Jfurlong) / CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "High corner view over a packed crowd under the lights; field runs diagonally through the upper-right, roughly rows 680-1200 on the right half. Crowd fills the lower-left (small, not the subject)."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:FEMA_-_44984_-_Iowa_State_Stadium_surrounded_by_flood_waters.jpg",
+      "why": "2010 ground-level exterior in floodwater, not an aerial into the bowl."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Jack_Trice_Stadium.jpg",
+      "why": "Night game from low in the stands; heads and a pink hat fill the foreground."
+    }
+  ]
+}

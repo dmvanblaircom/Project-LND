@@ -1,0 +1,47 @@
+{
+  "team_slug": "rutgers",
+  "venue": "SHI Stadium",
+  "summary": "No aerial on Commons. Day and night are both high upper-deck views of full games by the same photographer (2006, 2007); the bowl is the same apart from the 2009 south end zone expansion.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Rutgers_Stadium,_Piscataway,_New_Jersey,_USA_-_panoramio_-_Gary_Miotla.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Rutgers_Stadium%2C_Piscataway%2C_New_Jersey%2C_USA_-_panoramio_-_Gary_Miotla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1600,
+      "height": 1200,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Gary Miotla",
+      "credit_line": "Photo: Gary Miotla / CC BY 3.0, via Wikimedia Commons",
+      "year": 2006,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Upper-deck sideline view of a full house during a band show, RAC dome at upper right; field in the lower half, roughly rows 550-1180. Part of a spectator's head at the far left edge."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Rutgers_Stadium,_Piscataway,_New_Jersey,_USA_-_panoramio_-_Gary_Miotla_(4).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Rutgers_Stadium%2C_Piscataway%2C_New_Jersey%2C_USA_-_panoramio_-_Gary_Miotla_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1600,
+      "height": 1200,
+      "license_short_name": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Gary Miotla",
+      "credit_line": "Photo: Gary Miotla / CC BY 3.0, via Wikimedia Commons",
+      "year": 2007,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Steep upper-deck view under the lights; field fills the middle, roughly rows 280-970, fans' backs in the bottom quarter."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:RUFootballStadium.jpg",
+      "why": "Wide panorama at 2184x699; the field is a thin strip."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Michigan_at_Rutgers_November_5_2022_Third_Quarter_2_Yard_Line.jpg",
+      "why": "2022 but a low telephoto of the end zone; no bowl."
+    }
+  ]
+}

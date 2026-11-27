@@ -1,0 +1,47 @@
+{
+  "team_slug": "utah",
+  "venue": "Rice-Eccles Stadium",
+  "summary": "No current-form aerial on Commons. Day: 2022 view from the new south end zone (opened 2021) over the full bowl with the Wasatch behind; night: 2009 dusk sideline view under the lights.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ken_Garff_South_End_zone_at_Rice-Eccles_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Ken_Garff_South_End_zone_at_Rice-Eccles_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Mattstorms",
+      "credit_line": "Photo: Mattstorms / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2022,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Elevated from the new south end zone looking north over a full crowd and band show, mountains on the skyline; field in the middle, roughly rows 920-1480, fans' heads in the bottom 15 percent."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:University_of_Utah_Vs._Utah_State_-_Via_MUSS_crop.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/University_of_Utah_Vs._Utah_State_-_Via_MUSS_crop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1276,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Flickr user 61322395@N00",
+      "credit_line": "Photo: Flickr user 61322395@N00 / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2009,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Dusk game under the lights from the east-side upper rows toward the west press box; field across the bottom, roughly rows 880-1270, stands and twilight sky above. Cropped panorama; the side shown predates but is unchanged by the 2021 south end zone work."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ken-Garff-Red-Zone-at-Rice-Eccles-Stadium-4_081121.jpg",
+      "why": "Good 2021 elevated empty view of the new south end zone bowl, but only 2000 px; kept as the alternate day photo."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Panorama_shot_during_Florida%27s_2022_season-opening_win_vs._Utah.jpg",
+      "why": "Taken from the lower corner with spectators across the foreground; field is a small band."
+    }
+  ]
+}
