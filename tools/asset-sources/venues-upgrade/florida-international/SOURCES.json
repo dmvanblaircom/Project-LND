@@ -1,0 +1,11 @@
+{
+  "slug": "florida-international",
+  "venue": "Pitbull Stadium",
+  "files": [],
+  "closest_misses": [
+    {"file": "FIU Stadium, October 13, 2012.jpg", "why": "2048x680 CC BY-SA 3.0 day panorama from the stands corner; very wide 3:1 aspect, a 16:9 crop drops to ~1200 px wide, and a railing runs along the lower left. Likely no better than the current 800 px photo."},
+    {"file": "FIU Stadium.JPG", "why": "3264x2448 CC BY-SA 3.0, 2008 day, but the bottom half is a dense crowd close to the camera."},
+    {"file": "MiamiFCFIU.jpg", "why": "3504x2336 public domain, day, but soccer configuration and a field-level crop of play."},
+    {"file": "FIU Duke 2011.jpg", "why": "Night, faces in the foreground. No aerial view of the stadium on Commons."}
+  ]
+}
