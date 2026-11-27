@@ -7,20 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:34.703476+00:00",
+ "fetchedAt": "2026-11-27T01:38:23.785036+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "vs. Auburn",
  "players": [
-  {
-   "pos": "LB",
-   "no": "4",
-   "name": "Luke Metz",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "LB",
    "no": "7",
@@ -29,24 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "9",
-   "name": "Desmond Umeozulu",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "10",
    "name": "Jireh Edwards",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "14",
-   "name": "Fatutoa Henry",
-   "status": "probable",
    "detail": ""
   },
   {

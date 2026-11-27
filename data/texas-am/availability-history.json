@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-am",
- "updated": "2026-11-26T01:38:36.345684+00:00",
+ "updated": "2026-11-27T01:38:34.145851+00:00",
  "reports": [
   {
    "schema": 1,
@@ -402,10 +402,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T01:38:36.345684+00:00",
+   "fetchedAt": "2026-11-27T01:38:34.145851+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-27",
    "game": "vs. Texas",
    "players": [
@@ -441,14 +441,14 @@
      "pos": "WR",
      "no": "11",
      "name": "Kelshaun Johnson",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "S",
      "no": "15",
      "name": "Tylan Wilson",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

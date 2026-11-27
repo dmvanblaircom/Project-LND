@@ -7,10 +7,10 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T01:38:36.229013+00:00",
+ "fetchedAt": "2026-11-27T01:38:34.050230+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-27",
  "game": "at Texas A&M",
  "players": [
@@ -67,7 +67,7 @@
    "pos": "EDG",
    "no": "99",
    "name": "Richard Wesley",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   }
  ],
