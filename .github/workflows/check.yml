@@ -161,11 +161,18 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.64.1-noble
       options: --ipc=host
     steps:
-      - uses: actions/checkout@v4
+      # The pull request as GitHub merges it onto the base, and the base it
+      # merges onto: that merge's first parent. Not pull_request.base.sha,
+      # which can be another commit of the base; on a branch left open while
+      # the base moved, the two sides drew different news and called it a
+      # change (#289, 2026-11-27).
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          path: .base
+          fetch-depth: 2
+      - name: The base this pull request merges onto
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git worktree add --detach .base HEAD^1
       - uses: actions/setup-node@v4
         with:
           node-version: 22

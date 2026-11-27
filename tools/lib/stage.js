@@ -12,6 +12,8 @@
      var stage = require("./lib/stage");
      var s = await stage.open(browser, base, { team, style, width, screen });
      if (s.ready) await stage.paint(s.page, "live", { screen });
+     // or paint your own model: await stage.hold(page), then call
+     // Suite.home.__wrapped(host, model) / Suite.game.__wrapped(host, model)
 
    Used by tools/stagereview.js (and so tools/changesheet.js) and
    tools/teamcheck.js. */
@@ -77,16 +79,25 @@ async function open(browser, base, opts) {
     var gameHook = setInterval(function () {
       if (window.Suite && Suite.game && Suite.game.paint && !Suite.game.__wrapped) {
         var gp = Suite.game.paint;
-        Suite.game.paint = function (host, m) { if (host && host.id === "screenGame" && m && m.game) { window.__gameModel = m; window.__gameHost = host; } return gp.apply(this, arguments); };
+        Suite.game.paint = function (host, m) {
+          if (window.__stageHold) return;
+          if (host && host.id === "screenGame" && m && m.game) { window.__gameModel = m; window.__gameHost = host; }
+          return gp.apply(this, arguments);
+        };
         Suite.game.__wrapped = gp;
         clearInterval(gameHook);
       }
     }, 5);
+    // Once a test paints its own state (window.__stageHold), the app's own
+    // repaints (on a resize, a tick, a refresh) are held off, so what is
+    // measured is the state the test painted: a check that resizes the
+    // viewport (the contrast auditor does) would otherwise measure the text
+    // of one paint against the pixels of another.
     // the app's own Home model as it paints, to repaint it in each state
     var hook = setInterval(function () {
       if (window.Suite && Suite.home && Suite.home.paint && !Suite.home.__wrapped) {
         var paint = Suite.home.paint;
-        Suite.home.paint = function (host, m) { window.__homeModel = m; window.__homeHost = host; return paint.apply(this, arguments); };
+        Suite.home.paint = function (host, m) { if (window.__stageHold) return; window.__homeModel = m; window.__homeHost = host; return paint.apply(this, arguments); };
         Suite.home.__wrapped = paint;
         clearInterval(hook);
       }
@@ -125,6 +136,7 @@ async function paint(page, name, opts) {
   var spec = STATES[name];
   if (!spec) throw new Error("no state " + name);
   var a = { spec: spec, name: name, fixtureNow: FIXTURE_NOW, opp: opts.opp || null, venue: opts.venue || null };
+  await hold(page);
   if (opts.screen === "game") await page.evaluate(function (a) {
     var m = window.__gameModel, base = new Date(a.fixtureNow).getTime();
     var g = Object.assign({}, m.game, { situation: null, detail: "" });
@@ -165,6 +177,10 @@ async function paint(page, name, opts) {
   await page.waitForTimeout(150);
 }
 
+// Hold off the app's own repaints of Home and Game from now on; the test's
+// own paints go through Suite.home.__wrapped / Suite.game.__wrapped.
+function hold(page) { return page.evaluate(function () { window.__stageHold = true; }); }
+
 // Every image settled (loaded or failed) and every font in, so the same page
 // draws the same pixels twice.
 function settle(page) {
@@ -174,4 +190,4 @@ function settle(page) {
   }, null, { timeout: 8000 }).catch(function () {});
 }
 
-module.exports = { FIXTURE_NOW: FIXTURE_NOW, STATES: STATES, responseFor: responseFor, open: open, paint: paint, settle: settle };
+module.exports = { FIXTURE_NOW: FIXTURE_NOW, STATES: STATES, responseFor: responseFor, open: open, paint: paint, hold: hold, settle: settle };
