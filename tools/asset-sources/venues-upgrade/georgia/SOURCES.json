@@ -1,0 +1,11 @@
+{
+  "slug": "georgia",
+  "venue": "Sanford Stadium",
+  "files": [],
+  "closest_misses": [
+    {"file": "Sanford Stadium at night.jpg", "why": "4032x3024 CC BY-SA 4.0, 2017 night game under lights, lower-bowl end-zone view, full stadium. Rejected: field sits in rows ~56-85% (so any 16:9 crop puts it in the bottom half), large heads close to the camera across the bottom right, and a lamp flare in the upper right."},
+    {"file": "UGA vs. Notre Dame 2019.jpg", "why": "2048x1536 CC BY-SA 4.0, dusk/night 2019, upper corner view with a sunset sky, but fans' heads fill the bottom fifth and the field is mid-to-lower frame; the 2048x1049 crop is likely the current 960 px source."},
+    {"file": "2024 Georgia Tech vs Georgia.jpg", "why": "2062x1170 CC0, night, field level with hooded heads in the foreground."},
+    {"file": "Sanford Stadium Whiteout.jpg", "why": "5712x4284 CC BY 4.0, 2026, day, heads in the foreground. No night aerial on Commons."}
+  ]
+}
