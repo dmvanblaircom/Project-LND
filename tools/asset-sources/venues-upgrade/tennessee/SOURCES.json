@@ -1,0 +1,28 @@
+{
+  "slug": "tennessee",
+  "venue": "Neyland Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Neyland_Stadium,_home_of_Tennessee_Volunteers.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Aerial_view_of_Neyland_Stadium%2C_home_of_Tennessee_Volunteers.jpg",
+      "original_width": 11193,
+      "original_height": 7995,
+      "width": 2400,
+      "height": 1714,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "\"Aerial view of Neyland Stadium, home of Tennessee Volunteers\" by Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from behind the south end zone into the empty bowl (February 2026, current configuration with the south video board in the foreground). Field runs top to bottom, centred left of middle at x ~380-1520 and rows ~375-1220 of 1714; a top-anchored 16:9 crop (rows 0-1350) puts the field at ~28-90%, so the field starts inside the top 40% but extends below; a crop of rows ~150-1500 centres it better. Overcast winter light, turf green."
+    }
+  ],
+  "closest_misses": [
+    {"file": "President Donald J Trump attends the NCAA football game between the Texas Longhorns and the Tennessee Volunteers, September 26, 2026 (P20260926DT-0596).jpg", "why": "3000x2000 public domain, full checkerboard stands from the upper deck, but the field is barely in frame and a president-on-videoboard shot is politically loaded."},
+    {"file": "160416-N-IQ655-167 160416-N-IQ655-167.jpg", "why": "3840x2560 public domain aerial, but the stadium is small and the frame is dominated by parachutists and a flag."},
+    {"file": "Neyland and downtown aerial.JPG", "why": "3008x2000, 2007 aerial, stadium small and before the 2010 north-end renovation."}
+  ]
+}
