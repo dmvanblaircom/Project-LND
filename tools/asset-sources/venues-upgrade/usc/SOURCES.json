@@ -1,0 +1,27 @@
+{
+  "slug": "usc",
+  "venue": "Los Angeles Memorial Coliseum",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Los_Angeles_Memorial_Coliseum.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Los_Angeles_Memorial_Coliseum.png",
+      "original_width": 8064,
+      "original_height": 5644,
+      "width": 2400,
+      "height": 1680,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "\"Los Angeles Memorial Coliseum\" by Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2025,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from above the peristyle (west end) looking east down the length of the empty bowl, August 2025, football configuration with goalposts and yard lines. Field centred horizontally (x ~970-1460) and in rows ~640-1120 of 1680; a 16:9 crop of rows ~330-1680 puts the field at ~23-58% with the peristyle arch and Olympic torch below it. A beige protective covering sits on the near end zone. Converted from the Commons PNG to JPEG (quality 88). Overcast light."
+    }
+  ],
+  "closest_misses": [
+    {"file": "LA Memorial Coliseum aerial view, August 2017.jpg", "why": "3600x2474 CC BY 2.0, plane aerial, football layout, but the stadium is small in a wide frame and a watermark sits in the bottom-left; before the 2019 renovation."},
+    {"file": "Aerial view of Los Angeles Memorial Coliseum, 1987.jpg", "why": "Black and white, 1987 configuration."}
+  ]
+}
