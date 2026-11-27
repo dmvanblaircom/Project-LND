@@ -1,0 +1,26 @@
+{
+  "slug": "san-diego-state",
+  "venue": "Snapdragon Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_Snapdragon_Stadium_(2022-08-26).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/An_aerial_view_of_Snapdragon_Stadium_%282022-08-26%29.jpg",
+      "width": 1400,
+      "height": 1000,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Terrible Tim",
+      "credit_line": "\"An aerial view of Snapdragon Stadium (2022-08-26).jpg\" by Terrible Tim, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2022,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique aerial (from a plane) into the empty bowl, taken just before the stadium opened, football lines painted. Field centred horizontally (x ~460-940) and in rows ~370-640 of 1000; a 16:9 crop of rows ~210-1000 puts the field at ~20-55%. Only 1400 px wide (below the 1600 px floor) but it is the only day bowl view on Commons that is not soccer or a railing shot; the same flight's 3840x2160 original (PXL 20220826 184856422.jpg) has the stadium too small to crop larger."
+    }
+  ],
+  "closest_misses": [
+    {"file": "San Diego Wave vs Angel City FC June 17, 2023 (52999752262).jpg", "why": "4618x3464 CC BY 2.0 day, but soccer configuration, low corner view with a handrail and fans in the foreground."},
+    {"file": "PXL 20220826 184856422.jpg", "why": "3840x2160 aerial from the same flight, but wide shot of the Mission Valley site; stadium occupies ~20% of the width."},
+    {"file": "Snapdragon Stadium interior-Night game field 2.jpg", "why": "Night set from 2022-10-08 (4000 px); good if a night photo is ever wanted, but this slot needs day."}
+  ]
+}
