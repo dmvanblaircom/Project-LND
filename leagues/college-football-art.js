@@ -148,8 +148,8 @@ var TEAM_ART = (function (W) { return {
     },
     "joe-aillet-stadium": {
       label: "Joe Aillet Stadium", names: ["Joe Aillet Stadium"],
-      day: { path: "assets/venues/joe-aillet-stadium/day-{w}.webp", widths: [800], focus: "50% 50%",
-        credit: { author: "AllisonFoley", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Bulldogs,_Ruston,_Louisiana.jpg", changes: "cropped, resized" } }
+      day: { path: "assets/venues/joe-aillet-stadium/day-{w}.webp", widths: [800, 1280, 1480], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Football.jpg", changes: "cropped, resized" } }
     },
     "our-lady-of-lourdes-stadium": {
       label: "Our Lady of Lourdes Stadium", names: ["Our Lady of Lourdes Stadium"],
@@ -192,6 +192,8 @@ var TEAM_ART = (function (W) { return {
     },
     "jordan-hare-stadium": {
       label: "Jordan-Hare Stadium", names: ["Jordan-Hare Stadium"],
+      day: { path: "assets/venues/jordan-hare-stadium/day-{w}.webp", widths: [800, 1150], focus: "50% 50%",
+        credit: { author: "AuburnPilot", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Jordan-Hare_Stadium_south.jpg", changes: "cropped, resized" } },
       night: { path: "assets/venues/jordan-hare-stadium/night-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
         credit: { author: "Tom Key", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:Auburn,_AL,_USA_-_panoramio_-_Tom_Key_(6).jpg", changes: "cropped, resized" } }
     },
@@ -693,6 +695,112 @@ var TEAM_ART = (function (W) { return {
                credit: { author: "Ken Lund", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0",
                          url: "https://commons.wikimedia.org/wiki/File:Notre_Dame_Stadium,_University_of_Notre_Dame,_South_Bend,_Indiana_(11045985644).jpg",
                          changes: "cropped, softened, darkened, resized" } }
+    },
+    // the last search (2026-11-27): the remaining teams, drone views first
+    "tdecu-stadium": {
+      label: "TDECU Stadium", names: ["TDECU Stadium"],
+      day: { path: "assets/venues/tdecu-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Brian Reading", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:TDECU_Stadium_skyline_view.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/tdecu-stadium/night-{w}.webp", widths: [800, 1200], focus: "50% 50%",
+        credit: { author: "Brian Reading", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Night_panorama_of_TDECU_Stadium.JPG", changes: "cropped, resized" } }
+    },
+    "gies-memorial-stadium": {
+      label: "Gies Memorial Stadium", names: ["Gies Memorial Stadium"],
+      day: { path: "assets/venues/gies-memorial-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Lectrician2", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Memorial_Stadium,_Smith_Football_Performance_Center_and_State_Farm_Center,_University_of_Illinois.jpg", changes: "cropped, resized" } }
+    },
+    "memorial-stadium-bloomington-in": {
+      label: "Memorial Stadium (Bloomington, IN)", names: ["Memorial Stadium (Bloomington, IN)"],
+      day: { path: "assets/venues/memorial-stadium-bloomington-in/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "JYDecker", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:GEU_0429.jpg", changes: "cropped, resized" } }
+    },
+    "jack-trice-stadium": {
+      label: "Jack Trice Stadium", names: ["Jack Trice Stadium"],
+      day: { path: "assets/venues/jack-trice-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
+        credit: { author: "User:K.a.zenz", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Jack_Trice_Stadium,_daytime.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/jack-trice-stadium/night-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Judd Furlong (Commons user Jfurlong)", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", url: "https://commons.wikimedia.org/wiki/File:American_football_at_jack_trice_stadium.jpeg", changes: "cropped, resized" } }
+    },
+    "shi-stadium": {
+      label: "SHI Stadium", names: ["SHI Stadium"],
+      day: { path: "assets/venues/shi-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Gary Miotla", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0", url: "https://commons.wikimedia.org/wiki/File:Rutgers_Stadium,_Piscataway,_New_Jersey,_USA_-_panoramio_-_Gary_Miotla.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/shi-stadium/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Gary Miotla", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0", url: "https://commons.wikimedia.org/wiki/File:Rutgers_Stadium,_Piscataway,_New_Jersey,_USA_-_panoramio_-_Gary_Miotla_(4).jpg", changes: "cropped, resized" } }
+    },
+    "rice-eccles-stadium": {
+      label: "Rice-Eccles Stadium", names: ["Rice-Eccles Stadium"],
+      day: { path: "assets/venues/rice-eccles-stadium/day-{w}.webp", widths: [800, 1280, 1680], focus: "50% 50%",
+        credit: { author: "Mattstorms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Ken_Garff_South_End_zone_at_Rice-Eccles_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "sun-bowl": {
+      label: "Sun Bowl", names: ["Sun Bowl"],
+      day: { path: "assets/venues/sun-bowl/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:El_Paso_Sun_Bowl_Stadium.jpg", changes: "cropped, resized" } }
+    },
+    "alamodome": {
+      label: "Alamodome", names: ["Alamodome"],
+      day: { path: "assets/venues/alamodome/day-{w}.webp", widths: [800, 1020], focus: "50% 50%",
+        credit: { author: "Blake675", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Alamodome_Conference_USA_Championship.jpg", changes: "cropped, resized" } }
+    },
+    "firstbank-stadium": {
+      label: "FirstBank Stadium", names: ["FirstBank Stadium"],
+      day: { path: "assets/venues/firstbank-stadium/day-{w}.webp", widths: W, focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Vanderbilt_Stadium_in_Nashville,_TN.jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/firstbank-stadium/night-{w}.webp", widths: [800, 1280, 1680], focus: "50% 50%",
+        credit: { author: "PCN02WPS", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:FirstBank_Stadium,_Vanderbilt_vs._Hawaii,_August_26,_2023.jpg", changes: "cropped, resized" } }
+    },
+    "scott-stadium": {
+      label: "Scott Stadium", names: ["Scott Stadium"],
+      day: { path: "assets/venues/scott-stadium/day-{w}.webp", widths: [800, 1200], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Scott_Stadium_(University_of_Virginia).jpg", changes: "cropped, resized" } }
+    },
+    "lane-stadium": {
+      label: "Lane Stadium", names: ["Lane Stadium"],
+      day: { path: "assets/venues/lane-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
+        credit: { author: "B (Commons user)", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Lane_Stadium_2016_pregame.jpg", changes: "cropped, resized" } }
+    },
+    "allegacy-federal-credit-union-stadium": {
+      label: "Allegacy Federal Credit Union Stadium", names: ["Allegacy Federal Credit Union Stadium"],
+      day: { path: "assets/venues/allegacy-federal-credit-union-stadium/day-{w}.webp", widths: [800, 1280, 1600], focus: "50% 50%",
+        credit: { author: "B (Commons user)", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:2006_Virginia_Tech_at_Wake_Forest_lined_up.jpg", changes: "cropped, resized" } }
+    },
+    "husky-stadium": {
+      label: "Husky Stadium", names: ["Husky Stadium"],
+      day: { path: "assets/venues/husky-stadium/day-{w}.webp", widths: [800, 1200], focus: "50% 50%",
+        credit: { author: "Atomic Taco", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", url: "https://commons.wikimedia.org/wiki/File:Husky_Stadium_-_March_19,_2016.jpg", changes: "cropped, resized" } }
+    },
+    "martin-stadium": {
+      label: "Martin Stadium", names: ["Martin Stadium"],
+      day: { path: "assets/venues/martin-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Spicypepper999", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en", url: "https://commons.wikimedia.org/wiki/File:Martin_Stadium_Aerial,_Pullman_WA,_March_2024.jpg", changes: "cropped, resized" } }
+    },
+    "milan-puskar-stadium": {
+      label: "Milan Puskar Stadium", names: ["Milan Puskar Stadium"],
+      day: { path: "assets/venues/milan-puskar-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Mountaineer_Field_at_Milan_Puskar_Stadium_(West_Virginia_University).jpg", changes: "cropped, resized" } },
+      night: { path: "assets/venues/milan-puskar-stadium/night-{w}.webp", widths: [800, 1280, 1680], focus: "50% 50%",
+        credit: { author: "John Duffy from Worcester, MA, USA", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0", url: "https://commons.wikimedia.org/wiki/File:WVU_Opening_Game_Mountaineer_Field.jpg", changes: "cropped, resized" } }
+    },
+    "houchens-industries-l-t-smith-stadium": {
+      label: "Houchens Industries-L.T. Smith Stadium", names: ["Houchens Industries-L.T. Smith Stadium"],
+      day: { path: "assets/venues/houchens-industries-l-t-smith-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Nkyleft (Commons user)", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en", url: "https://commons.wikimedia.org/wiki/File:Insidesmith.jpeg", changes: "cropped, resized" } }
+    },
+    "waldo-stadium": {
+      label: "Waldo Stadium", names: ["Waldo Stadium"],
+      day: { path: "assets/venues/waldo-stadium/day-{w}.webp", widths: [800, 1020], focus: "50% 50%",
+        credit: { author: "User TheKuLeR on en.wikipedia", license: "CC BY-SA 3.0", licenseUrl: "http://creativecommons.org/licenses/by-sa/3.0/", url: "https://commons.wikimedia.org/wiki/File:WaldoStadium1.jpg", changes: "cropped, resized" } }
+    },
+    "camp-randall-stadium": {
+      label: "Camp Randall Stadium", names: ["Camp Randall Stadium"],
+      day: { path: "assets/venues/camp-randall-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
+        credit: { author: "Lectrician2", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Camp_Randall_Aerial.jpg", changes: "cropped, resized" } }
+    },
+    "war-memorial-stadium": {
+      label: "War Memorial Stadium", names: ["War Memorial Stadium"],
+      day: { path: "assets/venues/war-memorial-stadium/day-{w}.webp", widths: [800, 1280, 1680], focus: "50% 50%",
+        credit: { author: "Tony Webster", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0", url: "https://commons.wikimedia.org/wiki/File:University_of_Wyoming_Football_Game_-_War_Memorial_Stadium.jpg", changes: "cropped, resized" } }
     }
   }
 }; })([800, 1280, 1920]);
