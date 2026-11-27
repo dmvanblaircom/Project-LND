@@ -39,6 +39,7 @@ All four items, in this order (David: "All 4 but we don't need a nightly sweep. 
   - diffs the pixels and lays out the changed screens cropped to the change and ringed.
 - **`tools/postsheet.js`:** commits the sheets to the `review-sheets` branch, which holds only pictures and is never merged, and keeps one comment per pull request up to date.
 - **The `changes` job in `check.yml`:** gates nothing. A failure there does not fail the run.
+  - Its "before" is the base the pull request merges onto: the first parent of GitHub's merge commit, which is what the "after" side is built on. It was `pull_request.base.sha`, which can be another commit of the base. On a branch left open while `main` took data refreshes, the two sides drew different news and the sheet called that a change (#289, 2026-11-27).
 - **The first sheet found a real bug.** The badge's LIVE dot kept pulsing under reduced motion, because the earlier "preferences last" rule lost to the badge rule added after it in the file. Fixed in the same change.
 - **Item 3, `tools/teamcheck.js`:**
   - **Screens:** Home before the game, live and final; Game before the game and live, at 390; and Home live at 1280. All are drawn in the real app by the shared harness `tools/lib/stage.js`, which `stagereview.js` uses too.
