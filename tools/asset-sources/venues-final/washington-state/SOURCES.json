@@ -1,0 +1,32 @@
+{
+  "team_slug": "washington-state",
+  "venue": "Martin Stadium (Pullman)",
+  "summary": "Day: 2024 high oblique drone view into the empty bowl. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Martin_Stadium_Aerial,_Pullman_WA,_March_2024.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Martin_Stadium_Aerial%2C_Pullman_WA%2C_March_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1797,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Spicypepper999",
+      "credit_line": "Photo: Spicypepper999 / CC0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from the southeast corner looking across the bowl to the west end and campus; field left of center, roughly rows 620-1150. Early March: a little snow on the concourse and track at lower right."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WSUMartinStadium-08-16-2012.jpg",
+      "why": "2012 elevated empty panorama at 7170x3000; pre-dates the 2014 west end (Cougar Football Complex) and the field is a thin strip."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2008-1018-002-WSUMartinStadiumpan.JPG",
+      "why": "2008 elevated panorama, older and wide-format."
+    }
+  ]
+}

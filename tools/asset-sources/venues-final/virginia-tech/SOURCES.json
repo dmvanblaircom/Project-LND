@@ -1,0 +1,47 @@
+{
+  "team_slug": "virginia-tech",
+  "venue": "Lane Stadium",
+  "summary": "No aerial on Commons (the 2017 flyover photo shows the jets, not the bowl). Day: 2016 pregame panorama from the top of the north end; night: 2005 elevated end-zone view with fireworks.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Lane_Stadium_2016_pregame.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Lane_Stadium_2016_pregame.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 927,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "B (Commons user)",
+      "credit_line": "Photo: B (Commons user) / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2016,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Top-of-stadium panorama from the north end looking down the full length of the field toward the south end zone stands, crowd filling in pregame; field centered, roughly rows 400-780. Wide format (2400x927)."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Lane_Stadium_fireworks_2005.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lane_Stadium_fireworks_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1200,
+      "height": 1600,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "B (Commons user)",
+      "credit_line": "Photo: B (Commons user) / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2005,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Portrait shot from high in the stands looking down the field under the lights with fireworks overhead; field in the bottom quarter, roughly rows 1190-1600. Only 1200 px wide; predates the 2006 south end zone addition."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:LaneStadiumSouthStand.jpg",
+      "why": "2020 elevated view of the empty south end zone at 6000 px; good alternate day photo, but the 2016 pregame view shows the whole bowl with a crowd."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Vtmiami.jpg",
+      "why": "Night, but a crowd storming the field with identifiable fans in front."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "team_slug": "virginia",
+  "venue": "Scott Stadium",
+  "summary": "Day: 2026 high oblique drone view into the empty bowl. Night: 2013 upper-rim panorama of a full night game.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scott_Stadium_(University_of_Virginia).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Scott_Stadium_%28University_of_Virginia%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1798,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev / CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from outside the south side looking into the bowl toward the open Lawn end, Blue Ridge on the horizon; field in the upper-middle, roughly rows 700-1140."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scott_Stadium_panoramic_2013_night.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Scott_Stadium_panoramic_2013_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 776,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "B (Commons user)",
+      "credit_line": "Photo: B (Commons user) / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2013,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Panorama from the upper rows under the lights, full crowd; field in the middle, roughly rows 435-675. Wide format (2400x776), and fans fill the foreground at both sides (small, not the subject)."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scott_Stadium_panoramic_2013_afternoon.jpg",
+      "why": "Same 2013 upper-rim panorama by daylight; superseded by the 2026 drone view."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scott_Stadium_during_an_American_Football_game.jpg",
+      "why": "2019 night from the lower stands; heads fill the bottom third and lens flare at the top."
+    }
+  ]
+}

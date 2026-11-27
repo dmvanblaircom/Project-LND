@@ -1,0 +1,47 @@
+{
+  "team_slug": "west-virginia",
+  "venue": "Milan Puskar Stadium",
+  "summary": "Day: 2026 high oblique drone view into the empty bowl. Night: elevated view of a full stadium during the pregame band show (c. 2006).",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Mountaineer_Field_at_Milan_Puskar_Stadium_(West_Virginia_University).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Mountaineer_Field_at_Milan_Puskar_Stadium_%28West_Virginia_University%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1714,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev / CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from the south end looking up the field toward the north end and Morgantown hills; field centered, roughly rows 750-1170."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WVU_Opening_Game_Mountaineer_Field.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/WVU_Opening_Game_Mountaineer_Field.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1803,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "John Duffy from Worcester, MA, USA",
+      "credit_line": "Photo: John Duffy from Worcester, MA, USA / CC BY 2.0, via Wikimedia Commons",
+      "year": 2006,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "From the upper sideline stands under the lights, band spelling on the field; field in the middle, roughly rows 700-1440, fans' backs in the lower right. Camera date reads 2006-01-01, so the exact date is uncertain."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Mountaineer_Field_interior.jpg",
+      "why": "Elevated empty day view but older and 1600 px; superseded by the 2026 drone view."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WVU_Football_Team_Enters_Mountaineer_Field_vs_TCU.jpg",
+      "why": "2014 day game from the upper stands, but fans fill the bottom third."
+    }
+  ]
+}
