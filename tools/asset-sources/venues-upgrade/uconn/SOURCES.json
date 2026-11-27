@@ -1,0 +1,27 @@
+{
+  "slug": "uconn",
+  "venue": "Pratt & Whitney Stadium at Rentschler Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Pratt_%26_Whitney_Stadium_at_Rentschler_Field_(UCONN).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pratt_%26_Whitney_Stadium_at_Rentschler_Field_%28UCONN%29.jpg",
+      "original_width": 8006,
+      "original_height": 5718,
+      "width": 2400,
+      "height": 1714,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "\"Pratt & Whitney Stadium at Rentschler Field (UCONN)\" by Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from above the south-east corner into the empty bowl, April 2026, sunny morning with long shadows, Hartford skyline on the horizon. Field just left of centre (x ~740-1680) and in rows ~640-1100 of 1714 (37-64%). A 16:9 crop of rows ~300-1650 puts the field at ~25-59%; a light tower stands in the lower right, outside the field."
+    }
+  ],
+  "closest_misses": [
+    {"file": "Pratt & Whitney Stadium in 2025.jpg", "why": "4032x3024 CC0, 2025 day, upper-deck view, but soccer markings and empty aluminium benches fill the bottom half."},
+    {"file": "Pratt & Whitney stadium in 2025 USA vs Turkey.jpg", "why": "Soccer match, crowd heads in the foreground."}
+  ]
+}
