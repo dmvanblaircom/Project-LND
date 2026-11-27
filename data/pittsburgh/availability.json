@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:44.400754+00:00",
+ "fetchedAt": "2026-11-27T04:02:33.924690+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "at California",
  "players": [
@@ -26,6 +26,13 @@
    "no": "6",
    "name": "Raion Strader",
    "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "RB",
+   "no": "11",
+   "name": "La’Vell Wright",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -46,7 +53,7 @@
    "pos": "DB",
    "no": "21",
    "name": "Shadarian Harrison",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -74,7 +81,7 @@
    "pos": "RB",
    "no": "26",
    "name": "Damon Ferguson Jr.",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,7 +95,7 @@
    "pos": "TE",
    "no": "49",
    "name": "Jordan Fields",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
