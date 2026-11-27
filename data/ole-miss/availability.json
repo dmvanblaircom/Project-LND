@@ -7,27 +7,13 @@
  "sourceLabel": "SECsports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:38:32.219214+00:00",
+ "fetchedAt": "2026-11-27T15:38:38.068555+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "vs. Mississippi State",
  "players": [
-  {
-   "pos": "QB",
-   "no": "2",
-   "name": "Deuce Knight",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "4",
-   "name": "Caleb Odom",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "RB",
    "no": "5",
@@ -88,7 +74,7 @@
    "pos": "RB",
    "no": "33",
    "name": "Shekai Mills-Knight",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
