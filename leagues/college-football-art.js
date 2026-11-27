@@ -328,8 +328,8 @@ var TEAM_ART = (function (W) { return {
     },
     "memorial-stadium": {
       label: "Memorial Stadium", names: ["Memorial Stadium"],
-      day: { path: "assets/venues/memorial-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
-        credit: { author: "Spatms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:LSU_Tigers_vs_Mizzou_Tigers_2023-10-07_(5).jpg", changes: "cropped, resized" } },
+      day: { path: "assets/venues/memorial-stadium/day-{w}.webp", widths: [800, 1280, 1440], focus: "50% 50%",
+        credit: { author: "Lectrician2", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Faurot_Field_Aerial.jpg", changes: "cropped, resized" } },
       night: { path: "assets/venues/memorial-stadium/night-{w}.webp", widths: W, focus: "50% 50%",
         credit: { author: "Burkouri", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_Faurot_Field.jpg", changes: "cropped, resized" } }
     },
@@ -442,6 +442,8 @@ var TEAM_ART = (function (W) { return {
     },
     "snapdragon-stadium": {
       label: "Snapdragon Stadium", names: ["Snapdragon Stadium"],
+      day: { path: "assets/venues/snapdragon-stadium/day-{w}.webp", widths: [800, 980], focus: "50% 50%",
+        credit: { author: "Terrible Tim", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_Snapdragon_Stadium_(2022-08-26).jpg", changes: "cropped, resized" } },
       night: { path: "assets/venues/snapdragon-stadium/night-{w}.webp", widths: W, focus: "50% 50%",
         credit: { author: "Spatms", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:Snapdragon_Stadium_interior-Night_end_zone_2.jpg", changes: "cropped, resized" } }
     },
@@ -493,6 +495,8 @@ var TEAM_ART = (function (W) { return {
     },
     "neyland-stadium": {
       label: "Neyland Stadium", names: ["Neyland Stadium"],
+      day: { path: "assets/venues/neyland-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Neyland_Stadium,_home_of_Tennessee_Volunteers.jpg", changes: "cropped, resized" } },
       night: { path: "assets/venues/neyland-stadium/night-{w}.webp", widths: [800, 1280], focus: "50% 50%",
         credit: { author: "Bama in ATL", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:2012_Alabama_at_Tennessee_NCAA_Football_Game.jpg", changes: "cropped, resized" } }
     },
@@ -508,8 +512,8 @@ var TEAM_ART = (function (W) { return {
     },
     "galaxy-stadium": {
       label: "Galaxy Stadium", names: ["Galaxy Stadium"],
-      day: { path: "assets/venues/galaxy-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
-        credit: { author: "John McStravick", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0", url: "https://commons.wikimedia.org/wiki/File:Jones_AT&T_Stadium_wide_shot.jpg", changes: "cropped, resized" } }
+      day: { path: "assets/venues/galaxy-stadium/day-{w}.webp", widths: [800, 1220], focus: "50% 50%",
+        credit: { author: "Oruiz1213", license: "CC0", licenseUrl: "http://creativecommons.org/publicdomain/zero/1.0/deed.en", url: "https://commons.wikimedia.org/wiki/File:Aerial_Drone_Jones_Stadium.jpg", changes: "cropped, resized" } }
     },
     "flagler-credit-union-stadium": {
       label: "Flagler Credit Union Stadium", names: ["Flagler Credit Union Stadium"],
@@ -574,8 +578,8 @@ var TEAM_ART = (function (W) { return {
     },
     "los-angeles-memorial-coliseum": {
       label: "Los Angeles Memorial Coliseum", names: ["Los Angeles Memorial Coliseum"],
-      day: { path: "assets/venues/los-angeles-memorial-coliseum/day-{w}.webp", widths: [800, 960], focus: "50% 50%",
-        credit: { author: "SaltyWalt", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", url: "https://commons.wikimedia.org/wiki/File:LA_Coliseum_11_2018.jpg", changes: "cropped, resized" } }
+      day: { path: "assets/venues/los-angeles-memorial-coliseum/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
+        credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Los_Angeles_Memorial_Coliseum.png", changes: "cropped, resized" } }
     },
     "maverik-stadium": {
       label: "Maverik Stadium", names: ["Maverik Stadium"],
@@ -611,7 +615,7 @@ var TEAM_ART = (function (W) { return {
     },
     "pratt-and-whitney-stadium": {
       label: "Pratt & Whitney Stadium", names: ["Pratt & Whitney Stadium"],
-      day: { path: "assets/venues/pratt-and-whitney-stadium/day-{w}.webp", widths: [800, 1080], focus: "50% 50%",
+      day: { path: "assets/venues/pratt-and-whitney-stadium/day-{w}.webp", widths: [800, 1280], focus: "50% 50%",
         credit: { author: "Quintin Soloviev", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0", url: "https://commons.wikimedia.org/wiki/File:Pratt_&_Whitney_Stadium_at_Rentschler_Field_(UCONN).jpg", changes: "cropped, resized" } }
     },
     "malone-stadium": {
