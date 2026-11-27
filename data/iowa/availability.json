@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:26.272039+00:00",
+ "fetchedAt": "2026-11-27T15:08:30.901806+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "vs. Nebraska",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "WR",
    "no": "1",
    "name": "KJ Parker",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -26,34 +26,6 @@
    "no": "2",
    "name": "Tyler Brown",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "7",
-   "name": "Dayton Howard",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "11",
-   "name": "Jacob Wallace",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "14",
-   "name": "Tony Diaz",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "18",
-   "name": "Xavier Styles",
-   "status": "probable",
    "detail": ""
   },
   {

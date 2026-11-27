@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-11-22T11:38:43.143211+00:00",
+ "updated": "2026-11-27T15:08:38.823989+00:00",
  "reports": [
   {
    "schema": 1,
@@ -628,6 +628,116 @@
      "no": "90",
      "name": "Jayden Madkins",
      "status": "questionable",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "tulsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-27T15:08:38.823989+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-27",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-27",
+   "game": "UTSA",
+   "players": [
+    {
+     "pos": "CB",
+     "no": "3",
+     "name": "JD Drew",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "CB",
+     "no": "7",
+     "name": "Elijah Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "K",
+     "no": "10",
+     "name": "Owen Carey",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "19",
+     "name": "Grayson Tempest",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "21",
+     "name": "Aquavious Dunbar",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "Sevion Morrison",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "33",
+     "name": "William Alexander",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "Elijah Wilson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "35",
+     "name": "C.J. Turner",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "43",
+     "name": "Raymir Coney",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "60",
+     "name": "Hunter Erb",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "TE",
+     "no": "86",
+     "name": "Luke Tevis",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "88",
+     "name": "Xavier Green",
+     "status": "out-game",
      "detail": ""
     }
    ],
