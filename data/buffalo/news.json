@@ -1,7 +1,16 @@
 {
  "team": "buffalo",
- "updated": "2026-11-24T20:37:53.453537+00:00",
+ "updated": "2026-11-27T21:38:13.965919+00:00",
  "items": [
+  {
+   "title": "Bulls Clinch Spot in MAC Title Game with Win over Akron",
+   "link": "https://ubbulls.com/news/2026/11/27/football-bulls-clinch-spot-in-mac-title-game-with-win-over-akron",
+   "source": "UB Athletics",
+   "summary": "<img alt=\"Buffalo tackling AKron player\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/27/1Q__2_.jpg\" /><br /><br />AKRON, OH \u2013 The University at Buffalo football team held off Akron, 17-9, on Friday afternoon at InfoCision Stadium to clinch a spot in the Mid-American Conference Championship game. The Bulls will face Toledo on December 5 at Ford Field in Detroit.",
+   "image": "https://ubbulls.com/images/2026/11/27/1Q__2_.jpg?width=800",
+   "sourceLogo": "https://ubbulls.com/favicon.ico",
+   "published": "2026-11-27T21:07:00+00:00"
+  },
   {
    "title": "Coach Lembo's Weekly Press Conference: Week 12",
    "link": "https://ubbulls.com/news/2026/11/24/football-coach-lembos-weekly-press-conference-week-12",
@@ -82,15 +91,6 @@
    "image": "https://ubbulls.com/images/2026/10/3/MORROW-20261003fb-4944-web.jpg?width=800",
    "sourceLogo": "https://ubbulls.com/favicon.ico",
    "published": "2026-11-09T16:00:00+00:00"
-  },
-  {
-   "title": "Coach Lembo's Weekly Press Conference: Week 10",
-   "link": "https://ubbulls.com/news/2026/11/6/football-coach-lembos-weekly-press-conference-week-10",
-   "source": "UB Athletics",
-   "summary": "<img alt=\"Pete Lembo Speaking at Podium\" src=\"https://ubbulls.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/6/LwmboPC.jpg\" /><br /><br />",
-   "image": "https://ubbulls.com/images/2026/11/6/LwmboPC.jpg?width=800",
-   "sourceLogo": "https://ubbulls.com/favicon.ico",
-   "published": "2026-11-06T20:57:00+00:00"
   }
  ]
 }
