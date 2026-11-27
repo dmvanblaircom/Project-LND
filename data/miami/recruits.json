@@ -5,9 +5,22 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2390",
  "classYear": 2027,
- "listed": 24,
+ "listed": 25,
  "committedElsewhere": 0,
  "recruits": [
+  {
+   "id": "261490",
+   "name": "D.J. Jacobs",
+   "position": "DE",
+   "highSchool": "Blessed Trinity High School",
+   "city": "Roswell",
+   "state": "GA",
+   "grade": 92,
+   "rank": 2,
+   "positionRank": 1,
+   "stateRank": 2,
+   "status": "Verbal"
+  },
   {
    "id": "261982",
    "name": "A'mir Sears",
@@ -321,5 +334,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-23T21:40Z"
+ "fetchedAt": "2026-11-27T08:10Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "99",
  "classYear": 2027,
- "listed": 18,
+ "listed": 17,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -71,19 +71,6 @@
    "rank": 113,
    "positionRank": 22,
    "stateRank": 6,
-   "status": "Verbal"
-  },
-  {
-   "id": "262178",
-   "name": "David Segarra III",
-   "position": "RB",
-   "highSchool": "James Byrnes High School",
-   "city": "Duncan",
-   "state": "SC",
-   "grade": 81,
-   "rank": 166,
-   "positionRank": 9,
-   "stateRank": 3,
    "status": "Verbal"
   },
   {
@@ -243,5 +230,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:12Z"
+ "fetchedAt": "2026-11-27T08:10Z"
 }

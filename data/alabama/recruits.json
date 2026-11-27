@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "333",
  "classYear": 2027,
- "listed": 17,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -152,6 +152,19 @@
    "status": "Verbal"
   },
   {
+   "id": "262020",
+   "name": "Jyden German",
+   "position": "ATH",
+   "highSchool": "Bishop Verot High School",
+   "city": "Fort Myers",
+   "state": "FL",
+   "grade": 77,
+   "rank": null,
+   "positionRank": 41,
+   "stateRank": 74,
+   "status": "Verbal"
+  },
+  {
    "id": "272642",
    "name": "Jamel Griffin",
    "position": "CB",
@@ -230,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:09Z"
+ "fetchedAt": "2026-11-27T08:09Z"
 }

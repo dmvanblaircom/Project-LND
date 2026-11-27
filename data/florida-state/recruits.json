@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "52",
  "classYear": 2027,
- "listed": 14,
+ "listed": 13,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -84,19 +84,6 @@
    "rank": null,
    "positionRank": 66,
    "stateRank": 48,
-   "status": "Verbal"
-  },
-  {
-   "id": "261561",
-   "name": "Jayden Miles",
-   "position": "RB",
-   "highSchool": "Catholic High School",
-   "city": "Baton Rouge",
-   "state": "LA",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 32,
-   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -191,5 +178,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:11Z"
+ "fetchedAt": "2026-11-27T08:09Z"
 }

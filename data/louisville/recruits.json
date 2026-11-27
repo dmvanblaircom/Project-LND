@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "97",
  "classYear": 2027,
- "listed": 21,
+ "listed": 20,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -139,19 +139,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271273",
-   "name": "Josiah Pouncey",
-   "position": "OLB",
-   "highSchool": "Robert A. Taft High School",
-   "city": "Cincinnati",
-   "state": "OH",
-   "grade": 78,
-   "rank": null,
-   "positionRank": 47,
-   "stateRank": 25,
-   "status": "Verbal"
-  },
-  {
    "id": "271744",
    "name": "Kaleb Exume",
    "position": "DT",
@@ -282,5 +269,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-26T11:39Z"
+ "fetchedAt": "2026-11-27T08:10Z"
 }

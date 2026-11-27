@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "135",
  "classYear": 2027,
- "listed": 28,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,19 +32,6 @@
    "rank": 287,
    "positionRank": 28,
    "stateRank": 1,
-   "status": "Verbal"
-  },
-  {
-   "id": "271530",
-   "name": "Jayden Thomas",
-   "position": "WR",
-   "highSchool": "Centennial High School",
-   "city": "Las Vegas",
-   "state": "NV",
-   "grade": 79,
-   "rank": null,
-   "positionRank": 59,
-   "stateRank": 5,
    "status": "Verbal"
   },
   {
@@ -149,19 +136,6 @@
    "rank": null,
    "positionRank": 36,
    "stateRank": 7,
-   "status": "Verbal"
-  },
-  {
-   "id": "262020",
-   "name": "Jyden German",
-   "position": "ATH",
-   "highSchool": "Bishop Verot High School",
-   "city": "Fort Myers",
-   "state": "FL",
-   "grade": 77,
-   "rank": null,
-   "positionRank": 41,
-   "stateRank": 74,
    "status": "Verbal"
   },
   {
@@ -373,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:12Z"
+ "fetchedAt": "2026-11-27T08:11Z"
 }

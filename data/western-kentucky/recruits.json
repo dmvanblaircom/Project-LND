@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "98",
  "classYear": 2027,
- "listed": 23,
+ "listed": 24,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -45,6 +45,19 @@
    "rank": null,
    "positionRank": 17,
    "stateRank": 39,
+   "status": "Verbal"
+  },
+  {
+   "id": "274910",
+   "name": "James Johnson",
+   "position": "RB",
+   "highSchool": null,
+   "city": "Mansfield",
+   "state": "TX",
+   "grade": 74,
+   "rank": 104,
+   "positionRank": 7,
+   "stateRank": 6,
    "status": "Verbal"
   },
   {
@@ -308,5 +321,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:16Z"
+ "fetchedAt": "2026-11-27T08:13Z"
 }

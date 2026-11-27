@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "213",
  "classYear": 2027,
- "listed": 23,
+ "listed": 26,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -165,6 +165,19 @@
    "status": "Verbal"
   },
   {
+   "id": "271273",
+   "name": "Josiah Pouncey",
+   "position": "OLB",
+   "highSchool": "Robert A. Taft High School",
+   "city": "Cincinnati",
+   "state": "OH",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 47,
+   "stateRank": 25,
+   "status": "Verbal"
+  },
+  {
    "id": "271640",
    "name": "Ka'ron Ceaser",
    "position": "CB",
@@ -269,6 +282,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272604",
+   "name": "Donte Dent Jr.",
+   "position": "WR",
+   "highSchool": "Oscar Frommel Smith High School",
+   "city": "Chesapeake",
+   "state": "VA",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 185,
+   "stateRank": 33,
+   "status": "Verbal"
+  },
+  {
    "id": "271873",
    "name": "Will Zaccagnino",
    "position": "DT",
@@ -279,6 +305,19 @@
    "rank": null,
    "positionRank": 96,
    "stateRank": 6,
+   "status": "Verbal"
+  },
+  {
+   "id": "272791",
+   "name": "Ben Rolapp",
+   "position": "QB-PP",
+   "highSchool": "Brunswick School",
+   "city": "Greenwich",
+   "state": "CT",
+   "grade": 74,
+   "rank": null,
+   "positionRank": 66,
+   "stateRank": 10,
    "status": "Verbal"
   },
   {
@@ -308,5 +347,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:14Z"
+ "fetchedAt": "2026-11-27T08:11Z"
 }

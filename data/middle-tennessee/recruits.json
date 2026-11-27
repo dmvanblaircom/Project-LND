@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2393",
  "classYear": 2027,
- "listed": 10,
+ "listed": 9,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,19 +32,6 @@
    "rank": null,
    "positionRank": 227,
    "stateRank": 63,
-   "status": "Verbal"
-  },
-  {
-   "id": "274827",
-   "name": "Xavier Teague",
-   "position": "S",
-   "highSchool": "Mae C. Jemison High School",
-   "city": "Jemison",
-   "state": "AL",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 185,
-   "stateRank": 77,
    "status": "Verbal"
   },
   {
@@ -139,5 +126,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:12Z"
+ "fetchedAt": "2026-11-27T08:10Z"
 }

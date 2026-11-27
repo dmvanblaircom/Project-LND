@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2199",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": 247,
    "positionRank": 10,
    "stateRank": 2,
+   "status": "Verbal"
+  },
+  {
+   "id": "274854",
+   "name": "Dylan Gill",
+   "position": "OLB",
+   "highSchool": null,
+   "city": "Homestead",
+   "state": "FL",
+   "grade": 80,
+   "rank": 2,
+   "positionRank": 1,
+   "stateRank": 1,
    "status": "Verbal"
   },
   {
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:10Z"
+ "fetchedAt": "2026-11-27T08:09Z"
 }

@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2483",
  "classYear": 2027,
- "listed": 26,
+ "listed": 27,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -256,6 +256,19 @@
    "status": "Verbal"
   },
   {
+   "id": "268475",
+   "name": "Javian Jones-Priest",
+   "position": "RB",
+   "highSchool": "James Martin High School",
+   "city": "Arlington",
+   "state": "TX",
+   "grade": 78,
+   "rank": null,
+   "positionRank": 42,
+   "stateRank": 77,
+   "status": "Verbal"
+  },
+  {
    "id": "261534",
    "name": "Lex Mailangi",
    "position": "OG",
@@ -347,5 +360,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-21T07:13Z"
+ "fetchedAt": "2026-11-27T08:11Z"
 }

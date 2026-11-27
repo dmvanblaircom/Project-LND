@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "256",
  "classYear": 2027,
- "listed": 23,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -84,19 +84,6 @@
    "rank": null,
    "positionRank": 52,
    "stateRank": 53,
-   "status": "Verbal"
-  },
-  {
-   "id": "272604",
-   "name": "Donte Dent Jr.",
-   "position": "WR",
-   "highSchool": "Oscar Frommel Smith High School",
-   "city": "Chesapeake",
-   "state": "VA",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 185,
-   "stateRank": 33,
    "status": "Verbal"
   },
   {
@@ -308,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:11Z"
+ "fetchedAt": "2026-11-27T08:10Z"
 }
