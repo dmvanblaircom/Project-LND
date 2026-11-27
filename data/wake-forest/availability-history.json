@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wake-forest",
- "updated": "2026-11-26T11:38:47.791858+00:00",
+ "updated": "2026-11-27T01:08:32.343174+00:00",
  "reports": [
   {
    "schema": 1,
@@ -402,10 +402,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:47.791858+00:00",
+   "fetchedAt": "2026-11-27T01:08:32.343174+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. Duke",
    "players": [
@@ -448,7 +448,7 @@
      "pos": "OL",
      "no": "74",
      "name": "John Ohnegian",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -469,7 +469,7 @@
      "pos": "DL",
      "no": "95",
      "name": "Brandon Smiley",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

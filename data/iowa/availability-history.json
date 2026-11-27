@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "iowa",
- "updated": "2026-11-26T01:08:29.822951+00:00",
+ "updated": "2026-11-27T01:08:26.272039+00:00",
  "reports": [
   {
    "schema": 1,
@@ -514,10 +514,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T01:08:29.822951+00:00",
+   "fetchedAt": "2026-11-27T01:08:26.272039+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-27",
    "game": "vs. Nebraska",
    "players": [
@@ -525,7 +525,7 @@
      "pos": "WR",
      "no": "1",
      "name": "KJ Parker",
-     "status": "doubtful",
+     "status": "questionable",
      "detail": ""
     },
     {
@@ -539,28 +539,28 @@
      "pos": "WR",
      "no": "7",
      "name": "Dayton Howard",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "11",
      "name": "Jacob Wallace",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "14",
      "name": "Tony Diaz",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "18",
      "name": "Xavier Styles",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

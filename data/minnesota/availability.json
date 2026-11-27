@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T01:08:32.201368+00:00",
+ "fetchedAt": "2026-11-27T01:08:27.848693+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-27",
  "game": "at Wisconsin",
  "players": [
@@ -60,7 +60,7 @@
    "pos": "LB",
    "no": "46",
    "name": "Mason Carrier",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

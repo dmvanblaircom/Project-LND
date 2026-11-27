@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T01:08:39.645267+00:00",
+ "fetchedAt": "2026-11-27T01:08:32.747002+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-27",
  "game": "vs. Minnesota",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "CB",
    "no": "2",
    "name": "Javan Robinson",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -39,7 +39,7 @@
    "pos": "S",
    "no": "11",
    "name": "Carson Van Dinter",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -60,7 +60,7 @@
    "pos": "OL",
    "no": "70",
    "name": "Barrett Nelson",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

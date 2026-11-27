@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:43.248651+00:00",
+ "fetchedAt": "2026-11-27T01:08:28.387420+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "vs. NC State",
  "players": [
@@ -47,6 +47,13 @@
    "no": "9",
    "name": "Melkart Abou Jaoude",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "QB",
+   "no": "9",
+   "name": "Billy Edwards Jr.",
+   "status": "questionable",
    "detail": ""
   },
   {

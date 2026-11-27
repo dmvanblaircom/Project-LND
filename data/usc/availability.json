@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:47.082571+00:00",
+ "fetchedAt": "2026-11-27T01:08:31.733853+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "at UCLA",
  "players": [
@@ -19,13 +19,6 @@
    "no": "9",
    "name": "Terrell Anderson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DE",
-   "no": "10",
-   "name": "Braylan Shelby",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -68,13 +61,6 @@
    "no": "57",
    "name": "Roman Marchetti",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "58",
-   "name": "GianCarlo Rufo",
-   "status": "probable",
    "detail": ""
   },
   {
