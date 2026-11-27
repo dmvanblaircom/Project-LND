@@ -1,0 +1,47 @@
+{
+  "team_slug": "vanderbilt",
+  "venue": "FirstBank Stadium",
+  "summary": "Day: 2026 high oblique drone view of the renovated stadium. Night: 2023 elevated end-zone view of a full night game.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Vanderbilt_Stadium_in_Nashville,_TN.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Vanderbilt_Stadium_in_Nashville%2C_TN.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev / CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial over the south end looking up the empty field with the new end-zone buildings; field centered left of middle, roughly rows 430-1230."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:FirstBank_Stadium,_Vanderbilt_vs._Hawaii,_August_26,_2023.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/FirstBank_Stadium%2C_Vanderbilt_vs._Hawaii%2C_August_26%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "PCN02WPS",
+      "credit_line": "Photo: PCN02WPS / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2023,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "From high in the end-zone stands toward the west press box under the lights, full crowd; field across the middle, roughly rows 980-1300, crowd's backs below. Predates the 2025 completion of the renovation on the far side."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Vanderbilt_Stadium_vs._Tennessee_11.26.16.jpg",
+      "why": "2016 night, lower-stands sideline view at 1632 px; pre-renovation."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Dudley22.jpg",
+      "why": "Historic aerial from a 1920s publication; not the current stadium."
+    }
+  ]
+}

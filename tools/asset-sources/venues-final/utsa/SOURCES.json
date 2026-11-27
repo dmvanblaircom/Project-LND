@@ -1,0 +1,32 @@
+{
+  "team_slug": "utsa",
+  "venue": "Alamodome",
+  "summary": "Domed stadium, so no aerial into the bowl is possible. Day slot: 2022 Conference USA Championship (UTSA home game) from the lower-bowl end zone under the roof lights. No separate night photo (indoors).",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Alamodome_Conference_USA_Championship.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Alamodome_Conference_USA_Championship.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2048,
+      "height": 1152,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Blake675",
+      "credit_line": "Photo: Blake675 / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2022,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Indoor game view from the lower bowl behind the end zone, roof truss and video boards above; field across the middle, roughly rows 670-950, spectators' backs in the bottom quarter. Classed as day; lighting is indoor."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UTSA_Inaugural_Football_Game.jpg",
+      "why": "2012, low end-zone seat with a fan's head and a flag across the foreground."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Army_vs._The_University_of_Texas_at_San_Antonio_at_the_Alamodome_(1).jpg",
+      "why": "2019 Army set is all close-ups of soldiers, players and band; no bowl views."
+    }
+  ]
+}

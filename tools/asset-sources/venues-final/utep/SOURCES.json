@@ -1,0 +1,32 @@
+{
+  "team_slug": "utep",
+  "venue": "Sun Bowl",
+  "summary": "Day: 2026 high oblique drone view into the empty bowl set in the Franklin Mountains. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:El_Paso_Sun_Bowl_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/El_Paso_Sun_Bowl_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1728,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "Photo: Quintin Soloviev / CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from above the open end looking up the field, mountain and campus behind; field centered left of middle, roughly rows 540-1230."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UTEP_Sun_Bowl_Stadium_Aerial_View_Sept_6_2009.jpg",
+      "why": "Good 2009 aerial but older and the field reads smaller in frame; the 2026 drone view supersedes it."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2021_Sun_Bowl.jpg",
+      "why": "Elevated game view but only 1280 px wide and a thin panorama."
+    }
+  ]
+}
