@@ -1,0 +1,23 @@
+{
+  "slug": "louisiana-tech",
+  "venue": "Joe Aillet Stadium",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Joe_Aillet_Stadium,_Louisiana_Tech_Football.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Joe_Aillet_Stadium%2C_Louisiana_Tech_Football.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "original_width": 10534,
+      "original_height": 7027,
+      "width": 2400,
+      "height": 1601,
+      "license_short_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Quintin Soloviev",
+      "credit_line": "\"Joe Aillet Stadium, Louisiana Tech Football.jpg\" by Quintin Soloviev, CC BY 4.0, via Wikimedia Commons",
+      "year": 2026,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from behind the south end zone looking into the bowl; field centred, roughly rows 500-1450 of 1602; whole stadium incl. new press box visible. Some construction around the site."
+    }
+  ]
+}
