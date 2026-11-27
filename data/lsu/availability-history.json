@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "lsu",
- "updated": "2026-11-26T11:38:41.788932+00:00",
+ "updated": "2026-11-27T01:38:30.172755+00:00",
  "reports": [
   {
    "schema": 1,
@@ -465,10 +465,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:41.788932+00:00",
+   "fetchedAt": "2026-11-27T01:38:30.172755+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "at Arkansas",
    "players": [
@@ -483,7 +483,7 @@
      "pos": "WR",
      "no": "4",
      "name": "Jackson Harris",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -511,7 +511,7 @@
      "pos": "TE",
      "no": "12",
      "name": "Malachi Thomas",
-     "status": "questionable",
+     "status": "out-game",
      "detail": ""
     },
     {

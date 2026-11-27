@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T04:38:23.470457+00:00",
+ "fetchedAt": "2026-11-27T03:38:33.460055+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Initial",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "vs. Boise State",
  "players": [
@@ -19,13 +19,6 @@
    "no": "",
    "name": "Tyrone Fitten",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Ty Staples",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -53,7 +46,7 @@
    "pos": "ILB",
    "no": "",
    "name": "Ant Turner",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -64,51 +57,9 @@
    "detail": ""
   },
   {
-   "pos": "OLB",
-   "no": "",
-   "name": "Kenyon Agurs",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jayden Cortell",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DL",
    "no": "",
    "name": "Mukendi Wa Kalonji",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Brandon Kelley",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Mel Brown",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Oumar Diomnade",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jordan Lessard",
    "status": "probable",
    "detail": ""
   },
@@ -120,94 +71,10 @@
    "detail": ""
   },
   {
-   "pos": "OL",
-   "no": "",
-   "name": "Phil Ocon",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "RB",
-   "no": "",
-   "name": "Durell Robinson",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "",
-   "name": "Alton Tarber",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OLB",
-   "no": "",
-   "name": "Khamani Potts",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Jace Bellah",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Jaseim Mitchell",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OLB",
-   "no": "",
-   "name": "Jaden Hernandez",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Marc Pretto",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "",
-   "name": "Nader Chirchi",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "",
-   "name": "Zach Smith",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Kallen Martinez",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "",
-   "name": "Dylan Phleps",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "DB",
    "no": "",
    "name": "Tre Moore",
-   "status": "probable",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -284,6 +151,13 @@
    "pos": "DB",
    "no": "",
    "name": "Elijah McCantos",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "ILB",
+   "no": "",
+   "name": "Ace Brown",
    "status": "out-game",
    "detail": ""
   }

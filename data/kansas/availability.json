@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:41.109976+00:00",
+ "fetchedAt": "2026-11-27T03:08:26.463358+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "at Oklahoma State",
  "players": [
@@ -32,13 +32,6 @@
    "pos": "TE",
    "no": "9",
    "name": "Jailen Butler",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "S",
-   "no": "23",
-   "name": "Mason Ellis",
    "status": "probable",
    "detail": ""
   },
@@ -53,7 +46,7 @@
    "pos": "OL",
    "no": "51",
    "name": "Kasen Carpenter",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

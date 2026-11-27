@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "penn-state",
- "updated": "2026-11-26T11:38:44.295637+00:00",
+ "updated": "2026-11-27T01:08:29.306723+00:00",
  "reports": [
   {
    "schema": 1,
@@ -899,10 +899,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:44.295637+00:00",
+   "fetchedAt": "2026-11-27T01:08:29.306723+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "at Maryland",
    "players": [
@@ -910,7 +910,7 @@
      "pos": "CB",
      "no": "0",
      "name": "Jahmir Joseph",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -980,7 +980,7 @@
      "pos": "CB",
      "no": "35",
      "name": "Tyler Armstead",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

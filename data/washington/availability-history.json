@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "washington",
- "updated": "2026-11-26T11:38:47.891174+00:00",
+ "updated": "2026-11-27T01:08:32.426935+00:00",
  "reports": [
   {
    "schema": 1,
@@ -577,10 +577,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:47.891174+00:00",
+   "fetchedAt": "2026-11-27T01:08:32.426935+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "at Oregon",
    "players": [
@@ -588,7 +588,7 @@
      "pos": "WR",
      "no": "2",
      "name": "Dezmen Roebuck",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -609,7 +609,7 @@
      "pos": "WR",
      "no": "8",
      "name": "Chris Lawson",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -630,7 +630,7 @@
      "pos": "RB",
      "no": "22",
      "name": "Trey Cooley",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -644,7 +644,7 @@
      "pos": "K",
      "no": "38",
      "name": "Hunter McKee",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {

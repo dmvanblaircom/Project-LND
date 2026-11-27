@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ucla",
- "updated": "2026-11-26T11:38:46.899170+00:00",
+ "updated": "2026-11-27T01:08:31.575969+00:00",
  "reports": [
   {
    "schema": 1,
@@ -626,10 +626,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:46.899170+00:00",
+   "fetchedAt": "2026-11-27T01:08:31.575969+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. USC",
    "players": [

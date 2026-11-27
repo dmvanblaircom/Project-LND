@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "maryland",
- "updated": "2026-11-26T11:38:41.970232+00:00",
+ "updated": "2026-11-27T01:08:27.253399+00:00",
  "reports": [
   {
    "schema": 1,
@@ -850,10 +850,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:41.970232+00:00",
+   "fetchedAt": "2026-11-27T01:08:27.253399+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. Penn State",
    "players": [
@@ -861,14 +861,14 @@
      "pos": "LB",
      "no": "1",
      "name": "Daniel Wingate",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
      "pos": "DB",
      "no": "2",
      "name": "Lavain Scruggs",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -889,7 +889,7 @@
      "pos": "DB",
      "no": "6",
      "name": "Jordan Scruggs",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -931,7 +931,7 @@
      "pos": "RB",
      "no": "26",
      "name": "Terrez Worthy",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -959,7 +959,7 @@
      "pos": "OL",
      "no": "77",
      "name": "Amory Hills",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     }
    ],

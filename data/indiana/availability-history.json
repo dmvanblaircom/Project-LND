@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "indiana",
- "updated": "2026-11-26T11:38:40.737477+00:00",
+ "updated": "2026-11-27T01:08:26.189262+00:00",
  "reports": [
   {
    "schema": 1,
@@ -355,10 +355,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T11:38:40.737477+00:00",
+   "fetchedAt": "2026-11-27T01:08:26.189262+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Initial",
+   "effectiveAt": "2026-11-26",
+   "heading": "Update 1",
    "kickoffDate": "2026-11-28",
    "game": "vs. Purdue",
    "players": [
@@ -366,14 +366,7 @@
      "pos": "DB",
      "no": "4",
      "name": "A.J. Harris",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "LB",
-     "no": "5",
-     "name": "Rolijah Hardy",
-     "status": "probable",
+     "status": "out-game",
      "detail": ""
     },
     {

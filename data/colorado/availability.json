@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:38.336016+00:00",
+ "fetchedAt": "2026-11-27T03:08:23.399944+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "vs. UCF",
  "players": [
@@ -54,13 +54,6 @@
    "no": "26",
    "name": "Braylon Edwards",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "86",
-   "name": "Brady Kopetz",
-   "status": "probable",
    "detail": ""
   },
   {

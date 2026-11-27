@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "texas-tech",
- "updated": "2026-11-26T03:08:37.016359+00:00",
+ "updated": "2026-11-26T23:38:31.430949+00:00",
  "reports": [
   {
    "schema": 1,
@@ -437,10 +437,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-26T03:08:37.016359+00:00",
+   "fetchedAt": "2026-11-26T23:38:31.430949+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-25",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-26",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-26",
    "game": "vs. TCU",
    "players": [
@@ -453,30 +453,9 @@
     },
     {
      "pos": "WR",
-     "no": "1",
-     "name": "Micah Hudson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
-     "no": "2",
-     "name": "Kenny Johnson",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "WR",
      "no": "6",
      "name": "Jalen Jones",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "CB",
-     "no": "14",
-     "name": "Brice Pollock",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -502,16 +481,9 @@
     },
     {
      "pos": "OL",
-     "no": "52",
-     "name": "Cash Cleveland",
-     "status": "probable",
-     "detail": ""
-    },
-    {
-     "pos": "DL",
-     "no": "92",
-     "name": "Bryce Butler",
-     "status": "probable",
+     "no": "61",
+     "name": "Connor Carty",
+     "status": "gtd",
      "detail": ""
     }
    ],
