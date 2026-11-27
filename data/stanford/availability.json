@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-26T11:38:45.449033+00:00",
+ "fetchedAt": "2026-11-27T04:08:49.539002+00:00",
  "reported": true,
- "effectiveAt": "2026-11-25",
- "heading": "Initial",
+ "effectiveAt": "2026-11-26",
+ "heading": "Update 1",
  "kickoffDate": "2026-11-28",
  "game": "vs. SMU",
  "players": [
@@ -33,13 +33,6 @@
    "no": "19",
    "name": "London Bironas",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DB",
-   "no": "22",
-   "name": "Zaiden McDonald",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -102,7 +95,7 @@
    "pos": "OL",
    "no": "55",
    "name": "Simione Pale",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
