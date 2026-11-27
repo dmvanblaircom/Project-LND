@@ -1,0 +1,32 @@
+{
+  "team_slug": "western-michigan",
+  "venue": "Waldo Stadium",
+  "summary": "No aerial on Commons. Day: 2006 elevated view from the west press-box level over the empty field. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WaldoStadium1.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/WaldoStadium1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1280,
+      "height": 960,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "User TheKuLeR on en.wikipedia",
+      "credit_line": "Photo: User TheKuLeR on en.wikipedia / CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2006,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Elevated from the west side looking east over the empty field to the east stands; field fills the lower 40 percent, roughly rows 560-940, sky the top third. Only 1280x960, and older than the stadium's later renovations."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Waldo_Stadium%27s_Stafford-Smith_Field.jpg",
+      "why": "2025 current form but taken from a low berm; the field is a diagonal strip and sky fills the top."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Waldo_Stadium,_October_8,_2016.jpg",
+      "why": "2016 night from inside the student section; heads fill the bottom 40 percent and the field is a thin band."
+    }
+  ]
+}

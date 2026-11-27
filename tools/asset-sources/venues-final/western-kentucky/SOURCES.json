@@ -1,0 +1,47 @@
+{
+  "team_slug": "western-kentucky",
+  "venue": "Houchens Industries-L.T. Smith Stadium",
+  "summary": "No aerial on Commons (the 2019 'flyover' photo is a silhouette of helicopters over the scoreboard). Day: 2013 upper-stands sideline view; night: 2012 dusk view under the lights, same photographer.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Insidesmith.jpeg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Insidesmith.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Nkyleft (Commons user)",
+      "credit_line": "Photo: Nkyleft (Commons user) / CC0, via Wikimedia Commons",
+      "year": 2013,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "From the upper east stands across to the west side and the WKU water tower; field fills the middle, roughly rows 650-1250. Spectators' heads (mostly backs) fill the bottom third."
+    },
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:L.T._Smith_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/L.T._Smith_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1277,
+      "height": 720,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Nkyleft (Commons user)",
+      "credit_line": "Photo: Nkyleft (Commons user) / CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2012,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Dusk game under the lights from high in the stands looking toward the north end; field in the left-middle, roughly rows 330-650, crowd along the right. Only 1277x720."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Wku_flyover_48890606797_o.jpg",
+      "why": "2019 dusk silhouette of helicopters over the scoreboard; no bowl."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WKU-Hilltopppers.jpg",
+      "why": "2005 field-level shot of the team and mascot entering; pre-2008 renovation."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "team_slug": "wisconsin",
+  "venue": "Camp Randall Stadium",
+  "summary": "Day: 2021 high oblique drone view into the empty bowl from above the north end. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Camp_Randall_Aerial.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Camp_Randall_Aerial.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1350,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lectrician2",
+      "credit_line": "Photo: Lectrician2 / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2021,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone aerial from above the north end (Field House and the old Camp Randall arch front) looking south down the field; field centered, roughly rows 550-890. The Shell at left was demolished in 2024; the bowl itself is unchanged."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Camp_Randall_Stadium_aerial.jpg",
+      "why": "Older public-domain aerial at 2200 px from farther out; the 2021 drone view is closer and sharper."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Camp_Randall_Stadium_crowd.jpg",
+      "why": "Upper-deck crowd shot with fans in the foreground and the scoreboard; the field is barely visible."
+    }
+  ]
+}
