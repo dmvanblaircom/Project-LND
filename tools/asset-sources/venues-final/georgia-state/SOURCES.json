@@ -1,0 +1,16 @@
+{
+  "team_slug": "georgia-state",
+  "venue": "Center Parc Stadium",
+  "summary": "Nothing qualifies: the only football-configuration photo is field level, and every elevated or aerial view is of the earlier Turner Field baseball layout.",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Georgia_State_Stadium_field.jpg",
+      "why": "Football layout (Dec 2017) but shot from field level: sky fills the top half and the field is a strip near the bottom."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Turner_Field_Panorama_(3894388352).jpg",
+      "why": "Same structure, but the pre-2017 baseball configuration."
+    }
+  ]
+}

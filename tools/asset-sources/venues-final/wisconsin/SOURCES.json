@@ -1,7 +1,7 @@
 {
   "team_slug": "wisconsin",
   "venue": "Camp Randall Stadium",
-  "summary": "Day: 2021 high oblique drone view into the empty bowl from above the north end. No qualifying night photo.",
+  "summary": "Day: 2021 high oblique drone view into the empty bowl from above the south end. No qualifying night photo.",
   "files": [
     {
       "file": "day.jpg",
@@ -16,7 +16,7 @@
       "year": 2021,
       "day_or_night": "day",
       "aerial": true,
-      "note": "High oblique drone aerial from above the north end (Field House and the old Camp Randall arch front) looking south down the field; field centered, roughly rows 550-890. The Shell at left was demolished in 2024; the bowl itself is unchanged."
+      "note": "High oblique drone aerial from above the south end (the arched facade, Field House at left) looking north up the field; field centered, roughly rows 550-890. Predates the 2024-25 north end zone renovation; the rest of the bowl is unchanged."
     }
   ],
   "closest_misses": [

@@ -1,0 +1,32 @@
+{
+  "team_slug": "wake-forest",
+  "venue": "Allegacy Federal Credit Union Stadium",
+  "summary": "No aerial or recent elevated photo on Commons. Day: 2006 view from high in the stands with the field filling most of the frame. No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2006_Virginia_Tech_at_Wake_Forest_lined_up.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/2006_Virginia_Tech_at_Wake_Forest_lined_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1600,
+      "height": 1200,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "B (Commons user)",
+      "credit_line": "Photo: B (Commons user) / CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2006,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "From the upper stands looking down on play near midfield, opposite stands and crowd across the top third; field fills the lower two thirds, roughly rows 430-1200. Only 1600x1200; predates the 2008 Deacon Tower on the press-box side, which is not in frame. Late-afternoon light."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:WakeForest-GrovesStadium-WFUvsVT-2004-pregame.jpg",
+      "why": "2004 pregame from the grass berm; low angle with fans in the foreground."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Army_vs._Wake_Forest_(51627526450).jpg",
+      "why": "2021 game set is all field-level action close-ups."
+    }
+  ]
+}

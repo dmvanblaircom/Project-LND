@@ -1,0 +1,32 @@
+{
+  "team_slug": "wyoming",
+  "venue": "War Memorial Stadium (Laramie)",
+  "summary": "No aerial on Commons. Day: 2024 game view from high in the east stands toward the west press box. Night candidates exist but are all taken from low in the stands, so no night photo is supplied.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:University_of_Wyoming_Football_Game_-_War_Memorial_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/University_of_Wyoming_Football_Game_-_War_Memorial_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Tony Webster",
+      "credit_line": "Photo: Tony Webster / CC BY 2.0, via Wikimedia Commons",
+      "year": 2024,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "From the upper east-side rows over a full crowd to the west stands, press box and video board; field across the middle, roughly rows 1080-1420, sky in the top third, spectators' heads in the bottom fifth."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:University_of_Wyoming_Football_-_War_Memorial_Stadium_(52510867952).jpg",
+      "why": "2022 dusk under the lights with the band and flags, but taken from the lower rows: stands fill the top two thirds and the field is a strip at the bottom."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UWyo_Football_War_Memorial_Stadium_(54271902224).jpg",
+      "why": "2024 dusk, low end-zone angle; field is a thin band."
+    }
+  ]
+}

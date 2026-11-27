@@ -1,0 +1,32 @@
+{
+  "team_slug": "washington",
+  "venue": "Husky Stadium",
+  "summary": "Every aerial on Commons (2009-2012) predates or shows the 2011-13 rebuild, so none shows the current bowl. Day: 2016 empty view from the west end zone stands of the rebuilt stadium, looking out the open east end. No qualifying night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Husky_Stadium_-_March_19,_2016.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Husky_Stadium_-_March_19%2C_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2400,
+      "height": 1600,
+      "license_short_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "author": "Atomic Taco",
+      "credit_line": "Photo: Atomic Taco / CC BY-SA 2.0, via Wikimedia Commons",
+      "year": 2016,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Mid-level west end zone seats looking east down the empty field between the two roofed sidelines toward the open end and scoreboard; field in the middle, roughly rows 840-1100, empty bleachers fill the bottom third and grey sky the top quarter."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Aerial_Husky_Stadium_November_2011_-_1.jpg",
+      "why": "High-quality aerial but taken mid-rebuild (south side under construction); not the current stadium."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2009-0919-HuskyStadium.jpg",
+      "why": "2009 elevated game panorama of the pre-rebuild bowl (running track, old lower bowl)."
+    }
+  ]
+}

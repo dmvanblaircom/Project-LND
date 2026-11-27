@@ -1,0 +1,32 @@
+{
+  "team_slug": "sam-houston",
+  "venue": "Elliott T. Bowers Stadium",
+  "summary": "No aerial or upper-deck game photo on Commons. Day: 2013 empty view from the top of the corner seating; low resolution (1000 px). No night photo.",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bowers_Stadium.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bowers_Stadium.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1000,
+      "height": 750,
+      "license_short_name": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Liltony9144",
+      "credit_line": "Photo: Liltony9144 / CC BY-SA 3.0, via Wikimedia Commons",
+      "year": 2013,
+      "day_or_night": "day",
+      "aerial": false,
+      "note": "Empty stadium from the top of the corner seating looking across to the main grandstand and press box; field in the middle, roughly rows 330-600, track and grass in front, sky in the top third. Only 1000x750, upscaling would be visible."
+    }
+  ],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bowers_stadium_huntsville_tx_2014.jpg",
+      "why": "Field-level end-zone corner (1793 px); sky fills the top."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Sam_Houston_State%27s_Bowers_Stadium_Away_Side.JPG",
+      "why": "Field-level 2016 view of the visitors' stands; stands and sky fill the frame."
+    }
+  ]
+}

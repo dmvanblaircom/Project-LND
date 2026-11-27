@@ -1,0 +1,20 @@
+{
+  "team_slug": "fresno-state",
+  "venue": "Valley Children's Stadium (Bulldog Stadium)",
+  "summary": "Nothing qualifies: Commons has no aerial, elevated or wide interior view of the stadium; every Fresno State game photo is a field-level action close-up.",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Fresno_State_Bulldogs_Pregame.jpg",
+      "why": "Night telephoto of the team running out of the tunnel; no field or bowl."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Fresno_State_vs._Air_Force_(48942623138).jpg",
+      "why": "2019 public-domain set, but all sideline action close-ups."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:USFL_preseason_exhibition_game_-_Oakland_Invaders_vs._Arizona_Outlaws,_Bulldog_Stadium_Lights_1985.jpg",
+      "why": "1985 game; decades out of date."
+    }
+  ]
+}

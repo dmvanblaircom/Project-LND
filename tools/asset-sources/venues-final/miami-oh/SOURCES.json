@@ -1,0 +1,20 @@
+{
+  "team_slug": "miami-oh",
+  "venue": "Yager Stadium",
+  "summary": "Nothing qualifies: Commons has only a 2003 low student-section night shot and 1600 px field-level or exterior views.",
+  "files": [],
+  "closest_misses": [
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Muohiofootball.jpg",
+      "why": "2003 night game from the front rows of the student section: field only in the middle band, lens flares at the top, hands and heads in the bottom third."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:YagerStadium3.jpg",
+      "why": "Empty stadium from field level beside the goalpost (1600x1200); sky fills the top 40 percent."
+    },
+    {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:YagerStadium1.jpg",
+      "why": "Exterior view of the stands from outside the stadium."
+    }
+  ]
+}
