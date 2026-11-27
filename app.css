@@ -830,6 +830,11 @@ html[data-style="suite"] .bar-context{border-color:#B8845A}
 .seg-mini button{min-width:3.4rem;min-height:2.3rem;padding:.2rem .6rem;border:0;border-radius:7px;background:none;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:.95rem;cursor:pointer}
 .seg-mini button[aria-pressed="true"]{background:var(--t-surface);color:var(--s-on-dark)}
 .seg-mini button:focus-visible{outline:3px solid var(--t-surface);outline-offset:1px}
+/* Availability's two teams (brief §4.5): links, since each side is a route */
+.ro-sides{margin:.75rem 0;max-width:20rem}
+.ro-sides a{flex:1;display:flex;align-items:center;justify-content:center;min-height:2.75rem;padding:.2rem .6rem;border-radius:7px;color:var(--s-ink-2);font-family:var(--t-font-display);font-weight:700;font-size:.95rem;text-decoration:none}
+.ro-sides a[aria-current="page"]{background:var(--t-surface);color:var(--s-on-dark)}
+.ro-sides a:focus-visible{outline:3px solid var(--t-surface);outline-offset:1px}
 
 .mu-teams{display:flex;justify-content:space-between;margin:0 0 .3rem;font-family:var(--t-font-display);font-weight:700;font-size:.9rem;letter-spacing:.08em;color:var(--s-muted)}
 .mu-list,.ld-list,.ts-list,.sp-list,.dr-list,.pl-list{list-style:none;margin:0;padding:0}

@@ -292,6 +292,48 @@ ok(/Mountain West posts each conference game's availability report on its own si
    /href="https:\/\/themw\.com\/sports\/2026\/8\/21\/football_reports\.aspx"[^>]*target="_blank"[^>]*>TheMW\.com/.test(lh) && !/Loading/.test(lh),
    "drawn: the conference's page, linked, and nothing about who is out");
 
+// Both teams in the next game (brief §4.5): the opponent's own report, read
+// from where its producers write it, and only when it says it is theirs.
+console.log("the opponent's availability");
+var S5 = nd.TeamOS.snapshots;
+eq(S5.of("michigan-state", "availability"), { file: "data/michigan-state/availability.json" }, "another program's report: data/<id>/availability.json");
+eq(S5.of("../etc", "availability"), null, "an id that is not a program id is no path");
+var threw = false; try { S5.of("navy", "ratings"); } catch (e) { threw = true; }
+ok(threw, "an unknown kind fails loudly");
+ok(S5.stampedFor("navy", { team: "navy" }) && !S5.stampedFor("navy", { team: "army" }) && !S5.stampedFor("navy", {}) && !S5.stampedFor("navy", null),
+   "theirs only when stamped with their id: another id, no stamp, no file are all refused");
+ok(R.forGame({ kickoffDate: "2026-11-28" }, "2026-11-28T17:00Z") && R.forGame({ kickoffDate: "2026-11-28" }, "2026-11-29T03:30Z"),
+   "the report for this game: the kickoff date, a late kickoff included");
+ok(!R.forGame({ kickoffDate: "2026-11-21" }, "2026-11-28T17:00Z") && !R.forGame({}, "2026-11-28T17:00Z") && !R.forGame(null, "2026-11-28T17:00Z"),
+   "last week's report, an undated one, or none is not this game's");
+var reg = (function () { var c = vm.createContext({}); vm.runInContext(read("teams/index.js") + ";" + read("teamos/registry.js"), c);
+  return vm.runInContext("TeamOS.registry.create(TEAM_REGISTRY)", c); })();
+eq(reg.byProvider("127") && reg.byProvider("127").id, "michigan-state", "the opponent's program, by the provider's id");
+eq(reg.byProvider("999999"), null, "an opponent the registry does not know: none");
+var unstamped = fs.readdirSync(path.join(root, "data")).filter(function (d) { return fs.existsSync(path.join(root, "data", d, "availability.json")); })
+  .filter(function (d) { return JSON.parse(read("data/" + d + "/availability.json")).team !== d; });
+eq(unstamped, [], "every team's availability report on file is stamped with its team, so an opponent's can be read");
+function availBody(m) {
+  var parts = {}, h = { innerHTML: "", querySelector: function (q) { var k = (/data-ro="(\w+)"/.exec(q) || [])[1];
+    if (!k) return q === "[data-ro]" && this.innerHTML ? {} : null; return parts[k] || (parts[k] = { innerHTML: "" }); } };
+  ui5.Suite.roster.paint(h, Object.assign({ view: "availability", views: R.views(nd.TEAM_CONFIG), avail: av, availLink: null, failed: {}, fresh: null, usAbbr: "ND" }, m));
+  return parts.body.innerHTML;
+}
+var msu = R.availability({ reported: true, game: "at Notre Dame", effectiveAt: "2026-09-18", sourceUrl: "https://bigten.org/r", sourceLabel: "BigTen.org",
+                           players: [{ pos: "QB", name: "A Player", status: "out-game" }] }, null);
+var us1 = availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "ok", avail: msu }, side: "us" });
+ok(/<nav class="seg-light seg-mini ro-sides"[^>]*>.*href="#roster\/availability" aria-current="page">ND<.*href="#roster\/availability\/them">MSU</.test(us1),
+   "drawn: a switch between the two teams, ours current");
+var them1 = availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "ok", avail: msu }, side: "them" });
+ok(/Michigan State Availability/.test(them1) && /A Player/.test(them1) && /Out for the game/.test(them1) && /BigTen\.org/.test(them1),
+   "drawn: their report, under their name, with its source");
+ok(/hasn’t published its official availability report for this game yet/.test(availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "ok", avail: null, otherGame: true }, side: "them" })),
+   "drawn: another week's report is not shown as this game's");
+ok(/doesn’t read an official availability report for Michigan State/.test(availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "none" }, side: "them" })),
+   "drawn: no report Suite reads, said plainly");
+ok(/didn’t load/.test(availBody({ opp: { name: "Michigan State", abbr: "MSU", state: "failed" }, side: "them" })), "drawn: a failed load says so");
+ok(!/ro-sides/.test(availBody({ opp: null })), "drawn: no game-week opponent, no switch");
+
 console.log("spot names");
 eq([R.spotName("QB"), R.spotName("dt"), R.spotName("WILL"), R.spotName("NICKEL")],
    ["Quarterback", "Defensive Tackle", "WILL", "NICKEL"], "general positions in words; a team's own terms as written");

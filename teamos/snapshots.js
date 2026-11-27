@@ -84,5 +84,23 @@ TeamOS.snapshots = (function () {
     return out;
   }
 
-  return { get: get, owned: owned, files: files };
+  // Another program's snapshot, for a program whose config this page has
+  // not loaded: the next opponent's availability report (brief §4.5,
+  // "Availability, covering both teams in the next game"). Every producer
+  // writes each team's files to the same place, data/<id>/, so the path
+  // follows from the id. No declaration vouches for it, so it is that
+  // program's only when the file says so: `stampedFor`, stricter than
+  // `owned`, refuses a file with no `team` field. It is shown under that
+  // program's name, never as this team's (decision 0008).
+  var NAMES = { depth: "depth", availability: "availability", beatNews: "news", notes: "notes", recruits: "recruits" };
+  function of(id, kind) {
+    if (!KINDS[kind]) fail("unknown snapshot kind \"" + kind + "\"");
+    if (typeof id !== "string" || !/^[a-z0-9-]+$/.test(id)) return null;
+    return { file: "data/" + id + "/" + NAMES[kind] + ".json" };
+  }
+  function stampedFor(id, json) {
+    return !!json && typeof json === "object" && typeof id === "string" && json.team === id;
+  }
+
+  return { get: get, owned: owned, files: files, of: of, stampedFor: stampedFor };
 })();

@@ -310,5 +310,17 @@ TeamOS.roster = (function () {
     });
   }
 
-  return { views: views, availabilityLink: availabilityLink, depth: depth, phase: phase, availability: availability, history: history, spotName: spotName, withStatus: withStatus };
+  // Is this report the one for this game? A report names its game's
+  // kickoff date (the conference's, local); the game's date, read in another
+  // time zone, can fall a day either side, so a date within a day counts. A
+  // report with no kickoff date is not taken for any game: an older week's
+  // report must never stand in for this one (0019: nothing inferred).
+  function forGame(report, gameDate) {
+    if (!report || !report.kickoffDate || !gameDate) return false;
+    var k = Date.parse(report.kickoffDate + "T12:00:00Z"), g = Date.parse(gameDate);
+    if (isNaN(k) || isNaN(g)) return false;
+    return Math.abs(g - k) <= 36 * 3600e3;
+  }
+
+  return { views: views, availabilityLink: availabilityLink, depth: depth, phase: phase, availability: availability, history: history, spotName: spotName, withStatus: withStatus, forGame: forGame };
 })();
