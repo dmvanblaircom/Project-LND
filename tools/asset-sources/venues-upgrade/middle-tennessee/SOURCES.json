@@ -1,0 +1,11 @@
+{
+  "slug": "middle-tennessee",
+  "venue": "Johnny \"Red\" Floyd Stadium",
+  "files": [],
+  "closest_misses": [
+    {"file": "MT vs Ga Tech.jpg", "why": "1440x809 CC BY-SA 3.0, the best framing on Commons (elevated press-box view across a full bowl, field centred at rows ~45-75%), but only 1440 px and at dusk; likely the source of, or no better than, the current 960 px photo."},
+    {"file": "Murfreesboro, TN, USA - panoramio (1).jpg", "why": "1600x1067 CC BY-SA 3.0, elevated corner view at dusk, but a handrail and fans' heads fill the lower left foreground."},
+    {"file": "Murfreesboro, TN, USA - panoramio.jpg", "why": "1600x1067 CC BY-SA 3.0, dusk, low view where the field occupies only the bottom third."},
+    {"file": "MTSU Pressbox.JPG", "why": "2048x1536 public domain, press-box facade only, no field."}
+  ]
+}
