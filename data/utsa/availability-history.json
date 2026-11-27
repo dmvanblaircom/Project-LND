@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "utsa",
- "updated": "2026-11-22T11:38:44.080148+00:00",
+ "updated": "2026-11-27T15:08:39.817620+00:00",
  "reports": [
   {
    "schema": 1,
@@ -579,6 +579,81 @@
      "no": "75",
      "name": "Jonah Miller",
      "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "utsa",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-27T15:08:39.817620+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-27",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-27",
+   "game": "Tulsa",
+   "players": [
+    {
+     "pos": "S",
+     "no": "12",
+     "name": "Marcellus Wilkerson",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "WR",
+     "no": "15",
+     "name": "DJ Allen Jr.",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "MB",
+     "no": "16",
+     "name": "Chris Bryson II",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "19",
+     "name": "Johnny Bowens III",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "22",
+     "name": "Bryson Donnell",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "23",
+     "name": "Mykha Green",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "RB",
+     "no": "28",
+     "name": "A'Marion Peterson",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "34",
+     "name": "James Walley Jr.",
+     "status": "questionable",
      "detail": ""
     }
    ],

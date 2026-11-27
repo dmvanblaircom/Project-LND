@@ -1,7 +1,25 @@
 {
  "team": "tennessee",
- "updated": "2026-11-27T14:08:04.761078+00:00",
+ "updated": "2026-11-27T14:38:13.777804+00:00",
  "items": [
+  {
+   "title": "Tennessee vs Vanderbilt: Examining the key matchup",
+   "link": "https://on3.com/teams/tennessee-volunteers/news/tennessee-vanderbilt-key-matchup-clark-lea-stats-josh-heupel/",
+   "source": "On3",
+   "summary": "Tennessee heads to Nashville this weekend to close out the regular season against Vanderbilt. The Vols will look to pick up their tenth win and strengthen their College Football Playoff chances, while the Commodores have a chance to play spoiler at home. Ahead of the game, Volquest takes a look at the key matchup.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/05/12111922/USATSI_27185044-e1778602784491.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-27T14:20:00+00:00"
+  },
+  {
+   "title": "FB PREVIEW: #5 Vols Travel to Nashville for In-State Clash vs. Vanderbilt",
+   "link": "https://utsports.com/news/2026/11/27/football-fb-preview-5-vols-travel-to-nashville-for-in-state-clash-vs-vanderbilt",
+   "source": "Tennessee Athletics",
+   "summary": "<img alt=\"FB Preview_BSI_Vanderbilt\" src=\"https://utsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/FB_Preview_BSI_Vanderbilt.jpeg\" /><br /><br />#5 Vols look to secure CFP spot as they head west to take on Commodores.",
+   "image": "https://utsports.com/images/2026/11/25/FB_Preview_BSI_Vanderbilt.jpeg?width=800",
+   "sourceLogo": "https://utsports.com/favicon.ico",
+   "published": "2026-11-27T14:00:00+00:00"
+  },
   {
    "title": "Tennessee football rivalry week rooting guide",
    "link": "https://on3.com/teams/tennessee-volunteers/news/tennessee-football-rivalry-week-rooting-guide/",
@@ -43,7 +61,7 @@
    "link": "https://on3.com/teams/tennessee-volunteers/news/volquest-black-friday-sale-75-percent-off-annual-membership-tennessee-vols-football/",
    "source": "On3",
    "summary": "Don't miss out on the perfect opportunity to sign up for Volquest! Get 75% off an annual membership in the Black Friday Sale!",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/04094433/Tennessee-football-dark-mode-Neyland-Stadium.jpg",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/27081945/IMG_2448.png",
    "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
    "published": "2026-11-27T05:02:00+00:00"
   },
@@ -397,15 +415,6 @@
    "image": "https://utsports.com/images/2026/11/21/UT5_8791.JPG?width=800",
    "sourceLogo": "https://utsports.com/favicon.ico",
    "published": "2026-11-22T01:17:00+00:00"
-  },
-  {
-   "title": "FB PREVIEW: #9 Vols Host LSU in Pivotal Late-Season Matchup",
-   "link": "https://utsports.com/news/2026/11/20/football-fb-preview-9-vols-host-lsu-in-pivotal-late-season-matchup",
-   "source": "Tennessee Athletics",
-   "summary": "<img alt=\"FB Preview BSI_LSU\" src=\"https://utsports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/19/FB_Preview_LSU.jpeg\" /><br /><br />Vols host Tigers in regular-season home finale with CFP stakes on the line.",
-   "image": "https://utsports.com/images/2026/11/19/FB_Preview_LSU.jpeg?width=800",
-   "sourceLogo": "https://utsports.com/favicon.ico",
-   "published": "2026-11-20T14:00:00+00:00"
   }
  ]
 }

@@ -7,17 +7,17 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T11:38:43.143211+00:00",
+ "fetchedAt": "2026-11-27T15:08:38.823989+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "vs. Charlotte",
+ "kickoffDate": "2026-11-27",
+ "game": "UTSA",
  "players": [
   {
-   "pos": "WR",
-   "no": "0",
-   "name": "Donnell Gee Jr.",
+   "pos": "CB",
+   "no": "3",
+   "name": "JD Drew",
    "status": "questionable",
    "detail": ""
   },
@@ -29,17 +29,31 @@
    "detail": ""
   },
   {
+   "pos": "K",
+   "no": "10",
+   "name": "Owen Carey",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "WR",
    "no": "19",
    "name": "Grayson Tempest",
-   "status": "out-game",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "21",
+   "name": "Aquavious Dunbar",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "RB",
    "no": "28",
    "name": "Sevion Morrison",
-   "status": "out-game",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -71,38 +85,10 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "50",
-   "name": "Ty Anderson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
    "pos": "OL",
    "no": "60",
    "name": "Hunter Erb",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "73",
-   "name": "Cam East",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "78",
-   "name": "Davis Dotson",
-   "status": "questionable",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "82",
-   "name": "Chris Gacayan II",
-   "status": "questionable",
    "detail": ""
   },
   {
@@ -117,13 +103,6 @@
    "no": "88",
    "name": "Xavier Green",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "DL",
-   "no": "90",
-   "name": "Jayden Madkins",
-   "status": "questionable",
    "detail": ""
   }
  ],
