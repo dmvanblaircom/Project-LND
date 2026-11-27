@@ -1,7 +1,16 @@
 {
  "team": "california",
- "updated": "2026-11-27T22:07:55.141793+00:00",
+ "updated": "2026-11-27T23:37:58.292458+00:00",
  "items": [
+  {
+   "title": "Blue & Gold Forever",
+   "link": "https://calbears.com/news/2026/11/27/football-blue-gold-forever",
+   "source": "Cal Athletics",
+   "summary": "<img alt=\"Inside Cal Football: Blue & Gold Forever\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/27/Inside_Cal_FB_Feature_Webbluegold.jpg\" /><br /><br />Derek Wilkins, Bastian Swinney Will Take The Field At CMS For The Last Time",
+   "image": "https://calbears.com/images/2026/11/27/Inside_Cal_FB_Feature_Webbluegold.jpg?width=800",
+   "sourceLogo": "https://calbears.com/favicon.ico",
+   "published": "2026-11-27T23:00:00+00:00"
+  },
   {
    "title": "We Ask a Pitt Writer 5 Questions About Cal's Final Opponent",
    "link": "https://www.si.com/college/cal/football/we-ask-a-pitt-writer-5-questions-about-cal-s-final-opponent-01m8f4smh354?utm_source=RSS",
@@ -334,15 +343,6 @@
    "image": "https://calbears.com/images/2026/11/17/GAMEWEEK_WEBstanford.jpg?width=800",
    "sourceLogo": "https://calbears.com/favicon.ico",
    "published": "2026-11-17T22:00:00+00:00"
-  },
-  {
-   "title": "Pitt Game Time Announced",
-   "link": "https://calbears.com/news/2026/11/16/football-pitt-game-time-announced",
-   "source": "Cal Athletics",
-   "summary": "<img alt=\"Adam Mohammed at Virginia (11.14.2026)\" src=\"https://calbears.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/16/Adam_Mohammed_vs_Virginia__11.14.26_BA_0117.JPG\" /><br /><br />Bears, Panthers To Meet In Berkeley At 4:30 p.m. PT On ACCN",
-   "image": "https://calbears.com/images/2026/11/16/Adam_Mohammed_vs_Virginia__11.14.26_BA_0117.JPG?width=800",
-   "sourceLogo": "https://calbears.com/favicon.ico",
-   "published": "2026-11-16T18:00:00+00:00"
   }
  ]
 }
