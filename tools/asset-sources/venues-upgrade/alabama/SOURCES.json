@@ -1,0 +1,23 @@
+{
+  "slug": "alabama",
+  "venue": "Bryant-Denny Stadium",
+  "files": [
+    {
+      "file": "night.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bryant_Denny_Stadium.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Bryant_Denny_Stadium.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "original_width": 3264,
+      "original_height": 2448,
+      "width": 2400,
+      "height": 1800,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lahti213",
+      "credit_line": "\"Bryant Denny Stadium.jpg\" by Lahti213, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2015,
+      "day_or_night": "night",
+      "aerial": false,
+      "note": "Night, lights on, empty bowl seen from a low corner of the lower bowl; field fills the lower half (rows ~900-1800 of 1800), stands and press box above. Not aerial; no aerial night photo exists on Commons. 3264x2448 original vs current 2400x804 panorama."
+    }
+  ]
+}
