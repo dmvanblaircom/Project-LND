@@ -1,0 +1,27 @@
+{
+  "slug": "missouri",
+  "venue": "Memorial Stadium / Faurot Field",
+  "files": [
+    {
+      "file": "day.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Faurot_Field_Aerial.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Faurot_Field_Aerial.jpg",
+      "original_width": 3809,
+      "original_height": 2250,
+      "width": 2400,
+      "height": 1418,
+      "license_short_name": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Lectrician2",
+      "credit_line": "\"Faurot Field Aerial\" by Lectrician2, CC BY-SA 4.0, via Wikimedia Commons",
+      "year": 2021,
+      "day_or_night": "day",
+      "aerial": true,
+      "note": "High oblique drone view from above the north end (the hill and 'The Zou' scoreboard) looking south into the empty bowl, August 2021, after the 2019 south end-zone facility. Field centred horizontally (x ~960-1500) and in rows ~575-910 of 1418 (41-64%). The frame is already close to 16:9; a crop of rows ~68-1418 puts the field at ~38-63%, so it sits just at the top-40% line, not above it. The north scoreboard carries a small 2021 COVID-19 vaccine message."
+    }
+  ],
+  "closest_misses": [
+    {"file": "Faurot Field sunset skyline.jpg", "why": "6308x3263 CC BY-SA 3.0, 2013 sunset from Laws Hall; stadium small and in silhouette, before the 2019 south end-zone build."},
+    {"file": "Memorial Stadium Faurot Field.jpg", "why": "Portrait night shot from the hill with people in the foreground."}
+  ]
+}
