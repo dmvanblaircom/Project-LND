@@ -1,0 +1,11 @@
+{
+  "slug": "san-jose-state",
+  "venue": "CEFCU Stadium",
+  "files": [],
+  "closest_misses": [
+    {"file": "SJSU Marching Band performs at 2015 homecoming.jpg", "why": "3882x2468 CC BY-SA 4.0, good bowl view with the field in the upper-middle, but it is a night game; the bottom fifth is fans' heads."},
+    {"file": "CEFCU Spartan Stadium.jpg", "why": "3120x4160 CC BY-SA 4.0 day aerial (2017), but portrait and a very wide city view; the stadium is a small patch in the lower-middle. The 933 px crop (CEFCU Spartan Stadium aerial.jpg) is too small."},
+    {"file": "Spartan Stadium - panoramio.jpg", "why": "3456x2304 CC BY 3.0 day, exterior only: trees and an empty lot in front of the east stands."},
+    {"file": "San Jose State v Utah State 2010.jpg", "why": "2592x1944 night, field-level action toward the press box."}
+  ]
+}
