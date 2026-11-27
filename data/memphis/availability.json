@@ -7,13 +7,34 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-22T11:38:37.445023+00:00",
+ "fetchedAt": "2026-11-27T18:38:40.251022+00:00",
  "reported": true,
- "effectiveAt": "2026-11-21",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-21",
- "game": "at Navy",
+ "kickoffDate": "2026-11-27",
+ "game": "Temple",
  "players": [
+  {
+   "pos": "TE",
+   "no": "0",
+   "name": "Hunter Tipton",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
+   "pos": "S",
+   "no": "5",
+   "name": "Ahmere Foster",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DL",
+   "no": "15",
+   "name": "Elijah Kinsler",
+   "status": "out-half",
+   "detail": ""
+  },
   {
    "pos": "LB",
    "no": "39",

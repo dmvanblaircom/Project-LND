@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-20T12:08:34.292513+00:00",
+ "fetchedAt": "2026-11-27T18:38:43.793611+00:00",
  "reported": true,
- "effectiveAt": "2026-11-19",
+ "effectiveAt": "2026-11-27",
  "heading": "Game Day",
- "kickoffDate": "2026-11-19",
- "game": "vs. Rice",
+ "kickoffDate": "2026-11-27",
+ "game": "Memphis",
  "players": [
   {
    "pos": "TE",
@@ -22,10 +22,24 @@
    "detail": ""
   },
   {
+   "pos": "S",
+   "no": "2",
+   "name": "Saboor Karriem",
+   "status": "questionable",
+   "detail": ""
+  },
+  {
    "pos": "RB",
    "no": "5",
    "name": "Sam Brown V",
    "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "LB",
+   "no": "8",
+   "name": "Eric Stuart",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -50,17 +64,17 @@
    "detail": ""
   },
   {
-   "pos": "WR",
-   "no": "17",
-   "name": "JoJo Bermudez",
+   "pos": "CB",
+   "no": "21",
+   "name": "Asa Locks",
    "status": "questionable",
    "detail": ""
   },
   {
-   "pos": "CB",
-   "no": "20",
-   "name": "Jett White",
-   "status": "questionable",
+   "pos": "RB",
+   "no": "26",
+   "name": "Keveun Mason",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -71,9 +85,9 @@
    "detail": ""
   },
   {
-   "pos": "LB",
-   "no": "30",
-   "name": "Jayvant Brown",
+   "pos": "CB",
+   "no": "32",
+   "name": "Adrian Laing",
    "status": "questionable",
    "detail": ""
   },
@@ -114,6 +128,13 @@
   },
   {
    "pos": "WR",
+   "no": "80",
+   "name": "Hunter Watson",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "WR",
    "no": "83",
    "name": "Kenedy Uzoma",
    "status": "out-game",
@@ -121,16 +142,16 @@
   },
   {
    "pos": "WR",
-   "no": "85",
-   "name": "Rameir Hardy",
-   "status": "questionable",
+   "no": "87",
+   "name": "Kaegan Chambers",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "WR",
-   "no": "87",
-   "name": "Kaegan Chambers",
-   "status": "out-game",
+   "no": "88",
+   "name": "Ash Roberts",
+   "status": "questionable",
    "detail": ""
   },
   {
@@ -144,7 +165,7 @@
    "pos": "DL",
    "no": "95",
    "name": "Troy Cunningham",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   }
  ],

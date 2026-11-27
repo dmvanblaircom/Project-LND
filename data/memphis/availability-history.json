@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "memphis",
- "updated": "2026-11-22T11:38:37.445023+00:00",
+ "updated": "2026-11-27T18:38:40.251022+00:00",
  "reports": [
   {
    "schema": 1,
@@ -343,6 +343,81 @@
    "kickoffDate": "2026-11-21",
    "game": "at Navy",
    "players": [
+    {
+     "pos": "LB",
+     "no": "39",
+     "name": "Desmond Cox",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "LB",
+     "no": "40",
+     "name": "Trey McDonald",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "59",
+     "name": "Aaron Karas",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "OL",
+     "no": "74",
+     "name": "Richard Thigpen",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "94",
+     "name": "J'Mari Monette",
+     "status": "out-game",
+     "detail": ""
+    }
+   ],
+   "current": true
+  },
+  {
+   "schema": 1,
+   "team": "memphis",
+   "capability": "availability",
+   "tier": "official",
+   "sourceUrl": "https://theamerican.org/sports/football",
+   "sourceLabel": "TheAmerican.org",
+   "pdf": null,
+   "parser": 1,
+   "fetchedAt": "2026-11-27T18:38:40.251022+00:00",
+   "reported": true,
+   "effectiveAt": "2026-11-27",
+   "heading": "Game Day",
+   "kickoffDate": "2026-11-27",
+   "game": "Temple",
+   "players": [
+    {
+     "pos": "TE",
+     "no": "0",
+     "name": "Hunter Tipton",
+     "status": "questionable",
+     "detail": ""
+    },
+    {
+     "pos": "S",
+     "no": "5",
+     "name": "Ahmere Foster",
+     "status": "out-game",
+     "detail": ""
+    },
+    {
+     "pos": "DL",
+     "no": "15",
+     "name": "Elijah Kinsler",
+     "status": "out-half",
+     "detail": ""
+    },
     {
      "pos": "LB",
      "no": "39",
