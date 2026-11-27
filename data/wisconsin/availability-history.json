@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "wisconsin",
- "updated": "2026-11-27T01:08:32.747002+00:00",
+ "updated": "2026-11-27T22:37:32.043629+00:00",
  "reports": [
   {
    "schema": 1,
@@ -437,10 +437,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:08:32.747002+00:00",
+   "fetchedAt": "2026-11-27T22:37:32.043629+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 2",
+   "effectiveAt": "2026-11-27",
+   "heading": "Game Day",
    "kickoffDate": "2026-11-27",
    "game": "vs. Minnesota",
    "players": [
@@ -462,14 +462,7 @@
      "pos": "QB",
      "no": "8",
      "name": "Deuce Adams",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "S",
-     "no": "11",
-     "name": "Carson Van Dinter",
-     "status": "probable",
+     "status": "gtd",
      "detail": ""
     },
     {
@@ -484,13 +477,6 @@
      "no": "55",
      "name": "Kevin Heywood",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "OL",
-     "no": "70",
-     "name": "Barrett Nelson",
-     "status": "probable",
      "detail": ""
     },
     {

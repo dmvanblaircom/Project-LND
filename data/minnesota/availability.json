@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:27.848693+00:00",
+ "fetchedAt": "2026-11-27T22:37:24.028632+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "at Wisconsin",
  "players": [
@@ -25,7 +25,7 @@
    "pos": "DB",
    "no": "17",
    "name": "John Nestor",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   },
   {
@@ -33,13 +33,6 @@
    "no": "18",
    "name": "Donielle Hayes",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "19",
-   "name": "Pierce Walsh",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -54,13 +47,6 @@
    "no": "22",
    "name": "Mekhai Smith",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "LB",
-   "no": "46",
-   "name": "Mason Carrier",
-   "status": "probable",
    "detail": ""
   },
   {
