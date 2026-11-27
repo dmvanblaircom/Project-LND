@@ -1,7 +1,16 @@
 {
  "team": "western-kentucky",
- "updated": "2026-11-27T02:38:13.912273+00:00",
+ "updated": "2026-11-27T20:08:15.492861+00:00",
  "items": [
+  {
+   "title": "Know Before You Go: 2026 Football Gameday Information",
+   "link": "https://wkusports.com/news/2026/11/27/know-before-you-go-2026-football-gameday-information",
+   "source": "WKU Athletics",
+   "summary": "<img alt=\"WKU FB 26 \u2013 Gameday Guide\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/8/3/WKU_FB_26___Gameday_Guide.png\" /><br /><br />",
+   "image": "https://wkusports.com/images/2026/8/3/WKU_FB_26___Gameday_Guide.png?width=800",
+   "sourceLogo": "https://wkusports.com/favicon.ico",
+   "published": "2026-11-27T19:30:00+00:00"
+  },
   {
    "title": "Hilltoppers Close Regular Season On Saturday Against Kennesaw State",
    "link": "https://wkusports.com/news/2026/11/25/football-hilltoppers-close-regular-season-on-saturday-against-kennesaw-state",
@@ -91,15 +100,6 @@
    "image": "https://wkusports.com/images/2026/11/16/Tyson.png?width=800",
    "sourceLogo": "https://wkusports.com/favicon.ico",
    "published": "2026-11-16T17:17:00+00:00"
-  },
-  {
-   "title": "Hilltoppers Take Down Jax State 34-24 On Homecoming",
-   "link": "https://wkusports.com/news/2026/11/14/football-hilltoppers-take-down-jax-state-34-24-on-homecoming",
-   "source": "WKU Athletics",
-   "summary": "<img alt=\"Rockwell Postgame\" src=\"https://wkusports.com/common/controls/image_handler.aspx?thumb_prefix=6fsvovrm&image_path=/images/2026/11/14/rockwell_post.png\" /><br /><br />BOWING GREEN, Ky. \u2013 WKU Football took the lead\u00a0in the closing seconds to defeat Jax State 34-24 during a Homecoming game on Saturday at Houchens-Smith Stadium.",
-   "image": "https://wkusports.com/images/2026/11/14/rockwell_post.png?width=800",
-   "sourceLogo": "https://wkusports.com/favicon.ico",
-   "published": "2026-11-15T01:25:00+00:00"
   }
  ]
 }
