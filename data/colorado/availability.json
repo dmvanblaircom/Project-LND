@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:08:23.399944+00:00",
+ "fetchedAt": "2026-11-28T03:08:44.151299+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. UCF",
  "players": [
@@ -22,17 +22,10 @@
    "detail": ""
   },
   {
-   "pos": "DB",
-   "no": "7",
-   "name": "Randon Fontenette",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "LB",
    "no": "17",
    "name": "Liona Lefau",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

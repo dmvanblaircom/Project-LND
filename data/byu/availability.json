@@ -7,20 +7,13 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:08:22.647036+00:00",
+ "fetchedAt": "2026-11-28T03:08:43.437907+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. Cincinnati",
  "players": [
-  {
-   "pos": "CB",
-   "no": "0",
-   "name": "Evan Johnson",
-   "status": "probable",
-   "detail": ""
-  },
   {
    "pos": "TE",
    "no": "2",
@@ -40,13 +33,6 @@
    "no": "30",
    "name": "Sione Moa",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "75",
-   "name": "Andrew Gentry",
-   "status": "probable",
    "detail": ""
   },
   {

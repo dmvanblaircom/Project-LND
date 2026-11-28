@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "houston",
- "updated": "2026-11-27T03:08:24.807853+00:00",
+ "updated": "2026-11-28T03:08:45.476790+00:00",
  "reports": [
   {
    "schema": 1,
@@ -331,10 +331,10 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T03:08:24.807853+00:00",
+   "fetchedAt": "2026-11-28T03:08:45.476790+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "vs. Baylor",
    "players": [
@@ -342,7 +342,7 @@
      "pos": "QB",
      "no": "1",
      "name": "Conner Weigman",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {
@@ -350,13 +350,6 @@
      "no": "3",
      "name": "Harvey Broussard III",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DB",
-     "no": "3",
-     "name": "JD Rhym",
-     "status": "probable",
      "detail": ""
     },
     {
@@ -370,7 +363,7 @@
      "pos": "OL",
      "no": "50",
      "name": "Aaron Wolford",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

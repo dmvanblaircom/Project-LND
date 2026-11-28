@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:08:26.568007+00:00",
+ "fetchedAt": "2026-11-28T03:08:46.519448+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at Iowa State",
  "players": [
@@ -25,14 +25,14 @@
    "pos": "QB",
    "no": "10",
    "name": "Dillon Duff",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "CB",
    "no": "25",
    "name": "Zashon Rich",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -46,14 +46,14 @@
    "pos": "CB",
    "no": "47",
    "name": "Ben Osueke",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DT",
    "no": "75",
    "name": "Holden Bass",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

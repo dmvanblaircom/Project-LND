@@ -1,7 +1,16 @@
 {
  "team": "central-michigan",
- "updated": "2026-11-25T16:37:50.909494+00:00",
+ "updated": "2026-11-28T03:08:01.541840+00:00",
  "items": [
+  {
+   "title": "Watch: Central Michigan Football Coaches Show No. 12 (Ball State Week)",
+   "link": "https://cmuchippewas.com/news/2026/11/27/watch-central-michigan-football-coaches-show-no-12-ball-state-week",
+   "source": "CMU Athletics",
+   "summary": "<img alt=\"Ball State Coaches Show Graphic\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/27/13-BallState-3.jpg\" /><br /><br />",
+   "image": "https://cmuchippewas.com/images/2026/11/27/13-BallState-3.jpg?width=800",
+   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
+   "published": "2026-11-28T02:36:00+00:00"
+  },
   {
    "title": "Football Preview: Chippewas Go to Ball State Needing a Win to Extend Season",
    "link": "https://cmuchippewas.com/news/2026/11/25/football-preview-chippewas-go-to-ball-state-needing-a-win-to-extend-season",
@@ -82,15 +91,6 @@
    "image": "https://cmuchippewas.com/images/2026/11/11/williams_nasir_fb10_MRM.jpg?width=800",
    "sourceLogo": "https://cmuchippewas.com/favicon.ico",
    "published": "2026-11-12T05:29:00+00:00"
-  },
-  {
-   "title": "High Honor for Army Veteran Darrell Bryant, Jr.",
-   "link": "https://cmuchippewas.com/news/2026/11/11/football-high-honor-for-army-veteran-safety-darrell-bryant-jr",
-   "source": "CMU Athletics",
-   "summary": "<img alt=\"Darrell Bryant Jr.\" src=\"https://cmuchippewas.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/10/bryant_darrell_fb_WHL_3748.jpg\" /><br /><br />MOUNT PLEASANT, Mich. \u2013 Most valuable player.",
-   "image": "https://cmuchippewas.com/images/2026/11/10/bryant_darrell_fb_WHL_3748.jpg?width=800",
-   "sourceLogo": "https://cmuchippewas.com/favicon.ico",
-   "published": "2026-11-11T16:22:00+00:00"
   }
  ]
 }

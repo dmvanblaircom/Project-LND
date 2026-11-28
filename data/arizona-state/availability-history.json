@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "arizona-state",
- "updated": "2026-11-27T03:08:19.482513+00:00",
+ "updated": "2026-11-28T03:08:40.258286+00:00",
  "reports": [
   {
    "schema": 1,
@@ -451,13 +451,20 @@
    "sourceLabel": "Big12Sports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T03:08:19.482513+00:00",
+   "fetchedAt": "2026-11-28T03:08:40.258286+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "at Arizona",
    "players": [
+    {
+     "pos": "WR",
+     "no": "3",
+     "name": "Reed Harris",
+     "status": "questionable",
+     "detail": ""
+    },
     {
      "pos": "WR",
      "no": "4",
