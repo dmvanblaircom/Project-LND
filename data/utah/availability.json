@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:08:33.230154+00:00",
+ "fetchedAt": "2026-11-28T00:38:49.879155+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "vs. West Virginia",
  "players": [
@@ -18,14 +18,14 @@
    "pos": "RB",
    "no": "1",
    "name": "Wayshawn Parker",
-   "status": "probable",
+   "status": "gtd",
    "detail": ""
   },
   {
    "pos": "LS",
    "no": "65",
    "name": "Logan Castor",
-   "status": "questionable",
+   "status": "gtd",
    "detail": ""
   }
  ],

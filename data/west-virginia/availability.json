@@ -7,10 +7,10 @@
  "sourceLabel": "Big12Sports.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:08:34.204913+00:00",
+ "fetchedAt": "2026-11-28T00:38:51.068274+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 2",
+ "effectiveAt": "2026-11-27",
+ "heading": "Game Day",
  "kickoffDate": "2026-11-27",
  "game": "at Utah",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "QB",
    "no": "3",
    "name": "Michael Hawkins Jr.",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
