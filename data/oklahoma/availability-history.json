@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "oklahoma",
- "updated": "2026-11-27T01:38:31.960408+00:00",
+ "updated": "2026-11-28T01:38:34.367876+00:00",
  "reports": [
   {
    "schema": 1,
@@ -785,10 +785,10 @@
    "sourceLabel": "SECsports.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:38:31.960408+00:00",
+   "fetchedAt": "2026-11-28T01:38:34.367876+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "at Missouri",
    "players": [
@@ -796,20 +796,13 @@
      "pos": "DB",
      "no": "3",
      "name": "Reggie Powers III",
-     "status": "doubtful",
+     "status": "out-game",
      "detail": ""
     },
     {
      "pos": "WR",
      "no": "3",
      "name": "Parker Livingstone",
-     "status": "questionable",
-     "detail": ""
-    },
-    {
-     "pos": "RB",
-     "no": "6",
-     "name": "Tory Blaylock",
      "status": "probable",
      "detail": ""
     },
