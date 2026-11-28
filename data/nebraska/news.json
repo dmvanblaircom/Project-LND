@@ -1,7 +1,16 @@
 {
  "team": "nebraska",
- "updated": "2026-11-28T07:07:57.486506+00:00",
+ "updated": "2026-11-28T11:37:58.115972+00:00",
  "items": [
+  {
+   "title": "Another Black Friday Beatdown by the Black and Gold",
+   "link": "https://www.si.com/college/nebraska/football/another-black-friday-beatdown-by-the-black-and-gold?utm_source=RSS",
+   "source": "Nebraska On SI",
+   "summary": "Nebraska football ends the regular season with another disappointing loss to the Hawkeyes.",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_3613,h_2032,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/all_huskers/01m8gyb1s58q9vysffs4.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-28T11:29:05+00:00"
+  },
   {
    "title": "Tad Stryker: Hawkeye QB Outplays Colandrea on Another Bleak Friday for Nebraska",
    "link": "https://www.si.com/college/nebraska/football/tad-stryker-hawkeye-qb-outplays-huskers-colandrea-01m8fqtq39e9?utm_source=RSS",
@@ -325,15 +334,6 @@
    "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1279,h_719,x_0,y_0/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_huskers/01m8842crgjctg5sa3jr.jpg",
    "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
    "published": "2026-11-25T01:20:44+00:00"
-  },
-  {
-   "title": "'They Want Their Eighth Win': Nebraska DC Rob Aurich Previews Iowa",
-   "link": "https://www.si.com/college/nebraska/football/huskers-defensive-coordinator-rob-aurich-previews-iowa-01m87kwd09wf?utm_source=RSS",
-   "source": "Nebraska On SI",
-   "summary": "Rob Aurich sees a Husker defense that wants to go to Kinnick Stadium and \"play our best game.\"",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_1500,h_843,x_0,y_27/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/all_huskers/01m87wckd861k7yzdnwm.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-24T23:10:14+00:00"
   }
  ]
 }

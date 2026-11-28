@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "tulsa",
- "updated": "2026-11-27T15:08:38.823989+00:00",
+ "updated": "2026-11-28T11:38:35.458855+00:00",
  "reports": [
   {
    "schema": 1,
@@ -642,12 +642,12 @@
    "sourceLabel": "TheAmerican.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T15:08:38.823989+00:00",
+   "fetchedAt": "2026-11-28T11:38:35.458855+00:00",
    "reported": true,
    "effectiveAt": "2026-11-27",
    "heading": "Game Day",
    "kickoffDate": "2026-11-27",
-   "game": "UTSA",
+   "game": "at UTSA",
    "players": [
     {
      "pos": "CB",

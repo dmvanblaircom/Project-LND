@@ -7,12 +7,12 @@
  "sourceLabel": "TheAmerican.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T18:38:43.793611+00:00",
+ "fetchedAt": "2026-11-28T11:38:34.501689+00:00",
  "reported": true,
  "effectiveAt": "2026-11-27",
  "heading": "Game Day",
  "kickoffDate": "2026-11-27",
- "game": "Memphis",
+ "game": "at Memphis",
  "players": [
   {
    "pos": "TE",
