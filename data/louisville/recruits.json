@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "97",
  "classYear": 2027,
- "listed": 20,
+ "listed": 21,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -19,6 +19,19 @@
    "rank": 116,
    "positionRank": 23,
    "stateRank": 3,
+   "status": "Verbal"
+  },
+  {
+   "id": "265032",
+   "name": "Jamar Thompson",
+   "position": "DT",
+   "highSchool": "West Boca Raton High School",
+   "city": "Boca Raton",
+   "state": "FL",
+   "grade": 82,
+   "rank": 130,
+   "positionRank": 10,
+   "stateRank": 15,
    "status": "Verbal"
   },
   {
@@ -269,5 +282,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-27T08:10Z"
+ "fetchedAt": "2026-11-28T04:40Z"
 }

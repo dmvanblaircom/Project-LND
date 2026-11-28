@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "12",
  "classYear": 2027,
- "listed": 16,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -84,19 +84,6 @@
    "rank": null,
    "positionRank": 4,
    "stateRank": 83,
-   "status": "Verbal"
-  },
-  {
-   "id": "272566",
-   "name": "Davon Smith Jr.",
-   "position": "ILB",
-   "highSchool": "Westfield High School",
-   "city": "Houston",
-   "state": "TX",
-   "grade": 76,
-   "rank": null,
-   "positionRank": 45,
-   "stateRank": 148,
    "status": "Verbal"
   },
   {
@@ -217,5 +204,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:09Z"
+ "fetchedAt": "2026-11-28T04:39Z"
 }

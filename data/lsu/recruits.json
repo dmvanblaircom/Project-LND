@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "99",
  "classYear": 2027,
- "listed": 17,
+ "listed": 18,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -178,6 +178,19 @@
    "status": "Verbal"
   },
   {
+   "id": "272566",
+   "name": "Davon Smith Jr.",
+   "position": "ILB",
+   "highSchool": "Westfield High School",
+   "city": "Houston",
+   "state": "TX",
+   "grade": 76,
+   "rank": null,
+   "positionRank": 45,
+   "stateRank": 148,
+   "status": "Verbal"
+  },
+  {
    "id": "272273",
    "name": "Gary Burney Jr.",
    "position": "WR",
@@ -230,5 +243,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-27T08:10Z"
+ "fetchedAt": "2026-11-28T04:40Z"
 }

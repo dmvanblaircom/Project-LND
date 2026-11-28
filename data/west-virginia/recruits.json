@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "277",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -256,19 +256,6 @@
    "status": "Verbal"
   },
   {
-   "id": "271749",
-   "name": "Wesley Flamer",
-   "position": "OLB",
-   "highSchool": "Westfield High School",
-   "city": "Chantilly",
-   "state": "VA",
-   "grade": 75,
-   "rank": null,
-   "positionRank": 87,
-   "stateRank": 31,
-   "status": "Verbal"
-  },
-  {
    "id": "271953",
    "name": "Andre Phillip",
    "position": "QB-DT",
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-27T08:13Z"
+ "fetchedAt": "2026-11-28T04:43Z"
 }

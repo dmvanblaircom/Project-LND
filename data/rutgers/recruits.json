@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "164",
  "classYear": 2027,
- "listed": 16,
+ "listed": 15,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -202,20 +202,7 @@
    "positionRank": 109,
    "stateRank": 39,
    "status": "Verbal"
-  },
-  {
-   "id": "271323",
-   "name": "Zane Keric",
-   "position": "OT",
-   "highSchool": "Saint John Neumann High School",
-   "city": "Naples",
-   "state": "FL",
-   "grade": 73,
-   "rank": null,
-   "positionRank": 151,
-   "stateRank": 187,
-   "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:14Z"
+ "fetchedAt": "2026-11-28T04:42Z"
 }

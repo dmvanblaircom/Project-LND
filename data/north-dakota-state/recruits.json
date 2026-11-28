@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "2449",
  "classYear": 2027,
- "listed": 21,
+ "listed": 22,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -32,6 +32,19 @@
    "rank": null,
    "positionRank": 46,
    "stateRank": 4,
+   "status": "Verbal"
+  },
+  {
+   "id": "273176",
+   "name": "Juan Garcia-Okoi",
+   "position": "CB",
+   "highSchool": "Lake Dallas High School",
+   "city": "Corinth",
+   "state": "TX",
+   "grade": 75,
+   "rank": null,
+   "positionRank": 139,
+   "stateRank": 188,
    "status": "Verbal"
   },
   {
@@ -282,5 +295,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:13Z"
+ "fetchedAt": "2026-11-28T04:41Z"
 }

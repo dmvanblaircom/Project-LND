@@ -5,7 +5,7 @@
  "sourceUrl": "https://www.espn.com/college-sports/football/recruiting/",
  "teamId": "193",
  "classYear": 2027,
- "listed": 24,
+ "listed": 23,
  "committedElsewhere": 0,
  "recruits": [
   {
@@ -269,19 +269,6 @@
    "status": "Verbal"
   },
   {
-   "id": "273371",
-   "name": "Sinai Dikisongele",
-   "position": "DT",
-   "highSchool": "Lakeway Christian Academy",
-   "city": "White Pine",
-   "state": "TN",
-   "grade": 43,
-   "rank": null,
-   "positionRank": null,
-   "stateRank": null,
-   "status": "Verbal"
-  },
-  {
    "id": "273364",
    "name": "Tayden Lorenzen",
    "position": "TE-Y",
@@ -321,5 +308,5 @@
    "status": "Verbal"
   }
  ],
- "fetchedAt": "2026-11-25T15:12Z"
+ "fetchedAt": "2026-11-28T04:41Z"
 }
