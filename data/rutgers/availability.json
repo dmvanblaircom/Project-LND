@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:29.647422+00:00",
+ "fetchedAt": "2026-11-28T01:08:49.732694+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. Michigan State",
  "players": [
@@ -46,7 +46,14 @@
    "pos": "LB",
    "no": "6",
    "name": "Abram Wright",
-   "status": "questionable",
+   "status": "out-game",
+   "detail": ""
+  },
+  {
+   "pos": "DB",
+   "no": "7",
+   "name": "Kevin Levy",
+   "status": "out-game",
    "detail": ""
   },
   {
@@ -88,14 +95,14 @@
    "pos": "DB",
    "no": "27",
    "name": "Sage Clawges",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "LB",
    "no": "38",
    "name": "Joey Kopec",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

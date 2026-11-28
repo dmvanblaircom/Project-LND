@@ -7,25 +7,18 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:24.848819+00:00",
+ "fetchedAt": "2026-11-28T01:08:42.356095+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at Wake Forest",
  "players": [
   {
-   "pos": "WR",
-   "no": "1",
-   "name": "Jamien Little",
-   "status": "probable",
-   "detail": ""
-  },
-  {
    "pos": "CB",
    "no": "1",
    "name": "Kyon Loud",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -110,13 +103,6 @@
    "no": "79",
    "name": "Roman Fina",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "TE",
-   "no": "81",
-   "name": "Brett Elliott",
-   "status": "questionable",
    "detail": ""
   }
  ],

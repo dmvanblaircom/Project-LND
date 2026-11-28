@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia",
- "updated": "2026-11-27T01:08:32.158557+00:00",
+ "updated": "2026-11-28T01:08:53.100250+00:00",
  "reports": [
   {
    "schema": 1,
@@ -1235,20 +1235,13 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:08:32.158557+00:00",
+   "fetchedAt": "2026-11-28T01:08:53.100250+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "at Virginia Tech",
    "players": [
-    {
-     "pos": "S",
-     "no": "4",
-     "name": "Corey Costner",
-     "status": "questionable",
-     "detail": ""
-    },
     {
      "pos": "LB",
      "no": "11",
@@ -1261,13 +1254,6 @@
      "no": "11",
      "name": "Rico Flores Jr.",
      "status": "out-game",
-     "detail": ""
-    },
-    {
-     "pos": "DE",
-     "no": "16",
-     "name": "Matthew Fobbs-White",
-     "status": "probable",
      "detail": ""
     },
     {

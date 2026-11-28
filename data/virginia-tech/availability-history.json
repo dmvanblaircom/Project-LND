@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "virginia-tech",
- "updated": "2026-11-27T01:08:32.251008+00:00",
+ "updated": "2026-11-28T01:08:53.225123+00:00",
  "reports": [
   {
    "schema": 1,
@@ -752,10 +752,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:08:32.251008+00:00",
+   "fetchedAt": "2026-11-28T01:08:53.225123+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "vs. Virginia",
    "players": [
@@ -798,7 +798,7 @@
      "pos": "OL",
      "no": "66",
      "name": "Montavious Cunningham",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -819,14 +819,14 @@
      "pos": "WR",
      "no": "83",
      "name": "Luke Stuewe",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
      "pos": "DL",
      "no": "99",
      "name": "Emmett Laws",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     }
    ],

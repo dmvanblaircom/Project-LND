@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:29.148955+00:00",
+ "fetchedAt": "2026-11-28T01:08:49.051450+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. Washington",
  "players": [
@@ -18,7 +18,7 @@
    "pos": "RB",
    "no": "0",
    "name": "Jordon Davison",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -32,7 +32,7 @@
    "pos": "RB",
    "no": "6",
    "name": "Dierre Hill Jr.",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {

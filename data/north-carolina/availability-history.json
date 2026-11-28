@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "north-carolina",
- "updated": "2026-11-27T01:08:28.387420+00:00",
+ "updated": "2026-11-28T01:08:48.043865+00:00",
  "reports": [
   {
    "schema": 1,
@@ -684,10 +684,10 @@
    "sourceLabel": "TheACC.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:08:28.387420+00:00",
+   "fetchedAt": "2026-11-28T01:08:48.043865+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "vs. NC State",
    "players": [
@@ -786,7 +786,7 @@
      "pos": "TE",
      "no": "87",
      "name": "Carson Sneed",
-     "status": "questionable",
+     "status": "probable",
      "detail": ""
     },
     {

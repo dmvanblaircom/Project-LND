@@ -7,10 +7,10 @@
  "sourceLabel": "BigTen.org",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:32.426935+00:00",
+ "fetchedAt": "2026-11-28T01:08:53.498540+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at Oregon",
  "players": [
@@ -46,7 +46,7 @@
    "pos": "EDG",
    "no": "12",
    "name": "Logan George",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -60,28 +60,28 @@
    "pos": "RB",
    "no": "22",
    "name": "Trey Cooley",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "DL",
    "no": "33",
    "name": "Darin Conley",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
    "pos": "K",
    "no": "38",
    "name": "Hunter McKee",
-   "status": "doubtful",
+   "status": "out-game",
    "detail": ""
   },
   {
    "pos": "EDG",
    "no": "52",
    "name": "Devin Hyde",
-   "status": "questionable",
+   "status": "out-game",
    "detail": ""
   },
   {

@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T01:08:28.211012+00:00",
+ "fetchedAt": "2026-11-28T01:08:47.813062+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at North Carolina",
  "players": [
@@ -61,13 +61,6 @@
    "no": "15",
    "name": "AJ Richardson",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "OL",
-   "no": "64",
-   "name": "Rico Jackson",
-   "status": "questionable",
    "detail": ""
   },
   {

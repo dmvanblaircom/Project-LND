@@ -1,7 +1,25 @@
 {
  "team": "florida",
- "updated": "2026-11-28T00:37:58.362072+00:00",
+ "updated": "2026-11-28T01:08:01.571771+00:00",
  "items": [
+  {
+   "title": "Florida Gators game balls after Friday's win over FSU",
+   "link": "https://on3.com/teams/florida-gators/news/florida-gators-game-balls-after-fridays-win-over-fsu/",
+   "source": "On3",
+   "summary": "Following every Florida Gators victory, Gators Online hands out game balls to the players who made the biggest impact.",
+   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/dev/assets/cms/2026/11/27181946/JVari-Flowers.jpg",
+   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
+   "published": "2026-11-28T00:43:54+00:00"
+  },
+  {
+   "title": "FINAL: Florida 26, Florida State 10",
+   "link": "https://floridagators.com/news/2026/11/27/football-final-florida-26-florida-state-10",
+   "source": "Florida Athletics",
+   "summary": "<img alt=\"Scott Carter's Quick Slant powered by Ticketmaster\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/21/QuickSlant_ScottCarter_Team_Huddle.jpg\" /><br /><br />A recap of the Florida-Florida State game on Friday afternoon at Doak Campbell Stadium in Tallahassee.",
+   "image": "https://floridagators.com/images/2026/11/21/QuickSlant_ScottCarter_Team_Huddle.jpg?width=800",
+   "sourceLogo": "https://floridagators.com/favicon.ico",
+   "published": "2026-11-28T00:39:00+00:00"
+  },
   {
    "title": "Gators Take Down Florida State to Finish Off Regular Season with Win",
    "link": "https://www.si.com/college/florida/football/gators-take-down-florida-state-finish-off-regular-season-with-win?utm_source=RSS",
@@ -183,15 +201,6 @@
    "published": "2026-11-26T17:01:45+00:00"
   },
   {
-   "title": "'It felt like a place I can call home': Why Florida is climbing for TE Faraji Tucker",
-   "link": "https://on3.com/teams/florida-gators/news/florida-gators-recruiting-faraji-tucker-place-to-call-home/",
-   "source": "On3",
-   "summary": "Three trips to Gainesville, a strong connection with Evan McKissack and a renewed interest have helped the Gators become a major player.",
-   "image": "https://on3static.com/cdn-cgi/image/height=630,width=1200,quality=90,fit=cover/uploads/assets/635/625/625635.jpg",
-   "sourceLogo": "https://on3static.com/static/on3/touch-icons/apple-touch-icon-180x180.png",
-   "published": "2026-11-26T15:30:53+00:00"
-  },
-  {
    "title": "Gators Offense Needed More Explosive Plays; Eric Singleton Jr. Delivered",
    "link": "https://www.si.com/college/florida/football/gators-offense-needed-more-explosive-plays-eric-singleton-jr-delivered?utm_source=RSS",
    "source": "Florida On SI",
@@ -352,15 +361,6 @@
    "image": "https://floridagators.com/images/2026/10/10/QuickSlant_CH_Myles_Graham.jpg?width=800",
    "sourceLogo": "https://floridagators.com/favicon.ico",
    "published": "2026-11-21T21:00:00+00:00"
-  },
-  {
-   "title": "Game Day: No. 24 Gators vs. Vanderbilt (Noon, SEC Network) \u2014 Focus On Present, Eye On Future",
-   "link": "https://floridagators.com/news/2026/11/21/football-game-day-no-24-gators-vs-vanderbilt-noon-sec-network-focus-on-present-eye-on-future",
-   "source": "Florida Athletics",
-   "summary": "<img alt=\"Gator Walk (2026 season)\" src=\"https://floridagators.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/20/Detail_Gator_GatorWalk_261010_0654_VictoriaRiccobono.jpg\" /><br /><br />Florida hosts Vanderbilt in the final home game of the season, and with a victory, can clinch its first winning SEC season since 2020.",
-   "image": "https://floridagators.com/images/2026/11/20/Detail_Gator_GatorWalk_261010_0654_VictoriaRiccobono.jpg?width=800",
-   "sourceLogo": "https://floridagators.com/favicon.ico",
-   "published": "2026-11-21T12:30:00+00:00"
   }
  ]
 }

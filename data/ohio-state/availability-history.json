@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "ohio-state",
- "updated": "2026-11-27T01:08:28.727027+00:00",
+ "updated": "2026-11-28T01:08:48.487976+00:00",
  "reports": [
   {
    "schema": 1,
@@ -745,10 +745,10 @@
    "sourceLabel": "BigTen.org",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T01:08:28.727027+00:00",
+   "fetchedAt": "2026-11-28T01:08:48.487976+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-26",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-27",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "vs. Michigan",
    "players": [
@@ -770,7 +770,7 @@
      "pos": "S",
      "no": "11",
      "name": "Terry Moore",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
@@ -819,7 +819,7 @@
      "pos": "OL",
      "no": "70",
      "name": "Phillip Daniels",
-     "status": "questionable",
+     "status": "doubtful",
      "detail": ""
     },
     {
