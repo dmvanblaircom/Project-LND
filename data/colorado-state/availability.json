@@ -7,10 +7,10 @@
  "sourceLabel": "Pac-12.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T03:38:33.460055+00:00",
+ "fetchedAt": "2026-11-28T03:38:33.390202+00:00",
  "reported": true,
- "effectiveAt": "2026-11-27",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-28",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. Boise State",
  "players": [
@@ -32,7 +32,7 @@
    "pos": "DB",
    "no": "",
    "name": "Caleb Pressley",
-   "status": "out-game",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -40,20 +40,6 @@
    "no": "",
    "name": "Dagan Myers",
    "status": "out-game",
-   "detail": ""
-  },
-  {
-   "pos": "ILB",
-   "no": "",
-   "name": "Ant Turner",
-   "status": "probable",
-   "detail": ""
-  },
-  {
-   "pos": "WR",
-   "no": "",
-   "name": "Tommy Maher",
-   "status": "probable",
    "detail": ""
   },
   {
@@ -155,10 +141,10 @@
    "detail": ""
   },
   {
-   "pos": "ILB",
+   "pos": "DB",
    "no": "",
-   "name": "Ace Brown",
-   "status": "out-game",
+   "name": "CJ Blocker",
+   "status": "questionable",
    "detail": ""
   }
  ],

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "team": "boise-state",
- "updated": "2026-11-27T03:38:30.693890+00:00",
+ "updated": "2026-11-28T03:38:31.681827+00:00",
  "reports": [
   {
    "schema": 1,
@@ -137,10 +137,10 @@
    "sourceLabel": "Pac-12.com",
    "pdf": null,
    "parser": 1,
-   "fetchedAt": "2026-11-27T03:38:30.693890+00:00",
+   "fetchedAt": "2026-11-28T03:38:31.681827+00:00",
    "reported": true,
-   "effectiveAt": "2026-11-27",
-   "heading": "Update 1",
+   "effectiveAt": "2026-11-28",
+   "heading": "Update 2",
    "kickoffDate": "2026-11-28",
    "game": "at Colorado State",
    "players": [
