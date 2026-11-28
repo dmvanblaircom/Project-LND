@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T04:02:33.924690+00:00",
+ "fetchedAt": "2026-11-28T04:08:43.539563+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at California",
  "players": [
@@ -39,7 +39,7 @@
    "pos": "TE",
    "no": "17",
    "name": "Elijah Lagg",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {

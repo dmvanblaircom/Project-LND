@@ -7,13 +7,20 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T04:08:48.895864+00:00",
+ "fetchedAt": "2026-11-28T04:08:44.107374+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "at Stanford",
  "players": [
+  {
+   "pos": "QB",
+   "no": "1",
+   "name": "Ty Hawkins",
+   "status": "out-game",
+   "detail": ""
+  },
   {
    "pos": "DE",
    "no": "9",

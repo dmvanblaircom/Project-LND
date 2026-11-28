@@ -7,10 +7,10 @@
  "sourceLabel": "TheACC.com",
  "pdf": null,
  "parser": 1,
- "fetchedAt": "2026-11-27T04:02:27.810548+00:00",
+ "fetchedAt": "2026-11-28T04:08:37.658752+00:00",
  "reported": true,
- "effectiveAt": "2026-11-26",
- "heading": "Update 1",
+ "effectiveAt": "2026-11-27",
+ "heading": "Update 2",
  "kickoffDate": "2026-11-28",
  "game": "vs. Pittsburgh",
  "players": [
@@ -60,14 +60,14 @@
    "pos": "DB",
    "no": "14",
    "name": "Aiden Manutai",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "WR",
    "no": "19",
    "name": "Trevor Rogers",
-   "status": "questionable",
+   "status": "probable",
    "detail": ""
   },
   {
@@ -81,21 +81,21 @@
    "pos": "DB",
    "no": "20",
    "name": "Cam Sidney",
-   "status": "probable",
+   "status": "questionable",
    "detail": ""
   },
   {
    "pos": "TE",
    "no": "22",
    "name": "Taimane Purcell",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
    "pos": "DB",
    "no": "23",
    "name": "Isaiah Crosby",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   },
   {
@@ -130,7 +130,7 @@
    "pos": "DL",
    "no": "99",
    "name": "Ashun Shepphard",
-   "status": "questionable",
+   "status": "doubtful",
    "detail": ""
   }
  ],
