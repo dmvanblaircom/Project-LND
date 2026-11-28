@@ -1,7 +1,25 @@
 {
  "team": "west-virginia",
- "updated": "2026-11-28T05:38:15.474629+00:00",
+ "updated": "2026-11-28T06:08:07.236427+00:00",
  "items": [
+  {
+   "title": "West Virginia's Season Ends in Rout by No. 2 Utah",
+   "link": "https://www.si.com/college/westvirginia/football/west-virginia-s-season-ends-in-rout-by-no-2-utah?utm_source=RSS",
+   "source": "West Virginia On SI",
+   "summary": "The Mountaineers fall to the undefeated Utes in a lopsided season finale in Salt Lake City",
+   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6828,h_3840,x_570,y_700/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mountaineers_now/01m8g9fz8bd9gf50tt9t.jpg",
+   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
+   "published": "2026-11-28T05:38:25+00:00"
+  },
+  {
+   "title": "Mountaineers Conclude Season With Loss at Utah",
+   "link": "https://wvusports.com/news/2026/11/28/football-mountaineers-conclude-season-with-loss-at-utah",
+   "source": "West Virginia Athletics",
+   "summary": "<img alt=\"One of the few times West Virginia's defense was able to get to Utah quarterback Devon Dampier during tonight's loss to the second-ranked Utes in Salt Lake City, Utah.\" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/27/Dampier-Main.jpg\" /><br /><br />Second-ranked Utah scored on all five of its first-half possessions in rolling to a 52-28 victory over West Virginia at Rice-Eccles Stadium in Salt Lake City, Utah.",
+   "image": "https://wvusports.com/images/2026/11/27/Dampier-Main.jpg?width=800",
+   "sourceLogo": "https://wvusports.com/favicon.ico",
+   "published": "2026-11-28T05:35:00+00:00"
+  },
   {
    "title": "WVU vs Utah Game Thread",
    "link": "https://www.smokingmusket.com/west-virginia-mountaineers-football/42838/wvu-vs-utah-game-thread",
@@ -183,15 +201,6 @@
    "published": "2026-11-25T12:31:54+00:00"
   },
   {
-   "title": "Rich Rodriguez Isn't Planning to Be Patient With Addressing WVU's Problems",
-   "link": "https://www.si.com/college/westvirginia/football/rich-rodriguez-isn-t-planning-to-be-patient-with-addressing-wvu-s-problems?utm_source=RSS",
-   "source": "West Virginia On SI",
-   "summary": "Things are going to be addressed fairly quickly this offseason.",
-   "image": "https://images2.minutemediacdn.com/image/upload/c_crop,w_6199,h_3486,x_0,y_477/c_fill,w_2880,ar_16:9,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/mountaineers_now/01m877nmrackawjc1m0d.jpg",
-   "sourceLogo": "https://images2.minutemediacdn.com/image/upload/v1720431406/SI/ON_SI-Favicon_B_96x96_3.ico",
-   "published": "2026-11-24T19:51:02+00:00"
-  },
-  {
    "title": "Yes, We Are Better Than Last Year, but the Results Are the Same",
    "link": "https://www.smokingmusket.com/west-virginia-mountaineers-football/42803/yes-we-are-better-than-last-year-but-the-results-are-the-same",
    "source": "The Smoking Musket",
@@ -271,15 +280,6 @@
    "image": "https://wvusports.com/images/2026/11/18/Rodriguez-Main.jpg?width=800",
    "sourceLogo": "https://wvusports.com/favicon.ico",
    "published": "2026-11-18T18:13:00+00:00"
-  },
-  {
-   "title": "Houston Game Information",
-   "link": "https://wvusports.com/news/2026/11/17/football-houston-game-information",
-   "source": "West Virginia Athletics",
-   "summary": "<img alt=\"The backside of the North Endzone scoreboard at Milan Puskar Stadium. \" src=\"https://wvusports.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/8/12/videoboard.jpg\" /><br /><br />Houston Game Information",
-   "image": "https://wvusports.com/images/2026/8/12/videoboard.jpg?width=800",
-   "sourceLogo": "https://wvusports.com/favicon.ico",
-   "published": "2026-11-17T21:03:00+00:00"
   }
  ]
 }
